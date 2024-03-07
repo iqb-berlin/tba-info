@@ -1,0 +1,75 @@
+---
+title: "Diskurs Verona vs. Datenformat"
+description: "Das Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?"
+lang: de
+date: "1/8/2023"
+categories:
+  - verona
+  - architektur
+  - opensource
+---
+# Kritik
+
+Das IQB wird wiederholt gebeten, das Architekturprinzip, das hinter der Verona-Schnittstelle für die Aufgabenanzeige „Player“ steht, zu erläutern. Kritikpunkte sind unterschiedlich begründet und motiviert. Beispiele:
+
+* Es fehle eine detaillierte Beschreibung der Interaktionskonzepte auf abstrakter Ebene. Losgelöst vom Verhalten und von der Programmierung müssten Use Cases nachvollziehbar gelistet sein.
+* Aufgaben müssten benutzt werden können, ohne dass man auf die Programmierung des IQB angewiesen ist.
+* Programmierungen des IQB seien wegen der Natur der Entstehung nur bedingt vertrauenswürdig.
+
+Der nachfolgende Text greift diese Punkte auf und gibt damit eine Hilfestellung für Projektplanungen in den Ländern.
+
+## Modell „dokumentiertes Datenformat“
+
+Wenn ein Datenformat ausführlich dokumentiert wird und jedes Element, jede Eigenschaft, jedes Detail feingranular bekannt ist, dann kann man Software programmieren, die eine Aufgabe adäquat abspielt.
+
+Beispielsweise folgen die Datenformate [QTI](https://www.imsglobal.org/question/index.html) und [H5P](https://h5p.org/) einem semantischen Konzept: Hierbei wird die Bedeutung von Elementen beschrieben, z. B. Auswahloptionen sind als solche gekennzeichnet und es ist der Software überlassen, wie genau eine Auswahloption dargestellt wird. Der Freiraum, der bei der Darstellung bewusst gelassen wird, dient der Harmonisierung einer Seite: Farbgebung, Abstände und Schriftart sowie Interaktionen sollen sich normalerweise nach dem Rest der Webanwendung richten und nicht exotisch wirken. Eine Anwendung auf einem Smartphone folgt anderen Konzepten der Bedienung als eine Onlinelösung für einen PC mit großem Bildschirm und Tastatur. Nur wenn man ein Datenformat semantisch bereitstellt und dokumentiert, lassen sich derartige Anpassungen realisieren.
+
+Dieses Modell ist für Testungen von Erwachsenen und von älteren Schülerinnen und Schülern ausreichend, da der Einfluss der Darstellung auf die Beantwortung gering ist und bei den Testpersonen Erfahrungen im Umgang mit Computern vorausgesetzt werden können. Für die Zielpersonen im VERA-Kontext gelten jedoch weitere Anforderungen:
+
+1. Die Darstellung und Interaktion von Aufgaben muss exakt auf allen Endgeräten gleich sein. Das betrifft Schriftarten, Abstände, Farbgebung und die Effekte sämtlicher Eingabegeräte. Nur so sind die Kennwerte aus Pilotierungen anwendbar. Jede Abweichung vermindert die Qualität und damit den Nutzen der Testung.
+2. Die üblichen im Html verfügbaren Formularelemente reichen bei weitem nicht aus. Es müssen viele neue Interaktionsformen entwickelt werden, um die gewünschte Messgenauigkeit zu erreichen und damit besser die Kompetenzen zu erfassen, die für das Monitoring erforderlich sind. Jeder Rückfall auf Standardelemente vermindert die Qualität und damit den Nutzen der Testung.
+
+Beide Anforderungen können nicht erfüllt werden, wenn der Software, die das Format zur Darstellung verwendet, Freiraum gegeben wird. Somit müsste der semantische Ansatz erweitert werden um alle Parameter und Formate sowie alle erwarteten Zustände. Das wäre theoretisch möglich, hätte aber folgende Nachteile:
+
+* Eine derartige Spezifikation wäre erst möglich und sinnvoll, nachdem das Format eine gewisse Reife erlangt hat. Der bisherige Dialog mit der Fachdidaktik und der Erfahrungszuwachs bei der Anwendung des Formates lassen eine Konsolidierung erst zum Ende 2024 erwarten.
+* Eine derartige Spezifikation wäre sehr aufwändig und würde weitere Zeit kosten. Das IQB blendet z. B. Seitenabschnitte je nach Bearbeitungsstand ein/aus, steuert gezielt die Responsivität, erlaubt Markierungen in Texten als Antwort, unterdrückt Vorschläge des Systems bei Eingaben, erlaubt Eingabe von Formeln, bildet Rechenkästchen nach, blendet selten genutzte Zeichen als Zusatztastatur ein (französisch), erlaubt GeoGebra u.v.m.
+* Die Vorstellung „am Tag X ist die Entwicklung abgeschlossen“ ist eine Utopie. Es ist vielmehr anzunehmen, dass auch nach der Konsolidierung Änderungswünsche seitens der Wissenschaft und der Durchführungspraxis eintreffen und zu weiteren Format-Versionen führen. Für alle Softwareprodukte, die das Format verarbeiten sollen, müssten dann Anpassungen beauftragt werden. Wertvolle Innovationen hätten also stets eine lange Laufzeit bis zur Implementation.
+
+## Modell „Plugin“
+
+Das vom IQB vorgeschlagene und von den Ländern beauftragte Modell folgt daher dem Plugin-Prinzip. Auch z. B. PDF-Dokumente können Code enthalten (JavaScript), der dann mit einem Plugin in Acrobat ausgeführt wird. Das Prinzip ist in der IT üblich, z. B.:
+
+* Grafikformate: Viele auf bestimmte Verwendungen spezialisierte Grafikformate sind nicht dokumentiert, sondern man fügt einer Software ein vom Hersteller bereitgestelltes Plugin hinzu, um die Grafik zu verarbeiten oder anzuzeigen,
+* Sensordaten: Bestimmte Sensoren liefern Datenformate, die erst über Plugins nutzbar werden (Remote Sensing),
+* TAO: Die erste große Open Source-Plattform für Online-Tests im Bildungsbereich nutzte in den Anfangsjahren Plugins in der Form, die das IQB derzeit betreibt. Der Impuls für die Verona-Architektur stammt aus dieser Quelle.
+
+Zu einem Plugin wird eine Spezifikation veröffentlicht, das ist in diesem Fall die Verona-Schnittstelle.
+
+Vorteile:
+
+* Agilität: Wird ein neues Interaktionsformat entwickelt, dann muss nur in einem Player die Änderung programmiert werden. Alle Applikationen mit Verona-Schnittstelle können sofort die Änderung übernehmen. Es muss nur der geänderte Player geladen werden.
+* Rückwärtskompatibilität: Alte Aufgaben bleiben unverändert verwendbar, da in einem Testablauf jede Aufgabe mit einem anderen (ggf. älteren) Player abgespielt werden kann.
+* Spezielle Player für spezielle Interaktionen: Ein Lesegeschwindigkeitstest wird am IQB mit einem anderen Player realisiert, da hier spezifische Messwerte erfasst werden sollen. Ein weiterer Player kann nach Bedarf während der Beantwortung identische Unterformulare erzeugen. Wenn irgendein Land einen speziellen Player braucht und beauftragt, können sofort alle anderen Länder derartige Aufgaben einsetzen. Spracheingabe? Gesten?
+* Keine doppelte Entwicklungsarbeit: Was einmal programmiert wurde für Darstellung und Interaktion, kann genutzt werden ohne Anpassungsaufwand.
+
+## Risiko durch fremde Software-Komponenten
+
+Soll ein Software-Unternehmen ein System programmieren, das fremden Code über die Verona-Schnittstelle nachlädt, entsteht ein Risiko. Insbesondere wenn neue Player veröffentlicht werden, kann das Unternehmen nicht oder nach einer Prüfung nur eingeschränkt für das Gesamtsystem Gewährleistung und Haftung im Schadensfall übernehmen. Daher sind folgende Maßnahmen erforderlich:
+
+* Open Source/MIT-Lizenz für Player: Der Code muss vollständig veröffentlicht und der Entwicklungsprozess transparent sein. Alle Interessierten können direkt die nächsten Schritte verfolgen und auch selbst Anforderungen stellen (issues/tickets). Es sind auch Codebeiträge willkommen (pull/merge request). Wer eine Dokumentation des Datenformates erstellen möchte, kann dies tun. Wer den Player-Code in eigener Regie weiterentwickeln will, kann dies tun (fork). Dies ist bei den IQB-Playern seit 2017 gegeben. Vollständiger Einblick in den Code ist ohne Kommunikation mit dem IQB möglich.
+* Einschränkung der Haftung: Die Auftraggeber dürfen Probleme, die durch den Player entstehen, nicht dem Auftragnehmer anlasten. Das ist für öffentliche Auftraggeber unüblich, da hier stets die volle Kontrolle und Gewährleistung gewünscht wird. Es sind ggf. gesonderte Absprachen und Kooperationen mit der Einrichtung nötig, die den Player programmiert hat. Insbesondere im Fall einer MIT-Lizenz des Players gibt es keine Haftung.
+* Ausführliche Testungen: Vor dem produktiven Einsatz für das Bildungsmonitoring muss ein Land die Instrumente in einem Testlauf prüfen. Das betrifft auch ggf. Arbeitsfelder wie Serverlast und Durchführungsmanagement. Das IQB hat VERA-Aufgaben und Player über die Pilotierung ausgiebig getestet. Dies liefert jedoch keine Sicherheit, dass die Einbindung in ein anderes Testsystem problemlos verläuft.
+
+## Konsequenzen einer fehlenden Integration
+
+* Digitale Souveränität: Werden die Aufgaben in ein proprietäres Format eines Softwareanbieters übertragen, sind sie auch nur durch diese Software nutzbar. Sollte ein Wechsel der Software nötig oder gewünscht sein, ist Aufwand nötig, die alten Aufgaben nutzbar zu machen. Dies ist mit dem Verona-System nicht der Fall. Alte Aufgaben sind verwendbar, sobald die neue Lösung die Verona-Schnittstelle implementiert.
+* Aufgaben austauschen: Es gibt starke Bemühungen bundesweit, Lernressourcen zu veröffentlichen und über ein gemeinsames Metadatensystem verfügbar zu machen. Mit einer Insellösung kann man jedoch keine Aufgaben weitergeben oder fremde Aufgaben nutzen.
+* Verlust an Vergleichbarkeit: Jede Übertragung von VERA-Aufgaben in ein anderes System ist mit Abweichungen in der Darstellung, Interaktion und Auswertung verbunden, d. h. die Itemparameter aus den IQB-Pilotierungen können nicht verwendet werden. Damit verliert das Instrument wesentlich an Aussagekraft.
+
+## Perspektiven
+
+* Das IQB wird in Abwägung der Vor- und Nachteile der beiden Modelle das Plugin-Modell auftragsgemäß weiterentwickeln und das Aufgabenformat nicht dokumentieren. Eine Aufgabendefinition kann nur durch den Player und den zugehörigen Editor verarbeitet werden.
+* Dem IQB ist bewusst, dass die Implementation der Verona-Schnittstelle in ein bestehendes System aufwändig ist. Es hat daher eine Checkliste Verona-Checkliste veröffentlicht und unterstützt Interessierte nach Kräften.
+* Die Länder beauftragen aktuell durch weitere Projekte die Weiterentwicklung des TBA-Systems. Außerdem wurden mit dem Wirtschaftsplan 2024/2025 Planstellen am IQB für die langfristige Pflege des Systems geschaffen.
+* VERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Kodierinformationen ausgeliefert, die eine automatische Kodierung für einen Großteil der Items ermöglichen sowie die manuelle Kodierung unterstützen. Diese Kodierinformationen können nur sinnvoll verwendet werden, wenn die Antwortdaten in derselben Art vorliegen, wie sie durch die IQB-Player erzeugt werden.
+* VERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Metadaten ausgeliefert. Das Format folgt internationalen Standards und ist mit den länderübergreifenden Projekten MEM/SODIX bzw. MUNDO abgestimmt.
