@@ -1,0 +1,44 @@
+---
+lang: de
+title: "Schritt für Schritt: Testcenter Daten Upload"
+---
+
+::: {.callout-note}
+In Bearbeitung THuste: to do
+
+* Überarbeiten Layout und Text
+
+:::
+
+Die **Testdateien** weisen Abhängigkeiten untereinander auf. Diese Abhängigkeiten sind grob:
+
+* die **Unit-Xml** bindet die **VOUD-Datei** mit den Aufgabeninhalten ein, <br>
+außerdem wird der zu ladende **Player** hier angegeben
+* die **Booklet-Xml** bindet die gewünschten **Units** ein
+* die **Testtaker-Xml** bindet die gewünschten **Booklets** ein
+
+Beim Laden der **Testdateien** in das **Testcenter** werden diese Abhängigkeit einbezogen und es wird geprüft, ob eine abhängige Testdatei vorhanden ist oder nicht.
+Da bspw. die **Booklet-Xml**, die in ihr gelisteten **Units** aufruft, kann die **Booklet-Xml** nicht vor den entsprechenden **Unit-Xmls** geladen werden. Das **Testcenter** gibt dann eine Fehlermeldung aus, die darauf hinweist, dass die in der **Booklet-Xml** gelisteten **Unit-Xmls** sich noch nicht im **Testcenter** befinden. Das Laden der **Testdateien** muss also immer in einer bestimmten Reihenfolge erfolgen, damit das Laden erfolgreich ist:
+
+![Testcenter Daten-Upload](TC_Upload_Ablauf.png)
+
+:information_source: Es ist auch möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihefolge ein.
+
+# Empfehlung: Verweis zur Validierung
+
+Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. Diese Warnung bedeutet, dass die XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schemadefinition) enthält. Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Das IQB stellt solche XSD-Dateien bereit. 
+
+Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Für die Unit-XML heißt das Hauptelement `Unit` und muss folgendermaßen geändert werden:
+
+```
+<Unit 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation= "aktueller Pfad zur gültigen Schemadefintion">
+```
+
+Ein nützlicher Nebeneffekt hierbei ist, dass auch Editoren zur Bearbeitung von XML-Dateien (z. B. Notepad++, Sublime) nun eine Validierung vornehmen können. Man kann also bereits vor dem Hochladen eine Validierung bereits beim Schreiben einer XML-Datei vornehmen lassen.
+
+# Laden spezieller Formate
+Einige Anwendungen erfordern zusätzliche Ressourcendateien. Dazu gehören bspw. Aufgaben, die **GeoGebra** Elemente enthalten. Hierfür muss neben den **Testdateien**, die zu jeder Testung gehören, ein spezielles Paket mit der Endung **.itcr.zip** geladen werden. 
+Das GeoGebra-Paket können Sie unter https://download.geogebra.org/package/geogebra-math-apps-bundle herunterladen. Nennen Sie es GeoGebra.itcr.zip, und laden Sie es in den selben Arbeitsbereich wie Ihre Aufgaben.
+Das Paket kann nicht mitausgeliefert werden, da [GeoGebra eine andere Open-Source-Lizenz als MIT](https://www.geogebra.org/license)`verwendet.

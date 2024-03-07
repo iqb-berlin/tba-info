@@ -1,0 +1,74 @@
+project:
+  type: website
+
+website:
+  site-url: https://tobhu1981.github.io/edh456/
+  title: "Anwender-Wiki"
+  favicon: favicon.ico
+  page-navigation: true
+  repo-url: https://github.com/tobhu1981/edh456
+  repo-actions: [issue]
+  navbar:
+    search: true
+    logo: IQB-klein.png
+
+  sidebar: 
+    style: "docked"
+    search: true
+    lang: de
+    contents:
+      - href: index.qmd
+        text: Start
+      - section: "Einführung"
+        contents:
+          - href: Einführung/intro.qmd
+            text: Überblick
+      - section: "Testcenter"
+        contents:
+          - href: Testcenter/intro.qmd
+            text: Überblick
+          - href: Testcenter/Daten_und_Prozesse.qmd
+            text: Daten und Prozesse
+          - href: Testcenter/Die_Sicht_der_Testperson.qmd
+            text: Die Sicht der Testperson
+          - href: Testcenter/Verwaltung_und_Organisation.qmd
+            text: Verwaltung und Organisation
+          - href: Testcenter/Player_zur_Testwiedergabe.qmd
+            text: Player zur Testwiedergabe
+          - href: Testcenter/System_Check.qmd
+            text: System Check
+          - href: Testcenter/Gruppenmonitor.qmd
+            text: Gruppenmonitor
+          - href: Testcenter/Typische_Probleme.qmd
+            text: Typische Probleme - Troubleshooting
+          - href: Testcenter/Testen_der_Anwendung.qmd
+            text: Testen der Anwendung
+          - href: Testcenter/itc_Toolbox.qmd
+            text: itc-Toolbox
+      - section: "Studio"
+        contents:
+          - href: Studio/intro.qmd
+            text: Überblick
+      - section: "Kodierbox"
+        contents:
+          - href: Kodierbox/intro.qmd
+            text: Überblick
+      - section: "Schritt für Schritt"
+        contents:
+          - href: Schritt_für_Schritt/Testcenter_Daten_Upload.qmd
+            text: Testcenter Daten Upload
+          - href: Schritt_für_Schritt/Testcenter_Daten_Download.qmd
+            text: Testcenter Daten Download
+      - section: "Referenzen"
+        contents:
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true 
+    anchor-sections: true
+    link-external-icon: true
+    link-external-newwindow: true
+    grid:
+      sidebar-width: 350px

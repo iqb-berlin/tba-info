@@ -1,0 +1,99 @@
+---
+lang: de
+title: "Daten und Prozesse"
+---
+
+::: {.callout-note}
+In Bearbeitung THuste: to do
+
+* Verlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind
+
+:::
+
+![Übersicht Testcenter Daten Ein- und Ausgabe](TC_Daten_Input_Output.png)
+
+# Daten-Input für das Testcenter
+
+::: {.callout-tip}
+Wie Daten in das Testcenter geladen werden können, ist im Kapitel: **Schritt für Schritt** detailiert beschrieben.
+:::
+
+Das **Studio** kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das **Testcenter** geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die [Videos](https://box.hu-berlin.de/f/81701b5fa68446bc99a3/) zum Thema Testdateien an.
+
+## Logins
+
+Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Informationen sind in einer [XML-Datei](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testtaker%E2%80%90Xml) festgelegt. Folgende Arten des Zugriffs (Rollen) werden unterschieden:
+* Testpersonen: Die Personen, die den Test bzw. die Befragung absolvieren. Deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung.
+* Testleitung: Ein spezieller Login sorgt dafür, dass die angemeldete Person den Monitor für eine Testgruppe startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden.
+* Review: Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits.
+* Demo: Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.
+
+Das Erstellen von Logins wird unterstützt über das Windows-Programm **itc-Toolbox**. Mehr Informationen dazu sind im gleichnamigen Kapitel zu finden.
+
+## Test-Definition
+
+Diese [XML-Datei](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Booklet%E2%80%90Xml) legt die Reihenfolge der Aufgaben (Units) fest. Man kann die Aufgaben bzw. Zwischenseiten auch in Blöcke (Testlets) gruppieren. Innerhalb dieser Blöcke (Testlets) können dann Beschränkungen festgelegt werden. Bspw. kann ein Block dann nur nach Eingabe eines Code-Wortes betreten werden oder es gilt eine zeitliche Beschränkung für einen Block. Außerdem kann über die Test-Definition das Weiterblättern auf Folgeseiten mit Bedingungen verknüpft werden. Das Springen (scrollen) an das Seitenende könnte bspw. eine solche Bedingung darstellen. Diese Bedingung würde sicherstellen, dass die Testperson den gesamten Inhalt der Seite wahrgenommen hat. Auch das Beendigen von Audio-Sequenzen oder die Beantwortung aller Fragen, könnte eine solche Bedingung sein.
+
+## Unit-Definition
+
+Eine Unit-Definition besteht aus einer [XML-Datei](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Unit%E2%80%90Xml) und einer Voud-Datei. Erstere enthält Metadaten, wie die interne ID und den Datentyp der Unit. Bei der Voud-Datei handelt es sich um ein internes Format, welches manuell kaum editierbar ist. Es muss stattdessen über einen Editor erzeugt werden. Das IQB-Studio bietet derartige Editoren.
+
+## Player
+
+In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente "Player" enthält. Grundidee dieser Teilung ist, dass das interne Format einer Unit-Definition nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Unit-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der unitbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht.
+
+Für die Vorbereitung eines Tests bedeutet dies:
+
+1. jede Unit-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und
+2. alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden
+
+::: {.callout-note}
+Daten, die in das Testcenter geladen werden, werden auch als **Testdateien** bezeichnet. Sie steuern den Testablauf, das Testlayout und die Testzugänge.
+:::
+
+# Daten-Output des Testcenters
+
+::: {.callout-tip}
+Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel: **Schritt für Schritt** detailiert beschrieben.
+:::
+
+## Logs
+
+Ereignisse innerhalb einer Unit und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. "Logging" kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:
+* Version des Betriebssystems und des Browsers
+* Verweildauer auf einer Seite
+* Zeitpunkt des Beendens der Beantwortung
+
+## Antworten
+
+Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.
+
+## Weitere Daten
+
+* **Kommentare, Review**: Wenn ein Test im Review-Modus durchgeführt wird, können zu Aufgaben oder zum gesamten Test Kommentare gegeben werden. Auch diese Kommentare sind über den Management-Bereich abrufbar.
+* **System-Check Berichte**: Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.
+
+
+# Daten-Bearbeitung
+
+::: {.callout-tip}
+Wie Daten vor dem Laden in das Testcenter bearbeitet werden können, ist im Kapitel: **Schritt für Schritt** detailiert beschrieben.
+:::
+
+Die XML-Dateien können vor dem Laden in das Testcenter bearbeitet werden. So können Testungen individuell gestaltet werden und gesteuert werden.
+
+Nachfolgend werden alle **Testdateien** und die darin verfügbaren **Attribute**, die während der manuellen Bearbeitung zur Verfügung stehen, aufgezeigt:
+
+* [Allgemeine Hinweise für die Bearbeitung von XML-Dateien](Arbeiten-mit-Xml%E2%80%90Dateien)
+* Units: 
+  * [Bearbeiten der XML-Datei](Unit%E2%80%90Xml)
+* Booklets:
+  * [Bearbeiten der XML-Datei](Booklet%E2%80%90Xml)
+  * [Unterstützung durch itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox#readme)
+* Logins:
+  * [Bearbeiten der XML-Datei](Testtaker%E2%80%90Xml)
+  * [Unterstützung durch itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox#readme)
+  * [Anmeldeverfahren](Login-Anmeldeverfahren)
+  * [Modi der Testdurchführung](Login-Modi-der-Testdurchf%C3%BChrung)
+
+Ist die nachträgliche Bearbeitung (falls gewünscht) der **Testdateien** abgeschlossen, können die **Testdateien** in einen **Arbeitsbereich** innerhalb des **Testcenters** geladen werden. Mehr zum Thema **Arbeitsbereich** im **Testcenter** ist [**hier**](2.3-Verwaltung-und-Organisation) zu finden.
