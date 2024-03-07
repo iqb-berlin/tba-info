@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Wenn man in eine Webanwendung für computerbasiertes Testen einen Verona-Player integrieren möchte, kann das Probleme bereiten. Was sind die Voraussetzungen?">
 
-<title>IQB TBA-Info - Daten und Prozesse</title>
+<title>IQB TBA-Info - Integration eines Verona-Players</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Testcenter/Die_Sicht_der_Testperson.html" rel="next">
-<link href="../Testcenter/intro.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -74,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -98,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Integration eines Verona-Players</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten und Prozesse</span></a>
   </div>
 </li>
@@ -280,41 +279,36 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
-   
-  <ul>
-  <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link active" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
-  <ul class="collapse">
-  <li><a href="#logins" id="toc-logins" class="nav-link" data-scroll-target="#logins">Logins</a></li>
-  <li><a href="#test-definition" id="toc-test-definition" class="nav-link" data-scroll-target="#test-definition">Test-Definition</a></li>
-  <li><a href="#unit-definition" id="toc-unit-definition" class="nav-link" data-scroll-target="#unit-definition">Unit-Definition</a></li>
-  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player">Player</a></li>
-  </ul></li>
-  <li><a href="#daten-output-des-testcenters" id="toc-daten-output-des-testcenters" class="nav-link" data-scroll-target="#daten-output-des-testcenters">Daten-Output des Testcenters</a>
-  <ul class="collapse">
-  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
-  <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
-  <li><a href="#weitere-daten" id="toc-weitere-daten" class="nav-link" data-scroll-target="#weitere-daten">Weitere Daten</a></li>
-  </ul></li>
-  <li><a href="#daten-bearbeitung" id="toc-daten-bearbeitung" class="nav-link" data-scroll-target="#daten-bearbeitung">Daten-Bearbeitung</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Daten und Prozesse</h1>
-</div>
+<h1 class="title">Integration eines Verona-Players</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">verona</div>
+    <div class="quarto-category">architektur</div>
+    <div class="quarto-category">player</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Wenn man in eine Webanwendung für computerbasiertes Testen einen Verona-Player integrieren möchte, kann das Probleme bereiten. Was sind die Voraussetzungen?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">8. Januar 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -324,148 +318,258 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In Bearbeitung THuste: to do</p>
-<ul>
-<li>Verlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind</li>
-</ul>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="TC_Daten_Input_Output.png" class="img-fluid figure-img"></p>
-<figcaption>Übersicht Testcenter Daten Ein- und Ausgabe</figcaption>
-</figure>
-</div>
-<section id="daten-input-für-das-testcenter" class="level1">
-<h1>Daten-Input für das Testcenter</h1>
+<p>Die folgende Checkliste gibt eine grobe Orientierung für den Aufwand, der bei einer Integration der Verona-Player-Schnittstelle im eigenen Testsystem zu erwarten ist. Die Farben markieren steigenden Aufwand.</p>
+<section id="arbeitet-das-eigene-system-aufgabenweise-oder-strukturiert-nach-teststeilaufgabenitems" class="level1">
+<h1>Arbeitet das eigene System aufgabenweise oder strukturiert nach Tests/Teilaufgaben/Items?</h1>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tipp
+Gut
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wie Daten in das Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
+<p>Die Strukturierung im Testablauf folgt Aufgaben, d.&nbsp;h. Stimulus und dazu gehörende Items werden gemeinsam präsentiert und nach der Bearbeitung zur nächsten Aufgabe navigiert. Das ist genau das Szenario, das dem Verona-Player zugrunde liegt. Ein Umbau ist hier nicht erforderlich.</p>
 </div>
 </div>
-<p>Das <strong>Studio</strong> kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das <strong>Testcenter</strong> geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die <a href="https://box.hu-berlin.de/f/81701b5fa68446bc99a3/">Videos</a> zum Thema Testdateien an.</p>
-<section id="logins" class="level2">
-<h2 class="anchored" data-anchor-id="logins">Logins</h2>
-<p>Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Informationen sind in einer <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testtaker%E2%80%90Xml">XML-Datei</a> festgelegt. Folgende Arten des Zugriffs (Rollen) werden unterschieden: * Testpersonen: Die Personen, die den Test bzw. die Befragung absolvieren. Deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung. * Testleitung: Ein spezieller Login sorgt dafür, dass die angemeldete Person den Monitor für eine Testgruppe startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden. * Review: Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits. * Demo: Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.</p>
-<p>Das Erstellen von Logins wird unterstützt über das Windows-Programm <strong>itc-Toolbox</strong>. Mehr Informationen dazu sind im gleichnamigen Kapitel zu finden.</p>
-</section>
-<section id="test-definition" class="level2">
-<h2 class="anchored" data-anchor-id="test-definition">Test-Definition</h2>
-<p>Diese <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Booklet%E2%80%90Xml">XML-Datei</a> legt die Reihenfolge der Aufgaben (Units) fest. Man kann die Aufgaben bzw. Zwischenseiten auch in Blöcke (Testlets) gruppieren. Innerhalb dieser Blöcke (Testlets) können dann Beschränkungen festgelegt werden. Bspw. kann ein Block dann nur nach Eingabe eines Code-Wortes betreten werden oder es gilt eine zeitliche Beschränkung für einen Block. Außerdem kann über die Test-Definition das Weiterblättern auf Folgeseiten mit Bedingungen verknüpft werden. Das Springen (scrollen) an das Seitenende könnte bspw. eine solche Bedingung darstellen. Diese Bedingung würde sicherstellen, dass die Testperson den gesamten Inhalt der Seite wahrgenommen hat. Auch das Beendigen von Audio-Sequenzen oder die Beantwortung aller Fragen, könnte eine solche Bedingung sein.</p>
-</section>
-<section id="unit-definition" class="level2">
-<h2 class="anchored" data-anchor-id="unit-definition">Unit-Definition</h2>
-<p>Eine Unit-Definition besteht aus einer <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Unit%E2%80%90Xml">XML-Datei</a> und einer Voud-Datei. Erstere enthält Metadaten, wie die interne ID und den Datentyp der Unit. Bei der Voud-Datei handelt es sich um ein internes Format, welches manuell kaum editierbar ist. Es muss stattdessen über einen Editor erzeugt werden. Das IQB-Studio bietet derartige Editoren.</p>
-</section>
-<section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">Player</h2>
-<p>In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente “Player” enthält. Grundidee dieser Teilung ist, dass das interne Format einer Unit-Definition nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Unit-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der unitbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht.</p>
-<p>Für die Vorbereitung eines Tests bedeutet dies:</p>
-<ol type="1">
-<li>jede Unit-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und</li>
-<li>alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Ungünstig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Daten, die in das Testcenter geladen werden, werden auch als <strong>Testdateien</strong> bezeichnet. Sie steuern den Testablauf, das Testlayout und die Testzugänge.</p>
+<p>Mehrere Aufgaben werden gleichzeitig auf einer Seite präsentiert - entweder der gesamte Test oder zumindest Testblöcke (Aufgabenfolgen). Dann muss die Verona-Schnittstelle für jede Aufgabe einzeln implementiert werden, dann also mehrfach pro Seite. Die Kommunikation mit der Aufgabe muss dann auch mehrfach implementiert werden, was das Risiko von Datenverlust erhöht. Besser wäre ein Umbau auf die aufgabenweise Präsentation.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problematisch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Aufgabe wird in Einzelteile zerlegt und stückchenweise präsentiert. Der Stimulus läuft völlig getrennt. Das kann die Verona-Schnittstelle nicht leisten, da die Kategorien “Stimulus”, “Instruktion”, “Item” usw. nicht transparent sind, also innerhalb der Aufgabendefinition nicht identifiziert werden können.</p>
 </div>
 </div>
 </section>
-</section>
-<section id="daten-output-des-testcenters" class="level1">
-<h1>Daten-Output des Testcenters</h1>
+<section id="werden-die-html-seiten-komplett-auf-dem-server-erzeugt-oder-erst-dynamisch-im-browser" class="level1">
+<h1>Werden die Html-Seiten komplett auf dem Server erzeugt oder erst dynamisch im Browser?</h1>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tipp
+Gut
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
+<p>Eine Programmierung im Browser (JavaScript) kontrolliert die Anzeige der Aufgaben und sorgt bei Änderungen für das Speichern. Damit kann die Verona-Schnittstelle wie gedacht eingebaut und die Kommunikation eingerichtet werden. Die Kommunikation mit dem Server ist bereits grundsätzlich verfügbar.</p>
 </div>
 </div>
-<section id="logs" class="level2">
-<h2 class="anchored" data-anchor-id="logs">Logs</h2>
-<p>Ereignisse innerhalb einer Unit und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen: * Version des Betriebssystems und des Browsers * Verweildauer auf einer Seite * Zeitpunkt des Beendens der Beantwortung</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ungünstig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Der Server erzeugt große Teile der Seite, aber es gibt browserseitig Programmierungen für die Interaktion. Hierbei gäbe es u. U. Mehraufwand, weil z. B. das Laden der vorherigen Antworten vom Server bisher nicht im Ablauf vorgesehen war und neu implementiert werden muss.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problematisch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Der Server erzeugt die komplette Seite. Änderungen der Anzeige werden durch Neuladen der Seite über Schalter/Aktionsflächen bzw. Navigation/Links ausgelöst. Das wäre problematisch, weil das Laden eines Players, der Aufgabendefinition und ggf. vorher gegebener Antworten Aktionen innerhalb des Browsers sind. Wenn es hierzu bisher keine Erfahrungen gibt bzw. grundsätzlich bisher keine Kommunikation zum Server eingebaut ist, dann wäre hier größerer Aufwand nötig.</p>
+</div>
+</div>
 </section>
-<section id="antworten" class="level2">
-<h2 class="anchored" data-anchor-id="antworten">Antworten</h2>
-<p>Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.</p>
-</section>
-<section id="weitere-daten" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-daten">Weitere Daten</h2>
-<ul>
-<li><strong>Kommentare, Review</strong>: Wenn ein Test im Review-Modus durchgeführt wird, können zu Aufgaben oder zum gesamten Test Kommentare gegeben werden. Auch diese Kommentare sind über den Management-Bereich abrufbar.</li>
-<li><strong>System-Check Berichte</strong>: Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.</li>
-</ul>
-</section>
-</section>
-<section id="daten-bearbeitung" class="level1">
-<h1>Daten-Bearbeitung</h1>
+<section id="werden-zur-programmierung-stark-abstrahierende-frameworks-genutzt" class="level1">
+<h1>Werden zur Programmierung stark abstrahierende Frameworks genutzt?</h1>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tipp
+Gut
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wie Daten vor dem Laden in das Testcenter bearbeitet werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
+<p>Es werden keine Frameworks benutzt bzw. nur gut kontrollierbare Bibliotheken. Alles kann durch die beteiligten Programmierer:innen gut gesteuert werden. Der Einbau der Schnittstelle kann dann schnell erfolgen.</p>
 </div>
 </div>
-<p>Die XML-Dateien können vor dem Laden in das Testcenter bearbeitet werden. So können Testungen individuell gestaltet werden und gesteuert werden.</p>
-<p>Nachfolgend werden alle <strong>Testdateien</strong> und die darin verfügbaren <strong>Attribute</strong>, die während der manuellen Bearbeitung zur Verfügung stehen, aufgezeigt:</p>
-<ul>
-<li><a href="Arbeiten-mit-Xml‐Dateien">Allgemeine Hinweise für die Bearbeitung von XML-Dateien</a></li>
-<li>Units:
-<ul>
-<li><a href="Unit‐Xml">Bearbeiten der XML-Datei</a></li>
-</ul></li>
-<li>Booklets:
-<ul>
-<li><a href="Booklet‐Xml">Bearbeiten der XML-Datei</a></li>
-<li><a href="https://github.com/iqb-berlin/itc-toolbox#readme">Unterstützung durch itc-ToolBox</a></li>
-</ul></li>
-<li>Logins:
-<ul>
-<li><a href="Testtaker‐Xml">Bearbeiten der XML-Datei</a></li>
-<li><a href="https://github.com/iqb-berlin/itc-toolbox#readme">Unterstützung durch itc-ToolBox</a></li>
-<li><a href="Login-Anmeldeverfahren">Anmeldeverfahren</a></li>
-<li><a href="Login-Modi-der-Testdurchführung">Modi der Testdurchführung</a></li>
-</ul></li>
-</ul>
-<p>Ist die nachträgliche Bearbeitung (falls gewünscht) der <strong>Testdateien</strong> abgeschlossen, können die <strong>Testdateien</strong> in einen <strong>Arbeitsbereich</strong> innerhalb des <strong>Testcenters</strong> geladen werden. Mehr zum Thema <strong>Arbeitsbereich</strong> im <strong>Testcenter</strong> ist <a href="2.3-Verwaltung-und-Organisation"><strong>hier</strong></a> zu finden.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ungünstig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das genutzte Framework verdeckt viele Teile der Programmierung, kann aber gut durch Module/Komponenten erweitert werden. Ein Verona-Host kann extern vorbereitet und dann gezielt in die Automatismen des Frameworks eingebunden werden. Unter Umständen muss diese neue Komponente umfangreicher programmiert werden als beim Vollzugriff auf die Programmierung. Andererseits muss man diesen Aufwand nur einmal leisten und jemand mit demselben Framework kann diese Komponente sofort einsetzen.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problematisch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das genutzte Framework kapselt Funktionalität und Navigation so stark, dass ein Eingreifen nicht möglich ist. Die Anpassungsmöglichkeiten durch Konfiguration bzw. Deklaration sind stark beschränkt. Dann muss nach Wegen gesucht werden, das Framework für die Aufgabenanzeige zu umgehen, d.&nbsp;h. die beteiligten Programmierer:innen begeben sich auf neues und u. U. unsicheres und undokumentiertes Terrain.</p>
+</div>
+</div>
+</section>
+<section id="ist-die-nutzung-des-html-elementes-iframe-problematisch" class="level1">
+<h1>Ist die Nutzung des Html-Elementes &lt;iframe&gt; problematisch?</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gut
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nein. Ein Seitenbereich kann getrost auf diese Art betrieben werden.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ungünstig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Einige Eigenschaften des &lt;iframe&gt;-Elements lösen unerwünschtes Verhalten aus. Z. B. könnte ein gesetzter Eingabe-Fokus innerhalb des &lt;iframe&gt;-Elements als Verlassen der Seite angesehen werden und entsprechend ein Signal gesendet werden (Testperson versucht im Internet die Antwort zu finden). Hier sind entsprechende Justierungen nötig und möglich.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problematisch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das genutzte System verhindert grundsätzlich aus Sicherheitsgründen die Nutzung eines &lt;iframe&gt;-Elements. Das könnte problematisch werden, da dann die Architektur des bisherigen Systems die Verona-Schnittstelle verhindert.</p>
+</div>
+</div>
+</section>
+<section id="sind-formate-für-aufgabendefinition-und-antworten-hart-vorgegeben" class="level1">
+<h1>Sind Formate für Aufgabendefinition und Antworten hart vorgegeben?</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gut
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nein. Aufgabendefinition und Antworten können ein beliebiges Format haben. Um die Antworten wie bisher auswerten zu können, reicht ein kleiner Konverter.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ungünstig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aufgabendefinition und Antworten sind vorgegeben und viele Systemkomponenten verlassen sich darauf. Hier ist Aufwand zu erwarten, über ständige Datenkonvertierungen das bisherige Verhalten abzusichern.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problematisch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das gesamte System verlässt sich auf bestimmte Datenstrukturen bei Aufgabendefinition und Antworten und diese Strukturen können nicht über Datenkonvertierung aus den Verona-Daten generiert werden. Erforderliche Zusatzdaten liegen nicht vor, wie z. B. die Information, ob eine gegebene Antwort richtig ist. Hier kollidieren also grundsätzliche Auffassungen über die Datenhaltung und es ist ein erheblicher Umbau nötig.</p>
+</div>
+</div>
+</section>
+<section id="sind-variationen-der-aufgabenanzeige-in-anderem-zusammenhang-nötig" class="level1">
+<h1>Sind Variationen der Aufgabenanzeige in anderem Zusammenhang nötig?</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gut
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nein. Aufgaben werden zwar mit den gegebenen Antworten auch bei der Kodierung angezeigt und auch als Ansicht für Eltern, wenn sie die Antworten ihres Kindes anschauen möchten, aber es ist genau dieselbe Ansicht wie im Test. In diesen Fällen kann also einfach wieder ein Verona-Player-Host implementiert werden mit den gegebenen Antworten.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ungünstig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ja. Das Testsystem soll bei der Anzeige für Kodierung und für Eltern keine Änderungen erlauben. Diese Variation ist für die aktuelle Verona-Schnittstelle nicht verfügbar. Allerdings richtet eine Änderung auch keinen Schaden an, da Änderungen nicht gespeichert werden. Ein Vor- und Zurückblättern stellt die korrekte Beantwortung wieder her.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problematisch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ja. Das Testsystem visualisiert mit einer Variation der Aufgabenansicht, ob die Antworten richtig oder falsch sind. Dazu werden in der Nähe der Antwortfelder grüne bzw. rote Symbole eingeblendet. Das wird bei der Ansicht durch die Lehrkräfte und für die Eltern verwendet. Diese Variation ist für die aktuelle Verona-Schnittstelle nicht verfügbar.</p>
+</div>
+</div>
 
 
 </section>
@@ -887,21 +991,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Testcenter/intro.html" class="pagination-link" aria-label="Überblick">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Überblick</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="pagination-link" aria-label="Die Sicht der Testperson">
-        <span class="nav-page-text">Die Sicht der Testperson</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>

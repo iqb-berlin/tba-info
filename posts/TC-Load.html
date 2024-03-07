@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Wie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15.">
 
-<title>IQB TBA-Info - Daten und Prozesse</title>
+<title>IQB TBA-Info - Testcenter: Lastverhalten</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Testcenter/Die_Sicht_der_Testperson.html" rel="next">
-<link href="../Testcenter/intro.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -98,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Testcenter: Lastverhalten</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten und Prozesse</span></a>
   </div>
 </li>
@@ -285,37 +284,59 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link active" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
+  <li><a href="#vorüberlegungen" id="toc-vorüberlegungen" class="nav-link active" data-scroll-target="#vorüberlegungen">Vorüberlegungen</a>
   <ul class="collapse">
-  <li><a href="#logins" id="toc-logins" class="nav-link" data-scroll-target="#logins">Logins</a></li>
-  <li><a href="#test-definition" id="toc-test-definition" class="nav-link" data-scroll-target="#test-definition">Test-Definition</a></li>
-  <li><a href="#unit-definition" id="toc-unit-definition" class="nav-link" data-scroll-target="#unit-definition">Unit-Definition</a></li>
-  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player">Player</a></li>
+  <li><a href="#ziel" id="toc-ziel" class="nav-link" data-scroll-target="#ziel">Ziel</a></li>
+  <li><a href="#beschreibung-des-ladeverhaltens" id="toc-beschreibung-des-ladeverhaltens" class="nav-link" data-scroll-target="#beschreibung-des-ladeverhaltens">Beschreibung des Ladeverhaltens</a></li>
+  <li><a href="#indikatoren" id="toc-indikatoren" class="nav-link" data-scroll-target="#indikatoren">Indikatoren</a></li>
   </ul></li>
-  <li><a href="#daten-output-des-testcenters" id="toc-daten-output-des-testcenters" class="nav-link" data-scroll-target="#daten-output-des-testcenters">Daten-Output des Testcenters</a>
+  <li><a href="#methodik-des-lasttests" id="toc-methodik-des-lasttests" class="nav-link" data-scroll-target="#methodik-des-lasttests">Methodik des Lasttests</a>
   <ul class="collapse">
-  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
-  <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
-  <li><a href="#weitere-daten" id="toc-weitere-daten" class="nav-link" data-scroll-target="#weitere-daten">Weitere Daten</a></li>
+  <li><a href="#warum-reicht-nicht-ein-standard-test-für-webserver" id="toc-warum-reicht-nicht-ein-standard-test-für-webserver" class="nav-link" data-scroll-target="#warum-reicht-nicht-ein-standard-test-für-webserver">Warum reicht nicht ein Standard-Test für Webserver?</a></li>
+  <li><a href="#eigenprogrammierung" id="toc-eigenprogrammierung" class="nav-link" data-scroll-target="#eigenprogrammierung">Eigenprogrammierung</a></li>
+  <li><a href="#szenarien" id="toc-szenarien" class="nav-link" data-scroll-target="#szenarien">Szenarien</a></li>
+  <li><a href="#strategien-bei-unbefriedigenden-lasttest-ergebnissen" id="toc-strategien-bei-unbefriedigenden-lasttest-ergebnissen" class="nav-link" data-scroll-target="#strategien-bei-unbefriedigenden-lasttest-ergebnissen">Strategien bei unbefriedigenden Lasttest-Ergebnissen</a></li>
   </ul></li>
-  <li><a href="#daten-bearbeitung" id="toc-daten-bearbeitung" class="nav-link" data-scroll-target="#daten-bearbeitung">Daten-Bearbeitung</a></li>
+  <li><a href="#vergleich-testcenter-versionen-14-und-15" id="toc-vergleich-testcenter-versionen-14-und-15" class="nav-link" data-scroll-target="#vergleich-testcenter-versionen-14-und-15">Vergleich Testcenter Versionen 14 und 15</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Daten und Prozesse</h1>
-</div>
+<h1 class="title">Testcenter: Lastverhalten</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">loadtest</div>
+    <div class="quarto-category">testcenter</div>
+    <div class="quarto-category">performance</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Wie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22. Januar 2023</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Geändert</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">29. Januar 2023</p>
+    </div>
+  </div>
     
   </div>
   
@@ -324,148 +345,453 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In Bearbeitung THuste: to do</p>
+<section id="vorüberlegungen" class="level2">
+<h2 class="anchored" data-anchor-id="vorüberlegungen">Vorüberlegungen</h2>
+<section id="ziel" class="level3">
+<h3 class="anchored" data-anchor-id="ziel">Ziel</h3>
+<p>Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.</p>
+<p>Unter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.</p>
+</section>
+<section id="beschreibung-des-ladeverhaltens" class="level3">
+<h3 class="anchored" data-anchor-id="beschreibung-des-ladeverhaltens">Beschreibung des Ladeverhaltens</h3>
+<p>Die kritische Phase bei einer Lernstandserhebung mit dem Testcenter ist das Laden der Testinhalte. Um Verzögerungen während des Testablaufs zu verhindern (dies würde die Vergleichbarkeit der Ergebnisse gefährden), müssen die Testinhalte (auch Bilder, Audio-/Videosequenzen) geladen werden, bevor der Testperson etwas präsentiert wird. Das Testcenter kann jedoch auch so konfiguriert werden, dass die ersten Seiten angezeigt werden können, nachdem der erste Block geladen wurde (lazy loading). Diese Ladestrategie muss jedoch mit Bedacht gewählt werden: Es muss genügend Zeit im ersten Block zugebracht werden, damit das Betreten des nächsten Blockes nicht verzögert wird.</p>
+<p>Alle Testinhalte sollen also zu Beginn vom Server geladen werden. Vorher muss noch eine Anmeldung am Testsystem erfolgreich sein, damit das richtige Testheft zugewiesen wird und die Antworten der richtigen Person zugeordnet werden. Nach dem Ladevorgang präsentiert der Browser nacheinander die Aufgaben, wobei die Antworten bzw. der Status der Bearbeitung sofort an den Server geschickt werden. Mit Blick auf den Lasttest stellt jedoch die Phase der Bearbeitung und des Speicherns der Antworten einen relativ geringen Anteil an der Belastung des Servers dar. Im Vergleich zum anfänglichen Laden sind das sehr kleine Datenpakete. Für einen Lasttest wird also die anfängliche Ladephase simuliert: Aufruf der Startseite, Eingeben der Login-Daten, Laden der Testinhalte.</p>
+<p>Die Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestellt, dass pro Testperson nur eine Datei gleichzeitig abgerufen wird - Inhalte werden also nacheinander und nicht parallel abgerufen. Dieses serielle Laden verhindert, dass wenige Testpersonen viele parallele Ladevorgänge auslösen und früh alles geladen haben, andere Testpersonen jedoch durch die Begrenzung der Netzverbindungen keine Ladevorgänge auslösen können und sehr lange auf die Testinhalte warten.</p>
+</section>
+<section id="indikatoren" class="level3">
+<h3 class="anchored" data-anchor-id="indikatoren">Indikatoren</h3>
+<p>Die Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: <strong>Anzahl Testpersonen</strong> und <strong>Ladezeit</strong>. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.</p>
+<p>Ein Lasttest weist üblicherweise außerdem die <strong>Fehlerrate</strong> aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 x, retry mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn die 5 Ladeversuche gescheitert sind und also die Testperson eine Fehlermeldung bekommt.</p>
+<p>Nach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.</p>
+</section>
+</section>
+<section id="methodik-des-lasttests" class="level2">
+<h2 class="anchored" data-anchor-id="methodik-des-lasttests">Methodik des Lasttests</h2>
+<section id="warum-reicht-nicht-ein-standard-test-für-webserver" class="level3">
+<h3 class="anchored" data-anchor-id="warum-reicht-nicht-ein-standard-test-für-webserver">Warum reicht nicht ein Standard-Test für Webserver?</h3>
+<p>Man könnte annehmen, dass es sich beim IQB-Testcenter um eine Webseite handelt und einen üblichen Lasttest beauftragen. Auch hier wird berichtet, wieviele Personen gleichzeitig Zugriff haben können. Aus folgenden Gründen sind Standard-Tests jedoch problematisch:</p>
 <ul>
-<li>Verlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind</li>
+<li>Das Besucherverhalten wird als lose, teilweise zufällige Abfolge von Navigationsentscheidungen simuliert. Seiten werden oft vollständig geladen, manchmal wird aber auch das Laden abgebrochen durch eine andere Navigation. Das ist beim Testcenter nicht der Fall.</li>
+<li>Es wird pro Besucher zugelassen, dass mehrere Ladevorgänge parallel angestoßen werden (eine Webseite hat üblicherweise mehrere Elemente wie z. B. Bilder). Wenn dies passiert, belastet ein Besucher den Server mehrfach. Das ist beim Testcenter nicht der Fall, so dass die Kapazität des Testcenters systematisch unterschätzt wird.</li>
+<li>Es wird ein praktisch unendlich aktiver Besucher simuliert. Dadurch kann nicht ermittelt werden, wann ein Testheft geladen wurde und eine einmal gestartete Testperson behindert weiterhin die anderen - es gibt keine Entlastung nach der Ladephase zugunsten anderer Testpersonen. Dadurch wird die Kapazität des Testcenters systematisch unterschätzt und es fehlt die wichtige Information über die Ladezeit.</li>
 </ul>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="TC_Daten_Input_Output.png" class="img-fluid figure-img"></p>
-<figcaption>Übersicht Testcenter Daten Ein- und Ausgabe</figcaption>
-</figure>
-</div>
-<section id="daten-input-für-das-testcenter" class="level1">
-<h1>Daten-Input für das Testcenter</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Wie Daten in das Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
-</div>
-</div>
-<p>Das <strong>Studio</strong> kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das <strong>Testcenter</strong> geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die <a href="https://box.hu-berlin.de/f/81701b5fa68446bc99a3/">Videos</a> zum Thema Testdateien an.</p>
-<section id="logins" class="level2">
-<h2 class="anchored" data-anchor-id="logins">Logins</h2>
-<p>Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Informationen sind in einer <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testtaker%E2%80%90Xml">XML-Datei</a> festgelegt. Folgende Arten des Zugriffs (Rollen) werden unterschieden: * Testpersonen: Die Personen, die den Test bzw. die Befragung absolvieren. Deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung. * Testleitung: Ein spezieller Login sorgt dafür, dass die angemeldete Person den Monitor für eine Testgruppe startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden. * Review: Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits. * Demo: Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.</p>
-<p>Das Erstellen von Logins wird unterstützt über das Windows-Programm <strong>itc-Toolbox</strong>. Mehr Informationen dazu sind im gleichnamigen Kapitel zu finden.</p>
 </section>
-<section id="test-definition" class="level2">
-<h2 class="anchored" data-anchor-id="test-definition">Test-Definition</h2>
-<p>Diese <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Booklet%E2%80%90Xml">XML-Datei</a> legt die Reihenfolge der Aufgaben (Units) fest. Man kann die Aufgaben bzw. Zwischenseiten auch in Blöcke (Testlets) gruppieren. Innerhalb dieser Blöcke (Testlets) können dann Beschränkungen festgelegt werden. Bspw. kann ein Block dann nur nach Eingabe eines Code-Wortes betreten werden oder es gilt eine zeitliche Beschränkung für einen Block. Außerdem kann über die Test-Definition das Weiterblättern auf Folgeseiten mit Bedingungen verknüpft werden. Das Springen (scrollen) an das Seitenende könnte bspw. eine solche Bedingung darstellen. Diese Bedingung würde sicherstellen, dass die Testperson den gesamten Inhalt der Seite wahrgenommen hat. Auch das Beendigen von Audio-Sequenzen oder die Beantwortung aller Fragen, könnte eine solche Bedingung sein.</p>
-</section>
-<section id="unit-definition" class="level2">
-<h2 class="anchored" data-anchor-id="unit-definition">Unit-Definition</h2>
-<p>Eine Unit-Definition besteht aus einer <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Unit%E2%80%90Xml">XML-Datei</a> und einer Voud-Datei. Erstere enthält Metadaten, wie die interne ID und den Datentyp der Unit. Bei der Voud-Datei handelt es sich um ein internes Format, welches manuell kaum editierbar ist. Es muss stattdessen über einen Editor erzeugt werden. Das IQB-Studio bietet derartige Editoren.</p>
-</section>
-<section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">Player</h2>
-<p>In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente “Player” enthält. Grundidee dieser Teilung ist, dass das interne Format einer Unit-Definition nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Unit-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der unitbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht.</p>
-<p>Für die Vorbereitung eines Tests bedeutet dies:</p>
-<ol type="1">
-<li>jede Unit-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und</li>
-<li>alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Daten, die in das Testcenter geladen werden, werden auch als <strong>Testdateien</strong> bezeichnet. Sie steuern den Testablauf, das Testlayout und die Testzugänge.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="daten-output-des-testcenters" class="level1">
-<h1>Daten-Output des Testcenters</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
-</div>
-</div>
-<section id="logs" class="level2">
-<h2 class="anchored" data-anchor-id="logs">Logs</h2>
-<p>Ereignisse innerhalb einer Unit und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen: * Version des Betriebssystems und des Browsers * Verweildauer auf einer Seite * Zeitpunkt des Beendens der Beantwortung</p>
-</section>
-<section id="antworten" class="level2">
-<h2 class="anchored" data-anchor-id="antworten">Antworten</h2>
-<p>Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.</p>
-</section>
-<section id="weitere-daten" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-daten">Weitere Daten</h2>
+<section id="eigenprogrammierung" class="level3">
+<h3 class="anchored" data-anchor-id="eigenprogrammierung">Eigenprogrammierung</h3>
+<p>Leider sind die verfügbaren Open Source-Systeme zum Bauen eines Lasttests (z. B. Locust, Tsung) stets auf den oben beschriebenen Standardfall ausgerichtet. Es sind viele Zufallsfaktoren eingebaut, so dass sich ein streng serielles Laden kaum realisieren lässt. Das IQB verwendet daher eine eigene Programmierung für Lasttests, die die Aufrufe in der Startphase korrekt nachstellt:</p>
 <ul>
-<li><strong>Kommentare, Review</strong>: Wenn ein Test im Review-Modus durchgeführt wird, können zu Aufgaben oder zum gesamten Test Kommentare gegeben werden. Auch diese Kommentare sind über den Management-Bereich abrufbar.</li>
-<li><strong>System-Check Berichte</strong>: Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.</li>
+<li>Anmeldung am Testsystem; für alle folgenden Requests wird das bei der Anmeldung erhaltene Auth-Token verwendet</li>
+<li>Nach erfolgreicher Anmeldung Abruf der Daten: Testheft (also Liste der erforderlichen Dateien)</li>
+<li>Abruf der Dateien</li>
+</ul>
+<p>Der Server, der geprüft wird, hat eine definierte Ausgangssituation. Das bedeutet, dass stets dieselben Testinhalte bereit stehen und sich noch niemand vorher angemeldet hat. Für jede Testperson wird ein separates Login bereitgestellt. Wenn also eine Last von 10.000 Testpersonen erzeugt werden soll, hält der Server 10.000 Logins bereit, die der angreifende Server dann benutzt.</p>
+<p>Der Server, der die Last erzeugt, muss hierfür sehr viele Prozesse gleichzeitig managen können. Diese Bedingung konnte nur die Computersprache Go hinreichend erfüllen. Die Programmierung für den IQB-Lasttest ist also in Go implementiert.</p>
+<p>Im Moment ist die Programmierung auf die Anforderungen des IQB ausgerichtet. Nach der Diskussion mit Fachleuten auf dem Gebiet des Lasttests und weiterer Erprobung würden wir die Software so ausbauen, dass sie einfach durch Dritte installiert und genutzt werden kann (MIT-Lizenz). Auf der Liste der gewünschten Features stehen noch Einbeziehung von Daten aus dem Monitoring des angegriffenen Systems (Docker stats bzw. Informationen über CPU-Auslastung, RAM usw.), Automatisierung des Uploads des Testcenter-Content und einfache Parametrisierung der Testläufe.</p>
+</section>
+<section id="szenarien" class="level3">
+<h3 class="anchored" data-anchor-id="szenarien">Szenarien</h3>
+<p>Es werden zwei Parameter der Testung variiert:</p>
+<ul>
+<li>gleichzeitige Anzahl der Testpersonen: 100, 1.000, 2.000, 5.000, 10.000, 20.000; hierbei erfolgt real eine Streckung der Login-Anfragen: maximal 100 Anmeldungen pro Sekunde (sonst wird ein DoS-Angriffszenario simuliert)</li>
+<li>Gesamtgröße des Content: klein (70 kB), mittel (20 MB), groß (38 MB)</li>
+</ul>
+<p>Das IQB betreibt zwei konstante Server, damit die Lasttests vergleichbar sind. Hier ist das Ziel nicht, eine spezifische Lernstandserhebung vorzubereiten, sondern Versionen des Testcenters auf Veränderungen des Lastverhaltens zu prüfen. Die Serverausstattung wird bewusst nicht variiert.</p>
+</section>
+<section id="strategien-bei-unbefriedigenden-lasttest-ergebnissen" class="level3">
+<h3 class="anchored" data-anchor-id="strategien-bei-unbefriedigenden-lasttest-ergebnissen">Strategien bei unbefriedigenden Lasttest-Ergebnissen</h3>
+<p>Um die Lücke zwischen der erforderlichen Kapazität und den ermittelten Werten zu verringern, bieten sich folgende Strategien an:</p>
+<ul>
+<li>Verringerung der Testheft-Größe:
+<ul>
+<li>Sind alle Bilder, Audio- und Videosequenzen unverzichtbar?</li>
+<li>Könnte man die Auflösung von Bildern, Audio- und Videosequenzen verringern bei vertretbarem Qualitätsverlust?</li>
+<li>Könnte man ein Testheft aufteilen in mehrere Testhefte?</li>
+</ul></li>
+<li>Streckung des Testzeitraumes: Bereits eine Teilung der Testpopulation und dann Versatz um eine (Unterrichts-)Stunde würde die tägliche Kapazität verdoppeln; entsprechend wäre der Gewinn bei der Ausdehnung der Testung auf eine Woche</li>
+</ul>
+<p>Bevor man nun die teure Serverkapazität erhöht sollte man sicherstellen, dass die anderen Infrastruktur-Komponenten noch Reserven haben. Wenn die Anbindung der Schulen an das Internet, die Verteilung in der Schule (WLAN-Access-Points) sowie die Endgeräte keinen Engpass bilden, sollten mehr Server bereitgestellt werden:</p>
+<ul>
+<li>Aufsetzen mehrerer getrennter Server jeweils mit einer Testcenter-Installation; Aufteilen der Testpopulation mit fixer Zuweisung des Servers; späteres manuelles Zusammenführen der Antwortdaten,</li>
+<li>(derzeit noch nicht verfügbar) Installation des Testcenters auf einem System mit Lastverteilung (z. B. Kubernetes), wodurch die Administration erleichtert wird; Achtung: Auch in diesem Fall muss eine höhere Serverausstattung bereitgestellt werden (die Synchronisation der Datenbank-Inhalte erzeugt zusätzliche Last).</li>
 </ul>
 </section>
 </section>
-<section id="daten-bearbeitung" class="level1">
-<h1>Daten-Bearbeitung</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Wie Daten vor dem Laden in das Testcenter bearbeitet werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
-</div>
-</div>
-<p>Die XML-Dateien können vor dem Laden in das Testcenter bearbeitet werden. So können Testungen individuell gestaltet werden und gesteuert werden.</p>
-<p>Nachfolgend werden alle <strong>Testdateien</strong> und die darin verfügbaren <strong>Attribute</strong>, die während der manuellen Bearbeitung zur Verfügung stehen, aufgezeigt:</p>
+<section id="vergleich-testcenter-versionen-14-und-15" class="level2">
+<h2 class="anchored" data-anchor-id="vergleich-testcenter-versionen-14-und-15">Vergleich Testcenter Versionen 14 und 15</h2>
 <ul>
-<li><a href="Arbeiten-mit-Xml‐Dateien">Allgemeine Hinweise für die Bearbeitung von XML-Dateien</a></li>
-<li>Units:
-<ul>
-<li><a href="Unit‐Xml">Bearbeiten der XML-Datei</a></li>
-</ul></li>
-<li>Booklets:
-<ul>
-<li><a href="Booklet‐Xml">Bearbeiten der XML-Datei</a></li>
-<li><a href="https://github.com/iqb-berlin/itc-toolbox#readme">Unterstützung durch itc-ToolBox</a></li>
-</ul></li>
-<li>Logins:
-<ul>
-<li><a href="Testtaker‐Xml">Bearbeiten der XML-Datei</a></li>
-<li><a href="https://github.com/iqb-berlin/itc-toolbox#readme">Unterstützung durch itc-ToolBox</a></li>
-<li><a href="Login-Anmeldeverfahren">Anmeldeverfahren</a></li>
-<li><a href="Login-Modi-der-Testdurchführung">Modi der Testdurchführung</a></li>
-</ul></li>
+<li>Serverausstattung des Testcenters: 8 CPUs, 16 GB RAM (virtueller Cloud-Server bei Ionos)</li>
 </ul>
-<p>Ist die nachträgliche Bearbeitung (falls gewünscht) der <strong>Testdateien</strong> abgeschlossen, können die <strong>Testdateien</strong> in einen <strong>Arbeitsbereich</strong> innerhalb des <strong>Testcenters</strong> geladen werden. Mehr zum Thema <strong>Arbeitsbereich</strong> im <strong>Testcenter</strong> ist <a href="2.3-Verwaltung-und-Organisation"><strong>hier</strong></a> zu finden.</p>
+<table class="table-hover table">
+<caption>Lastvergleich Testcenter Versionen 14 und 15, Dezember 2023</caption>
+<thead>
+<tr class="header">
+<th>Größe Content</th>
+<th style="text-align: right;">&nbsp;Users</th>
+<th>Version</th>
+<th style="text-align: right;">Ladezeit Median sec</th>
+<th style="text-align: right;">Errors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>70 kB</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;&nbsp;</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">100</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">500</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">1.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">2.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">232</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">5.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">355</td>
+<td style="text-align: right;">2.008</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">10.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td>20 MB</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;&nbsp;</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">100</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">500</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">1.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">2.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">378</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">5.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">567</td>
+<td style="text-align: right;">2.274</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">352</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">10.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">1.337</td>
+</tr>
+<tr class="odd">
+<td>38 MB</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;&nbsp;</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">100</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">500</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">379</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">112</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">1.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">787</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">91</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">2.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">1.433</td>
+<td style="text-align: right;">320</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1.704</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">5.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">197</td>
+<td style="text-align: right;">3.314</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -887,18 +1213,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Testcenter/intro.html" class="pagination-link" aria-label="Überblick">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Überblick</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="pagination-link" aria-label="Die Sicht der Testperson">
-        <span class="nav-page-text">Die Sicht der Testperson</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

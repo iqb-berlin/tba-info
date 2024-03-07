@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Das Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?">
 
-<title>IQB TBA-Info - Daten und Prozesse</title>
+<title>IQB TBA-Info - Diskurs Verona vs.&nbsp;Datenformat</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Testcenter/Die_Sicht_der_Testperson.html" rel="next">
-<link href="../Testcenter/intro.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -98,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Diskurs Verona vs.&nbsp;Datenformat</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten und Prozesse</span></a>
   </div>
 </li>
@@ -285,36 +284,46 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link active" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
+  <li><a href="#kritik" id="toc-kritik" class="nav-link active" data-scroll-target="#kritik">Kritik</a>
   <ul class="collapse">
-  <li><a href="#logins" id="toc-logins" class="nav-link" data-scroll-target="#logins">Logins</a></li>
-  <li><a href="#test-definition" id="toc-test-definition" class="nav-link" data-scroll-target="#test-definition">Test-Definition</a></li>
-  <li><a href="#unit-definition" id="toc-unit-definition" class="nav-link" data-scroll-target="#unit-definition">Unit-Definition</a></li>
-  <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player">Player</a></li>
+  <li><a href="#modell-dokumentiertes-datenformat" id="toc-modell-dokumentiertes-datenformat" class="nav-link" data-scroll-target="#modell-dokumentiertes-datenformat">Modell „dokumentiertes Datenformat“</a></li>
+  <li><a href="#modell-plugin" id="toc-modell-plugin" class="nav-link" data-scroll-target="#modell-plugin">Modell „Plugin“</a></li>
+  <li><a href="#risiko-durch-fremde-software-komponenten" id="toc-risiko-durch-fremde-software-komponenten" class="nav-link" data-scroll-target="#risiko-durch-fremde-software-komponenten">Risiko durch fremde Software-Komponenten</a></li>
+  <li><a href="#konsequenzen-einer-fehlenden-integration" id="toc-konsequenzen-einer-fehlenden-integration" class="nav-link" data-scroll-target="#konsequenzen-einer-fehlenden-integration">Konsequenzen einer fehlenden Integration</a></li>
+  <li><a href="#perspektiven" id="toc-perspektiven" class="nav-link" data-scroll-target="#perspektiven">Perspektiven</a></li>
   </ul></li>
-  <li><a href="#daten-output-des-testcenters" id="toc-daten-output-des-testcenters" class="nav-link" data-scroll-target="#daten-output-des-testcenters">Daten-Output des Testcenters</a>
-  <ul class="collapse">
-  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
-  <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
-  <li><a href="#weitere-daten" id="toc-weitere-daten" class="nav-link" data-scroll-target="#weitere-daten">Weitere Daten</a></li>
-  </ul></li>
-  <li><a href="#daten-bearbeitung" id="toc-daten-bearbeitung" class="nav-link" data-scroll-target="#daten-bearbeitung">Daten-Bearbeitung</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Daten und Prozesse</h1>
-</div>
+<h1 class="title">Diskurs Verona vs.&nbsp;Datenformat</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">verona</div>
+    <div class="quarto-category">architektur</div>
+    <div class="quarto-category">opensource</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Das Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">8. Januar 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -324,150 +333,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In Bearbeitung THuste: to do</p>
+<section id="kritik" class="level1">
+<h1>Kritik</h1>
+<p>Das IQB wird wiederholt gebeten, das Architekturprinzip, das hinter der Verona-Schnittstelle für die Aufgabenanzeige „Player“ steht, zu erläutern. Kritikpunkte sind unterschiedlich begründet und motiviert. Beispiele:</p>
 <ul>
-<li>Verlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind</li>
+<li>Es fehle eine detaillierte Beschreibung der Interaktionskonzepte auf abstrakter Ebene. Losgelöst vom Verhalten und von der Programmierung müssten Use Cases nachvollziehbar gelistet sein.</li>
+<li>Aufgaben müssten benutzt werden können, ohne dass man auf die Programmierung des IQB angewiesen ist.</li>
+<li>Programmierungen des IQB seien wegen der Natur der Entstehung nur bedingt vertrauenswürdig.</li>
 </ul>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="TC_Daten_Input_Output.png" class="img-fluid figure-img"></p>
-<figcaption>Übersicht Testcenter Daten Ein- und Ausgabe</figcaption>
-</figure>
-</div>
-<section id="daten-input-für-das-testcenter" class="level1">
-<h1>Daten-Input für das Testcenter</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Wie Daten in das Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
-</div>
-</div>
-<p>Das <strong>Studio</strong> kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das <strong>Testcenter</strong> geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die <a href="https://box.hu-berlin.de/f/81701b5fa68446bc99a3/">Videos</a> zum Thema Testdateien an.</p>
-<section id="logins" class="level2">
-<h2 class="anchored" data-anchor-id="logins">Logins</h2>
-<p>Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Informationen sind in einer <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testtaker%E2%80%90Xml">XML-Datei</a> festgelegt. Folgende Arten des Zugriffs (Rollen) werden unterschieden: * Testpersonen: Die Personen, die den Test bzw. die Befragung absolvieren. Deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung. * Testleitung: Ein spezieller Login sorgt dafür, dass die angemeldete Person den Monitor für eine Testgruppe startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden. * Review: Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits. * Demo: Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.</p>
-<p>Das Erstellen von Logins wird unterstützt über das Windows-Programm <strong>itc-Toolbox</strong>. Mehr Informationen dazu sind im gleichnamigen Kapitel zu finden.</p>
-</section>
-<section id="test-definition" class="level2">
-<h2 class="anchored" data-anchor-id="test-definition">Test-Definition</h2>
-<p>Diese <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Booklet%E2%80%90Xml">XML-Datei</a> legt die Reihenfolge der Aufgaben (Units) fest. Man kann die Aufgaben bzw. Zwischenseiten auch in Blöcke (Testlets) gruppieren. Innerhalb dieser Blöcke (Testlets) können dann Beschränkungen festgelegt werden. Bspw. kann ein Block dann nur nach Eingabe eines Code-Wortes betreten werden oder es gilt eine zeitliche Beschränkung für einen Block. Außerdem kann über die Test-Definition das Weiterblättern auf Folgeseiten mit Bedingungen verknüpft werden. Das Springen (scrollen) an das Seitenende könnte bspw. eine solche Bedingung darstellen. Diese Bedingung würde sicherstellen, dass die Testperson den gesamten Inhalt der Seite wahrgenommen hat. Auch das Beendigen von Audio-Sequenzen oder die Beantwortung aller Fragen, könnte eine solche Bedingung sein.</p>
-</section>
-<section id="unit-definition" class="level2">
-<h2 class="anchored" data-anchor-id="unit-definition">Unit-Definition</h2>
-<p>Eine Unit-Definition besteht aus einer <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Unit%E2%80%90Xml">XML-Datei</a> und einer Voud-Datei. Erstere enthält Metadaten, wie die interne ID und den Datentyp der Unit. Bei der Voud-Datei handelt es sich um ein internes Format, welches manuell kaum editierbar ist. Es muss stattdessen über einen Editor erzeugt werden. Das IQB-Studio bietet derartige Editoren.</p>
-</section>
-<section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">Player</h2>
-<p>In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente “Player” enthält. Grundidee dieser Teilung ist, dass das interne Format einer Unit-Definition nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Unit-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der unitbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht.</p>
-<p>Für die Vorbereitung eines Tests bedeutet dies:</p>
+<p>Der nachfolgende Text greift diese Punkte auf und gibt damit eine Hilfestellung für Projektplanungen in den Ländern.</p>
+<section id="modell-dokumentiertes-datenformat" class="level2">
+<h2 class="anchored" data-anchor-id="modell-dokumentiertes-datenformat">Modell „dokumentiertes Datenformat“</h2>
+<p>Wenn ein Datenformat ausführlich dokumentiert wird und jedes Element, jede Eigenschaft, jedes Detail feingranular bekannt ist, dann kann man Software programmieren, die eine Aufgabe adäquat abspielt.</p>
+<p>Beispielsweise folgen die Datenformate <a href="https://www.imsglobal.org/question/index.html">QTI</a> und <a href="https://h5p.org/">H5P</a> einem semantischen Konzept: Hierbei wird die Bedeutung von Elementen beschrieben, z. B. Auswahloptionen sind als solche gekennzeichnet und es ist der Software überlassen, wie genau eine Auswahloption dargestellt wird. Der Freiraum, der bei der Darstellung bewusst gelassen wird, dient der Harmonisierung einer Seite: Farbgebung, Abstände und Schriftart sowie Interaktionen sollen sich normalerweise nach dem Rest der Webanwendung richten und nicht exotisch wirken. Eine Anwendung auf einem Smartphone folgt anderen Konzepten der Bedienung als eine Onlinelösung für einen PC mit großem Bildschirm und Tastatur. Nur wenn man ein Datenformat semantisch bereitstellt und dokumentiert, lassen sich derartige Anpassungen realisieren.</p>
+<p>Dieses Modell ist für Testungen von Erwachsenen und von älteren Schülerinnen und Schülern ausreichend, da der Einfluss der Darstellung auf die Beantwortung gering ist und bei den Testpersonen Erfahrungen im Umgang mit Computern vorausgesetzt werden können. Für die Zielpersonen im VERA-Kontext gelten jedoch weitere Anforderungen:</p>
 <ol type="1">
-<li>jede Unit-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und</li>
-<li>alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden</li>
+<li>Die Darstellung und Interaktion von Aufgaben muss exakt auf allen Endgeräten gleich sein. Das betrifft Schriftarten, Abstände, Farbgebung und die Effekte sämtlicher Eingabegeräte. Nur so sind die Kennwerte aus Pilotierungen anwendbar. Jede Abweichung vermindert die Qualität und damit den Nutzen der Testung.</li>
+<li>Die üblichen im Html verfügbaren Formularelemente reichen bei weitem nicht aus. Es müssen viele neue Interaktionsformen entwickelt werden, um die gewünschte Messgenauigkeit zu erreichen und damit besser die Kompetenzen zu erfassen, die für das Monitoring erforderlich sind. Jeder Rückfall auf Standardelemente vermindert die Qualität und damit den Nutzen der Testung.</li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Daten, die in das Testcenter geladen werden, werden auch als <strong>Testdateien</strong> bezeichnet. Sie steuern den Testablauf, das Testlayout und die Testzugänge.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="daten-output-des-testcenters" class="level1">
-<h1>Daten-Output des Testcenters</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
-</div>
-</div>
-<section id="logs" class="level2">
-<h2 class="anchored" data-anchor-id="logs">Logs</h2>
-<p>Ereignisse innerhalb einer Unit und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen: * Version des Betriebssystems und des Browsers * Verweildauer auf einer Seite * Zeitpunkt des Beendens der Beantwortung</p>
-</section>
-<section id="antworten" class="level2">
-<h2 class="anchored" data-anchor-id="antworten">Antworten</h2>
-<p>Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.</p>
-</section>
-<section id="weitere-daten" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-daten">Weitere Daten</h2>
+<p>Beide Anforderungen können nicht erfüllt werden, wenn der Software, die das Format zur Darstellung verwendet, Freiraum gegeben wird. Somit müsste der semantische Ansatz erweitert werden um alle Parameter und Formate sowie alle erwarteten Zustände. Das wäre theoretisch möglich, hätte aber folgende Nachteile:</p>
 <ul>
-<li><strong>Kommentare, Review</strong>: Wenn ein Test im Review-Modus durchgeführt wird, können zu Aufgaben oder zum gesamten Test Kommentare gegeben werden. Auch diese Kommentare sind über den Management-Bereich abrufbar.</li>
-<li><strong>System-Check Berichte</strong>: Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.</li>
+<li>Eine derartige Spezifikation wäre erst möglich und sinnvoll, nachdem das Format eine gewisse Reife erlangt hat. Der bisherige Dialog mit der Fachdidaktik und der Erfahrungszuwachs bei der Anwendung des Formates lassen eine Konsolidierung erst zum Ende 2024 erwarten.</li>
+<li>Eine derartige Spezifikation wäre sehr aufwändig und würde weitere Zeit kosten. Das IQB blendet z. B. Seitenabschnitte je nach Bearbeitungsstand ein/aus, steuert gezielt die Responsivität, erlaubt Markierungen in Texten als Antwort, unterdrückt Vorschläge des Systems bei Eingaben, erlaubt Eingabe von Formeln, bildet Rechenkästchen nach, blendet selten genutzte Zeichen als Zusatztastatur ein (französisch), erlaubt GeoGebra u.v.m.</li>
+<li>Die Vorstellung „am Tag X ist die Entwicklung abgeschlossen“ ist eine Utopie. Es ist vielmehr anzunehmen, dass auch nach der Konsolidierung Änderungswünsche seitens der Wissenschaft und der Durchführungspraxis eintreffen und zu weiteren Format-Versionen führen. Für alle Softwareprodukte, die das Format verarbeiten sollen, müssten dann Anpassungen beauftragt werden. Wertvolle Innovationen hätten also stets eine lange Laufzeit bis zur Implementation.</li>
 </ul>
 </section>
-</section>
-<section id="daten-bearbeitung" class="level1">
-<h1>Daten-Bearbeitung</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Wie Daten vor dem Laden in das Testcenter bearbeitet werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailiert beschrieben.</p>
-</div>
-</div>
-<p>Die XML-Dateien können vor dem Laden in das Testcenter bearbeitet werden. So können Testungen individuell gestaltet werden und gesteuert werden.</p>
-<p>Nachfolgend werden alle <strong>Testdateien</strong> und die darin verfügbaren <strong>Attribute</strong>, die während der manuellen Bearbeitung zur Verfügung stehen, aufgezeigt:</p>
+<section id="modell-plugin" class="level2">
+<h2 class="anchored" data-anchor-id="modell-plugin">Modell „Plugin“</h2>
+<p>Das vom IQB vorgeschlagene und von den Ländern beauftragte Modell folgt daher dem Plugin-Prinzip. Auch z. B. PDF-Dokumente können Code enthalten (JavaScript), der dann mit einem Plugin in Acrobat ausgeführt wird. Das Prinzip ist in der IT üblich, z. B.:</p>
 <ul>
-<li><a href="Arbeiten-mit-Xml‐Dateien">Allgemeine Hinweise für die Bearbeitung von XML-Dateien</a></li>
-<li>Units:
-<ul>
-<li><a href="Unit‐Xml">Bearbeiten der XML-Datei</a></li>
-</ul></li>
-<li>Booklets:
-<ul>
-<li><a href="Booklet‐Xml">Bearbeiten der XML-Datei</a></li>
-<li><a href="https://github.com/iqb-berlin/itc-toolbox#readme">Unterstützung durch itc-ToolBox</a></li>
-</ul></li>
-<li>Logins:
-<ul>
-<li><a href="Testtaker‐Xml">Bearbeiten der XML-Datei</a></li>
-<li><a href="https://github.com/iqb-berlin/itc-toolbox#readme">Unterstützung durch itc-ToolBox</a></li>
-<li><a href="Login-Anmeldeverfahren">Anmeldeverfahren</a></li>
-<li><a href="Login-Modi-der-Testdurchführung">Modi der Testdurchführung</a></li>
-</ul></li>
+<li>Grafikformate: Viele auf bestimmte Verwendungen spezialisierte Grafikformate sind nicht dokumentiert, sondern man fügt einer Software ein vom Hersteller bereitgestelltes Plugin hinzu, um die Grafik zu verarbeiten oder anzuzeigen,</li>
+<li>Sensordaten: Bestimmte Sensoren liefern Datenformate, die erst über Plugins nutzbar werden (Remote Sensing),</li>
+<li>TAO: Die erste große Open Source-Plattform für Online-Tests im Bildungsbereich nutzte in den Anfangsjahren Plugins in der Form, die das IQB derzeit betreibt. Der Impuls für die Verona-Architektur stammt aus dieser Quelle.</li>
 </ul>
-<p>Ist die nachträgliche Bearbeitung (falls gewünscht) der <strong>Testdateien</strong> abgeschlossen, können die <strong>Testdateien</strong> in einen <strong>Arbeitsbereich</strong> innerhalb des <strong>Testcenters</strong> geladen werden. Mehr zum Thema <strong>Arbeitsbereich</strong> im <strong>Testcenter</strong> ist <a href="2.3-Verwaltung-und-Organisation"><strong>hier</strong></a> zu finden.</p>
+<p>Zu einem Plugin wird eine Spezifikation veröffentlicht, das ist in diesem Fall die Verona-Schnittstelle.</p>
+<p>Vorteile:</p>
+<ul>
+<li>Agilität: Wird ein neues Interaktionsformat entwickelt, dann muss nur in einem Player die Änderung programmiert werden. Alle Applikationen mit Verona-Schnittstelle können sofort die Änderung übernehmen. Es muss nur der geänderte Player geladen werden.</li>
+<li>Rückwärtskompatibilität: Alte Aufgaben bleiben unverändert verwendbar, da in einem Testablauf jede Aufgabe mit einem anderen (ggf. älteren) Player abgespielt werden kann.</li>
+<li>Spezielle Player für spezielle Interaktionen: Ein Lesegeschwindigkeitstest wird am IQB mit einem anderen Player realisiert, da hier spezifische Messwerte erfasst werden sollen. Ein weiterer Player kann nach Bedarf während der Beantwortung identische Unterformulare erzeugen. Wenn irgendein Land einen speziellen Player braucht und beauftragt, können sofort alle anderen Länder derartige Aufgaben einsetzen. Spracheingabe? Gesten?</li>
+<li>Keine doppelte Entwicklungsarbeit: Was einmal programmiert wurde für Darstellung und Interaktion, kann genutzt werden ohne Anpassungsaufwand.</li>
+</ul>
+</section>
+<section id="risiko-durch-fremde-software-komponenten" class="level2">
+<h2 class="anchored" data-anchor-id="risiko-durch-fremde-software-komponenten">Risiko durch fremde Software-Komponenten</h2>
+<p>Soll ein Software-Unternehmen ein System programmieren, das fremden Code über die Verona-Schnittstelle nachlädt, entsteht ein Risiko. Insbesondere wenn neue Player veröffentlicht werden, kann das Unternehmen nicht oder nach einer Prüfung nur eingeschränkt für das Gesamtsystem Gewährleistung und Haftung im Schadensfall übernehmen. Daher sind folgende Maßnahmen erforderlich:</p>
+<ul>
+<li>Open Source/MIT-Lizenz für Player: Der Code muss vollständig veröffentlicht und der Entwicklungsprozess transparent sein. Alle Interessierten können direkt die nächsten Schritte verfolgen und auch selbst Anforderungen stellen (issues/tickets). Es sind auch Codebeiträge willkommen (pull/merge request). Wer eine Dokumentation des Datenformates erstellen möchte, kann dies tun. Wer den Player-Code in eigener Regie weiterentwickeln will, kann dies tun (fork). Dies ist bei den IQB-Playern seit 2017 gegeben. Vollständiger Einblick in den Code ist ohne Kommunikation mit dem IQB möglich.</li>
+<li>Einschränkung der Haftung: Die Auftraggeber dürfen Probleme, die durch den Player entstehen, nicht dem Auftragnehmer anlasten. Das ist für öffentliche Auftraggeber unüblich, da hier stets die volle Kontrolle und Gewährleistung gewünscht wird. Es sind ggf. gesonderte Absprachen und Kooperationen mit der Einrichtung nötig, die den Player programmiert hat. Insbesondere im Fall einer MIT-Lizenz des Players gibt es keine Haftung.</li>
+<li>Ausführliche Testungen: Vor dem produktiven Einsatz für das Bildungsmonitoring muss ein Land die Instrumente in einem Testlauf prüfen. Das betrifft auch ggf. Arbeitsfelder wie Serverlast und Durchführungsmanagement. Das IQB hat VERA-Aufgaben und Player über die Pilotierung ausgiebig getestet. Dies liefert jedoch keine Sicherheit, dass die Einbindung in ein anderes Testsystem problemlos verläuft.</li>
+</ul>
+</section>
+<section id="konsequenzen-einer-fehlenden-integration" class="level2">
+<h2 class="anchored" data-anchor-id="konsequenzen-einer-fehlenden-integration">Konsequenzen einer fehlenden Integration</h2>
+<ul>
+<li>Digitale Souveränität: Werden die Aufgaben in ein proprietäres Format eines Softwareanbieters übertragen, sind sie auch nur durch diese Software nutzbar. Sollte ein Wechsel der Software nötig oder gewünscht sein, ist Aufwand nötig, die alten Aufgaben nutzbar zu machen. Dies ist mit dem Verona-System nicht der Fall. Alte Aufgaben sind verwendbar, sobald die neue Lösung die Verona-Schnittstelle implementiert.</li>
+<li>Aufgaben austauschen: Es gibt starke Bemühungen bundesweit, Lernressourcen zu veröffentlichen und über ein gemeinsames Metadatensystem verfügbar zu machen. Mit einer Insellösung kann man jedoch keine Aufgaben weitergeben oder fremde Aufgaben nutzen.</li>
+<li>Verlust an Vergleichbarkeit: Jede Übertragung von VERA-Aufgaben in ein anderes System ist mit Abweichungen in der Darstellung, Interaktion und Auswertung verbunden, d.&nbsp;h. die Itemparameter aus den IQB-Pilotierungen können nicht verwendet werden. Damit verliert das Instrument wesentlich an Aussagekraft.</li>
+</ul>
+</section>
+<section id="perspektiven" class="level2">
+<h2 class="anchored" data-anchor-id="perspektiven">Perspektiven</h2>
+<ul>
+<li>Das IQB wird in Abwägung der Vor- und Nachteile der beiden Modelle das Plugin-Modell auftragsgemäß weiterentwickeln und das Aufgabenformat nicht dokumentieren. Eine Aufgabendefinition kann nur durch den Player und den zugehörigen Editor verarbeitet werden.</li>
+<li>Dem IQB ist bewusst, dass die Implementation der Verona-Schnittstelle in ein bestehendes System aufwändig ist. Es hat daher eine Checkliste Verona-Checkliste veröffentlicht und unterstützt Interessierte nach Kräften.</li>
+<li>Die Länder beauftragen aktuell durch weitere Projekte die Weiterentwicklung des TBA-Systems. Außerdem wurden mit dem Wirtschaftsplan 2024/2025 Planstellen am IQB für die langfristige Pflege des Systems geschaffen.</li>
+<li>VERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Kodierinformationen ausgeliefert, die eine automatische Kodierung für einen Großteil der Items ermöglichen sowie die manuelle Kodierung unterstützen. Diese Kodierinformationen können nur sinnvoll verwendet werden, wenn die Antwortdaten in derselben Art vorliegen, wie sie durch die IQB-Player erzeugt werden.</li>
+<li>VERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Metadaten ausgeliefert. Das Format folgt internationalen Standards und ist mit den länderübergreifenden Projekten MEM/SODIX bzw. MUNDO abgestimmt.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -887,18 +823,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Testcenter/intro.html" class="pagination-link" aria-label="Überblick">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Überblick</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="pagination-link" aria-label="Die Sicht der Testperson">
-        <span class="nav-page-text">Die Sicht der Testperson</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
