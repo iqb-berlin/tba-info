@@ -18,7 +18,7 @@ Das IQB wird wiederholt gebeten, das Architekturprinzip, das hinter der Verona-S
 
 Der nachfolgende Text greift diese Punkte auf und gibt damit eine Hilfestellung für Projektplanungen in den Ländern.
 
-## Modell „dokumentiertes Datenformat“
+# Modell „dokumentiertes Datenformat“
 
 Wenn ein Datenformat ausführlich dokumentiert wird und jedes Element, jede Eigenschaft, jedes Detail feingranular bekannt ist, dann kann man Software programmieren, die eine Aufgabe adäquat abspielt.
 
@@ -35,7 +35,7 @@ Beide Anforderungen können nicht erfüllt werden, wenn der Software, die das Fo
 * Eine derartige Spezifikation wäre sehr aufwändig und würde weitere Zeit kosten. Das IQB blendet z. B. Seitenabschnitte je nach Bearbeitungsstand ein/aus, steuert gezielt die Responsivität, erlaubt Markierungen in Texten als Antwort, unterdrückt Vorschläge des Systems bei Eingaben, erlaubt Eingabe von Formeln, bildet Rechenkästchen nach, blendet selten genutzte Zeichen als Zusatztastatur ein (französisch), erlaubt GeoGebra u.v.m.
 * Die Vorstellung „am Tag X ist die Entwicklung abgeschlossen“ ist eine Utopie. Es ist vielmehr anzunehmen, dass auch nach der Konsolidierung Änderungswünsche seitens der Wissenschaft und der Durchführungspraxis eintreffen und zu weiteren Format-Versionen führen. Für alle Softwareprodukte, die das Format verarbeiten sollen, müssten dann Anpassungen beauftragt werden. Wertvolle Innovationen hätten also stets eine lange Laufzeit bis zur Implementation.
 
-## Modell „Plugin“
+# Modell „Plugin“
 
 Das vom IQB vorgeschlagene und von den Ländern beauftragte Modell folgt daher dem Plugin-Prinzip. Auch z. B. PDF-Dokumente können Code enthalten (JavaScript), der dann mit einem Plugin in Acrobat ausgeführt wird. Das Prinzip ist in der IT üblich, z. B.:
 
@@ -52,7 +52,7 @@ Vorteile:
 * Spezielle Player für spezielle Interaktionen: Ein Lesegeschwindigkeitstest wird am IQB mit einem anderen Player realisiert, da hier spezifische Messwerte erfasst werden sollen. Ein weiterer Player kann nach Bedarf während der Beantwortung identische Unterformulare erzeugen. Wenn irgendein Land einen speziellen Player braucht und beauftragt, können sofort alle anderen Länder derartige Aufgaben einsetzen. Spracheingabe? Gesten?
 * Keine doppelte Entwicklungsarbeit: Was einmal programmiert wurde für Darstellung und Interaktion, kann genutzt werden ohne Anpassungsaufwand.
 
-## Risiko durch fremde Software-Komponenten
+# Risiko durch fremde Software-Komponenten
 
 Soll ein Software-Unternehmen ein System programmieren, das fremden Code über die Verona-Schnittstelle nachlädt, entsteht ein Risiko. Insbesondere wenn neue Player veröffentlicht werden, kann das Unternehmen nicht oder nach einer Prüfung nur eingeschränkt für das Gesamtsystem Gewährleistung und Haftung im Schadensfall übernehmen. Daher sind folgende Maßnahmen erforderlich:
 
@@ -60,13 +60,13 @@ Soll ein Software-Unternehmen ein System programmieren, das fremden Code über d
 * Einschränkung der Haftung: Die Auftraggeber dürfen Probleme, die durch den Player entstehen, nicht dem Auftragnehmer anlasten. Das ist für öffentliche Auftraggeber unüblich, da hier stets die volle Kontrolle und Gewährleistung gewünscht wird. Es sind ggf. gesonderte Absprachen und Kooperationen mit der Einrichtung nötig, die den Player programmiert hat. Insbesondere im Fall einer MIT-Lizenz des Players gibt es keine Haftung.
 * Ausführliche Testungen: Vor dem produktiven Einsatz für das Bildungsmonitoring muss ein Land die Instrumente in einem Testlauf prüfen. Das betrifft auch ggf. Arbeitsfelder wie Serverlast und Durchführungsmanagement. Das IQB hat VERA-Aufgaben und Player über die Pilotierung ausgiebig getestet. Dies liefert jedoch keine Sicherheit, dass die Einbindung in ein anderes Testsystem problemlos verläuft.
 
-## Konsequenzen einer fehlenden Integration
+# Konsequenzen einer fehlenden Integration
 
 * Digitale Souveränität: Werden die Aufgaben in ein proprietäres Format eines Softwareanbieters übertragen, sind sie auch nur durch diese Software nutzbar. Sollte ein Wechsel der Software nötig oder gewünscht sein, ist Aufwand nötig, die alten Aufgaben nutzbar zu machen. Dies ist mit dem Verona-System nicht der Fall. Alte Aufgaben sind verwendbar, sobald die neue Lösung die Verona-Schnittstelle implementiert.
 * Aufgaben austauschen: Es gibt starke Bemühungen bundesweit, Lernressourcen zu veröffentlichen und über ein gemeinsames Metadatensystem verfügbar zu machen. Mit einer Insellösung kann man jedoch keine Aufgaben weitergeben oder fremde Aufgaben nutzen.
 * Verlust an Vergleichbarkeit: Jede Übertragung von VERA-Aufgaben in ein anderes System ist mit Abweichungen in der Darstellung, Interaktion und Auswertung verbunden, d. h. die Itemparameter aus den IQB-Pilotierungen können nicht verwendet werden. Damit verliert das Instrument wesentlich an Aussagekraft.
 
-## Perspektiven
+# Perspektiven
 
 * Das IQB wird in Abwägung der Vor- und Nachteile der beiden Modelle das Plugin-Modell auftragsgemäß weiterentwickeln und das Aufgabenformat nicht dokumentieren. Eine Aufgabendefinition kann nur durch den Player und den zugehörigen Editor verarbeitet werden.
 * Dem IQB ist bewusst, dass die Implementation der Verona-Schnittstelle in ein bestehendes System aufwändig ist. Es hat daher eine Checkliste Verona-Checkliste veröffentlicht und unterstützt Interessierte nach Kräften.
