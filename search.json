@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html#graphitz-einbinden",
-    "href": "index.html#graphitz-einbinden",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Computerbasiertes Testen am IQB - Verstehen und Anwenden",
-    "section": "Graphitz einbinden",
-    "text": "Graphitz einbinden\n\n\n\n\n\n\n\nG\n\n\n\nStudio\n\nStudio\n\n\n\nExport\n\nExport\n\n\n\nStudio--Export\n\n\n\n\nTestcenter\n\nTestcenter\n\n\n\nExport--Testcenter\n\n\n\n\nAuswertung\n\nAuswertung\n\n\n\nTestcenter--Auswertung\n\n\n\n\nKodierbox\n\nKodierbox\n\n\n\nAuswertung--Kodierbox\n\n\n\n\nitcToolbox\n\nitcToolbox\n\n\n\nAuswertung--itcToolbox\n\n\n\n\n\n\n\n\n\n \nDas Institut zur Qualitätsentwicklung im Bildungswesen veröffentlicht mit diesem Wiki Informationen und Anleitungen zur Nutzung der IQB-Webanwendungen zum computerbasierten Testen. Diese Anwendungen sind im Quellcode veröffentlicht und können über die Lizenz MIT genutzt werden. Die Installation und Nutzung ist also kostenfrei und ohne Zustimmung des IQB möglich.\nBitte nutzen Sie die Navigationsliste im rechten Seitenbereich, um die gewünschten Themen zu finden. Diese Liste bleibt stets geöffnet, so dass Sie gut zu anderen Seiten zurückfinden. Jeweils im Seitenfuß finden Sie Pfeile, mit denen Sie zu weiteren Themen geleitet werden.",
+    "section": "",
+    "text": "Das Institut zur Qualitätsentwicklung im Bildungswesen veröffentlicht mit diesem Wiki Informationen und Anleitungen zur Nutzung der IQB-Webanwendungen zum computerbasierten Testen. Diese Anwendungen sind im Quellcode veröffentlicht und können über die Lizenz MIT genutzt werden. Die Installation und Nutzung ist also kostenfrei und ohne Zustimmung des IQB möglich.\nBitte nutzen Sie die Navigationsliste im rechten Seitenbereich, um die gewünschten Themen zu finden. Diese Liste bleibt stets geöffnet, so dass Sie gut zu anderen Seiten zurückfinden. Jeweils im Seitenfuß finden Sie Pfeile, mit denen Sie zu weiteren Themen geleitet werden.",
     "crumbs": [
       "Start"
     ]
@@ -30,6 +30,61 @@
     ]
   },
   {
+    "objectID": "Testcenter/Typische_Probleme.html",
+    "href": "Testcenter/Typische_Probleme.html",
+    "title": "Typische Probleme - Troubleshooting",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "Typische Probleme - Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "Testcenter/intro.html",
+    "href": "Testcenter/intro.html",
+    "title": "Überblick",
+    "section": "",
+    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nVerlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind\n\n\n\n\n\n\n\n\n\nCodeverwaltung Testcenter\n\n\n\nGitHub Repository Releases\n\n\nDas IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d. h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zum Anmelden. Alle Daten für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.\nDas IQB bietet folgende Video-Präsentationen bzgl. des Testcenters an.\nInstallation\nDas IQB hat alle Programmierungen unter der Open Source-Lizenz MIT veröffentlicht und erleichtert die Installation durch Containervirtualisierung (Docker). Für die Installation muss man einen Linux-Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern,übernimmt aber im Schadensfall keine Verantwortung.\nVerwaltung der Tests\nNach der Installation ist zunächst ein Systemadministrator-Konto für die Verwaltung von Arbeitsbereichen und Benutzer*innen angelegt. Außerdem ist ein Arbeitsbereich angelegt mit einem Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für die Benutzer*innen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereich können die Benutzer*innen, die für einen Test erforderlichen Testdateien (Aufgaben, Testabläufe usw. als XML-Dateien) laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse heruntergeladen werden (Csv-Dateien).\n:information_source: Benutzer*innen können mittels spezieller Parameter in einzelnen Testdateien Anpassungen der Anwendung vornehmen. Hier können dann bspw. Begrüßungsnachrichten, Hintergrundfarben, das Logo auf der Startseite und selbst der Name der Anwendung bzgl. eigener Wünsche angepasst werden.\nDurchführung von Tests oder Befragungen\nDurch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien, der so genannten Testtaker.xml, hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Units). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:\n\nVerschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, spezieller Modus für das Ausprobieren eines Tests (Review) usw.\nMehrere Testhefte: Eine Testperson kann auch mehrere Testhefte nacheinander bearbeiten mit denselben Anmeldedaten\nzeitliche Beschränkung von Testteilen: Für eine bestimmte Anzahl Aufgaben steht der Testperson eine begrenzte Zeit zur Verfügung\nFortsetzung erst mit Freigabewort: Die Testdurchführung z. B. in einer Klasse kann synchronisiert werden, indem die Testleitung ein Wort ansagt, mit dem dann der Test fortgesetzt werden kann\nFortsetzung erst nach vollständiger Präsentation: Um zu vermeiden, dass Teile einer Aufgabe übersehen werden, kann das Weiterblättern solange unterbunden werden, bis alle Audio-Sequenzen abgespielt wurden und alle Seiten vollständig angezeigt wurden\nFortsetzung erst nach vollständiger Beantwortung\nsofortige Speicherung: Alle Antworten werden sofort zum Testcenter-Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann daher der vorherige Stand wiederhergestellt werden\n\nEs können mehrere Tests oder Befragungen gleichzeitig laufen.\nSystem-Check\nMan kann bei der enormen Vielfalt der Hardware (Tablet, Smartphone usw.) und Software (Apple, Linux, Android usw.) nicht garantieren, dass ein Test oder eine Befragung so wie beabsichtigt funktioniert. Je nach Anforderung an den Test wird das auch nicht sinnvoll sein, z. B. wenn eine Mindestbreite für den Bildschirm erforderlich ist.\nWenn man erfahren möchte, ob die Zielsysteme geeignet sind, kann man im IQB-Testcenter einen System-Check konfigurieren. Dann können z. B. die verantwortlichen Lehrkräfte in der Vorbereitungsphase im Testcenter einen auf die speziellen Anforderungen des Tests abgestimmten Check durchführen. Auch die Internetverbindung kann hierüber bewertet werden.\nEin System-Check sollte aber auch nicht überbewertet werden. Ein positiver Befund ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Updates) belegt ist. Außerdem erhöht ein System-Check den ohnehin hohen Aufwand einer Testung und könnte die Teilnahmemotivation weiter senken.\nTestleitungskonsole\nSoll ein Test für eine bestimmte Personengruppe (z. B. Klasse) gleichzeitig stattfinden, kann ein Monitor dafür eingerichtet werden. Die Testleitung kann dann für jede Testperson den Fortschritt beobachten, ggf. das Weiterblättern erzwingen, Personen ausschließen oder eine Sperre wieder aufheben.\nSystemanforderungen\nDa die Programmierungen des Testcenters online in einem Browser ablaufen, ist keine vorherige Installation von Software auf einem Computer nötig, mit dem der Test oder die Befragung durchgeführt werden soll. Es ist nur ein Internet-Zugriff und ein Browser nötig.\nEs gibt immer wieder die Diskussion darüber, ob bzw. in welchem Maße ältere Browser bzw. Browserversionen unterstützt werden sollen. Hier wird argumentiert, dass Schulen bzw. deren Träger oft nicht in der Lage seien, die Verwendung aktueller Browser sicherzustellen. Aus dieser Realität ergebe sich, dass die Programmierungen für TBA stets ein Maximum an Abdeckung auch für alte Browser leisten müssten.\nDas IQB folgt hier jedoch den Anforderungen an die Datensicherheit, so wie es z. B. das Bundesamt für Sicherheit in der Informationstechnik formuliert:\n\n“Der Internet-Browser ist die zentrale Komponente für die Nutzung von Online-Angeboten und stellt somit eins der beliebtesten Ziele für Cyber-Angriffe dar. Hieraus ergibt sich ein besonders hohes Gefahrenpotenzial.” Quelle\n\n\n“Installieren Sie alle Updates sofort oder zeitnah nach ihrer Veröffentlichung, sowohl die für Ihren Browser, als auch für alle Erweiterungen und natürlich Ihr Betriebssystem. Verwenden Sie stets die neuste Version Ihres Browsers.” Quelle\n\nDas IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. - bei Chrome und Firefox - die Versionen der letzten 12 Monate. Beispielsweise werden derzeit (Stand April 2022) bei Safari nur die Versionen 14 (Veröffentlichung September 2020) und 15 unterstützt.",
+    "crumbs": [
+      "Testcenter",
+      "Überblick"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Testen_der_Anwendung.html",
+    "href": "Testcenter/Testen_der_Anwendung.html",
+    "title": "Testen der Anwendung",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "Testen der Anwendung"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Die_Sicht_der_Testperson.html",
+    "href": "Testcenter/Die_Sicht_der_Testperson.html",
+    "title": "Die Sicht der Testperson",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "Die Sicht der Testperson"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Gruppenmonitor.html",
+    "href": "Testcenter/Gruppenmonitor.html",
+    "title": "Gruppenmonitor",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "Gruppenmonitor"
+    ]
+  },
+  {
     "objectID": "Einführung/intro.html",
     "href": "Einführung/intro.html",
     "title": "Überblick",
@@ -37,6 +92,28 @@
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
       "Einführung",
+      "Überblick"
+    ]
+  },
+  {
+    "objectID": "Schritt_für_Schritt/Testcenter_Daten_Download.html",
+    "href": "Schritt_für_Schritt/Testcenter_Daten_Download.html",
+    "title": "Schritt für Schritt: Testcenter Daten Download",
+    "section": "",
+    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text\n\n\n\nEs können Antwort- und Logdateien heruntergeladen werden. Diese werden im Testcenter in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.\n\n\n\nTestcenter Daten-Download\n\n\n\nEs werden nicht in jedem Testmodus Ergebnisse gespeichert. Die Speicherung erfolgt nur in folgenden Modi: run-hot-return, run-hot-restart und run-trial!\n\nDie Ergebnisse können mittels der üblichen Browserfunktionalitäten heruntergeladen werden. Die Dateien werden dann als CSV-Dateien gespeichert.\n\nAufbereitung\nDurch den modularen Aufbau des Testsystems ist die Komponente, die die Interaktion mit der Testperson steuert, austauschbar. Laut Verona-Spezifikation ist das Datenformat der Antworten und Logs nicht vorgeschrieben. Das liegt z. B. daran, dass Antworten nicht nur einfache Datentypen sein können (Text, Zahl), sondern auch Listen, Bilder, Ton usw. Das Interesse an Zusatzinformationen (Zustände über die Zeit) mag auch schwanken je nachdem, ob eine Pilotierung (Kennenlernen von Itemeigenschaften) oder eine große automatisierte Testung durchgeführt wird.\nWenn man die Antwortdaten herunterlädt, sind die Antworten in einer bestimmten Spalte in einem Roh-Format JSON hinterlegt, so wie der Player sie geschickt hatte. Die Verona-Schnittstelle sieht vor, dass die Antwortdaten aufgeteilt werden können in mehrere sog. Parts oder Chunks. Im folgenden Beispiel hat der Player nur einen Chunk geschickt (mit der ID ‘all’) und die Antwortdaten als JSON-Struktur (verpackt als String). Außerdem ist das Datenformat und ein JavaScript-Zeitstempel (ts = TimeStamp) hinterlegt.\n[\n    {\n        \"id\":\"all\",\n        \"content\":\"{\\\"name\\\":\\\"Sam Sample\\\",\\\"age\\\":34}\",\n        \"ts\":1627545600,\n        \"responseType\":\"example-data-format\"\n    }\n]\nFür viele Anwendungsfälle mag das ausreichen: Einfache Umformungsfunktionen in Excel oder R liefern die Informationen in einem sinnvollen Format. Für komplexe Antwortformate müssen jedoch spezielle Programmierungen die Umformung vornehmen. Das IQB hat für seine beiden Antwortformate iqb-standard und iqb-abi das Windows-Programm itc-Toolbox veröffentlicht. Die Antwortdaten aller Player des IQB können hierüber in eine gut auswertbare Form gebracht werden.\n\nIn der Dokumentation des API des Testcenters kann man nachlesen, dass über den Endpunkt, der die Antworten ausliefert, auch JSON als Format gewählt werden kann statt CSV. Das ist dann für die Datenintegration in Länderportale wahrscheinlich günstiger.",
+    "crumbs": [
+      "Schritt für Schritt",
+      "Testcenter Daten Download"
+    ]
+  },
+  {
+    "objectID": "Studio/intro.html",
+    "href": "Studio/intro.html",
+    "title": "Überblick",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Studio",
       "Überblick"
     ]
   },
@@ -52,36 +129,25 @@
     ]
   },
   {
-    "objectID": "Testcenter/itc_Toolbox.html",
-    "href": "Testcenter/itc_Toolbox.html",
-    "title": "itc-Toolbox",
+    "objectID": "Kodierbox/intro.html",
+    "href": "Kodierbox/intro.html",
+    "title": "Überblick",
     "section": "",
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
-      "Testcenter",
-      "itc-Toolbox"
+      "Kodierbox",
+      "Überblick"
     ]
   },
   {
-    "objectID": "Testcenter/Gruppenmonitor.html",
-    "href": "Testcenter/Gruppenmonitor.html",
-    "title": "Gruppenmonitor",
+    "objectID": "Testcenter/Verwaltung_und_Organisation.html",
+    "href": "Testcenter/Verwaltung_und_Organisation.html",
+    "title": "Verwaltung und Organisation",
     "section": "",
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
       "Testcenter",
-      "Gruppenmonitor"
-    ]
-  },
-  {
-    "objectID": "Testcenter/Typische_Probleme.html",
-    "href": "Testcenter/Typische_Probleme.html",
-    "title": "Typische Probleme - Troubleshooting",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Testcenter",
-      "Typische Probleme - Troubleshooting"
+      "Verwaltung und Organisation"
     ]
   },
   {
@@ -104,6 +170,17 @@
     "crumbs": [
       "Testcenter",
       "Player zur Testwiedergabe"
+    ]
+  },
+  {
+    "objectID": "Testcenter/itc_Toolbox.html",
+    "href": "Testcenter/itc_Toolbox.html",
+    "title": "itc-Toolbox",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "itc-Toolbox"
     ]
   },
   {
@@ -192,83 +269,6 @@
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse"
-    ]
-  },
-  {
-    "objectID": "Testcenter/Die_Sicht_der_Testperson.html",
-    "href": "Testcenter/Die_Sicht_der_Testperson.html",
-    "title": "Die Sicht der Testperson",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Testcenter",
-      "Die Sicht der Testperson"
-    ]
-  },
-  {
-    "objectID": "Testcenter/intro.html",
-    "href": "Testcenter/intro.html",
-    "title": "Überblick",
-    "section": "",
-    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nVerlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind\n\n\n\n\n\n\n\n\n\nCodeverwaltung Testcenter\n\n\n\nGitHub Repository Releases\n\n\nDas IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d. h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zum Anmelden. Alle Daten für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.\nDas IQB bietet folgende Video-Präsentationen bzgl. des Testcenters an.\nInstallation\nDas IQB hat alle Programmierungen unter der Open Source-Lizenz MIT veröffentlicht und erleichtert die Installation durch Containervirtualisierung (Docker). Für die Installation muss man einen Linux-Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern,übernimmt aber im Schadensfall keine Verantwortung.\nVerwaltung der Tests\nNach der Installation ist zunächst ein Systemadministrator-Konto für die Verwaltung von Arbeitsbereichen und Benutzer*innen angelegt. Außerdem ist ein Arbeitsbereich angelegt mit einem Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für die Benutzer*innen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereich können die Benutzer*innen, die für einen Test erforderlichen Testdateien (Aufgaben, Testabläufe usw. als XML-Dateien) laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse heruntergeladen werden (Csv-Dateien).\n:information_source: Benutzer*innen können mittels spezieller Parameter in einzelnen Testdateien Anpassungen der Anwendung vornehmen. Hier können dann bspw. Begrüßungsnachrichten, Hintergrundfarben, das Logo auf der Startseite und selbst der Name der Anwendung bzgl. eigener Wünsche angepasst werden.\nDurchführung von Tests oder Befragungen\nDurch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien, der so genannten Testtaker.xml, hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Units). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:\n\nVerschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, spezieller Modus für das Ausprobieren eines Tests (Review) usw.\nMehrere Testhefte: Eine Testperson kann auch mehrere Testhefte nacheinander bearbeiten mit denselben Anmeldedaten\nzeitliche Beschränkung von Testteilen: Für eine bestimmte Anzahl Aufgaben steht der Testperson eine begrenzte Zeit zur Verfügung\nFortsetzung erst mit Freigabewort: Die Testdurchführung z. B. in einer Klasse kann synchronisiert werden, indem die Testleitung ein Wort ansagt, mit dem dann der Test fortgesetzt werden kann\nFortsetzung erst nach vollständiger Präsentation: Um zu vermeiden, dass Teile einer Aufgabe übersehen werden, kann das Weiterblättern solange unterbunden werden, bis alle Audio-Sequenzen abgespielt wurden und alle Seiten vollständig angezeigt wurden\nFortsetzung erst nach vollständiger Beantwortung\nsofortige Speicherung: Alle Antworten werden sofort zum Testcenter-Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann daher der vorherige Stand wiederhergestellt werden\n\nEs können mehrere Tests oder Befragungen gleichzeitig laufen.\nSystem-Check\nMan kann bei der enormen Vielfalt der Hardware (Tablet, Smartphone usw.) und Software (Apple, Linux, Android usw.) nicht garantieren, dass ein Test oder eine Befragung so wie beabsichtigt funktioniert. Je nach Anforderung an den Test wird das auch nicht sinnvoll sein, z. B. wenn eine Mindestbreite für den Bildschirm erforderlich ist.\nWenn man erfahren möchte, ob die Zielsysteme geeignet sind, kann man im IQB-Testcenter einen System-Check konfigurieren. Dann können z. B. die verantwortlichen Lehrkräfte in der Vorbereitungsphase im Testcenter einen auf die speziellen Anforderungen des Tests abgestimmten Check durchführen. Auch die Internetverbindung kann hierüber bewertet werden.\nEin System-Check sollte aber auch nicht überbewertet werden. Ein positiver Befund ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Updates) belegt ist. Außerdem erhöht ein System-Check den ohnehin hohen Aufwand einer Testung und könnte die Teilnahmemotivation weiter senken.\nTestleitungskonsole\nSoll ein Test für eine bestimmte Personengruppe (z. B. Klasse) gleichzeitig stattfinden, kann ein Monitor dafür eingerichtet werden. Die Testleitung kann dann für jede Testperson den Fortschritt beobachten, ggf. das Weiterblättern erzwingen, Personen ausschließen oder eine Sperre wieder aufheben.\nSystemanforderungen\nDa die Programmierungen des Testcenters online in einem Browser ablaufen, ist keine vorherige Installation von Software auf einem Computer nötig, mit dem der Test oder die Befragung durchgeführt werden soll. Es ist nur ein Internet-Zugriff und ein Browser nötig.\nEs gibt immer wieder die Diskussion darüber, ob bzw. in welchem Maße ältere Browser bzw. Browserversionen unterstützt werden sollen. Hier wird argumentiert, dass Schulen bzw. deren Träger oft nicht in der Lage seien, die Verwendung aktueller Browser sicherzustellen. Aus dieser Realität ergebe sich, dass die Programmierungen für TBA stets ein Maximum an Abdeckung auch für alte Browser leisten müssten.\nDas IQB folgt hier jedoch den Anforderungen an die Datensicherheit, so wie es z. B. das Bundesamt für Sicherheit in der Informationstechnik formuliert:\n\n“Der Internet-Browser ist die zentrale Komponente für die Nutzung von Online-Angeboten und stellt somit eins der beliebtesten Ziele für Cyber-Angriffe dar. Hieraus ergibt sich ein besonders hohes Gefahrenpotenzial.” Quelle\n\n\n“Installieren Sie alle Updates sofort oder zeitnah nach ihrer Veröffentlichung, sowohl die für Ihren Browser, als auch für alle Erweiterungen und natürlich Ihr Betriebssystem. Verwenden Sie stets die neuste Version Ihres Browsers.” Quelle\n\nDas IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. - bei Chrome und Firefox - die Versionen der letzten 12 Monate. Beispielsweise werden derzeit (Stand April 2022) bei Safari nur die Versionen 14 (Veröffentlichung September 2020) und 15 unterstützt.",
-    "crumbs": [
-      "Testcenter",
-      "Überblick"
-    ]
-  },
-  {
-    "objectID": "Testcenter/Testen_der_Anwendung.html",
-    "href": "Testcenter/Testen_der_Anwendung.html",
-    "title": "Testen der Anwendung",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Testcenter",
-      "Testen der Anwendung"
-    ]
-  },
-  {
-    "objectID": "Testcenter/Verwaltung_und_Organisation.html",
-    "href": "Testcenter/Verwaltung_und_Organisation.html",
-    "title": "Verwaltung und Organisation",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Testcenter",
-      "Verwaltung und Organisation"
-    ]
-  },
-  {
-    "objectID": "Kodierbox/intro.html",
-    "href": "Kodierbox/intro.html",
-    "title": "Überblick",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Kodierbox",
-      "Überblick"
-    ]
-  },
-  {
-    "objectID": "Schritt_für_Schritt/Testcenter_Daten_Download.html",
-    "href": "Schritt_für_Schritt/Testcenter_Daten_Download.html",
-    "title": "Schritt für Schritt: Testcenter Daten Download",
-    "section": "",
-    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text\n\n\n\nEs können Antwort- und Logdateien heruntergeladen werden. Diese werden im Testcenter in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.\n\n\n\nTestcenter Daten-Download\n\n\n\nEs werden nicht in jedem Testmodus Ergebnisse gespeichert. Die Speicherung erfolgt nur in folgenden Modi: run-hot-return, run-hot-restart und run-trial!\n\nDie Ergebnisse können mittels der üblichen Browserfunktionalitäten heruntergeladen werden. Die Dateien werden dann als CSV-Dateien gespeichert.\n\nAufbereitung\nDurch den modularen Aufbau des Testsystems ist die Komponente, die die Interaktion mit der Testperson steuert, austauschbar. Laut Verona-Spezifikation ist das Datenformat der Antworten und Logs nicht vorgeschrieben. Das liegt z. B. daran, dass Antworten nicht nur einfache Datentypen sein können (Text, Zahl), sondern auch Listen, Bilder, Ton usw. Das Interesse an Zusatzinformationen (Zustände über die Zeit) mag auch schwanken je nachdem, ob eine Pilotierung (Kennenlernen von Itemeigenschaften) oder eine große automatisierte Testung durchgeführt wird.\nWenn man die Antwortdaten herunterlädt, sind die Antworten in einer bestimmten Spalte in einem Roh-Format JSON hinterlegt, so wie der Player sie geschickt hatte. Die Verona-Schnittstelle sieht vor, dass die Antwortdaten aufgeteilt werden können in mehrere sog. Parts oder Chunks. Im folgenden Beispiel hat der Player nur einen Chunk geschickt (mit der ID ‘all’) und die Antwortdaten als JSON-Struktur (verpackt als String). Außerdem ist das Datenformat und ein JavaScript-Zeitstempel (ts = TimeStamp) hinterlegt.\n[\n    {\n        \"id\":\"all\",\n        \"content\":\"{\\\"name\\\":\\\"Sam Sample\\\",\\\"age\\\":34}\",\n        \"ts\":1627545600,\n        \"responseType\":\"example-data-format\"\n    }\n]\nFür viele Anwendungsfälle mag das ausreichen: Einfache Umformungsfunktionen in Excel oder R liefern die Informationen in einem sinnvollen Format. Für komplexe Antwortformate müssen jedoch spezielle Programmierungen die Umformung vornehmen. Das IQB hat für seine beiden Antwortformate iqb-standard und iqb-abi das Windows-Programm itc-Toolbox veröffentlicht. Die Antwortdaten aller Player des IQB können hierüber in eine gut auswertbare Form gebracht werden.\n\nIn der Dokumentation des API des Testcenters kann man nachlesen, dass über den Endpunkt, der die Antworten ausliefert, auch JSON als Format gewählt werden kann statt CSV. Das ist dann für die Datenintegration in Länderportale wahrscheinlich günstiger.",
-    "crumbs": [
-      "Schritt für Schritt",
-      "Testcenter Daten Download"
-    ]
-  },
-  {
-    "objectID": "Studio/intro.html",
-    "href": "Studio/intro.html",
-    "title": "Überblick",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Studio",
-      "Überblick"
     ]
   }
 ]
