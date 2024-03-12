@@ -1,7 +1,40 @@
 ---
 lang: de
-title: "Überblick"
+title: "TBA Überblick"
 ---
-::: {.callout-note}
-Diese Seite ist in Berabeitung!
-:::
+
+
+```{mermaid}
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+    John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+
+
+```{dot}
+digraph G {
+  layout=neato;
+  overlap=false
+  run -> intr;
+  intr -> runbl;
+  runbl -> run;
+  run -> kernel;
+  kernel -> zombie;
+  kernel -> sleep;
+  kernel -> runmem;
+  sleep -> swap;
+  swap -> runswap;
+  runswap -> new;
+  runswap -> runmem;
+  new -> runmem;
+  sleep -> runmem;
+}
+```
