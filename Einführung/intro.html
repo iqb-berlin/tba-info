@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB TBA-Info - Überblick</title>
+<title>IQB TBA-Info - TBA Überblick</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -288,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Einführung/intro.html">Einführung</a></li><li class="breadcrumb-item"><a href="../Einführung/intro.html">Überblick</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Überblick</h1>
+<h1 class="title">TBA Überblick</h1>
 </div>
 
 
@@ -305,17 +308,180 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice-&gt;&gt;John: Hello John, how are you?
+  loop Healthcheck
+    John-&gt;&gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts &lt;br/&gt;prevail!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!
+</pre>
 </div>
-<div class="callout-title-container flex-fill">
-Hinweis
+<p></p></figure><p></p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Diese Seite ist in Berabeitung!</p>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 390.99 246.71" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 242.71)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-242.71 386.99,-242.71 386.99,4 -4,4"></polygon>
+<!-- run -->
+<g id="node1" class="node">
+<title>run</title>
+<ellipse fill="none" stroke="black" cx="105.22" cy="-110.03" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="105.22" y="-105.83" font-family="Times,serif" font-size="14.00">run</text>
+</g>
+<!-- intr -->
+<g id="node2" class="node">
+<title>intr</title>
+<ellipse fill="none" stroke="black" cx="48.11" cy="-59.71" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="48.11" y="-55.51" font-family="Times,serif" font-size="14.00">intr</text>
+</g>
+<!-- run&#45;&gt;intr -->
+<g id="edge1" class="edge">
+<title>run-&gt;intr</title>
+<path fill="none" stroke="black" d="M88.7,-95.48C83.66,-91.03 78,-86.04 72.54,-81.23"></path>
+<polygon fill="black" stroke="black" points="74.61,-78.39 64.79,-74.4 69.98,-83.64 74.61,-78.39"></polygon>
+</g>
+<!-- kernel -->
+<g id="node4" class="node">
+<title>kernel</title>
+<ellipse fill="none" stroke="black" cx="180.95" cy="-137.54" rx="35.33" ry="18"></ellipse>
+<text text-anchor="middle" x="180.95" y="-133.34" font-family="Times,serif" font-size="14.00">kernel</text>
+</g>
+<!-- run&#45;&gt;kernel -->
+<g id="edge4" class="edge">
+<title>run-&gt;kernel</title>
+<path fill="none" stroke="black" d="M129.18,-118.73C133.39,-120.26 137.86,-121.89 142.35,-123.52"></path>
+<polygon fill="black" stroke="black" points="141.51,-126.94 152.1,-127.06 143.9,-120.36 141.51,-126.94"></polygon>
+</g>
+<!-- runbl -->
+<g id="node3" class="node">
+<title>runbl</title>
+<ellipse fill="none" stroke="black" cx="31.42" cy="-126.16" rx="31.34" ry="18"></ellipse>
+<text text-anchor="middle" x="31.42" y="-121.96" font-family="Times,serif" font-size="14.00">runbl</text>
+</g>
+<!-- intr&#45;&gt;runbl -->
+<g id="edge2" class="edge">
+<title>intr-&gt;runbl</title>
+<path fill="none" stroke="black" d="M43.64,-77.51C42.03,-83.92 40.18,-91.31 38.4,-98.36"></path>
+<polygon fill="black" stroke="black" points="34.95,-97.75 35.91,-108.3 41.74,-99.46 34.95,-97.75"></polygon>
+</g>
+<!-- runbl&#45;&gt;run -->
+<g id="edge3" class="edge">
+<title>runbl-&gt;run</title>
+<path fill="none" stroke="black" d="M61.01,-119.7C63.77,-119.09 66.59,-118.48 69.4,-117.86"></path>
+<polygon fill="black" stroke="black" points="70.41,-121.22 79.43,-115.67 68.91,-114.39 70.41,-121.22"></polygon>
+</g>
+<!-- zombie -->
+<g id="node5" class="node">
+<title>zombie</title>
+<ellipse fill="none" stroke="black" cx="168.31" cy="-220.71" rx="39.42" ry="18"></ellipse>
+<text text-anchor="middle" x="168.31" y="-216.51" font-family="Times,serif" font-size="14.00">zombie</text>
+</g>
+<!-- kernel&#45;&gt;zombie -->
+<g id="edge5" class="edge">
+<title>kernel-&gt;zombie</title>
+<path fill="none" stroke="black" d="M178.21,-155.58C176.57,-166.38 174.45,-180.32 172.59,-192.53"></path>
+<polygon fill="black" stroke="black" points="169.09,-192.29 171.05,-202.7 176.01,-193.34 169.09,-192.29"></polygon>
+</g>
+<!-- sleep -->
+<g id="node6" class="node">
+<title>sleep</title>
+<ellipse fill="none" stroke="black" cx="253.25" cy="-154.97" rx="30.76" ry="18"></ellipse>
+<text text-anchor="middle" x="253.25" y="-150.77" font-family="Times,serif" font-size="14.00">sleep</text>
+</g>
+<!-- kernel&#45;&gt;sleep -->
+<g id="edge6" class="edge">
+<title>kernel-&gt;sleep</title>
+<path fill="none" stroke="black" d="M212.87,-145.23C213.49,-145.38 214.1,-145.53 214.72,-145.68"></path>
+<polygon fill="black" stroke="black" points="214.15,-149.14 224.69,-148.08 215.79,-142.34 214.15,-149.14"></polygon>
+</g>
+<!-- runmem -->
+<g id="node7" class="node">
+<title>runmem</title>
+<ellipse fill="none" stroke="black" cx="218.22" cy="-64.86" rx="43.44" ry="18"></ellipse>
+<text text-anchor="middle" x="218.22" y="-60.66" font-family="Times,serif" font-size="14.00">runmem</text>
+</g>
+<!-- kernel&#45;&gt;runmem -->
+<g id="edge7" class="edge">
+<title>kernel-&gt;runmem</title>
+<path fill="none" stroke="black" d="M189.97,-119.94C194.34,-111.44 199.67,-101.04 204.52,-91.58"></path>
+<polygon fill="black" stroke="black" points="207.71,-93.04 209.15,-82.54 201.48,-89.84 207.71,-93.04"></polygon>
+</g>
+<!-- sleep&#45;&gt;runmem -->
+<g id="edge13" class="edge">
+<title>sleep-&gt;runmem</title>
+<path fill="none" stroke="black" d="M246.33,-137.17C241.37,-124.41 234.6,-107 228.95,-92.45"></path>
+<polygon fill="black" stroke="black" points="232.13,-90.99 225.25,-82.93 225.61,-93.52 232.13,-90.99"></polygon>
+</g>
+<!-- swap -->
+<g id="node8" class="node">
+<title>swap</title>
+<ellipse fill="none" stroke="black" cx="330.95" cy="-148.25" rx="30.77" ry="18"></ellipse>
+<text text-anchor="middle" x="330.95" y="-144.05" font-family="Times,serif" font-size="14.00">swap</text>
+</g>
+<!-- sleep&#45;&gt;swap -->
+<g id="edge8" class="edge">
+<title>sleep-&gt;swap</title>
+<path fill="none" stroke="black" d="M283.96,-152.31C285.96,-152.14 288,-151.97 290.04,-151.79"></path>
+<polygon fill="black" stroke="black" points="290.55,-155.26 300.21,-150.91 289.94,-148.28 290.55,-155.26"></polygon>
+</g>
+<!-- runswap -->
+<g id="node9" class="node">
+<title>runswap</title>
+<ellipse fill="none" stroke="black" cx="339.24" cy="-62.02" rx="43.51" ry="18"></ellipse>
+<text text-anchor="middle" x="339.24" y="-57.82" font-family="Times,serif" font-size="14.00">runswap</text>
+</g>
+<!-- swap&#45;&gt;runswap -->
+<g id="edge9" class="edge">
+<title>swap-&gt;runswap</title>
+<path fill="none" stroke="black" d="M332.71,-129.97C333.8,-118.53 335.24,-103.57 336.49,-90.59"></path>
+<polygon fill="black" stroke="black" points="340.01,-90.57 337.48,-80.28 333.04,-89.9 340.01,-90.57"></polygon>
+</g>
+<!-- runswap&#45;&gt;runmem -->
+<g id="edge11" class="edge">
+<title>runswap-&gt;runmem</title>
+<path fill="none" stroke="black" d="M295.55,-63.04C287.74,-63.23 279.53,-63.42 271.49,-63.61"></path>
+<polygon fill="black" stroke="black" points="271.36,-60.11 261.44,-63.85 271.52,-67.11 271.36,-60.11"></polygon>
+</g>
+<!-- new -->
+<g id="node10" class="node">
+<title>new</title>
+<ellipse fill="none" stroke="black" cx="278.31" cy="-18" rx="27.25" ry="18"></ellipse>
+<text text-anchor="middle" x="278.31" y="-13.8" font-family="Times,serif" font-size="14.00">new</text>
+</g>
+<!-- runswap&#45;&gt;new -->
+<g id="edge10" class="edge">
+<title>runswap-&gt;new</title>
+<path fill="none" stroke="black" d="M317.59,-46.38C313.52,-43.44 309.23,-40.34 305.04,-37.31"></path>
+<polygon fill="black" stroke="black" points="306.82,-34.28 296.67,-31.26 302.72,-39.96 306.82,-34.28"></polygon>
+</g>
+<!-- new&#45;&gt;runmem -->
+<g id="edge12" class="edge">
+<title>new-&gt;runmem</title>
+<path fill="none" stroke="black" d="M260.61,-31.81C256.37,-35.11 251.73,-38.73 247.13,-42.32"></path>
+<polygon fill="black" stroke="black" points="244.71,-39.77 238.98,-48.68 249.01,-45.29 244.71,-39.77"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
 </div>
 </div>
 
