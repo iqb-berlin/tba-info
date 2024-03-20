@@ -1,0 +1,202 @@
+---
+lang: de
+title: "Testtaker-Xml"
+---
+
+::: {.callout-note}
+In Bearbeitung THuste: to do
+
+* Überarbeiten Layout und Text
+
+:::
+
+Die Testtaker-Definition besteht aus einer XML-Datei. Hinweise zur Bearbeitung von XML-Dateien erhalten Sie [hier](Arbeiten-mit-Xml‐Dateien).
+
+# Attribute und Daten
+
+::: {.callout-important}
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die `Testtakers.xml` ist [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
+:::
+
+::: {.callout-important}
+Werden Attribute nicht beschrieben, erhalten diese Attribute Standardwerte. Welche Standardwerte das sind, ist der entsprechenden Tabelle (siehe Custom-Text-Konfiguration) zu entnehmen!
+:::
+
+`METADATA`
+
+```{=html}
+<table>
+<tr>
+    <td>Description:</td>
+    <td>>xxx<</td>
+	<td>Datum</td>
+    <td>frei wählbarer Text für die Metadaten Beschreibung</td>
+</tr>
+</table>
+```
+
+```{=xml}
+<Metadata>
+  <Description>
+    Diese Datei enthält Informationen zur Art des Logins und der Testdurchführung.
+  </Description>		
+</Metadata>
+  ...
+```
+---
+
+`GROUP`
+
+```{=html}
+<table>
+<tr>
+    <td>Group:</td>
+    <td>id</td>
+    <td>Attribut</td>
+    <td>frei wählbarer Wert</td>
+</tr>
+<tr>
+    <td>Group:</td>
+    <td>label</td>
+    <td>Attribut</td>
+    <td>frei wählbarer Wert</td>
+</tr>
+<tr>
+    <td>Group:</td>
+    <td>validTo</td>
+    <td>Attribut</td>
+    <td>Bestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format:<br> dd/mm/yyyy hh:mm</td>
+</tr>
+<tr>
+    <td>Group:</td>
+    <td>validFrom</td>
+    <td>Attribut</td>
+    <td>Bestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format:<br> dd/mm/yyyy hh:mm</td>
+</tr>
+<tr>
+    <td>Group:</td>
+    <td>validFor</td>
+    <td>Attribut</td>
+    <td>Bestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer</td>
+</tr>
+<tr>
+    <td>Login:</td>
+    <td>name</td>
+    <td>Attribut</td>
+    <td>Frei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
+</tr>
+<tr>
+    <td>Login:</td>
+    <td>mode</td>
+    <td>Attribut</td>
+    <td>Vordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.).
+	Siehe: <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Login:-Modi-der-Testdurchf%C3%BChrung">Modi der Testdurchführung</a></td>
+</tr>
+<tr>
+    <td>Login:</td>
+    <td>pw</td>
+    <td>Attribut</td>
+    <td>Frei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
+</tr>
+<tr>
+    <td>Booklet:</td>
+    <td>>xxx<</td>
+    <td>Datum</td>
+    <td>Frei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)</td>
+</tr>
+</table>
+```
+
+```{=xml}
+<Group id="Gruppe1" validTo="1/6/2023 10:00" label="Dies ist die erste Gruppe.">
+  <Login name="user1" mode="run-demo" pw="123">
+    <Booklet>Booklet1</Booklet>
+  </Login>
+</Group>
+
+```
+---
+
+`CUSTOMTEXTS`
+
+```{=html}
+<table>
+<tr>
+    <td>CustomText:</td>
+    <td>key</td>
+    <td>Attribut</td>
+    <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Custom Text Configuration.</b></td   
+</tr>
+<tr>
+    <td>CustomText:</td>
+    <td>>xxx<</td>
+    <td>Datum</td>
+    <td>frei wählbar Text zur Anzeige eines Custom Text</td>
+</tr>
+</table>
+```
+
+```{=xml}
+<CustomTexts>
+  <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+</CustomTexts>
+```
+
+# Custom Text Konfiguration
+
+Diese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. 
+Welche Textteile innerhalb des **Testcenters** ersetzt werden sollen, wird mit dem Attribut: `key` festgelegt. Dazu werden dem Attribut: `key` definierte Attributwerte zugewiesen. 
+
+::: {.callout-note}
+[**Hier**](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) finden Sie eine Übersicht über die verwendbaren Attributwerte, die dem Attribut:`key` zugewiesen werden können. Der individuelle Text wird dann in Hochkommata gefasst als Datum übergeben. Alle Texte, die nicht geändert werden, erhalten den Standardtext.
+:::
+
+::: {.callout-important}
+Achten Sie bei der Verwendung auf die richtige Schreibweise und beachten Sie die Groß-/Kleinschreibung.
+:::
+
+Hier ein Beispiel für 2 veränderte Texte.
+
+```{=xml}
+<CustomTexts>
+    <CustomText key="login_testEndButtonText">Test beenden</CustomText>
+    <CustomText key="login_bookletSelectPrompt">Bitte wählen</CustomText>
+</CustomTexts>
+```
+
+# Einrichten der Testleitungskonsole
+
+Die Testleitung kann in der `Testtaker.xml` über den Login: `Monitor-Group` (mehr Informationen zum Thema Modi der Testdurchführung finden Sie [hier](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Login-Modi-der-Testdurchf%C3%BChrung) festlegen welche Gruppen der Testleitkonsole hinzugefügt werden sollen. Dazu wird in der entsprechenden Gruppe ein Login: `Monitor-Group` angelegt. Nachfolgend finden Sie zwei Beispiele wie Gruppen angelegt werden können:
+
+Ohne Passwort. Sinnvoll wenn nur Links an die Testpersonen versendet werden.
+
+```{=xml}
+<Group id="iqb-intern1" label="IQB intern Gruppe 1">
+		
+	<Login mode="run-hot-return" name="Testgruppe-1">
+		<Booklet codes="Testperson_a Testperson_b Testperson_c">THETLK</Booklet>
+	</Login>
+
+	<Login mode="monitor-group" name="group-monitor_1" />
+
+</Group>
+```
+
+Jede Testperson erhält ein eigenes Passwort. Dies stellt die gängigste Methode dar.
+
+```{=xml}
+<Group id="iqb-intern1" label="IQB intern Gruppe 1">
+			
+	<Login mode="run-hot-return" name="Testperson_a" pw="123">
+		<Booklet>THETLK</Booklet>
+	</Login>
+	<Login mode="run-hot-return" name="Testperson_b" pw="124">
+		<Booklet>THETLK</Booklet>
+	</Login>
+	<Login mode="run-hot-return" name="Testperson_c" pw="125">
+		<Booklet>THETLK</Booklet>
+	</Login>
+						
+	<Login mode="monitor-group" name="group-monitor_1" />
+</Group>
+```
