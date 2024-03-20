@@ -281,7 +281,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#verwaltung-der-tests" id="toc-verwaltung-der-tests" class="nav-link" data-scroll-target="#verwaltung-der-tests">Verwaltung der Tests</a></li>
+  <li><a href="#durchführung-von-tests-oder-befragungen" id="toc-durchführung-von-tests-oder-befragungen" class="nav-link" data-scroll-target="#durchführung-von-tests-oder-befragungen">Durchführung von Tests oder Befragungen</a></li>
+  <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
+  <li><a href="#gruppenmonitor-testleitungskonsole" id="toc-gruppenmonitor-testleitungskonsole" class="nav-link" data-scroll-target="#gruppenmonitor-testleitungskonsole">Gruppenmonitor (Testleitungskonsole)</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -334,14 +344,19 @@ Codeverwaltung Testcenter
 <p><a href="https://github.com/iqb-berlin/testcenter">GitHub Repository</a><br> <a href="https://github.com/iqb-berlin/testcenter/releases">Releases</a></p>
 </div>
 </div>
-<p>Das IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d.&nbsp;h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zum Anmelden. Alle Daten für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.</p>
+<p>Das IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d.&nbsp;h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zur Anmeldung. Alle Daten für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.</p>
 <p>Das IQB bietet folgende <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testcenter-Videos">Video-Präsentationen</a> bzgl. des Testcenters an.</p>
-<p><strong>Installation</strong></p>
+<section id="installation" class="level1">
+<h1>Installation</h1>
 <p>Das IQB hat alle Programmierungen unter der Open Source-Lizenz <a href="https://opensource.org/licenses/MIT">MIT</a> veröffentlicht und erleichtert die Installation durch Containervirtualisierung (Docker). Für die Installation muss man einen Linux-Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern,übernimmt aber im Schadensfall keine Verantwortung.</p>
-<p><strong>Verwaltung der Tests</strong></p>
+</section>
+<section id="verwaltung-der-tests" class="level1">
+<h1>Verwaltung der Tests</h1>
 <p>Nach der Installation ist zunächst ein Systemadministrator-Konto für die Verwaltung von Arbeitsbereichen und Benutzer*innen angelegt. Außerdem ist ein Arbeitsbereich angelegt mit einem Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für die Benutzer*innen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereich können die Benutzer*innen, die für einen Test erforderlichen Testdateien (Aufgaben, Testabläufe usw. als XML-Dateien) laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse heruntergeladen werden (Csv-Dateien).</p>
 <p>:information_source: Benutzer*innen können mittels spezieller Parameter in einzelnen Testdateien Anpassungen der Anwendung vornehmen. Hier können dann bspw. Begrüßungsnachrichten, Hintergrundfarben, das Logo auf der Startseite und selbst der Name der Anwendung bzgl. eigener Wünsche angepasst werden.</p>
-<p><strong>Durchführung von Tests oder Befragungen</strong></p>
+</section>
+<section id="durchführung-von-tests-oder-befragungen" class="level1">
+<h1>Durchführung von Tests oder Befragungen</h1>
 <p>Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien, der so genannten <strong>Testtaker.xml</strong>, hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Units). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:</p>
 <ul>
 <li>Verschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, spezieller Modus für das Ausprobieren eines Tests (Review) usw.</li>
@@ -353,11 +368,15 @@ Codeverwaltung Testcenter
 <li>sofortige Speicherung: Alle Antworten werden sofort zum Testcenter-Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann daher der vorherige Stand wiederhergestellt werden</li>
 </ul>
 <p>Es können mehrere Tests oder Befragungen gleichzeitig laufen.</p>
-<p><strong>System-Check</strong></p>
+</section>
+<section id="system-check" class="level1">
+<h1>System-Check</h1>
 <p>Man kann bei der enormen Vielfalt der Hardware (Tablet, Smartphone usw.) und Software (Apple, Linux, Android usw.) nicht garantieren, dass ein Test oder eine Befragung so wie beabsichtigt funktioniert. Je nach Anforderung an den Test wird das auch nicht sinnvoll sein, z. B. wenn eine Mindestbreite für den Bildschirm erforderlich ist.</p>
 <p>Wenn man erfahren möchte, ob die Zielsysteme geeignet sind, kann man im IQB-Testcenter einen System-Check konfigurieren. Dann können z. B. die verantwortlichen Lehrkräfte in der Vorbereitungsphase im Testcenter einen auf die speziellen Anforderungen des Tests abgestimmten Check durchführen. Auch die Internetverbindung kann hierüber bewertet werden.</p>
 <p>Ein System-Check sollte aber auch nicht überbewertet werden. Ein positiver Befund ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Updates) belegt ist. Außerdem erhöht ein System-Check den ohnehin hohen Aufwand einer Testung und könnte die Teilnahmemotivation weiter senken.</p>
-<p><strong>Testleitungskonsole</strong></p>
+</section>
+<section id="gruppenmonitor-testleitungskonsole" class="level1">
+<h1>Gruppenmonitor (Testleitungskonsole)</h1>
 <p>Soll ein Test für eine bestimmte Personengruppe (z. B. Klasse) gleichzeitig stattfinden, kann ein Monitor dafür eingerichtet werden. Die Testleitung kann dann für jede Testperson den Fortschritt beobachten, ggf. das Weiterblättern erzwingen, Personen ausschließen oder eine Sperre wieder aufheben.</p>
 <p><strong><a name="system-requirements"></a>Systemanforderungen</strong></p>
 <p>Da die Programmierungen des Testcenters online in einem Browser ablaufen, ist keine vorherige Installation von Software auf einem Computer nötig, mit dem der Test oder die Befragung durchgeführt werden soll. Es ist nur ein Internet-Zugriff und ein Browser nötig.</p>
@@ -372,6 +391,7 @@ Codeverwaltung Testcenter
 <p>Das IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. - bei Chrome und Firefox - die Versionen der letzten 12 Monate. Beispielsweise werden derzeit (Stand April 2022) bei Safari nur die Versionen 14 (Veröffentlichung September 2020) und 15 unterstützt.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -807,4 +827,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
