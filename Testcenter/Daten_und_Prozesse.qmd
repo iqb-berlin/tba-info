@@ -15,28 +15,116 @@ In Bearbeitung THuste: to do
 # Daten-Input für das Testcenter
 
 ::: {.callout-tip}
-Wie Daten in das Testcenter geladen werden können, ist im Kapitel: **Schritt für Schritt** detailiert beschrieben.
+## Wie Daten in das Testcenter geladen werden können, ist im Kapitel: Schritt für Schritt detailiert beschrieben.
 :::
 
 Das **Studio** kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das **Testcenter** geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die [Videos](https://box.hu-berlin.de/f/81701b5fa68446bc99a3/) zum Thema Testdateien an.
 
-## Logins
+## Logins und weitere Konfigurationen
 
-Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Informationen sind in einer [XML-Datei](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testtaker%E2%80%90Xml) festgelegt. Folgende Arten des Zugriffs (Rollen) werden unterschieden:
-* Testpersonen: Die Personen, die den Test bzw. die Befragung absolvieren. Deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung.
-* Testleitung: Ein spezieller Login sorgt dafür, dass die angemeldete Person den Monitor für eine Testgruppe startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden.
-* Review: Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits.
-* Demo: Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.
+Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten werden in einer XML-Datei hinterlegt und dort einer Login-Gruppe (`Group`) zugewiesen. Die XML-Datei trägt IQB-intern den Namen: **TESTTAKER-XML**. Prinzipiell ist der Dateiname aber frei wählbar. 
 
-Das Erstellen von Logins wird unterstützt über das Windows-Programm **itc-Toolbox**. Mehr Informationen dazu sind im gleichnamigen Kapitel zu finden.
+Für eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig. Bspw. ganz klassisch mittels Namen und Passwort oder via Link.
+
+::: {.callout-tip}
+## Mehr Informationen zu den Anmeldeverfahren sind den Referenzen zu entnehmen!
+:::
+
+Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: **itc-Toolbox** helfen das Erzeugen solcher Zugänge zu beschleunigen.
+
+::: {.callout-note}
+## Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: itc-Toolbox. Mehr Informationen dazu sind dem gleichnamigen Kapitel zu entnehmen.
+:::
+
+Um die Art des Zugriffs festzulegen, wird zu jedem Login ein Modus hinterlegt. Wie der Test für einen Login durchgeführt werden soll. Folgende Modi stehen zur Verfügung:
+
+`run-hot-return`und `run-hot-restart`
+
+Die angemeldeten Personen führen den Test "heiß" durch, sprich deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung.
+
+`run-review`
+
+Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits.
+
+`run-demo`
+
+Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.
+
+`monitor-group` und `monitor-study`
+
+Diese Modi sorgen dafür, dass die angemeldete Person den Gruppen-Monitor für eine oder mehrere Login-Gruppen startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden. Dieser Gruppen-Monitor kann von der Testleitung zur Teststeuerung verwendet werden.
+
+Außer den Logins können weitere Konfigurationen der Testumgebung in der **TESTTAKER-XML** erfolgen. Bspw. können individuelle Textersetzungen vorgenommen werden. Jedem Login kann ein bestimmtes Testheft zugewiesen werden. Logins können zeitliche Beschränkungen erhalten.
+
+::: {.callout-tip}
+## Mehr Informationen zu den Inhalten der TESTTAKER-XML sind den Referenzen zu entnehmen!
+:::
 
 ## Test-Definition
 
-Diese [XML-Datei](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Booklet%E2%80%90Xml) legt die Reihenfolge der Aufgaben (Units) fest. Man kann die Aufgaben bzw. Zwischenseiten auch in Blöcke (Testlets) gruppieren. Innerhalb dieser Blöcke (Testlets) können dann Beschränkungen festgelegt werden. Bspw. kann ein Block dann nur nach Eingabe eines Code-Wortes betreten werden oder es gilt eine zeitliche Beschränkung für einen Block. Außerdem kann über die Test-Definition das Weiterblättern auf Folgeseiten mit Bedingungen verknüpft werden. Das Springen (scrollen) an das Seitenende könnte bspw. eine solche Bedingung darstellen. Diese Bedingung würde sicherstellen, dass die Testperson den gesamten Inhalt der Seite wahrgenommen hat. Auch das Beendigen von Audio-Sequenzen oder die Beantwortung aller Fragen, könnte eine solche Bedingung sein.
+Eine weitere XML-Datei übernimmt die Test-Definition. Sie trägt IQB-intern den Namen **BOOKLET-XML**. Auch hier kann der Dateiname frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:
+
+`Unit`
+
+Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe.
+
+::: {.callout-note}
+## Aufgaben werden auch oft UNITS genannt!
+:::
+
+`Testlet`
+
+Aufgaben können **Testlets** zugewiesen werden oder in **Testlets** zusammen gefasst werden. 
+
+::: {.callout-note}
+## Ein Testlet wird auch oft als BLOCK bezeichnet!
+:::
+
+Für Testlets können Beschränkungen (`Restrictions`)festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich. 
+
+`BookletConfig`
+
+Hinsichtlich Funktionalität und Layout der Testumgebung, können hier individuelle Festlegungen getroffen werden.
+
+::: {.callout-tip}
+## Mehr Informationen zu den Inhalten der Booklet-XML sind den Referenzen zu entnehmen!
+:::
 
 ## Unit-Definition
 
-Eine Unit-Definition besteht aus einer [XML-Datei](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Unit%E2%80%90Xml) und einer Voud-Datei. Erstere enthält Metadaten, wie die interne ID und den Datentyp der Unit. Bei der Voud-Datei handelt es sich um ein internes Format, welches manuell kaum editierbar ist. Es muss stattdessen über einen Editor erzeugt werden. Das IQB-Studio bietet derartige Editoren.
+Die Unit-Definition besteht aus zwei XML-Dateien, die zueinander gehören. In einer der beiden XML-Dateien werden Metadaten, wie bspw. ID und Label der Aufgabe und weiteres festgelegt. Diese wird IQB-intern als **UNIT-XML** bezeichnet. Die andere XML-Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Dateiendung **.VOUD**. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige **UNIT-XML**. Die **UNIT-VOUD** wird in der **UNIT-XML** eingebunden.
+
+#### UNIT-XML
+
+Folgendes kann in dieser Datei festgelegt werden:
+
+`Metadaten`
+
+Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige `Id` der Aufgabe, ein `Label` und eine `Describtion`.
+
+`DefinitionRef`
+
+Hier wird angegeben mit welchem **Editor** die Aufgabe erstellt wurde, mit welchem **Player** die Aufgabe wiedergegeben werden soll und welche zugehörige **UNIT-VOUD** (falls vorhanden) eingebunden werden soll.  
+
+`CodingSchemeRef`
+
+Die Version des zur Kodierung verwendete Schemers wird hier angegeben.
+
+`BaseVariables`
+
+Hier werden die während der Kodierung angelegten Variablen gelistet.
+
+`DerivedVariables`
+
+Hier werden die während der Kodierung abgeleiteten Variablen gelistet.
+
+#### UNIT-VOUD
+
+Bei der Voud-Datei handelt es sich um ein internes Format, welches die Aufgabeninhalte angibt. Es ist nur schlecht  manuell editierbar. Es muss stattdessen über einen Editor erzeugt und ggf. verändert werden. Das IQB-Studio bietet derartige Editoren.
+
+::: {.callout-tip}
+## Mehr Informationen zu den Inhalten der UNIT-XML und UNIT-VOUD sind den Referenzen zu entnehmen!
+:::
 
 ## Player
 
