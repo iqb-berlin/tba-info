@@ -287,8 +287,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link active" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
   <ul class="collapse">
-  <li><a href="#logins-und-weitere-konfigurationen" id="toc-logins-und-weitere-konfigurationen" class="nav-link" data-scroll-target="#logins-und-weitere-konfigurationen">Logins und weitere Konfigurationen</a></li>
-  <li><a href="#test-definition" id="toc-test-definition" class="nav-link" data-scroll-target="#test-definition">Test-Definition</a></li>
+  <li><a href="#logins-und-anwendungsspezifische-konfigurationen" id="toc-logins-und-anwendungsspezifische-konfigurationen" class="nav-link" data-scroll-target="#logins-und-anwendungsspezifische-konfigurationen">Logins und anwendungsspezifische Konfigurationen</a></li>
+  <li><a href="#testheft-definition-test-def" id="toc-testheft-definition-test-def" class="nav-link" data-scroll-target="#testheft-definition-test-def">Testheft-Definition (Test-Def)</a></li>
   <li><a href="#unit-definition" id="toc-unit-definition" class="nav-link" data-scroll-target="#unit-definition">Unit-Definition</a></li>
   <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player">Player</a></li>
   </ul></li>
@@ -354,31 +354,18 @@ Hinweis
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Wie Daten in das Testcenter geladen werden können, ist im Kapitel: Schritt für Schritt detailiert beschrieben.
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Wie Daten in das Testcenter geladen werden können, ist im Kapitel: <strong>Schritt für Schritt</strong> detailliert beschrieben.</p>
 </div>
 </div>
 <p>Das <strong>Studio</strong> kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das <strong>Testcenter</strong> geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die <a href="https://box.hu-berlin.de/f/81701b5fa68446bc99a3/">Videos</a> zum Thema Testdateien an.</p>
-<section id="logins-und-weitere-konfigurationen" class="level2">
-<h2 class="anchored" data-anchor-id="logins-und-weitere-konfigurationen">Logins und weitere Konfigurationen</h2>
-<p>Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten werden in einer XML-Datei hinterlegt und dort einer Login-Gruppe (<code>Group</code>) zugewiesen. Die XML-Datei trägt IQB-intern den Namen: <strong>TESTTAKER-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar.</p>
-<p>Für eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig. Bspw. ganz klassisch mittels Namen und Passwort oder via Link.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Mehr Informationen zu den Anmeldeverfahren sind den Referenzen zu entnehmen!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
+<section id="logins-und-anwendungsspezifische-konfigurationen" class="level2">
+<h2 class="anchored" data-anchor-id="logins-und-anwendungsspezifische-konfigurationen">Logins und anwendungsspezifische Konfigurationen</h2>
+<p>Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten und nachfolgend aufgeführte Funktionen übernimmt eine XML-Datei. Die XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar. Nachfolgend werden die Funktionen der Testtaker-XML aufgelistet.</p>
+<p><strong>Festlegung Logindaten/ Anmeldeverfahren:</strong></p>
 <p>Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: <strong>itc-Toolbox</strong> helfen das Erzeugen solcher Zugänge zu beschleunigen.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -386,40 +373,64 @@ Mehr Informationen zu den Anmeldeverfahren sind den Referenzen zu entnehmen!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: itc-Toolbox. Mehr Informationen dazu sind dem gleichnamigen Kapitel zu entnehmen.
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: <strong>itc-Toolbox</strong>. Mehr Informationen dazu sind dem gleichnamigen Kapitel zu entnehmen.</p>
 </div>
 </div>
-<p>Um die Art des Zugriffs festzulegen, wird zu jedem Login ein Modus hinterlegt. Wie der Test für einen Login durchgeführt werden soll. Folgende Modi stehen zur Verfügung:</p>
-<p><code>run-hot-return</code>und <code>run-hot-restart</code></p>
-<p>Die angemeldeten Personen führen den Test “heiß” durch, sprich deren Antworten bilden mit dem Rohdatensatz die Grundlage der Auswertung.</p>
-<p><code>run-review</code></p>
-<p>Zum Ausprobieren eines Tests können spezielle Logins vorbereitet werden. Man kann dann Kommentare zu den Aufgaben und dem Test vergeben und es sind einige Navigationsbeschränkungen unwirksam, wie z. B. Zeitlimits.</p>
-<p><code>run-demo</code></p>
-<p>Man kann den Test aufrufen, aber die Antworten werden nicht dauerhaft gespeichert. Ruft eine andere Person mit denselben Login-Daten den Test auf, werden keine älteren Antworten geladen.</p>
-<p><code>monitor-group</code> und <code>monitor-study</code></p>
-<p>Diese Modi sorgen dafür, dass die angemeldete Person den Gruppen-Monitor für eine oder mehrere Login-Gruppen startet. Damit kann der Fortschritt der Beantwortung beobachtet werden. Außerdem können Testpersonen ausgeschlossen, ein Test angehalten oder eine Navigation zu einem Testblock erzwungen werden. Dieser Gruppen-Monitor kann von der Testleitung zur Teststeuerung verwendet werden.</p>
-<p>Außer den Logins können weitere Konfigurationen der Testumgebung in der <strong>TESTTAKER-XML</strong> erfolgen. Bspw. können individuelle Textersetzungen vorgenommen werden. Jedem Login kann ein bestimmtes Testheft zugewiesen werden. Logins können zeitliche Beschränkungen erhalten.</p>
+<p>Für eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig, bspw. ganz klassisch mittels Namen und Passwort oder via Link.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Mehr Informationen zu den Inhalten der TESTTAKER-XML sind den Referenzen zu entnehmen!
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Mehr Informationen zu den Login/Anmeldeverfahren sind den Referenzen zu entnehmen!</p>
+</div>
+</div>
+<p>Um eine Testdurchführung so modular wie möglich gestalten zu können, kann jeder Login einer Gruppe (<code>Group</code>) zugeordnet werden. Gruppen können dann bspw. mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.</p>
+<p><strong>Testheftzuweisung:</strong></p>
+<p>Aufgaben werden in Testheften (Booklets) zusammen gefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.</p>
+<p><strong>Modi der Testdurchführung:</strong></p>
+<p>Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften. Bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf zu steuern.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="../Referenzen/Modi_der_Testdurchfuehrung.html"><strong>Referenz</strong></a>: Detaillierte Informationen zu den Modi der Testdurchführung und deren Eigenschaften sind den Referenzen zu entnehmen!</p>
+</div>
+</div>
+<p><strong>Anwendungsspezifische Textersetzungen:</strong></p>
+<p>Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Die möglichen änderbaren Texte werden dazu in ein spezielles Feld (<code>&lt;CustomTexts&gt;</code>) in der <strong>Testtaker-XML</strong> geschrieben werden. Die hier angegebenen Texte überschreiben dann die Standardtexte.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur Testtaker-XML zu entnehmen!</p>
 </div>
 </div>
 </section>
-<section id="test-definition" class="level2">
-<h2 class="anchored" data-anchor-id="test-definition">Test-Definition</h2>
-<p>Eine weitere XML-Datei übernimmt die Test-Definition. Sie trägt IQB-intern den Namen <strong>BOOKLET-XML</strong>. Auch hier kann der Dateiname frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:</p>
+<section id="testheft-definition-test-def" class="level2">
+<h2 class="anchored" data-anchor-id="testheft-definition-test-def">Testheft-Definition (Test-Def)</h2>
+<p>Eine weitere XML-Datei übernimmt die Test-Definition. Sie trägt IQB-intern den Namen <strong>Booklet-XML</strong>. Auch hier kann der Dateiname frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:</p>
 <p><code>Unit</code></p>
 <p>Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -428,11 +439,11 @@ Mehr Informationen zu den Inhalten der TESTTAKER-XML sind den Referenzen zu entn
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Aufgaben werden auch oft UNITS genannt!
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Aufgaben werden auch oft <strong>Units</strong> genannt!</p>
 </div>
 </div>
 <p><code>Testlet</code></p>
@@ -443,11 +454,11 @@ Aufgaben werden auch oft UNITS genannt!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Ein Testlet wird auch oft als BLOCK bezeichnet!
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Ein Testlet wird auch oft als BLOCK bezeichnet!</p>
 </div>
 </div>
 <p>Für Testlets können Beschränkungen (<code>Restrictions</code>)festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich.</p>
@@ -459,24 +470,24 @@ Ein Testlet wird auch oft als BLOCK bezeichnet!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Mehr Informationen zu den Inhalten der Booklet-XML sind den Referenzen zu entnehmen!
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Mehr Informationen zu den Inhalten der <strong>Booklet-XML</strong> sind den Referenzen zu entnehmen!</p>
 </div>
 </div>
 </section>
 <section id="unit-definition" class="level2">
 <h2 class="anchored" data-anchor-id="unit-definition">Unit-Definition</h2>
-<p>Die Unit-Definition besteht aus zwei XML-Dateien, die zueinander gehören. In einer der beiden XML-Dateien werden Metadaten, wie bspw. ID und Label der Aufgabe und weiteres festgelegt. Diese wird IQB-intern als <strong>UNIT-XML</strong> bezeichnet. Die andere XML-Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Dateiendung <strong>.VOUD</strong>. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige <strong>UNIT-XML</strong>. Die <strong>UNIT-VOUD</strong> wird in der <strong>UNIT-XML</strong> eingebunden.</p>
+<p>Die Unit-Definition besteht aus zwei XML-Dateien, die zueinander gehören. In einer der beiden XML-Dateien werden Metadaten, wie bspw. ID und Label der Aufgabe und weiteres festgelegt. Diese wird IQB-intern als <strong>Unit-XML</strong> bezeichnet. Die andere XML-Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Dateiendung <strong>.VOUD</strong>. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige <strong>Unit-XML</strong>. Die <strong>Unit-VOUD</strong> wird in der <strong>Unit-XML</strong> eingebunden.</p>
 <section id="unit-xml" class="level4">
-<h4 class="anchored" data-anchor-id="unit-xml">UNIT-XML</h4>
+<h4 class="anchored" data-anchor-id="unit-xml">Unit-XML</h4>
 <p>Folgendes kann in dieser Datei festgelegt werden:</p>
 <p><code>Metadaten</code></p>
 <p>Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige <code>Id</code> der Aufgabe, ein <code>Label</code> und eine <code>Describtion</code>.</p>
 <p><code>DefinitionRef</code></p>
-<p>Hier wird angegeben mit welchem <strong>Editor</strong> die Aufgabe erstellt wurde, mit welchem <strong>Player</strong> die Aufgabe wiedergegeben werden soll und welche zugehörige <strong>UNIT-VOUD</strong> (falls vorhanden) eingebunden werden soll.</p>
+<p>Hier wird angegeben mit welchem <strong>Editor</strong> die Aufgabe erstellt wurde, mit welchem <strong>Player</strong> die Aufgabe wiedergegeben werden soll und welche zugehörige <strong>Unit-VOUD</strong> (falls vorhanden) eingebunden werden soll.</p>
 <p><code>CodingSchemeRef</code></p>
 <p>Die Version des zur Kodierung verwendete Schemers wird hier angegeben.</p>
 <p><code>BaseVariables</code></p>
@@ -485,7 +496,7 @@ Mehr Informationen zu den Inhalten der Booklet-XML sind den Referenzen zu entneh
 <p>Hier werden die während der Kodierung abgeleiteten Variablen gelistet.</p>
 </section>
 <section id="unit-voud" class="level4">
-<h4 class="anchored" data-anchor-id="unit-voud">UNIT-VOUD</h4>
+<h4 class="anchored" data-anchor-id="unit-voud">Unit-VOUD</h4>
 <p>Bei der Voud-Datei handelt es sich um ein internes Format, welches die Aufgabeninhalte angibt. Es ist nur schlecht manuell editierbar. Es muss stattdessen über einen Editor erzeugt und ggf. verändert werden. Das IQB-Studio bietet derartige Editoren.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -493,11 +504,11 @@ Mehr Informationen zu den Inhalten der Booklet-XML sind den Referenzen zu entneh
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Mehr Informationen zu den Inhalten der UNIT-XML und UNIT-VOUD sind den Referenzen zu entnehmen!
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Mehr Informationen zur <strong>Unit-Definition</strong> sind den Referenzen zu entnehmen!</p>
 </div>
 </div>
 </section>
