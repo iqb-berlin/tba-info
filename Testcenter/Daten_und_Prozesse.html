@@ -196,6 +196,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Testen der Anwendung</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testmethoden</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -512,7 +518,7 @@ Tipp
 <p><strong>Testheftzuweisung:</strong></p>
 <p>Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.</p>
 <p><strong>Modi der Testdurchführung:</strong></p>
-<p>Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften. Bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können.</p>
+<p>Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -594,7 +600,7 @@ Tipp
 </section>
 <section id="unit-definition" class="level2">
 <h2 class="anchored" data-anchor-id="unit-definition">Unit-Definition</h2>
-<p>Die Unit-Definition besteht aus zwei XML-Dateien, die zueinander gehören. In einer der beiden XML-Dateien werden Metadaten, wie bspw. ID und Label der Aufgabe festgelegt. Diese wird IQB-intern als <strong>Unit-XML</strong> bezeichnet. Die andere XML-Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung <strong>.VOUD</strong>. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige <strong>Unit-XML</strong>. Die <strong>Unit-VOUD</strong> wird in der <strong>Unit-XML</strong> eingebunden. Die möglichen Funktionen der beiden Dateien werden nachfolgend beschrieben.</p>
+<p>Die Unit-Definition besteht aus zwei Dateien, die zueinander gehören. In einer Datei werden Metadaten wie bspw. ID und Label der Aufgabe festgelegt, in der anderen sind die eigentlichen Aufgabenelemente enthalten. Erstere ist wieder eine XML-Datei mit dem IQB-internen Namen <strong>Unit-XML</strong>. Letztere enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung <strong>.VOUD</strong>. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige <strong>Unit-XML</strong>. Die <strong>Unit-VOUD</strong> wird in der <strong>Unit-XML</strong> eingebunden. Die möglichen Funktionen der beiden Dateien werden nachfolgend beschrieben.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -614,13 +620,13 @@ Tipp
 <p><strong>Metadaten</strong></p>
 <p>Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige ID der Aufgabe, ein Label und eine Beschreibung.</p>
 <p><strong>Angaben zur Aufgabenerstellung und Aufgabenwiedergabe</strong></p>
-<p>Angabe des zur Aufgabenerstellung verwendeten <strong>Editors</strong> und gewünschten <strong>Players</strong> zur Aufgabenwiedergabe. Deklaration der zu verwendenden Aufgabenressource (Unit-VOUD).</p>
+<p>Angabe des zur Aufgabenerstellung verwendeten <strong>Editors</strong> und gewünschten <strong>Players</strong> zur Aufgabenwiedergabe. Deklaration der zugehörigen Aufgabenressource (Unit-VOUD).</p>
 <p><strong>Angaben zur Aufgabenkodierung</strong></p>
 <p>An dieser Stelle wird die Version des verwendeten <strong>Schemers</strong> zur Aufgabenkodierung angegeben. Im Weiteren sind hier alle Variablen bzgl. Aufgabenkodierung aufgeführt.</p>
 </section>
 <section id="unit-voud" class="level3">
 <h3 class="anchored" data-anchor-id="unit-voud">Unit-VOUD</h3>
-<p>Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Diese Datei wird oft auch als <strong>Ressource zu einer Augabe</strong> bezeichnet. Aufgrund ihres spezielles Formats ist sie nur schlecht manuell veränderbar. Änderungen sollten über einen geeigneten Editor erfolgen. Das IQB-Studio bietet einen solchen Editor an.</p>
+<p>Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Sie wird oft auch als <strong>Ressource zu einer Augabe</strong> bezeichnet. Aufgrund ihres spezielles Formats ist sie nur schlecht manuell veränderbar. Änderungen sollten über einen geeigneten Editor erfolgen. Das IQB-Studio bietet einen solchen Editor an.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -638,7 +644,7 @@ Tipp
 </section>
 <section id="system-check" class="level2">
 <h2 class="anchored" data-anchor-id="system-check">System-Check</h2>
-<p>Vor Studiedurchführung kann geprüft werden, ob vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.</p>
+<p>Vor Studiedurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.</p>
 <p>Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -650,13 +656,13 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.</p>
+<p>Detaillierte Informationen zum <strong>System-Check</strong> sind dem gleichnamigen Kapitel zu entnehmen.</p>
 </div>
 </div>
 </section>
 <section id="geogebra-.itcr" class="level2">
 <h2 class="anchored" data-anchor-id="geogebra-.itcr">GeoGebra .itcr</h2>
-<p>Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource im <strong>.ITCR</strong> zur Aufgabe mit in das Testcenter geladen werden.</p>
+<p>Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource mit der Endung <strong>.ITCR</strong> mit zur Aufgabe in das Testcenter geladen werden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -684,7 +690,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Weitere Informationen zum adaptiven Testen sind dem Kapitel: <strong>Testverfahren</strong> zu entnehmen.</p>
+<p>Weitere Informationen zum adaptiven Testen sind dem Kapitel: <strong>Testmethoden</strong> zu entnehmen.</p>
 </div>
 </div>
 </section>
