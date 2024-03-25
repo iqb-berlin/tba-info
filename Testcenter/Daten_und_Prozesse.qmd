@@ -14,57 +14,63 @@ In Bearbeitung THuste: to do
 
 # Daten-Input für das Testcenter
 
+Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Logins), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie (Test-Definition, Unit-Definition). Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten. Die Gesamtheit all dieser Dateien wird auch häufig als **Testdateien** bezeichnet. Die **Testdateien** werden nach der Aufgabenerstellung im **IQB-Studio** ausgegeben.
+
 ::: {.callout-tip}
-Wie Daten in das Testcenter geladen werden können, ist im Kapitel: **Schritt für Schritt** detailliert beschrieben.
+Wie diese Daten in das Testcenter geladen werden können, ist im Kapitel: **Schritt für Schritt** detailliert beschrieben.
 :::
 
-Das **Studio** kann nach dem Aufgabenentwurf Dateien ausgeben (exportieren). Diese Dateien müssen zur Testdurchführung in das **Testcenter** geladen werden. Nachfolgend werden die Funktionen dieser Dateien beschrieben. Zum besseren Verständnis schauen Sie sich auch gerne die [Videos](https://box.hu-berlin.de/f/81701b5fa68446bc99a3/) zum Thema Testdateien an.
+::: {.callout-note}
+[Hier](https://box.hu-berlin.de/f/81701b5fa68446bc99a3/) ist auch ein kleineres Video zu den Testdateien.
+:::
 
-## Logins und anwendungsspezifische Konfigurationen
+Welche **Testdateien** es gibt und welche Funktionen diese aufweisen, ist nachfolgend beschrieben.
 
-Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten und nachfolgend aufgeführte Funktionen übernimmt eine XML-Datei. Die XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar. Nachfolgend werden die Funktionen der Testtaker-XML aufgelistet.
+## Testtaker-XML
+
+Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten und nachfolgend aufgeführte Funktionen übernimmt eine XML-Datei. Die XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar. Im Bild oben ist diese Datei mit "Login" gekennzeichnet.
 
 **Festlegung Logindaten/ Anmeldeverfahren:**
 
 Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: **itc-Toolbox** helfen das Erzeugen solcher Zugänge zu beschleunigen.
 
-::: {.callout-note}
-Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: **itc-Toolbox**. Mehr Informationen dazu sind dem gleichnamigen Kapitel zu entnehmen.
+::: {.callout-tip}
+Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: **itc-Toolbox**. Mehr Informationen dazu sind den Referenzen zu entnehmen.
 :::
 
 Für eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig, bspw. ganz klassisch mittels Namen und Passwort oder via Link.
 
 ::: {.callout-tip}
-Mehr Informationen zu den Login/Anmeldeverfahren sind den Referenzen zu entnehmen!
+Mehr Informationen zu den **Login/Anmeldeverfahren** sind den Referenzen zu entnehmen!
 :::
 
-Um eine Testdurchführung so modular wie möglich gestalten zu können, kann jeder Login einer Gruppe (`Group`) zugeordnet werden. Gruppen können dann bspw. mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.
+Um eine Testdurchführung so modular wie möglich gestalten zu können, kann jeder Login einer Gruppe zugeordnet werden. Gruppen können dann bspw. mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.
 
 **Testheftzuweisung:**
 
-Aufgaben werden in Testheften (Booklets) zusammen gefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.
+Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.
 
 **Modi der Testdurchführung:**
 
-Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt  wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften. Bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf zu steuern.
+Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt  wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften. Bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können.
 
 ::: {.callout-tip}
-[**Referenz**](/Referenzen/Modi_der_Testdurchfuehrung.qmd): Detaillierte Informationen zu den Modi der Testdurchführung und deren Eigenschaften sind den Referenzen zu entnehmen!
+Detaillierte Informationen zu den **Modi der Testdurchführung** und deren Eigenschaften sind den Referenzen zu entnehmen!
 :::
 
-**Anwendungsspezifische Textersetzungen:**
+**Textersetzungen:**
 
 Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Die möglichen änderbaren Texte werden dazu in ein spezielles Feld (`<CustomTexts>`) in der **Testtaker-XML** geschrieben werden. Die hier angegebenen Texte überschreiben dann die Standardtexte. 
 
 ::: {.callout-tip}
-Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur Testtaker-XML zu entnehmen!
+Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur **Testtaker-XML** zu entnehmen!
 :::
 
-## Testheft-Definition (Test-Def)
+## Booklet-XML
 
-Eine weitere XML-Datei übernimmt die Test-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Auch hier kann der Dateiname frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:
+Eine weitere XML-Datei übernimmt die Test-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Auch hier kann der Dateiname frei gewählt werden. Diese Datei ist oben im Bild mit "Test-Def" gekennzeichnet. Folgendes kann in dieser Datei festgelegt werden:
 
-`Unit`
+**Aufgabenreihenfolge**
 
 Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe.
 
@@ -72,17 +78,17 @@ Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hie
 Aufgaben werden auch oft **Units** genannt!
 :::
 
-`Testlet`
+**Aufgabensammlungen**
 
 Aufgaben können **Testlets** zugewiesen werden oder in **Testlets** zusammen gefasst werden. 
 
 ::: {.callout-note}
-Ein Testlet wird auch oft als BLOCK bezeichnet!
+Ein Testlet wird auch oft als **Block** bezeichnet!
 :::
 
-Für Testlets können Beschränkungen (`Restrictions`)festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich. 
+Für Testlets können Beschränkungen festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich. 
 
-`BookletConfig`
+**Booklet Konfiguration**
 
 Hinsichtlich Funktionalität und Layout der Testumgebung, können hier individuelle Festlegungen getroffen werden.
 
@@ -92,52 +98,78 @@ Mehr Informationen zu den Inhalten der **Booklet-XML** sind den Referenzen zu en
 
 ## Unit-Definition
 
-Die Unit-Definition besteht aus zwei XML-Dateien, die zueinander gehören. In einer der beiden XML-Dateien werden Metadaten, wie bspw. ID und Label der Aufgabe und weiteres festgelegt. Diese wird IQB-intern als **Unit-XML** bezeichnet. Die andere XML-Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Dateiendung **.VOUD**. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige **Unit-XML**. Die **Unit-VOUD** wird in der **Unit-XML** eingebunden.
+Die Unit-Definition besteht aus zwei XML-Dateien, die zueinander gehören. In einer der beiden XML-Dateien werden Metadaten, wie bspw. ID und Label der Aufgabe festgelegt. Diese wird IQB-intern als **Unit-XML** bezeichnet. Die andere XML-Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung **.VOUD**. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige **Unit-XML**. Die **Unit-VOUD** wird in der **Unit-XML** eingebunden. Die möglichen Funktionen der beiden Dateien werden nachfolgend beschrieben.
 
-#### Unit-XML
+::: {.callout-tip}
+Mehr Informationen zur **Unit-Definition** sind auch den Referenzen zu entnehmen!
+:::
+
+### Unit-XML
 
 Folgendes kann in dieser Datei festgelegt werden:
 
-`Metadaten`
+**Metadaten**
 
-Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige `Id` der Aufgabe, ein `Label` und eine `Describtion`.
+Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige ID der Aufgabe, ein Label und eine Beschreibung.
 
-`DefinitionRef`
+**Angaben zur Aufgabenerstellung und Aufgabenwiedergabe**
 
-Hier wird angegeben mit welchem **Editor** die Aufgabe erstellt wurde, mit welchem **Player** die Aufgabe wiedergegeben werden soll und welche zugehörige **Unit-VOUD** (falls vorhanden) eingebunden werden soll.  
+Angabe des zur Aufgabenerstellung verwendeten **Editors** und gewünschten **Players** zur Aufgabenwiedergabe. Deklaration der zu verwendenden Aufgabenressource (Unit-VOUD).
 
-`CodingSchemeRef`
+**Angaben zur Aufgabenkodierung**
 
-Die Version des zur Kodierung verwendete Schemers wird hier angegeben.
+An dieser Stelle wird die Version des verwendeten **Schemers** zur Aufgabenkodierung angegeben. Im Weiteren sind hier alle Variablen bzgl. Aufgabenkodierung aufgeführt.
 
-`BaseVariables`
+### Unit-VOUD
 
-Hier werden die während der Kodierung angelegten Variablen gelistet.
-
-`DerivedVariables`
-
-Hier werden die während der Kodierung abgeleiteten Variablen gelistet.
-
-#### Unit-VOUD
-
-Bei der Voud-Datei handelt es sich um ein internes Format, welches die Aufgabeninhalte angibt. Es ist nur schlecht  manuell editierbar. Es muss stattdessen über einen Editor erzeugt und ggf. verändert werden. Das IQB-Studio bietet derartige Editoren.
+Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Diese Datei wird oft auch als **Ressource zu einer Augabe** bezeichnet. Aufgrund ihres spezielles Formats ist sie nur schlecht  manuell veränderbar. Änderungen sollten über einen geeigneten Editor erfolgen. Das IQB-Studio bietet einen solchen Editor an.
 
 ::: {.callout-tip}
-Mehr Informationen zur **Unit-Definition** sind den Referenzen zu entnehmen!
+Bei bestimmten Aufgabenelementen, wie bspw. kurzen Textpassagen in einleitenden Aufgaben, wird eventuell keine Unit-VOUD erzeugt. Das Textelement befindet sich dann direkt in der Unit-XML und kann auch dort verändert werden.
+:::
+
+## System-Check
+
+Vor Studiedurchführung kann geprüft werden, ob vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.
+
+Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar. 
+
+::: {.callout-note}
+Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.
+:::
+
+## GeoGebra .itcr
+
+Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource im **.ITCR** zur Aufgabe mit in das Testcenter geladen werden.
+
+::: {.callout-tip}
+Mehr Informationen zu **GeoGebra** sind auch den Referenzen zu entnehmen!
+:::
+
+## Coding Schema 
+
+Zu jeder Aufgabe kann im IQB-Studio ein entsprechendes Kodierschema angelegt werden. Bei Ausgabe der Aufgabe erzeugt das Studio eine Datei mit der Endung **.VOCS**. In dieser Datei sind die erstellten Kodierregeln enthalten. Diese Regeln werden im Testcenter derzeitig zur Durchführung adaptiver Testungen verwendet. 
+
+::: {.callout-note}
+Weitere Informationen zum adaptiven Testen sind dem Kapitel: **Testverfahren** zu entnehmen.
+:::
+
+## Metadaten .VOMD
+
+::: {.callout-note}
+Hier entsprechende Informationen einbringen!
 :::
 
 ## Player
 
-In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente "Player" enthält. Grundidee dieser Teilung ist, dass das interne Format einer Unit-Definition nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Unit-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der unitbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht.
+In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente "Player" enthält. Grundidee dieser Teilung ist, dass das interne Format einer Unit-Definition, insbesondere der Unit-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Unit-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der unitbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die jeweilige Unit-Definition lesen und darstellen kann. Der Player übernimmt weitere Aufgaben (responses complete, presentation complete usw.).
 
 Für die Vorbereitung eines Tests bedeutet dies:
 
 1. jede Unit-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und
 2. alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden
 
-::: {.callout-note}
-Daten, die in das Testcenter geladen werden, werden auch als **Testdateien** bezeichnet. Sie steuern den Testablauf, das Testlayout und die Testzugänge.
-:::
+Das IQB hat verschiedene Player für unterschiedliche Unit-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht finden Sie auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io)
 
 # Daten-Output des Testcenters
 
@@ -161,27 +193,8 @@ Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstand
 * **Kommentare, Review**: Wenn ein Test im Review-Modus durchgeführt wird, können zu Aufgaben oder zum gesamten Test Kommentare gegeben werden. Auch diese Kommentare sind über den Management-Bereich abrufbar.
 * **System-Check Berichte**: Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.
 
-
 # Daten-Bearbeitung
 
-::: {.callout-tip}
-Wie Daten vor dem Laden in das Testcenter bearbeitet werden können, ist im Kapitel: **Schritt für Schritt** detailiert beschrieben.
-:::
+Die Testateien können vor dem Laden in das Testcenter bearbeitet werden. Hierfür ist ein Verständnis der Extensible Markup Language XML notwendig. Eine knappe Einleitung bietet hier der Punkt: **Mehr zu XML** in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.
 
-Die XML-Dateien können vor dem Laden in das Testcenter bearbeitet werden. So können Testungen individuell gestaltet werden und gesteuert werden.
-
-Nachfolgend werden alle **Testdateien** und die darin verfügbaren **Attribute**, die während der manuellen Bearbeitung zur Verfügung stehen, aufgezeigt:
-
-* [Allgemeine Hinweise für die Bearbeitung von XML-Dateien](Arbeiten-mit-Xml%E2%80%90Dateien)
-* Units: 
-  * [Bearbeiten der XML-Datei](Unit%E2%80%90Xml)
-* Booklets:
-  * [Bearbeiten der XML-Datei](Booklet%E2%80%90Xml)
-  * [Unterstützung durch itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox#readme)
-* Logins:
-  * [Bearbeiten der XML-Datei](Testtaker%E2%80%90Xml)
-  * [Unterstützung durch itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox#readme)
-  * [Anmeldeverfahren](Login-Anmeldeverfahren)
-  * [Modi der Testdurchführung](Login-Modi-der-Testdurchf%C3%BChrung)
-
-Ist die nachträgliche Bearbeitung (falls gewünscht) der **Testdateien** abgeschlossen, können die **Testdateien** in einen **Arbeitsbereich** innerhalb des **Testcenters** geladen werden. Mehr zum Thema **Arbeitsbereich** im **Testcenter** ist [**hier**](2.3-Verwaltung-und-Organisation) zu finden.
+Die Bearbeitung von XML-Datei kann mit gängigen Text-Editoren erfolgen. Es können auch spezielle Editoren zum Einsatz kommen, wie bspw. Notepad++, die den Vorteil eines Syntax Highlighting bieten.

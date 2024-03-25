@@ -11,11 +11,11 @@ website:
   navbar:
     search: true
     logo: IQB-klein.png
-
   sidebar: 
-    style: "docked"
-    search: true
+    style: docked
     lang: de
+    collapse-level: 1
+
     contents:
       - href: index.qmd
         text: Start
@@ -33,8 +33,8 @@ website:
             text: Die Sicht der Testperson
           - href: Testcenter/Verwaltung_und_Organisation.qmd
             text: Verwaltung und Organisation
-          - href: Testcenter/Player_zur_Testwiedergabe.qmd
-            text: Player zur Testwiedergabe
+          - href: Testcenter/Studien_Auswertung.qmd
+            text: Studien Auswertung
           - href: Testcenter/System_Check.qmd
             text: System Check
           - href: Testcenter/Gruppenmonitor.qmd
@@ -43,8 +43,6 @@ website:
             text: Typische Probleme - Troubleshooting
           - href: Testcenter/Testen_der_Anwendung.qmd
             text: Testen der Anwendung
-          - href: Testcenter/itc_Toolbox.qmd
-            text: itc-Toolbox
       - section: "Studio"
         contents:
           - href: Studio/intro.qmd
@@ -59,15 +57,47 @@ website:
             text: Testcenter Daten Upload
           - href: Schritt_für_Schritt/Testcenter_Daten_Download.qmd
             text: Testcenter Daten Download
-      - Blog.qmd
-
+      - section: "Referenzen"
+        contents:
+          - href: Referenzen/Aufgabenkodierung.qmd
+            text: Aufgabenkodierung         
+          - href: Referenzen/Booklet_Xml.qmd
+            text: Booklet-XML
+          - href: Referenzen/Geogebra.qmd
+            text: Geogebra
+          - href: Referenzen/itc_Toolbox.qmd
+            text: itc-Toolbox
+          - href: Referenzen/Login_Anmeldeverfahren.qmd
+            text: Login-Anmeldeverfahren
+          - href: Referenzen/Mehr_zu_Xml.qmd
+            text: Mehr zu Xml
+          - href: Referenzen/Modi_der_Testdurchfuehrung.qmd
+            text: Modi der Testdurchführung
+          - href: Referenzen/Testtaker_Xml.qmd
+            text: Testtaker-XML          
+          - href: Referenzen/Unit_Definition.qmd
+            text: Unit Definition
+      - section: "Videothek"
+        contents:
+          - href: Videothek/Aufgaben_Editoren.qmd
+            text: Aufgaben-Editoren
+          - href: Videothek/Gruppenmonitor.qmd
+            text: Gruppenmonitor
+          - href: Videothek/Studio.qmd
+            text: Studio
+          - href: Videothek/Tba_Einfuehrung.qmd
+            text: TBA-Einführung
+          - href: Videothek/Testcenter.qmd
+            text: Testcenter
+          - href: Videothek/Testdateien.qmd
+            text: Testdateien
 format:
   html:
-    theme: cosmo
+    theme: zephir
     css: styles.css
     toc: true 
     anchor-sections: true
     link-external-icon: true
     link-external-newwindow: true
     grid:
-      sidebar-width: 350px
+      sidebar-width: 400px

@@ -1,2 +1,4 @@
-# tba-info
-Introduction and detailed information about TBA applications
+## to do
+
+* link zu GitHub-Wiki auf https://iqb-berlin.github.io/ entfernen, wenn Wiki in Quarto portiert
+* 
