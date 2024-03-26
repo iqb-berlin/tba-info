@@ -9,3 +9,36 @@ In Bearbeitung THuste: to do
 * Überarbeiten Layout und Text
 * Unbedingt monitor-group und monitor-study hier mit einbringen!!!!!!!!!!!!!!!!!
 :::
+
+Bei der Definition der Anmeldung zur Durchführung eines Tests können verschiedene Modi gewählt werden. Die Testhefte bleiben unverändert, es wird nur ein Modus für eine spezielle Testperson festgelegt. Verschiedene Anmeldungen können also mit denselben Testheften zu unterschiedlichem Verhalten führen.
+
+### Wo wird das festgelegt?
+
+Die Festlegung erfolgt in der Testtaker-Xml im Element `Login` im Attribut `mode`:
+
+```{.xml .code-overflow-wrap}
+<?xml version="1.0" encoding="utf-8"?>
+  <Testtakers
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation=
+	 "https://raw.githubusercontent.com/iqb-berlin/testcenter-backend/9.1.1/definitions/vo_Testtakers.xsd">
+
+     <Metadata>
+       <Description>Technischer Test Mechtel</Description>
+     </Metadata>
+
+     <Group id="check_mme" label="Mechtels Testgruppe">
+       <Login mode="run-review" name="mme4r5t6" pw="d7u9">
+         <Booklet>Booklet_Version1</Booklet>
+       </Login>
+       <Login mode="run-hot-return" name="susicheck12" pw="r4u2">
+         <Booklet>Booklet_Version2</Booklet>
+       </Login>
+     </Group>
+   </Testtakers>
+```
+---
+
+::: {.callout-tip}
+Detaillierte Informationen zu den **Modi der Testdurchführung** und deren Eigenschaften sind [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html) zu finden!
+:::
