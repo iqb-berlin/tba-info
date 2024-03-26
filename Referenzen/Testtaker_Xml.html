@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -383,8 +417,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#attribute-und-daten" id="toc-attribute-und-daten" class="nav-link active" data-scroll-target="#attribute-und-daten">Attribute und Daten</a></li>
-  <li><a href="#custom-text-konfiguration" id="toc-custom-text-konfiguration" class="nav-link" data-scroll-target="#custom-text-konfiguration">Custom Text Konfiguration</a></li>
+  <li><a href="#attribute-und-daten" id="toc-attribute-und-daten" class="nav-link active" data-scroll-target="#attribute-und-daten">Attribute und Daten</a>
+  <ul class="collapse">
+  <li><a href="#generelle-test-konfiguartion" id="toc-generelle-test-konfiguartion" class="nav-link" data-scroll-target="#generelle-test-konfiguartion">Generelle Test-Konfiguartion</a>
+  <ul class="collapse">
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata"><code>&lt;Metadata&gt;</code></a></li>
+  <li><a href="#group" id="toc-group" class="nav-link" data-scroll-target="#group"><code>&lt;Group&gt;</code></a></li>
+  </ul></li>
+  <li><a href="#textersetzungen" id="toc-textersetzungen" class="nav-link" data-scroll-target="#textersetzungen">Textersetzungen</a>
+  <ul class="collapse">
+  <li><a href="#customtext" id="toc-customtext" class="nav-link" data-scroll-target="#customtext"><code>&lt;CustomText&gt;</code></a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#einrichten-der-testleitungskonsole" id="toc-einrichten-der-testleitungskonsole" class="nav-link" data-scroll-target="#einrichten-der-testleitungskonsole">Einrichten der Testleitungskonsole</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -427,7 +471,6 @@ Hinweis
 </ul>
 </div>
 </div>
-<p>Die Testtaker-Definition findet in einer XML-Datei statt. Generelle Hinweise zur Bearbeitung von XML-Dateien sind <a href="Arbeiten-mit-Xml‐Dateien">hier</a> zu finden.</p>
 <section id="attribute-und-daten" class="level1">
 <h1>Attribute und Daten</h1>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -443,25 +486,92 @@ Wichtig
 <p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die <code>Testtakers.xml</code> ist <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd">hier</a> ersichtlich.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Wichtig
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Werden Attribute nicht beschrieben, erhalten diese Attribute Standardwerte. Welche Standardwerte das sind, ist der entsprechenden Tabelle (siehe Custom-Text-Konfiguration) zu entnehmen!</p>
-</div>
-</div>
-<p><code>METADATA</code></p>
+<p>Die Schema-Definition wird im Kopf der XML eingebunden:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nachfolgend ist eine beispielhafte Testtaker-XML zu sehen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    This file contains some logins for testing and works a a sample for developers.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> validFrom=</span><span class="st">"1/3/2020 10:00"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx yyy"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-2&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"study_group"</span><span class="ot"> label=</span><span class="st">"A group for the study monitor"</span>&gt;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- the study monitor has access to all other groups on the workspace --&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-study"</span><span class="ot"> name=</span><span class="st">"test-study-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"trial_group"</span><span class="ot"> label=</span><span class="st">"A Group for Trials and Demos"</span><span class="ot"> validFor=</span><span class="st">"45"</span>&gt;</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-trial"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-demo"</span><span class="ot"> name=</span><span class="st">"test-demo"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-simulation"</span><span class="ot"> name=</span><span class="st">"test-simulation"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"passwordless_group"</span><span class="ot"> label=</span><span class="st">"A group of persons without password"</span>&gt;</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-no-pw"</span>&gt;</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-no-pw-trial"</span>&gt;</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"expired_group"</span><span class="ot"> validTo=</span><span class="st">"1/3/2020 19:30"</span><span class="ot"> label=</span><span class="st">"An already expired group"</span>&gt;</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-expired"</span>&gt;</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"expired-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-study"</span><span class="ot"> name=</span><span class="st">"expired-study-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"future_group"</span><span class="ot"> validFrom=</span><span class="st">"26/3/2030 9:00"</span><span class="ot"> label=</span><span class="st">"An not yet active group"</span>&gt;</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-future"</span>&gt;</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die verfügbaren Attribute und die zugehörigen möglichen Werte und deren Bedeutung werden nachfolgend aufgelistet. Die Attribute und Werte werden dabei dem jeweiligen Xml-Hauptelement zugeordnet.</p>
+<section id="generelle-test-konfiguartion" class="level2">
+<h2 class="anchored" data-anchor-id="generelle-test-konfiguartion">Generelle Test-Konfiguartion</h2>
+<p>Die nachfolgenden Elemente und deren verfügbare Attribute realisieren die folgende Funktionen:</p>
+<ul>
+<li>Anlegen der Zugriffsdaten (Logins)</li>
+<li>Modi der Testdurchführung</li>
+<li>Gruppenzuweisungen</li>
+<li>Testheftzuweisungen</li>
+<li>Gruppenbeschränkungen (Bsp.: Logins einer Gruppe sind erst ab einer bestimmten Zeit gültig)</li>
+</ul>
+<section id="metadata" class="level3">
+<h3 class="anchored" data-anchor-id="metadata"><code>&lt;Metadata&gt;</code></h3>
 <div>
 <table data-quarto-postprocess="true" class="table">
 <tbody>
 <tr class="odd">
-<td>Description:</td>
+<td><code>Description</code></td>
 <td>&gt;xxx&lt;</td>
 <td>Datum</td>
 <td>frei wählbarer Text für die Metadaten Beschreibung</td>
@@ -469,8 +579,9 @@ Wichtig
 </tbody>
 </table>
 </div>
-<hr>
-<p><code>GROUP</code></p>
+</section>
+<section id="group" class="level3">
+<h3 class="anchored" data-anchor-id="group"><code>&lt;Group&gt;</code></h3>
 <div>
 <table data-quarto-postprocess="true" class="table">
 <colgroup>
@@ -481,57 +592,57 @@ Wichtig
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Group:</td>
+<td><code>Group</code></td>
 <td>id</td>
 <td>Attribut</td>
 <td>frei wählbarer Wert</td>
 </tr>
 <tr class="even">
-<td>Group:</td>
+<td><code>Group</code></td>
 <td>label</td>
 <td>Attribut</td>
 <td>frei wählbarer Wert</td>
 </tr>
 <tr class="odd">
-<td>Group:</td>
+<td><code>Group</code></td>
 <td>validTo</td>
 <td>Attribut</td>
 <td>Bestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format:<br>
 dd/mm/yyyy hh:mm</td>
 </tr>
 <tr class="even">
-<td>Group:</td>
+<td><code>Group</code></td>
 <td>validFrom</td>
 <td>Attribut</td>
 <td>Bestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format:<br>
 dd/mm/yyyy hh:mm</td>
 </tr>
 <tr class="odd">
-<td>Group:</td>
+<td><code>Group</code></td>
 <td>validFor</td>
 <td>Attribut</td>
 <td>Bestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer</td>
 </tr>
 <tr class="even">
-<td>Login:</td>
+<td><code>Login</code></td>
 <td>name</td>
 <td>Attribut</td>
 <td>Frei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
 </tr>
 <tr class="odd">
-<td>Login:</td>
+<td><code>Login</code></td>
 <td>mode</td>
 <td>Attribut</td>
-<td>Vordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Siehe: <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Login:-Modi-der-Testdurchf%C3%BChrung">Modi der Testdurchführung</a></td>
+<td>Vordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Weiteres ist den Referenzen: <strong>Modi der Testdurchführung</strong> zu entnehmen</td>
 </tr>
 <tr class="even">
-<td>Login:</td>
+<td><code>Login</code></td>
 <td>pw</td>
 <td>Attribut</td>
 <td>Frei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
 </tr>
 <tr class="odd">
-<td>Booklet:</td>
+<td><code>Booklet</code></td>
 <td>&gt;xxx&lt;</td>
 <td>Datum</td>
 <td>Frei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)</td>
@@ -539,25 +650,26 @@ dd/mm/yyyy hh:mm</td>
 </tbody>
 </table>
 </div>
-<hr>
-<p><code>CUSTOMTEXTS</code></p>
+</section>
+</section>
+<section id="textersetzungen" class="level2">
+<h2 class="anchored" data-anchor-id="textersetzungen">Textersetzungen</h2>
+<p>Diese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.</p>
+<section id="customtext" class="level3">
+<h3 class="anchored" data-anchor-id="customtext"><code>&lt;CustomText&gt;</code></h3>
 <table>
 <tbody><tr>
-    <td>CustomText:</td>
+    <td><code>CustomText</code></td>
     <td>key</td>
     <td>Attribut</td>
     <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Custom Text Configuration.</b></td>
 </tr><tr>
-    <td>CustomText:</td>
+    <td><code>CustomText</code></td>
     <td>&gt;xxx&lt;</td>
     <td>Datum</td>
     <td>frei wählbar Text zur Anzeige eines Custom Text</td>
 </tr>
 </tbody></table>
-</section>
-<section id="custom-text-konfiguration" class="level1">
-<h1>Custom Text Konfiguration</h1>
-<p>Diese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb des <strong>Testcenters</strong> ersetzt werden sollen, wird mit dem Attribut: <code>key</code> festgelegt. Dazu werden dem Attribut: <code>key</code> definierte Attributwerte zugewiesen.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -568,7 +680,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html"><strong>Hier</strong></a> finden Sie eine Übersicht über die verwendbaren Attributwerte, die dem Attribut:<code>key</code> zugewiesen werden können. Der individuelle Text wird dann in Hochkommata gefasst als Datum übergeben. Alle Texte, die nicht geändert werden, erhalten den Standardtext.</p>
+<p>Der Attributwert für das Attribut <code>key</code> ist nicht frei wählbar. Es können nur Werte verwendet werden, die <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html"><strong>hier</strong></a> gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -585,6 +697,8 @@ Wichtig
 </div>
 </div>
 <p>Hier ein Beispiel für 2 veränderte Texte.</p>
+</section>
+</section>
 </section>
 <section id="einrichten-der-testleitungskonsole" class="level1">
 <h1>Einrichten der Testleitungskonsole</h1>

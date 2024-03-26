@@ -48,7 +48,29 @@
     "href": "Referenzen/Testtaker_Xml.html",
     "title": "Testtaker-XML",
     "section": "",
-    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text\n\n\n\nDie Testtaker-Definition findet in einer XML-Datei statt. Generelle Hinweise zur Bearbeitung von XML-Dateien sind hier zu finden.\n\nAttribute und Daten\n\n\n\n\n\n\nWichtig\n\n\n\nDie in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtakers.xml ist hier ersichtlich.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nWerden Attribute nicht beschrieben, erhalten diese Attribute Standardwerte. Welche Standardwerte das sind, ist der entsprechenden Tabelle (siehe Custom-Text-Konfiguration) zu entnehmen!\n\n\nMETADATA\n\n\n\n\nDescription:\n&gt;xxx&lt;\nDatum\nfrei wählbarer Text für die Metadaten Beschreibung\n\n\n\n\n\nGROUP\n\n\n\n\n\n\n\n\n\n\nGroup:\nid\nAttribut\nfrei wählbarer Wert\n\n\nGroup:\nlabel\nAttribut\nfrei wählbarer Wert\n\n\nGroup:\nvalidTo\nAttribut\nBestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format:\ndd/mm/yyyy hh:mm\n\n\nGroup:\nvalidFrom\nAttribut\nBestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format:\ndd/mm/yyyy hh:mm\n\n\nGroup:\nvalidFor\nAttribut\nBestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer\n\n\nLogin:\nname\nAttribut\nFrei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.\n\n\nLogin:\nmode\nAttribut\nVordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Siehe: Modi der Testdurchführung\n\n\nLogin:\npw\nAttribut\nFrei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.\n\n\nBooklet:\n&gt;xxx&lt;\nDatum\nFrei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)\n\n\n\n\n\nCUSTOMTEXTS\n\n\n    CustomText:\n    key\n    Attribut\n    Vordefinierter Wert. Erzeugt einen Custom Text. Siehe Custom Text Configuration.\n\n    CustomText:\n    &gt;xxx&lt;\n    Datum\n    frei wählbar Text zur Anzeige eines Custom Text\n\n\n\n\nCustom Text Konfiguration\nDiese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb des Testcenters ersetzt werden sollen, wird mit dem Attribut: key festgelegt. Dazu werden dem Attribut: key definierte Attributwerte zugewiesen.\n\n\n\n\n\n\nHinweis\n\n\n\nHier finden Sie eine Übersicht über die verwendbaren Attributwerte, die dem Attribut:key zugewiesen werden können. Der individuelle Text wird dann in Hochkommata gefasst als Datum übergeben. Alle Texte, die nicht geändert werden, erhalten den Standardtext.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nAchten Sie bei der Verwendung auf die richtige Schreibweise und beachten Sie die Groß-/Kleinschreibung.\n\n\nHier ein Beispiel für 2 veränderte Texte.\n\n\nEinrichten der Testleitungskonsole\nDie Testleitung kann in der Testtaker.xml über den Login: Monitor-Group (mehr Informationen zum Thema Modi der Testdurchführung finden Sie hier festlegen welche Gruppen der Testleitkonsole hinzugefügt werden sollen. Dazu wird in der entsprechenden Gruppe ein Login: Monitor-Group angelegt. Nachfolgend finden Sie zwei Beispiele wie Gruppen angelegt werden können:\nOhne Passwort. Sinnvoll wenn nur Links an die Testpersonen versendet werden.\nJede Testperson erhält ein eigenes Passwort. Dies stellt die gängigste Methode dar.",
+    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text",
+    "crumbs": [
+      "Referenzen",
+      "Testtaker-XML"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Testtaker_Xml.html#generelle-test-konfiguartion",
+    "href": "Referenzen/Testtaker_Xml.html#generelle-test-konfiguartion",
+    "title": "Testtaker-XML",
+    "section": "Generelle Test-Konfiguartion",
+    "text": "Generelle Test-Konfiguartion\nDie nachfolgenden Elemente und deren verfügbare Attribute realisieren die folgende Funktionen:\n\nAnlegen der Zugriffsdaten (Logins)\nModi der Testdurchführung\nGruppenzuweisungen\nTestheftzuweisungen\nGruppenbeschränkungen (Bsp.: Logins einer Gruppe sind erst ab einer bestimmten Zeit gültig)\n\n\n&lt;Metadata&gt;\n\n\n\n\nDescription\n&gt;xxx&lt;\nDatum\nfrei wählbarer Text für die Metadaten Beschreibung\n\n\n\n\n\n\n&lt;Group&gt;\n\n\n\n\n\n\n\n\n\n\nGroup\nid\nAttribut\nfrei wählbarer Wert\n\n\nGroup\nlabel\nAttribut\nfrei wählbarer Wert\n\n\nGroup\nvalidTo\nAttribut\nBestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format:\ndd/mm/yyyy hh:mm\n\n\nGroup\nvalidFrom\nAttribut\nBestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format:\ndd/mm/yyyy hh:mm\n\n\nGroup\nvalidFor\nAttribut\nBestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer\n\n\nLogin\nname\nAttribut\nFrei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.\n\n\nLogin\nmode\nAttribut\nVordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Weiteres ist den Referenzen: Modi der Testdurchführung zu entnehmen\n\n\nLogin\npw\nAttribut\nFrei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.\n\n\nBooklet\n&gt;xxx&lt;\nDatum\nFrei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)",
+    "crumbs": [
+      "Referenzen",
+      "Testtaker-XML"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Testtaker_Xml.html#textersetzungen",
+    "href": "Referenzen/Testtaker_Xml.html#textersetzungen",
+    "title": "Testtaker-XML",
+    "section": "Textersetzungen",
+    "text": "Textersetzungen\nDiese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.\n\n&lt;CustomText&gt;\n\n\n    CustomText\n    key\n    Attribut\n    Vordefinierter Wert. Erzeugt einen Custom Text. Siehe Custom Text Configuration.\n\n    CustomText\n    &gt;xxx&lt;\n    Datum\n    frei wählbar Text zur Anzeige eines Custom Text\n\n\n\n\n\n\n\n\nHinweis\n\n\n\nDer Attributwert für das Attribut key ist nicht frei wählbar. Es können nur Werte verwendet werden, die hier gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nAchten Sie bei der Verwendung auf die richtige Schreibweise und beachten Sie die Groß-/Kleinschreibung.\n\n\nHier ein Beispiel für 2 veränderte Texte.",
     "crumbs": [
       "Referenzen",
       "Testtaker-XML"
@@ -443,7 +465,7 @@
     "href": "Testcenter/Gruppenmonitor.html",
     "title": "Gruppenmonitor",
     "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung! Ticket beachten: Wiki verfollständigen: System-Check: Netzwerkprüfung #397",
     "crumbs": [
       "Testcenter",
       "Gruppenmonitor"
@@ -509,7 +531,7 @@
     "href": "Referenzen/Modi_der_Testdurchfuehrung.html",
     "title": "Modi der Testdurchführung",
     "section": "",
-    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text\nUnbedingt monitor-group und monitor-study hier mit einbringen!!!!!!!!!!!!!!!!!",
+    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text\nUnbedingt monitor-group und monitor-study hier mit einbringen!!!!!!!!!!!!!!!!!\n\n\n\nBei der Definition der Anmeldung zur Durchführung eines Tests können verschiedene Modi gewählt werden. Die Testhefte bleiben unverändert, es wird nur ein Modus für eine spezielle Testperson festgelegt. Verschiedene Anmeldungen können also mit denselben Testheften zu unterschiedlichem Verhalten führen.\n\nWo wird das festgelegt?\nDie Festlegung erfolgt in der Testtaker-Xml im Element Login im Attribut mode:\n&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n  &lt;Testtakers\n     xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n     xsi:noNamespaceSchemaLocation=\n     \"https://raw.githubusercontent.com/iqb-berlin/testcenter-backend/9.1.1/definitions/vo_Testtakers.xsd\"&gt;\n\n     &lt;Metadata&gt;\n       &lt;Description&gt;Technischer Test Mechtel&lt;/Description&gt;\n     &lt;/Metadata&gt;\n\n     &lt;Group id=\"check_mme\" label=\"Mechtels Testgruppe\"&gt;\n       &lt;Login mode=\"run-review\" name=\"mme4r5t6\" pw=\"d7u9\"&gt;\n         &lt;Booklet&gt;Booklet_Version1&lt;/Booklet&gt;\n       &lt;/Login&gt;\n       &lt;Login mode=\"run-hot-return\" name=\"susicheck12\" pw=\"r4u2\"&gt;\n         &lt;Booklet&gt;Booklet_Version2&lt;/Booklet&gt;\n       &lt;/Login&gt;\n     &lt;/Group&gt;\n   &lt;/Testtakers&gt;\n\n\n\n\n\n\n\nTipp\n\n\n\nDetaillierte Informationen zu den Modi der Testdurchführung und deren Eigenschaften sind hier zu finden!",
     "crumbs": [
       "Referenzen",
       "Modi der Testdurchführung"
