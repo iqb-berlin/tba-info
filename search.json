@@ -55,22 +55,11 @@
     ]
   },
   {
-    "objectID": "Referenzen/Testtaker_Xml.html#generelle-test-konfiguartion",
-    "href": "Referenzen/Testtaker_Xml.html#generelle-test-konfiguartion",
-    "title": "Testtaker-XML",
-    "section": "Generelle Test-Konfiguartion",
-    "text": "Generelle Test-Konfiguartion\nDie nachfolgenden Elemente und deren verfügbare Attribute realisieren die folgende Funktionen:\n\nAnlegen der Zugriffsdaten (Logins)\nModi der Testdurchführung\nGruppenzuweisungen\nTestheftzuweisungen\nGruppenbeschränkungen (Bsp.: Logins einer Gruppe sind erst ab einer bestimmten Zeit gültig)\n\n\n&lt;Metadata&gt;\n\n\n\n\nDescription\n&gt;xxx&lt;\nDatum\nfrei wählbarer Text für die Metadaten Beschreibung\n\n\n\n\n\n\n&lt;Group&gt;\n\n\n\n\n\n\n\n\n\n\nGroup\nid\nAttribut\nfrei wählbarer Wert\n\n\nGroup\nlabel\nAttribut\nfrei wählbarer Wert\n\n\nGroup\nvalidTo\nAttribut\nBestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format:\ndd/mm/yyyy hh:mm\n\n\nGroup\nvalidFrom\nAttribut\nBestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format:\ndd/mm/yyyy hh:mm\n\n\nGroup\nvalidFor\nAttribut\nBestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer\n\n\nLogin\nname\nAttribut\nFrei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.\n\n\nLogin\nmode\nAttribut\nVordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Weiteres ist den Referenzen: Modi der Testdurchführung zu entnehmen\n\n\nLogin\npw\nAttribut\nFrei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.\n\n\nBooklet\n&gt;xxx&lt;\nDatum\nFrei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)",
-    "crumbs": [
-      "Referenzen",
-      "Testtaker-XML"
-    ]
-  },
-  {
     "objectID": "Referenzen/Testtaker_Xml.html#textersetzungen",
     "href": "Referenzen/Testtaker_Xml.html#textersetzungen",
     "title": "Testtaker-XML",
     "section": "Textersetzungen",
-    "text": "Textersetzungen\nDiese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.\n\n&lt;CustomText&gt;\n\n\n    CustomText\n    key\n    Attribut\n    Vordefinierter Wert. Erzeugt einen Custom Text. Siehe Custom Text Configuration.\n\n    CustomText\n    &gt;xxx&lt;\n    Datum\n    frei wählbar Text zur Anzeige eines Custom Text\n\n\n\n\n\n\n\n\nHinweis\n\n\n\nDer Attributwert für das Attribut key ist nicht frei wählbar. Es können nur Werte verwendet werden, die hier gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nAchten Sie bei der Verwendung auf die richtige Schreibweise und beachten Sie die Groß-/Kleinschreibung.\n\n\nHier ein Beispiel für 2 veränderte Texte.",
+    "text": "Textersetzungen\nDie Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.\n\n\n\n\nCustomText\nkey\nAttribut\nVordefinierter Wert. Erzeugt einen Custom Text. Siehe Custom Text Configuration.\n\n\nCustomText\n&gt;xxx&lt;\nDatum\nfrei wählbar Text zur Anzeige eines Custom Text\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\nDie Attributwerte für das Attribut key sind nicht frei wählbar. Es können nur Werte verwendet werden, die hier gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.",
     "crumbs": [
       "Referenzen",
       "Testtaker-XML"
