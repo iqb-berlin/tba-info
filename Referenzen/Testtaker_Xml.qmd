@@ -12,8 +12,18 @@ In Bearbeitung THuste: to do
 
 # Attribute und Daten
 
+Folgende Funktionen erfüllt die Testtaker-XML:
+
+* Anlegen der Zugriffsdaten (Logins)
+* Gruppenzuweisungen
+* Gruppenbeschränkungen
+* Modi der Testdurchführung
+* Testheftzuweisungen
+* Gruppenmonitoring
+* Textersetzungen
+
 ::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die `Testtakers.xml` ist [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
 :::
 
 Die Schema-Definition wird im Kopf der XML eingebunden:
@@ -23,8 +33,9 @@ Die Schema-Definition wird im Kopf der XML eingebunden:
 
 </Testtakers>
 ```
+::: {.callout-note collapse="true"}
 
-Nachfolgend ist eine beispielhafte Testtaker-XML zu sehen:
+## Beispiel XML
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -40,11 +51,10 @@ Nachfolgend ist eine beispielhafte Testtaker-XML zu sehen:
     <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
 </CustomTexts>
 
-<Group id="sample_group" validFrom="1/3/2020 10:00" label="Primary Sample Group">
+<Group id="sample_group" validFrom="1/3/2024 10:00" label="Primary Sample Group">
     <Login mode="run-hot-return" name="test" pw="user123">
-        <Booklet codes="xxx yyy">BOOKLET.SAMPLE-1</Booklet>
-        <Booklet codes="xxx yyy">BOOKLET.SAMPLE-3</Booklet>
-        <Booklet>BOOKLET.SAMPLE-2</Booklet>
+        <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+        <Booklet codes="yyy">BOOKLET.SAMPLE-3</Booklet>
     </Login>
     <Login mode="monitor-group" name="test-group-monitor" pw="user123"/>
 </Group>
@@ -92,35 +102,34 @@ Nachfolgend ist eine beispielhafte Testtaker-XML zu sehen:
 </Testtakers>
 ```
 
-Die verfügbaren Attribute und die zugehörigen möglichen Werte und deren Bedeutung werden nachfolgend aufgelistet. Die Attribute und Werte werden dabei dem jeweiligen Xml-Hauptelement zugeordnet.
+Was ist in diesem Beispiel zu sehen und was würde passieren, wenn diese Datei mit den hier deklarierten Testheften und zugehörigen Aufgaben in das Testcenter geladen wird?
 
-## Generelle Test-Konfiguartion
+In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Zahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen. 
 
-Die nachfolgenden Elemente und deren verfügbare Attribute realisieren die folgende Funktionen:
+In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (`validFrom`). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: sample_group, dem Login: Test und dem entsprechenden Code gespeichert. Nach Anmeldung des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Personen nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren oder den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein. 
 
-* Anlegen der Zugriffsdaten (Logins)
-* Modi der Testdurchführung
-* Gruppenzuweisungen
-* Testheftzuweisungen
-* Gruppenbeschränkungen (Bsp.: Logins einer Gruppe sind erst ab einer bestimmten Zeit gültig)
+:::
 
-### `<Metadata>`
+Die verfügbaren Attribute und die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Außerdem wird augelistet welchen Elementen Daten in Form von Text zugeordnet werden können. **Die Attribute und Werte werden dabei dem jeweiligen Xml-Element zugeordnet.**
+
+::: {.callout-important}
+Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen können nur vordefinierte Werte zugewiesen werden. Zum Beispiel kann das Attribut: `mode` im Element: `<Login>` nur einen definierten Wert erhalten, der einer entsprechenden Liste zu entnehmen ist. Hingegen ist der Wert des Attributs: `name` in `<Login>` frei wählbar. Auch Dateneingaben (Texteingaben) sind nicht immer frei wählbar. Bspw. können dem Element `<Booklet>` Daten hinzugefügt werden, die bestimmen welches Booklet aufgerufen wird. Hier muss natürlich die richtige ID des Booklets eingetragen werden. Ob ein freier Wert hinterlegt werden kann oder nicht, ist den nachfolgenden Beschreibungen zu entnehmen.
+:::
 
 ```{=html}
-<table>
+<table style="width:100%">
 <tr>
-    <td><code>Description</code></td>
-    <td>>xxx<</td>
-	<td>Datum</td>
-    <td>frei wählbarer Text für die Metadaten Beschreibung</td>
+    <td><code>Metadata</code></td>
+    <td></td>
+    <td></td>
+    <td style="width:90%">Keine Attribute, keine Daten</td>
 </tr>
-</table>
-```
-
-### `<Group>`
-
-```{=html}
-<table>
+<tr>
+    <td><code>Describtion</code></td>
+    <td>>xxx<</td>
+    <td>Daten</td>
+    <td>Text frei wählbar</td>
+</tr>
 <tr>
     <td><code>Group</code></td>
     <td>id</td>
@@ -137,13 +146,13 @@ Die nachfolgenden Elemente und deren verfügbare Attribute realisieren die folge
     <td><code>Group</code></td>
     <td>validTo</td>
     <td>Attribut</td>
-    <td>Bestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format:<br> dd/mm/yyyy hh:mm</td>
+    <td>Bestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format: dd/mm/yyyy hh:mm</td>
 </tr>
 <tr>
     <td><code>Group</code></td>
     <td>validFrom</td>
     <td>Attribut</td>
-    <td>Bestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format:<br> dd/mm/yyyy hh:mm</td>
+    <td>Bestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format: dd/mm/yyyy hh:mm</td>
 </tr>
 <tr>
     <td><code>Group</code></td>
@@ -172,18 +181,22 @@ Die nachfolgenden Elemente und deren verfügbare Attribute realisieren die folge
 </tr>
 <tr>
     <td><code>Booklet</code></td>
-    <td>>xxx<</td>
-    <td>Datum</td>
+     <td>code</td>
+    <td>Attribut</td>
     <td>Frei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)</td>
+</tr>
+<tr>
+    <td><code>Booklet</code></td>
+    <td>>xxx<</td>
+    <td>Daten</td>
+    <td>Text sollte ID der Booklet-XML entsprechen</td>
 </tr>
 </table>
 ```
 
 ## Textersetzungen
 
-Diese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.
-
-### `<CustomText>`
+Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.
 
 ```{=html}
 <table>
@@ -191,7 +204,7 @@ Diese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen
     <td><code>CustomText</code></td>
     <td>key</td>
     <td>Attribut</td>
-    <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Custom Text Configuration.</b></td   
+    <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Custom Text Configuration.</b></td>   
 </tr>
 <tr>
     <td><code>CustomText</code></td>
@@ -201,57 +214,11 @@ Diese Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen
 </tr>
 </table>
 ```
-
 ::: {.callout-note}
-Der Attributwert für das Attribut `key` ist nicht frei wählbar. Es können nur Werte verwendet werden, die [**hier**](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.
+Die Attributwerte für das Attribut `key` sind nicht frei wählbar. Es können nur Werte verwendet werden, die [**hier**](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.
 :::
 
-::: {.callout-important}
-Achten Sie bei der Verwendung auf die richtige Schreibweise und beachten Sie die Groß-/Kleinschreibung.
-:::
-
-Hier ein Beispiel für 2 veränderte Texte.
-
-```{=xml}
-<CustomTexts>
-    <CustomText key="login_testEndButtonText">Test beenden</CustomText>
-    <CustomText key="login_bookletSelectPrompt">Bitte wählen</CustomText>
-</CustomTexts>
-```
 
 # Einrichten der Testleitungskonsole
 
-Die Testleitung kann in der `Testtaker.xml` über den Login: `Monitor-Group` (mehr Informationen zum Thema Modi der Testdurchführung finden Sie [hier](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Login-Modi-der-Testdurchf%C3%BChrung) festlegen welche Gruppen der Testleitkonsole hinzugefügt werden sollen. Dazu wird in der entsprechenden Gruppe ein Login: `Monitor-Group` angelegt. Nachfolgend finden Sie zwei Beispiele wie Gruppen angelegt werden können:
-
-Ohne Passwort. Sinnvoll wenn nur Links an die Testpersonen versendet werden.
-
-```{=xml}
-<Group id="iqb-intern1" label="IQB intern Gruppe 1">
-		
-	<Login mode="run-hot-return" name="Testgruppe-1">
-		<Booklet codes="Testperson_a Testperson_b Testperson_c">THETLK</Booklet>
-	</Login>
-
-	<Login mode="monitor-group" name="group-monitor_1" />
-
-</Group>
-```
-
-Jede Testperson erhält ein eigenes Passwort. Dies stellt die gängigste Methode dar.
-
-```{=xml}
-<Group id="iqb-intern1" label="IQB intern Gruppe 1">
-			
-	<Login mode="run-hot-return" name="Testperson_a" pw="123">
-		<Booklet>THETLK</Booklet>
-	</Login>
-	<Login mode="run-hot-return" name="Testperson_b" pw="124">
-		<Booklet>THETLK</Booklet>
-	</Login>
-	<Login mode="run-hot-return" name="Testperson_c" pw="125">
-		<Booklet>THETLK</Booklet>
-	</Login>
-						
-	<Login mode="monitor-group" name="group-monitor_1" />
-</Group>
-```
+Der Gruppenmonitor kann in der Testtaker.xml über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: `monitor-group` und `monitor-study`. Im Modus: `monitor-group` können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: `monitor-study` können alle Logins in allen Gruppen gesteuert werden
