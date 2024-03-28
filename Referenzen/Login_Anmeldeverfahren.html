@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -379,7 +413,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#klassisch-anmeldename-kennwort" id="toc-klassisch-anmeldename-kennwort" class="nav-link active" data-scroll-target="#klassisch-anmeldename-kennwort">Klassisch: Anmeldename, Kennwort</a></li>
+  <li><a href="#kurz-nur-anmeldename" id="toc-kurz-nur-anmeldename" class="nav-link" data-scroll-target="#kurz-nur-anmeldename">Kurz: Nur Anmeldename</a></li>
+  <li><a href="#noch-kürzer-link" id="toc-noch-kürzer-link" class="nav-link" data-scroll-target="#noch-kürzer-link">Noch kürzer: Link</a></li>
+  <li><a href="#länger-anmeldename-kennwort-personencode" id="toc-länger-anmeldename-kennwort-personencode" class="nav-link" data-scroll-target="#länger-anmeldename-kennwort-personencode">Länger: Anmeldename, Kennwort, Personencode</a></li>
+  <li><a href="#gültigkeit-einer-anmeldung" id="toc-gültigkeit-einer-anmeldung" class="nav-link" data-scroll-target="#gültigkeit-einer-anmeldung">Gültigkeit einer Anmeldung</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -415,12 +459,79 @@ Hinweis
 <div class="callout-body-container callout-body">
 <p>In Bearbeitung THuste: to do</p>
 <ul>
-<li>Überarbeiten Layout und Text</li>
+<li>Anmeldung mittels QR-Code einbringen</li>
 </ul>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Für eine Testdurchführung erlaubt das IQB-Testcenter verschiedene Arten der Anmeldung (Logins) der Testperson. Die hier aufgeführten möglichen Anmeldungsvarianten werden in der <strong>Testtaker-XML</strong> angelegt.</p>
+</div>
+</div>
+<section id="klassisch-anmeldename-kennwort" class="level2">
+<h2 class="anchored" data-anchor-id="klassisch-anmeldename-kennwort">Klassisch: Anmeldename, Kennwort</h2>
+<p>Beim Aufruf der Internet-Seite und damit der Webanwendung wird ein Formular präsentiert zur Eingabe dieser Daten. Diese Anmeldeform wird üblicherweise erwartet. Der Anmeldename wird im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d.&nbsp;h. man kann nicht mitlesen.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="kurz-nur-anmeldename" class="level2">
+<h2 class="anchored" data-anchor-id="kurz-nur-anmeldename">Kurz: Nur Anmeldename</h2>
+<p>Das Kennwort kann weggelassen werden. Hier hat man keine geringere Sicherheit, wenn die Länge und Zeichenzusammensetzung des Namens hinreichend ungewöhnlich ist. Eine laufende Nummer am Ende ist z. B. problematisch, denn sie kann bei Kenntnis eines Namens erraten werden. Die Länge sollte dann min. 8 Zeichen betragen. Diese Anmeldeform sollte gewählt werden, wenn das Verbergen des Kennwortes stört.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">""</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="noch-kürzer-link" class="level2">
+<h2 class="anchored" data-anchor-id="noch-kürzer-link">Noch kürzer: Link</h2>
+<p>Wenn nur ein Anmeldename ohne Kennwort (das Attribut: <strong>pw</strong> muss leer oder gar nicht vorhanden sein) als Login festgelegt wurde, dann kann man auch einen Link an die Testpersonen verschicken. Zu beachten ist hierbei, dass der Name aus Sicherheitsgründen min. 8 Zeichen lang sein sollte und die Zeichenzusammensetzung hinreichend ungewöhnlich ist.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wenn “u8h5m2a4c3x2f2g8” der Anmeldename ist würde der Link so aussehen:</p>
+<p>https://www.iqb-testcenter.de/#/u8h5m2a4c3x2f2g8</p>
+<p>Dadurch macht man es noch einfacher: Auf den Link klicken, und man muss nur noch das Testheft wählen. Diese Form der Anmeldung kann z. B. bei Befragungen in Kombination mit dem Durchführungsmodus <code>run-hot-restart</code> verwendet werden: Es wird nur ein Login in einer Einladungs-E-Mail verschickt, und eine vorher unbekannte Anzahl Personen kann die Befragung starten.</p>
+</section>
+<section id="länger-anmeldename-kennwort-personencode" class="level2">
+<h2 class="anchored" data-anchor-id="länger-anmeldename-kennwort-personencode">Länger: Anmeldename, Kennwort, Personencode</h2>
+<p>Es kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, einen Standard-User anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, wenn auf jedem Computer schon Anmeldename und Kennwort eingegeben werden kann und also ein Anmeldeprozess gestartet wird. Anmeldename und Kennwort sind dann für die Gruppe gleich. Es reicht dann anschließend die Eingabe eines kurzen Personencodes durch die Testperson, um eine eindeutige Identifizierung sicherzustellen. Man spart so Testzeit und vermeidet Fehleingaben. Dieses Szenario bietet sich z. B. an, wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemieteten Computer-Lab durchführt.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"TestpersonA TestpersonB TestpersonC"</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="gültigkeit-einer-anmeldung" class="level2">
+<h2 class="anchored" data-anchor-id="gültigkeit-einer-anmeldung">Gültigkeit einer Anmeldung</h2>
+<p>Es kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: <code>validTo</code>, <code>validFrom</code> und <code>validFor</code> hinzugefügt.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span><span class="ot"> validFrom=</span><span class="st">"17/02/2022 10:00"</span>&gt;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"TestpersonA TestpersonB TestpersonC"</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Gültig für 20 Minuten:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span><span class="ot"> validFor=</span><span class="st">"20"</span>&gt;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"TestpersonA TestpersonB TestpersonC"</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -856,4 +967,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
