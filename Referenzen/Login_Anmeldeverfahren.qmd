@@ -6,6 +6,102 @@ title: "Login/ Anmeldeverfahren"
 ::: {.callout-note}
 In Bearbeitung THuste: to do
 
-* Überarbeiten Layout und Text
+* Anmeldung mittels QR-Code einbringen
 
 :::
+
+
+::: {.callout-tip}
+Für eine Testdurchführung erlaubt das IQB-Testcenter verschiedene Arten der Anmeldung (Logins) der Testperson.
+Die hier aufgeführten möglichen Anmeldungsvarianten werden in der **Testtaker-XML** angelegt.
+:::
+
+## Klassisch: Anmeldename, Kennwort
+
+Beim Aufruf der Internet-Seite und damit der Webanwendung wird ein Formular präsentiert zur Eingabe dieser Daten. 
+Diese Anmeldeform wird üblicherweise erwartet. Der Anmeldename wird im Klartext gezeigt, die Eingabe des Kennwortes erzeugt 
+aber nur Punkte, d. h. man kann nicht mitlesen.
+
+```{.xml}
+<Group id="TestakerGroup1" label="TestakerGroup1">
+    <Login mode="run-review" name="e3p2p" pw="h7u5">
+        <Booklet>Booklet1</Booklet>
+    </Login>
+</Group>
+```
+
+## Kurz: Nur Anmeldename
+
+Das Kennwort kann weggelassen werden. Hier hat man keine geringere Sicherheit, wenn die Länge und Zeichenzusammensetzung 
+des Namens hinreichend ungewöhnlich ist. Eine laufende Nummer am Ende ist z. B. problematisch, denn sie kann bei Kenntnis eines Namens 
+erraten werden. Die Länge sollte dann min. 8 Zeichen betragen. Diese Anmeldeform sollte gewählt werden, wenn das Verbergen des Kennwortes stört.
+
+```{.xml}
+<Group id="TestakerGroup1" label="TestakerGroup1">
+	<Login mode="run-review" name="e3p2p" pw="">
+        <Booklet>Booklet1</Booklet>
+    </Login>
+</Group>
+```
+
+## Noch kürzer: Link
+
+Wenn nur ein Anmeldename ohne Kennwort (das Attribut: **pw** muss leer oder gar nicht vorhanden sein) als Login festgelegt wurde, dann kann man auch einen Link an die Testpersonen verschicken. Zu beachten ist hierbei, dass der Name aus Sicherheitsgründen min. 8 Zeichen lang sein sollte und die Zeichenzusammensetzung hinreichend ungewöhnlich ist.
+
+```{.xml}
+<Group id="TestakerGroup1" label="TestakerGroup1">
+	<Login mode="run-review" name="e3p2p">
+        <Booklet>Booklet1</Booklet>
+    </Login>
+</Group>
+``` 
+
+Wenn "u8h5m2a4c3x2f2g8" der Anmeldename ist würde der Link so aussehen:
+
+https://www.iqb-testcenter.de/#/u8h5m2a4c3x2f2g8
+
+Dadurch macht man es noch einfacher: Auf den Link klicken, und man muss nur noch das Testheft wählen. Diese Form der 
+Anmeldung kann z. B. bei Befragungen in Kombination mit dem Durchführungsmodus `run-hot-restart` verwendet werden: 
+Es wird nur ein Login in einer Einladungs-E-Mail verschickt, und eine vorher unbekannte Anzahl Personen kann die Befragung starten.
+
+## Länger: Anmeldename, Kennwort, Personencode
+
+Es kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, 
+einen Standard-User anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, 
+wenn auf jedem Computer schon Anmeldename und Kennwort eingegeben werden kann und also ein Anmeldeprozess gestartet wird. 
+Anmeldename und Kennwort sind dann für die Gruppe gleich. Es reicht dann anschließend die Eingabe eines kurzen Personencodes durch die Testperson, 
+um eine eindeutige Identifizierung sicherzustellen. Man spart so Testzeit und vermeidet Fehleingaben. Dieses Szenario bietet sich z. B. an, 
+wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemieteten Computer-Lab durchführt.
+
+```{.xml}
+<Group id="TestakerGroup1" label="TestakerGroup1">
+	<Login mode="run-review" name="e3p2p" pw="h7u5">
+            <Booklet codes="TestpersonA TestpersonB TestpersonC">Booklet1</Booklet>
+    </Login>
+</Group>
+``` 
+
+## Gültigkeit einer Anmeldung
+
+Es kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: `validTo`, `validFrom` und `validFor` hinzugefügt.
+
+```{.xml}
+<Group id="TestakerGroup1" label="TestakerGroup1" validFrom="17/02/2022 10:00">
+	<Login mode="run-review" name="e3p2p" pw="h7u5">
+        <Booklet codes="TestpersonA TestpersonB TestpersonC">Booklet1</Booklet>
+    </Login>
+</Group>
+``` 
+
+Gültig für 20 Minuten:
+
+```{.xml}
+<Group id="TestakerGroup1" label="TestakerGroup1" validFor="20">
+    <Login mode="run-review" name="e3p2p" pw="h7u5">
+        <Booklet codes="TestpersonA TestpersonB TestpersonC">Booklet1</Booklet>
+    </Login>
+</Group>
+``` 
+
+
+
