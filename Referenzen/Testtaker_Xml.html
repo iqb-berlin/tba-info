@@ -566,13 +566,12 @@ Beispiel XML
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Was ist in diesem Beispiel zu sehen und was würde passieren, wenn diese Datei mit den hier deklarierten Testheften und zugehörigen Aufgaben in das Testcenter geladen wird?</p>
 <p>In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Zahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen.</p>
 <p>In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (<code>validFrom</code>). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: sample_group, dem Login: Test und dem entsprechenden Code gespeichert. Nach Anmeldung des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Personen nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren oder den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein.</p>
 </div>
 </div>
 </div>
-<p>Die verfügbaren Attribute und die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Außerdem wird augelistet welchen Elementen Daten in Form von Text zugeordnet werden können. <strong>Die Attribute und Werte werden dabei dem jeweiligen Xml-Element zugeordnet.</strong></p>
+<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte und in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt welchen Elementen Daten in Form von Text zugeordnet werden können. <strong>Die Attribute, Werte und Daten werden dabei dem jeweiligen Xml-Element zugeordnet.</strong></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -583,7 +582,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen können nur vordefinierte Werte zugewiesen werden. Zum Beispiel kann das Attribut: <code>mode</code> im Element: <code>&lt;Login&gt;</code> nur einen definierten Wert erhalten, der einer entsprechenden Liste zu entnehmen ist. Hingegen ist der Wert des Attributs: <code>name</code> in <code>&lt;Login&gt;</code> frei wählbar. Auch Dateneingaben (Texteingaben) sind nicht immer frei wählbar. Bspw. können dem Element <code>&lt;Booklet&gt;</code> Daten hinzugefügt werden, die bestimmen welches Booklet aufgerufen wird. Hier muss natürlich die richtige ID des Booklets eingetragen werden. Ob ein freier Wert hinterlegt werden kann oder nicht, ist den nachfolgenden Beschreibungen zu entnehmen.</p>
+<p>Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen können nur vordefinierte Werte zugewiesen werden. Zum Beispiel kann das Attribut: <code>mode</code> im Element: <code>&lt;Login&gt;</code> nur einen definierten Wert erhalten. Dieser Wert ist einer entsprechenden Liste zu entnehmen. Hingegen ist der Wert des Attributs: <code>name</code> in <code>&lt;Login&gt;</code> frei wählbar. Auch Dateneingaben (Texteingaben) sind nicht immer frei wählbar. Bspw. können dem Element <code>&lt;Booklet&gt;</code> Daten hinzugefügt werden, die bestimmen welches Booklet aufgerufen wird. Hier muss natürlich die richtige ID des Booklets eingetragen werden, sonst wird das entsprechende Booklet nicht aufgerufen.</p>
 </div>
 </div>
 <div>
