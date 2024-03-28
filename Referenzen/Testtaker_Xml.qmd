@@ -102,18 +102,16 @@ Die Schema-Definition wird im Kopf der XML eingebunden:
 </Testtakers>
 ```
 
-Was ist in diesem Beispiel zu sehen und was würde passieren, wenn diese Datei mit den hier deklarierten Testheften und zugehörigen Aufgaben in das Testcenter geladen wird?
-
 In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Zahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen. 
 
 In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (`validFrom`). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: sample_group, dem Login: Test und dem entsprechenden Code gespeichert. Nach Anmeldung des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Personen nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren oder den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein. 
 
 :::
 
-Die verfügbaren Attribute und die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Außerdem wird augelistet welchen Elementen Daten in Form von Text zugeordnet werden können. **Die Attribute und Werte werden dabei dem jeweiligen Xml-Element zugeordnet.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte und in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt welchen Elementen Daten in Form von Text zugeordnet werden können. **Die Attribute, Werte und Daten werden dabei dem jeweiligen Xml-Element zugeordnet.**
 
 ::: {.callout-important}
-Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen können nur vordefinierte Werte zugewiesen werden. Zum Beispiel kann das Attribut: `mode` im Element: `<Login>` nur einen definierten Wert erhalten, der einer entsprechenden Liste zu entnehmen ist. Hingegen ist der Wert des Attributs: `name` in `<Login>` frei wählbar. Auch Dateneingaben (Texteingaben) sind nicht immer frei wählbar. Bspw. können dem Element `<Booklet>` Daten hinzugefügt werden, die bestimmen welches Booklet aufgerufen wird. Hier muss natürlich die richtige ID des Booklets eingetragen werden. Ob ein freier Wert hinterlegt werden kann oder nicht, ist den nachfolgenden Beschreibungen zu entnehmen.
+Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen können nur vordefinierte Werte zugewiesen werden. Zum Beispiel kann das Attribut: `mode` im Element: `<Login>` nur einen definierten Wert erhalten. Dieser Wert ist einer entsprechenden Liste zu entnehmen. Hingegen ist der Wert des Attributs: `name` in `<Login>` frei wählbar. Auch Dateneingaben (Texteingaben) sind nicht immer frei wählbar. Bspw. können dem Element `<Booklet>` Daten hinzugefügt werden, die bestimmen welches Booklet aufgerufen wird. Hier muss natürlich die richtige ID des Booklets eingetragen werden, sonst wird das entsprechende Booklet nicht aufgerufen. 
 :::
 
 ```{=html}
