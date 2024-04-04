@@ -3,15 +3,6 @@ lang: de
 title: "Testtaker-XML"
 ---
 
-::: {.callout-note}
-In Bearbeitung THuste: to do
-
-* Überarbeiten Layout und Text
-
-:::
-
-# Attribute und Daten
-
 Folgende Funktionen erfüllt die Testtaker-XML:
 
 * Anlegen der Zugriffsdaten (Logins)
@@ -19,23 +10,28 @@ Folgende Funktionen erfüllt die Testtaker-XML:
 * Gruppenbeschränkungen
 * Modi der Testdurchführung
 * Testheftzuweisungen
-* Gruppenmonitoring
-* Textersetzungen
+* **Textersetzungen:** Erzeugung individueller Texte
+* **Gruppenmonitoring:** Überwachung und Steuerung einer Testdurchführung
+
 
 ::: {.callout-important}
 Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
 :::
 
-Die Schema-Definition wird im Kopf der XML eingebunden:
+::: {.callout-important}
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+:::
+
+Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
 
 ```{.xml .code-overflow-wrap}
 <Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
 
 </Testtakers>
 ```
-::: {.callout-note collapse="true"}
+::: {.callout-tip collapse="true"}
 
-## Beispiel XML
+## Ein Beispiel
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -108,85 +104,140 @@ In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt �
 
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte und in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt welchen Elementen Daten in Form von Text zugeordnet werden können. **Die Attribute, Werte und Daten werden dabei dem jeweiligen Xml-Element zugeordnet.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten in Form von Text zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.**
 
-::: {.callout-important}
-Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen können nur vordefinierte Werte zugewiesen werden. Zum Beispiel kann das Attribut: `mode` im Element: `<Login>` nur einen definierten Wert erhalten. Dieser Wert ist einer entsprechenden Liste zu entnehmen. Hingegen ist der Wert des Attributs: `name` in `<Login>` frei wählbar. Auch Dateneingaben (Texteingaben) sind nicht immer frei wählbar. Bspw. können dem Element `<Booklet>` Daten hinzugefügt werden, die bestimmen welches Booklet aufgerufen wird. Hier muss natürlich die richtige ID des Booklets eingetragen werden, sonst wird das entsprechende Booklet nicht aufgerufen. 
-:::
+```{.xml .code-overflow-wrap}
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
+
+<Metadata>
+    <Description>
+    This file contains some logins for testing and works a a sample for developers.
+    </Description>
+</Metadata>
+
+<CustomTexts>
+    <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+</CustomTexts>
+
+<Group id="trial_group" label="A Group for Trials and Demos" validFor="45">
+    <Login mode="run-trial" name="test-trial" pw="erds#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-demo" name="test-demo" pw="tzu#w">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-simulation" name="test-simulation" pw="er34#j">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="test-hot" pw="vg56t#">
+        <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+        <Booklet codes="yyy">BOOKLET.SAMPLE-3</Booklet>
+    </Login>
+</Group>
+
+</Testtakers>
+```
 
 ```{=html}
-<table style="width:100%">
+<table>
 <tr>
+    <th><b>Hauptelement</b></th>
+    <th><b>Unterlement</b></th>
+    <th><b>Attribut</b></th>
+    <th><b>Datum</b></th>
+    <th><b>Beschreibung</b></th>
+</tr>
+<tr>
+    <td><code>Testtakers</code></td>
     <td><code>Metadata</code></td>
     <td></td>
     <td></td>
-    <td style="width:90%">Keine Attribute, keine Daten</td>
+    <td>Keine Attribute, keine Daten</td>
 </tr>
 <tr>
+    <td><code>Metadata</code></td>
     <td><code>Describtion</code></td>
-    <td>>xxx<</td>
-    <td>Daten</td>
+    <td></td>
+    <td>>abc<</td>
     <td>Text frei wählbar</td>
 </tr>
 <tr>
+    <td><code>Testtakers</code></td>
+    <td><code>CustomTexts</code></td>
+    <td></td>
+    <td></td>
+    <td>Mehr Informationen dazu sind im Abschnitt: **Textersetzungen** zu finden.</td>
+</tr>
+<tr>
+    <td><code>Testtakers</code></td>
     <td><code>Group</code></td>
     <td>id</td>
-    <td>Attribut</td>
+    <td></td>
     <td>frei wählbarer Wert</td>
 </tr>
 <tr>
+    <td><code>Testtakers</code></td>
     <td><code>Group</code></td>
     <td>label</td>
-    <td>Attribut</td>
+    <td></td>
     <td>frei wählbarer Wert</td>
 </tr>
 <tr>
+    <td><code>Testtakers</code></td>
     <td><code>Group</code></td>
     <td>validTo</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Bestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format: dd/mm/yyyy hh:mm</td>
 </tr>
 <tr>
+    <td><code>Testtakers</code></td>
     <td><code>Group</code></td>
     <td>validFrom</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Bestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format: dd/mm/yyyy hh:mm</td>
 </tr>
 <tr>
+    <td><code>Testtakers</code></td>
     <td><code>Group</code></td>
     <td>validFor</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Bestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer</td>
 </tr>
 <tr>
+    <td><code>Group</code></td>
     <td><code>Login</code></td>
     <td>name</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Frei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
 </tr>
 <tr>
+    <td><code>Group</code></td>
     <td><code>Login</code></td>
     <td>mode</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Vordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Weiteres ist den Referenzen: <b>Modi der Testdurchführung</b> zu entnehmen
     </td>
 </tr>
 <tr>
+    <td><code>Group</code></td>
     <td><code>Login</code></td>
     <td>pw</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Frei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
 </tr>
 <tr>
+    <td><code>Login</code></td>
     <td><code>Booklet</code></td>
-     <td>code</td>
-    <td>Attribut</td>
+    <td>code</td>
+    <td></td>
     <td>Frei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)</td>
 </tr>
 <tr>
+    <td><code>Login</code></td>
     <td><code>Booklet</code></td>
-    <td>>xxx<</td>
-    <td>Daten</td>
+    <td></td>
+    <td>>abc<</td>
     <td>Text sollte ID der Booklet-XML entsprechen</td>
 </tr>
 </table>
@@ -196,18 +247,44 @@ Nicht alle Attributwerte eines Attributs sind frei wählbar. Bei einzelnen könn
 
 Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.
 
+```{.xml .code-overflow-wrap}
+<Testtakers>
+
+    <CustomTexts>
+        <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+    </CustomTexts>
+
+</Testtakers>
+```
+
 ```{=html}
 <table>
 <tr>
+    <th><b>Hauptelement</b></th>
+    <th><b>Unterelement</b></th>
+    <th><b>Attribut</b></th>
+    <th><b>Datum</b></th>
+    <th><b>Beschreibung</b></th>
+</tr>
+<tr>
+    <td><code>Testtakers</code></td>
+    <td><code>CustomTexts</code></td>
+    <td></td>
+    <td></td>
+    <td>Keine Daten, keine Attribute.</td>   
+</tr>
+<tr>
+   <td><code>CustomTexts</code></td>
     <td><code>CustomText</code></td>
     <td>key</td>
-    <td>Attribut</td>
+    <td></td>
     <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Custom Text Configuration.</b></td>   
 </tr>
 <tr>
+    <td><code>CustomTexts</code></td>
     <td><code>CustomText</code></td>
-    <td>>xxx<</td>
-    <td>Datum</td>
+    <td></td>
+    <td>>abc<</td>
     <td>frei wählbar Text zur Anzeige eines Custom Text</td>
 </tr>
 </table>
@@ -217,6 +294,6 @@ Die Attributwerte für das Attribut `key` sind nicht frei wählbar. Es können n
 :::
 
 
-## Einrichten der Testleitungskonsole
+## Gruppenmonitoring
 
 Der Gruppenmonitor kann in der Testtaker.xml über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: `monitor-group` und `monitor-study`. Im Modus: `monitor-group` können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: `monitor-study` können alle Logins in allen Gruppen gesteuert werden
