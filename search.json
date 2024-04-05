@@ -11,14 +11,69 @@
     ]
   },
   {
-    "objectID": "Referenzen/Aufgabenkodierung.html",
-    "href": "Referenzen/Aufgabenkodierung.html",
-    "title": "Booklet-XML",
+    "objectID": "Referenzen/Anmeldeverfahren.html",
+    "href": "Referenzen/Anmeldeverfahren.html",
+    "title": "Login/ Anmeldeverfahren",
     "section": "",
-    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text",
+    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nAnmeldung mittels QR-Code einbringen",
     "crumbs": [
       "Referenzen",
-      "Aufgabenkodierung"
+      "Anmeldeverfahren"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Anmeldeverfahren.html#klassisch-anmeldename-kennwort",
+    "href": "Referenzen/Anmeldeverfahren.html#klassisch-anmeldename-kennwort",
+    "title": "Login/ Anmeldeverfahren",
+    "section": "Klassisch: Anmeldename, Kennwort",
+    "text": "Klassisch: Anmeldename, Kennwort\nBeim Aufruf der Internet-Seite und damit der Webanwendung wird ein Formular präsentiert zur Eingabe dieser Daten. Diese Anmeldeform wird üblicherweise erwartet. Der Anmeldename wird im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d. h. man kann nicht mitlesen.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n        &lt;Booklet&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
+    "crumbs": [
+      "Referenzen",
+      "Anmeldeverfahren"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Anmeldeverfahren.html#kurz-nur-anmeldename",
+    "href": "Referenzen/Anmeldeverfahren.html#kurz-nur-anmeldename",
+    "title": "Login/ Anmeldeverfahren",
+    "section": "Kurz: Nur Anmeldename",
+    "text": "Kurz: Nur Anmeldename\nDas Kennwort kann weggelassen werden. Hier hat man keine geringere Sicherheit, wenn die Länge und Zeichenzusammensetzung des Namens hinreichend ungewöhnlich ist. Eine laufende Nummer am Ende ist z. B. problematisch, denn sie kann bei Kenntnis eines Namens erraten werden. Die Länge sollte dann min. 8 Zeichen betragen. Diese Anmeldeform sollte gewählt werden, wenn das Verbergen des Kennwortes stört.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"\"&gt;\n        &lt;Booklet&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
+    "crumbs": [
+      "Referenzen",
+      "Anmeldeverfahren"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Anmeldeverfahren.html#noch-kürzer-link",
+    "href": "Referenzen/Anmeldeverfahren.html#noch-kürzer-link",
+    "title": "Login/ Anmeldeverfahren",
+    "section": "Noch kürzer: Link",
+    "text": "Noch kürzer: Link\nWenn nur ein Anmeldename ohne Kennwort (das Attribut: pw muss leer oder gar nicht vorhanden sein) als Login festgelegt wurde, dann kann man auch einen Link an die Testpersonen verschicken. Zu beachten ist hierbei, dass der Name aus Sicherheitsgründen min. 8 Zeichen lang sein sollte und die Zeichenzusammensetzung hinreichend ungewöhnlich ist.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\"&gt;\n        &lt;Booklet&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;\nWenn “u8h5m2a4c3x2f2g8” der Anmeldename ist würde der Link so aussehen:\nhttps://www.iqb-testcenter.de/#/u8h5m2a4c3x2f2g8\nDadurch macht man es noch einfacher: Auf den Link klicken, und man muss nur noch das Testheft wählen. Diese Form der Anmeldung kann z. B. bei Befragungen in Kombination mit dem Durchführungsmodus run-hot-restart verwendet werden: Es wird nur ein Login in einer Einladungs-E-Mail verschickt, und eine vorher unbekannte Anzahl Personen kann die Befragung starten.",
+    "crumbs": [
+      "Referenzen",
+      "Anmeldeverfahren"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Anmeldeverfahren.html#länger-anmeldename-kennwort-personencode",
+    "href": "Referenzen/Anmeldeverfahren.html#länger-anmeldename-kennwort-personencode",
+    "title": "Login/ Anmeldeverfahren",
+    "section": "Länger: Anmeldename, Kennwort, Personencode",
+    "text": "Länger: Anmeldename, Kennwort, Personencode\nEs kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, einen Standard-User anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, wenn auf jedem Computer schon Anmeldename und Kennwort eingegeben werden kann und also ein Anmeldeprozess gestartet wird. Anmeldename und Kennwort sind dann für die Gruppe gleich. Es reicht dann anschließend die Eingabe eines kurzen Personencodes durch die Testperson, um eine eindeutige Identifizierung sicherzustellen. Man spart so Testzeit und vermeidet Fehleingaben. Dieses Szenario bietet sich z. B. an, wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemieteten Computer-Lab durchführt.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n            &lt;Booklet codes=\"TestpersonA TestpersonB TestpersonC\"&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
+    "crumbs": [
+      "Referenzen",
+      "Anmeldeverfahren"
+    ]
+  },
+  {
+    "objectID": "Referenzen/Anmeldeverfahren.html#gültigkeit-einer-anmeldung",
+    "href": "Referenzen/Anmeldeverfahren.html#gültigkeit-einer-anmeldung",
+    "title": "Login/ Anmeldeverfahren",
+    "section": "Gültigkeit einer Anmeldung",
+    "text": "Gültigkeit einer Anmeldung\nEs kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: validTo, validFrom und validFor hinzugefügt.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\" validFrom=\"17/02/2022 10:00\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n        &lt;Booklet codes=\"TestpersonA TestpersonB TestpersonC\"&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;\nGültig für 20 Minuten:\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\" validFor=\"20\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n        &lt;Booklet codes=\"TestpersonA TestpersonB TestpersonC\"&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
+    "crumbs": [
+      "Referenzen",
+      "Anmeldeverfahren"
     ]
   },
   {
@@ -70,7 +125,7 @@
     "href": "Referenzen/Testtaker_Xml.html",
     "title": "Testtaker-XML",
     "section": "",
-    "text": "Folgende Funktionen erfüllt die Testtaker-XML:\nDie Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:\nDie verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten in Form von Text zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.",
+    "text": "Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: itc-Toolbox helfen das Erzeugen solcher Zugänge zu beschleunigen.\nFolgende Funktionen erfüllt die Testtaker-XML:\nDie Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:\nDie verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten in Form von Text zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.",
     "crumbs": [
       "Referenzen",
       "Testtaker-XML"
@@ -197,11 +252,11 @@
     ]
   },
   {
-    "objectID": "Testcenter/Daten_und_Prozesse.html#testtaker-xml",
-    "href": "Testcenter/Daten_und_Prozesse.html#testtaker-xml",
+    "objectID": "Testcenter/Daten_und_Prozesse.html#logins-testtaker-xml",
+    "href": "Testcenter/Daten_und_Prozesse.html#logins-testtaker-xml",
     "title": "Daten und Prozesse",
-    "section": "Testtaker-XML",
-    "text": "Testtaker-XML\nJede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten und nachfolgend aufgeführte Funktionen übernimmt eine XML-Datei. Die XML-Datei trägt IQB-intern den Namen: Testtaker-XML. Prinzipiell ist der Dateiname aber frei wählbar. Im Bild oben ist diese Datei mit “Login” gekennzeichnet.\nFestlegung Logindaten/ Anmeldeverfahren:\nJeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: itc-Toolbox helfen das Erzeugen solcher Zugänge zu beschleunigen.\n\n\n\n\n\n\nTipp\n\n\n\nDas Erstellen von Logins wird unterstützt vom dem Windows-Programm: itc-Toolbox. Mehr Informationen dazu sind den Referenzen zu entnehmen.\n\n\nFür eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig, bspw. ganz klassisch mittels Namen und Passwort oder via Link.\n\n\n\n\n\n\nTipp\n\n\n\nMehr Informationen zu den Login/Anmeldeverfahren sind den Referenzen zu entnehmen!\n\n\nUm eine Testdurchführung so modular wie möglich gestalten zu können, kann jeder Login einer Gruppe zugeordnet werden. Gruppen können dann bspw. mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.\nTestheftzuweisung:\nAufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.\nModi der Testdurchführung:\nUm den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können.\n\n\n\n\n\n\nTipp\n\n\n\nDetaillierte Informationen zu den Modi der Testdurchführung und deren Eigenschaften sind den Referenzen zu entnehmen!\n\n\nTextersetzungen:\nEinzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Die möglichen änderbaren Texte werden dazu in ein spezielles Feld (&lt;CustomTexts&gt;) in der Testtaker-XML geschrieben werden. Die hier angegebenen Texte überschreiben dann die Standardtexte.\n\n\n\n\n\n\nTipp\n\n\n\nDetaillierte Informationen zu den Textersetzungen sind den Referenzen zur Testtaker-XML zu entnehmen!",
+    "section": "Logins (Testtaker-XML)",
+    "text": "Logins (Testtaker-XML)\nDie Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: Testtaker-XML. Prinzipiell ist der Dateiname aber frei wählbar.\n\nWelche Funktionen übernimmt die Testtaker-XML?\n\nFestlegung Zugangsdaten/ Anmeldeverfahren: Um eine Testdurchführung zu starten, müssen die teilnehmenden Personen zuvor mit entsprechenden Zugangsdaten angelegt werden. Die gespeicherten Antworten eines Testdurchlaufs werden dann zu diesen im System hinterlegten Zugansgdaten zugeordnet. Bei der Art der Anmeldung kann zwischen einer Vielzahl von Optionen gewählt werden. Die Anmeldung kann bspw. klassisch mittels Benutzernamen und Passwort erfolgen, mittels Code oder via Link. Mehr Informationen zu den Anmeldeverfahren sind den Referenzen zu entnehmen!\nGruppierung von Zugansgdaten:Die angelegten Testpersonen werden in Gruppen angelegt. Diese Gruppe können mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.\nTestheftzuweisung: Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.\nTestablauf (bspw. heißer Test oder Review): Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können. Detaillierte Informationen zu den Modi der Testdurchführung und deren Eigenschaften sind den Referenzen zu entnehmen!\nindividuelle Textersetzungen: Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur Testtaker-XML zu entnehmen!",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse"
@@ -318,62 +373,55 @@
     ]
   },
   {
-    "objectID": "Testcenter/Die_Sicht_der_Testperson.html",
-    "href": "Testcenter/Die_Sicht_der_Testperson.html",
-    "title": "Die Sicht der Testperson",
+    "objectID": "Testcenter/Gruppenmonitor_BiSta.html",
+    "href": "Testcenter/Gruppenmonitor_BiSta.html",
+    "title": "Gruppenmonitor (Testleitungskonsole)",
+    "section": "",
+    "text": "Die Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung eine Gruppen während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: Gruppenmonitor. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung.",
+    "crumbs": [
+      "Testcenter",
+      "Gruppenmonitor BiSta"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Gruppenmonitor_BiSta.html#anmeldung",
+    "href": "Testcenter/Gruppenmonitor_BiSta.html#anmeldung",
+    "title": "Gruppenmonitor (Testleitungskonsole)",
+    "section": "Anmeldung",
+    "text": "Anmeldung\nUm den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Testhefte und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: Test-Gruppen Überwachung.\n\nGrundsetzliches zur Bedienung und Ansicht\n\n\n\n\n\n\nHinweis\n\n\n\nDer Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: Spalten: Teil und Abschnitt Aktivität: Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtoptionen entsprechend.\n\n\n\n\n\nÜbersicht Gruppenmonitor\n\n\nIm linken Teil des Fensters sind Schalter für die Navigation zu finden. Diese haben erst eine Funktion, wenn im rechten Teil eine entsprechende Testperson angewählt wurde. Die Testperson muss online sein, also den Test gerade bearbeiten. Es ist möglich die Testperson zu einem anderen Block im Testheft zu navigieren (springen), den Test zu pausieren, den Test zu sperren und den Test zu beenden. Ganz oben ist ein Schalter mit der Bezeichnung: Alle Logins gleichzeitig steuern zu sehen. Diese Funktion steht nur zur Verfügung, wenn alle in der Gruppe verwendeten Testhefte eine ähnliche Struktur aufweisen. Sind bspw. in den Testheften unterschiedlich viele Blöcke enthalten, ist eine gemeinsame Steuerung nicht möglich. Da in diesem Beispiel sehr unterschiedliche Testhefte verwendet werden, ist der Schalter im Bild auch inaktiv.\nIm rechten Teil sind Informationen zu den angelegten Testpersonen, den Testheften und dem Testfortschritt zu sehen. Mehr dazu erfahren Sie auch im nächsten Abschnitt.\nNach dem Öffnen des Monitors ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte und weitere hilfreiche Informationen in Spalten sortiert zu sehen.\n\n\n\nÜbersicht Personen und Testheftstruktur\n\n\nWelche Informationen den einzelnen Spalten dieser Liste zu entnehmen sind und welche Bedeutung diese habe, wird nachfolgend von links nach rechts beschrieben:\n\n\nSpalte: Personenstatus\nZuerst einmal ist der Personenstatus zu sehen. Hier wird bspw. angezeigt, ob eine Person den Test gestartet hat oder vielleicht noch offline ist. Folgende Status gibt es:\n\n\n\nSpalte: Teilnehmer\nHier wird zuerst der Benutzername der Anmeldung angezeigt. In diesem Fall: iea-testtaker-bista2217. Nachfolgend ist der zur Anmeldung eingegebene Code zu sehen. In diesem Fall: abc1, abc2 usw..\n\n\nSpalte: Teil\nHier sind die Testhefte zu sehen, die einem Zugangscode zugeordnet sind. Bspw. sind dem Code: abc1 3 Testhefte zugeordnet, nämlich: Anleitung, Teil1, Teil2 und Teil3.\n\n\nSpalte: Abschnitt\nIst der Test gestartet wird hier der Abschnitt innerhalb eines Blocks angezeigt.\n\n\nSpalte: Aktivität\nEs ist die Testheftstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Zu jedem Block in einem Testheft werden gegebene Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schlosssymbol öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen dargestellt. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt.\n\n\nInformationen zu der Testheftstruktur\naller in dieser Gruppe hinterlegten Zugänge.",
+    "crumbs": [
+      "Testcenter",
+      "Gruppenmonitor BiSta"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Studien_Auswertung.html",
+    "href": "Testcenter/Studien_Auswertung.html",
+    "title": "Studien Auswertung",
     "section": "",
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
       "Testcenter",
-      "Die Sicht der Testperson"
+      "Studien Auswertung"
     ]
   },
   {
-    "objectID": "Testcenter/Verwaltung_und_Organisation.html",
-    "href": "Testcenter/Verwaltung_und_Organisation.html",
-    "title": "Verwaltung und Organisation",
+    "objectID": "Testcenter/Testmethoden.html",
+    "href": "Testcenter/Testmethoden.html",
+    "title": "Testmethoden",
     "section": "",
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
       "Testcenter",
-      "Verwaltung und Organisation"
+      "Testmethoden"
     ]
   },
   {
-    "objectID": "Testcenter/System_Check.html",
-    "href": "Testcenter/System_Check.html",
-    "title": "System Check",
+    "objectID": "posts/Checkliste-Player-Integration.html",
+    "href": "posts/Checkliste-Player-Integration.html",
+    "title": "Integration eines Verona-Players",
     "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "posts/Verona-vs-Datenformat.html",
-    "href": "posts/Verona-vs-Datenformat.html",
-    "title": "Diskurs Verona vs. Datenformat",
-    "section": "",
-    "text": "Kritik\nDas IQB wird wiederholt gebeten, das Architekturprinzip, das hinter der Verona-Schnittstelle für die Aufgabenanzeige „Player“ steht, zu erläutern. Kritikpunkte sind unterschiedlich begründet und motiviert. Beispiele:\n\nEs fehle eine detaillierte Beschreibung der Interaktionskonzepte auf abstrakter Ebene. Losgelöst vom Verhalten und von der Programmierung müssten Use Cases nachvollziehbar gelistet sein.\nAufgaben müssten benutzt werden können, ohne dass man auf die Programmierung des IQB angewiesen ist.\nProgrammierungen des IQB seien wegen der Natur der Entstehung nur bedingt vertrauenswürdig.\n\nDer nachfolgende Text greift diese Punkte auf und gibt damit eine Hilfestellung für Projektplanungen in den Ländern.\n\n\nModell „dokumentiertes Datenformat“\nWenn ein Datenformat ausführlich dokumentiert wird und jedes Element, jede Eigenschaft, jedes Detail feingranular bekannt ist, dann kann man Software programmieren, die eine Aufgabe adäquat abspielt.\nBeispielsweise folgen die Datenformate QTI und H5P einem semantischen Konzept: Hierbei wird die Bedeutung von Elementen beschrieben, z. B. Auswahloptionen sind als solche gekennzeichnet und es ist der Software überlassen, wie genau eine Auswahloption dargestellt wird. Der Freiraum, der bei der Darstellung bewusst gelassen wird, dient der Harmonisierung einer Seite: Farbgebung, Abstände und Schriftart sowie Interaktionen sollen sich normalerweise nach dem Rest der Webanwendung richten und nicht exotisch wirken. Eine Anwendung auf einem Smartphone folgt anderen Konzepten der Bedienung als eine Onlinelösung für einen PC mit großem Bildschirm und Tastatur. Nur wenn man ein Datenformat semantisch bereitstellt und dokumentiert, lassen sich derartige Anpassungen realisieren.\nDieses Modell ist für Testungen von Erwachsenen und von älteren Schülerinnen und Schülern ausreichend, da der Einfluss der Darstellung auf die Beantwortung gering ist und bei den Testpersonen Erfahrungen im Umgang mit Computern vorausgesetzt werden können. Für die Zielpersonen im VERA-Kontext gelten jedoch weitere Anforderungen:\n\nDie Darstellung und Interaktion von Aufgaben muss exakt auf allen Endgeräten gleich sein. Das betrifft Schriftarten, Abstände, Farbgebung und die Effekte sämtlicher Eingabegeräte. Nur so sind die Kennwerte aus Pilotierungen anwendbar. Jede Abweichung vermindert die Qualität und damit den Nutzen der Testung.\nDie üblichen im Html verfügbaren Formularelemente reichen bei weitem nicht aus. Es müssen viele neue Interaktionsformen entwickelt werden, um die gewünschte Messgenauigkeit zu erreichen und damit besser die Kompetenzen zu erfassen, die für das Monitoring erforderlich sind. Jeder Rückfall auf Standardelemente vermindert die Qualität und damit den Nutzen der Testung.\n\nBeide Anforderungen können nicht erfüllt werden, wenn der Software, die das Format zur Darstellung verwendet, Freiraum gegeben wird. Somit müsste der semantische Ansatz erweitert werden um alle Parameter und Formate sowie alle erwarteten Zustände. Das wäre theoretisch möglich, hätte aber folgende Nachteile:\n\nEine derartige Spezifikation wäre erst möglich und sinnvoll, nachdem das Format eine gewisse Reife erlangt hat. Der bisherige Dialog mit der Fachdidaktik und der Erfahrungszuwachs bei der Anwendung des Formates lassen eine Konsolidierung erst zum Ende 2024 erwarten.\nEine derartige Spezifikation wäre sehr aufwändig und würde weitere Zeit kosten. Das IQB blendet z. B. Seitenabschnitte je nach Bearbeitungsstand ein/aus, steuert gezielt die Responsivität, erlaubt Markierungen in Texten als Antwort, unterdrückt Vorschläge des Systems bei Eingaben, erlaubt Eingabe von Formeln, bildet Rechenkästchen nach, blendet selten genutzte Zeichen als Zusatztastatur ein (französisch), erlaubt GeoGebra u.v.m.\nDie Vorstellung „am Tag X ist die Entwicklung abgeschlossen“ ist eine Utopie. Es ist vielmehr anzunehmen, dass auch nach der Konsolidierung Änderungswünsche seitens der Wissenschaft und der Durchführungspraxis eintreffen und zu weiteren Format-Versionen führen. Für alle Softwareprodukte, die das Format verarbeiten sollen, müssten dann Anpassungen beauftragt werden. Wertvolle Innovationen hätten also stets eine lange Laufzeit bis zur Implementation.\n\n\n\nModell „Plugin“\nDas vom IQB vorgeschlagene und von den Ländern beauftragte Modell folgt daher dem Plugin-Prinzip. Auch z. B. PDF-Dokumente können Code enthalten (JavaScript), der dann mit einem Plugin in Acrobat ausgeführt wird. Das Prinzip ist in der IT üblich, z. B.:\n\nGrafikformate: Viele auf bestimmte Verwendungen spezialisierte Grafikformate sind nicht dokumentiert, sondern man fügt einer Software ein vom Hersteller bereitgestelltes Plugin hinzu, um die Grafik zu verarbeiten oder anzuzeigen,\nSensordaten: Bestimmte Sensoren liefern Datenformate, die erst über Plugins nutzbar werden (Remote Sensing),\nTAO: Die erste große Open Source-Plattform für Online-Tests im Bildungsbereich nutzte in den Anfangsjahren Plugins in der Form, die das IQB derzeit betreibt. Der Impuls für die Verona-Architektur stammt aus dieser Quelle.\n\nZu einem Plugin wird eine Spezifikation veröffentlicht, das ist in diesem Fall die Verona-Schnittstelle.\nVorteile:\n\nAgilität: Wird ein neues Interaktionsformat entwickelt, dann muss nur in einem Player die Änderung programmiert werden. Alle Applikationen mit Verona-Schnittstelle können sofort die Änderung übernehmen. Es muss nur der geänderte Player geladen werden.\nRückwärtskompatibilität: Alte Aufgaben bleiben unverändert verwendbar, da in einem Testablauf jede Aufgabe mit einem anderen (ggf. älteren) Player abgespielt werden kann.\nSpezielle Player für spezielle Interaktionen: Ein Lesegeschwindigkeitstest wird am IQB mit einem anderen Player realisiert, da hier spezifische Messwerte erfasst werden sollen. Ein weiterer Player kann nach Bedarf während der Beantwortung identische Unterformulare erzeugen. Wenn irgendein Land einen speziellen Player braucht und beauftragt, können sofort alle anderen Länder derartige Aufgaben einsetzen. Spracheingabe? Gesten?\nKeine doppelte Entwicklungsarbeit: Was einmal programmiert wurde für Darstellung und Interaktion, kann genutzt werden ohne Anpassungsaufwand.\n\n\n\nRisiko durch fremde Software-Komponenten\nSoll ein Software-Unternehmen ein System programmieren, das fremden Code über die Verona-Schnittstelle nachlädt, entsteht ein Risiko. Insbesondere wenn neue Player veröffentlicht werden, kann das Unternehmen nicht oder nach einer Prüfung nur eingeschränkt für das Gesamtsystem Gewährleistung und Haftung im Schadensfall übernehmen. Daher sind folgende Maßnahmen erforderlich:\n\nOpen Source/MIT-Lizenz für Player: Der Code muss vollständig veröffentlicht und der Entwicklungsprozess transparent sein. Alle Interessierten können direkt die nächsten Schritte verfolgen und auch selbst Anforderungen stellen (issues/tickets). Es sind auch Codebeiträge willkommen (pull/merge request). Wer eine Dokumentation des Datenformates erstellen möchte, kann dies tun. Wer den Player-Code in eigener Regie weiterentwickeln will, kann dies tun (fork). Dies ist bei den IQB-Playern seit 2017 gegeben. Vollständiger Einblick in den Code ist ohne Kommunikation mit dem IQB möglich.\nEinschränkung der Haftung: Die Auftraggeber dürfen Probleme, die durch den Player entstehen, nicht dem Auftragnehmer anlasten. Das ist für öffentliche Auftraggeber unüblich, da hier stets die volle Kontrolle und Gewährleistung gewünscht wird. Es sind ggf. gesonderte Absprachen und Kooperationen mit der Einrichtung nötig, die den Player programmiert hat. Insbesondere im Fall einer MIT-Lizenz des Players gibt es keine Haftung.\nAusführliche Testungen: Vor dem produktiven Einsatz für das Bildungsmonitoring muss ein Land die Instrumente in einem Testlauf prüfen. Das betrifft auch ggf. Arbeitsfelder wie Serverlast und Durchführungsmanagement. Das IQB hat VERA-Aufgaben und Player über die Pilotierung ausgiebig getestet. Dies liefert jedoch keine Sicherheit, dass die Einbindung in ein anderes Testsystem problemlos verläuft.\n\n\n\nKonsequenzen einer fehlenden Integration\n\nDigitale Souveränität: Werden die Aufgaben in ein proprietäres Format eines Softwareanbieters übertragen, sind sie auch nur durch diese Software nutzbar. Sollte ein Wechsel der Software nötig oder gewünscht sein, ist Aufwand nötig, die alten Aufgaben nutzbar zu machen. Dies ist mit dem Verona-System nicht der Fall. Alte Aufgaben sind verwendbar, sobald die neue Lösung die Verona-Schnittstelle implementiert.\nAufgaben austauschen: Es gibt starke Bemühungen bundesweit, Lernressourcen zu veröffentlichen und über ein gemeinsames Metadatensystem verfügbar zu machen. Mit einer Insellösung kann man jedoch keine Aufgaben weitergeben oder fremde Aufgaben nutzen.\nVerlust an Vergleichbarkeit: Jede Übertragung von VERA-Aufgaben in ein anderes System ist mit Abweichungen in der Darstellung, Interaktion und Auswertung verbunden, d. h. die Itemparameter aus den IQB-Pilotierungen können nicht verwendet werden. Damit verliert das Instrument wesentlich an Aussagekraft.\n\n\n\nPerspektiven\n\nDas IQB wird in Abwägung der Vor- und Nachteile der beiden Modelle das Plugin-Modell auftragsgemäß weiterentwickeln und das Aufgabenformat nicht dokumentieren. Eine Aufgabendefinition kann nur durch den Player und den zugehörigen Editor verarbeitet werden.\nDem IQB ist bewusst, dass die Implementation der Verona-Schnittstelle in ein bestehendes System aufwändig ist. Es hat daher eine Checkliste veröffentlicht und unterstützt Interessierte nach Kräften.\nDie Länder beauftragen aktuell durch weitere Projekte die Weiterentwicklung des TBA-Systems. Außerdem wurden mit dem Wirtschaftsplan 2024/2025 Planstellen am IQB für die langfristige Pflege des Systems geschaffen.\nVERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Kodierinformationen ausgeliefert, die eine automatische Kodierung für einen Großteil der Items ermöglichen sowie die manuelle Kodierung unterstützen. Diese Kodierinformationen können nur sinnvoll verwendet werden, wenn die Antwortdaten in derselben Art vorliegen, wie sie durch die IQB-Player erzeugt werden.\nVERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Metadaten ausgeliefert. Das Format folgt internationalen Standards und ist mit den länderübergreifenden Projekten MEM/SODIX bzw. MUNDO abgestimmt."
-  },
-  {
-    "objectID": "Studio/intro.html",
-    "href": "Studio/intro.html",
-    "title": "Überblick",
-    "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
-    "crumbs": [
-      "Studio",
-      "Überblick"
-    ]
-  },
-  {
-    "objectID": "Blog.html",
-    "href": "Blog.html",
-    "title": "TBA Blog",
-    "section": "",
-    "text": "Testcenter: Lastverhalten\n\n\n\n\n\n\nloadtest\n\n\ntestcenter\n\n\nperformance\n\n\n\nWie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15.\n\n\n\n\n\nJan 22, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nDiskurs Verona vs. Datenformat\n\n\n\n\n\n\nverona\n\n\narchitektur\n\n\nopensource\n\n\n\nDas Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?\n\n\n\n\n\nJan 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nIntegration eines Verona-Players\n\n\n\n\n\n\nverona\n\n\narchitektur\n\n\nplayer\n\n\n\nWenn man in eine Webanwendung für computerbasiertes Testen einen Verona-Player integrieren möchte, kann das Probleme bereiten. Was sind die Voraussetzungen?\n\n\n\n\n\nJan 8, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Die folgende Checkliste gibt eine grobe Orientierung für den Aufwand, der bei einer Integration der Verona-Player-Schnittstelle im eigenen Testsystem zu erwarten ist. Die Farben markieren steigenden Aufwand.\n\nArbeitet das eigene System aufgabenweise oder strukturiert nach Tests/Teilaufgaben/Items?\n\n\n\n\n\n\nGut\n\n\n\nDie Strukturierung im Testablauf folgt Aufgaben, d. h. Stimulus und dazu gehörende Items werden gemeinsam präsentiert und nach der Bearbeitung zur nächsten Aufgabe navigiert. Das ist genau das Szenario, das dem Verona-Player zugrunde liegt. Ein Umbau ist hier nicht erforderlich.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nMehrere Aufgaben werden gleichzeitig auf einer Seite präsentiert - entweder der gesamte Test oder zumindest Testblöcke (Aufgabenfolgen). Dann muss die Verona-Schnittstelle für jede Aufgabe einzeln implementiert werden, dann also mehrfach pro Seite. Die Kommunikation mit der Aufgabe muss dann auch mehrfach implementiert werden, was das Risiko von Datenverlust erhöht. Besser wäre ein Umbau auf die aufgabenweise Präsentation.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDie Aufgabe wird in Einzelteile zerlegt und stückchenweise präsentiert. Der Stimulus läuft völlig getrennt. Das kann die Verona-Schnittstelle nicht leisten, da die Kategorien “Stimulus”, “Instruktion”, “Item” usw. nicht transparent sind, also innerhalb der Aufgabendefinition nicht identifiziert werden können.\n\n\n\n\nWerden die Html-Seiten komplett auf dem Server erzeugt oder erst dynamisch im Browser?\n\n\n\n\n\n\nGut\n\n\n\nEine Programmierung im Browser (JavaScript) kontrolliert die Anzeige der Aufgaben und sorgt bei Änderungen für das Speichern. Damit kann die Verona-Schnittstelle wie gedacht eingebaut und die Kommunikation eingerichtet werden. Die Kommunikation mit dem Server ist bereits grundsätzlich verfügbar.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nDer Server erzeugt große Teile der Seite, aber es gibt browserseitig Programmierungen für die Interaktion. Hierbei gäbe es u. U. Mehraufwand, weil z. B. das Laden der vorherigen Antworten vom Server bisher nicht im Ablauf vorgesehen war und neu implementiert werden muss.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDer Server erzeugt die komplette Seite. Änderungen der Anzeige werden durch Neuladen der Seite über Schalter/Aktionsflächen bzw. Navigation/Links ausgelöst. Das wäre problematisch, weil das Laden eines Players, der Aufgabendefinition und ggf. vorher gegebener Antworten Aktionen innerhalb des Browsers sind. Wenn es hierzu bisher keine Erfahrungen gibt bzw. grundsätzlich bisher keine Kommunikation zum Server eingebaut ist, dann wäre hier größerer Aufwand nötig.\n\n\n\n\nWerden zur Programmierung stark abstrahierende Frameworks genutzt?\n\n\n\n\n\n\nGut\n\n\n\nEs werden keine Frameworks benutzt bzw. nur gut kontrollierbare Bibliotheken. Alles kann durch die beteiligten Programmierer:innen gut gesteuert werden. Der Einbau der Schnittstelle kann dann schnell erfolgen.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nDas genutzte Framework verdeckt viele Teile der Programmierung, kann aber gut durch Module/Komponenten erweitert werden. Ein Verona-Host kann extern vorbereitet und dann gezielt in die Automatismen des Frameworks eingebunden werden. Unter Umständen muss diese neue Komponente umfangreicher programmiert werden als beim Vollzugriff auf die Programmierung. Andererseits muss man diesen Aufwand nur einmal leisten und jemand mit demselben Framework kann diese Komponente sofort einsetzen.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDas genutzte Framework kapselt Funktionalität und Navigation so stark, dass ein Eingreifen nicht möglich ist. Die Anpassungsmöglichkeiten durch Konfiguration bzw. Deklaration sind stark beschränkt. Dann muss nach Wegen gesucht werden, das Framework für die Aufgabenanzeige zu umgehen, d. h. die beteiligten Programmierer:innen begeben sich auf neues und u. U. unsicheres und undokumentiertes Terrain.\n\n\n\n\nIst die Nutzung des Html-Elementes &lt;iframe&gt; problematisch?\n\n\n\n\n\n\nGut\n\n\n\nNein. Ein Seitenbereich kann getrost auf diese Art betrieben werden.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nEinige Eigenschaften des &lt;iframe&gt;-Elements lösen unerwünschtes Verhalten aus. Z. B. könnte ein gesetzter Eingabe-Fokus innerhalb des &lt;iframe&gt;-Elements als Verlassen der Seite angesehen werden und entsprechend ein Signal gesendet werden (Testperson versucht im Internet die Antwort zu finden). Hier sind entsprechende Justierungen nötig und möglich.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDas genutzte System verhindert grundsätzlich aus Sicherheitsgründen die Nutzung eines &lt;iframe&gt;-Elements. Das könnte problematisch werden, da dann die Architektur des bisherigen Systems die Verona-Schnittstelle verhindert.\n\n\n\n\nSind Formate für Aufgabendefinition und Antworten hart vorgegeben?\n\n\n\n\n\n\nGut\n\n\n\nNein. Aufgabendefinition und Antworten können ein beliebiges Format haben. Um die Antworten wie bisher auswerten zu können, reicht ein kleiner Konverter.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nAufgabendefinition und Antworten sind vorgegeben und viele Systemkomponenten verlassen sich darauf. Hier ist Aufwand zu erwarten, über ständige Datenkonvertierungen das bisherige Verhalten abzusichern.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDas gesamte System verlässt sich auf bestimmte Datenstrukturen bei Aufgabendefinition und Antworten und diese Strukturen können nicht über Datenkonvertierung aus den Verona-Daten generiert werden. Erforderliche Zusatzdaten liegen nicht vor, wie z. B. die Information, ob eine gegebene Antwort richtig ist. Hier kollidieren also grundsätzliche Auffassungen über die Datenhaltung und es ist ein erheblicher Umbau nötig.\n\n\n\n\nSind Variationen der Aufgabenanzeige in anderem Zusammenhang nötig?\n\n\n\n\n\n\nGut\n\n\n\nNein. Aufgaben werden zwar mit den gegebenen Antworten auch bei der Kodierung angezeigt und auch als Ansicht für Eltern, wenn sie die Antworten ihres Kindes anschauen möchten, aber es ist genau dieselbe Ansicht wie im Test. In diesen Fällen kann also einfach wieder ein Verona-Player-Host implementiert werden mit den gegebenen Antworten.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nJa. Das Testsystem soll bei der Anzeige für Kodierung und für Eltern keine Änderungen erlauben. Diese Variation ist für die aktuelle Verona-Schnittstelle nicht verfügbar. Allerdings richtet eine Änderung auch keinen Schaden an, da Änderungen nicht gespeichert werden. Ein Vor- und Zurückblättern stellt die korrekte Beantwortung wieder her.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nJa. Das Testsystem visualisiert mit einer Variation der Aufgabenansicht, ob die Antworten richtig oder falsch sind. Dazu werden in der Nähe der Antwortfelder grüne bzw. rote Symbole eingeblendet. Das wird bei der Ansicht durch die Lehrkräfte und für die Eltern verwendet. Diese Variation ist für die aktuelle Verona-Schnittstelle nicht verfügbar."
   },
   {
     "objectID": "posts/TC-Load.html",
@@ -432,32 +480,61 @@
     "text": "Strategien bei unbefriedigenden Lasttest-Ergebnissen\nUm die Lücke zwischen der erforderlichen Kapazität und den ermittelten Werten zu verringern, bieten sich folgende Strategien an:\n\nVerringerung der Testheft-Größe:\n\nSind alle Bilder, Audio- und Videosequenzen unverzichtbar?\nKönnte man die Auflösung von Bildern, Audio- und Videosequenzen verringern bei vertretbarem Qualitätsverlust?\nKönnte man ein Testheft aufteilen in mehrere Testhefte?\n\nStreckung des Testzeitraumes: Bereits eine Teilung der Testpopulation und dann Versatz um eine (Unterrichts-)Stunde würde die tägliche Kapazität verdoppeln; entsprechend wäre der Gewinn bei der Ausdehnung der Testung auf eine Woche\n\nBevor man nun die teure Serverkapazität erhöht sollte man sicherstellen, dass die anderen Infrastruktur-Komponenten noch Reserven haben. Wenn die Anbindung der Schulen an das Internet, die Verteilung in der Schule (WLAN-Access-Points) sowie die Endgeräte keinen Engpass bilden, sollten mehr Server bereitgestellt werden:\n\nAufsetzen mehrerer getrennter Server jeweils mit einer Testcenter-Installation; Aufteilen der Testpopulation mit fixer Zuweisung des Servers; späteres manuelles Zusammenführen der Antwortdaten,\n(derzeit noch nicht verfügbar) Installation des Testcenters auf einem System mit Lastverteilung (z. B. Kubernetes), wodurch die Administration erleichtert wird; Achtung: Auch in diesem Fall muss eine höhere Serverausstattung bereitgestellt werden (die Synchronisation der Datenbank-Inhalte erzeugt zusätzliche Last)."
   },
   {
-    "objectID": "posts/Checkliste-Player-Integration.html",
-    "href": "posts/Checkliste-Player-Integration.html",
-    "title": "Integration eines Verona-Players",
+    "objectID": "Blog.html",
+    "href": "Blog.html",
+    "title": "TBA Blog",
     "section": "",
-    "text": "Die folgende Checkliste gibt eine grobe Orientierung für den Aufwand, der bei einer Integration der Verona-Player-Schnittstelle im eigenen Testsystem zu erwarten ist. Die Farben markieren steigenden Aufwand.\n\nArbeitet das eigene System aufgabenweise oder strukturiert nach Tests/Teilaufgaben/Items?\n\n\n\n\n\n\nGut\n\n\n\nDie Strukturierung im Testablauf folgt Aufgaben, d. h. Stimulus und dazu gehörende Items werden gemeinsam präsentiert und nach der Bearbeitung zur nächsten Aufgabe navigiert. Das ist genau das Szenario, das dem Verona-Player zugrunde liegt. Ein Umbau ist hier nicht erforderlich.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nMehrere Aufgaben werden gleichzeitig auf einer Seite präsentiert - entweder der gesamte Test oder zumindest Testblöcke (Aufgabenfolgen). Dann muss die Verona-Schnittstelle für jede Aufgabe einzeln implementiert werden, dann also mehrfach pro Seite. Die Kommunikation mit der Aufgabe muss dann auch mehrfach implementiert werden, was das Risiko von Datenverlust erhöht. Besser wäre ein Umbau auf die aufgabenweise Präsentation.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDie Aufgabe wird in Einzelteile zerlegt und stückchenweise präsentiert. Der Stimulus läuft völlig getrennt. Das kann die Verona-Schnittstelle nicht leisten, da die Kategorien “Stimulus”, “Instruktion”, “Item” usw. nicht transparent sind, also innerhalb der Aufgabendefinition nicht identifiziert werden können.\n\n\n\n\nWerden die Html-Seiten komplett auf dem Server erzeugt oder erst dynamisch im Browser?\n\n\n\n\n\n\nGut\n\n\n\nEine Programmierung im Browser (JavaScript) kontrolliert die Anzeige der Aufgaben und sorgt bei Änderungen für das Speichern. Damit kann die Verona-Schnittstelle wie gedacht eingebaut und die Kommunikation eingerichtet werden. Die Kommunikation mit dem Server ist bereits grundsätzlich verfügbar.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nDer Server erzeugt große Teile der Seite, aber es gibt browserseitig Programmierungen für die Interaktion. Hierbei gäbe es u. U. Mehraufwand, weil z. B. das Laden der vorherigen Antworten vom Server bisher nicht im Ablauf vorgesehen war und neu implementiert werden muss.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDer Server erzeugt die komplette Seite. Änderungen der Anzeige werden durch Neuladen der Seite über Schalter/Aktionsflächen bzw. Navigation/Links ausgelöst. Das wäre problematisch, weil das Laden eines Players, der Aufgabendefinition und ggf. vorher gegebener Antworten Aktionen innerhalb des Browsers sind. Wenn es hierzu bisher keine Erfahrungen gibt bzw. grundsätzlich bisher keine Kommunikation zum Server eingebaut ist, dann wäre hier größerer Aufwand nötig.\n\n\n\n\nWerden zur Programmierung stark abstrahierende Frameworks genutzt?\n\n\n\n\n\n\nGut\n\n\n\nEs werden keine Frameworks benutzt bzw. nur gut kontrollierbare Bibliotheken. Alles kann durch die beteiligten Programmierer:innen gut gesteuert werden. Der Einbau der Schnittstelle kann dann schnell erfolgen.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nDas genutzte Framework verdeckt viele Teile der Programmierung, kann aber gut durch Module/Komponenten erweitert werden. Ein Verona-Host kann extern vorbereitet und dann gezielt in die Automatismen des Frameworks eingebunden werden. Unter Umständen muss diese neue Komponente umfangreicher programmiert werden als beim Vollzugriff auf die Programmierung. Andererseits muss man diesen Aufwand nur einmal leisten und jemand mit demselben Framework kann diese Komponente sofort einsetzen.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDas genutzte Framework kapselt Funktionalität und Navigation so stark, dass ein Eingreifen nicht möglich ist. Die Anpassungsmöglichkeiten durch Konfiguration bzw. Deklaration sind stark beschränkt. Dann muss nach Wegen gesucht werden, das Framework für die Aufgabenanzeige zu umgehen, d. h. die beteiligten Programmierer:innen begeben sich auf neues und u. U. unsicheres und undokumentiertes Terrain.\n\n\n\n\nIst die Nutzung des Html-Elementes &lt;iframe&gt; problematisch?\n\n\n\n\n\n\nGut\n\n\n\nNein. Ein Seitenbereich kann getrost auf diese Art betrieben werden.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nEinige Eigenschaften des &lt;iframe&gt;-Elements lösen unerwünschtes Verhalten aus. Z. B. könnte ein gesetzter Eingabe-Fokus innerhalb des &lt;iframe&gt;-Elements als Verlassen der Seite angesehen werden und entsprechend ein Signal gesendet werden (Testperson versucht im Internet die Antwort zu finden). Hier sind entsprechende Justierungen nötig und möglich.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDas genutzte System verhindert grundsätzlich aus Sicherheitsgründen die Nutzung eines &lt;iframe&gt;-Elements. Das könnte problematisch werden, da dann die Architektur des bisherigen Systems die Verona-Schnittstelle verhindert.\n\n\n\n\nSind Formate für Aufgabendefinition und Antworten hart vorgegeben?\n\n\n\n\n\n\nGut\n\n\n\nNein. Aufgabendefinition und Antworten können ein beliebiges Format haben. Um die Antworten wie bisher auswerten zu können, reicht ein kleiner Konverter.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nAufgabendefinition und Antworten sind vorgegeben und viele Systemkomponenten verlassen sich darauf. Hier ist Aufwand zu erwarten, über ständige Datenkonvertierungen das bisherige Verhalten abzusichern.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nDas gesamte System verlässt sich auf bestimmte Datenstrukturen bei Aufgabendefinition und Antworten und diese Strukturen können nicht über Datenkonvertierung aus den Verona-Daten generiert werden. Erforderliche Zusatzdaten liegen nicht vor, wie z. B. die Information, ob eine gegebene Antwort richtig ist. Hier kollidieren also grundsätzliche Auffassungen über die Datenhaltung und es ist ein erheblicher Umbau nötig.\n\n\n\n\nSind Variationen der Aufgabenanzeige in anderem Zusammenhang nötig?\n\n\n\n\n\n\nGut\n\n\n\nNein. Aufgaben werden zwar mit den gegebenen Antworten auch bei der Kodierung angezeigt und auch als Ansicht für Eltern, wenn sie die Antworten ihres Kindes anschauen möchten, aber es ist genau dieselbe Ansicht wie im Test. In diesen Fällen kann also einfach wieder ein Verona-Player-Host implementiert werden mit den gegebenen Antworten.\n\n\n\n\n\n\n\n\nUngünstig\n\n\n\nJa. Das Testsystem soll bei der Anzeige für Kodierung und für Eltern keine Änderungen erlauben. Diese Variation ist für die aktuelle Verona-Schnittstelle nicht verfügbar. Allerdings richtet eine Änderung auch keinen Schaden an, da Änderungen nicht gespeichert werden. Ein Vor- und Zurückblättern stellt die korrekte Beantwortung wieder her.\n\n\n\n\n\n\n\n\nProblematisch\n\n\n\nJa. Das Testsystem visualisiert mit einer Variation der Aufgabenansicht, ob die Antworten richtig oder falsch sind. Dazu werden in der Nähe der Antwortfelder grüne bzw. rote Symbole eingeblendet. Das wird bei der Ansicht durch die Lehrkräfte und für die Eltern verwendet. Diese Variation ist für die aktuelle Verona-Schnittstelle nicht verfügbar."
+    "text": "Testcenter: Lastverhalten\n\n\n\n\n\n\nloadtest\n\n\ntestcenter\n\n\nperformance\n\n\n\nWie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15.\n\n\n\n\n\nJan 22, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nDiskurs Verona vs. Datenformat\n\n\n\n\n\n\nverona\n\n\narchitektur\n\n\nopensource\n\n\n\nDas Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?\n\n\n\n\n\nJan 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nIntegration eines Verona-Players\n\n\n\n\n\n\nverona\n\n\narchitektur\n\n\nplayer\n\n\n\nWenn man in eine Webanwendung für computerbasiertes Testen einen Verona-Player integrieren möchte, kann das Probleme bereiten. Was sind die Voraussetzungen?\n\n\n\n\n\nJan 8, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "Testcenter/Testmethoden.html",
-    "href": "Testcenter/Testmethoden.html",
-    "title": "Testmethoden",
+    "objectID": "Studio/intro.html",
+    "href": "Studio/intro.html",
+    "title": "Überblick",
     "section": "",
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
-      "Testcenter",
-      "Testmethoden"
+      "Studio",
+      "Überblick"
     ]
   },
   {
-    "objectID": "Testcenter/Studien_Auswertung.html",
-    "href": "Testcenter/Studien_Auswertung.html",
-    "title": "Studien Auswertung",
+    "objectID": "posts/Verona-vs-Datenformat.html",
+    "href": "posts/Verona-vs-Datenformat.html",
+    "title": "Diskurs Verona vs. Datenformat",
+    "section": "",
+    "text": "Kritik\nDas IQB wird wiederholt gebeten, das Architekturprinzip, das hinter der Verona-Schnittstelle für die Aufgabenanzeige „Player“ steht, zu erläutern. Kritikpunkte sind unterschiedlich begründet und motiviert. Beispiele:\n\nEs fehle eine detaillierte Beschreibung der Interaktionskonzepte auf abstrakter Ebene. Losgelöst vom Verhalten und von der Programmierung müssten Use Cases nachvollziehbar gelistet sein.\nAufgaben müssten benutzt werden können, ohne dass man auf die Programmierung des IQB angewiesen ist.\nProgrammierungen des IQB seien wegen der Natur der Entstehung nur bedingt vertrauenswürdig.\n\nDer nachfolgende Text greift diese Punkte auf und gibt damit eine Hilfestellung für Projektplanungen in den Ländern.\n\n\nModell „dokumentiertes Datenformat“\nWenn ein Datenformat ausführlich dokumentiert wird und jedes Element, jede Eigenschaft, jedes Detail feingranular bekannt ist, dann kann man Software programmieren, die eine Aufgabe adäquat abspielt.\nBeispielsweise folgen die Datenformate QTI und H5P einem semantischen Konzept: Hierbei wird die Bedeutung von Elementen beschrieben, z. B. Auswahloptionen sind als solche gekennzeichnet und es ist der Software überlassen, wie genau eine Auswahloption dargestellt wird. Der Freiraum, der bei der Darstellung bewusst gelassen wird, dient der Harmonisierung einer Seite: Farbgebung, Abstände und Schriftart sowie Interaktionen sollen sich normalerweise nach dem Rest der Webanwendung richten und nicht exotisch wirken. Eine Anwendung auf einem Smartphone folgt anderen Konzepten der Bedienung als eine Onlinelösung für einen PC mit großem Bildschirm und Tastatur. Nur wenn man ein Datenformat semantisch bereitstellt und dokumentiert, lassen sich derartige Anpassungen realisieren.\nDieses Modell ist für Testungen von Erwachsenen und von älteren Schülerinnen und Schülern ausreichend, da der Einfluss der Darstellung auf die Beantwortung gering ist und bei den Testpersonen Erfahrungen im Umgang mit Computern vorausgesetzt werden können. Für die Zielpersonen im VERA-Kontext gelten jedoch weitere Anforderungen:\n\nDie Darstellung und Interaktion von Aufgaben muss exakt auf allen Endgeräten gleich sein. Das betrifft Schriftarten, Abstände, Farbgebung und die Effekte sämtlicher Eingabegeräte. Nur so sind die Kennwerte aus Pilotierungen anwendbar. Jede Abweichung vermindert die Qualität und damit den Nutzen der Testung.\nDie üblichen im Html verfügbaren Formularelemente reichen bei weitem nicht aus. Es müssen viele neue Interaktionsformen entwickelt werden, um die gewünschte Messgenauigkeit zu erreichen und damit besser die Kompetenzen zu erfassen, die für das Monitoring erforderlich sind. Jeder Rückfall auf Standardelemente vermindert die Qualität und damit den Nutzen der Testung.\n\nBeide Anforderungen können nicht erfüllt werden, wenn der Software, die das Format zur Darstellung verwendet, Freiraum gegeben wird. Somit müsste der semantische Ansatz erweitert werden um alle Parameter und Formate sowie alle erwarteten Zustände. Das wäre theoretisch möglich, hätte aber folgende Nachteile:\n\nEine derartige Spezifikation wäre erst möglich und sinnvoll, nachdem das Format eine gewisse Reife erlangt hat. Der bisherige Dialog mit der Fachdidaktik und der Erfahrungszuwachs bei der Anwendung des Formates lassen eine Konsolidierung erst zum Ende 2024 erwarten.\nEine derartige Spezifikation wäre sehr aufwändig und würde weitere Zeit kosten. Das IQB blendet z. B. Seitenabschnitte je nach Bearbeitungsstand ein/aus, steuert gezielt die Responsivität, erlaubt Markierungen in Texten als Antwort, unterdrückt Vorschläge des Systems bei Eingaben, erlaubt Eingabe von Formeln, bildet Rechenkästchen nach, blendet selten genutzte Zeichen als Zusatztastatur ein (französisch), erlaubt GeoGebra u.v.m.\nDie Vorstellung „am Tag X ist die Entwicklung abgeschlossen“ ist eine Utopie. Es ist vielmehr anzunehmen, dass auch nach der Konsolidierung Änderungswünsche seitens der Wissenschaft und der Durchführungspraxis eintreffen und zu weiteren Format-Versionen führen. Für alle Softwareprodukte, die das Format verarbeiten sollen, müssten dann Anpassungen beauftragt werden. Wertvolle Innovationen hätten also stets eine lange Laufzeit bis zur Implementation.\n\n\n\nModell „Plugin“\nDas vom IQB vorgeschlagene und von den Ländern beauftragte Modell folgt daher dem Plugin-Prinzip. Auch z. B. PDF-Dokumente können Code enthalten (JavaScript), der dann mit einem Plugin in Acrobat ausgeführt wird. Das Prinzip ist in der IT üblich, z. B.:\n\nGrafikformate: Viele auf bestimmte Verwendungen spezialisierte Grafikformate sind nicht dokumentiert, sondern man fügt einer Software ein vom Hersteller bereitgestelltes Plugin hinzu, um die Grafik zu verarbeiten oder anzuzeigen,\nSensordaten: Bestimmte Sensoren liefern Datenformate, die erst über Plugins nutzbar werden (Remote Sensing),\nTAO: Die erste große Open Source-Plattform für Online-Tests im Bildungsbereich nutzte in den Anfangsjahren Plugins in der Form, die das IQB derzeit betreibt. Der Impuls für die Verona-Architektur stammt aus dieser Quelle.\n\nZu einem Plugin wird eine Spezifikation veröffentlicht, das ist in diesem Fall die Verona-Schnittstelle.\nVorteile:\n\nAgilität: Wird ein neues Interaktionsformat entwickelt, dann muss nur in einem Player die Änderung programmiert werden. Alle Applikationen mit Verona-Schnittstelle können sofort die Änderung übernehmen. Es muss nur der geänderte Player geladen werden.\nRückwärtskompatibilität: Alte Aufgaben bleiben unverändert verwendbar, da in einem Testablauf jede Aufgabe mit einem anderen (ggf. älteren) Player abgespielt werden kann.\nSpezielle Player für spezielle Interaktionen: Ein Lesegeschwindigkeitstest wird am IQB mit einem anderen Player realisiert, da hier spezifische Messwerte erfasst werden sollen. Ein weiterer Player kann nach Bedarf während der Beantwortung identische Unterformulare erzeugen. Wenn irgendein Land einen speziellen Player braucht und beauftragt, können sofort alle anderen Länder derartige Aufgaben einsetzen. Spracheingabe? Gesten?\nKeine doppelte Entwicklungsarbeit: Was einmal programmiert wurde für Darstellung und Interaktion, kann genutzt werden ohne Anpassungsaufwand.\n\n\n\nRisiko durch fremde Software-Komponenten\nSoll ein Software-Unternehmen ein System programmieren, das fremden Code über die Verona-Schnittstelle nachlädt, entsteht ein Risiko. Insbesondere wenn neue Player veröffentlicht werden, kann das Unternehmen nicht oder nach einer Prüfung nur eingeschränkt für das Gesamtsystem Gewährleistung und Haftung im Schadensfall übernehmen. Daher sind folgende Maßnahmen erforderlich:\n\nOpen Source/MIT-Lizenz für Player: Der Code muss vollständig veröffentlicht und der Entwicklungsprozess transparent sein. Alle Interessierten können direkt die nächsten Schritte verfolgen und auch selbst Anforderungen stellen (issues/tickets). Es sind auch Codebeiträge willkommen (pull/merge request). Wer eine Dokumentation des Datenformates erstellen möchte, kann dies tun. Wer den Player-Code in eigener Regie weiterentwickeln will, kann dies tun (fork). Dies ist bei den IQB-Playern seit 2017 gegeben. Vollständiger Einblick in den Code ist ohne Kommunikation mit dem IQB möglich.\nEinschränkung der Haftung: Die Auftraggeber dürfen Probleme, die durch den Player entstehen, nicht dem Auftragnehmer anlasten. Das ist für öffentliche Auftraggeber unüblich, da hier stets die volle Kontrolle und Gewährleistung gewünscht wird. Es sind ggf. gesonderte Absprachen und Kooperationen mit der Einrichtung nötig, die den Player programmiert hat. Insbesondere im Fall einer MIT-Lizenz des Players gibt es keine Haftung.\nAusführliche Testungen: Vor dem produktiven Einsatz für das Bildungsmonitoring muss ein Land die Instrumente in einem Testlauf prüfen. Das betrifft auch ggf. Arbeitsfelder wie Serverlast und Durchführungsmanagement. Das IQB hat VERA-Aufgaben und Player über die Pilotierung ausgiebig getestet. Dies liefert jedoch keine Sicherheit, dass die Einbindung in ein anderes Testsystem problemlos verläuft.\n\n\n\nKonsequenzen einer fehlenden Integration\n\nDigitale Souveränität: Werden die Aufgaben in ein proprietäres Format eines Softwareanbieters übertragen, sind sie auch nur durch diese Software nutzbar. Sollte ein Wechsel der Software nötig oder gewünscht sein, ist Aufwand nötig, die alten Aufgaben nutzbar zu machen. Dies ist mit dem Verona-System nicht der Fall. Alte Aufgaben sind verwendbar, sobald die neue Lösung die Verona-Schnittstelle implementiert.\nAufgaben austauschen: Es gibt starke Bemühungen bundesweit, Lernressourcen zu veröffentlichen und über ein gemeinsames Metadatensystem verfügbar zu machen. Mit einer Insellösung kann man jedoch keine Aufgaben weitergeben oder fremde Aufgaben nutzen.\nVerlust an Vergleichbarkeit: Jede Übertragung von VERA-Aufgaben in ein anderes System ist mit Abweichungen in der Darstellung, Interaktion und Auswertung verbunden, d. h. die Itemparameter aus den IQB-Pilotierungen können nicht verwendet werden. Damit verliert das Instrument wesentlich an Aussagekraft.\n\n\n\nPerspektiven\n\nDas IQB wird in Abwägung der Vor- und Nachteile der beiden Modelle das Plugin-Modell auftragsgemäß weiterentwickeln und das Aufgabenformat nicht dokumentieren. Eine Aufgabendefinition kann nur durch den Player und den zugehörigen Editor verarbeitet werden.\nDem IQB ist bewusst, dass die Implementation der Verona-Schnittstelle in ein bestehendes System aufwändig ist. Es hat daher eine Checkliste veröffentlicht und unterstützt Interessierte nach Kräften.\nDie Länder beauftragen aktuell durch weitere Projekte die Weiterentwicklung des TBA-Systems. Außerdem wurden mit dem Wirtschaftsplan 2024/2025 Planstellen am IQB für die langfristige Pflege des Systems geschaffen.\nVERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Kodierinformationen ausgeliefert, die eine automatische Kodierung für einen Großteil der Items ermöglichen sowie die manuelle Kodierung unterstützen. Diese Kodierinformationen können nur sinnvoll verwendet werden, wenn die Antwortdaten in derselben Art vorliegen, wie sie durch die IQB-Player erzeugt werden.\nVERA-Aufgaben werden beginnend mit dem Durchgang 2025 auch mit Metadaten ausgeliefert. Das Format folgt internationalen Standards und ist mit den länderübergreifenden Projekten MEM/SODIX bzw. MUNDO abgestimmt."
+  },
+  {
+    "objectID": "Testcenter/System_Check.html",
+    "href": "Testcenter/System_Check.html",
+    "title": "System Check",
     "section": "",
     "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
     "crumbs": [
       "Testcenter",
-      "Studien Auswertung"
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Verwaltung_und_Organisation.html",
+    "href": "Testcenter/Verwaltung_und_Organisation.html",
+    "title": "Verwaltung und Organisation",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "Verwaltung und Organisation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Die_Sicht_der_Testperson.html",
+    "href": "Testcenter/Die_Sicht_der_Testperson.html",
+    "title": "Die Sicht der Testperson",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung!",
+    "crumbs": [
+      "Testcenter",
+      "Die Sicht der Testperson"
     ]
   },
   {
@@ -485,9 +562,31 @@
   {
     "objectID": "Testcenter/Gruppenmonitor.html",
     "href": "Testcenter/Gruppenmonitor.html",
-    "title": "Gruppenmonitor",
+    "title": "Gruppenmonitor (Testleitungskonsole)",
     "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung! Ticket beachten: Wiki verfollständigen: System-Check: Netzwerkprüfung #397",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Berabeitung! Ticket beachten: Wiki verfollständigen: System-Check: Netzwerkprüfung #397\nDie Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung eine Gruppen während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: Gruppenmonitor. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung.",
+    "crumbs": [
+      "Testcenter",
+      "Gruppenmonitor"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Gruppenmonitor.html#anmeldung",
+    "href": "Testcenter/Gruppenmonitor.html#anmeldung",
+    "title": "Gruppenmonitor (Testleitungskonsole)",
+    "section": "Anmeldung",
+    "text": "Anmeldung\nUm den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Testhefte und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: Test-Gruppen Überwachung.",
+    "crumbs": [
+      "Testcenter",
+      "Gruppenmonitor"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Gruppenmonitor.html#erste-ansicht",
+    "href": "Testcenter/Gruppenmonitor.html#erste-ansicht",
+    "title": "Gruppenmonitor (Testleitungskonsole)",
+    "section": "Erste Ansicht",
+    "text": "Erste Ansicht\nNach dem Öffnen des Monitors ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte und weitere hilfreiche Informationen zu sehen.\n\n\n\nÜbersicht Personen und Testheftstruktur\n\n\n\nWelche Informationen sind zu den Personen zu finden?\nZuerst einmal ist der Personenstatus zu sehen. Hier wird bspw. angezeigt, ob eine Person den Test gestartet hat oder vielleicht noch offline ist. Folgende Status gibt es:\n\n\n\n\nSymbol\nBeschreibung\n\n\n\nTest noch nicht gestartet.\n\n\n\nTest läuft, Verbindung ist live.\n\n\n\nTest läuft. Testläufe und Teilnehmer sind im Polling-Modus verbunden. Dies ist ein Fallback für den Fall, dass der Live-Modus aufgrund des Browsers des Betreuers oder eines technischen Fehlers nicht möglich ist. Die Leistung des Monitors ist hierbei nicht so gleichmäßig.\n\n\n\nDer Test scheint zu laufen, aber der Verbindungstyp ist unbekannt. Dies ist mehr oder weniger ein Fallback-Zustand, der anzeigt, dass außer seiner Existenz nichts über den Test bekannt ist. Dies kann bei verschiedenen Fehlerszenarien oder Fehlkonfigurationen der Fall sein, sollte aber im Allgemeinen nicht vorkommen. Es sollte untersucht werden, aber höchstwahrscheinlich kann der Test sicher fortgesetzt werden, da der Fehler eher auf der Seite des Monitors liegt.\n\n\n\nTest ist 5 Minuten oder länger inaktiv.\n\n\n\nTest ist pausiert.\n\n\n\nTest ist gesperrt.\n\n\n\nFokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browsertab.\n\n\n\nBrowserfenster wurde geschlossen oder Netzwerkverbindung ist gestört.\n\n\n\nTestausführung wurde beendet und kann wieder aufgenommen werden. Der Browser des Teilnehmers ist nicht verbunden und muss neu geladen werden! Zustand tritt ein, wenn im Gruppenmonitor der „Unlock“-Button verwendet wurde.\n\n\n\n\n\n\n\n\nInformationen zu der Testheftstruktur\naller in dieser Gruppe hinterlegten Zugänge.",
     "crumbs": [
       "Testcenter",
       "Gruppenmonitor"
@@ -571,69 +670,14 @@
     ]
   },
   {
-    "objectID": "Referenzen/Login_Anmeldeverfahren.html",
-    "href": "Referenzen/Login_Anmeldeverfahren.html",
-    "title": "Login/ Anmeldeverfahren",
+    "objectID": "Referenzen/Aufgabenkodierung.html",
+    "href": "Referenzen/Aufgabenkodierung.html",
+    "title": "Booklet-XML",
     "section": "",
-    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nAnmeldung mittels QR-Code einbringen",
+    "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nÜberarbeiten Layout und Text",
     "crumbs": [
       "Referenzen",
-      "Login-Anmeldeverfahren"
-    ]
-  },
-  {
-    "objectID": "Referenzen/Login_Anmeldeverfahren.html#klassisch-anmeldename-kennwort",
-    "href": "Referenzen/Login_Anmeldeverfahren.html#klassisch-anmeldename-kennwort",
-    "title": "Login/ Anmeldeverfahren",
-    "section": "Klassisch: Anmeldename, Kennwort",
-    "text": "Klassisch: Anmeldename, Kennwort\nBeim Aufruf der Internet-Seite und damit der Webanwendung wird ein Formular präsentiert zur Eingabe dieser Daten. Diese Anmeldeform wird üblicherweise erwartet. Der Anmeldename wird im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d. h. man kann nicht mitlesen.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n        &lt;Booklet&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
-    "crumbs": [
-      "Referenzen",
-      "Login-Anmeldeverfahren"
-    ]
-  },
-  {
-    "objectID": "Referenzen/Login_Anmeldeverfahren.html#kurz-nur-anmeldename",
-    "href": "Referenzen/Login_Anmeldeverfahren.html#kurz-nur-anmeldename",
-    "title": "Login/ Anmeldeverfahren",
-    "section": "Kurz: Nur Anmeldename",
-    "text": "Kurz: Nur Anmeldename\nDas Kennwort kann weggelassen werden. Hier hat man keine geringere Sicherheit, wenn die Länge und Zeichenzusammensetzung des Namens hinreichend ungewöhnlich ist. Eine laufende Nummer am Ende ist z. B. problematisch, denn sie kann bei Kenntnis eines Namens erraten werden. Die Länge sollte dann min. 8 Zeichen betragen. Diese Anmeldeform sollte gewählt werden, wenn das Verbergen des Kennwortes stört.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"\"&gt;\n        &lt;Booklet&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
-    "crumbs": [
-      "Referenzen",
-      "Login-Anmeldeverfahren"
-    ]
-  },
-  {
-    "objectID": "Referenzen/Login_Anmeldeverfahren.html#noch-kürzer-link",
-    "href": "Referenzen/Login_Anmeldeverfahren.html#noch-kürzer-link",
-    "title": "Login/ Anmeldeverfahren",
-    "section": "Noch kürzer: Link",
-    "text": "Noch kürzer: Link\nWenn nur ein Anmeldename ohne Kennwort (das Attribut: pw muss leer oder gar nicht vorhanden sein) als Login festgelegt wurde, dann kann man auch einen Link an die Testpersonen verschicken. Zu beachten ist hierbei, dass der Name aus Sicherheitsgründen min. 8 Zeichen lang sein sollte und die Zeichenzusammensetzung hinreichend ungewöhnlich ist.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\"&gt;\n        &lt;Booklet&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;\nWenn “u8h5m2a4c3x2f2g8” der Anmeldename ist würde der Link so aussehen:\nhttps://www.iqb-testcenter.de/#/u8h5m2a4c3x2f2g8\nDadurch macht man es noch einfacher: Auf den Link klicken, und man muss nur noch das Testheft wählen. Diese Form der Anmeldung kann z. B. bei Befragungen in Kombination mit dem Durchführungsmodus run-hot-restart verwendet werden: Es wird nur ein Login in einer Einladungs-E-Mail verschickt, und eine vorher unbekannte Anzahl Personen kann die Befragung starten.",
-    "crumbs": [
-      "Referenzen",
-      "Login-Anmeldeverfahren"
-    ]
-  },
-  {
-    "objectID": "Referenzen/Login_Anmeldeverfahren.html#länger-anmeldename-kennwort-personencode",
-    "href": "Referenzen/Login_Anmeldeverfahren.html#länger-anmeldename-kennwort-personencode",
-    "title": "Login/ Anmeldeverfahren",
-    "section": "Länger: Anmeldename, Kennwort, Personencode",
-    "text": "Länger: Anmeldename, Kennwort, Personencode\nEs kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, einen Standard-User anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, wenn auf jedem Computer schon Anmeldename und Kennwort eingegeben werden kann und also ein Anmeldeprozess gestartet wird. Anmeldename und Kennwort sind dann für die Gruppe gleich. Es reicht dann anschließend die Eingabe eines kurzen Personencodes durch die Testperson, um eine eindeutige Identifizierung sicherzustellen. Man spart so Testzeit und vermeidet Fehleingaben. Dieses Szenario bietet sich z. B. an, wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemieteten Computer-Lab durchführt.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n            &lt;Booklet codes=\"TestpersonA TestpersonB TestpersonC\"&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
-    "crumbs": [
-      "Referenzen",
-      "Login-Anmeldeverfahren"
-    ]
-  },
-  {
-    "objectID": "Referenzen/Login_Anmeldeverfahren.html#gültigkeit-einer-anmeldung",
-    "href": "Referenzen/Login_Anmeldeverfahren.html#gültigkeit-einer-anmeldung",
-    "title": "Login/ Anmeldeverfahren",
-    "section": "Gültigkeit einer Anmeldung",
-    "text": "Gültigkeit einer Anmeldung\nEs kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: validTo, validFrom und validFor hinzugefügt.\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\" validFrom=\"17/02/2022 10:00\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n        &lt;Booklet codes=\"TestpersonA TestpersonB TestpersonC\"&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;\nGültig für 20 Minuten:\n&lt;Group id=\"TestakerGroup1\" label=\"TestakerGroup1\" validFor=\"20\"&gt;\n    &lt;Login mode=\"run-review\" name=\"e3p2p\" pw=\"h7u5\"&gt;\n        &lt;Booklet codes=\"TestpersonA TestpersonB TestpersonC\"&gt;Booklet1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;",
-    "crumbs": [
-      "Referenzen",
-      "Login-Anmeldeverfahren"
+      "Aufgabenkodierung"
     ]
   },
   {

@@ -186,6 +186,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Gruppenmonitor_BiSta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gruppenmonitor BiSta</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Typische Probleme - Troubleshooting</span></a>
   </div>
@@ -296,8 +302,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Referenzen/Login_Anmeldeverfahren.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Login-Anmeldeverfahren</span></a>
+  <a href="../Referenzen/Anmeldeverfahren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anmeldeverfahren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -385,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link active" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
   <ul class="collapse">
-  <li><a href="#testtaker-xml" id="toc-testtaker-xml" class="nav-link" data-scroll-target="#testtaker-xml">Testtaker-XML</a></li>
+  <li><a href="#logins-testtaker-xml" id="toc-logins-testtaker-xml" class="nav-link" data-scroll-target="#logins-testtaker-xml">Logins (Testtaker-XML)</a></li>
   <li><a href="#booklet-xml" id="toc-booklet-xml" class="nav-link" data-scroll-target="#booklet-xml">Booklet-XML</a></li>
   <li><a href="#unit-definition" id="toc-unit-definition" class="nav-link" data-scroll-target="#unit-definition">Unit-Definition</a>
   <ul class="collapse">
@@ -482,71 +488,19 @@ Hinweis
 </div>
 </div>
 <p>Welche <strong>Testdateien</strong> es gibt und welche Funktionen diese aufweisen, ist nachfolgend beschrieben.</p>
-<section id="testtaker-xml" class="level2">
-<h2 class="anchored" data-anchor-id="testtaker-xml">Testtaker-XML</h2>
-<p>Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten und nachfolgend aufgeführte Funktionen übernimmt eine XML-Datei. Die XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar. Im Bild oben ist diese Datei mit “Login” gekennzeichnet.</p>
-<p><strong>Festlegung Logindaten/ Anmeldeverfahren:</strong></p>
-<p>Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: <strong>itc-Toolbox</strong> helfen das Erzeugen solcher Zugänge zu beschleunigen.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: <strong>itc-Toolbox</strong>. Mehr Informationen dazu sind den Referenzen zu entnehmen.</p>
-</div>
-</div>
-<p>Für eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig, bspw. ganz klassisch mittels Namen und Passwort oder via Link.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Mehr Informationen zu den <strong>Login/Anmeldeverfahren</strong> sind den Referenzen zu entnehmen!</p>
-</div>
-</div>
-<p>Um eine Testdurchführung so modular wie möglich gestalten zu können, kann jeder Login einer Gruppe zugeordnet werden. Gruppen können dann bspw. mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.</p>
-<p><strong>Testheftzuweisung:</strong></p>
-<p>Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.</p>
-<p><strong>Modi der Testdurchführung:</strong></p>
-<p>Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Detaillierte Informationen zu den <strong>Modi der Testdurchführung</strong> und deren Eigenschaften sind den Referenzen zu entnehmen!</p>
-</div>
-</div>
-<p><strong>Textersetzungen:</strong></p>
-<p>Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Die möglichen änderbaren Texte werden dazu in ein spezielles Feld (<code>&lt;CustomTexts&gt;</code>) in der <strong>Testtaker-XML</strong> geschrieben werden. Die hier angegebenen Texte überschreiben dann die Standardtexte.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur <strong>Testtaker-XML</strong> zu entnehmen!</p>
-</div>
-</div>
+<section id="logins-testtaker-xml" class="level2">
+<h2 class="anchored" data-anchor-id="logins-testtaker-xml">Logins (Testtaker-XML)</h2>
+<p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar.</p>
+<section id="welche-funktionen-übernimmt-die-testtaker-xml" class="level4">
+<h4 class="anchored" data-anchor-id="welche-funktionen-übernimmt-die-testtaker-xml">Welche Funktionen übernimmt die Testtaker-XML?</h4>
+<ul>
+<li><strong>Festlegung Zugangsdaten/ Anmeldeverfahren:</strong><br> Um eine Testdurchführung zu starten, müssen die teilnehmenden Personen zuvor mit entsprechenden Zugangsdaten angelegt werden. Die gespeicherten Antworten eines Testdurchlaufs werden dann zu diesen im System hinterlegten Zugansgdaten zugeordnet. Bei der Art der Anmeldung kann zwischen einer Vielzahl von Optionen gewählt werden. Die Anmeldung kann bspw. klassisch mittels Benutzernamen und Passwort erfolgen, mittels Code oder via Link. Mehr Informationen zu den <a href="../Referenzen/Anmeldeverfahren.html">Anmeldeverfahren</a> sind den Referenzen zu entnehmen!</li>
+<li><strong>Gruppierung von Zugansgdaten:</strong><br>Die angelegten Testpersonen werden in Gruppen angelegt. Diese Gruppe können mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.</li>
+<li><strong>Testheftzuweisung:</strong> Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.</li>
+<li><strong>Testablauf (bspw. heißer Test oder Review):</strong><br> Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können. Detaillierte Informationen zu den <a href="../Referenzen/Modi_der_Testdurchfuehrung.html">Modi der Testdurchführung</a> und deren Eigenschaften sind den Referenzen zu entnehmen!</li>
+<li><strong>individuelle Textersetzungen:</strong><br> Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur <a href="../Referenzen/Testtaker_Xml.html">Testtaker-XML</a> zu entnehmen!</li>
+</ul>
+</section>
 </section>
 <section id="booklet-xml" class="level2">
 <h2 class="anchored" data-anchor-id="booklet-xml">Booklet-XML</h2>
