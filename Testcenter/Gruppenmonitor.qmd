@@ -1,9 +1,110 @@
 ---
 lang: de
-title: "Gruppenmonitor"
+title: "Gruppenmonitor (Testleitungskonsole)"
 ---
 
 ::: {.callout-note}
 Diese Seite ist in Berabeitung!
 Ticket beachten: Wiki verfollständigen: System-Check: Netzwerkprüfung #397
 :::
+
+
+Die Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung eine Gruppen während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: **Gruppenmonitor**. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung. 
+
+## Anmeldung
+
+Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Testhefte und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: Test-Gruppen Überwachung.
+
+## Erste Ansicht
+
+Nach dem Öffnen des Monitors ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte und weitere hilfreiche Informationen zu sehen.
+
+![Übersicht Personen und Testheftstruktur](GM_Personenliste_Testhefte.png)
+
+### Welche Informationen sind zu den Personen zu finden?
+
+Zuerst einmal ist der Personenstatus zu sehen. Hier wird bspw. angezeigt, ob eine Person den Test gestartet hat oder vielleicht noch offline ist. Folgende Status gibt es:
+
+
+```{=html}
+<table>
+<tr>
+    <th><b>Symbol</b></th>
+    <th><b>Beschreibung</b></th>
+</tr>
+<tr>
+    <td><img src="Pictures_GM/GM_Status_offline.png" ></td>
+    <td>Test noch nicht gestartet.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Connection_Websocket.png" ></td>
+    <td>Test läuft, Verbindung ist live.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Connection_polling.png" ></td>
+    <td>Test läuft. Testläufe und Teilnehmer sind im Polling-Modus verbunden. Dies ist ein Fallback für den Fall, dass der Live-Modus aufgrund des Browsers des Betreuers oder eines technischen Fehlers nicht möglich ist. Die Leistung des Monitors ist hierbei nicht so gleichmäßig.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_ok.png" ></td>
+    <td>Der Test scheint zu laufen, aber der Verbindungstyp ist unbekannt. Dies ist mehr oder weniger ein Fallback-Zustand, der anzeigt, dass außer seiner Existenz nichts über den Test bekannt ist. Dies kann bei verschiedenen Fehlerszenarien oder Fehlkonfigurationen der Fall sein, sollte aber im Allgemeinen nicht vorkommen. Es sollte untersucht werden, aber höchstwahrscheinlich kann der Test sicher fortgesetzt werden, da der Fehler eher auf der Seite des Monitors liegt.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Idle.png" ></td>
+    <td>Test ist 5 Minuten oder länger inaktiv.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Pause.png" ></td>
+    <td>Test ist pausiert.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Locked.png" ></td>
+    <td>Test ist gesperrt.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Focus_lost.png" ></td>
+    <td>Fokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browsertab.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Connection_lost.png" ></td>
+    <td>Browserfenster wurde geschlossen oder Netzwerkverbindung ist gestört.</td>
+</tr>
+<tr>
+    <td><img src="GM_Status_Controller_terminated.png" ></td>
+    <td>Testausführung wurde beendet und kann wieder aufgenommen werden. Der Browser des Teilnehmers ist nicht verbunden und muss neu geladen werden! Zustand tritt ein, wenn im Gruppenmonitor der „Unlock“-Button verwendet wurde.</td>
+</tr>
+
+</table>
+
+```
+
+
+
+
+
+### Informationen zu der Testheftstruktur
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+aller in dieser Gruppe hinterlegten Zugänge.
+
+
+
+
+
+

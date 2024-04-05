@@ -26,45 +26,17 @@ Wie diese Daten in das Testcenter geladen werden können, ist im Kapitel: **Schr
 
 Welche **Testdateien** es gibt und welche Funktionen diese aufweisen, ist nachfolgend beschrieben.
 
-## Testtaker-XML
+## Logins (Testtaker-XML)
 
-Jede Person, die an einem Test bzw. einer Befragung beteiligt ist, muss Zugangsdaten erhalten. Diese Zugangsdaten und nachfolgend aufgeführte Funktionen übernimmt eine XML-Datei. Die XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar. Im Bild oben ist diese Datei mit "Login" gekennzeichnet.
+Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar.
 
-**Festlegung Logindaten/ Anmeldeverfahren:**
+#### Welche Funktionen übernimmt die Testtaker-XML?
 
-Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: **itc-Toolbox** helfen das Erzeugen solcher Zugänge zu beschleunigen.
-
-::: {.callout-tip}
-Das Erstellen von Logins wird unterstützt vom dem Windows-Programm: **itc-Toolbox**. Mehr Informationen dazu sind den Referenzen zu entnehmen.
-:::
-
-Für eine Anmeldung zu einer Testdurchführung sind verschiedene Arten der Anmeldung zulässig, bspw. ganz klassisch mittels Namen und Passwort oder via Link.
-
-::: {.callout-tip}
-Mehr Informationen zu den **Login/Anmeldeverfahren** sind den Referenzen zu entnehmen!
-:::
-
-Um eine Testdurchführung so modular wie möglich gestalten zu können, kann jeder Login einer Gruppe zugeordnet werden. Gruppen können dann bspw. mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.
-
-**Testheftzuweisung:**
-
-Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.
-
-**Modi der Testdurchführung:**
-
-Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt  wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können.
-
-::: {.callout-tip}
-Detaillierte Informationen zu den **Modi der Testdurchführung** und deren Eigenschaften sind den Referenzen zu entnehmen!
-:::
-
-**Textersetzungen:**
-
-Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Die möglichen änderbaren Texte werden dazu in ein spezielles Feld (`<CustomTexts>`) in der **Testtaker-XML** geschrieben werden. Die hier angegebenen Texte überschreiben dann die Standardtexte. 
-
-::: {.callout-tip}
-Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur **Testtaker-XML** zu entnehmen!
-:::
+* **Festlegung Zugangsdaten/ Anmeldeverfahren:**<br> Um eine Testdurchführung zu starten, müssen die teilnehmenden Personen zuvor mit entsprechenden Zugangsdaten angelegt werden. Die gespeicherten Antworten eines Testdurchlaufs werden dann zu diesen im System hinterlegten Zugansgdaten zugeordnet. Bei der Art der Anmeldung kann zwischen einer Vielzahl von Optionen gewählt werden. Die Anmeldung kann bspw. klassisch mittels Benutzernamen und Passwort erfolgen, mittels Code oder via Link. Mehr Informationen zu den [Anmeldeverfahren](/Referenzen/Anmeldeverfahren.qmd) sind den Referenzen zu entnehmen!
+* **Gruppierung von Zugansgdaten:**<br>Die angelegten Testpersonen werden in Gruppen angelegt. Diese Gruppe können mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.
+* **Testheftzuweisung:** Aufgaben können in Testheften (Booklets) zusammengefasst werden. Jedem Login kann gezielt ein Testheft zugewiesen werden. Die Zuweisung mehrerer Testhefte ist möglich. Nach Anmeldung werden die zugeordneten Testhefte der Testperson präsentiert.
+* **Testablauf (bspw. heißer Test oder Review):**<br> Um den Ablauf der Testung festzulegen, wird zu jedem Login ein Modus hinterlegt. Dieser Modus bestimmt  wie die Testung für den jeweiligen Login durchgeführt wird (finaler Durchlauf oder nur Review). Jeder Modus verfügt über spezifische Eigenschaften, bspw. werden bei Wahl eines Modus zur finalen Testdurchführung alle Antworten zum Login gespeichert, während bei der Wahl eines Review-Modus die Antworten nicht gespeichert werden. Es sind auch spezielle Modi für die Testleitung vorgesehen. Die Testleitung wird dann in die Lage versetzt den Testverlauf steuern zu können. Detaillierte Informationen zu den [Modi der Testdurchführung](/Referenzen/Modi_der_Testdurchfuehrung.qmd) und deren Eigenschaften sind den Referenzen zu entnehmen!
+* **individuelle Textersetzungen:**<br> Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden. Detaillierte Informationen zu den Textersetzungen sind den Referenzen zur [Testtaker-XML](/Referenzen/Testtaker_Xml.qmd) zu entnehmen!
 
 ## Booklet-XML
 
