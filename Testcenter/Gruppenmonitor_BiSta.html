@@ -389,15 +389,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#anmeldung" id="toc-anmeldung" class="nav-link active" data-scroll-target="#anmeldung">Anmeldung</a>
+  <li><a href="#anmeldung" id="toc-anmeldung" class="nav-link active" data-scroll-target="#anmeldung">Anmeldung</a></li>
+  <li><a href="#bedienung-und-ansicht" id="toc-bedienung-und-ansicht" class="nav-link" data-scroll-target="#bedienung-und-ansicht">Bedienung und Ansicht</a>
   <ul class="collapse">
-  <li><a href="#grundsetzliches-zur-bedienung-und-ansicht" id="toc-grundsetzliches-zur-bedienung-und-ansicht" class="nav-link" data-scroll-target="#grundsetzliches-zur-bedienung-und-ansicht">Grundsetzliches zur Bedienung und Ansicht</a></li>
-  <li><a href="#spalte-personenstatus" id="toc-spalte-personenstatus" class="nav-link" data-scroll-target="#spalte-personenstatus">Spalte: Personenstatus</a></li>
-  <li><a href="#spalte-teilnehmer" id="toc-spalte-teilnehmer" class="nav-link" data-scroll-target="#spalte-teilnehmer">Spalte: Teilnehmer</a></li>
-  <li><a href="#spalte-teil" id="toc-spalte-teil" class="nav-link" data-scroll-target="#spalte-teil">Spalte: Teil</a></li>
-  <li><a href="#spalte-abschnitt" id="toc-spalte-abschnitt" class="nav-link" data-scroll-target="#spalte-abschnitt">Spalte: Abschnitt</a></li>
-  <li><a href="#spalte-aktivität" id="toc-spalte-aktivität" class="nav-link" data-scroll-target="#spalte-aktivität">Spalte: Aktivität</a></li>
-  <li><a href="#informationen-zu-der-testheftstruktur" id="toc-informationen-zu-der-testheftstruktur" class="nav-link" data-scroll-target="#informationen-zu-der-testheftstruktur">Informationen zu der Testheftstruktur</a></li>
+  <li><a href="#testnavigation-links" id="toc-testnavigation-links" class="nav-link" data-scroll-target="#testnavigation-links">Testnavigation (links)</a></li>
+  <li><a href="#systeminformationen-und-einstellungen-rechts" id="toc-systeminformationen-und-einstellungen-rechts" class="nav-link" data-scroll-target="#systeminformationen-und-einstellungen-rechts">Systeminformationen und Einstellungen (rechts)</a></li>
+  <li><a href="#aktivitätsfenster-mitte" id="toc-aktivitätsfenster-mitte" class="nav-link" data-scroll-target="#aktivitätsfenster-mitte">Aktivitätsfenster (mitte)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -424,12 +421,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Die Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung eine Gruppen während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: <strong>Gruppenmonitor</strong>. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung.</p>
+<p>Die Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung eine Gruppe während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: <strong>Gruppenmonitor</strong>. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung.</p>
 <section id="anmeldung" class="level2">
 <h2 class="anchored" data-anchor-id="anmeldung">Anmeldung</h2>
 <p>Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Testhefte und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: Test-Gruppen Überwachung.</p>
-<section id="grundsetzliches-zur-bedienung-und-ansicht" class="level3">
-<h3 class="anchored" data-anchor-id="grundsetzliches-zur-bedienung-und-ansicht">Grundsetzliches zur Bedienung und Ansicht</h3>
+</section>
+<section id="bedienung-und-ansicht" class="level2">
+<h2 class="anchored" data-anchor-id="bedienung-und-ansicht">Bedienung und Ansicht</h2>
+<p>Der Gruppenmonitor ist in zwei Teile aufgeteilt, einen mittleren und einen linken Teil. Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -449,41 +448,36 @@ Hinweis
 <figcaption>Übersicht Gruppenmonitor</figcaption>
 </figure>
 </div>
-<p>Im linken Teil des Fensters sind Schalter für die Navigation zu finden. Diese haben erst eine Funktion, wenn im rechten Teil eine entsprechende Testperson angewählt wurde. Die Testperson muss online sein, also den Test gerade bearbeiten. Es ist möglich die Testperson zu einem anderen Block im Testheft zu navigieren (springen), den Test zu pausieren, den Test zu sperren und den Test zu beenden. Ganz oben ist ein Schalter mit der Bezeichnung: <strong>Alle Logins gleichzeitig steuern</strong> zu sehen. Diese Funktion steht nur zur Verfügung, wenn alle in der Gruppe verwendeten Testhefte eine ähnliche Struktur aufweisen. Sind bspw. in den Testheften unterschiedlich viele Blöcke enthalten, ist eine gemeinsame Steuerung nicht möglich. Da in diesem Beispiel sehr unterschiedliche Testhefte verwendet werden, ist der Schalter im Bild auch inaktiv.</p>
-<p>Im rechten Teil sind Informationen zu den angelegten Testpersonen, den Testheften und dem Testfortschritt zu sehen. Mehr dazu erfahren Sie auch im nächsten Abschnitt.</p>
-<p>Nach dem Öffnen des Monitors ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte und weitere hilfreiche Informationen in Spalten sortiert zu sehen.</p>
+<section id="testnavigation-links" class="level3">
+<h3 class="anchored" data-anchor-id="testnavigation-links">Testnavigation (links)</h3>
+<p>Im linken Teil des Fensters sind Schalter für die Navigation zu finden. Diese haben erst eine Funktion, wenn im mittleren Teil (Aktivitätsfenster) eine entsprechende Testperson angewählt wurde. Die Testperson muss online sein, also den Test gerade bearbeiten. Es ist möglich die Testperson zu einem anderen Block im Testheft zu navigieren (springen), den Test zu pausieren, den Test zu sperren und den Test zu beenden. Ganz oben ist ein Schalter mit der Bezeichnung: <strong>Alle Logins gleichzeitig steuern</strong> zu sehen. Diese Funktion steht nur zur Verfügung, wenn alle in der Gruppe verwendeten Testhefte eine ähnliche Struktur aufweisen. Sind bspw. in den Testheften unterschiedlich viele Blöcke enthalten, ist eine gemeinsame Steuerung nicht möglich. Da in diesem Beispiel unterschiedliche Testhefte verwendet werden, ist der Schalter im Bild auch inaktiv.</p>
+</section>
+<section id="systeminformationen-und-einstellungen-rechts" class="level3">
+<h3 class="anchored" data-anchor-id="systeminformationen-und-einstellungen-rechts">Systeminformationen und Einstellungen (rechts)</h3>
+<p>Oben rechts ist in Form eines kleinen Symbols der Verbindungsstatus des Gruppenmonitors zu sehen. Bei einer fehlerfreien Verbindung sollte das Symbol grün sein und es sollte “LIVE” darin stehen.</p>
+<p>Ebenfalls oben rechts ist eine Einstellungs-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht (mehr oder weniger Informationen anzeigen) für das mittlere Fenster, das Aktivitätsfenster, angepasst werden.</p>
+</section>
+<section id="aktivitätsfenster-mitte" class="level3">
+<h3 class="anchored" data-anchor-id="aktivitätsfenster-mitte">Aktivitätsfenster (mitte)</h3>
+<p>Hier ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte, der Fortschritt der Testung und weitere hilfreiche Informationen in Spalten sortiert zu sehen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../Testcenter/Pictures_GM/GM_Personenliste_Testhefte.png" class="img-fluid figure-img"></p>
-<figcaption>Übersicht Personen und Testheftstruktur</figcaption>
+<figcaption>Aktivitätsfenster</figcaption>
 </figure>
 </div>
 <p>Welche Informationen den einzelnen Spalten dieser Liste zu entnehmen sind und welche Bedeutung diese habe, wird nachfolgend von links nach rechts beschrieben:</p>
-</section>
-<section id="spalte-personenstatus" class="level3">
-<h3 class="anchored" data-anchor-id="spalte-personenstatus">Spalte: Personenstatus</h3>
+<p><strong>Spalte: Personenstatus</strong></p>
 <p>Zuerst einmal ist der Personenstatus zu sehen. Hier wird bspw. angezeigt, ob eine Person den Test gestartet hat oder vielleicht noch offline ist. Folgende Status gibt es:</p>
 <p><img src="../Testcenter/Pictures_GM/GM_Status_Overview_2.png" class="img-fluid"></p>
-</section>
-<section id="spalte-teilnehmer" class="level3">
-<h3 class="anchored" data-anchor-id="spalte-teilnehmer">Spalte: Teilnehmer</h3>
+<p><strong>Spalte: Teilnehmer</strong></p>
 <p>Hier wird zuerst der Benutzername der Anmeldung angezeigt. In diesem Fall: <strong>iea-testtaker-bista2217</strong>. Nachfolgend ist der zur Anmeldung eingegebene Code zu sehen. In diesem Fall: <strong>abc1</strong>, <strong>abc2</strong> usw..</p>
-</section>
-<section id="spalte-teil" class="level3">
-<h3 class="anchored" data-anchor-id="spalte-teil">Spalte: Teil</h3>
-<p>Hier sind die Testhefte zu sehen, die einem Zugangscode zugeordnet sind. Bspw. sind dem Code: <strong>abc1</strong> 3 Testhefte zugeordnet, nämlich: <strong>Anleitung</strong>, <strong>Teil1</strong>, <strong>Teil2</strong> und <strong>Teil3</strong>.</p>
-</section>
-<section id="spalte-abschnitt" class="level3">
-<h3 class="anchored" data-anchor-id="spalte-abschnitt">Spalte: Abschnitt</h3>
+<p><strong>Spalte: Teil</strong></p>
+<p>Hier sind die Testhefte zu sehen, die einem Zugangscode zugeordnet sind. Bspw. sind dem Code: <strong>abc1</strong> drei Testhefte zugeordnet, nämlich: <strong>Anleitung</strong>, <strong>Teil1</strong>, <strong>Teil2</strong> und <strong>Teil3</strong>.</p>
+<p><strong>Spalte: Abschnitt</strong></p>
 <p>Ist der Test gestartet wird hier der Abschnitt innerhalb eines Blocks angezeigt.</p>
-</section>
-<section id="spalte-aktivität" class="level3">
-<h3 class="anchored" data-anchor-id="spalte-aktivität">Spalte: Aktivität</h3>
-<p>Es ist die Testheftstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Zu jedem Block in einem Testheft werden gegebene Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schlosssymbol öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen dargestellt. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt.</p>
-</section>
-<section id="informationen-zu-der-testheftstruktur" class="level3">
-<h3 class="anchored" data-anchor-id="informationen-zu-der-testheftstruktur">Informationen zu der Testheftstruktur</h3>
-<p>aller in dieser Gruppe hinterlegten Zugänge.</p>
+<p><strong>Spalte: Aktivität</strong></p>
+<p>Es ist die Testheftstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Zu jedem Block in einem Testheft werden gegebene Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schlosssymbol öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen dargestellt. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt. Wie im Bild zu sehen ist, sind die Zeilen der Anmeldungen farblich gekennzeichnet. Die farbliche Kennzeichnung zeigt auf, welche Testhefte eine ähnliche Struktur habe und gemeinsam gesteuert werden könnten.</p>
 
 
 </section>
