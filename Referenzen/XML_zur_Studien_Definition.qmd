@@ -1,16 +1,9 @@
 ---
 lang: de
-title: "Testtaker-XML"
+title: "XML zur Studien-Definition (Testtaker-XML)"
 ---
 
-
-
-Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: **itc-Toolbox** helfen das Erzeugen solcher Zugänge zu beschleunigen.
-
-
-
-
-
+Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar.
 Folgende Funktionen erfüllt die Testtaker-XML:
 
 * Festlegung Zugangsdaten/ Anmeldeverfahren:
@@ -249,7 +242,6 @@ Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Tes
 </tr>
 </table>
 ```
-
 ## Textersetzungen
 
 Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.
@@ -303,4 +295,20 @@ Die Attributwerte für das Attribut `key` sind nicht frei wählbar. Es können n
 
 ## Gruppenmonitoring
 
-Der Gruppenmonitor kann in der Testtaker.xml über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: `monitor-group` und `monitor-study`. Im Modus: `monitor-group` können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: `monitor-study` können alle Logins in allen Gruppen gesteuert werden
+Der Gruppenmonitor kann in der Testtaker.xml über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: `monitor-group` und `monitor-study`. Im Modus: `monitor-group` können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: `monitor-study` können alle Logins in allen Gruppen gesteuert werden.
+
+Hier ein Beispiel:
+
+```{.xml .code-overflow-wrap}
+<Testtakers>
+    <Group id="sample_group" validFrom="1/3/2024 10:00" label="Primary Sample Group">
+        <Login mode="run-hot-return" name="test">
+            <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+            <Booklet codes="yyy">BOOKLET.SAMPLE-3</Booklet>
+        </Login>
+        <Login mode="monitor-group" name="test-group-monitor" pw="er45tz"/>
+    </Group>
+</Testtakers>
+```
+
+In diesem Beispiel wird ein Gruppenmonitor für die Gruppe: **sample_group** angelegt. Nach der Anmeldung am Testcenter mit dem Namen: **test-group-monitor** und dem Passwort: **er45tz** können die beiden Testhefte: **BOOKLET.SAMPLE-1** und **BOOKLET.SAMPLE-3** zu Voransicht gestartet werden. Außerdem ist eine Schaltfläche zu sehen, die den Gruppenmonitor startet. Der Gruppenmonitor zeigt den Status der beiden angelegten Personen (Codes): **xxx** und **yyy** und die Testheftstrukturen der zugeordneten Testhefte: **BOOKLET.SAMPLE-1** und **BOOKLET.SAMPLE-3** an.

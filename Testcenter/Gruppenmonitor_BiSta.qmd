@@ -40,13 +40,16 @@ Welche Informationen den einzelnen Spalten dieser Liste zu entnehmen sind und we
 
 **Spalte: Personenstatus**
 
-Zuerst einmal ist der Personenstatus zu sehen. Hier wird bspw. angezeigt, ob eine Person den Test gestartet hat oder vielleicht noch offline ist. Folgende Status gibt es:
+Hier wird der Status der Testperson angezeigt. Folgende Status gibt es:
 
 ![](/Testcenter/Pictures_GM/GM_Status_Overview_2.png)
 
 **Spalte: Teilnehmer**
 
-Hier wird zuerst der Benutzername der Anmeldung angezeigt. In diesem Fall: **iea-testtaker-bista2217**. Nachfolgend ist der zur Anmeldung eingegebene Code zu sehen. In diesem Fall: **abc1**, **abc2** usw..
+Es ist im Beispielbild eine längere Kennung zu sehen, die sich wie folgt zusammensetzt:
+
+* Benutzername der Anmeldung, in diesem Fall: **iea-testtaker-bista2217**
+* der zur Anmeldung eingegebene Code, in diesem Fall: **abc1**, **abc2** usw..
 
 **Spalte: Teil**
 
@@ -58,20 +61,44 @@ Ist der Test gestartet wird hier der Abschnitt innerhalb eines Blocks angezeigt.
 
 **Spalte: Aktivität**
 
-Es ist die Testheftstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Zu jedem Block in einem Testheft werden gegebene Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schlosssymbol öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen dargestellt. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt. Wie im Bild zu sehen ist, sind die Zeilen der Anmeldungen farblich gekennzeichnet. Die farbliche Kennzeichnung zeigt auf, welche Testhefte eine ähnliche Struktur habe und gemeinsam gesteuert werden könnten.
+Es ist die Testheftstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Sind Blöcke im Testheft vorhanden, wird die Anzahl der enthaltenen Aufgaben im Block angezeigt. Zu jedem Block in einem Testheft werden gegebene Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schlosssymbol öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen dargestellt. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt. Wie im Bild zu sehen ist, sind die Zeilen der Anmeldungen farblich gekennzeichnet. Die farbliche Kennzeichnung zeigt auf, welche Testhefte eine ähnliche Struktur habe und gemeinsam gesteuert werden könnten.
 
-## Testnavigation
+## Testnavigation (Steuerung)
 
 ### Pausieren
 
+Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie anschließend die Schaltfläche: **Pause**. Ist der Test erfolgreich pausiert, erscheint das entsprechende Statussymbol für Pause bei der Person. Außerdem erscheint im Browser der Person eine entsprechende Meldung, dass der Test pausiert wurde. Soll die Pausierung aufgehoben werden, ist erneut die entsprechende Person zu markieren und anschließend ist die Schaltfläche: **Weiter** zu betätigen. Der Test wird dann fortgeführt.
+
 ### Springe zu Block
 
-### Test sperren
+Besteht ein Testheft aus mehreren Blöcken, kann mittels Gruppenmonitor eine Testpersonen zu einem bestimmten Block navigiert werden. Hierfür wird die Person markiert und anschließend wird der Block des Testheftes markiert zu dem gesprungen werden soll. Um einen Block zu markieren, klicken Sie einfach einmal auf diesen Block in der dargestellten Testheftstruktur. Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Testheftes: **Teil1** markiert.
 
-## Troubleshooting
+![Block markieren](/Testcenter/Pictures_GM/GM_Block_markieren.png)
 
+Wie zu sehen ist, wird bei erfolgreicher Markierung der Block entsprechend gekennzeichnet. Nun wird der Schalter: **Springe zu** betätigt. Die gewählte Person wird nun in den zweiten Block navigiert.
 
+::: {.callout-important}
+Navigiert die Testleitung eine Person aus einem zeitbeschränkten Block, wird dieser Block gesperrt und die Person kann nicht mehr darauf zugreifen, auch wenn die Bearbeitung noch nicht abgeschlossen war. Das Springen in andere Blöcke sollte also immer gut überlegt sein.
+:::
 
+### Test beenden
+
+Der Test kann für Personen gesperrt werden. Hierfür ist der Schalter: **Test beenden** zu verwenden. Die Testperson erhält dann die Info, dass der Test gesperrt ist und die Testung nicht fortgeführt werden kann.
+
+### Test entsperren
+
+Wurde die Testung für eine Person beendet, ist der Test für diese Person gesperrt. Diese Sperrung kann mit dem Schalter: **Test entsperren** wieder aufgehoben werden.
+
+### Testperson kann die Aufgabe nicht bearbeiten
+
+**Fehler:** 
+Die Testperson kann eine Aufgabe nicht bearbeiten, weil die Inhalte der Aufgabe nicht dargestellt werden. Da die Navigation im Testheft zu anderen Aufgaben nur möglich ist nachdem eine Aufgabe vollständig beantwortet wurde, kann die Testperson nicht mit der Testung fortfahren.
+
+**Ursache:**
+Die Aufgabeninhalte (Video, Grafik etc.) können eventuell nicht vollständig geladen werden.
+
+**Abhilfe:**
+Navigieren Sie die Person wieder zum Anfang des Blocks in dem sich die Aufgabe befindet. Sie können im Gruppenmonitor einfach den Block markieren in dem sich die Person aktiv befindet und betätigen dann den Schalter: **Springe zu**. Auf diese Weise wird der Block nicht verlassen, sondern die Person wird wieder an den Anfang des Blocks geleitet. Dies ist im Falle eines zeitbeschränkten Blocks zu empfehlen, da beim Verlassen eines solchen Blocks der Block gesperrt werden würde.
 
 
 
