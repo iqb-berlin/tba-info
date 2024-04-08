@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Referenzen/Modi_der_Testdurchfuehrung.html" rel="next">
-<link href="../Referenzen/Anmeldeverfahren.html" rel="prev">
+<link href="../Referenzen/XML_zur_Studien_Definition.html" rel="next">
+<link href="../Referenzen/Modi_der_Testdurchfuehrung.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -186,12 +220,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Gruppenmonitor_BiSta.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gruppenmonitor BiSta</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Typische Probleme - Troubleshooting</span></a>
   </div>
@@ -284,32 +312,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Referenzen/Booklet_Xml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Booklet-XML</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Referenzen/Geogebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Geogebra</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Referenzen/itc_Toolbox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">itc-Toolbox</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Referenzen/Anmeldeverfahren.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anmeldeverfahren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Referenzen/Mehr_zu_Xml.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Mehr zu Xml</span></a>
+  <a href="../Referenzen/Geogebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Geo-Gebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -320,14 +330,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Referenzen/Testtaker_Xml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Testtaker-XML</span></a>
+  <a href="../Referenzen/Mehr_zu_Xml.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mehr zu Xml</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Referenzen/Unit_Definition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Unit Definition</span></a>
+  <a href="../Referenzen/XML_zur_Studien_Definition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">XML zur Studien-Definition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Referenzen/XML_zur_Testheft_Definition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">XML zur Testheft-Definition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">XML zur Aufgaben Definition</span></a>
   </div>
 </li>
       </ul>
@@ -385,7 +407,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#beispiele" id="toc-beispiele" class="nav-link active" data-scroll-target="#beispiele">Beispiele</a></li>
+  <li><a href="#validierung" id="toc-validierung" class="nav-link" data-scroll-target="#validierung">Validierung</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -425,8 +454,57 @@ Hinweis
 </ul>
 </div>
 </div>
+<p>Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien, die unterschiedlichste Dinge regeln. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Daten im Format einer Textdatei auszutauschen. XML-Datei können daher auch mit jedem Texteditor bearbeitet werden. Einige spezialisierte Editoren bieten auch die Möglichkeit, die Struktur einer XML-Datei entsprechend hervorzuheben, was die Arbeit erleichtert.</p>
+<p>Nachfolgend ist ein einfaches Beispiel zu sehen, wie eine XML aufgebaut ist:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Buecher</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Buch</span><span class="ot"> kategorie=</span><span class="st">"kochen"</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Titel</span>&gt;tolle Suppen kochen&lt;/<span class="kw">Titel</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Autor</span>&gt;Sven Mustermann&lt;/<span class="kw">Autor</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Preis</span>&gt;20.00&lt;/<span class="kw">Preis</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Buch</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Buch</span><span class="ot"> kategorie=</span><span class="st">"backen"</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Titel</span>&gt;tolle Kuchen backen&lt;/<span class="kw">Titel</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Autor</span>&gt;Sabine Mustermann&lt;/<span class="kw">Autor</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Preis</span>&gt;20.00&lt;/<span class="kw">Preis</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Buch</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Buecher</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Eine XML besteht aus Elementen. Diese Elemente werden mit spitzen Klammern eingeleitet und müssen mit spitzen Klammern und einem Schrägstrich (slash) abgeschlossen sein. Die Elemente können Kinderelemente enthalten und können entsprechend verschachtelt werden. Im Beispiel sind das Hauptelement <code>&lt;Buecher&gt;</code> und die Kinderelemente <code>&lt;Buch&gt;</code></p>
+<p>Damit die Daten im Text gefunden werden können, muss eine bestimmte Struktur eingehalten werden. Anschließend kann eine entsprechende Gegenstelle z.B. das IQB-Testcenter mittels eindeutiger Schlüsselwörter (Tags oder Elemente) die Daten im Text finden und nutzen. * Elemente: XML-Dateien bestehen immer aus Elementen und ggf. mehreren Unterelementen. Der Beginn eines Elements wird mit zwei spitzen Klammern <code>&lt;Element&gt;</code> eingeleitet und wie folgt beendet: <code>&lt;/Element&gt;</code>. * Attribute: Jedes Element kann außer den eigentlichen Daten, welche sich im Elementenkörper befinden, Attribute enthalten. Attribute werden immer in der folgenden Form ausgedrückt: <code>Name Attribut = "Attributwert"</code> und befinden sich innerhalb des Elementenaufrufs (<code>&lt;Element Attribut="Attributwert"&gt;</code>). Es gibt auch Elemente, die Attribute aber keine Daten enthalten und umgekehrt.</p>
+<section id="beispiele" class="level3">
+<h3 class="anchored" data-anchor-id="beispiele">Beispiele</h3>
+<ol type="1">
+<li><p>Element ohne Attribute mit Daten:</p>
+<p>Daten sind in diesem Fall der Text zwischen den spitzen Klammern, dem Elementenkörper: <code>"Sekundarstufe I Englisch Ansichtsaufgaben"</code>.</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Label</span>&gt;Sekundarstufe I Englisch Ansichtsaufgaben&lt;/<span class="kw">Label</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><p>Element mit Attributen ohne Daten:</p>
+<p>Hier gibt es 3 Attribute: <code>id</code>, <code>lable</code> und <code>lableshort</code>. Alle 3 Attribute enthalten in diesem Fall Attributwerte.<br> Diese sind in Hochkommata gefasst und werden mit einem Gleichheitszeichen dem Attribut zugeordnet. Das keine Daten enthalten sind, ist gut an dem Schließen des Elementes <strong>Unit</strong> zu erkennen. Denn das Element endet nicht mit: <code>&lt;/Unit&gt;</code>, sondern nur mit: <code>/&gt;</code>. Diese Syntax gibt an, dass keine Daten folgen.</p></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"Unit1"</span><span class="ot"> label=</span><span class="st">"1. Postcard"</span><span class="ot"> labelshort=</span><span class="st">"1"</span> /&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><p>Element mit Daten und Attributen:</p>
+<p>Attribut ist hier: <code>key</code>. Dieses bekommt den Attributwert <code>force_presentation_complete</code> zugewiesen. Datum ist der Wert: <code>ON</code>.</p></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validierung" class="level3">
+<h3 class="anchored" data-anchor-id="validierung">Validierung</h3>
+<p>Die Abfolge der Elemente und Attribute einer IQB-XML-Datei ist streng geregelt. Damit ist sichergestellt, dass die Informationen durch alle beteiligten Komponenten korrekt interpretiert werden. Damit nicht erst bei der Verarbeitung oder beim Hochladen einer XML-Datei die Fehler bemerkt werden, kann man die Prüfung auf syntaktische Fehler (sog. “Validierung”) auch automatisieren. Hierzu wurden sog. “Schema-Dateien” eingeführt. Eine Schema-Datei enthält in einer speziellen Beschreibungssprache alle Festlegungen zur Gestaltung der XML-Datei.</p>
+<p>Um eine Validierung anzustoßen, fügt man zunächst in den Kopf der XML-Datei (also in das Wurzelelement) einen Verweis auf die Schema-Datei ein. Das IQB hat für alle XML-Dateien solche Schema-Dateien entwickelt. Für eine <code>Unit-Xml</code> wäre z. B. das Hauptelement folgendermaßen zu ändern:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter-backend/9.1.1/definitions/vo_Unit.xsd"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Es sollte stets die aktuelle Version im Pfad zur Schema-Datei benutzt werden.</p>
+<p>Außerdem muss für die automatische Validierung ein Editor verwendet werden, der diese Validierung unterstützt. Das IQB empfiehlt Notepad++.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -847,13 +925,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Referenzen/Anmeldeverfahren.html" class="pagination-link" aria-label="Anmeldeverfahren">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Anmeldeverfahren</span>
+      <a href="../Referenzen/Modi_der_Testdurchfuehrung.html" class="pagination-link" aria-label="Modi der Testdurchführung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Modi der Testdurchführung</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Referenzen/Modi_der_Testdurchfuehrung.html" class="pagination-link" aria-label="Modi der Testdurchführung">
-        <span class="nav-page-text">Modi der Testdurchführung</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Referenzen/XML_zur_Studien_Definition.html" class="pagination-link" aria-label="XML zur Studien-Definition">
+        <span class="nav-page-text">XML zur Studien-Definition</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -862,4 +940,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
