@@ -411,8 +411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#beispiele" id="toc-beispiele" class="nav-link active" data-scroll-target="#beispiele">Beispiele</a></li>
-  <li><a href="#validierung" id="toc-validierung" class="nav-link" data-scroll-target="#validierung">Validierung</a></li>
+  <li><a href="#aufbau-und-funktion" id="toc-aufbau-und-funktion" class="nav-link active" data-scroll-target="#aufbau-und-funktion">Aufbau und Funktion</a></li>
+  <li><a href="#werkzeuge" id="toc-werkzeuge" class="nav-link" data-scroll-target="#werkzeuge">Werkzeuge</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -438,24 +438,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In Bearbeitung THuste: to do</p>
-<ul>
-<li>Überarbeiten Layout und Text</li>
-</ul>
-</div>
-</div>
-<p>Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien, die unterschiedlichste Dinge regeln. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Daten im Format einer Textdatei auszutauschen. XML-Datei können daher auch mit jedem Texteditor bearbeitet werden. Einige spezialisierte Editoren bieten auch die Möglichkeit, die Struktur einer XML-Datei entsprechend hervorzuheben, was die Arbeit erleichtert.</p>
-<p>Nachfolgend ist ein einfaches Beispiel zu sehen, wie eine XML aufgebaut ist:</p>
+<section id="aufbau-und-funktion" class="level2">
+<h2 class="anchored" data-anchor-id="aufbau-und-funktion">Aufbau und Funktion</h2>
+<p>Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Informationen im Format einer Textdatei auszutauschen. Es ist daher auch möglich XML-Dateien mit einem ganz normalen Texteditor zu bearbeiten. Einige spezialisierte Editoren bieten die Möglichkeit die Struktur (Syntax) einer XML-Datei entsprechend hervorzuheben, was die Arbeit durchaus erleichtert.</p>
+<p>Nachfolgend ist ein einfaches Beispiel zum Aufbau einer XML:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -473,35 +459,27 @@ Hinweis
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Buch</span>&gt;</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Buecher</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Eine XML besteht aus Elementen. Diese Elemente werden mit spitzen Klammern eingeleitet und müssen mit spitzen Klammern und einem Schrägstrich (slash) abgeschlossen sein. Die Elemente können Kinderelemente enthalten und können entsprechend verschachtelt werden. Im Beispiel sind das Hauptelement <code>&lt;Buecher&gt;</code> und die Kinderelemente <code>&lt;Buch&gt;</code></p>
-<p>Damit die Daten im Text gefunden werden können, muss eine bestimmte Struktur eingehalten werden. Anschließend kann eine entsprechende Gegenstelle z.B. das IQB-Testcenter mittels eindeutiger Schlüsselwörter (Tags oder Elemente) die Daten im Text finden und nutzen. * Elemente: XML-Dateien bestehen immer aus Elementen und ggf. mehreren Unterelementen. Der Beginn eines Elements wird mit zwei spitzen Klammern <code>&lt;Element&gt;</code> eingeleitet und wie folgt beendet: <code>&lt;/Element&gt;</code>. * Attribute: Jedes Element kann außer den eigentlichen Daten, welche sich im Elementenkörper befinden, Attribute enthalten. Attribute werden immer in der folgenden Form ausgedrückt: <code>Name Attribut = "Attributwert"</code> und befinden sich innerhalb des Elementenaufrufs (<code>&lt;Element Attribut="Attributwert"&gt;</code>). Es gibt auch Elemente, die Attribute aber keine Daten enthalten und umgekehrt.</p>
-<section id="beispiele" class="level3">
-<h3 class="anchored" data-anchor-id="beispiele">Beispiele</h3>
-<ol type="1">
-<li><p>Element ohne Attribute mit Daten:</p>
-<p>Daten sind in diesem Fall der Text zwischen den spitzen Klammern, dem Elementenkörper: <code>"Sekundarstufe I Englisch Ansichtsaufgaben"</code>.</p></li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Label</span>&gt;Sekundarstufe I Englisch Ansichtsaufgaben&lt;/<span class="kw">Label</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li><p>Element mit Attributen ohne Daten:</p>
-<p>Hier gibt es 3 Attribute: <code>id</code>, <code>lable</code> und <code>lableshort</code>. Alle 3 Attribute enthalten in diesem Fall Attributwerte.<br> Diese sind in Hochkommata gefasst und werden mit einem Gleichheitszeichen dem Attribut zugeordnet. Das keine Daten enthalten sind, ist gut an dem Schließen des Elementes <strong>Unit</strong> zu erkennen. Denn das Element endet nicht mit: <code>&lt;/Unit&gt;</code>, sondern nur mit: <code>/&gt;</code>. Diese Syntax gibt an, dass keine Daten folgen.</p></li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"Unit1"</span><span class="ot"> label=</span><span class="st">"1. Postcard"</span><span class="ot"> labelshort=</span><span class="st">"1"</span> /&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li><p>Element mit Daten und Attributen:</p>
-<p>Attribut ist hier: <code>key</code>. Dieses bekommt den Attributwert <code>force_presentation_complete</code> zugewiesen. Datum ist der Wert: <code>ON</code>.</p></li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Eine XML besteht aus Elementen. Diese Elemente werden mit spitzen Klammern eingeleitet und müssen mit spitzen Klammern und einem Schrägstrich (slash) abgeschlossen sein. Die Elemente können Kinderelemente enthalten und können beliebig verschachtelt werden. Im Beispiel ist das Hauptelement <code>&lt;Buecher&gt;</code> und die Kinderelemente <code>&lt;Buch&gt;</code>.</p>
+<p>Jedem Element können Daten und Attribute zugewiesen werden. Daten sind immer zwischen den spitzen Klammern angeordnet. Im Beispiel sind Daten für Titel, Autor und Preis hinterlegt. Das 1. Kinderelement <code>&lt;Buch&gt;</code> enthält ein Attribut mit dem Namen: <code>kategorie</code> und einen zugwiesenen Attributwert: <strong>kochen</strong>.</p>
+<p>Dieses XML-Beispiel kann nun beliebig ausgebaut werden. Es können weitere Bücher hinzugefügt und weitere Metadaten zu den Büchern hinterlegt werden. Es können weitere Attribute den Metadaten, wie bspw. dem Preis, hinzugefügt werden. Unter Einhaltung der Syntaxregeln kann eine XML also völlig frei strukturiert werden. Damit eine Anwendung, die in der XML enthaltenen Daten und Attribute auch lesen kann, muss der Anwendung die angelegte Struktur bekannt sein. Nehmen wir an eine einfach Webanwendung soll alle in der XML angelegten Bücher anzeigen. Hierfür muss die Anwendung wissen, dass ein Buch unter dem Hauptelement Bücher zu finden ist. Nehmen wir weiterhin an, dass ein Filter in der Webanwendung Bücher nach Kategorien geordnet anzeigen kann. Dann muss der Anwendung bekannt sein, dass es eine Kategorie im Kinderelement: <code>Buch</code> gibt. Der Programmierer der Webanwendung wird also in seinem Programmcode definieren an welcher Stelle in der XML das Attribut: <code>kategorie</code> zu finden ist. Wird die XML bearbeitet und dabei die Struktur verändert oder wird bspw. der Name des Hauptelements <code>Buecher</code> unbenannt in <code>books</code>, kann die Anwendung die XML nicht mehr lesen. Im besten Fall zeigt dann die Webanwendung mit dem gesetzten Filter eine Fehlermeldung an. Im schlechtesten Fall werden einfach keine Bücher angezeigt und es erscheint keine Fehlermeldung, was Anwender*innen dazu verleiten könnte anzunehmen, dass es einfach keine Bücher in der gesuchten Kategorie gibt.</p>
+<p>Um einen solchen sehr ungünstigen Zustand auszuschließen, ist im Testcenter eine XML-Schemadefinition hinterlegt. Die Schemadefinition definiert wie eine XML-Datei, die in das Testcenter geladen wird, auszusehen hat. Es handelt sich also um eine Art Vorlage. Wird eine XML-Datei in das Testcenter geladen, wird die Strukur der zu ladenden Datei mit der Vorlage abgeglichen. Bei Unstimmigkeit wird bereits beim Laden eine Fehlermeldung angezeigt, dass die Datei nicht gültig ist. Dies verhindert zur Laufzeit Probleme beim Lesen einer XML-Datei.</p>
 </section>
-<section id="validierung" class="level3">
-<h3 class="anchored" data-anchor-id="validierung">Validierung</h3>
-<p>Die Abfolge der Elemente und Attribute einer IQB-XML-Datei ist streng geregelt. Damit ist sichergestellt, dass die Informationen durch alle beteiligten Komponenten korrekt interpretiert werden. Damit nicht erst bei der Verarbeitung oder beim Hochladen einer XML-Datei die Fehler bemerkt werden, kann man die Prüfung auf syntaktische Fehler (sog. “Validierung”) auch automatisieren. Hierzu wurden sog. “Schema-Dateien” eingeführt. Eine Schema-Datei enthält in einer speziellen Beschreibungssprache alle Festlegungen zur Gestaltung der XML-Datei.</p>
-<p>Um eine Validierung anzustoßen, fügt man zunächst in den Kopf der XML-Datei (also in das Wurzelelement) einen Verweis auf die Schema-Datei ein. Das IQB hat für alle XML-Dateien solche Schema-Dateien entwickelt. Für eine <code>Unit-Xml</code> wäre z. B. das Hauptelement folgendermaßen zu ändern:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter-backend/9.1.1/definitions/vo_Unit.xsd"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Es sollte stets die aktuelle Version im Pfad zur Schema-Datei benutzt werden.</p>
-<p>Außerdem muss für die automatische Validierung ein Editor verwendet werden, der diese Validierung unterstützt. Das IQB empfiehlt Notepad++.</p>
+<section id="werkzeuge" class="level2">
+<h2 class="anchored" data-anchor-id="werkzeuge">Werkzeuge</h2>
+<p>Wie bereits erwähnt, können XMl-Datei mit jedem beliebigen Text-Editor bearbeitet werden. Nachteil: Ein Text-Editor kennt die Syntax einer XML nicht. Für einen Text-Editor ist einfach alles Text. Sollen XML-Datei häufig angepasst werden, empfiehlt es sich einen Editor zu verwenden, der die Syntax kennt und diese entsprechend hervorheben kann. Der Editor kennzeichnet dann bspw. alle Elemente, Attribute und Attributswerte farblich. Fehler in der Syntax werden so besser erkannt und können behoben werden, bevor die Datei in das Testcenter geladen wird und dann erst eine entsprechende Meldung erscheint.</p>
+<p>Beispiele für solche Editoren sind:</p>
+<p><strong>Windows</strong></p>
+<ul>
+<li>Notepad ++</li>
+<li>Visual Studio</li>
+<li>etc.</li>
+</ul>
+<p><strong>Linux</strong></p>
+<ul>
+<li>Atom</li>
+<li>Visual Studio Code</li>
+<li>etc.</li>
+</ul>
 
 
 </section>

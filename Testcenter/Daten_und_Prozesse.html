@@ -381,11 +381,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#studien-definition-logins" id="toc-studien-definition-logins" class="nav-link" data-scroll-target="#studien-definition-logins">Studien-Definition (Logins)</a></li>
   <li><a href="#testheft-definition-test-def" id="toc-testheft-definition-test-def" class="nav-link" data-scroll-target="#testheft-definition-test-def">Testheft-Definition (Test-Def)</a></li>
-  <li><a href="#aufgaben-definition-unit-def" id="toc-aufgaben-definition-unit-def" class="nav-link" data-scroll-target="#aufgaben-definition-unit-def">Aufgaben-Definition (Unit-Def)</a>
-  <ul class="collapse">
-  <li><a href="#unit-xml" id="toc-unit-xml" class="nav-link" data-scroll-target="#unit-xml">Unit-XML</a></li>
-  <li><a href="#unit-voud" id="toc-unit-voud" class="nav-link" data-scroll-target="#unit-voud">Unit-VOUD</a></li>
-  </ul></li>
+  <li><a href="#aufgaben-definition-unit-def" id="toc-aufgaben-definition-unit-def" class="nav-link" data-scroll-target="#aufgaben-definition-unit-def">Aufgaben-Definition (Unit-Def)</a></li>
   <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
   <li><a href="#geo-gebra" id="toc-geo-gebra" class="nav-link" data-scroll-target="#geo-gebra">Geo-Gebra</a></li>
   <li><a href="#kodierschema" id="toc-kodierschema" class="nav-link" data-scroll-target="#kodierschema">Kodierschema</a></li>
@@ -528,8 +524,8 @@ Tipp
 <section id="aufgaben-definition-unit-def" class="level2">
 <h2 class="anchored" data-anchor-id="aufgaben-definition-unit-def">Aufgaben-Definition (Unit-Def)</h2>
 <p>Die Aufgaben-Definition besteht aus zwei Dateien, die zueinander gehören. In einer Datei werden Metadaten wie bspw. ID und Label der Aufgabe festgelegt, in der anderen sind die eigentlichen Aufgabenelemente enthalten. Erstere ist wieder eine XML-Datei mit dem IQB-internen Namen <strong>Unit-XML</strong>. Letztere enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung <strong>.VOUD</strong>. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige <strong>Unit-XML</strong>. Die <strong>Unit-VOUD</strong> wird in der <strong>Unit-XML</strong> eingebunden. Die möglichen Funktionen der beiden Dateien werden nachfolgend beschrieben.</p>
-<section id="unit-xml" class="level3">
-<h3 class="anchored" data-anchor-id="unit-xml">Unit-XML</h3>
+<section id="unit-xml" class="level4">
+<h4 class="anchored" data-anchor-id="unit-xml">Unit-XML</h4>
 <p>Folgendes kann in dieser Datei festgelegt werden:</p>
 <ul>
 <li><strong>Metadaten:</strong><br> Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige ID der Aufgabe, ein Label und eine Beschreibung.</li>
@@ -550,8 +546,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="unit-voud" class="level3">
-<h3 class="anchored" data-anchor-id="unit-voud">Unit-VOUD</h3>
+<section id="unit-voud" class="level4">
+<h4 class="anchored" data-anchor-id="unit-voud">Unit-VOUD</h4>
 <p>Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Sie wird oft auch als <strong>Ressource zu einer Augabe</strong> bezeichnet. Aufgrund ihres spezielles Formats ist sie nur schlecht manuell veränderbar. Änderungen sollten über einen geeigneten Editor erfolgen. Das IQB-Studio bietet einen solchen Editor an.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -645,7 +641,8 @@ Hinweis
 <li>jede Aufgaben-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und</li>
 <li>alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden</li>
 </ol>
-<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht finden Sie auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a></p>
+<p>Der Player wird in der XML zur Aufgaben-Definition eingebunden. Die aktuellen Versionen des jeweiligen Players sind in den entsprechenden GitHub-Repositories unter Releases zu finden und können dort heruntergeladen werden. Der in der XML zur Aufgaben-Definition festgelegte Player, muss dann mit in das Testcenter geladen werden. Zumeist handelt es sich um HTML-Dateien mit dem Namen des Players.</p>
+<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub in entsprechenden Repositories veröffentlicht. Eine Übersicht finden Sie auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a></p>
 </section>
 </section>
 <section id="daten-output-des-testcenters" class="level1">
@@ -682,7 +679,6 @@ Tipp
 <section id="daten-bearbeitung" class="level1">
 <h1>Daten-Bearbeitung</h1>
 <p>Die Testateien können vor dem Laden in das Testcenter bearbeitet werden. Hierfür ist ein Verständnis der Extensible Markup Language XML notwendig. Eine knappe Einleitung bietet hier der Punkt: <strong>Mehr zu XML</strong> in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.</p>
-<p>Die Bearbeitung von XML-Datei kann mit gängigen Text-Editoren erfolgen. Es können auch spezielle Editoren zum Einsatz kommen, wie bspw. Notepad++, die den Vorteil eines Syntax Highlighting bieten.</p>
 
 
 </section>
