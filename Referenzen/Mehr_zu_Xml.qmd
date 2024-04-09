@@ -3,16 +3,11 @@ lang: de
 title: "Mehr zu XML"
 ---
 
-::: {.callout-note}
-In Bearbeitung THuste: to do
+## Aufbau und Funktion
 
-* Überarbeiten Layout und Text
+Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Informationen im Format einer Textdatei auszutauschen. Es ist daher auch möglich XML-Dateien mit einem ganz normalen Texteditor zu bearbeiten. Einige spezialisierte Editoren bieten die Möglichkeit die Struktur (Syntax) einer XML-Datei entsprechend hervorzuheben, was die Arbeit durchaus erleichtert.
 
-:::
-
-Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien, die unterschiedlichste Dinge regeln. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Daten im Format einer Textdatei auszutauschen. XML-Datei können daher auch mit jedem Texteditor bearbeitet werden. Einige spezialisierte Editoren bieten auch die Möglichkeit, die Struktur einer XML-Datei entsprechend hervorzuheben, was die Arbeit erleichtert.
-
-Nachfolgend ist ein einfaches Beispiel zu sehen, wie eine XML aufgebaut ist:
+Nachfolgend ist ein einfaches Beispiel zum Aufbau einer XML:
 
 ```{.xml .code-overflow-wrap}
 
@@ -34,53 +29,30 @@ Nachfolgend ist ein einfaches Beispiel zu sehen, wie eine XML aufgebaut ist:
 </Buecher>
 ```
 
-Eine XML besteht aus Elementen. Diese Elemente werden mit spitzen Klammern eingeleitet und müssen mit spitzen Klammern und einem Schrägstrich (slash) abgeschlossen sein. Die Elemente können Kinderelemente enthalten und können entsprechend verschachtelt werden. Im Beispiel sind das Hauptelement `<Buecher>` und die Kinderelemente `<Buch>` 
+Eine XML besteht aus Elementen. Diese Elemente werden mit spitzen Klammern eingeleitet und müssen mit spitzen Klammern und einem Schrägstrich (slash) abgeschlossen sein. Die Elemente können Kinderelemente enthalten und können beliebig verschachtelt werden. Im Beispiel ist das Hauptelement `<Buecher>` und die Kinderelemente `<Buch>`.
 
-Damit die Daten im Text gefunden werden können, muss eine bestimmte Struktur eingehalten werden. Anschließend kann eine entsprechende Gegenstelle z.B. das IQB-Testcenter mittels eindeutiger Schlüsselwörter (Tags oder Elemente) die Daten im Text finden und nutzen.
-* Elemente: XML-Dateien bestehen immer aus Elementen und ggf. mehreren Unterelementen. Der Beginn eines Elements wird mit zwei spitzen Klammern `<Element>` eingeleitet und wie folgt beendet: `</Element>`.
-* Attribute: Jedes Element kann außer den eigentlichen Daten, welche sich im Elementenkörper befinden, Attribute enthalten. Attribute werden immer in der folgenden Form ausgedrückt: `Name Attribut = "Attributwert"` und befinden sich innerhalb des Elementenaufrufs (`<Element Attribut="Attributwert">`). Es gibt auch Elemente, die Attribute aber keine Daten enthalten und umgekehrt.
+Jedem Element können Daten und Attribute zugewiesen werden. Daten sind immer zwischen den spitzen Klammern angeordnet. Im Beispiel sind Daten für Titel, Autor und Preis hinterlegt. Das 1. Kinderelement `<Buch>` enthält ein Attribut mit dem Namen: `kategorie` und einen zugwiesenen Attributwert: **kochen**. 
 
-### Beispiele
+Dieses XML-Beispiel kann nun beliebig ausgebaut werden. Es können weitere Bücher hinzugefügt und weitere Metadaten zu den Büchern hinterlegt werden. Es können weitere Attribute den Metadaten, wie bspw. dem Preis, hinzugefügt werden. Unter Einhaltung der Syntaxregeln kann eine XML also völlig frei strukturiert werden. Damit eine Anwendung, die in der XML enthaltenen Daten und Attribute auch lesen kann, muss der Anwendung die angelegte Struktur bekannt sein. Nehmen wir an eine einfach Webanwendung soll alle in der XML angelegten Bücher anzeigen. Hierfür muss die Anwendung wissen, dass ein Buch unter dem Hauptelement Bücher zu finden ist. Nehmen wir weiterhin an, dass ein Filter in der Webanwendung Bücher nach Kategorien geordnet anzeigen kann. Dann muss der Anwendung bekannt sein, dass es eine Kategorie im Kinderelement: `Buch` gibt. Der Programmierer der Webanwendung wird also in seinem Programmcode definieren an welcher Stelle in der XML das Attribut: `kategorie` zu finden ist. Wird die XML bearbeitet und dabei die Struktur verändert oder wird bspw. der Name des Hauptelements `Buecher` unbenannt in `books`, kann die Anwendung die XML nicht mehr lesen.
+Im besten Fall zeigt dann die Webanwendung mit dem gesetzten Filter eine Fehlermeldung an. Im schlechtesten Fall werden einfach keine Bücher angezeigt und es erscheint keine Fehlermeldung, was Anwender\*innen dazu verleiten könnte anzunehmen, dass es einfach keine Bücher in der gesuchten Kategorie gibt.
 
-1. Element ohne Attribute mit Daten:
+Um einen solchen sehr ungünstigen Zustand auszuschließen, ist im Testcenter eine XML-Schemadefinition hinterlegt. Die Schemadefinition definiert wie eine XML-Datei, die in das Testcenter geladen wird, auszusehen hat. Es handelt sich also um eine Art Vorlage. Wird eine XML-Datei in das Testcenter geladen, wird die Strukur der zu ladenden Datei mit der Vorlage abgeglichen. Bei Unstimmigkeit wird bereits beim Laden eine Fehlermeldung angezeigt, dass die Datei nicht gültig ist. Dies verhindert zur Laufzeit Probleme beim Lesen einer XML-Datei.
 
-   Daten sind in diesem Fall der Text zwischen den spitzen Klammern, dem Elementenkörper: `"Sekundarstufe I Englisch Ansichtsaufgaben"`.
 
-  ```xml
-    <Label>Sekundarstufe I Englisch Ansichtsaufgaben</Label>
-  ```
+## Werkzeuge
 
-2. Element mit Attributen ohne Daten:
+Wie bereits erwähnt, können XMl-Datei mit jedem beliebigen Text-Editor bearbeitet werden. Nachteil: Ein Text-Editor kennt die Syntax einer XML nicht. Für einen Text-Editor ist einfach alles Text. Sollen XML-Datei häufig angepasst werden, empfiehlt es sich einen Editor zu verwenden, der die Syntax kennt und diese entsprechend hervorheben kann. Der Editor kennzeichnet dann bspw. alle Elemente, Attribute und Attributswerte farblich. Fehler in der Syntax werden so besser erkannt und können behoben werden, bevor die Datei in das Testcenter geladen wird und dann erst eine entsprechende Meldung erscheint.
 
-   Hier gibt es 3 Attribute: `id`, `lable` und `lableshort`. Alle 3 Attribute enthalten in diesem Fall Attributwerte.<br>
-   Diese sind in Hochkommata gefasst und werden mit einem Gleichheitszeichen dem Attribut zugeordnet. 
-   Das keine Daten enthalten sind, ist gut an dem Schließen des Elementes **Unit** zu erkennen. Denn das Element endet nicht mit: 
-   `</Unit>`, sondern nur mit: `/>`. Diese Syntax gibt an, dass keine Daten folgen.
+Beispiele für solche Editoren sind:
 
-```xml
-   <Unit id="Unit1" label="1. Postcard" labelshort="1" />
-```
+**Windows**
 
-3. Element mit Daten und Attributen:
+* Notepad ++
+* Visual Studio 
+* etc.
 
-   Attribut ist hier: `key`. Dieses bekommt den Attributwert `force_presentation_complete` zugewiesen.
-   Datum ist der Wert: `ON`.
+**Linux**
 
-```xml
-    <Config key="force_presentation_complete">ON</Config>
-````
-
-### Validierung
-
-Die Abfolge der Elemente und Attribute einer IQB-XML-Datei ist streng geregelt. Damit ist sichergestellt, dass die Informationen durch alle beteiligten Komponenten korrekt interpretiert werden. Damit nicht erst bei der Verarbeitung oder beim Hochladen einer XML-Datei die Fehler bemerkt werden, kann man die Prüfung auf syntaktische Fehler (sog. "Validierung") auch automatisieren. Hierzu wurden sog. "Schema-Dateien" eingeführt. Eine Schema-Datei enthält in einer speziellen Beschreibungssprache alle Festlegungen zur Gestaltung der XML-Datei.
-
-Um eine Validierung anzustoßen, fügt man zunächst in den Kopf der XML-Datei (also in das Wurzelelement) einen Verweis auf die Schema-Datei ein. Das IQB hat für alle XML-Dateien solche Schema-Dateien entwickelt. Für eine `Unit-Xml` wäre z. B. das Hauptelement folgendermaßen zu ändern:
-
-```xml
-    <Unit
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter-backend/9.1.1/definitions/vo_Unit.xsd">
-```
-Es sollte stets die aktuelle Version im Pfad zur Schema-Datei benutzt werden.
-
-Außerdem muss für die automatische Validierung ein Editor verwendet werden, der diese Validierung unterstützt. Das IQB empfiehlt Notepad++.
+* Atom
+* Visual Studio Code
+* etc.

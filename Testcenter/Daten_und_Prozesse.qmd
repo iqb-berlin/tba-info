@@ -59,7 +59,7 @@ Mehr Informationen zu der XML-Datei für die Testheft-Defintion sind den [Refere
 
 Die Aufgaben-Definition besteht aus zwei Dateien, die zueinander gehören. In einer Datei werden Metadaten wie bspw. ID und Label der Aufgabe festgelegt, in der anderen sind die eigentlichen Aufgabenelemente enthalten. Erstere ist wieder eine XML-Datei mit dem IQB-internen Namen **Unit-XML**. Letztere enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung **.VOUD**. Günstigerweise trägt diese Datei den gleichen Namen wie die zugehörige **Unit-XML**. Die **Unit-VOUD** wird in der **Unit-XML** eingebunden. Die möglichen Funktionen der beiden Dateien werden nachfolgend beschrieben.
 
-### Unit-XML
+#### Unit-XML
 
 Folgendes kann in dieser Datei festgelegt werden:
 
@@ -71,7 +71,7 @@ Folgendes kann in dieser Datei festgelegt werden:
 Mehr Informationen zur XML der Aufgaben-Definition sind auch den [Referenzen](/Referenzen/XML_zur_Aufgaben_Definition.qmd) zu entnehmen!
 :::
 
-### Unit-VOUD
+#### Unit-VOUD
 
 Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Sie wird oft auch als **Ressource zu einer Augabe** bezeichnet. Aufgrund ihres spezielles Formats ist sie nur schlecht  manuell veränderbar. Änderungen sollten über einen geeigneten Editor erfolgen. Das IQB-Studio bietet einen solchen Editor an.
 
@@ -122,7 +122,9 @@ Für die Vorbereitung eines Tests bedeutet dies:
 1. jede Aufgaben-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und
 2. alle Player, die von Units benötigt werden, müssen vorab als Ressourcendatei in das Testcenter geladen werden
 
-Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht finden Sie auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io)
+Der Player wird in der XML zur Aufgaben-Definition eingebunden. Die aktuellen Versionen des jeweiligen Players sind in den entsprechenden GitHub-Repositories unter Releases zu finden und können dort heruntergeladen werden. Der in der XML zur Aufgaben-Definition festgelegte Player, muss dann mit in das Testcenter geladen werden. Zumeist handelt es sich um HTML-Dateien mit dem Namen des Players.
+
+Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub in entsprechenden Repositories veröffentlicht. Eine Übersicht finden Sie auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io)
 
 # Daten-Output des Testcenters
 
@@ -149,5 +151,3 @@ Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstand
 # Daten-Bearbeitung
 
 Die Testateien können vor dem Laden in das Testcenter bearbeitet werden. Hierfür ist ein Verständnis der Extensible Markup Language XML notwendig. Eine knappe Einleitung bietet hier der Punkt: **Mehr zu XML** in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.
-
-Die Bearbeitung von XML-Datei kann mit gängigen Text-Editoren erfolgen. Es können auch spezielle Editoren zum Einsatz kommen, wie bspw. Notepad++, die den Vorteil eines Syntax Highlighting bieten.
