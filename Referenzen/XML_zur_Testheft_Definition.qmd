@@ -3,34 +3,17 @@ lang: de
 title: "XML zur Testheft-Definition (Booklet-XML)"
 ---
 
+##
+
 Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Der Dateiname kann frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:
 
 * Festlegung Reihenfolge Aufgaben
 * **Testlet:** Aufgabenbündelung und Beschränkungen in Testlets
 * **Testheft-Konfiguration:** Testverhalten, Testlayout, Testmethode
 
-::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd).
-:::
-
-::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Booklet-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.1 verwendet, sollte auch die Schema-Definition 15.0.1 verwendet werden. Beim Laden der Booklet-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
-:::
-
-Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
-
-```{.xml .code-overflow-wrap}
-<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd">
-
-</Booklet>
-```
-::: {.callout-note}
-In den nachfolgenden Code-Beispielen ist der Pfad zur Schema-Definition im Sinne der Übersichtlichkeit nicht immer enthalten!
-:::
-
 ::: {.callout-tip collapse="true"}
 
-## Ein Beispiel
+## Ein einführendes Beispiel
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -91,7 +74,23 @@ Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufg
 Es folgt ein weiteres Testlet ohne Beschränkungen und mit nur einer einzigen Aufgabe.
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.**
+
+::: {.callout-important}
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd).
+:::
+
+Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
+
+```{.xml .code-overflow-wrap}
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd">
+
+</Booklet>
+```
+
+::: {.callout-important}
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Booklet-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.1 verwendet, sollte auch die Schema-Definition 15.0.1 verwendet werden. Beim Laden der Booklet-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+:::
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -208,20 +207,20 @@ Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Boo
 </tr>
 </table>
 ```
+
 ## Testheft Konfiguration
 
 ::: {.callout-note}
 In Bearbeitung THuste: to do
 
 * Text zum adaptiven Testen
-
 :::
 
-Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: `key` im Unterlement: `Config` zur Verfügung. Diesem Attribut können vordefinierte Werte und Daten zugewiesen 
-
-::: {.callout-note}
-[Hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) ist eine Liste der vordefinierten Attribute und Daten zu finden.
+::: {.callout-important}
+Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: `key` im Unterlement: `Config` zur Verfügung. Diesem Attribut können nur vordefinierte Werte und Daten zugewiesen. 
 :::
+
+#### [Link](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zur Liste möglicher Werte Testheftkonfiguration. <br>
 
 Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
 

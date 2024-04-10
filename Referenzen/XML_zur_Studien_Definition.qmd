@@ -3,6 +3,8 @@ lang: de
 title: "XML zur Studien-Definition (Testtaker-XML)"
 ---
 
+## 
+
 Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar.
 Folgende Funktionen erfüllt die Testtaker-XML:
 
@@ -14,24 +16,9 @@ Folgende Funktionen erfüllt die Testtaker-XML:
 * **individuelle Textersetzungen**
 * **Gruppenmonitoring**
 
-::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
-:::
-
-::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
-:::
-
-Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
-
-```{.xml .code-overflow-wrap}
-<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
-
-</Testtakers>
-```
 ::: {.callout-tip collapse="true"}
 
-## Ein Beispiel
+## Ein einführendes Beispiel
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -104,7 +91,23 @@ In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt �
 
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.**
+
+::: {.callout-important}
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
+:::
+
+Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
+
+```{.xml .code-overflow-wrap}
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
+
+</Testtakers>
+```
+
+::: {.callout-important}
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+:::
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -288,9 +291,11 @@ Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen u
 </tr>
 </table>
 ```
-::: {.callout-note}
-Die Attributwerte für das Attribut `key` sind nicht frei wählbar. Es können nur Werte verwendet werden, die [**hier**](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.
+::: {.callout-important}
+Die Attributwerte für das Attribut `key` sind nicht frei wählbar. Diese sind einer entsprechenden Liste zu entnehmen. Alle Texte, die nicht geändert werden, erhalten einen Standardtext, der ebenfalls der Liste zu entnehmen ist.
 :::
+
+#### [Link](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) zur Liste möglicher Werte Textersetzungen
 
 
 ## Gruppenmonitoring

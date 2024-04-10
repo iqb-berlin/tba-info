@@ -3,6 +3,8 @@ lang: de
 title: "Aufgaben-Definition (Unit-XML)"
 ---
 
+##
+
 Die Metadaten einer Aufgabe und die Einbindung von zusätzlichen Aufgabenressourcen werden in einer XML-Datei festgelegt. Diese XML-Datei wird IQB-intern häufig übergreifend auch **Unit-XML** genannt. In der Praxis wird als Dateiname die eigentliche Aufgabenbezeichnung gewählt. 
 
 Folgende Funktionen erfüllt die Unit-XML:
@@ -12,24 +14,9 @@ Folgende Funktionen erfüllt die Unit-XML:
 * Auswahl Player mit dem die Aufgabe wiedergegeben werden soll
 * **Variablen zur Kodierung**
 
-::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Aufgaben-XML ist [hier](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd) zu finden.
-:::
-
-::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
-:::
-
-Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
-
-```{.xml .code-overflow-wrap}
-<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd">
-
-</Unit>
-```
 ::: {.callout-tip collapse="true"}
 
-## Ein Beispiel
+## Ein einführendes Beispiel
 
 ```{.xml .code-overflow-wrap}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
@@ -69,7 +56,24 @@ Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann e
 Das letzte Element:`CodingSchemeRef` gibt die Version des zur Aufgabenkodierung verwendeten Schemer-Moduls an. 
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.**
+
+::: {.callout-important}
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Aufgaben-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd) zu finden.
+:::
+
+Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
+
+```{.xml .code-overflow-wrap}
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd">
+
+</Unit>
+```
+
+::: {.callout-important}
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+:::
+
 
 ```{.xml .code-overflow-wrap}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
@@ -185,9 +189,8 @@ Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Auf
 </table>
 ```
 ::: {.callout-tip}
-Die [Schema-Definition](https://github.com/iqb-berlin/testcenter-backend/blob/master/definitions/vo_Unit.xsd) sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, das dann `DefinitionRef` ersetzt. Das mag bei kleinen Unit-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
+Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, das dann `DefinitionRef` ersetzt. Das mag bei kleinen Unit-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
 :::
-
 
 ## Variablen zur Kodierung
 
