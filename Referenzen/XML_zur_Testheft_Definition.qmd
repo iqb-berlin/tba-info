@@ -80,21 +80,15 @@ Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Boo
 Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd).
 :::
 
-Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:
-
-```{.xml .code-overflow-wrap}
-<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd">
-
-</Booklet>
-```
-
 ::: {.callout-important}
 Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Booklet-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.1 verwendet, sollte auch die Schema-Definition 15.0.1 verwendet werden. Beim Laden der Booklet-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
 :::
 
+Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
+
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
-<Booklet>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd">
 
     <Metadata>
         <Id>BOOKLET.SAMPLE-1</Id>
