@@ -410,7 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#textersetzungen" id="toc-textersetzungen" class="nav-link active" data-scroll-target="#textersetzungen">Textersetzungen</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#textersetzungen" id="toc-textersetzungen" class="nav-link" data-scroll-target="#textersetzungen">Textersetzungen</a></li>
   <li><a href="#gruppenmonitoring" id="toc-gruppenmonitoring" class="nav-link" data-scroll-target="#gruppenmonitoring">Gruppenmonitoring</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -437,6 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 <p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar. Folgende Funktionen erfüllt die Testtaker-XML:</p>
 <ul>
 <li>Festlegung Zugangsdaten/ Anmeldeverfahren:</li>
@@ -447,6 +450,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>individuelle Textersetzungen</strong></li>
 <li><strong>Gruppenmonitoring</strong></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ein einführendes Beispiel
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    This file contains some logins for testing and works a a sample for developers.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> validFrom=</span><span class="st">"1/3/2024 10:00"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"study_group"</span><span class="ot"> label=</span><span class="st">"A group for the study monitor"</span>&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- the study monitor has access to all other groups on the workspace --&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-study"</span><span class="ot"> name=</span><span class="st">"test-study-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"trial_group"</span><span class="ot"> label=</span><span class="st">"A Group for Trials and Demos"</span><span class="ot"> validFor=</span><span class="st">"45"</span>&gt;</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-trial"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-demo"</span><span class="ot"> name=</span><span class="st">"test-demo"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-simulation"</span><span class="ot"> name=</span><span class="st">"test-simulation"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"passwordless_group"</span><span class="ot"> label=</span><span class="st">"A group of persons without password"</span>&gt;</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-no-pw"</span>&gt;</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-no-pw-trial"</span>&gt;</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"expired_group"</span><span class="ot"> validTo=</span><span class="st">"1/3/2020 19:30"</span><span class="ot"> label=</span><span class="st">"An already expired group"</span>&gt;</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-expired"</span>&gt;</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"expired-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-study"</span><span class="ot"> name=</span><span class="st">"expired-study-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"future_group"</span><span class="ot"> validFrom=</span><span class="st">"26/3/2030 9:00"</span><span class="ot"> label=</span><span class="st">"An not yet active group"</span>&gt;</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-future"</span>&gt;</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Zahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen.</p>
+<p>In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (<code>validFrom</code>). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: sample_group, dem Login: Test und dem entsprechenden Code gespeichert. Nach Anmeldung des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Personen nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren oder den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein.</p>
+</div>
+</div>
+</div>
+<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.</strong></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -457,9 +540,13 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd">hier</a> ersichtlich.</p>
+<p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd"><strong>hier</strong></a> ersichtlich.</p>
 </div>
 </div>
+<p>Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -473,90 +560,6 @@ Wichtig
 <p>Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.</p>
 </div>
 </div>
-<p>Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Ein Beispiel
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    This file contains some logins for testing and works a a sample for developers.</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">CustomTexts</span>&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">CustomTexts</span>&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> validFrom=</span><span class="st">"1/3/2024 10:00"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"study_group"</span><span class="ot"> label=</span><span class="st">"A group for the study monitor"</span>&gt;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- the study monitor has access to all other groups on the workspace --&gt;</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-study"</span><span class="ot"> name=</span><span class="st">"test-study-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"trial_group"</span><span class="ot"> label=</span><span class="st">"A Group for Trials and Demos"</span><span class="ot"> validFor=</span><span class="st">"45"</span>&gt;</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-trial"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-demo"</span><span class="ot"> name=</span><span class="st">"test-demo"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-simulation"</span><span class="ot"> name=</span><span class="st">"test-simulation"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"passwordless_group"</span><span class="ot"> label=</span><span class="st">"A group of persons without password"</span>&gt;</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-no-pw"</span>&gt;</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-no-pw-trial"</span>&gt;</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"expired_group"</span><span class="ot"> validTo=</span><span class="st">"1/3/2020 19:30"</span><span class="ot"> label=</span><span class="st">"An already expired group"</span>&gt;</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-expired"</span>&gt;</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"expired-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-study"</span><span class="ot"> name=</span><span class="st">"expired-study-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"future_group"</span><span class="ot"> validFrom=</span><span class="st">"26/3/2030 9:00"</span><span class="ot"> label=</span><span class="st">"An not yet active group"</span>&gt;</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-restart"</span><span class="ot"> name=</span><span class="st">"test-future"</span>&gt;</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Zahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen.</p>
-<p>In der ersten Gruppe: sample_group befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (<code>validFrom</code>). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: sample_group, dem Login: Test und dem entsprechenden Code gespeichert. Nach Anmeldung des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Personen nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren oder den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein.</p>
-</div>
-</div>
-</div>
-<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -691,6 +694,7 @@ Ein Beispiel
 </tbody>
 </table>
 </div>
+</section>
 <section id="textersetzungen" class="level2">
 <h2 class="anchored" data-anchor-id="textersetzungen">Textersetzungen</h2>
 <p>Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.</p>
@@ -735,19 +739,22 @@ Ein Beispiel
 </tbody>
 </table>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Attributwerte für das Attribut <code>key</code> sind nicht frei wählbar. Es können nur Werte verwendet werden, die <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html"><strong>hier</strong></a> gelistet sind! Alle Texte, die nicht geändert werden, erhalten den Standardtext.</p>
+<p>Die Attributwerte für das Attribut <code>key</code> sind nicht frei wählbar. Diese sind einer entsprechenden Liste zu entnehmen. Alle Texte, die nicht geändert werden, erhalten einen Standardtext, der ebenfalls der Liste zu entnehmen ist.</p>
 </div>
 </div>
+<section id="link-zur-liste-möglicher-werte-textersetzungen" class="level4">
+<h4 class="anchored" data-anchor-id="link-zur-liste-möglicher-werte-textersetzungen"><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Link</a> zur Liste möglicher Werte Textersetzungen</h4>
+</section>
 </section>
 <section id="gruppenmonitoring" class="level2">
 <h2 class="anchored" data-anchor-id="gruppenmonitoring">Gruppenmonitoring</h2>

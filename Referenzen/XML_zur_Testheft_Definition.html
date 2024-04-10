@@ -410,7 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#testheft-konfiguration" id="toc-testheft-konfiguration" class="nav-link active" data-scroll-target="#testheft-konfiguration">Testheft Konfiguration</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#testheft-konfiguration" id="toc-testheft-konfiguration" class="nav-link" data-scroll-target="#testheft-konfiguration">Testheft Konfiguration</a></li>
   <li><a href="#testlet-block" id="toc-testlet-block" class="nav-link" data-scroll-target="#testlet-block">Testlet (Block)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -437,12 +438,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 <p>Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen <strong>Booklet-XML</strong>. Der Dateiname kann frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:</p>
 <ul>
 <li>Festlegung Reihenfolge Aufgaben</li>
 <li><strong>Testlet:</strong> Aufgabenbündelung und Beschränkungen in Testlets</li>
 <li><strong>Testheft-Konfiguration:</strong> Testverhalten, Testlayout, Testmethode</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ein einführendes Beispiel
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;Sample booklet&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Description</span>&gt;This a sample booklet for testing/development/showcase purposes.&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">BookletConfig</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_screenheader"</span>&gt;WITH_BOOKLET_TITLE&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"page_navibuttons"</span>&gt;SEPARATE_BOTTOM&lt;/<span class="kw">Config</span>&gt;    </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"pagingMode"</span>&gt;concat-scroll-snap&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_response_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">BookletConfig</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Units</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-1"</span><span class="ot"> label=</span><span class="st">"A Sample Unit to demonstrate"</span><span class="ot"> labelshort=</span><span class="st">"Sample Unit 1"</span>/&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"tslt1"</span><span class="ot"> label=</span><span class="st">"First block with restrictions"</span>&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Restrictions</span>&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">CodeToEnter</span><span class="ot"> code=</span><span class="st">"sample"</span>&gt;Please insert the word `sample`.&lt;/<span class="kw">CodeToEnter</span>&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">TimeMax</span><span class="ot"> minutes=</span><span class="st">"10"</span> /&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">DenyNavigationOnIncomplete</span><span class="ot"> presentation=</span><span class="st">"OFF"</span><span class="ot"> response=</span><span class="st">"OFF"</span>/&gt; </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">Restrictions</span>&gt;</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-2"</span><span class="ot"> label=</span><span class="st">"A very Simple Sample Unit"</span><span class="ot"> labelshort=</span><span class="st">"2nd Sample Unit"</span>/&gt;</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-1"</span><span class="ot"> label=</span><span class="st">"A Sample Unit to demonstrate"</span><span class="ot"> labelshort=</span><span class="st">"Sample Unit 1"</span><span class="ot"> alias=</span><span class="st">"an_alias"</span>/&gt;</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"tslt2"</span><span class="ot"> label=</span><span class="st">"Second block without restrictions"</span>&gt;</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-3"</span><span class="ot"> label=</span><span class="st">"Sample Unit again, with Alias"</span><span class="ot"> labelshort=</span><span class="st">"Sample Unit Again"</span>/&gt;</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Units</span>&gt;</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Metadata</code></p>
+<p>In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: <strong>BOOKLET.SAMPLE-1</strong>. Mit Hilfe dieser Id kann das Testheft in der <strong>Testtaker-XML</strong> eingebunden und einer Testperson zugeordnet werden. Es folgt ein Label und eine Beschreibung, die frei wählbar sind.</p>
+<p><code>BookletConfig</code></p>
+<p>Nachfolgend erfolgt die Booklet-Konfiguration. Hier gibt es eine Vielzahl von Konfigurationsmöglichkeiten. Exemplarisch sind an dieser Stelle einige aufgeführt. Welche Funktionalitäten die einzelnen Werte erfüllen, ist einer entsprechenden Liste zu entnehmen (Verweis im Abschnitt: Testheft-Konfigurationen). Bspw. würde mit dem Wert: <code>unit_screenheader</code> und dem Datum: <strong>WITH_BOOKLET_TITLE</strong> während der Testdurchführung das in diesem Beispiel angegebene Label angezeigt werden.</p>
+<p><code>Units</code></p>
+<p>Hier erfolgt nun die Deklaration der während der Testdurchführung angezeigten Aufgaben. Hier wird zuerst eine einleitende Aufgabe mit der Id: <strong>UNIT.SAMPLE-1</strong> aufgerufen. Dieser wird ein entsprechendes Label zugewiesen und ein Short-Label. Letzteres kann bei entsprechender Testheft-Konfiguration in der Aufgaben-Navigationsleiste angezeigt werden.</p>
+<p>Es folgt das erste Testlet (Block) mit Zugangsbeschränkungen, einer zeitlichen Beschränkung und einer Navigationsbeschränkung. Die in diesem Beispiel aufgeführte Navigationsbeschränkung <code>DenyNavigationOnIncomplete</code> überschreibt das Verhalten in der Testheft-Konfiguration, hier <code>force_presentation_complete</code> und <code>force_response_complete</code>nur für dieses Testlet. Für das nächste Testlet werden wieder die Werte aus der Testheft-Konfiguration verwendet. Nachfolgend wird eine Aufgabe: <strong>UNIT.SAMPLE-2</strong> in das Testlet eingebunden. Alle Aufgaben in diesem Testlet unterliegen den Beschränkungen des Testlets.</p>
+<p>Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufgabe die selbe Id trägt wie die erste Aufgabe, nämlich: <strong>UNIT.SAMPLE-1</strong>. Die Mehrfacheinbindung einer Aufgabe mit gleicher Id ist nicht erlaubt, das Testcenter würde hier bei der Testheft-Validierung eine entsprechende Fehlermeldung ausgeben. Manchmal kann es aber sinnvoll sein ein und die selbe Aufgabe mehrfach zu verwenden. Aus diesem Grund ist bei dieser Aufgabe ein zusätzliches Attribut: <code>alias</code> zu finden. Wird eine Aufgabe mit gleicher Id mehrfach in einem Testheft deklariert, kann mit Hilfe des Alias eine Unterscheidung der Aufgabe stattfinden und die Testcenter-Validierung schlägt nicht fehl.</p>
+<p>Es folgt ein weiteres Testlet ohne Beschränkungen und mit nur einer einzigen Aufgabe.</p>
+</div>
+</div>
+</div>
+<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.</strong></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -453,9 +519,13 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd">hier</a>.</p>
+<p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd"><strong>hier</strong></a>.</p>
 </div>
 </div>
+<p>Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd"</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -469,86 +539,6 @@ Wichtig
 <p>Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Booklet-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.1 verwendet, sollte auch die Schema-Definition 15.0.1 verwendet werden. Beim Laden der Booklet-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.</p>
 </div>
 </div>
-<p>Die Schema-Definition wird im Kopf der XML eingebunden. Hier auf eine Schema-Definition zur Testcenterversion 15.0.1:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd"</span>&gt;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In den nachfolgenden Code-Beispielen ist der Pfad zur Schema-Definition im Sinne der Übersichtlichkeit nicht immer enthalten!</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Ein Beispiel
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd"</span>&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;Sample booklet&lt;/<span class="kw">Label</span>&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Description</span>&gt;This a sample booklet for testing/development/showcase purposes.&lt;/<span class="kw">Description</span>&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">BookletConfig</span>&gt;</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_screenheader"</span>&gt;WITH_BOOKLET_TITLE&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"page_navibuttons"</span>&gt;SEPARATE_BOTTOM&lt;/<span class="kw">Config</span>&gt;    </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"pagingMode"</span>&gt;concat-scroll-snap&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_response_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">BookletConfig</span>&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Units</span>&gt;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-1"</span><span class="ot"> label=</span><span class="st">"A Sample Unit to demonstrate"</span><span class="ot"> labelshort=</span><span class="st">"Sample Unit 1"</span>/&gt;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"tslt1"</span><span class="ot"> label=</span><span class="st">"First block with restrictions"</span>&gt;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Restrictions</span>&gt;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">CodeToEnter</span><span class="ot"> code=</span><span class="st">"sample"</span>&gt;Please insert the word `sample`.&lt;/<span class="kw">CodeToEnter</span>&gt;</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">TimeMax</span><span class="ot"> minutes=</span><span class="st">"10"</span> /&gt;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">DenyNavigationOnIncomplete</span><span class="ot"> presentation=</span><span class="st">"OFF"</span><span class="ot"> response=</span><span class="st">"OFF"</span>/&gt; </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">Restrictions</span>&gt;</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-2"</span><span class="ot"> label=</span><span class="st">"A very Simple Sample Unit"</span><span class="ot"> labelshort=</span><span class="st">"2nd Sample Unit"</span>/&gt;</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-1"</span><span class="ot"> label=</span><span class="st">"A Sample Unit to demonstrate"</span><span class="ot"> labelshort=</span><span class="st">"Sample Unit 1"</span><span class="ot"> alias=</span><span class="st">"an_alias"</span>/&gt;</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"tslt2"</span><span class="ot"> label=</span><span class="st">"Second block without restrictions"</span>&gt;</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-3"</span><span class="ot"> label=</span><span class="st">"Sample Unit again, with Alias"</span><span class="ot"> labelshort=</span><span class="st">"Sample Unit Again"</span>/&gt;</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Units</span>&gt;</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>Metadata</code></p>
-<p>In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: <strong>BOOKLET.SAMPLE-1</strong>. Mit Hilfe dieser Id kann das Testheft in der <strong>Testtaker-XML</strong> eingebunden und einer Testperson zugeordnet werden. Es folgt ein Label und eine Beschreibung, die frei wählbar sind.</p>
-<p><code>BookletConfig</code></p>
-<p>Nachfolgend erfolgt die Booklet-Konfiguration. Hier gibt es eine Vielzahl von Konfigurationsmöglichkeiten. Exemplarisch sind an dieser Stelle einige aufgeführt. Welche Funktionalitäten die einzelnen Werte erfüllen, ist einer entsprechenden Liste zu entnehmen (Verweis im Abschnitt: Testheft-Konfigurationen). Bspw. würde mit dem Wert: <code>unit_screenheader</code> und dem Datum: <strong>WITH_BOOKLET_TITLE</strong> während der Testdurchführung das in diesem Beispiel angegebene Label angezeigt werden.</p>
-<p><code>Units</code></p>
-<p>Hier erfolgt nun die Deklaration der während der Testdurchführung angezeigten Aufgaben. Hier wird zuerst eine einleitende Aufgabe mit der Id: <strong>UNIT.SAMPLE-1</strong> aufgerufen. Dieser wird ein entsprechendes Label zugewiesen und ein Short-Label. Letzteres kann bei entsprechender Testheft-Konfiguration in der Aufgaben-Navigationsleiste angezeigt werden.</p>
-<p>Es folgt das erste Testlet (Block) mit Zugangsbeschränkungen, einer zeitlichen Beschränkung und einer Navigationsbeschränkung. Die in diesem Beispiel aufgeführte Navigationsbeschränkung <code>DenyNavigationOnIncomplete</code> überschreibt das Verhalten in der Testheft-Konfiguration, hier <code>force_presentation_complete</code> und <code>force_response_complete</code>nur für dieses Testlet. Für das nächste Testlet werden wieder die Werte aus der Testheft-Konfiguration verwendet. Nachfolgend wird eine Aufgabe: <strong>UNIT.SAMPLE-2</strong> in das Testlet eingebunden. Alle Aufgaben in diesem Testlet unterliegen den Beschränkungen des Testlets.</p>
-<p>Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufgabe die selbe Id trägt wie die erste Aufgabe, nämlich: <strong>UNIT.SAMPLE-1</strong>. Die Mehrfacheinbindung einer Aufgabe mit gleicher Id ist nicht erlaubt, das Testcenter würde hier bei der Testheft-Validierung eine entsprechende Fehlermeldung ausgeben. Manchmal kann es aber sinnvoll sein ein und die selbe Aufgabe mehrfach zu verwenden. Aus diesem Grund ist bei dieser Aufgabe ein zusätzliches Attribut: <code>alias</code> zu finden. Wird eine Aufgabe mit gleicher Id mehrfach in einem Testheft deklariert, kann mit Hilfe des Alias eine Unterscheidung der Aufgabe stattfinden und die Testcenter-Validierung schlägt nicht fehl.</p>
-<p>Es folgt ein weiteres Testlet ohne Beschränkungen und mit nur einer einzigen Aufgabe.</p>
-</div>
-</div>
-</div>
-<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. Nicht alle Attributwerte sind frei wählbar, manche müssen entsprechenden Vorgaben entsprechen. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Rekursionsebene gelistet und beschrieben.</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span>&gt;</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -663,6 +653,7 @@ Ein Beispiel
 </tbody>
 </table>
 </div>
+</section>
 <section id="testheft-konfiguration" class="level2">
 <h2 class="anchored" data-anchor-id="testheft-konfiguration">Testheft Konfiguration</h2>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -681,20 +672,21 @@ Hinweis
 </ul>
 </div>
 </div>
-<p>Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: <code>key</code> im Unterlement: <code>Config</code> zur Verfügung. Diesem Attribut können vordefinierte Werte und Daten zugewiesen</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html">Hier</a> ist eine Liste der vordefinierten Attribute und Daten zu finden.</p>
+<p>Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: <code>key</code> im Unterlement: <code>Config</code> zur Verfügung. Diesem Attribut können nur vordefinierte Werte und Daten zugewiesen.</p>
 </div>
 </div>
+<section id="link-zur-liste-möglicher-werte-testheftkonfiguration." class="level4">
+<h4 class="anchored" data-anchor-id="link-zur-liste-möglicher-werte-testheftkonfiguration."><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html">Link</a> zur Liste möglicher Werte Testheftkonfiguration. <br></h4>
 <p>Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span>&gt;</span>
@@ -754,6 +746,7 @@ Hinweis
 <p>Werden Attributswerte und Daten in der Testheft-Konfiguration nicht aufgeführt, wird das in der Liste aufgeführte Standarddatum verwendet. Wird bspw. <strong>unit_screenheader</strong> nicht aufgeführt, wird hierfür das Standarddatum: <strong>EMPTY</strong> angenommen, der Booklet Titel wird dann nicht mehr angezeigt.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="testlet-block" class="level2">
 <h2 class="anchored" data-anchor-id="testlet-block">Testlet (Block)</h2>
