@@ -2,6 +2,8 @@ project:
   type: website
 
 website:
+  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-actions: [edit, issue]
   site-url: https://iqb-berlin.github.io/tba-info/
   title: "IQB TBA-Info"
   favicon: favicon.ico
@@ -11,11 +13,19 @@ website:
   navbar:
     search: true
     logo: IQB-klein.png
+  page-footer:
+    border: true
+    background: light
+    right:
+      - text: "IQB 2024"
+        href: https://www.iqb.hu-berlin.de
+    left:
+      - href: index.qmd
+        text: Start
   sidebar: 
-    style: docked
+    style: "docked"
     lang: de
     collapse-level: 1
-
     contents:
       - href: index.qmd
         text: Start
@@ -103,3 +113,4 @@ format:
       sidebar-width: 400px
       body-width: 900px
       margin-width: 350px
+    
