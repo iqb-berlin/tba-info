@@ -79,16 +79,6 @@ Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Mult
 Bei bestimmten Aufgabenelementen, wie bspw. kurzen Textpassagen in einleitenden Aufgaben, wird eventuell keine Unit-VOUD erzeugt. Das Textelement befindet sich dann direkt in der Unit-XML und kann auch dort verändert werden.
 :::
 
-## System-Check
-
-Vor Studiedurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.
-
-Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar. 
-
-::: {.callout-note}
-Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.
-:::
-
 ## Geo-Gebra
 
 Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource mit der Endung **.ITCR** mit zur Aufgabe in das Testcenter geladen werden.
@@ -97,7 +87,12 @@ Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressour
 Mehr Informationen zu GeoGebra sind auch den [Referenzen](/Referenzen/Geogebra.qmd) zu entnehmen!
 :::
 
-## Kodierschema
+## Kodiervariablen
+
+::: {.callout-note}
+THuste
+- Philipp nutzt doch nur die Variablen oder macht er noch etwas mit der VOCS-Datei?
+:::
 
 Zu jeder Aufgabe kann im IQB-Studio ein entsprechendes Kodierschema angelegt werden. Bei Ausgabe der Aufgabe erzeugt das Studio eine Datei mit der Endung **.VOCS**. In dieser Datei sind die erstellten Kodierregeln enthalten. Diese Regeln werden im Testcenter derzeitig zur Durchführung adaptiver Testungen verwendet. 
 
@@ -106,6 +101,11 @@ Weitere Informationen zum Kodierschema sind den [Referenzen](/Referenzen/Aufgabe
 :::
 
 ## Metadaten 
+
+::: {.callout-note}
+THuste
+- Nutzt Philipp die Metadaten für irgedwas?
+:::
 
 ::: {.callout-note}
 Hier entsprechende Informationen einbringen!
@@ -128,6 +128,8 @@ Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmi
 
 # Daten-Output des Testcenters
 
+Das Testcenter stellt Daten zur Verfügung, die für die Auswertung einer Studie wichtig sind. Nachfolgende Daten können nach Studienende aus dem Testcenter heruntergeladen werden.
+
 ::: {.callout-tip}
 Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel: **Schritt für Schritt** detailiert beschrieben.
 :::
@@ -141,13 +143,23 @@ Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, wer
 
 ## Antworten
 
-Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.
+Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Aufgaben verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.
 
 ## Weitere Daten
 
 * **Kommentare, Review**: Wenn ein Test im Review-Modus durchgeführt wird, können zu Aufgaben oder zum gesamten Test Kommentare gegeben werden. Auch diese Kommentare sind über den Management-Bereich abrufbar.
 * **System-Check Berichte**: Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.
 
+# System-Check
+
+Vor Studiedurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.
+
+Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar. 
+
+::: {.callout-note}
+Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.
+:::
+
 # Daten-Bearbeitung
 
-Die Testateien können vor dem Laden in das Testcenter bearbeitet werden. Hierfür ist ein Verständnis der Extensible Markup Language XML notwendig. Eine knappe Einleitung bietet hier der Punkt: **Mehr zu XML** in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.
+Die Testdateien des Daten-Inputs für das Testcenter können manuell bearbeitet werden, bevor sie in das Testcenter geladen werden. Hierfür ist ein Verständnis der Extensible Markup Language **XML** notwendig. Eine knappe Einleitung bietet hier der Punkt: **Mehr zu XML** in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.

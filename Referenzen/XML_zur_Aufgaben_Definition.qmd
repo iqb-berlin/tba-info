@@ -11,7 +11,7 @@ Folgende Funktionen erfüllt die Unit-XML:
 
 * anlegen von Metadaten zu einer Aufgabe
 * einbinden von Aufgabenressourcen (Unit-VOUD)
-* Auswahl Player mit dem die Aufgabe wiedergegeben werden soll
+* Auswahl des Players mit dem die Aufgabe wiedergegeben werden soll
 * **Variablen zur Kodierung**
 
 ::: {.callout-tip collapse="true"}
@@ -47,11 +47,11 @@ Folgende Funktionen erfüllt die Unit-XML:
 
 </Unit>
 ```
-In diesem Beispiel werden zuerst einmal Metadaten für eine Aufgabe angelegt. Die Aufgabe erhält zuerst die Id: **Aufgabe01**. Mit dieser Id wird die Aufgabe in ein Testheft eingebunden. Es folgt ein Label. Dieses Label kann abhängig von der Testheft-Konfiguration während einer Testdurchführung auch angezeigt werden. 
+In diesem Beispiel werden zuerst einmal Metadaten für eine Aufgabe angelegt. Die Aufgabe erhält eine Id: **Aufgabe01**. Mit dieser Id wird die Aufgabe in ein Testheft eingebunden. Es folgt ein Label. Dieses Label kann abhängig von der Testheft-Konfiguration während einer Testdurchführung auch angezeigt werden. 
 
 Im nächsten Element: `<DefinitionRef>` wird angegeben mit welchem Editor die Aufgabe erstellt wurde und mit welchem PLayer sie im Testcenter wiedergegeben werden soll. Würde diese Beispielaufgabe in das Testcenter geladen, müsste auch die Datei zum PLayer: **iqb-editor-aspect-2.2.html** mit geladen werden, ansonsten kann die Aufgabe nicht abgespielt werden. An dieser Stelle wird auch die Aufgabenressource: **Aufgabe01.voud** eingebunden. In dieser Datei befinden sich die eigentlichen Aufgabeninhalte. Auch diese Datei müsste zusammen mit dieser Beispiel-XML in das Testcenter geladen werden.
 
-Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann eine Aufgabenkodierung angelegt werden. Zur Aufgabenkodierung erhält jedes Aufgabenelement eine Variable die entsprechend gewichtet wird und eine Regel zur Kodierung erhält. In einigen Fällen benötigt das Testcenter diese Variablen. Bspw. werden diese benötigt um eine adaptive Testung duchzuführen.
+Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann eine Aufgabenkodierung angelegt werden. Zur Aufgabenkodierung erhält jedes Aufgabenelement eine Variable die entsprechend gewichtet wird und eine Regel zur Kodierung erhält. In einigen Fällen benötigt das Testcenter diese Variablen, bspw. werden diese benötigt um eine adaptive Testung duchzuführen.
 
 Das letzte Element:`CodingSchemeRef` gibt die Version des zur Aufgabenkodierung verwendeten Schemer-Moduls an. 
 :::
@@ -186,6 +186,12 @@ Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als 
 :::
 
 ## Variablen zur Kodierung
+
+::: {.callout-note}
+In Bearbeitung THuste: to do
+
+* Mit Julian über Variablenbedeutung sprechen
+:::
 
 Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: `BaseVariables` ausgegeben. Die Variablen werden im Testcenter verwendet um Gewichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.
 

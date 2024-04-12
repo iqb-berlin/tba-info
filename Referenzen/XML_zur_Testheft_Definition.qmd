@@ -5,7 +5,7 @@ title: "XML zur Testheft-Definition (Booklet-XML)"
 
 ##
 
-Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Der Dateiname kann frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:
+Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Der Dateiname kann frei gewählt werden. Folgende Funktionen hat diese Datei:
 
 * Festlegung Reihenfolge Aufgaben
 * **Testlet:** Aufgabenbündelung und Beschränkungen in Testlets
@@ -57,7 +57,7 @@ Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Nam
 ```
 `Metadata`
 
-In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: **BOOKLET.SAMPLE-1**. Mit Hilfe dieser Id kann das Testheft in der **Testtaker-XML** eingebunden und einer Testperson zugeordnet werden. Es folgt ein Label und eine Beschreibung, die frei wählbar sind. 
+In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: **BOOKLET.SAMPLE-1**. Mit Hilfe dieser Id kann das Testheft in der Testheft-Definition (Testtaker-XML) eingebunden und einer Testperson zugeordnet werden. Es folgen ein Label und eine Beschreibung, die frei wählbar sind. 
 
 `BookletConfig`
 
@@ -65,9 +65,9 @@ Nachfolgend erfolgt die Booklet-Konfiguration. Hier gibt es eine Vielzahl von Ko
 
 `Units`
 
-Hier erfolgt nun die Deklaration der während der Testdurchführung angezeigten Aufgaben. Hier wird zuerst eine einleitende Aufgabe mit der Id: **UNIT.SAMPLE-1** aufgerufen. Dieser wird ein entsprechendes Label zugewiesen und ein Short-Label. Letzteres kann bei entsprechender Testheft-Konfiguration in der Aufgaben-Navigationsleiste angezeigt werden.
+Hier erfolgt die Deklaration der während der Testdurchführung angezeigten Aufgaben. Hier wird zuerst eine einleitende Aufgabe mit der Id: **UNIT.SAMPLE-1** aufgerufen. Dieser wird ein entsprechendes Label zugewiesen und ein Short-Label. Letzteres kann bei entsprechender Testheft-Konfiguration in der Aufgaben-Navigationsleiste angezeigt werden.
 
-Es folgt das erste Testlet (Block) mit Zugangsbeschränkungen, einer zeitlichen Beschränkung und einer Navigationsbeschränkung. Die in diesem Beispiel aufgeführte Navigationsbeschränkung `DenyNavigationOnIncomplete` überschreibt das Verhalten in der Testheft-Konfiguration, hier `force_presentation_complete` und `force_response_complete`nur für dieses Testlet. Für das nächste Testlet werden wieder die Werte aus der Testheft-Konfiguration verwendet. Nachfolgend wird eine Aufgabe: **UNIT.SAMPLE-2** in das Testlet eingebunden. Alle Aufgaben in diesem Testlet unterliegen den Beschränkungen des Testlets.
+Es folgt das erste Testlet (Block) mit  Zugangsbeschränkungen, einer zeitlichen Beschränkung und einer Navigationsbeschränkung. Die in diesem Beispiel aufgeführte Navigationsbeschränkung `DenyNavigationOnIncomplete` überschreibt das Verhalten in der Testheft-Konfiguration, hier `force_presentation_complete` und `force_response_complete`nur für dieses Testlet. Für das nächste Testlet werden wieder die Werte aus der Testheft-Konfiguration verwendet. Nachfolgend wird eine Aufgabe: **UNIT.SAMPLE-2** in das Testlet eingebunden. Alle Aufgaben in diesem Testlet unterliegen den Beschränkungen des Testlets.
 
 Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufgabe die selbe Id trägt wie die erste Aufgabe, nämlich: **UNIT.SAMPLE-1**. Die Mehrfacheinbindung einer Aufgabe mit gleicher Id ist nicht erlaubt, das Testcenter würde hier bei der Testheft-Validierung eine entsprechende Fehlermeldung ausgeben. Manchmal kann es aber sinnvoll sein ein und die selbe Aufgabe mehrfach zu verwenden. Aus diesem Grund ist bei dieser Aufgabe ein zusätzliches Attribut: `alias` zu finden. Wird eine Aufgabe mit gleicher Id mehrfach in einem Testheft deklariert, kann mit Hilfe des Alias eine Unterscheidung der Aufgabe stattfinden und die Testcenter-Validierung schlägt nicht fehl.
 
@@ -266,14 +266,12 @@ Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
 </table>
 ```
 ::: {.callout-note}
-Werden Attributswerte und Daten in der Testheft-Konfiguration nicht aufgeführt, wird das in der Liste aufgeführte Standarddatum verwendet. Wird bspw. **unit_screenheader** nicht aufgeführt, wird hierfür das Standarddatum: **EMPTY** angenommen, der Booklet Titel wird dann nicht mehr angezeigt.
+Werden Attributswerte und Daten in der Testheft-Konfiguration nicht aufgeführt, werden Standardwerte und Standarddaten verwendet. Wird bspw. **unit_screenheader** nicht aufgeführt, wird hierfür das Standarddatum: **EMPTY** angenommen, der Testheftname wird dann nicht mehr angezeigt.
 :::
 
 ## Testlet (Block)
 
-Ein Testlet ist eine Gruppe von Units mit gemeinsamen Restriktionen (falls gesetzt). Testlets können auch rekursiv geschachtelt werden. Die Testlets der obersten Ebene werden auch als Block bezeichnet.
-
-Zeitbegrenzungen (Restrictions/TimeMax) in geschachtelten Testlets werden ignoriert, sofern diese ebenfalls eine Zeitbegrezung haben.
+Ein Testlet ist eine Gruppe von Aufgaben mit gemeinsamen Restriktionen (falls gesetzt). Testlets können auch geschachtelt mehrfach verwendet werden. Die Testlets der obersten Ebene werden auch als Block bezeichnet.
 
 ```{.xml .code-overflow-wrap}
 <?xml version="1.0" encoding="utf-8"?>
@@ -365,14 +363,14 @@ Zeitbegrenzungen (Restrictions/TimeMax) in geschachtelten Testlets werden ignori
     <td><code>DenyNavigationOnIncomplete</code></td>
     <td>presentation</td>
     <td></td>
-    <td>Es können für das Testlet gesonderte Bedingungen bzgl. Aufgabennavigation festgelegt werden. Diese überschreiben, die in der <code>BookletConfig</Code> festgelegten Bedingungen zur  Aufgabennavigation. Mögliche Werte sind: ON/OFF/ALWAYS</td>
+    <td>Es können für das Testlet gesonderte Bedingungen bzgl. Aufgabennavigation festgelegt werden. Diese überschreiben, die in der <code>BookletConfig</Code> festgelegten Bedingungen zur Aufgabennavigation. Mögliche Werte sind: ON/OFF/ALWAYS</td>
 </tr>
 <tr>
     <td><code>Restrictions</code></td>
     <td><code>DenyNavigationOnIncomplete</code></td>
     <td>response</td>
     <td></td>
-    <td>Es können für das Testlet gesonderte Bedingungen bzgl. Aufgabennavigation festgelegt werden. Diese überschreiben, die in der <code>BookletConfig</Code> festgelegten Bedingungen zur  Aufgabennavigation. Mögliche Werte sind: ON/OFF/ALWAYS</td>
+    <td>Es können für das Testlet gesonderte Bedingungen bzgl. Aufgabennavigation festgelegt werden. Diese überschreiben, die in der <code>BookletConfig</Code> festgelegten Bedingungen zur Aufgabennavigation. Mögliche Werte sind: ON/OFF/ALWAYS</td>
 </tr>
 
 </table>
