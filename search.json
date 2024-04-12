@@ -13,7 +13,7 @@
   {
     "objectID": "Testcenter/intro.html",
     "href": "Testcenter/intro.html",
-    "title": "Installation",
+    "title": "Überblick",
     "section": "",
     "text": "Hinweis\n\n\n\nIn Bearbeitung THuste: to do\n\nVerlinkungen anpassen, wenn entsprechende Seiten auf Quarto umgezogen sind\n\n\n\n\n\n\n\n\n\nCodeverwaltung Testcenter\n\n\n\nGitHub Repository Releases\n\n\nDas IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d. h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zur Anmeldung. Alle Daten für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.\nDas IQB bietet folgende Video-Präsentationen bzgl. des Testcenters an.\n\nInstallation\nDas IQB hat alle Programmierungen unter der Open Source-Lizenz MIT veröffentlicht und erleichtert die Installation durch Containervirtualisierung (Docker). Für die Installation muss man einen Linux-Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern,übernimmt aber im Schadensfall keine Verantwortung.\n\n\nVerwaltung der Tests\nNach der Installation ist zunächst ein Systemadministrator-Konto für die Verwaltung von Arbeitsbereichen und Benutzer*innen angelegt. Außerdem ist ein Arbeitsbereich angelegt mit einem Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für die Benutzer*innen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können die Benutzer*innen die für einen Test erforderlichen Testdateien (Aufgaben, Testabläufe usw. als XML-Dateien) laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse heruntergeladen werden (Csv-Dateien).\n:information_source: Benutzer*innen können mittels spezieller Parameter in einzelnen Testdateien Anpassungen der Anwendung vornehmen. Hier können dann bspw. Begrüßungsnachrichten, Hintergrundfarben, das Logo auf der Startseite und selbst der Name der Anwendung bzgl. eigener Wünsche angepasst werden.\n\n\nDurchführung von Tests oder Befragungen\nDurch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien, der so genannten Testtaker.xml, hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Units). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:\n\nVerschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, spezieller Modus für das Ausprobieren eines Tests (Review) usw.\nMehrere Testhefte: Eine Testperson kann auch mehrere Testhefte nacheinander bearbeiten mit denselben Anmeldedaten\nzeitliche Beschränkung von Testteilen: Für eine bestimmte Anzahl Aufgaben steht der Testperson eine begrenzte Zeit zur Verfügung\nFortsetzung erst mit Freigabewort: Die Testdurchführung z. B. in einer Klasse kann synchronisiert werden, indem die Testleitung ein Wort ansagt, mit dem dann der Test fortgesetzt werden kann\nFortsetzung erst nach vollständiger Präsentation: Um zu vermeiden, dass Teile einer Aufgabe übersehen werden, kann das Weiterblättern solange unterbunden werden, bis alle Audio-Sequenzen abgespielt wurden und alle Seiten vollständig angezeigt wurden\nFortsetzung erst nach vollständiger Beantwortung\nsofortige Speicherung: Alle Antworten werden sofort zum Testcenter-Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann daher der vorherige Stand wiederhergestellt werden\n\nEs können mehrere Tests oder Befragungen gleichzeitig laufen.\n\n\nSystem-Check\nMan kann bei der enormen Vielfalt der Hardware (Tablet, Smartphone usw.) und Software (Apple, Linux, Android usw.) nicht garantieren, dass ein Test oder eine Befragung so wie beabsichtigt funktioniert. Je nach Anforderung an den Test wird das auch nicht sinnvoll sein, z. B. wenn eine Mindestbreite für den Bildschirm erforderlich ist.\nWenn man erfahren möchte, ob die Zielsysteme geeignet sind, kann man im IQB-Testcenter einen System-Check konfigurieren. Dann können z. B. die verantwortlichen Lehrkräfte in der Vorbereitungsphase im Testcenter einen auf die speziellen Anforderungen des Tests abgestimmten Check durchführen. Auch die Internetverbindung kann hierüber bewertet werden.\nEin System-Check sollte aber auch nicht überbewertet werden. Ein positiver Befund ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Updates) belegt ist. Außerdem erhöht ein System-Check den ohnehin hohen Aufwand einer Testung und könnte die Teilnahmemotivation weiter senken.\n\n\nGruppenmonitor\nSoll ein Test für eine bestimmte Personengruppe (z. B. Klasse) gleichzeitig stattfinden, kann ein Monitor dafür eingerichtet werden. Die Testleitung kann dann für jede Testperson den Fortschritt beobachten, ggf. das Weiterblättern erzwingen, Personen ausschließen oder eine Sperre wieder aufheben.\n\n\nSystemanforderungen\nDa die Programmierungen des Testcenters online in einem Browser ablaufen, ist keine vorherige Installation von Software auf einem Computer nötig, mit dem der Test oder die Befragung durchgeführt werden soll. Es ist nur ein Internet-Zugriff und ein Browser nötig.\nEs gibt immer wieder die Diskussion darüber, ob bzw. in welchem Maße ältere Browser bzw. Browserversionen unterstützt werden sollen. Hier wird argumentiert, dass Schulen bzw. deren Träger oft nicht in der Lage seien, die Verwendung aktueller Browser sicherzustellen. Aus dieser Realität ergebe sich, dass die Programmierungen für TBA stets ein Maximum an Abdeckung auch für alte Browser leisten müssten.\nDas IQB folgt hier jedoch den Anforderungen an die Datensicherheit, so wie es z. B. das Bundesamt für Sicherheit in der Informationstechnik formuliert:\n\n“Der Internet-Browser ist die zentrale Komponente für die Nutzung von Online-Angeboten und stellt somit eins der beliebtesten Ziele für Cyber-Angriffe dar. Hieraus ergibt sich ein besonders hohes Gefahrenpotenzial.” Quelle\n\n\n“Installieren Sie alle Updates sofort oder zeitnah nach ihrer Veröffentlichung, sowohl die für Ihren Browser, als auch für alle Erweiterungen und natürlich Ihr Betriebssystem. Verwenden Sie stets die neuste Version Ihres Browsers.” Quelle\n\nDas IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. - bei Chrome und Firefox - die Versionen der letzten 12 Monate. Beispielsweise werden derzeit (Stand April 2022) bei Safari nur die Versionen 14 (Veröffentlichung September 2020) und 15 unterstützt.",
     "crumbs": [
@@ -189,7 +189,7 @@
   {
     "objectID": "Videothek/Studio.html",
     "href": "Videothek/Studio.html",
-    "title": "Einführung Teststudio",
+    "title": "Studio",
     "section": "",
     "text": "Hier finden Sie eine Einführung zur älteren Anwendung Teststudio und eine Einführung zur aktuellen Anwendung Studio. In der Einführung zum Studio finden Sie auch Videos die nicht nur etwas mit dem Studio zu tun haben, sondern auch Videos zum Editor usw..\n\nEinführung Teststudio\nInhalt:\n\nStruktur, Aufbau und Funktionen des Teststudios\nAufbau und Funktion des integrierten Editors\n\nFormat:\n\n4:3\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: mittel\nDauer: 19:27 [min]:[s]\n\nStand:\nJuli 2020\nLink:\nHU-Box\n\n\n\nEinführung Studio\nInhalt:\n\nStruktur, Aufbau und Funktionen des Studios\nAufbau und Funktion des integrierten Editors, Kodierung und Kommentare\n\nFormat:\n\n4:3\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: niedrig\n\nStand:\nSeptember 2022\nLink:\nHU-Moodle",
     "crumbs": [
@@ -200,7 +200,7 @@
   {
     "objectID": "Videothek/Tba_Einfuehrung.html",
     "href": "Videothek/Tba_Einfuehrung.html",
-    "title": "Instrumente",
+    "title": "TBA Einführung",
     "section": "",
     "text": "Instrumente\nInhalt:\nVorführung der TBA Testsysteme (Teststudio und Testcenter) und deren Zusammenwirken\nFormat:\n\n4:3\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: niedrig\nDauer: 11:14 [min]:[s]\n\nStand:\nMai 2021\nLink:\nHU-Box\n\n\n\nVom Entwurf zur Testdurchführung\nInhalt:\nEinführung IQB TBA-Systeme\nTeil 1:\n\nAufgabenentwurf mit dem Teststudio\n\nTeil 2:\n\nBearbeitung der erzeugten Testdateien\n\nTeil 3:\n\nErprobung eines Testdurchlaufs mit dem Testcenter\nNachbearbeiten der Testdateien\n\nTeil 4:\n\nFinale Testdurchführung mit dem Testcenter\nAuswertung des Tests\nDurchführung System-Check\nZuschalten Testleitungskonsole\n\nFormat:\n\n16:9\nUT: ja\nInhaltsverzeichnis: ja\nKategorie: Schulung\nSprache: Deutsch\ntechn. Niveau: mittel\nDauer Teil1: 15:37 [min]:[s]\nDauer Teil2: 29:21 [min]:[s]\nDauer Teil3: 33:30 [min]:[s]\nDauer Teil4: in Vorbereitung\n\nStand:\nSeptember 2021\nLink:\nHU-Moodle",
     "crumbs": [
@@ -211,7 +211,7 @@
   {
     "objectID": "Videothek/Testdateien.html",
     "href": "Videothek/Testdateien.html",
-    "title": "Einführung",
+    "title": "Testdateien",
     "section": "",
     "text": "Einführung\nInhalt:\nBeschreibung der Funktionen der Testdateien\nFormat:\n\n16:9\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: niedrig\nDauer: 04:33 [min]:[s]\n\nStand:\nMai 2022\nLink:\nHU-Box",
     "crumbs": [
@@ -398,22 +398,18 @@
     ]
   },
   {
+    "objectID": "Einfuehrung/intro.html",
+    "href": "Einfuehrung/intro.html",
+    "title": "TBA Überblick",
+    "section": "",
+    "text": "sequenceDiagram\n  participant Alice\n  participant Bob\n  Alice-&gt;&gt;John: Hello John, how are you?\n  loop Healthcheck\n    John-&gt;&gt;John: Fight against hypochondria\n  end\n  Note right of John: Rational thoughts &lt;br/&gt;prevail!\n  John--&gt;&gt;Alice: Great!\n  John-&gt;&gt;Bob: How about you?\n  Bob--&gt;&gt;John: Jolly good!\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nrun\n\nrun\n\n\n\nintr\n\nintr\n\n\n\nrun-&gt;intr\n\n\n\n\n\nkernel\n\nkernel\n\n\n\nrun-&gt;kernel\n\n\n\n\n\nrunbl\n\nrunbl\n\n\n\nintr-&gt;runbl\n\n\n\n\n\nrunbl-&gt;run\n\n\n\n\n\nLISA\n\nLISA\n\n\n\nkernel-&gt;LISA\n\n\n\n\n\nsleep\n\nsleep\n\n\n\nkernel-&gt;sleep\n\n\n\n\n\nrunmem\n\nrunmem\n\n\n\nkernel-&gt;runmem\n\n\n\n\n\nsleep-&gt;runmem\n\n\n\n\n\nswap\n\nswap\n\n\n\nsleep-&gt;swap\n\n\n\n\n\nrunswap\n\nrunswap\n\n\n\nswap-&gt;runswap\n\n\n\n\n\nrunswap-&gt;runmem\n\n\n\n\n\nnew\n\nnew\n\n\n\nrunswap-&gt;new\n\n\n\n\n\nnew-&gt;runmem"
+  },
+  {
     "objectID": "Blog.html",
     "href": "Blog.html",
     "title": "TBA Blog",
     "section": "",
     "text": "Testcenter: Lastverhalten\n\n\n\n\n\n\nloadtest\n\n\ntestcenter\n\n\nperformance\n\n\n\nWie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15.\n\n\n\n\n\nJan 22, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nIntegration eines Verona-Players\n\n\n\n\n\n\nverona\n\n\narchitektur\n\n\nplayer\n\n\n\nWenn man in eine Webanwendung für computerbasiertes Testen einen Verona-Player integrieren möchte, kann das Probleme bereiten. Was sind die Voraussetzungen?\n\n\n\n\n\nJan 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nDiskurs Verona vs. Datenformat\n\n\n\n\n\n\nverona\n\n\narchitektur\n\n\nopensource\n\n\n\nDas Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?\n\n\n\n\n\nJan 8, 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "Einführung/intro.html",
-    "href": "Einführung/intro.html",
-    "title": "TBA Überblick",
-    "section": "",
-    "text": "sequenceDiagram\n  participant Alice\n  participant Bob\n  Alice-&gt;&gt;John: Hello John, how are you?\n  loop Healthcheck\n    John-&gt;&gt;John: Fight against hypochondria\n  end\n  Note right of John: Rational thoughts &lt;br/&gt;prevail!\n  John--&gt;&gt;Alice: Great!\n  John-&gt;&gt;Bob: How about you?\n  Bob--&gt;&gt;John: Jolly good!\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nrun\n\nrun\n\n\n\nintr\n\nintr\n\n\n\nrun-&gt;intr\n\n\n\n\n\nkernel\n\nkernel\n\n\n\nrun-&gt;kernel\n\n\n\n\n\nrunbl\n\nrunbl\n\n\n\nintr-&gt;runbl\n\n\n\n\n\nrunbl-&gt;run\n\n\n\n\n\nLISA\n\nLISA\n\n\n\nkernel-&gt;LISA\n\n\n\n\n\nsleep\n\nsleep\n\n\n\nkernel-&gt;sleep\n\n\n\n\n\nrunmem\n\nrunmem\n\n\n\nkernel-&gt;runmem\n\n\n\n\n\nsleep-&gt;runmem\n\n\n\n\n\nswap\n\nswap\n\n\n\nsleep-&gt;swap\n\n\n\n\n\nrunswap\n\nrunswap\n\n\n\nswap-&gt;runswap\n\n\n\n\n\nrunswap-&gt;runmem\n\n\n\n\n\nnew\n\nnew\n\n\n\nrunswap-&gt;new\n\n\n\n\n\nnew-&gt;runmem",
-    "crumbs": [
-      "Einführung",
-      "Überblick"
-    ]
   },
   {
     "objectID": "Schritt_für_Schritt/Testcenter_Daten_Upload.html",
@@ -613,7 +609,7 @@
   {
     "objectID": "Videothek/Testcenter.html",
     "href": "Videothek/Testcenter.html",
-    "title": "Einführung",
+    "title": "Testcenter",
     "section": "",
     "text": "Einführung\nInhalt:\n\nTestdurchführung mit dem Testcenter\nLaden der Testdateien\nTestdurchführung\nTestauswertung\n\nFormat:\n\n4:3\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: mittel\nDauer: 23:06 [min]:[s]\n\nStand:\nJuni 2020\nLink:\nHU-Box\n\n\n\nTestcenter und Verona Schnittstelle\nInhalt:\n\nErläuterungen zum Einsatz der Verona Schnittstelle\nAlternative Anwendungen zum Testcenter in Verbindung mit der Verona Schnittstelle\n\nFormat:\n\n4:3\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: mittel\nDauer: 09:37 [min]:[s]\n\nStand:\nJuni 2020\nLink:\nHU-Box",
     "crumbs": [
@@ -624,7 +620,7 @@
   {
     "objectID": "Videothek/Gruppenmonitor.html",
     "href": "Videothek/Gruppenmonitor.html",
-    "title": "Einführung",
+    "title": "Gruppenmonitor",
     "section": "",
     "text": "Einführung\nInhalt:\n\nAnlegen einer Testleitungskonsole\nFunktionen und Bedienung der Testleitungskonsole\n\nFormat:\n\n16:9\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Schulung\nSprache: Deutsch\ntechn. Niveau: niedrig\nDauer: 05:54 [min]:[s]\n\nStand:\nSeptember 2020\nLink:\nHU-Box",
     "crumbs": [
@@ -635,7 +631,7 @@
   {
     "objectID": "Videothek/Aufgaben_Editoren.html",
     "href": "Videothek/Aufgaben_Editoren.html",
-    "title": "Aspect-Editor",
+    "title": "Aufgaben Editoren",
     "section": "",
     "text": "Inhalt:\nGrundlegende Funktionen und Bedienung des Editors (Stimulus anpassen, Offene Items anpassen etc.)\nFormat:\n\n16:9\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: niedrig\n\nStand:\nStand: September 2022\nLink:\nHU-Moodle",
     "crumbs": [
@@ -646,7 +642,7 @@
   {
     "objectID": "Videothek/Aufgaben_Editoren.html#einführung-v1.32",
     "href": "Videothek/Aufgaben_Editoren.html#einführung-v1.32",
-    "title": "Aspect-Editor",
+    "title": "Aufgaben Editoren",
     "section": "",
     "text": "Inhalt:\nGrundlegende Funktionen und Bedienung des Editors (Stimulus anpassen, Offene Items anpassen etc.)\nFormat:\n\n16:9\nUT: nein\nInhaltsverzeichnis: nein\nKategorie: Einführung\nSprache: Deutsch\ntechn. Niveau: niedrig\n\nStand:\nStand: September 2022\nLink:\nHU-Moodle",
     "crumbs": [
