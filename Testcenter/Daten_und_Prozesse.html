@@ -197,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link">
+  <a href="../Testcenter/Testmethoden.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testmethoden</span></a>
   </div>
 </li>
@@ -381,9 +381,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#studien-definition-logins" id="toc-studien-definition-logins" class="nav-link" data-scroll-target="#studien-definition-logins">Studien-Definition (Logins)</a></li>
   <li><a href="#testheft-definition-test-def" id="toc-testheft-definition-test-def" class="nav-link" data-scroll-target="#testheft-definition-test-def">Testheft-Definition (Test-Def)</a></li>
   <li><a href="#aufgaben-definition-unit-def" id="toc-aufgaben-definition-unit-def" class="nav-link" data-scroll-target="#aufgaben-definition-unit-def">Aufgaben-Definition (Unit-Def)</a></li>
-  <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
   <li><a href="#geo-gebra" id="toc-geo-gebra" class="nav-link" data-scroll-target="#geo-gebra">Geo-Gebra</a></li>
-  <li><a href="#kodierschema" id="toc-kodierschema" class="nav-link" data-scroll-target="#kodierschema">Kodierschema</a></li>
+  <li><a href="#kodiervariablen" id="toc-kodiervariablen" class="nav-link" data-scroll-target="#kodiervariablen">Kodiervariablen</a></li>
   <li><a href="#metadaten" id="toc-metadaten" class="nav-link" data-scroll-target="#metadaten">Metadaten</a></li>
   <li><a href="#player" id="toc-player" class="nav-link" data-scroll-target="#player">Player</a></li>
   </ul></li>
@@ -393,6 +392,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
   <li><a href="#weitere-daten" id="toc-weitere-daten" class="nav-link" data-scroll-target="#weitere-daten">Weitere Daten</a></li>
   </ul></li>
+  <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
   <li><a href="#daten-bearbeitung" id="toc-daten-bearbeitung" class="nav-link" data-scroll-target="#daten-bearbeitung">Daten-Bearbeitung</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -563,24 +563,6 @@ Tipp
 </div>
 </section>
 </section>
-<section id="system-check" class="level2">
-<h2 class="anchored" data-anchor-id="system-check">System-Check</h2>
-<p>Vor Studiedurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.</p>
-<p>Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.</p>
-</div>
-</div>
-</section>
 <section id="geo-gebra" class="level2">
 <h2 class="anchored" data-anchor-id="geo-gebra">Geo-Gebra</h2>
 <p>Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource mit der Endung <strong>.ITCR</strong> mit zur Aufgabe in das Testcenter geladen werden.</p>
@@ -598,8 +580,21 @@ Tipp
 </div>
 </div>
 </section>
-<section id="kodierschema" class="level2">
-<h2 class="anchored" data-anchor-id="kodierschema">Kodierschema</h2>
+<section id="kodiervariablen" class="level2">
+<h2 class="anchored" data-anchor-id="kodiervariablen">Kodiervariablen</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>THuste - Philipp nutzt doch nur die Variablen oder macht er noch etwas mit der VOCS-Datei?</p>
+</div>
+</div>
 <p>Zu jeder Aufgabe kann im IQB-Studio ein entsprechendes Kodierschema angelegt werden. Bei Ausgabe der Aufgabe erzeugt das Studio eine Datei mit der Endung <strong>.VOCS</strong>. In dieser Datei sind die erstellten Kodierregeln enthalten. Diese Regeln werden im Testcenter derzeitig zur Durchführung adaptiver Testungen verwendet.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -617,6 +612,19 @@ Hinweis
 </section>
 <section id="metadaten" class="level2">
 <h2 class="anchored" data-anchor-id="metadaten">Metadaten</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>THuste - Nutzt Philipp die Metadaten für irgedwas?</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -646,6 +654,7 @@ Hinweis
 </section>
 <section id="daten-output-des-testcenters" class="level1">
 <h1>Daten-Output des Testcenters</h1>
+<p>Das Testcenter stellt Daten zur Verfügung, die für die Auswertung einer Studie wichtig sind. Nachfolgende Daten können nach Studienende aus dem Testcenter heruntergeladen werden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -665,7 +674,7 @@ Tipp
 </section>
 <section id="antworten" class="level2">
 <h2 class="anchored" data-anchor-id="antworten">Antworten</h2>
-<p>Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Units verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.</p>
+<p>Als Antworten werden Zustandsänderungen der Eingabe-Elemente der Aufgaben verstanden. Wenn die Testperson ein Ankreuzkästchen wählt, eine Linie mit der Maus verschiebt oder mehrere Sätze in ein Eingabefeld schreibt - all diese Eingaben werden mit dem jeweils letzten Stand gespeichert.</p>
 </section>
 <section id="weitere-daten" class="level2">
 <h2 class="anchored" data-anchor-id="weitere-daten">Weitere Daten</h2>
@@ -675,9 +684,27 @@ Tipp
 </ul>
 </section>
 </section>
+<section id="system-check" class="level1">
+<h1>System-Check</h1>
+<p>Vor Studiedurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.</p>
+<p>Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.</p>
+</div>
+</div>
+</section>
 <section id="daten-bearbeitung" class="level1">
 <h1>Daten-Bearbeitung</h1>
-<p>Die Testateien können vor dem Laden in das Testcenter bearbeitet werden. Hierfür ist ein Verständnis der Extensible Markup Language XML notwendig. Eine knappe Einleitung bietet hier der Punkt: <strong>Mehr zu XML</strong> in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.</p>
+<p>Die Testdateien des Daten-Inputs für das Testcenter können manuell bearbeitet werden, bevor sie in das Testcenter geladen werden. Hierfür ist ein Verständnis der Extensible Markup Language <strong>XML</strong> notwendig. Eine knappe Einleitung bietet hier der Punkt: <strong>Mehr zu XML</strong> in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.</p>
 
 
 </section>

@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link">
+  <a href="../Testcenter/Testmethoden.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testmethoden</span></a>
   </div>
 </li>
@@ -444,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>anlegen von Metadaten zu einer Aufgabe</li>
 <li>einbinden von Aufgabenressourcen (Unit-VOUD)</li>
-<li>Auswahl Player mit dem die Aufgabe wiedergegeben werden soll</li>
+<li>Auswahl des Players mit dem die Aufgabe wiedergegeben werden soll</li>
 <li><strong>Variablen zur Kodierung</strong></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -486,9 +486,9 @@ Ein einführendes Beispiel
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CodingSchemeRef</span><span class="ot"> schemer=</span><span class="st">""</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T12:33:25.198Z"</span>/&gt;</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Unit</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel werden zuerst einmal Metadaten für eine Aufgabe angelegt. Die Aufgabe erhält zuerst die Id: <strong>Aufgabe01</strong>. Mit dieser Id wird die Aufgabe in ein Testheft eingebunden. Es folgt ein Label. Dieses Label kann abhängig von der Testheft-Konfiguration während einer Testdurchführung auch angezeigt werden.</p>
+<p>In diesem Beispiel werden zuerst einmal Metadaten für eine Aufgabe angelegt. Die Aufgabe erhält eine Id: <strong>Aufgabe01</strong>. Mit dieser Id wird die Aufgabe in ein Testheft eingebunden. Es folgt ein Label. Dieses Label kann abhängig von der Testheft-Konfiguration während einer Testdurchführung auch angezeigt werden.</p>
 <p>Im nächsten Element: <code>&lt;DefinitionRef&gt;</code> wird angegeben mit welchem Editor die Aufgabe erstellt wurde und mit welchem PLayer sie im Testcenter wiedergegeben werden soll. Würde diese Beispielaufgabe in das Testcenter geladen, müsste auch die Datei zum PLayer: <strong>iqb-editor-aspect-2.2.html</strong> mit geladen werden, ansonsten kann die Aufgabe nicht abgespielt werden. An dieser Stelle wird auch die Aufgabenressource: <strong>Aufgabe01.voud</strong> eingebunden. In dieser Datei befinden sich die eigentlichen Aufgabeninhalte. Auch diese Datei müsste zusammen mit dieser Beispiel-XML in das Testcenter geladen werden.</p>
-<p>Es folgt das Element: <code>BaseVariables</code>. Beim Aufgabenentwurf im IQB-Studio kann eine Aufgabenkodierung angelegt werden. Zur Aufgabenkodierung erhält jedes Aufgabenelement eine Variable die entsprechend gewichtet wird und eine Regel zur Kodierung erhält. In einigen Fällen benötigt das Testcenter diese Variablen. Bspw. werden diese benötigt um eine adaptive Testung duchzuführen.</p>
+<p>Es folgt das Element: <code>BaseVariables</code>. Beim Aufgabenentwurf im IQB-Studio kann eine Aufgabenkodierung angelegt werden. Zur Aufgabenkodierung erhält jedes Aufgabenelement eine Variable die entsprechend gewichtet wird und eine Regel zur Kodierung erhält. In einigen Fällen benötigt das Testcenter diese Variablen, bspw. werden diese benötigt um eine adaptive Testung duchzuführen.</p>
 <p>Das letzte Element:<code>CodingSchemeRef</code> gibt die Version des zur Aufgabenkodierung verwendeten Schemer-Moduls an.</p>
 </div>
 </div>
@@ -649,6 +649,22 @@ Tipp
 </section>
 <section id="variablen-zur-kodierung" class="level2">
 <h2 class="anchored" data-anchor-id="variablen-zur-kodierung">Variablen zur Kodierung</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Bearbeitung THuste: to do</p>
+<ul>
+<li>Mit Julian über Variablenbedeutung sprechen</li>
+</ul>
+</div>
+</div>
 <p>Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: <code>BaseVariables</code> ausgegeben. Die Variablen werden im Testcenter verwendet um Gewichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span>&gt;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>

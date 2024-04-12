@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB TBA-Info - Gruppenmonitor (Testleitungskonsole)</title>
+<title>IQB TBA-Info - Testcenter Daten Upload</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -95,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Gruppenmonitor (Testleitungskonsole)</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Testcenter Daten Upload</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -195,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link">
+  <a href="../Testcenter/Testmethoden.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testmethoden</span></a>
   </div>
 </li>
@@ -374,21 +377,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#anmeldung" id="toc-anmeldung" class="nav-link active" data-scroll-target="#anmeldung">Anmeldung</a></li>
-  <li><a href="#bedienung-und-ansicht" id="toc-bedienung-und-ansicht" class="nav-link" data-scroll-target="#bedienung-und-ansicht">Bedienung und Ansicht</a>
-  <ul class="collapse">
-  <li><a href="#testnavigation-links" id="toc-testnavigation-links" class="nav-link" data-scroll-target="#testnavigation-links">Testnavigation (links)</a></li>
-  <li><a href="#systeminformationen-und-einstellungen-rechts" id="toc-systeminformationen-und-einstellungen-rechts" class="nav-link" data-scroll-target="#systeminformationen-und-einstellungen-rechts">Systeminformationen und Einstellungen (rechts)</a></li>
-  <li><a href="#aktivitätsfenster-mitte" id="toc-aktivitätsfenster-mitte" class="nav-link" data-scroll-target="#aktivitätsfenster-mitte">Aktivitätsfenster (mitte)</a></li>
-  </ul></li>
-  <li><a href="#testnavigation-steuerung" id="toc-testnavigation-steuerung" class="nav-link" data-scroll-target="#testnavigation-steuerung">Testnavigation (Steuerung)</a>
-  <ul class="collapse">
-  <li><a href="#pausieren" id="toc-pausieren" class="nav-link" data-scroll-target="#pausieren">Pausieren</a></li>
-  <li><a href="#springe-zu-block" id="toc-springe-zu-block" class="nav-link" data-scroll-target="#springe-zu-block">Springe zu Block</a></li>
-  <li><a href="#test-beenden" id="toc-test-beenden" class="nav-link" data-scroll-target="#test-beenden">Test beenden</a></li>
-  <li><a href="#test-entsperren" id="toc-test-entsperren" class="nav-link" data-scroll-target="#test-entsperren">Test entsperren</a></li>
-  <li><a href="#testperson-kann-die-aufgabe-nicht-bearbeiten" id="toc-testperson-kann-die-aufgabe-nicht-bearbeiten" class="nav-link" data-scroll-target="#testperson-kann-die-aufgabe-nicht-bearbeiten">Testperson kann die Aufgabe nicht bearbeiten</a></li>
-  </ul></li>
+  <li><a href="#empfehlung-verweis-zur-validierung" id="toc-empfehlung-verweis-zur-validierung" class="nav-link active" data-scroll-target="#empfehlung-verweis-zur-validierung">Empfehlung: Verweis zur Validierung</a></li>
+  <li><a href="#laden-spezieller-formate" id="toc-laden-spezieller-formate" class="nav-link" data-scroll-target="#laden-spezieller-formate">Laden spezieller Formate</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -397,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gruppenmonitor (Testleitungskonsole)</h1>
+<h1 class="title">Testcenter Daten Upload</h1>
 </div>
 
 
@@ -414,115 +404,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Die Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung eine Gruppe während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: <strong>Gruppenmonitor</strong>. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung.</p>
-<section id="anmeldung" class="level2">
-<h2 class="anchored" data-anchor-id="anmeldung">Anmeldung</h2>
-<p>Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Testhefte und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: Test-Gruppen Überwachung.</p>
-</section>
-<section id="bedienung-und-ansicht" class="level2">
-<h2 class="anchored" data-anchor-id="bedienung-und-ansicht">Bedienung und Ansicht</h2>
-<p>Der Gruppenmonitor ist in zwei Teile aufgeteilt, einen mittleren und einen linken Teil. Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: <strong>Spalten:</strong> Teil und Abschnitt <strong>Aktivität:</strong> Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtoptionen entsprechend.</p>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Testcenter/Pictures_GM/GM_Gesamtansicht.png" class="img-fluid figure-img"></p>
-<figcaption>Übersicht Gruppenmonitor</figcaption>
-</figure>
-</div>
-<section id="testnavigation-links" class="level3">
-<h3 class="anchored" data-anchor-id="testnavigation-links">Testnavigation (links)</h3>
-<p>Im linken Teil des Fensters sind Schalter für die Navigation zu finden. Diese haben erst eine Funktion, wenn im mittleren Teil (Aktivitätsfenster) eine entsprechende Testperson angewählt wurde. Die Testperson muss online sein, also den Test gerade bearbeiten. Es ist möglich die Testperson zu einem anderen Block im Testheft zu navigieren (springen), den Test zu pausieren, den Test zu sperren und den Test zu beenden. Ganz oben ist ein Schalter mit der Bezeichnung: <strong>Alle Logins gleichzeitig steuern</strong> zu sehen. Diese Funktion steht nur zur Verfügung, wenn alle in der Gruppe verwendeten Testhefte eine ähnliche Struktur aufweisen. Sind bspw. in den Testheften unterschiedlich viele Blöcke enthalten, ist eine gemeinsame Steuerung nicht möglich. Da in diesem Beispiel unterschiedliche Testhefte verwendet werden, ist der Schalter im Bild auch inaktiv.</p>
-</section>
-<section id="systeminformationen-und-einstellungen-rechts" class="level3">
-<h3 class="anchored" data-anchor-id="systeminformationen-und-einstellungen-rechts">Systeminformationen und Einstellungen (rechts)</h3>
-<p>Oben rechts ist in Form eines kleinen Symbols der Verbindungsstatus des Gruppenmonitors zu sehen. Bei einer fehlerfreien Verbindung sollte das Symbol grün sein und es sollte “LIVE” darin stehen.</p>
-<p>Ebenfalls oben rechts ist eine Einstellungs-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht (mehr oder weniger Informationen anzeigen) für das mittlere Fenster, das Aktivitätsfenster, angepasst werden.</p>
-</section>
-<section id="aktivitätsfenster-mitte" class="level3">
-<h3 class="anchored" data-anchor-id="aktivitätsfenster-mitte">Aktivitätsfenster (mitte)</h3>
-<p>Hier ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte, der Fortschritt der Testung und weitere hilfreiche Informationen in Spalten sortiert zu sehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Testcenter/Pictures_GM/GM_Personenliste_Testhefte.png" class="img-fluid figure-img"></p>
-<figcaption>Aktivitätsfenster</figcaption>
-</figure>
-</div>
-<p>Welche Informationen den einzelnen Spalten dieser Liste zu entnehmen sind und welche Bedeutung diese habe, wird nachfolgend von links nach rechts beschrieben:</p>
-<p><strong>Spalte: Personenstatus</strong></p>
-<p>Hier wird der Status der Testperson angezeigt. Folgende Status gibt es:</p>
-<p><img src="../Testcenter/Pictures_GM/GM_Status_Overview_2.png" class="img-fluid"></p>
-<p><strong>Spalte: Teilnehmer</strong></p>
-<p>Es ist im Beispielbild eine längere Kennung zu sehen, die sich wie folgt zusammensetzt:</p>
+<p>Die <strong>Testdateien</strong> weisen Abhängigkeiten untereinander auf. Diese Abhängigkeiten sind:</p>
 <ul>
-<li>Benutzername der Anmeldung, in diesem Fall: <strong>iea-testtaker-bista2217</strong></li>
-<li>der zur Anmeldung eingegebene Code, in diesem Fall: <strong>abc1</strong>, <strong>abc2</strong> usw..</li>
+<li>die XML zur Aufgabendefinition (<strong>Unit-XML</strong>) bindet die Aufgabenressource (<strong>VOUD-Datei</strong>) mittels es Dateinamens ein, außerdem wird der zu ladende <strong>Player</strong> mittels Playernamen hier eingebunden</li>
+<li>die XML zur Testheft-Definition (<strong>Booklet-XML</strong>) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein</li>
+<li>die XML zur Studien-Definition (<strong>Testtaker-XML</strong>) bindet die gewünschten Testhefte mittels Testheft-ID ein</li>
 </ul>
-<p><strong>Spalte: Teil</strong></p>
-<p>Hier sind die Testhefte zu sehen, die einem Zugangscode zugeordnet sind. Bspw. sind dem Code: <strong>abc1</strong> drei Testhefte zugeordnet, nämlich: <strong>Anleitung</strong>, <strong>Teil1</strong>, <strong>Teil2</strong> und <strong>Teil3</strong>.</p>
-<p><strong>Spalte: Abschnitt</strong></p>
-<p>Ist der Test gestartet wird hier der Abschnitt innerhalb eines Blocks angezeigt.</p>
-<p><strong>Spalte: Aktivität</strong></p>
-<p>Es ist die Testheftstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Sind Blöcke im Testheft vorhanden, wird die Anzahl der enthaltenen Aufgaben im Block angezeigt. Zu jedem Block in einem Testheft werden gegebene Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schlosssymbol öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen dargestellt. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt. Wie im Bild zu sehen ist, sind die Zeilen der Anmeldungen farblich gekennzeichnet. Die farbliche Kennzeichnung zeigt auf, welche Testhefte eine ähnliche Struktur habe und gemeinsam gesteuert werden könnten.</p>
-</section>
-</section>
-<section id="testnavigation-steuerung" class="level2">
-<h2 class="anchored" data-anchor-id="testnavigation-steuerung">Testnavigation (Steuerung)</h2>
-<section id="pausieren" class="level3">
-<h3 class="anchored" data-anchor-id="pausieren">Pausieren</h3>
-<p>Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie anschließend die Schaltfläche: <strong>Pause</strong>. Ist der Test erfolgreich pausiert, erscheint das entsprechende Statussymbol für Pause bei der Person. Außerdem erscheint im Browser der Person eine entsprechende Meldung, dass der Test pausiert wurde. Soll die Pausierung aufgehoben werden, ist erneut die entsprechende Person zu markieren und anschließend ist die Schaltfläche: <strong>Weiter</strong> zu betätigen. Der Test wird dann fortgeführt.</p>
-</section>
-<section id="springe-zu-block" class="level3">
-<h3 class="anchored" data-anchor-id="springe-zu-block">Springe zu Block</h3>
-<p>Besteht ein Testheft aus mehreren Blöcken, kann mittels Gruppenmonitor eine Testpersonen zu einem bestimmten Block navigiert werden. Hierfür wird die Person markiert und anschließend wird der Block des Testheftes markiert zu dem gesprungen werden soll. Um einen Block zu markieren, klicken Sie einfach einmal auf diesen Block in der dargestellten Testheftstruktur. Nachfolgend wird der zweite Block der Anmeldung: <strong>abc2</strong> des Testheftes: <strong>Teil1</strong> markiert.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Testcenter/Pictures_GM/GM_Block_markieren.png" class="img-fluid figure-img"></p>
-<figcaption>Block markieren</figcaption>
-</figure>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[Unit-VOUD] --&gt; |Dateiname| C[Unit-XML]
+  B[Player-HTML] --&gt; |Playername| C[Unit-XML]
+  C --&gt; |Unit-ID| E[Booklet-XML]
+  E --&gt; |Booklet-ID| F[Testtaker-XML]
+</pre>
 </div>
-<p>Wie zu sehen ist, wird bei erfolgreicher Markierung der Block entsprechend gekennzeichnet. Nun wird der Schalter: <strong>Springe zu</strong> betätigt. Die gewählte Person wird nun in den zweiten Block navigiert.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Beim Laden der <strong>Testdateien</strong> in das <strong>Testcenter</strong> werden diese Abhängigkeit einbezogen und es wird geprüft, ob eine abhängige Testdatei vorhanden ist oder nicht. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML.</p>
+<p>Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Wichtig
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Navigiert die Testleitung eine Person aus einem zeitbeschränkten Block, wird dieser Block gesperrt und die Person kann nicht mehr darauf zugreifen, auch wenn die Bearbeitung noch nicht abgeschlossen war. Das Springen in andere Blöcke sollte also immer gut überlegt sein.</p>
+<p>Es ist auch möglich alle <strong>Testdateien</strong> gemeinsam verpackt in einer ZIP-Datei in das <strong>Testcenter</strong> zu laden. Dabei hält das <strong>Testcenter</strong> automatisch die entsprechende Reihefolge ein.</p>
 </div>
 </div>
+<section id="empfehlung-verweis-zur-validierung" class="level1">
+<h1>Empfehlung: Verweis zur Validierung</h1>
+<p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. Diese Warnung bedeutet, dass die XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schemadefinition) enthält. Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Das IQB stellt solche XSD-Dateien bereit.</p>
+<p>Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Für die Unit-XML heißt das Hauptelement <code>Unit</code> und muss folgendermaßen geändert werden:</p>
+<pre><code>&lt;Unit 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation= "aktueller Pfad zur gültigen Schemadefintion"&gt;</code></pre>
+<p>Ein nützlicher Nebeneffekt hierbei ist, dass auch Editoren zur Bearbeitung von XML-Dateien (z. B. Notepad++, Sublime) nun eine Validierung vornehmen können. Man kann also bereits vor dem Hochladen eine Validierung bereits beim Schreiben einer XML-Datei vornehmen lassen.</p>
 </section>
-<section id="test-beenden" class="level3">
-<h3 class="anchored" data-anchor-id="test-beenden">Test beenden</h3>
-<p>Der Test kann für Personen gesperrt werden. Hierfür ist der Schalter: <strong>Test beenden</strong> zu verwenden. Die Testperson erhält dann die Info, dass der Test gesperrt ist und die Testung nicht fortgeführt werden kann.</p>
-</section>
-<section id="test-entsperren" class="level3">
-<h3 class="anchored" data-anchor-id="test-entsperren">Test entsperren</h3>
-<p>Wurde die Testung für eine Person beendet, ist der Test für diese Person gesperrt. Diese Sperrung kann mit dem Schalter: <strong>Test entsperren</strong> wieder aufgehoben werden.</p>
-</section>
-<section id="testperson-kann-die-aufgabe-nicht-bearbeiten" class="level3">
-<h3 class="anchored" data-anchor-id="testperson-kann-die-aufgabe-nicht-bearbeiten">Testperson kann die Aufgabe nicht bearbeiten</h3>
-<p><strong>Fehler:</strong> Die Testperson kann eine Aufgabe nicht bearbeiten, weil die Inhalte der Aufgabe nicht dargestellt werden. Da die Navigation im Testheft zu anderen Aufgaben nur möglich ist nachdem eine Aufgabe vollständig beantwortet wurde, kann die Testperson nicht mit der Testung fortfahren.</p>
-<p><strong>Ursache:</strong> Die Aufgabeninhalte (Video, Grafik etc.) können eventuell nicht vollständig geladen werden.</p>
-<p><strong>Abhilfe:</strong> Navigieren Sie die Person wieder zum Anfang des Blocks in dem sich die Aufgabe befindet. Sie können im Gruppenmonitor einfach den Block markieren in dem sich die Person aktiv befindet und betätigen dann den Schalter: <strong>Springe zu</strong>. Auf diese Weise wird der Block nicht verlassen, sondern die Person wird wieder an den Anfang des Blocks geleitet. Dies ist im Falle eines zeitbeschränkten Blocks zu empfehlen, da beim Verlassen eines solchen Blocks der Block gesperrt werden würde.</p>
+<section id="laden-spezieller-formate" class="level1">
+<h1>Laden spezieller Formate</h1>
+<p>Einige Anwendungen erfordern zusätzliche Ressourcendateien. Dazu gehören bspw. Aufgaben, die <strong>GeoGebra</strong> Elemente enthalten. Hierfür muss neben den <strong>Testdateien</strong>, die zu jeder Testung gehören, ein spezielles Paket mit der Endung <strong>.itcr.zip</strong> geladen werden. Das GeoGebra-Paket können Sie unter https://download.geogebra.org/package/geogebra-math-apps-bundle herunterladen. Nennen Sie es GeoGebra.itcr.zip, und laden Sie es in den selben Arbeitsbereich wie Ihre Aufgaben. Das Paket kann nicht mitausgeliefert werden, da <a href="https://www.geogebra.org/license">GeoGebra eine andere Open-Source-Lizenz als MIT</a>`verwendet.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

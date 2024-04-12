@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -197,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link">
+  <a href="../Testcenter/Testmethoden.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testmethoden</span></a>
   </div>
 </li>
@@ -403,36 +406,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Die <strong>Testdateien</strong> weisen Abhängigkeiten untereinander auf. Diese Abhängigkeiten sind:</p>
+<ul>
+<li>die XML zur Aufgabendefinition (<strong>Unit-XML</strong>) bindet die Aufgabenressource (<strong>VOUD-Datei</strong>) mittels es Dateinamens ein, außerdem wird der zu ladende <strong>Player</strong> mittels Playernamen hier eingebunden</li>
+<li>die XML zur Testheft-Definition (<strong>Booklet-XML</strong>) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein</li>
+<li>die XML zur Studien-Definition (<strong>Testtaker-XML</strong>) bindet die gewünschten Testhefte mittels Testheft-ID ein</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[Unit-VOUD] --&gt; |Dateiname| C[Unit-XML]
+  B[Player-HTML] --&gt; |Playername| C[Unit-XML]
+  C --&gt; |Unit-ID| E[Booklet-XML]
+  E --&gt; |Booklet-ID| F[Testtaker-XML]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Beim Laden der <strong>Testdateien</strong> in das <strong>Testcenter</strong> werden diese Abhängigkeit einbezogen und es wird geprüft, ob eine abhängige Testdatei vorhanden ist oder nicht. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML.</p>
+<p>Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In Bearbeitung THuste: to do</p>
-<ul>
-<li>Überarbeiten Layout und Text</li>
-</ul>
+<p>Es ist auch möglich alle <strong>Testdateien</strong> gemeinsam verpackt in einer ZIP-Datei in das <strong>Testcenter</strong> zu laden. Dabei hält das <strong>Testcenter</strong> automatisch die entsprechende Reihefolge ein.</p>
 </div>
 </div>
-<p>Die <strong>Testdateien</strong> weisen Abhängigkeiten untereinander auf. Diese Abhängigkeiten sind grob:</p>
-<ul>
-<li>die <strong>Unit-Xml</strong> bindet die <strong>VOUD-Datei</strong> mit den Aufgabeninhalten ein, <br> außerdem wird der zu ladende <strong>Player</strong> hier angegeben</li>
-<li>die <strong>Booklet-Xml</strong> bindet die gewünschten <strong>Units</strong> ein</li>
-<li>die <strong>Testtaker-Xml</strong> bindet die gewünschten <strong>Booklets</strong> ein</li>
-</ul>
-<p>Beim Laden der <strong>Testdateien</strong> in das <strong>Testcenter</strong> werden diese Abhängigkeit einbezogen und es wird geprüft, ob eine abhängige Testdatei vorhanden ist oder nicht. Da bspw. die <strong>Booklet-Xml</strong>, die in ihr gelisteten <strong>Units</strong> aufruft, kann die <strong>Booklet-Xml</strong> nicht vor den entsprechenden <strong>Unit-Xmls</strong> geladen werden. Das <strong>Testcenter</strong> gibt dann eine Fehlermeldung aus, die darauf hinweist, dass die in der <strong>Booklet-Xml</strong> gelisteten <strong>Unit-Xmls</strong> sich noch nicht im <strong>Testcenter</strong> befinden. Das Laden der <strong>Testdateien</strong> muss also immer in einer bestimmten Reihenfolge erfolgen, damit das Laden erfolgreich ist:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="TC_Upload_Ablauf.png" class="img-fluid figure-img"></p>
-<figcaption>Testcenter Daten-Upload</figcaption>
-</figure>
-</div>
-<p>:information_source: Es ist auch möglich alle <strong>Testdateien</strong> gemeinsam verpackt in einer ZIP-Datei in das <strong>Testcenter</strong> zu laden. Dabei hält das <strong>Testcenter</strong> automatisch die entsprechende Reihefolge ein.</p>
 <section id="empfehlung-verweis-zur-validierung" class="level1">
 <h1>Empfehlung: Verweis zur Validierung</h1>
 <p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. Diese Warnung bedeutet, dass die XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schemadefinition) enthält. Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Das IQB stellt solche XSD-Dateien bereit.</p>

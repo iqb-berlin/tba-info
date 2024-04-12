@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB TBA-Info - Testmethoden</title>
+<title>IQB TBA-Info - Testcenter Daten Download</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +63,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Studio/intro.html" rel="next">
-<link href="../Testcenter/Testen_der_Anwendung.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Testmethoden.html">Testmethoden</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Testcenter Daten Download</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -134,13 +166,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Testcenter</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/intro.html" class="sidebar-item-text sidebar-link">
@@ -197,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Testcenter/Testmethoden.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testmethoden</span></a>
   </div>
 </li>
@@ -372,14 +404,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#aufbereitung" id="toc-aufbereitung" class="nav-link active" data-scroll-target="#aufbereitung">Aufbereitung</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Testmethoden.html">Testmethoden</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Testmethoden</h1>
+<h1 class="title">Testcenter Daten Download</h1>
 </div>
 
 
@@ -406,11 +444,42 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Diese Seite ist in Berabeitung!</p>
+<p>In Bearbeitung THuste: to do</p>
+<ul>
+<li>Überarbeiten Layout und Text</li>
+</ul>
 </div>
 </div>
+<p>Es können Antwort- und Logdateien heruntergeladen werden. Diese werden im <strong>Testcenter</strong> in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TC_Download.png" class="img-fluid figure-img"></p>
+<figcaption>Testcenter Daten-Download</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>Es werden nicht in jedem Testmodus Ergebnisse gespeichert. Die Speicherung erfolgt nur in folgenden Modi: <code>run-hot-return</code>, <code>run-hot-restart</code> und <code>run-trial</code>!</strong></p>
+</blockquote>
+<p>Die Ergebnisse können mittels der üblichen Browserfunktionalitäten heruntergeladen werden. Die Dateien werden dann als CSV-Dateien gespeichert.</p>
+<section id="aufbereitung" class="level1">
+<h1>Aufbereitung</h1>
+<p>Durch den modularen Aufbau des Testsystems ist die Komponente, die die Interaktion mit der Testperson steuert, austauschbar. Laut <a href="https://verona-interfaces.github.io/">Verona-Spezifikation</a> ist das Datenformat der Antworten und Logs nicht vorgeschrieben. Das liegt z. B. daran, dass Antworten nicht nur einfache Datentypen sein können (Text, Zahl), sondern auch Listen, Bilder, Ton usw. Das Interesse an Zusatzinformationen (Zustände über die Zeit) mag auch schwanken je nachdem, ob eine Pilotierung (Kennenlernen von Itemeigenschaften) oder eine große automatisierte Testung durchgeführt wird.</p>
+<p>Wenn man die Antwortdaten herunterlädt, sind die Antworten in einer bestimmten Spalte in einem Roh-Format JSON hinterlegt, so wie der Player sie geschickt hatte. Die Verona-Schnittstelle sieht vor, dass die Antwortdaten aufgeteilt werden können in mehrere sog. Parts oder Chunks. Im folgenden Beispiel hat der Player nur einen Chunk geschickt (mit der ID ‘all’) und die Antwortdaten als JSON-Struktur (verpackt als String). Außerdem ist das Datenformat und ein JavaScript-Zeitstempel (ts = TimeStamp) hinterlegt.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"id"</span><span class="fu">:</span><span class="st">"all"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"content"</span><span class="fu">:</span><span class="st">"{</span><span class="ch">\"</span><span class="st">name</span><span class="ch">\"</span><span class="st">:</span><span class="ch">\"</span><span class="st">Sam Sample</span><span class="ch">\"</span><span class="st">,</span><span class="ch">\"</span><span class="st">age</span><span class="ch">\"</span><span class="st">:34}"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"ts"</span><span class="fu">:</span><span class="dv">1627545600</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"responseType"</span><span class="fu">:</span><span class="st">"example-data-format"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Für viele Anwendungsfälle mag das ausreichen: Einfache Umformungsfunktionen in Excel oder R liefern die Informationen in einem sinnvollen Format. Für komplexe Antwortformate müssen jedoch spezielle Programmierungen die Umformung vornehmen. Das IQB hat für seine beiden Antwortformate <a href="https://github.com/iqb-berlin/verona-data-specifications/blob/main/responses/manual_iqb-standard.md"><code>iqb-standard</code></a> und <a href="https://github.com/iqb-berlin/verona-player-abi/blob/master/docs/key-value.md"><code>iqb-abi</code></a> das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox#readme">itc-Toolbox</a> veröffentlicht. Die Antwortdaten aller Player des IQB können hierüber in eine gut auswertbare Form gebracht werden.</p>
+<blockquote class="blockquote">
+<p>In der <a href="https://iqb-berlin.github.io/testcenter-backend/api/#tag/admin-download/paths/~1workspace~1%7Bws_id%7D~1report~1response/get">Dokumentation des API des Testcenters</a> kann man nachlesen, dass über den Endpunkt, der die Antworten ausliefert, auch JSON als Format gewählt werden kann statt CSV. Das ist dann für die Datenintegration in Länderportale wahrscheinlich günstiger.</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -829,18 +898,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Testcenter/Testen_der_Anwendung.html" class="pagination-link" aria-label="Testen der Anwendung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Testen der Anwendung</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Studio/intro.html" class="pagination-link" aria-label="Überblick">
-        <span class="nav-page-text">Überblick</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -855,7 +912,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

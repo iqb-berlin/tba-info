@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Testmethoden.html" class="sidebar-item-text sidebar-link">
+  <a href="../Testcenter/Testmethoden.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testmethoden</span></a>
   </div>
 </li>
@@ -440,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
-<p>Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen <strong>Booklet-XML</strong>. Der Dateiname kann frei gewählt werden. Folgendes kann in dieser Datei festgelegt werden:</p>
+<p>Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen <strong>Booklet-XML</strong>. Der Dateiname kann frei gewählt werden. Folgende Funktionen hat diese Datei:</p>
 <ul>
 <li>Festlegung Reihenfolge Aufgaben</li>
 <li><strong>Testlet:</strong> Aufgabenbündelung und Beschränkungen in Testlets</li>
@@ -497,11 +497,11 @@ Ein einführendes Beispiel
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>Metadata</code></p>
-<p>In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: <strong>BOOKLET.SAMPLE-1</strong>. Mit Hilfe dieser Id kann das Testheft in der <strong>Testtaker-XML</strong> eingebunden und einer Testperson zugeordnet werden. Es folgt ein Label und eine Beschreibung, die frei wählbar sind.</p>
+<p>In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: <strong>BOOKLET.SAMPLE-1</strong>. Mit Hilfe dieser Id kann das Testheft in der Testheft-Definition (Testtaker-XML) eingebunden und einer Testperson zugeordnet werden. Es folgen ein Label und eine Beschreibung, die frei wählbar sind.</p>
 <p><code>BookletConfig</code></p>
 <p>Nachfolgend erfolgt die Booklet-Konfiguration. Hier gibt es eine Vielzahl von Konfigurationsmöglichkeiten. Exemplarisch sind an dieser Stelle einige aufgeführt. Welche Funktionalitäten die einzelnen Werte erfüllen, ist einer entsprechenden Liste zu entnehmen (Verweis im Abschnitt: Testheft-Konfigurationen). Bspw. würde mit dem Wert: <code>unit_screenheader</code> und dem Datum: <strong>WITH_BOOKLET_TITLE</strong> während der Testdurchführung das in diesem Beispiel angegebene Label angezeigt werden.</p>
 <p><code>Units</code></p>
-<p>Hier erfolgt nun die Deklaration der während der Testdurchführung angezeigten Aufgaben. Hier wird zuerst eine einleitende Aufgabe mit der Id: <strong>UNIT.SAMPLE-1</strong> aufgerufen. Dieser wird ein entsprechendes Label zugewiesen und ein Short-Label. Letzteres kann bei entsprechender Testheft-Konfiguration in der Aufgaben-Navigationsleiste angezeigt werden.</p>
+<p>Hier erfolgt die Deklaration der während der Testdurchführung angezeigten Aufgaben. Hier wird zuerst eine einleitende Aufgabe mit der Id: <strong>UNIT.SAMPLE-1</strong> aufgerufen. Dieser wird ein entsprechendes Label zugewiesen und ein Short-Label. Letzteres kann bei entsprechender Testheft-Konfiguration in der Aufgaben-Navigationsleiste angezeigt werden.</p>
 <p>Es folgt das erste Testlet (Block) mit Zugangsbeschränkungen, einer zeitlichen Beschränkung und einer Navigationsbeschränkung. Die in diesem Beispiel aufgeführte Navigationsbeschränkung <code>DenyNavigationOnIncomplete</code> überschreibt das Verhalten in der Testheft-Konfiguration, hier <code>force_presentation_complete</code> und <code>force_response_complete</code>nur für dieses Testlet. Für das nächste Testlet werden wieder die Werte aus der Testheft-Konfiguration verwendet. Nachfolgend wird eine Aufgabe: <strong>UNIT.SAMPLE-2</strong> in das Testlet eingebunden. Alle Aufgaben in diesem Testlet unterliegen den Beschränkungen des Testlets.</p>
 <p>Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufgabe die selbe Id trägt wie die erste Aufgabe, nämlich: <strong>UNIT.SAMPLE-1</strong>. Die Mehrfacheinbindung einer Aufgabe mit gleicher Id ist nicht erlaubt, das Testcenter würde hier bei der Testheft-Validierung eine entsprechende Fehlermeldung ausgeben. Manchmal kann es aber sinnvoll sein ein und die selbe Aufgabe mehrfach zu verwenden. Aus diesem Grund ist bei dieser Aufgabe ein zusätzliches Attribut: <code>alias</code> zu finden. Wird eine Aufgabe mit gleicher Id mehrfach in einem Testheft deklariert, kann mit Hilfe des Alias eine Unterscheidung der Aufgabe stattfinden und die Testcenter-Validierung schlägt nicht fehl.</p>
 <p>Es folgt ein weiteres Testlet ohne Beschränkungen und mit nur einer einzigen Aufgabe.</p>
@@ -740,15 +740,14 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Werden Attributswerte und Daten in der Testheft-Konfiguration nicht aufgeführt, wird das in der Liste aufgeführte Standarddatum verwendet. Wird bspw. <strong>unit_screenheader</strong> nicht aufgeführt, wird hierfür das Standarddatum: <strong>EMPTY</strong> angenommen, der Booklet Titel wird dann nicht mehr angezeigt.</p>
+<p>Werden Attributswerte und Daten in der Testheft-Konfiguration nicht aufgeführt, werden Standardwerte und Standarddaten verwendet. Wird bspw. <strong>unit_screenheader</strong> nicht aufgeführt, wird hierfür das Standarddatum: <strong>EMPTY</strong> angenommen, der Testheftname wird dann nicht mehr angezeigt.</p>
 </div>
 </div>
 </section>
 </section>
 <section id="testlet-block" class="level2">
 <h2 class="anchored" data-anchor-id="testlet-block">Testlet (Block)</h2>
-<p>Ein Testlet ist eine Gruppe von Units mit gemeinsamen Restriktionen (falls gesetzt). Testlets können auch rekursiv geschachtelt werden. Die Testlets der obersten Ebene werden auch als Block bezeichnet.</p>
-<p>Zeitbegrenzungen (Restrictions/TimeMax) in geschachtelten Testlets werden ignoriert, sofern diese ebenfalls eine Zeitbegrezung haben.</p>
+<p>Ein Testlet ist eine Gruppe von Aufgaben mit gemeinsamen Restriktionen (falls gesetzt). Testlets können auch geschachtelt mehrfach verwendet werden. Die Testlets der obersten Ebene werden auch als Block bezeichnet.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span>&gt;</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
