@@ -3,7 +3,20 @@ lang: de
 title: "Testcenter Daten Upload"
 ---
 
-Die **Testdateien** weisen Abhängigkeiten untereinander auf. Diese Abhängigkeiten sind:
+## Grundsätzliche Bedienung
+
+Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Die zu ladenden Testdateien können unter dem Reiter: **Dateien** mittels einer entsprechenden eindeutigen Schaltfläche Dateien ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.
+
+Nach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:
+
+* Teilnehmerlisten: Hier werden alle Dateien zur Studiendefinition gelistet.
+* Testhefte: Hier werden alle Dateien zur Testheft-Definition gelistet.
+* Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien, VOMD-Datei und GeoGebra-Pakete.
+* Units: Hier werden die Dateien zur Aufgaben-Defintion gelistet.
+
+Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden und erneut geladen werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien. Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
+
+Die Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:
 
 * die XML zur Aufgabendefinition (**Unit-XML**) bindet die Aufgabenressource (**VOUD-Datei**) mittels es Dateinamens ein, außerdem wird der zu ladende **Player** mittels Playernamen hier eingebunden
 * die XML zur Testheft-Definition (**Booklet-XML**) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein
@@ -15,14 +28,17 @@ flowchart TD
   B[Player-HTML] --> |Playername| C[Unit-XML]
   C --> |Unit-ID| E[Booklet-XML]
   E --> |Booklet-ID| F[Testtaker-XML]
+  1 --> 2
+  2 --> 3
+  3 --> 4
 ```
 
-Beim Laden der **Testdateien** in das **Testcenter** werden diese Abhängigkeit einbezogen und es wird geprüft, ob eine abhängige Testdatei vorhanden ist oder nicht. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML.
+Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher darauf die Reihenfolge (siehe Bild) beim Laden zu beachten.
 
 Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.
 
 ::: {.callout-tip}
-Es ist auch möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihefolge ein.
+Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihenfolge ein.
 :::
 
 # Empfehlung: Verweis zur Validierung
