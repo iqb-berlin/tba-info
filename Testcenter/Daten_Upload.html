@@ -331,7 +331,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#empfehlung-verweis-zur-validierung" id="toc-empfehlung-verweis-zur-validierung" class="nav-link active" data-scroll-target="#empfehlung-verweis-zur-validierung">Empfehlung: Verweis zur Validierung</a></li>
+  <li><a href="#grundsätzliche-bedienung" id="toc-grundsätzliche-bedienung" class="nav-link active" data-scroll-target="#grundsätzliche-bedienung">Grundsätzliche Bedienung</a></li>
+  <li><a href="#empfehlung-verweis-zur-validierung" id="toc-empfehlung-verweis-zur-validierung" class="nav-link" data-scroll-target="#empfehlung-verweis-zur-validierung">Empfehlung: Verweis zur Validierung</a></li>
   <li><a href="#laden-spezieller-formate" id="toc-laden-spezieller-formate" class="nav-link" data-scroll-target="#laden-spezieller-formate">Laden spezieller Formate</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -358,7 +359,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Die <strong>Testdateien</strong> weisen Abhängigkeiten untereinander auf. Diese Abhängigkeiten sind:</p>
+<section id="grundsätzliche-bedienung" class="level2">
+<h2 class="anchored" data-anchor-id="grundsätzliche-bedienung">Grundsätzliche Bedienung</h2>
+<p>Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: <strong>Dateien</strong>, <strong>System-Check Berichte</strong> und <strong>Ergebnisse/ Antworten</strong> zu sehen. Die zu ladenden Testdateien können unter dem Reiter: <strong>Dateien</strong> mittels einer entsprechenden eindeutigen Schaltfläche Dateien ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.</p>
+<p>Nach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:</p>
+<ul>
+<li>Teilnehmerlisten: Hier werden alle Dateien zur Studiendefinition gelistet.</li>
+<li>Testhefte: Hier werden alle Dateien zur Testheft-Definition gelistet.</li>
+<li>Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien, VOMD-Datei und GeoGebra-Pakete.</li>
+<li>Units: Hier werden die Dateien zur Aufgaben-Defintion gelistet.</li>
+</ul>
+<p>Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden und erneut geladen werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien. Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.</p>
+<p>Die Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:</p>
 <ul>
 <li>die XML zur Aufgabendefinition (<strong>Unit-XML</strong>) bindet die Aufgabenressource (<strong>VOUD-Datei</strong>) mittels es Dateinamens ein, außerdem wird der zu ladende <strong>Player</strong> mittels Playernamen hier eingebunden</li>
 <li>die XML zur Testheft-Definition (<strong>Booklet-XML</strong>) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein</li>
@@ -374,13 +386,16 @@ ul.task-list li input[type="checkbox"] {
   B[Player-HTML] --&gt; |Playername| C[Unit-XML]
   C --&gt; |Unit-ID| E[Booklet-XML]
   E --&gt; |Booklet-ID| F[Testtaker-XML]
+  1 --&gt; 2
+  2 --&gt; 3
+  3 --&gt; 4
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Beim Laden der <strong>Testdateien</strong> in das <strong>Testcenter</strong> werden diese Abhängigkeit einbezogen und es wird geprüft, ob eine abhängige Testdatei vorhanden ist oder nicht. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML.</p>
+<p>Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher darauf die Reihenfolge (siehe Bild) beim Laden zu beachten.</p>
 <p>Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -392,9 +407,10 @@ Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Es ist auch möglich alle <strong>Testdateien</strong> gemeinsam verpackt in einer ZIP-Datei in das <strong>Testcenter</strong> zu laden. Dabei hält das <strong>Testcenter</strong> automatisch die entsprechende Reihefolge ein.</p>
+<p>Es ist möglich alle <strong>Testdateien</strong> gemeinsam verpackt in einer ZIP-Datei in das <strong>Testcenter</strong> zu laden. Dabei hält das <strong>Testcenter</strong> automatisch die entsprechende Reihenfolge ein.</p>
 </div>
 </div>
+</section>
 <section id="empfehlung-verweis-zur-validierung" class="level1">
 <h1>Empfehlung: Verweis zur Validierung</h1>
 <p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. Diese Warnung bedeutet, dass die XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schemadefinition) enthält. Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Das IQB stellt solche XSD-Dateien bereit.</p>
