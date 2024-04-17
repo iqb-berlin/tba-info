@@ -8,6 +8,8 @@ categories:
   - loadtest
   - testcenter
   - performance
+execute:
+  echo: false
 ---
 # Vorüberlegungen
 
@@ -140,3 +142,45 @@ Größe Content | Users | Version | Ladezeit Median sec | Errors
   |  | 15-rc9 | 197 | 3.314
 
 : Lastvergleich Testcenter Versionen 14 und 15, Dezember 2023 {.hover}
+
+```{ojs}
+data = FileAttachment("lasttest.csv").csv({ typed: true })
+```
+
+```{ojs}
+viewof versions = Inputs.checkbox(
+  ["v14.13", "v15-rc9"], 
+  { value: ["v14.13", "v15-rc9"], 
+    label: "Testcenter-Version:"
+  }
+)
+```
+
+```{ojs}
+filtered = data.filter(function(penguin) {
+  return versions.includes(penguin.version);
+})
+```
+
+```{ojs}
+Plot.plot({
+  style: "overflow: visible;",
+  y: {grid: true},
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(filtered, {x: "users", y: "complete_time_ms", stroke: "size"}),
+    Plot.text(filtered, Plot.selectLast({x: "users", y: "complete_time_ms", z: "size", text: "size", textAnchor: "start", dx: 3}))
+  ]
+})
+```
+```{ojs}
+Plot.plot({
+  style: "overflow: visible;",
+  y: {grid: true},
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(filtered, {x: "users", y: "error_count", stroke: "size"}),
+    Plot.text(filtered, Plot.selectLast({x: "users", y: "error_count", z: "size", text: "size", textAnchor: "start", dx: 3}))
+  ]
+})
+```
