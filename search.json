@@ -62,49 +62,49 @@
   {
     "objectID": "Testcenter/Daten_Download.html",
     "href": "Testcenter/Daten_Download.html",
-    "title": "Testcenter Daten Download",
+    "title": "Daten Download",
     "section": "",
     "text": "Wichtig\n\n\n\nDer Modus der Studiendurchführung legt fest, ob Daten gespeichert werden oder nicht. Mehr Informationen hierzu sind den Referenzen zu entnehmen.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Download"
+      "Daten Download"
     ]
   },
   {
     "objectID": "Testcenter/Daten_Download.html#wie-werden-daten-erzeugt",
     "href": "Testcenter/Daten_Download.html#wie-werden-daten-erzeugt",
-    "title": "Testcenter Daten Download",
+    "title": "Daten Download",
     "section": "Wie werden Daten erzeugt?",
     "text": "Wie werden Daten erzeugt?\nNach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Diese Daten werden zusammengefasst dargestellt in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine Id. Der Datensatz mit den Daten zur Auswertung wird immer mit dem Namen der Gruppe erzeugt.\n\nHier ein kleines Beispiel zum besseren Verständnis:\nAngenommen in der XML zur Studien-Definition sind zwei Gruppen angelegt:\n&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n&lt;Testtakers xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd\"&gt;\n\n&lt;Metadata&gt;\n    &lt;Description&gt;\n    This file contains some logins for testing and works a a sample for developers.\n    &lt;/Description&gt;\n&lt;/Metadata&gt;\n\n&lt;CustomTexts&gt;\n    &lt;CustomText key=\"app_title\"&gt;Hier steht ein Custom Text&lt;/CustomText&gt;\n&lt;/CustomTexts&gt;\n\n&lt;Group id=\"Gruppe1\" label=\"Erste Gruppe\"&gt;\n    &lt;Login mode=\"run-hot-return\" name=\"paul\" pw=\"erds#\"&gt;\n        &lt;Booklet&gt;BOOKLET.SAMPLE-1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n    &lt;Login mode=\"run-hot-return\" name=\"sven\" pw=\"ghtz#\"&gt;\n        &lt;Booklet&gt;BOOKLET.SAMPLE-1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n    &lt;Login mode=\"run-hot-return\" name=\"dieter\" pw=\"wsds#\"&gt;\n        &lt;Booklet&gt;BOOKLET.SAMPLE-1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;\n&lt;Group id=\"Gruppe2\" label=\"Zweite Gruppe\"&gt;\n    &lt;Login mode=\"run-hot-return\" name=\"katrin\" pw=\"erss#\"&gt;\n        &lt;Booklet&gt;BOOKLET.SAMPLE-1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n    &lt;Login mode=\"run-hot-return\" name=\"thomas\" pw=\"stdz#\"&gt;\n        &lt;Booklet&gt;BOOKLET.SAMPLE-1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n    &lt;Login mode=\"run-hot-return\" name=\"paula\" pw=\"jkiu#\"&gt;\n        &lt;Booklet&gt;BOOKLET.SAMPLE-1&lt;/Booklet&gt;\n    &lt;/Login&gt;\n&lt;/Group&gt;\n\n&lt;/Testtakers&gt;\nPaul meldet sich am Testcenter an und bearbeitet Aufgaben. Dann wird ein Datensatz mit dem Namen: Erste Gruppe erzeugt. Melden sich weiterhin Sven und Dieter an, wird der vorhandene Datensatz entsprechend um die gegebenen Antworten von Sven und Dieter erweitert.\nMelden sich Katrin, Thomas oder Paula am Testcenter an, wird ein weiterer Datensatz mit dem Namen: Zweite Gruppe erzeugt.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Download"
+      "Daten Download"
     ]
   },
   {
     "objectID": "Testcenter/Daten_Download.html#welche-daten-werden-erzeugt",
     "href": "Testcenter/Daten_Download.html#welche-daten-werden-erzeugt",
-    "title": "Testcenter Daten Download",
+    "title": "Daten Download",
     "section": "Welche Daten werden erzeugt?",
     "text": "Welche Daten werden erzeugt?\nFolgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:\n\nAntworten: Hier sind alle gegebenen Antworten der Teilnehmer*innen gespeichert.\nLogs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr\nKommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden\n\n\n\n\n\n\n\nHinweis\n\n\n\nAlle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe.\n\n\n\nAntworten\nDie gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:\n\n\n\n\nSpalte\nInhalt\n\n\ngroupname\nId der Gruppe\n\n\nloginname\nName des Logins\n\n\ncode\nEindeutiger Code wird dem Login-Namen zugeordnet. Hintergrund: Bei einem bestimmten Modus (run-hot-restart) startet der Test immer wieder von vorne, obwohl immer mit dem selben Login-Namen angemeldet wird. Es werden verschiedene Testpersonen angenommen. Um die Antworten unterscheiden zu können, wird in einem solchen Fall ein anderer Code zu dem Login-Namen erzeugt.\n\n\nbookletname\nId des Testheftes\n\n\nunitname\nId der Aufgabe\n\n\nresponses\nDatenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt.\n\n\nlaststate\nHier wird der letzte Zustand des Players vermerkt\n\n\n\n\n\n\nLogs\n\n\nKommentare",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Download"
+      "Daten Download"
     ]
   },
   {
     "objectID": "Testcenter/Daten_Download.html#wie-können-die-daten-heruntergeladen-werden",
     "href": "Testcenter/Daten_Download.html#wie-können-die-daten-heruntergeladen-werden",
-    "title": "Testcenter Daten Download",
+    "title": "Daten Download",
     "section": "Wie können die Daten heruntergeladen werden?",
     "text": "Wie können die Daten heruntergeladen werden?\nDer gespeicherte Datensatz befindet sich nach Studienende in dem Arbeitsbereich, in dem sich auch die Testdateien zur Studie befinden. Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: Dateien, System-Check Berichte und Ergebnisse/ Antworten zu sehen. Unter dem Reiter: Ergebnisse/ Antworten ist der Datensatz zu finden. Diese Daten werden noch einmal unterteilt in:\n\nAntworten: Hier sind alle gegebenen Antworten der Teilnehmer*innen gespeichert.\nLogs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr\nKommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden\n\nZu Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.\nEs können Antwort- und Logdateien heruntergeladen werden. Diese werden im Testcenter in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.\n\n\n\nTestcenter Daten-Download\n\n\n\nEs werden nicht in jedem Testmodus Ergebnisse gespeichert. Die Speicherung erfolgt nur in folgenden Modi: run-hot-return, run-hot-restart und run-trial!\n\nDie Ergebnisse können mittels der üblichen Browserfunktionalitäten heruntergeladen werden. Die Dateien werden dann als CSV-Dateien gespeichert.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Download"
+      "Daten Download"
     ]
   },
   {
@@ -132,61 +132,49 @@
   {
     "objectID": "Testcenter/Daten_Upload.html",
     "href": "Testcenter/Daten_Upload.html",
-    "title": "Testcenter Daten Upload",
+    "title": "Daten Upload",
     "section": "",
-    "text": "Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: Dateien, System-Check Berichte und Ergebnisse/ Antworten zu sehen. Die zu ladenden Testdateien können unter dem Reiter: Dateien mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.\nNach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:\n\nTeilnehmerlisten: Hier werden alle Dateien zur Studien-Definition gelistet.\nTesthefte: Hier werden alle Dateien zur Testheft-Definition gelistet.\nRessourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.\nUnits: Hier werden die Dateien zur Aufgaben-Defintion gelistet.\n\nManchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.\nDie Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:\n\ndie XML zur Aufgabendefinition (Unit-XML) bindet die Aufgabenressource (VOUD-Datei) mittels Dateinamen ein, außerdem wird der zu ladende Player mittels Playernamen eingebunden\ndie XML zur Testheft-Definition (Booklet-XML) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein\ndie XML zur Studien-Definition (Testtaker-XML) bindet die gewünschten Testhefte mittels Testheft-ID ein\n\n\n\n\n\n\nflowchart TD\n  A[Unit-VOUD] --&gt; |Dateiname| C[Unit-XML]\n  B[Player-HTML] --&gt; |Playername| C[Unit-XML]\n  C --&gt; |Unit-ID| E[Booklet-XML]\n  E --&gt; |Booklet-ID| F[Testtaker-XML]\n  1 --&gt; 2\n  2 --&gt; 3\n  3 --&gt; 4\n\n\n\n\n\n\nBeim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher auf die Reihenfolge (siehe Bild) beim Laden zu achten.\nSollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht. Um eine Datei zu löschen, ist die Datei zuvor zu markieren, anschließend kann die Schaltfläche zum Löschen betätigt werden.\n\n\n\n\n\n\nTipp\n\n\n\nEs ist möglich alle Testdateien gemeinsam verpackt in einer ZIP-Datei in das Testcenter zu laden. Dabei hält das Testcenter automatisch die entsprechende Reihenfolge ein.",
+    "text": "Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: Dateien, System-Check Berichte und Ergebnisse/ Antworten zu sehen. Die zu ladenden Testdateien können unter dem Reiter: Dateien mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.\nNach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:\nManchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.\nDie Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:\nflowchart TD\n  A[Unit-VOUD] --&gt; |Dateiname| C[Unit-XML]\n  B[Player-HTML] --&gt; |Playername| C[Unit-XML]\n  C --&gt; |Unit-ID| E[Booklet-XML]\n  E --&gt; |Booklet-ID| F[Testtaker-XML]\n  1 --&gt; 2\n  2 --&gt; 3\n  3 --&gt; 4\nBeim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher auf die Reihenfolge (siehe Bild) beim Laden zu achten.\nSollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht. Um eine Datei zu löschen, ist die Datei zuvor zu markieren, anschließend kann die Schaltfläche zum Löschen betätigt werden.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Upload"
-    ]
-  },
-  {
-    "objectID": "Testcenter/Daten_Upload.html#grundsätzliche-bedienung",
-    "href": "Testcenter/Daten_Upload.html#grundsätzliche-bedienung",
-    "title": "Testcenter Daten Upload",
-    "section": "",
-    "text": "Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: Dateien, System-Check Berichte und Ergebnisse/ Antworten zu sehen. Die zu ladenden Testdateien können unter dem Reiter: Dateien mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.\nNach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:\n\nTeilnehmerlisten: Hier werden alle Dateien zur Studien-Definition gelistet.\nTesthefte: Hier werden alle Dateien zur Testheft-Definition gelistet.\nRessourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.\nUnits: Hier werden die Dateien zur Aufgaben-Defintion gelistet.\n\nManchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.\nDie Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:\n\ndie XML zur Aufgabendefinition (Unit-XML) bindet die Aufgabenressource (VOUD-Datei) mittels Dateinamen ein, außerdem wird der zu ladende Player mittels Playernamen eingebunden\ndie XML zur Testheft-Definition (Booklet-XML) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein\ndie XML zur Studien-Definition (Testtaker-XML) bindet die gewünschten Testhefte mittels Testheft-ID ein\n\n\n\n\n\n\nflowchart TD\n  A[Unit-VOUD] --&gt; |Dateiname| C[Unit-XML]\n  B[Player-HTML] --&gt; |Playername| C[Unit-XML]\n  C --&gt; |Unit-ID| E[Booklet-XML]\n  E --&gt; |Booklet-ID| F[Testtaker-XML]\n  1 --&gt; 2\n  2 --&gt; 3\n  3 --&gt; 4\n\n\n\n\n\n\nBeim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher auf die Reihenfolge (siehe Bild) beim Laden zu achten.\nSollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht. Um eine Datei zu löschen, ist die Datei zuvor zu markieren, anschließend kann die Schaltfläche zum Löschen betätigt werden.\n\n\n\n\n\n\nTipp\n\n\n\nEs ist möglich alle Testdateien gemeinsam verpackt in einer ZIP-Datei in das Testcenter zu laden. Dabei hält das Testcenter automatisch die entsprechende Reihenfolge ein.",
-    "crumbs": [
-      "Testcenter",
-      "Daten und Prozesse",
-      "Testcenter Daten Upload"
+      "Daten Upload"
     ]
   },
   {
     "objectID": "Testcenter/Daten_Upload.html#warnungen",
     "href": "Testcenter/Daten_Upload.html#warnungen",
-    "title": "Testcenter Daten Upload",
+    "title": "Daten Upload",
     "section": "Warnungen",
     "text": "Warnungen\nFile has no link to XSD-Schema\nEventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: Testfheft-Definition, Studien-Definition und Aufgaben-Definition befinden sich im GitHub-Repository der verwendeten Testcenter-Version in entsprechenden Unterordnern.\nDie Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Defintion wie folgt eingebunden:\n&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n&lt;Testtakers xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd\"&gt;\nOutdated or wrong version of XSD-schema\nIst die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Upload"
+      "Daten Upload"
     ]
   },
   {
     "objectID": "Testcenter/Daten_Upload.html#fehlermeldungen",
     "href": "Testcenter/Daten_Upload.html#fehlermeldungen",
-    "title": "Testcenter Daten Upload",
+    "title": "Daten Upload",
     "section": "Fehlermeldungen",
     "text": "Fehlermeldungen\nRessource not found\nSoll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Es sind dann zuvor die definierten Ressourcen zu laden.\nDuplicate Login\nIn der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Defintion, ob die darin enthaltenen Zugänge (name) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer*innen geändert werden oder die bereits vorhandene XML zur Studien-Defintion ist aus dem Testcenter zuvor zu entfernen.\n\n\n\n\n\n\nWichtig\n\n\n\nDas Löschen von XML-Dateien zur Studien-Definition kann aktuell laufende Studien unterbrechen! Die darin definierten Teilnehmer*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell ein aktiv laufende Studie definiert.\n\n\nDuplicate group\nIn der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer*innen Gruppen (group) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist aus dem Testcenter zuvor zu entfernen.\n\n\n\n\n\n\nWichtig\n\n\n\nDas Löschen von XML-Dateien zur Studien-Definition kann aktuell laufende Studien unterbrechen! Die darin definierten Teilnehmer*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell ein aktiv laufende Studie definiert.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Upload"
+      "Daten Upload"
     ]
   },
   {
     "objectID": "Testcenter/Daten_Upload.html#laden-spezieller-formate",
     "href": "Testcenter/Daten_Upload.html#laden-spezieller-formate",
-    "title": "Testcenter Daten Upload",
+    "title": "Daten Upload",
     "section": "Laden spezieller Formate",
     "text": "Laden spezieller Formate\nEinige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die GeoGebra-Elemente enthalten. Hierfür muss neben den Testdateien, die zu jeder Testung gehören, ein spezielles Paket mit der Endung .itcr.zip geladen werden. Das GeoGebra-Paket kann unter https://download.geogebra.org/package/geogebra-math-apps-bundle heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.\nDas Paket kann nicht mitausgeliefert werden, da GeoGebra diese Lizenz verwendet.",
     "crumbs": [
       "Testcenter",
       "Daten und Prozesse",
-      "Testcenter Daten Upload"
+      "Daten Upload"
     ]
   },
   {
