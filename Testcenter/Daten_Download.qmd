@@ -3,12 +3,149 @@ lang: de
 title: "Testcenter Daten Download"
 ---
 
-::: {.callout-note}
-In Bearbeitung THuste: to do
-
-* Überarbeiten Layout und Text
-
+::: {.callout-important}
+Der Modus der Studiendurchführung legt fest, ob Daten gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
 :::
+
+## Wie werden Daten erzeugt?
+
+Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Diese Daten werden zusammengefasst dargestellt in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine Id. **Der Datensatz mit den Daten zur Auswertung wird immer mit dem Namen der Gruppe erzeugt.**
+
+---
+
+Hier ein kleines Beispiel zum besseren Verständnis:
+
+Angenommen in der XML zur Studien-Definition sind zwei Gruppen angelegt:
+
+```{.xml .code-overflow-wrap}
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
+
+<Metadata>
+    <Description>
+    This file contains some logins for testing and works a a sample for developers.
+    </Description>
+</Metadata>
+
+<CustomTexts>
+    <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+</CustomTexts>
+
+<Group id="Gruppe1" label="Erste Gruppe">
+    <Login mode="run-hot-return" name="paul" pw="erds#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="sven" pw="ghtz#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="dieter" pw="wsds#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+</Group>
+<Group id="Gruppe2" label="Zweite Gruppe">
+    <Login mode="run-hot-return" name="katrin" pw="erss#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="thomas" pw="stdz#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="paula" pw="jkiu#">
+        <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+</Group>
+
+</Testtakers>
+```
+
+Paul meldet sich am Testcenter an und bearbeitet Aufgaben. Dann wird ein Datensatz mit dem Namen: **Erste Gruppe** erzeugt. Melden sich weiterhin Sven und Dieter an, wird der vorhandene Datensatz entsprechend um die gegebenen Antworten von Sven und Dieter erweitert.
+
+Melden sich Katrin, Thomas oder Paula am Testcenter an, wird ein weiterer Datensatz mit dem Namen: **Zweite Gruppe** erzeugt.
+
+----
+
+## Welche Daten werden erzeugt?
+
+Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:
+
+* Antworten: Hier sind alle gegebenen Antworten der Teilnehmer\*innen gespeichert.
+* Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
+* Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
+
+::: {.callout-note}
+Alle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe. 
+:::
+
+### Antworten
+
+Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:
+
+```{=html}
+<table>
+<tr>
+    <th><b>Spalte</b></th>
+    <th><b>Inhalt</b></th>
+</tr>  
+<tr>
+    <td>groupname</td>
+    <td>Id der Gruppe</td>
+</tr>
+<tr>
+    <td>loginname</td>
+    <td>Name des Logins</td>
+</tr>
+<tr>
+    <td>code</td>
+    <td>Eindeutiger Code wird dem Login-Namen zugeordnet. Hintergrund: Bei einem bestimmten Modus (<code>run-hot-restart</code>) startet der Test immer wieder von vorne, obwohl immer mit dem selben Login-Namen angemeldet wird. Es werden verschiedene Testpersonen angenommen. Um die Antworten unterscheiden zu können, wird in einem solchen Fall ein anderer Code zu dem Login-Namen erzeugt.</td>
+</tr>
+<tr>
+    <td>bookletname</td>
+    <td>Id des Testheftes</td>
+</tr>
+<tr>
+    <td>unitname</td>
+    <td>Id der Aufgabe</td>
+</tr>
+<tr>
+    <td>responses</td>
+    <td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt.</td>
+</tr>
+<tr>
+    <td>laststate</td>
+    <td>Hier wird der letzte Zustand des Players vermerkt</td>
+</tr>
+ 
+</table>
+```
+
+### Logs
+
+
+
+
+### Kommentare
+
+
+
+## Wie können die Daten heruntergeladen werden?
+
+Der gespeicherte Datensatz befindet sich nach Studienende in dem Arbeitsbereich, in dem sich auch die Testdateien zur Studie befinden.
+Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Unter dem Reiter: **Ergebnisse/ Antworten** ist der Datensatz zu finden. Diese Daten werden noch einmal unterteilt in:
+
+* Antworten: Hier sind alle gegebenen Antworten der Teilnehmer\*innen gespeichert.
+* Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
+* Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
+
+
+Zu Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.
+
+
+
+
+
+
+
+
+
 
 Es können Antwort- und Logdateien heruntergeladen werden. Diese werden im **Testcenter** in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.
 

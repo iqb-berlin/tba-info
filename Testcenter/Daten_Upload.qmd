@@ -5,20 +5,20 @@ title: "Testcenter Daten Upload"
 
 ## Grundsätzliche Bedienung
 
-Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Die zu ladenden Testdateien können unter dem Reiter: **Dateien** mittels einer entsprechenden eindeutigen Schaltfläche Dateien ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.
+Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Die zu ladenden Testdateien können unter dem Reiter: **Dateien** mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.
 
 Nach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:
 
-* Teilnehmerlisten: Hier werden alle Dateien zur Studiendefinition gelistet.
+* Teilnehmerlisten: Hier werden alle Dateien zur Studien-Definition gelistet.
 * Testhefte: Hier werden alle Dateien zur Testheft-Definition gelistet.
-* Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien, VOMD-Datei und GeoGebra-Pakete.
+* Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.
 * Units: Hier werden die Dateien zur Aufgaben-Defintion gelistet.
 
-Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden und erneut geladen werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien. Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
+Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
 
 Die Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:
 
-* die XML zur Aufgabendefinition (**Unit-XML**) bindet die Aufgabenressource (**VOUD-Datei**) mittels es Dateinamens ein, außerdem wird der zu ladende **Player** mittels Playernamen hier eingebunden
+* die XML zur Aufgabendefinition (**Unit-XML**) bindet die Aufgabenressource (**VOUD-Datei**) mittels Dateinamen ein, außerdem wird der zu ladende **Player** mittels Playernamen eingebunden
 * die XML zur Testheft-Definition (**Booklet-XML**) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein
 * die XML zur Studien-Definition (**Testtaker-XML**) bindet die gewünschten Testhefte mittels Testheft-ID ein
 
@@ -33,29 +33,56 @@ flowchart TD
   3 --> 4
 ```
 
-Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher darauf die Reihenfolge (siehe Bild) beim Laden zu beachten.
+Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher auf die Reihenfolge (siehe Bild) beim Laden zu achten.
 
-Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.
+Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht. Um eine Datei zu löschen, ist die Datei zuvor zu markieren, anschließend kann die Schaltfläche zum Löschen betätigt werden.
 
 ::: {.callout-tip}
 Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihenfolge ein.
 :::
 
-# Empfehlung: Verweis zur Validierung
+## Warnungen
 
-Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. Diese Warnung bedeutet, dass die XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schemadefinition) enthält. Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Das IQB stellt solche XSD-Dateien bereit. 
+**File has no link to XSD-Schema**
 
-Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Für die Unit-XML heißt das Hauptelement `Unit` und muss folgendermaßen geändert werden:
+Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Testfheft-Definition, Studien-Definition und Aufgaben-Definition** befinden sich im GitHub-Repository der verwendeten Testcenter-Version in entsprechenden Unterordnern.
+
+Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Defintion wie folgt eingebunden:
+
+```{.xml .code-overflow-wrap}
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd">
 
 ```
-<Unit 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation= "aktueller Pfad zur gültigen Schemadefintion">
-```
+**Outdated or wrong version of XSD-schema**
 
-Ein nützlicher Nebeneffekt hierbei ist, dass auch Editoren zur Bearbeitung von XML-Dateien (z. B. Notepad++, Sublime) nun eine Validierung vornehmen können. Man kann also bereits vor dem Hochladen eine Validierung bereits beim Schreiben einer XML-Datei vornehmen lassen.
+Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.
 
-# Laden spezieller Formate
-Einige Anwendungen erfordern zusätzliche Ressourcendateien. Dazu gehören bspw. Aufgaben, die **GeoGebra** Elemente enthalten. Hierfür muss neben den **Testdateien**, die zu jeder Testung gehören, ein spezielles Paket mit der Endung **.itcr.zip** geladen werden. 
-Das GeoGebra-Paket können Sie unter https://download.geogebra.org/package/geogebra-math-apps-bundle herunterladen. Nennen Sie es GeoGebra.itcr.zip, und laden Sie es in den selben Arbeitsbereich wie Ihre Aufgaben.
-Das Paket kann nicht mitausgeliefert werden, da [GeoGebra eine andere Open-Source-Lizenz als MIT](https://www.geogebra.org/license)`verwendet.
+
+## Fehlermeldungen
+
+**Ressource not found**
+
+Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Es sind dann zuvor die definierten Ressourcen zu laden.
+
+**Duplicate Login**
+
+In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Defintion, ob die darin enthaltenen Zugänge (`name`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene XML zur Studien-Defintion ist aus dem Testcenter zuvor zu entfernen.
+
+::: {.callout-important}
+Das Löschen von XML-Dateien zur Studien-Definition kann aktuell laufende Studien unterbrechen! Die darin definierten Teilnehmer\*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell ein aktiv laufende Studie definiert.
+:::
+
+**Duplicate group**
+
+In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer\*innen Gruppen (`group`) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist aus dem Testcenter zuvor zu entfernen.
+
+::: {.callout-important}
+Das Löschen von XML-Dateien zur Studien-Definition kann aktuell laufende Studien unterbrechen! Die darin definierten Teilnehmer\*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell ein aktiv laufende Studie definiert.
+:::
+
+## Laden spezieller Formate
+Einige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die **GeoGebra**-Elemente enthalten. Hierfür muss neben den **Testdateien**, die zu jeder Testung gehören, ein spezielles Paket mit der Endung **.itcr.zip** geladen werden. 
+Das GeoGebra-Paket kann unter [https://download.geogebra.org/package/geogebra-math-apps-bundle](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.
+
+Das Paket kann nicht mitausgeliefert werden, da GeoGebra [diese Lizenz](https://www.geogebra.org/license) verwendet.
