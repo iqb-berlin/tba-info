@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -154,8 +188,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Testcenter Daten Upload</span></a>
   </div>
 </li>
-      </ul>
-  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="sidebar-item-text sidebar-link">
@@ -166,12 +198,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Verwaltung_und_Organisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verwaltung und Organisation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Studien_Auswertung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Studien Auswertung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,6 +224,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Testen der Anwendung</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -332,7 +360,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#grundsätzliche-bedienung" id="toc-grundsätzliche-bedienung" class="nav-link active" data-scroll-target="#grundsätzliche-bedienung">Grundsätzliche Bedienung</a></li>
-  <li><a href="#empfehlung-verweis-zur-validierung" id="toc-empfehlung-verweis-zur-validierung" class="nav-link" data-scroll-target="#empfehlung-verweis-zur-validierung">Empfehlung: Verweis zur Validierung</a></li>
+  <li><a href="#warnungen" id="toc-warnungen" class="nav-link" data-scroll-target="#warnungen">Warnungen</a></li>
+  <li><a href="#fehlermeldungen" id="toc-fehlermeldungen" class="nav-link" data-scroll-target="#fehlermeldungen">Fehlermeldungen</a></li>
   <li><a href="#laden-spezieller-formate" id="toc-laden-spezieller-formate" class="nav-link" data-scroll-target="#laden-spezieller-formate">Laden spezieller Formate</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -361,18 +390,18 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="grundsätzliche-bedienung" class="level2">
 <h2 class="anchored" data-anchor-id="grundsätzliche-bedienung">Grundsätzliche Bedienung</h2>
-<p>Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: <strong>Dateien</strong>, <strong>System-Check Berichte</strong> und <strong>Ergebnisse/ Antworten</strong> zu sehen. Die zu ladenden Testdateien können unter dem Reiter: <strong>Dateien</strong> mittels einer entsprechenden eindeutigen Schaltfläche Dateien ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.</p>
+<p>Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: <strong>Dateien</strong>, <strong>System-Check Berichte</strong> und <strong>Ergebnisse/ Antworten</strong> zu sehen. Die zu ladenden Testdateien können unter dem Reiter: <strong>Dateien</strong> mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.</p>
 <p>Nach dem Laden von Testdateien, werden diese automatisch von Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:</p>
 <ul>
-<li>Teilnehmerlisten: Hier werden alle Dateien zur Studiendefinition gelistet.</li>
+<li>Teilnehmerlisten: Hier werden alle Dateien zur Studien-Definition gelistet.</li>
 <li>Testhefte: Hier werden alle Dateien zur Testheft-Definition gelistet.</li>
-<li>Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien, VOMD-Datei und GeoGebra-Pakete.</li>
+<li>Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.</li>
 <li>Units: Hier werden die Dateien zur Aufgaben-Defintion gelistet.</li>
 </ul>
-<p>Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden und erneut geladen werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien. Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.</p>
+<p>Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Testfheft-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.</p>
 <p>Die Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:</p>
 <ul>
-<li>die XML zur Aufgabendefinition (<strong>Unit-XML</strong>) bindet die Aufgabenressource (<strong>VOUD-Datei</strong>) mittels es Dateinamens ein, außerdem wird der zu ladende <strong>Player</strong> mittels Playernamen hier eingebunden</li>
+<li>die XML zur Aufgabendefinition (<strong>Unit-XML</strong>) bindet die Aufgabenressource (<strong>VOUD-Datei</strong>) mittels Dateinamen ein, außerdem wird der zu ladende <strong>Player</strong> mittels Playernamen eingebunden</li>
 <li>die XML zur Testheft-Definition (<strong>Booklet-XML</strong>) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein</li>
 <li>die XML zur Studien-Definition (<strong>Testtaker-XML</strong>) bindet die gewünschten Testhefte mittels Testheft-ID ein</li>
 </ul>
@@ -395,8 +424,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher darauf die Reihenfolge (siehe Bild) beim Laden zu beachten.</p>
-<p>Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.</p>
+<p>Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Booklet-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Booklet-XML. Es ist daher auf die Reihenfolge (siehe Bild) beim Laden zu achten.</p>
+<p>Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht. Um eine Datei zu löschen, ist die Datei zuvor zu markieren, anschließend kann die Schaltfläche zum Löschen betätigt werden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -411,18 +440,55 @@ Tipp
 </div>
 </div>
 </section>
-<section id="empfehlung-verweis-zur-validierung" class="level1">
-<h1>Empfehlung: Verweis zur Validierung</h1>
-<p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. Diese Warnung bedeutet, dass die XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schemadefinition) enthält. Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Das IQB stellt solche XSD-Dateien bereit.</p>
-<p>Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Für die Unit-XML heißt das Hauptelement <code>Unit</code> und muss folgendermaßen geändert werden:</p>
-<pre><code>&lt;Unit 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation= "aktueller Pfad zur gültigen Schemadefintion"&gt;</code></pre>
-<p>Ein nützlicher Nebeneffekt hierbei ist, dass auch Editoren zur Bearbeitung von XML-Dateien (z. B. Notepad++, Sublime) nun eine Validierung vornehmen können. Man kann also bereits vor dem Hochladen eine Validierung bereits beim Schreiben einer XML-Datei vornehmen lassen.</p>
+<section id="warnungen" class="level2">
+<h2 class="anchored" data-anchor-id="warnungen">Warnungen</h2>
+<p><strong>File has no link to XSD-Schema</strong></p>
+<p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: <strong>Testfheft-Definition, Studien-Definition und Aufgaben-Definition</strong> befinden sich im GitHub-Repository der verwendeten Testcenter-Version in entsprechenden Unterordnern.</p>
+<p>Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Defintion wie folgt eingebunden:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Outdated or wrong version of XSD-schema</strong></p>
+<p>Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.</p>
 </section>
-<section id="laden-spezieller-formate" class="level1">
-<h1>Laden spezieller Formate</h1>
-<p>Einige Anwendungen erfordern zusätzliche Ressourcendateien. Dazu gehören bspw. Aufgaben, die <strong>GeoGebra</strong> Elemente enthalten. Hierfür muss neben den <strong>Testdateien</strong>, die zu jeder Testung gehören, ein spezielles Paket mit der Endung <strong>.itcr.zip</strong> geladen werden. Das GeoGebra-Paket können Sie unter https://download.geogebra.org/package/geogebra-math-apps-bundle herunterladen. Nennen Sie es GeoGebra.itcr.zip, und laden Sie es in den selben Arbeitsbereich wie Ihre Aufgaben. Das Paket kann nicht mitausgeliefert werden, da <a href="https://www.geogebra.org/license">GeoGebra eine andere Open-Source-Lizenz als MIT</a>`verwendet.</p>
+<section id="fehlermeldungen" class="level2">
+<h2 class="anchored" data-anchor-id="fehlermeldungen">Fehlermeldungen</h2>
+<p><strong>Ressource not found</strong></p>
+<p>Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Es sind dann zuvor die definierten Ressourcen zu laden.</p>
+<p><strong>Duplicate Login</strong></p>
+<p>In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Defintion, ob die darin enthaltenen Zugänge (<code>name</code>) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer*innen geändert werden oder die bereits vorhandene XML zur Studien-Defintion ist aus dem Testcenter zuvor zu entfernen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das Löschen von XML-Dateien zur Studien-Definition kann aktuell laufende Studien unterbrechen! Die darin definierten Teilnehmer*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell ein aktiv laufende Studie definiert.</p>
+</div>
+</div>
+<p><strong>Duplicate group</strong></p>
+<p>In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer*innen Gruppen (<code>group</code>) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist aus dem Testcenter zuvor zu entfernen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das Löschen von XML-Dateien zur Studien-Definition kann aktuell laufende Studien unterbrechen! Die darin definierten Teilnehmer*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell ein aktiv laufende Studie definiert.</p>
+</div>
+</div>
+</section>
+<section id="laden-spezieller-formate" class="level2">
+<h2 class="anchored" data-anchor-id="laden-spezieller-formate">Laden spezieller Formate</h2>
+<p>Einige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die <strong>GeoGebra</strong>-Elemente enthalten. Hierfür muss neben den <strong>Testdateien</strong>, die zu jeder Testung gehören, ein spezielles Paket mit der Endung <strong>.itcr.zip</strong> geladen werden. Das GeoGebra-Paket kann unter <a href="https://download.geogebra.org/package/geogebra-math-apps-bundle">https://download.geogebra.org/package/geogebra-math-apps-bundle</a> heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.</p>
+<p>Das Paket kann nicht mitausgeliefert werden, da GeoGebra <a href="https://www.geogebra.org/license">diese Lizenz</a> verwendet.</p>
 
 
 </section>
