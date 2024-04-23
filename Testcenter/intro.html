@@ -140,8 +140,11 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">Testcenter/Daten_Download_und_Auswertung.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Daten_Download_und_Auswertung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Daten Download und Auswertung</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Daten_Upload.html" class="sidebar-item-text sidebar-link">
@@ -257,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aufgaben-Definition (Unit-XML)</span></a>
+ <span class="menu-text">XML zur Aufgaben-Definition (Unit-XML)</span></a>
   </div>
 </li>
       </ul>
@@ -363,7 +366,7 @@ Codeverwaltung Testcenter
 <p><a href="https://github.com/iqb-berlin/testcenter">GitHub Repository</a><br> <a href="https://github.com/iqb-berlin/testcenter/releases">Releases</a></p>
 </div>
 </div>
-<p>Das IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d.&nbsp;h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zur Anmeldung. Alle Daten für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.</p>
+<p>Das IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d.&nbsp;h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zur Anmeldung. Alle Daten (Testdateien) für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal des Testcenters erfolgen oder über andere Webanwendungen, die auf den Server mit einer definierten Schnittstelle zugreifen.</p>
 <p>Das IQB bietet folgende <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testcenter-Videos">Video-Präsentationen</a> bzgl. des Testcenters an.</p>
 <section id="installation" class="level1">
 <h1>Installation</h1>
@@ -371,12 +374,11 @@ Codeverwaltung Testcenter
 </section>
 <section id="verwaltung-der-tests" class="level1">
 <h1>Verwaltung der Tests</h1>
-<p>Nach der Installation ist zunächst ein Systemadministrator-Konto für die Verwaltung von Arbeitsbereichen und Benutzer*innen angelegt. Außerdem ist ein Arbeitsbereich angelegt mit einem Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für die Benutzer*innen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können die Benutzer*innen die für einen Test erforderlichen Testdateien (Aufgaben, Testabläufe usw. als XML-Dateien) laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse heruntergeladen werden (Csv-Dateien).</p>
-<p>:information_source: Benutzer*innen können mittels spezieller Parameter in einzelnen Testdateien Anpassungen der Anwendung vornehmen. Hier können dann bspw. Begrüßungsnachrichten, Hintergrundfarben, das Logo auf der Startseite und selbst der Name der Anwendung bzgl. eigener Wünsche angepasst werden.</p>
+<p>Nach der Installation ist zunächst ein Systemadministrator*in-Konto für die Verwaltung von Arbeitsbereichen und Personen angelegt. Außerdem ist bereits ein Arbeitsbereich angelegt mit Dateien für einen Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für einzelne Personen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können diese dann die erforderlichen Testdateien für ein Test laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse des Tests heruntergeladen werden (Csv-Dateien).</p>
 </section>
 <section id="durchführung-von-tests-oder-befragungen" class="level1">
 <h1>Durchführung von Tests oder Befragungen</h1>
-<p>Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien, der so genannten <strong>Testtaker.xml</strong>, hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Units). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:</p>
+<p>Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Aufgaben). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:</p>
 <ul>
 <li>Verschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, spezieller Modus für das Ausprobieren eines Tests (Review) usw.</li>
 <li>Mehrere Testhefte: Eine Testperson kann auch mehrere Testhefte nacheinander bearbeiten mit denselben Anmeldedaten</li>

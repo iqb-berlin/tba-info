@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB TBA-Info - Daten Download</title>
+<title>IQB TBA-Info - Daten Download und Auswertung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../Testcenter/Daten_Upload.html" rel="next">
+<link href="../Testcenter/Daten_und_Prozesse.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -129,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Daten Download</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_Download_und_Auswertung.html">Daten Download und Auswertung</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -157,23 +159,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../Testcenter/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testcenter</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten und Prozesse</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
- <span class="menu-text">Testcenter/Daten_Download_und_Auswertung.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Daten_Download_und_Auswertung.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Daten Download und Auswertung</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Daten_Upload.html" class="sidebar-item-text sidebar-link">
@@ -289,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aufgaben-Definition (Unit-XML)</span></a>
+ <span class="menu-text">XML zur Aufgaben-Definition (Unit-XML)</span></a>
   </div>
 </li>
       </ul>
@@ -352,23 +357,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#wie-werden-daten-erzeugt" id="toc-wie-werden-daten-erzeugt" class="nav-link active" data-scroll-target="#wie-werden-daten-erzeugt">Wie werden Daten erzeugt?</a></li>
-  <li><a href="#welche-daten-werden-erzeugt" id="toc-welche-daten-werden-erzeugt" class="nav-link" data-scroll-target="#welche-daten-werden-erzeugt">Welche Daten werden erzeugt?</a>
-  <ul class="collapse">
-  <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
-  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
-  <li><a href="#kommentare" id="toc-kommentare" class="nav-link" data-scroll-target="#kommentare">Kommentare</a></li>
-  </ul></li>
+  <li><a href="#welche-daten-werden-erzeugt" id="toc-welche-daten-werden-erzeugt" class="nav-link" data-scroll-target="#welche-daten-werden-erzeugt">Welche Daten werden erzeugt?</a></li>
   <li><a href="#wie-können-die-daten-heruntergeladen-werden" id="toc-wie-können-die-daten-heruntergeladen-werden" class="nav-link" data-scroll-target="#wie-können-die-daten-heruntergeladen-werden">Wie können die Daten heruntergeladen werden?</a></li>
-  <li><a href="#aufbereitung" id="toc-aufbereitung" class="nav-link" data-scroll-target="#aufbereitung">Aufbereitung</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_und_Prozesse.html">Daten und Prozesse</a></li><li class="breadcrumb-item"><a href="../Testcenter/Daten_Download_und_Auswertung.html">Daten Download und Auswertung</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Daten Download</h1>
+<h1 class="title">Daten Download und Auswertung</h1>
 </div>
 
 
@@ -466,8 +465,9 @@ Hinweis
 <p>Alle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe.</p>
 </div>
 </div>
-<section id="antworten" class="level3">
-<h3 class="anchored" data-anchor-id="antworten">Antworten</h3>
+<section id="antworten" class="level4">
+<h4 class="anchored" data-anchor-id="antworten">Antworten</h4>
+<p>Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Sepzifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen sind <a href="https://github.com/iqb-berlin/verona-data-specifications">hier</a> zu finden.</p>
 <p>Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:</p>
 <div>
 <table data-quarto-postprocess="true" class="table">
@@ -508,50 +508,49 @@ Hinweis
 </table>
 </div>
 </section>
-<section id="logs" class="level3">
-<h3 class="anchored" data-anchor-id="logs">Logs</h3>
+<section id="logs" class="level4">
+<h4 class="anchored" data-anchor-id="logs">Logs</h4>
+<p>Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:</p>
+<ul>
+<li>Version des Betriebssystems und des Browsers</li>
+<li>Verweildauer auf einer Seite</li>
+<li>Zeitpunkt des Beendens der Beantwortung</li>
+<li>Zustand des Players</li>
+</ul>
 </section>
-<section id="kommentare" class="level3">
-<h3 class="anchored" data-anchor-id="kommentare">Kommentare</h3>
+<section id="kommentare" class="level4">
+<h4 class="anchored" data-anchor-id="kommentare">Kommentare</h4>
+<p>Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder einzelnen Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:</p>
+<ul>
+<li>Name der Person, die den Kommentar gibt</li>
+<li>Auswahl ob der Kommentar sich auf die aktuell betrachtete Aufgabe oder auf das gesamte Testheft bezieht</li>
+<li>Priorität (dringend, mittelfristig, optional)</li>
+<li>Kategorie (technisches, inhaltliches, gestalterisches)</li>
+<li>der eigentliche Kommentar</li>
+</ul>
+<p>Alle diese Felder sind auch in der heruntergeladenen CSV wiederzufinden.</p>
+</section>
+<section id="system-check-berichte" class="level4">
+<h4 class="anchored" data-anchor-id="system-check-berichte">System-Check Berichte</h4>
+<p>Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann dann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.</p>
+<p>Mehr dazu ist dem Kapitel: <strong>System-Check</strong> zu entnehmen.</p>
 </section>
 </section>
 <section id="wie-können-die-daten-heruntergeladen-werden" class="level2">
 <h2 class="anchored" data-anchor-id="wie-können-die-daten-heruntergeladen-werden">Wie können die Daten heruntergeladen werden?</h2>
-<p>Der gespeicherte Datensatz befindet sich nach Studienende in dem Arbeitsbereich, in dem sich auch die Testdateien zur Studie befinden. Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: <strong>Dateien</strong>, <strong>System-Check Berichte</strong> und <strong>Ergebnisse/ Antworten</strong> zu sehen. Unter dem Reiter: <strong>Ergebnisse/ Antworten</strong> ist der Datensatz zu finden. Diese Daten werden noch einmal unterteilt in:</p>
+<p>Der gespeicherte Datensatz befindet sich nach Studienende in dem Arbeitsbereich, in dem sich auch die Testdateien zur Studie befinden. Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: <strong>Dateien</strong>, <strong>System-Check Berichte</strong> und <strong>Ergebnisse/ Antworten</strong> zu sehen. Unter dem Reiter: <strong>Ergebnisse/ Antworten</strong> ist der Datensatz zu finden. Diese Daten werden wie vorgehend beschrieben unterteilt in:</p>
 <ul>
 <li>Antworten: Hier sind alle gegebenen Antworten der Teilnehmer*innen gespeichert.</li>
 <li>Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr</li>
 <li>Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden</li>
 </ul>
-<p>Zu Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.</p>
-<p>Es können Antwort- und Logdateien heruntergeladen werden. Diese werden im <strong>Testcenter</strong> in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.</p>
+<p>Zum Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="TC_Download.png" class="img-fluid figure-img"></p>
-<figcaption>Testcenter Daten-Download</figcaption>
+<p><img src="../Testcenter/TC_DatenDownload.png" class="img-fluid figure-img"></p>
+<figcaption>Datensatz: Antworten, Logs und Kommentare herunterladen</figcaption>
 </figure>
 </div>
-<blockquote class="blockquote">
-<p><strong>Es werden nicht in jedem Testmodus Ergebnisse gespeichert. Die Speicherung erfolgt nur in folgenden Modi: <code>run-hot-return</code>, <code>run-hot-restart</code> und <code>run-trial</code>!</strong></p>
-</blockquote>
-<p>Die Ergebnisse können mittels der üblichen Browserfunktionalitäten heruntergeladen werden. Die Dateien werden dann als CSV-Dateien gespeichert.</p>
-</section>
-<section id="aufbereitung" class="level1">
-<h1>Aufbereitung</h1>
-<p>Durch den modularen Aufbau des Testsystems ist die Komponente, die die Interaktion mit der Testperson steuert, austauschbar. Laut <a href="https://verona-interfaces.github.io/">Verona-Spezifikation</a> ist das Datenformat der Antworten und Logs nicht vorgeschrieben. Das liegt z. B. daran, dass Antworten nicht nur einfache Datentypen sein können (Text, Zahl), sondern auch Listen, Bilder, Ton usw. Das Interesse an Zusatzinformationen (Zustände über die Zeit) mag auch schwanken je nachdem, ob eine Pilotierung (Kennenlernen von Itemeigenschaften) oder eine große automatisierte Testung durchgeführt wird.</p>
-<p>Wenn man die Antwortdaten herunterlädt, sind die Antworten in einer bestimmten Spalte in einem Roh-Format JSON hinterlegt, so wie der Player sie geschickt hatte. Die Verona-Schnittstelle sieht vor, dass die Antwortdaten aufgeteilt werden können in mehrere sog. Parts oder Chunks. Im folgenden Beispiel hat der Player nur einen Chunk geschickt (mit der ID ‘all’) und die Antwortdaten als JSON-Struktur (verpackt als String). Außerdem ist das Datenformat und ein JavaScript-Zeitstempel (ts = TimeStamp) hinterlegt.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"id"</span><span class="fu">:</span><span class="st">"all"</span><span class="fu">,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"content"</span><span class="fu">:</span><span class="st">"{</span><span class="ch">\"</span><span class="st">name</span><span class="ch">\"</span><span class="st">:</span><span class="ch">\"</span><span class="st">Sam Sample</span><span class="ch">\"</span><span class="st">,</span><span class="ch">\"</span><span class="st">age</span><span class="ch">\"</span><span class="st">:34}"</span><span class="fu">,</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"ts"</span><span class="fu">:</span><span class="dv">1627545600</span><span class="fu">,</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"responseType"</span><span class="fu">:</span><span class="st">"example-data-format"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Für viele Anwendungsfälle mag das ausreichen: Einfache Umformungsfunktionen in Excel oder R liefern die Informationen in einem sinnvollen Format. Für komplexe Antwortformate müssen jedoch spezielle Programmierungen die Umformung vornehmen. Das IQB hat für seine beiden Antwortformate <a href="https://github.com/iqb-berlin/verona-data-specifications/blob/main/responses/manual_iqb-standard.md"><code>iqb-standard</code></a> und <a href="https://github.com/iqb-berlin/verona-player-abi/blob/master/docs/key-value.md"><code>iqb-abi</code></a> das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox#readme">itc-Toolbox</a> veröffentlicht. Die Antwortdaten aller Player des IQB können hierüber in eine gut auswertbare Form gebracht werden.</p>
-<blockquote class="blockquote">
-<p>In der <a href="https://iqb-berlin.github.io/testcenter-backend/api/#tag/admin-download/paths/~1workspace~1%7Bws_id%7D~1report~1response/get">Dokumentation des API des Testcenters</a> kann man nachlesen, dass über den Endpunkt, der die Antworten ausliefert, auch JSON als Format gewählt werden kann statt CSV. Das ist dann für die Datenintegration in Länderportale wahrscheinlich günstiger.</p>
-</blockquote>
 
 
 </section>
@@ -973,6 +972,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Testcenter/Daten_und_Prozesse.html" class="pagination-link" aria-label="Daten und Prozesse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Daten und Prozesse</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Testcenter/Daten_Upload.html" class="pagination-link" aria-label="Daten Upload">
+        <span class="nav-page-text">Daten Upload</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

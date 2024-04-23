@@ -174,8 +174,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">Testcenter/Daten_Download_und_Auswertung.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Daten_Download_und_Auswertung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Daten Download und Auswertung</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Daten_Upload.html" class="sidebar-item-text sidebar-link">
@@ -291,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aufgaben-Definition (Unit-XML)</span></a>
+ <span class="menu-text">XML zur Aufgaben-Definition (Unit-XML)</span></a>
   </div>
 </li>
       </ul>
@@ -405,7 +408,7 @@ Ein einführendes Beispiel
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Metadata</span>&gt;</span>
@@ -472,7 +475,7 @@ Ein einführendes Beispiel
 </div>
 </div>
 </div>
-<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.</strong></p>
+<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.</strong></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -500,7 +503,7 @@ Wichtig
 </div>
 </div>
 <p>Die Schema-Definition wird mit Hauptelement: <code>Testtakers</code> mittels der Attribute: <code>xmlns:xsi</code>und <code>xsi</code>eingebunden.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Metadata</span>&gt;</span>
@@ -534,98 +537,84 @@ Wichtig
 <table data-quarto-postprocess="true" class="table">
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th"><strong>Hauptelement</strong></td>
-<td data-quarto-table-cell-role="th"><strong>Unterlement</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Element</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Datum</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
 </tr>
 <tr class="even">
-<td><code>Testtakers</code></td>
 <td><code>Metadata</code></td>
 <td></td>
 <td></td>
 <td>Keine Attribute, keine Daten</td>
 </tr>
 <tr class="odd">
-<td><code>Metadata</code></td>
 <td><code>Describtion</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>Text frei wählbar</td>
 </tr>
 <tr class="even">
-<td><code>Testtakers</code></td>
 <td><code>CustomTexts</code></td>
 <td></td>
 <td></td>
 <td>Mehr Informationen dazu sind im Abschnitt: **Textersetzungen** zu finden.</td>
 </tr>
 <tr class="odd">
-<td><code>Testtakers</code></td>
 <td><code>Group</code></td>
 <td>id</td>
 <td></td>
 <td>frei wählbarer Wert</td>
 </tr>
 <tr class="even">
-<td><code>Testtakers</code></td>
 <td><code>Group</code></td>
 <td>label</td>
 <td></td>
 <td>frei wählbarer Wert</td>
 </tr>
 <tr class="odd">
-<td><code>Testtakers</code></td>
 <td><code>Group</code></td>
 <td>validTo</td>
 <td></td>
 <td>Bestimmt wie lange ein Zugang gültig ist. Frei wählbarer Wert im Format: dd/mm/yyyy hh:mm</td>
 </tr>
 <tr class="even">
-<td><code>Testtakers</code></td>
 <td><code>Group</code></td>
 <td>validFrom</td>
 <td></td>
 <td>Bestimmt ab wann ein Zugang gültig ist. Frei wählbarer Wert im Format: dd/mm/yyyy hh:mm</td>
 </tr>
 <tr class="odd">
-<td><code>Testtakers</code></td>
 <td><code>Group</code></td>
 <td>validFor</td>
 <td></td>
 <td>Bestimmt einen Zeitraum für einen Zugang. Frei wählbarer Minutenwert im Format: Integer</td>
 </tr>
 <tr class="even">
-<td><code>Group</code></td>
 <td><code>Login</code></td>
 <td>name</td>
 <td></td>
 <td>Frei wählbarer Wert. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
 </tr>
 <tr class="odd">
-<td><code>Group</code></td>
 <td><code>Login</code></td>
 <td>mode</td>
 <td></td>
 <td>Vordefinierter Wert. Bestimmt wie ein Test ablaufen soll (finaler Test oder Probetest etc.). Weiteres ist den Referenzen: <strong>Modi der Testdurchführung</strong> zu entnehmen</td>
 </tr>
 <tr class="even">
-<td><code>Group</code></td>
 <td><code>Login</code></td>
 <td>pw</td>
 <td></td>
 <td>Frei wählbares Passwort. Wird zur Anmeldung am Testcenter benötigt, um entsprechend des gewählten Testmodi einen Test durchzuführen.</td>
 </tr>
 <tr class="odd">
-<td><code>Login</code></td>
 <td><code>Booklet</code></td>
 <td>code</td>
 <td></td>
 <td>Frei wählbarer Wert. Die ID in der Booklet.xml muss den selben Namen tragen (Groß-/Kleinschreibung beachten!)</td>
 </tr>
 <tr class="even">
-<td><code>Login</code></td>
 <td><code>Booklet</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
@@ -638,7 +627,7 @@ Wichtig
 <section id="textersetzungen" class="level2">
 <h2 class="anchored" data-anchor-id="textersetzungen">Textersetzungen</h2>
 <p>Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen und somit individuelle Texte zu schaffen. Welche Textteile innerhalb der Anwendung ersetzt werden sollen, wird mit den Attributen des nachfolgenden Elements festgelegt.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomTexts</span>&gt;</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
@@ -649,28 +638,24 @@ Wichtig
 <table data-quarto-postprocess="true" class="table">
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th"><strong>Hauptelement</strong></td>
-<td data-quarto-table-cell-role="th"><strong>Unterelement</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Element</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Datum</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
 </tr>
 <tr class="even">
-<td><code>Testtakers</code></td>
 <td><code>CustomTexts</code></td>
 <td></td>
 <td></td>
 <td>Keine Daten, keine Attribute.</td>
 </tr>
 <tr class="odd">
-<td><code>CustomTexts</code></td>
 <td><code>CustomText</code></td>
 <td>key</td>
 <td></td>
 <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <strong>Custom Text Configuration.</strong></td>
 </tr>
 <tr class="even">
-<td><code>CustomTexts</code></td>
 <td><code>CustomText</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
@@ -710,7 +695,7 @@ Wichtig
 <h2 class="anchored" data-anchor-id="gruppenmonitoring">Gruppenmonitoring</h2>
 <p>Der Gruppenmonitor kann in der Testtaker-XML über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: <code>monitor-group</code> und <code>monitor-study</code>. Im Modus: <code>monitor-group</code> können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: <code>monitor-study</code> können alle Logins in allen Gruppen gesteuert werden.</p>
 <p>Hier ein Beispiel:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> validFrom=</span><span class="st">"1/3/2024 10:00"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test"</span>&gt;</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>

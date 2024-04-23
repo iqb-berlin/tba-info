@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB TBA-Info - Aufgaben-Definition (Unit-XML)</title>
+<title>IQB TBA-Info - XML zur Aufgaben-Definition (Unit-XML)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Referenzen/Aufgabenkodierung.html">Referenzen</a></li><li class="breadcrumb-item"><a href="../Referenzen/XML_zur_Aufgaben_Definition.html">Aufgaben-Definition (Unit-XML)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Referenzen/Aufgabenkodierung.html">Referenzen</a></li><li class="breadcrumb-item"><a href="../Referenzen/XML_zur_Aufgaben_Definition.html">XML zur Aufgaben-Definition (Unit-XML)</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -174,8 +174,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">Testcenter/Daten_Download_und_Auswertung.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Daten_Download_und_Auswertung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Daten Download und Auswertung</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Daten_Upload.html" class="sidebar-item-text sidebar-link">
@@ -291,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Aufgaben-Definition (Unit-XML)</span></a>
+ <span class="menu-text">XML zur Aufgaben-Definition (Unit-XML)</span></a>
   </div>
 </li>
       </ul>
@@ -361,9 +364,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Referenzen/Aufgabenkodierung.html">Referenzen</a></li><li class="breadcrumb-item"><a href="../Referenzen/XML_zur_Aufgaben_Definition.html">Aufgaben-Definition (Unit-XML)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Referenzen/Aufgabenkodierung.html">Referenzen</a></li><li class="breadcrumb-item"><a href="../Referenzen/XML_zur_Aufgaben_Definition.html">XML zur Aufgaben-Definition (Unit-XML)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Aufgaben-Definition (Unit-XML)</h1>
+<h1 class="title">XML zur Aufgaben-Definition (Unit-XML)</h1>
 </div>
 
 
@@ -402,7 +405,7 @@ Ein einführendes Beispiel
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd"</span>&gt;</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd"</span>&gt;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T12:46:46.166Z"</span>&gt;</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;Aufgabe01&lt;/<span class="kw">Id</span>&gt;</span>
@@ -436,7 +439,7 @@ Ein einführendes Beispiel
 </div>
 </div>
 </div>
-<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.</strong></p>
+<p>Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. <strong>Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.</strong></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -464,110 +467,92 @@ Wichtig
 </div>
 </div>
 <p>Die Schema-Definition wird mit Hauptelement: <code>Unit</code> mittels der Attribute: <code>xmlns:xsi</code>und <code>xsi</code>eingebunden.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd"</span>&gt;</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd"</span>&gt;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T12:46:46.166Z"</span>&gt;</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;Aufgabe01&lt;/<span class="kw">Id</span>&gt;</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;Aufgabe01&lt;/<span class="kw">Label</span>&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">DefinitionRef</span><span class="ot"> player=</span><span class="st">"iqb-player-aspect@2.2"</span><span class="ot"> editor=</span><span class="st">"iqb-editor-aspect@2.2"</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T13:11:54.017Z"</span>&gt;Aufgabe01.voud&lt;/<span class="kw">DefinitionRef</span>&gt;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">BaseVariables</span>&gt; </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">BaseVariables</span>&gt;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CodingSchemeRef</span><span class="ot"> schemer=</span><span class="st">""</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T12:33:25.198Z"</span>/&gt;</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Unit</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Description</span>&gt;Hier steht eine Beschreibung der Aufgabeninhalte&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">DefinitionRef</span><span class="ot"> player=</span><span class="st">"iqb-player-aspect@2.2"</span><span class="ot"> editor=</span><span class="st">"iqb-editor-aspect@2.2"</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T13:11:54.017Z"</span>&gt;Aufgabe01.voud&lt;/<span class="kw">DefinitionRef</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">BaseVariables</span>&gt; </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">BaseVariables</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CodingSchemeRef</span><span class="ot"> schemer=</span><span class="st">""</span><span class="ot"> lastChange=</span><span class="st">"2023-12-07T12:33:25.198Z"</span>/&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Unit</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div>
 <table data-quarto-postprocess="true" class="table">
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th"><strong>Hauptelement</strong></td>
-<td data-quarto-table-cell-role="th"><strong>Unterlement</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Element</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Datum</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
 </tr>
 <tr class="even">
-<td><code>Unit</code></td>
 <td><code>Metadata</code></td>
 <td>lastChange</td>
 <td></td>
 <td>enthält den Zeitstempel der letzten Änderungen</td>
 </tr>
 <tr class="odd">
-<td><code>Metadata</code></td>
 <td><code>Id</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>Frei wählbarer Text für die Id. Die Id sollte eindeutig und knapp sein. Über diese Id wird die Aufgabe in einem Testheft eingebunden.</td>
 </tr>
 <tr class="even">
-<td><code>Metadata</code></td>
 <td><code>Label</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>Frei wählbarer Text. Das Label kann auch während er Studiendurchführung angezeigt werden.</td>
 </tr>
 <tr class="odd">
-<td><code>Metadata</code></td>
 <td><code>Description</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>Frei wählbarer Text.</td>
 </tr>
 <tr class="even">
-<td><code>Metadata</code></td>
-<td><code>Reference</code></td>
-<td></td>
-<td></td>
-<td>Aktuell keine Verwendung</td>
-</tr>
-<tr class="odd">
-<td><code>Unit</code></td>
 <td><code>DefinitionRef</code></td>
 <td>player</td>
 <td></td>
 <td>Angaben zur Player-Ressource.</td>
 </tr>
-<tr class="even">
-<td><code>Unit</code></td>
+<tr class="odd">
 <td><code>DefinitionRef</code></td>
 <td>editor</td>
 <td></td>
 <td>Angaben zum verwendeten Editor.</td>
 </tr>
-<tr class="odd">
-<td><code>Unit</code></td>
+<tr class="even">
 <td><code>DefinitionRef</code></td>
 <td>lastChange</td>
 <td></td>
 <td>Zeitstempel der letzten Änderungen</td>
 </tr>
-<tr class="even">
-<td><code>Unit</code></td>
+<tr class="odd">
 <td><code>DefinitionRef</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>Name der Aufgaben-Ressource. Dieser muss exakt so geschrieben sein, wie der Dateiname der Aufgaben-Ressource.</td>
 </tr>
-<tr class="odd">
-<td><code>Unit</code></td>
+<tr class="even">
 <td><code>BaseVariables</code></td>
 <td></td>
 <td></td>
 <td>Mehr hierzu ist dem Abschnitt: <strong>Variablen zur Kodierung</strong> zu entnehmen.</td>
 </tr>
-<tr class="even">
-<td><code>Unit</code></td>
+<tr class="odd">
 <td><code>CodingSchemeRef</code></td>
 <td>schemer</td>
 <td></td>
 <td>Angaben zur verwendeten Schemer-Modul Version</td>
 </tr>
-<tr class="odd">
-<td><code>Unit</code></td>
+<tr class="even">
 <td><code>CodingSchemeRef</code></td>
 <td>lastChange</td>
 <td></td>
@@ -609,7 +594,7 @@ Hinweis
 </div>
 </div>
 <p>Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: <code>BaseVariables</code> ausgegeben. Die Variablen werden im Testcenter verwendet um Gewichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span>&gt;</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span>&gt;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">BaseVariables</span>&gt; </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Variable</span><span class="ot"> id=</span><span class="st">"radio_2"</span><span class="ot"> type=</span><span class="st">"integer"</span><span class="ot"> format=</span><span class="st">""</span><span class="ot"> nullable=</span><span class="st">"true"</span><span class="ot"> multiple=</span><span class="st">"false"</span>&gt;</span>
@@ -631,77 +616,66 @@ Hinweis
 <table data-quarto-postprocess="true" class="table">
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th"><strong>Hauptelement</strong></td>
-<td data-quarto-table-cell-role="th"><strong>Unterlement</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Element</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Datum</strong></td>
 <td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
 </tr>
 <tr class="even">
-<td><code>Unit</code></td>
 <td><code>BaseVariables</code></td>
 <td></td>
 <td></td>
 <td>keine Daten, keine Attribute</td>
 </tr>
 <tr class="odd">
-<td><code>BaseVariables</code></td>
 <td><code>Variable</code></td>
 <td>id</td>
 <td></td>
 <td>???</td>
 </tr>
 <tr class="even">
-<td><code>BaseVariables</code></td>
 <td><code>Variable</code></td>
 <td>type</td>
 <td></td>
 <td>???</td>
 </tr>
 <tr class="odd">
-<td><code>BaseVariables</code></td>
 <td><code>Variable</code></td>
 <td>format</td>
 <td></td>
 <td>???</td>
 </tr>
 <tr class="even">
-<td><code>BaseVariables</code></td>
 <td><code>Variable</code></td>
 <td>nullable</td>
 <td></td>
 <td>???</td>
 </tr>
 <tr class="odd">
-<td><code>BaseVariables</code></td>
 <td><code>Variable</code></td>
 <td>multiple</td>
 <td></td>
 <td>???</td>
 </tr>
 <tr class="even">
-<td><code>Variable</code></td>
 <td><code>Values</code></td>
 <td>complete</td>
 <td></td>
 <td>???</td>
 </tr>
 <tr class="odd">
-<td><code>Values</code></td>
 <td><code>Value</code></td>
 <td></td>
 <td></td>
 <td>keine Daten, keine Attribute</td>
 </tr>
 <tr class="even">
-<td><code>Value</code></td>
 <td><code>label</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>???</td>
 </tr>
 <tr class="odd">
-<td><code>Value</code></td>
 <td><code>value</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
