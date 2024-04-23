@@ -15,7 +15,7 @@ Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Nam
 
 # Ein einführendes Beispiel
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd">
     <Metadata>
@@ -74,7 +74,7 @@ Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufg
 Es folgt ein weiteres Testlet ohne Beschränkungen und mit nur einer einzigen Aufgabe.
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
 Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd).
@@ -86,7 +86,7 @@ Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Defin
 
 Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Booklet.xsd">
 
@@ -116,84 +116,72 @@ Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `x
 ```{=html}
 <table>
 <tr>
-    <th><b>Hauptelement</b></th>
-    <th><b>Unterelement</b></th>
+    <th><b>Element</b></th>
     <th><b>Attribut</b></th>
     <th><b>Datum</b></th>
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Booklet</code></td>
     <td><code>Metadata</code></td>
     <td></td>
     <td></td>
     <td>Keine Daten, keine Attribute</td>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
-    <td><code>id</code></td>
+    <td><code>Id</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Wert. Über diese Id kann das Booklet in der Testtaker-XML eingebunden werden.</td>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
     <td><code>Label</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Wert zur Bezeichnung des Booklets.</td>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
     <td><code>Description</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Wert zur weiteren Beschreibung dieses Booklets.</td>
 </tr>
 <tr>
-    <td><code>Booklet</code></td>
     <td><code>BookletConfig</code></td>
     <td></td>
     <td></td>
     <td>Mehr dazu im Abschnitt: <b>Testheft-Konfiguration.</b></td>
 </tr>
 <tr>
-    <td><code>Booklet</code></td>
     <td><code>Units</code></td>
     <td></td>
     <td></td>
     <td>Keine Daten, keine Attribute</td>
 </tr>
 <tr>
-    <td><code>Units</code></td>
     <td><code>Unit</code></td>
     <td>id</td>
     <td></td>
     <td>Frei wählbarer Wert. Wert muss in gleicher Schreibweise auch in der entsprechenden Unit unter ID aufgeführt sein!</td>
 </tr>
 <tr>
-    <td><code>Units</code></td>
     <td><code>Unit</code></td>
     <td>label</td>
     <td></td>
     <td>Frei wählbarer Wert zur Bezeichnung der Unit.</td>
 </tr>
 <tr>
-    <td><code>Units</code></td>
     <td><code>Unit</code></td>
     <td>labelshort</td>
     <td></td>
     <td>Frei wählbarer Wert zur Bezeichnung der Navigationsleiste im Testcenter.</td>
 </tr>
 <tr>
-    <td><code>Units</code></td>
     <td><code>Unit</code></td>
     <td>alias</td>
     <td></td>
     <td>Eindeutiger frei wählbarer Alias. Dieser ermöglicht eine Mehrfachverwendung von Units mit gleicher Id im Testheft.</td>
 </tr>
 <tr>
-    <td><code>Units</code></td>
     <td><code>Testlet</code></td>
     <td></td>
     <td></td>
@@ -220,7 +208,7 @@ Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attri
 
 Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <Booklet>
 
@@ -244,22 +232,25 @@ Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
 
 ```{=html}
 <table>
-<tr>
-    <th><b>Hauptelement</b></th>
-    <th><b>Untereement</b></th>
+<tr>   
+    <th><b>Element</b></th>
     <th><b>Attribut</b></th>
     <th><b>Datum</b></th>
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
     <td><code>BookletConfig</code></td>
+    <td></td>
+    <td></td>
+    <td>Keine Daten, keine Attribute</td>
+</tr>
+<tr>
     <td><code>Config</code></td>
     <td>key</td>
     <td></td>
     <td>Vordefinierter Wert. Ermöglicht eine individuelle Testheft-Konfiguration. Die möglichen zu verwendenden Werte sind im nächsten Abschnitt zu finden.</td>
 </tr>
 <tr>
-    <td><code>BookletConfig</code></td>
     <td><code>Config</code></td>
     <td></td>
     <td>>abc<</td>
@@ -275,7 +266,7 @@ Werden Attributswerte und Daten in der Testheft-Konfiguration nicht aufgeführt,
 
 Ein Testlet ist eine Gruppe von Aufgaben mit gemeinsamen Restriktionen (falls gesetzt). Testlets können auch geschachtelt mehrfach verwendet werden. Die Testlets der obersten Ebene werden auch als Block bezeichnet.
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <Booklet>
   <Metadata>
@@ -292,6 +283,7 @@ Ein Testlet ist eine Gruppe von Aufgaben mit gemeinsamen Restriktionen (falls ge
       <Restrictions>
         <CodeToEnter code="sample">Please insert the word `sample`.</CodeToEnter>
         <TimeMax minutes="10" />
+        <DenyNavigationOnIncomplete presentation="ALWAYS" response="ALWAYS" />
       </Restrictions>
       <Unit id="UNIT.SAMPLE-2" label="A very Simple Sample Unit" labelshort="2nd Sample Unit"/>
     </Testlet>
@@ -305,70 +297,54 @@ Ein Testlet ist eine Gruppe von Aufgaben mit gemeinsamen Restriktionen (falls ge
 ```{=html}
 <table>
 <tr>
-    <th><b>Hauptelement</b></th>
-    <th><b>Unterelement</b></th>
+    <th><b>Element</b></th>
     <th><b>Attribut</b></th>
     <th><b>Datum</b></th>
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Units</code></td>
-    <td><code>Testlet</code></td>
-    <td></td>
-    <td></td>
-    <td>Keine Daten, keine Attribute.</td>
-</tr>
-<tr>
-    <td><code>Units</code></td>
     <td><code>Testlet</code></td>
     <td>id</td>
     <td></td>
     <td>Frei wählbarer Wert.</td>
 </tr>
 <tr>
-    <td><code>Units</code></td>
     <td><code>Testlet</code></td>
     <td>label</td>
     <td></td>
     <td>Frei wählbarer Wert zur Bezeichnung des Testlets.</td>
 </tr>
 <tr>
-    <td><code>Testlet</code></td>
     <td><code>Restrictions</code></td>
     <td></td>
     <td></td>
     <td>keine Daten, keine Attribute</td>
 </tr>
 <tr>
-    <td><code>Restrictions</code></td>
     <td><code>CodeToEnter</code></td>
     <td>code</td>
     <td></td>
     <td>Zugangscode für das Testlet. Frei wählbarer Wert.</td>
 </tr>
 <tr>
-    <td><code>Restrictions</code></td>
     <td><code>CodeToEnter</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Text. Dieser Text wird bei der Codeaufforderung angezeigt.</td>
 </tr>
 <tr>
-    <td><code>Restrictions</code></td>
     <td><code>TimeMax</code></td>
     <td>minutes</td>
     <td></td>
     <td>Frei wählbarer numerischer Wert.</td>
 </tr>
 <tr>
-    <td><code>Restrictions</code></td>
     <td><code>DenyNavigationOnIncomplete</code></td>
     <td>presentation</td>
     <td></td>
     <td>Es können für das Testlet gesonderte Bedingungen bzgl. Aufgabennavigation festgelegt werden. Diese überschreiben, die in der <code>BookletConfig</Code> festgelegten Bedingungen zur Aufgabennavigation. Mögliche Werte sind: ON/OFF/ALWAYS</td>
 </tr>
 <tr>
-    <td><code>Restrictions</code></td>
     <td><code>DenyNavigationOnIncomplete</code></td>
     <td>response</td>
     <td></td>

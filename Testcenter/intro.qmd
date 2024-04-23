@@ -13,8 +13,8 @@ title: "Überblick"
 Das IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. 
 Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d. h. man schreibt 
 dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen 
-und man sieht ein Formular zur Anmeldung. Alle Daten für einen Test sind vorher auf dem Server zu speichern. 
-Das kann über ein integriertes Verwaltungsportal erfolgen oder über andere Webanwendungen, die auf den Server zugreifen.
+und man sieht ein Formular zur Anmeldung. Alle Daten (Testdateien) für einen Test sind vorher auf dem Server zu speichern. 
+Das kann über ein integriertes Verwaltungsportal des Testcenters erfolgen oder über andere Webanwendungen, die auf den Server mit einer definierten Schnittstelle zugreifen.
 
 Das IQB bietet folgende [Video-Präsentationen](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testcenter-Videos) bzgl. des Testcenters an.
 
@@ -24,13 +24,11 @@ Das IQB hat alle Programmierungen unter der Open Source-Lizenz [MIT](https://ope
 
 # Verwaltung der Tests
 
-Nach der Installation ist zunächst ein Systemadministrator-Konto für die Verwaltung von Arbeitsbereichen und Benutzer\*innen angelegt. Außerdem ist ein Arbeitsbereich angelegt mit einem Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für die Benutzer\*innen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können die Benutzer\*innen die für einen Test erforderlichen Testdateien (Aufgaben, Testabläufe usw. als XML-Dateien) laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse heruntergeladen werden (Csv-Dateien).
-
-:information_source: Benutzer\*innen können mittels spezieller Parameter in einzelnen Testdateien Anpassungen der Anwendung vornehmen. Hier können dann bspw. Begrüßungsnachrichten, Hintergrundfarben, das Logo auf der Startseite und selbst der Name der Anwendung bzgl. eigener Wünsche angepasst werden.
+Nach der Installation ist zunächst ein Systemadministrator\*in-Konto für die Verwaltung von Arbeitsbereichen und Personen angelegt. Außerdem ist bereits ein Arbeitsbereich angelegt mit Dateien für einen Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für einzelne Personen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können diese dann die erforderlichen Testdateien für ein Test laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse des Tests heruntergeladen werden (Csv-Dateien).
 
 # Durchführung von Tests oder Befragungen
 
-Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien, der so genannten **Testtaker.xml**, hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Units). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:
+Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien  hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Aufgaben). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:
 
 * Verschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, 
 spezieller Modus für das Ausprobieren eines Tests (Review) usw.

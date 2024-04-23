@@ -1,6 +1,6 @@
 ---
 lang: de
-title: "Daten Download"
+title: "Daten Download und Auswertung"
 ---
 
 ::: {.callout-important}
@@ -75,7 +75,10 @@ Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:
 Alle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe. 
 :::
 
-### Antworten
+#### Antworten
+
+Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Sepzifikationen unterliegenden Format, vom Player an das Testcenter gesendet.
+Mehr zu den Verona-Daten-Spezifikationen sind [hier](https://github.com/iqb-berlin/verona-data-specifications) zu finden.
 
 Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:
 
@@ -117,61 +120,42 @@ Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen 
 </table>
 ```
 
-### Logs
+#### Logs
 
+Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. "Logging" kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:
 
+* Version des Betriebssystems und des Browsers
+* Verweildauer auf einer Seite
+* Zeitpunkt des Beendens der Beantwortung
+* Zustand des Players
 
+#### Kommentare
 
-### Kommentare
+Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder einzelnen Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:
 
+* Name der Person, die den Kommentar gibt
+* Auswahl ob der Kommentar sich auf die aktuell betrachtete Aufgabe oder auf das gesamte Testheft bezieht
+* Priorität (dringend, mittelfristig, optional)
+* Kategorie (technisches, inhaltliches, gestalterisches)
+* der eigentliche Kommentar
 
+Alle diese Felder sind auch in der heruntergeladenen CSV wiederzufinden.
+
+#### System-Check Berichte
+
+Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann dann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.
+
+Mehr dazu ist dem Kapitel: **System-Check** zu entnehmen.
 
 ## Wie können die Daten heruntergeladen werden?
 
 Der gespeicherte Datensatz befindet sich nach Studienende in dem Arbeitsbereich, in dem sich auch die Testdateien zur Studie befinden.
-Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Unter dem Reiter: **Ergebnisse/ Antworten** ist der Datensatz zu finden. Diese Daten werden noch einmal unterteilt in:
+Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Unter dem Reiter: **Ergebnisse/ Antworten** ist der Datensatz zu finden. Diese Daten werden wie vorgehend beschrieben unterteilt in:
 
 * Antworten: Hier sind alle gegebenen Antworten der Teilnehmer\*innen gespeichert.
 * Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
 * Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
 
+Zum Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.
 
-Zu Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.
-
-
-
-
-
-
-
-
-
-
-Es können Antwort- und Logdateien heruntergeladen werden. Diese werden im **Testcenter** in dem Arbeitsbereich gespeichert, in den auch die Testdateien für den Test geladen wurden.
-
-![Testcenter Daten-Download](TC_Download.png)
-
-> **Es werden nicht in jedem Testmodus Ergebnisse gespeichert. Die Speicherung erfolgt nur in folgenden Modi: `run-hot-return`, `run-hot-restart` und `run-trial`!**
-
-Die Ergebnisse können mittels der üblichen Browserfunktionalitäten heruntergeladen werden. Die Dateien werden dann als CSV-Dateien gespeichert.
-
-# Aufbereitung
-
-Durch den modularen Aufbau des Testsystems ist die Komponente, die die Interaktion mit der Testperson steuert, austauschbar. Laut [Verona-Spezifikation](https://verona-interfaces.github.io/) ist das Datenformat der Antworten und Logs nicht vorgeschrieben. Das liegt z. B. daran, dass Antworten nicht nur einfache Datentypen sein können (Text, Zahl), sondern auch Listen, Bilder, Ton usw. Das Interesse an Zusatzinformationen (Zustände über die Zeit) mag auch schwanken je nachdem, ob eine Pilotierung (Kennenlernen von Itemeigenschaften) oder eine große automatisierte Testung durchgeführt wird.
-
-Wenn man die Antwortdaten herunterlädt, sind die Antworten in einer bestimmten Spalte in einem Roh-Format JSON hinterlegt, so wie der Player sie geschickt hatte. Die Verona-Schnittstelle sieht vor, dass die Antwortdaten aufgeteilt werden können in mehrere sog. Parts oder Chunks. Im folgenden Beispiel hat der Player nur einen Chunk geschickt (mit der ID 'all') und die Antwortdaten als JSON-Struktur (verpackt als String). Außerdem ist das Datenformat und ein JavaScript-Zeitstempel (ts = TimeStamp) hinterlegt.
-
-```json
-[
-    {
-        "id":"all",
-        "content":"{\"name\":\"Sam Sample\",\"age\":34}",
-        "ts":1627545600,
-        "responseType":"example-data-format"
-    }
-]
-```
-
-Für viele Anwendungsfälle mag das ausreichen: Einfache Umformungsfunktionen in Excel oder R liefern die Informationen in einem sinnvollen Format. Für komplexe Antwortformate müssen jedoch spezielle Programmierungen die Umformung vornehmen. Das IQB hat für seine beiden Antwortformate [`iqb-standard`](https://github.com/iqb-berlin/verona-data-specifications/blob/main/responses/manual_iqb-standard.md) und [`iqb-abi`](https://github.com/iqb-berlin/verona-player-abi/blob/master/docs/key-value.md) das Windows-Programm [itc-Toolbox](https://github.com/iqb-berlin/itc-toolbox#readme) veröffentlicht. Die Antwortdaten aller Player des IQB können hierüber in eine gut auswertbare Form gebracht werden.
-
-> In der [Dokumentation des API des Testcenters](https://iqb-berlin.github.io/testcenter-backend/api/#tag/admin-download/paths/~1workspace~1{ws_id}~1report~1response/get) kann man nachlesen, dass über den Endpunkt, der die Antworten ausliefert, auch JSON als Format gewählt werden kann statt CSV. Das ist dann für die Datenintegration in Länderportale wahrscheinlich günstiger.
+![Datensatz: Antworten, Logs und Kommentare herunterladen](/Testcenter/TC_DatenDownload.png)

@@ -1,6 +1,6 @@
 ---
 lang: de
-title: "Aufgaben-Definition (Unit-XML)"
+title: "XML zur Aufgaben-Definition (Unit-XML)"
 ---
 
 ##
@@ -18,7 +18,7 @@ Folgende Funktionen erfüllt die Unit-XML:
 
 ## Ein einführendes Beispiel
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
 
     <Metadata lastChange="2023-12-07T12:46:46.166Z">
@@ -56,7 +56,7 @@ Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann e
 Das letzte Element:`CodingSchemeRef` gibt die Version des zur Aufgabenkodierung verwendeten Schemer-Moduls an. 
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste bis in die zweite Elementenebene gelistet und beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
 Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Aufgaben-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd) zu finden.
@@ -68,12 +68,13 @@ Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Defin
 
 Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
 
     <Metadata lastChange="2023-12-07T12:46:46.166Z">
         <Id>Aufgabe01</Id>
         <Label>Aufgabe01</Label>
+        <Description>Hier steht eine Beschreibung der Aufgabeninhalte</Description>
     </Metadata>
 
     <DefinitionRef player="iqb-player-aspect@2.2" editor="iqb-editor-aspect@2.2" lastChange="2023-12-07T13:11:54.017Z">Aufgabe01.voud</DefinitionRef>
@@ -89,91 +90,72 @@ Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmln
 ```{=html}
 <table>
 <tr>
-    <th><b>Hauptelement</b></th>
-    <th><b>Unterlement</b></th>
+    <th><b>Element</b></th>
     <th><b>Attribut</b></th>
     <th><b>Datum</b></th>
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>Metadata</code></td>
     <td>lastChange</td>
     <td></td>
     <td>enthält den Zeitstempel der letzten Änderungen</td>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
     <td><code>Id</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Text für die Id. Die Id sollte eindeutig und knapp sein. Über diese Id wird die Aufgabe in einem Testheft eingebunden.</td>
 </tr>
 <tr>
-     <td><code>Metadata</code></td>
     <td><code>Label</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Text. Das Label kann auch während er Studiendurchführung angezeigt werden.</td>
 </tr>
 <tr>
-     <td><code>Metadata</code></td>
     <td><code>Description</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Text.</td>
 </tr>
 <tr>
-     <td><code>Metadata</code></td>
-    <td><code>Reference</code></td>
-    <td></td>
-    <td></td>
-    <td>Aktuell keine Verwendung</td>
-</tr>
-<tr>
-    <td><code>Unit</code></td>
     <td><code>DefinitionRef</code></td>
     <td>player</td>
     <td></td>
     <td>Angaben zur Player-Ressource. </td>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>DefinitionRef</code></td>
     <td>editor</td>
     <td></td>
     <td>Angaben zum verwendeten Editor. </td>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>DefinitionRef</code></td>
     <td>lastChange</td>
     <td></td>
     <td>Zeitstempel der letzten Änderungen </td>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>DefinitionRef</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Name der Aufgaben-Ressource. Dieser muss exakt so geschrieben sein, wie der Dateiname der Aufgaben-Ressource.</td>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>BaseVariables</code></td>
     <td></td>
     <td></td>
     <td>Mehr hierzu ist dem Abschnitt: <b>Variablen zur Kodierung</b> zu entnehmen.</td>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>CodingSchemeRef</code></td>
     <td>schemer</td>
     <td></td>
     <td>Angaben zur verwendeten Schemer-Modul Version</td>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>CodingSchemeRef</code></td>
     <td>lastChange</td>
     <td></td>
@@ -196,7 +178,7 @@ In Bearbeitung THuste: to do
 Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: `BaseVariables` ausgegeben. Die Variablen werden im Testcenter verwendet um Gewichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.
 
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <Unit>
 
     <BaseVariables> 
@@ -220,77 +202,66 @@ Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-M
 ```{=html}
 <table>
 <tr>
-    <th><b>Hauptelement</b></th>
-    <th><b>Unterlement</b></th>
+    <th><b>Element</b></th>
     <th><b>Attribut</b></th>
     <th><b>Datum</b></th>
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Unit</code></td>
     <td><code>BaseVariables</code></td>
     <td></td>
     <td></td>
     <td>keine Daten, keine Attribute</td>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
     <td><code>Variable</code></td>
     <td>id</td>
     <td></td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
     <td><code>Variable</code></td>
     <td>type</td>
     <td></td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
     <td><code>Variable</code></td>
     <td>format</td>
     <td></td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
     <td><code>Variable</code></td>
     <td>nullable</td>
     <td></td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
     <td><code>Variable</code></td>
     <td>multiple</td>
     <td></td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>Variable</code></td>
     <td><code>Values</code></td>
     <td>complete</td>
     <td></td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>Values</code></td>
     <td><code>Value</code></td>
     <td></td>
     <td></td>
     <td>keine Daten, keine Attribute</td>
 </tr>
 <tr>
-    <td><code>Value</code></td>
     <td><code>label</code></td>
     <td></td>
     <td>>abc<</td>
     <td>???</td>
 </tr>
 <tr>
-    <td><code>Value</code></td>
     <td><code>value</code></td>
     <td></td>
     <td>>abc<</td>
