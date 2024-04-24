@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -106,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -174,13 +174,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Gruppenmonitor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gruppenmonitor (Testleitungskonsole)</span></a>
+ <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Typische Probleme - Troubleshooting</span></a>
+ <span class="menu-text">Typische Probleme</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -370,18 +370,30 @@ Codeverwaltung Testcenter
 </div>
 </div>
 <p>Das IQB-Testcenter ist eine Webanwendung für die Durchführung von Kompetenztests oder Befragungen. Nach der Installation auf einem Webserver wählt man diesen Server über seine Adresse an, d.&nbsp;h. man schreibt dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werden die Programmierungen geladen und man sieht ein Formular zur Anmeldung. Alle Daten (Testdateien) für einen Test sind vorher auf dem Server zu speichern. Das kann über ein integriertes Verwaltungsportal des Testcenters erfolgen oder über andere Webanwendungen, die auf den Server mit einer definierten Schnittstelle zugreifen.</p>
-<p>Das IQB bietet folgende <a href="https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testcenter-Videos">Video-Präsentationen</a> bzgl. des Testcenters an.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Verfügbare Video-Anleitung zum Testcenter sind der Videothek zu finden.</p>
+</div>
+</div>
 <section id="installation" class="level1">
 <h1>Installation</h1>
 <p>Das IQB hat alle Programmierungen unter der Open Source-Lizenz <a href="https://opensource.org/licenses/MIT">MIT</a> veröffentlicht und erleichtert die Installation durch Containervirtualisierung (Docker). Für die Installation muss man einen Linux-Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern,übernimmt aber im Schadensfall keine Verantwortung.</p>
 </section>
 <section id="verwaltung-der-tests" class="level1">
 <h1>Verwaltung der Tests</h1>
-<p>Nach der Installation ist zunächst ein Systemadministrator*in-Konto für die Verwaltung von Arbeitsbereichen und Personen angelegt. Außerdem ist bereits ein Arbeitsbereich angelegt mit Dateien für einen Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für einzelne Personen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können diese dann die erforderlichen Testdateien für ein Test laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse des Tests heruntergeladen werden (Csv-Dateien).</p>
+<p>Nach der Installation ist zunächst ein Administrator*in-Konto für die Verwaltung von Arbeitsbereichen und Zugangsberechtigungen angelegt, der sogenannte <strong>Super-Admin</strong>. Außerdem ist bereits ein Arbeitsbereich angelegt mit Dateien für einen Beispieltest. Im ersten Schritt legt der Super-Admin Zugänge für einzelne Personen an und weist diesen Arbeitsbereiche zu. In den Arbeitsbereichen können dann, die für eine Studie benötigten Testdateien geladen werden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach Abschluss einer Studie können über diese Verwaltungsoberfläche die gegebenen Antworten in Form einer CSV-Datei heruntergeladen werden.</p>
 </section>
 <section id="durchführung-von-tests-oder-befragungen" class="level1">
 <h1>Durchführung von Tests oder Befragungen</h1>
-<p>Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Aufgaben). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:</p>
+<p>Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft mit einer Abfolge von Aufgaben. Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:</p>
 <ul>
 <li>Verschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, spezieller Modus für das Ausprobieren eines Tests (Review) usw.</li>
 <li>Mehrere Testhefte: Eine Testperson kann auch mehrere Testhefte nacheinander bearbeiten mit denselben Anmeldedaten</li>
@@ -390,6 +402,7 @@ Codeverwaltung Testcenter
 <li>Fortsetzung erst nach vollständiger Präsentation: Um zu vermeiden, dass Teile einer Aufgabe übersehen werden, kann das Weiterblättern solange unterbunden werden, bis alle Audio-Sequenzen abgespielt wurden und alle Seiten vollständig angezeigt wurden</li>
 <li>Fortsetzung erst nach vollständiger Beantwortung</li>
 <li>sofortige Speicherung: Alle Antworten werden sofort zum Testcenter-Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann daher der vorherige Stand wiederhergestellt werden</li>
+<li>In Abhängigkeit gegebener Antworten und einer zuvor festgelegten Wichtung, kann zu bestimmten Aufgaben verzweigt werden (adaptives Testen)</li>
 </ul>
 <p>Es können mehrere Tests oder Befragungen gleichzeitig laufen.</p>
 </section>
@@ -414,7 +427,15 @@ Codeverwaltung Testcenter
 <blockquote class="blockquote">
 <p>“Installieren Sie alle Updates sofort oder zeitnah nach ihrer Veröffentlichung, sowohl die für Ihren Browser, als auch für alle Erweiterungen und natürlich Ihr Betriebssystem. Verwenden Sie stets die neuste Version Ihres Browsers.” <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Updates-Browser-Open-Source-Software/updates-browser-open-source-software_node.html">Quelle</a></p>
 </blockquote>
-<p>Das IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. - bei Chrome und Firefox - die Versionen der letzten 12 Monate. Beispielsweise werden derzeit (Stand April 2022) bei Safari nur die Versionen 14 (Veröffentlichung September 2020) und 15 unterstützt.</p>
+<p>Das IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. die Versionen der letzten 12 Monate.</p>
+<p>Stand April 2024:</p>
+<ul>
+<li>Firefox: 125 und 124</li>
+<li>Chrome: 123 und 122</li>
+<li>Edge: 124 und 123</li>
+<li>Safari: 17 und 16</li>
+</ul>
+<p>Neu veröffentliche Browserversionen können unter Umständen Änderungen enthalten, die zu einem anderen Verhalten der Anwendung führen. Das IQB ist daher bemüht die Anwendung zeitnah in Verbindung mit Neuerscheinungen zu testen, kann dies aber nicht in jeden Fall gewährleisten, da die Vielzahl an möglichen neuen Browserversionen (Safari, Edge, Chrome, Firefox) recht herausfordernd ist. Sollten bereits neuere Versionen, als die hier genannten zum Einsatz kommen, empfiehlt sich die Voransicht einer geplanten Studie vor finalem Studienlauf. Hierfür bietet das Testcenter spezielle Modi der Studiendurchführung an, wie bspw. einen Review-Mode. Außerdem kann auch der <strong>System-Check</strong> verwendet werden. Ist von einem fehlerhaften Verhalten der Anwendung in Verbindung mit neueren Browserversionen auszugehen, kann ein entsprechender Hinweis über die Support-Adresse: <a href="mailto:iqb-tbadev-support@hu-berlin.de">iqb-tbadev-support@hu-berlin.de</a> erfolgen.</p>
 
 
 </section>
