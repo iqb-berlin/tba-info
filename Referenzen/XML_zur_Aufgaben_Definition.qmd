@@ -71,24 +71,24 @@ Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmln
 ```{.xml}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
 
-    <Metadata lastChange="2023-12-07T12:46:46.166Z">
-        <Id>Aufgabe01</Id>
-        <Label>Aufgabe01</Label>
-        <Description>Hier steht eine Beschreibung der Aufgabeninhalte</Description>
-    </Metadata>
+ <Metadata lastChange="2023-12-07T12:46:46.166Z">
+   <Id>Aufgabe01</Id>
+   <Label>Aufgabe01</Label>
+   <Description>Hier steht eine Beschreibung der Aufgabeninhalte</Description>
+ </Metadata>
 
-    <DefinitionRef player="iqb-player-aspect@2.2" editor="iqb-editor-aspect@2.2" lastChange="2023-12-07T13:11:54.017Z">Aufgabe01.voud</DefinitionRef>
+  <DefinitionRef player="iqb-player-aspect@2.2" editor="iqb-editor-aspect@2.2" lastChange="2023-12-07T13:11:54.017Z">Aufgabe01.voud</DefinitionRef>
 
-    <BaseVariables> 
-    </BaseVariables>
+  <BaseVariables> 
+  </BaseVariables>
 
-    <CodingSchemeRef schemer="" lastChange="2023-12-07T12:33:25.198Z"/>
+  <CodingSchemeRef schemer="" lastChange="2023-12-07T12:33:25.198Z"/>
 
 </Unit>
 ```
 
 ```{=html}
-<table>
+<table border: 1px solid>
 <tr>
     <th><b>Element</b></th>
     <th><b>Attribut</b></th>
@@ -180,27 +180,25 @@ Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-M
 
 ```{.xml}
 <Unit>
-
-    <BaseVariables> 
-        <Variable id="radio_2" type="integer" format="" nullable="true" multiple="false">
-            <Values complete="true">
-                <Value>
-                    <label>Ja</label>
-                    <value>1</value>
-                </Value>
-                <Value>
-                    <label>Nein</label>
-                    <value>2</value>
-                </Value>
-            </Values>
-        </Variable>
-    </BaseVariables>
-
+  <BaseVariables> 
+    <Variable id="radio_2" type="integer" format="" nullable="true" multiple="false">
+      <Values complete="true">
+        <Value>
+          <label>Ja</label>
+          <value>1</value>
+        </Value>
+        <Value>
+          <label>Nein</label>
+          <value>2</value>
+        </Value>
+      </Values>
+    </Variable>
+  </BaseVariables>
 </Unit>
 ```
 
 ```{=html}
-<table>
+<table border=1>
 <tr>
     <th><b>Element</b></th>
     <th><b>Attribut</b></th>
