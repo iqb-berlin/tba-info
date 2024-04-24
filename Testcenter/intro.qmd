@@ -16,7 +16,9 @@ dessen Internet-Adresse in die Adresszeile eines Internet-Browsers. Dadurch werd
 und man sieht ein Formular zur Anmeldung. Alle Daten (Testdateien) für einen Test sind vorher auf dem Server zu speichern. 
 Das kann über ein integriertes Verwaltungsportal des Testcenters erfolgen oder über andere Webanwendungen, die auf den Server mit einer definierten Schnittstelle zugreifen.
 
-Das IQB bietet folgende [Video-Präsentationen](https://github.com/iqb-berlin/iqb-berlin.github.io/wiki/Testcenter-Videos) bzgl. des Testcenters an.
+::: {.callout-note}
+Verfügbare Video-Anleitung zum Testcenter sind der Videothek zu finden.
+:::
 
 # Installation
 
@@ -24,11 +26,11 @@ Das IQB hat alle Programmierungen unter der Open Source-Lizenz [MIT](https://ope
 
 # Verwaltung der Tests
 
-Nach der Installation ist zunächst ein Systemadministrator\*in-Konto für die Verwaltung von Arbeitsbereichen und Personen angelegt. Außerdem ist bereits ein Arbeitsbereich angelegt mit Dateien für einen Beispieltest. Im ersten Schritt legt der Systemadministrator Zugänge für einzelne Personen an und weist diesen Arbeitsbereiche zu. In diesen Arbeitsbereichen können diese dann die erforderlichen Testdateien für ein Test laden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach der Durchführung einer Testung können über diese Verwaltungsoberfläche die Ergebnisse des Tests heruntergeladen werden (Csv-Dateien).
+Nach der Installation ist zunächst ein Administrator\*in-Konto für die Verwaltung von Arbeitsbereichen und Zugangsberechtigungen angelegt, der sogenannte **Super-Admin**. Außerdem ist bereits ein Arbeitsbereich angelegt mit Dateien für einen Beispieltest. Im ersten Schritt legt der Super-Admin Zugänge für einzelne Personen an und weist diesen Arbeitsbereiche zu. In den Arbeitsbereichen können dann, die für eine Studie benötigten Testdateien geladen werden. Hierfür steht eine entsprechende Verwaltungsoberfläche zur Verfügung, die die entsprechenden Bedienelemente zum laden, löschen usw. bereitstellt. Nach Abschluss einer Studie können über diese Verwaltungsoberfläche die gegebenen Antworten in Form einer CSV-Datei heruntergeladen werden.
 
 # Durchführung von Tests oder Befragungen
 
-Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien  hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft, d.h. die Abfolge von Aufgaben bzw. Fragen (Aufgaben). Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:
+Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft mit einer Abfolge von Aufgaben. Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:
 
 * Verschiedene Varianten der Anmeldung: Anmeldung über einen Link, zweistufige Anmeldung zur Vereinfachung der Durchführung, 
 spezieller Modus für das Ausprobieren eines Tests (Review) usw.
@@ -41,13 +43,13 @@ kann das Weiterblättern solange unterbunden werden, bis alle Audio-Sequenzen ab
 * Fortsetzung erst nach vollständiger Beantwortung
 * sofortige Speicherung: Alle Antworten werden sofort zum Testcenter-Server gesendet; 
 nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann daher der vorherige Stand wiederhergestellt werden
+* In Abhängigkeit gegebener Antworten und einer zuvor festgelegten Wichtung, kann zu bestimmten Aufgaben verzweigt werden (adaptives Testen)
 
 Es können mehrere Tests oder Befragungen gleichzeitig laufen.
 
 # System-Check
 
-Man kann bei der enormen Vielfalt der Hardware (Tablet, Smartphone usw.) und Software (Apple, Linux, Android usw.) nicht garantieren, dass ein Test oder eine Befragung so wie beabsichtigt funktioniert. Je nach Anforderung an den Test wird das auch nicht sinnvoll sein, z. B. wenn eine Mindestbreite 
-für den Bildschirm erforderlich ist.
+Man kann bei der enormen Vielfalt der Hardware (Tablet, Smartphone usw.) und Software (Apple, Linux, Android usw.) nicht garantieren, dass ein Test oder eine Befragung so wie beabsichtigt funktioniert. Je nach Anforderung an den Test wird das auch nicht sinnvoll sein, z. B. wenn eine Mindestbreite für den Bildschirm erforderlich ist.
 
 Wenn man erfahren möchte, ob die Zielsysteme geeignet sind, kann man im IQB-Testcenter einen System-Check konfigurieren. 
 Dann können z. B. die verantwortlichen Lehrkräfte in der Vorbereitungsphase im Testcenter einen auf die speziellen Anforderungen des 
@@ -58,13 +60,11 @@ Ein System-Check sollte aber auch nicht überbewertet werden. Ein positiver Befu
 # Gruppenmonitor
 
 Soll ein Test für eine bestimmte Personengruppe (z. B. Klasse) gleichzeitig stattfinden, kann ein Monitor dafür eingerichtet werden. 
-Die Testleitung kann dann für jede Testperson den Fortschritt beobachten, ggf. das Weiterblättern erzwingen, Personen ausschließen oder eine 
-Sperre wieder aufheben.
+Die Testleitung kann dann für jede Testperson den Fortschritt beobachten, ggf. das Weiterblättern erzwingen, Personen ausschließen oder eine Sperre wieder aufheben.
 
 # Systemanforderungen
 
-Da die Programmierungen des Testcenters online in einem Browser ablaufen, ist keine vorherige Installation von Software auf einem Computer nötig, 
-mit dem der Test oder die Befragung durchgeführt werden soll. Es ist nur ein Internet-Zugriff und ein Browser nötig.
+Da die Programmierungen des Testcenters online in einem Browser ablaufen, ist keine vorherige Installation von Software auf einem Computer nötig, mit dem der Test oder die Befragung durchgeführt werden soll. Es ist nur ein Internet-Zugriff und ein Browser nötig.
 
 Es gibt immer wieder die Diskussion darüber, ob bzw. in welchem Maße ältere Browser bzw. Browserversionen unterstützt werden sollen. Hier wird argumentiert, dass Schulen bzw. deren Träger oft nicht in der Lage seien, die Verwendung aktueller Browser sicherzustellen. Aus dieser Realität ergebe sich, dass die Programmierungen für TBA stets ein Maximum an Abdeckung auch für alte Browser leisten müssten.
 
@@ -74,4 +74,14 @@ Das IQB folgt hier jedoch den Anforderungen an die Datensicherheit, so wie es z.
 
 > "Installieren Sie alle Updates sofort oder zeitnah nach ihrer Veröffentlichung, sowohl die für Ihren Browser, als auch für alle Erweiterungen und natürlich Ihr Betriebssystem. Verwenden Sie stets die neuste Version Ihres Browsers." [Quelle](https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Updates-Browser-Open-Source-Software/updates-browser-open-source-software_node.html)
 
-Das IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. - bei Chrome und Firefox - die Versionen der letzten 12 Monate. Beispielsweise werden derzeit (Stand April 2022) bei Safari nur die Versionen 14 (Veröffentlichung September 2020) und 15 unterstützt. 
+Das IQB unterstützt daher nur die jeweils letzten beiden Hauptversionen eines Browsers bzw. die Versionen der letzten 12 Monate. 
+
+Stand April 2024:
+
+* Firefox: 125 und 124
+* Chrome: 123 und 122
+* Edge: 124 und 123
+* Safari: 17 und 16
+
+Neu veröffentliche Browserversionen können unter Umständen Änderungen enthalten, die zu einem anderen Verhalten der Anwendung führen. Das IQB ist daher bemüht die Anwendung zeitnah in Verbindung mit Neuerscheinungen zu testen, kann dies aber nicht in jeden Fall gewährleisten, da die Vielzahl an möglichen neuen Browserversionen (Safari, Edge, Chrome, Firefox) recht herausfordernd ist. Sollten bereits neuere Versionen, als die hier genannten zum Einsatz kommen, empfiehlt sich die Voransicht einer geplanten Studie vor finalem Studienlauf. Hierfür bietet das Testcenter spezielle Modi der Studiendurchführung an, wie bspw. einen Review-Mode. Außerdem kann auch der **System-Check** verwendet werden. Ist von einem fehlerhaften Verhalten der Anwendung in Verbindung mit neueren Browserversionen auszugehen, kann ein entsprechender Hinweis über die Support-Adresse: [iqb-tbadev-support@hu-berlin.de](mailto:iqb-tbadev-support@hu-berlin.de) erfolgen.
+
