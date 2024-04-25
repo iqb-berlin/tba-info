@@ -7,7 +7,7 @@ title: "XML zur Aufgaben-Definition"
 
 Die Metadaten einer Aufgabe und die Einbindung von zusätzlichen Aufgabenressourcen werden in einer XML-Datei festgelegt. Diese XML-Datei wird IQB-intern häufig übergreifend auch **Unit-XML** genannt. In der Praxis wird als Dateiname die eigentliche Aufgabenbezeichnung gewählt. 
 
-Folgende Funktionen erfüllt die Unit-XML:
+Folgende Funktionen erfüllt diese XML:
 
 * anlegen von Metadaten zu einer Aufgabe
 * einbinden von Aufgabenressourcen (Unit-VOUD)
@@ -21,37 +21,37 @@ Folgende Funktionen erfüllt die Unit-XML:
 ```{.xml}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
 
-    <Metadata lastChange="2023-12-07T12:46:46.166Z">
-        <Id>Aufgabe01</Id>
-        <Label>Aufgabe01</Label>
-    </Metadata>
+  <Metadata lastChange="2023-12-07T12:46:46.166Z">
+    <Id>Aufgabe01</Id>
+    <Label>Aufgabe01</Label>
+  </Metadata>
 
-    <DefinitionRef player="iqb-player-aspect@2.2" editor="iqb-editor-aspect@2.2" lastChange="2023-12-07T13:11:54.017Z">Aufgabe01.voud</DefinitionRef>
+  <DefinitionRef player="iqb-player-aspect@2.2" editor="iqb-editor-aspect@2.2" lastChange="2023-12-07T13:11:54.017Z">Aufgabe01.voud</DefinitionRef>
 
-    <BaseVariables> 
-        <Variable id="radio_2" type="integer" format="" nullable="true" multiple="false">
-            <Values complete="true">
-                <Value>
-                    <label>Ja</label>
-                    <value>1</value>
-                </Value>
-                <Value>
-                    <label>Nein</label>
-                    <value>2</value>
-                </Value>
-            </Values>
-        </Variable>
-    </BaseVariables>
+  <BaseVariables> 
+    <Variable id="radio_2" type="integer" format="" nullable="true" multiple="false">
+      <Values complete="true">
+          <Value>
+            <label>Ja</label>
+            <value>1</value>
+          </Value>
+          <Value>
+            <label>Nein</label>
+            <value>2</value>
+          </Value>
+      </Values>
+    </Variable>
+  </BaseVariables>
 
-    <CodingSchemeRef schemer="" lastChange="2023-12-07T12:33:25.198Z"/>
+  <CodingSchemeRef schemer="" lastChange="2023-12-07T12:33:25.198Z"/>
 
 </Unit>
 ```
 In diesem Beispiel werden zuerst einmal Metadaten für eine Aufgabe angelegt. Die Aufgabe erhält eine Id: **Aufgabe01**. Mit dieser Id wird die Aufgabe in ein Testheft eingebunden. Es folgt ein Label. Dieses Label kann abhängig von der Testheft-Konfiguration während einer Testdurchführung auch angezeigt werden. 
 
-Im nächsten Element: `<DefinitionRef>` wird angegeben mit welchem Editor die Aufgabe erstellt wurde und mit welchem PLayer sie im Testcenter wiedergegeben werden soll. Würde diese Beispielaufgabe in das Testcenter geladen, müsste auch die Datei zum PLayer: **iqb-editor-aspect-2.2.html** mit geladen werden, ansonsten kann die Aufgabe nicht abgespielt werden. An dieser Stelle wird auch die Aufgabenressource: **Aufgabe01.voud** eingebunden. In dieser Datei befinden sich die eigentlichen Aufgabeninhalte. Auch diese Datei müsste zusammen mit dieser Beispiel-XML in das Testcenter geladen werden.
+Im nächsten Element: `<DefinitionRef>` wird angegeben mit welchem Editor die Aufgabe erstellt wurde und mit welchem Player sie im Testcenter wiedergegeben werden soll. Würde diese Beispielaufgabe in das Testcenter geladen, müsste auch die Datei zum PLayer: **iqb-editor-aspect-2.2.html** mit geladen werden, ansonsten kann die Aufgabe nicht abgespielt werden. An dieser Stelle wird auch die Aufgabenressource: **Aufgabe01.voud** eingebunden. In dieser Datei befinden sich die eigentlichen Aufgabeninhalte. Auch diese Datei müsste zusammen mit dieser Beispiel-XML in das Testcenter geladen werden.
 
-Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann eine Aufgabenkodierung angelegt werden. Zur Aufgabenkodierung erhält jedes Aufgabenelement eine Variable die entsprechend gewichtet wird und eine Regel zur Kodierung erhält. In einigen Fällen benötigt das Testcenter diese Variablen, bspw. werden diese benötigt um eine adaptive Testung duchzuführen.
+Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann eine Aufgabenkodierung angelegt werden. Zur Aufgabenkodierung erhält jedes Aufgabenelement eine Variable, die entsprechend gewichtet wird und eine Regel zur Kodierung erhält. In einigen Fällen benötigt das Testcenter diese Variablen. Bspw. werden diese benötigt, um eine adaptive Testung durchzuführen.
 
 Das letzte Element:`CodingSchemeRef` gibt die Version des zur Aufgabenkodierung verwendeten Schemer-Moduls an. 
 :::
@@ -59,14 +59,14 @@ Das letzte Element:`CodingSchemeRef` gibt die Version des zur Aufgabenkodierung 
 Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Aufgaben-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd) zu finden.
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema-Definition für die Aufgaben-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd) zu finden.
 :::
 
 ::: {.callout-important}
 Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
 :::
 
-Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
+Die Schema-Definition wird im Hauptelement: `Unit` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
 
 ```{.xml}
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
@@ -96,7 +96,7 @@ Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmln
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
+    <td><code>Meta-data</code></td>
     <td>lastChange</td>
     <td></td>
     <td>enthält den Zeitstempel der letzten Änderungen</td>
@@ -114,49 +114,49 @@ Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmln
     <td>Frei wählbarer Text. Das Label kann auch während er Studiendurchführung angezeigt werden.</td>
 </tr>
 <tr>
-    <td><code>Description</code></td>
+    <td><code>De-scription</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Text.</td>
 </tr>
 <tr>
-    <td><code>DefinitionRef</code></td>
+    <td><code>Definition-Ref</code></td>
     <td>player</td>
     <td></td>
     <td>Angaben zur Player-Ressource. </td>
 </tr>
 <tr>
-    <td><code>DefinitionRef</code></td>
+    <td><code>Definition-Ref</code></td>
     <td>editor</td>
     <td></td>
     <td>Angaben zum verwendeten Editor. </td>
 </tr>
 <tr>
-    <td><code>DefinitionRef</code></td>
+    <td><code>Definition-Ref</code></td>
     <td>lastChange</td>
     <td></td>
     <td>Zeitstempel der letzten Änderungen </td>
 </tr>
 <tr>
-    <td><code>DefinitionRef</code></td>
+    <td><code>Definition-Ref</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Name der Aufgaben-Ressource. Dieser muss exakt so geschrieben sein, wie der Dateiname der Aufgaben-Ressource.</td>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
+    <td><code>Base-Variables</code></td>
     <td></td>
     <td></td>
     <td>Mehr hierzu ist dem Abschnitt: <b>Variablen zur Kodierung</b> zu entnehmen.</td>
 </tr>
 <tr>
-    <td><code>CodingSchemeRef</code></td>
+    <td><code>Coding-Scheme-Ref</code></td>
     <td>schemer</td>
     <td></td>
     <td>Angaben zur verwendeten Schemer-Modul Version</td>
 </tr>
 <tr>
-    <td><code>CodingSchemeRef</code></td>
+    <td><code>Coding-Scheme-Ref</code></td>
     <td>lastChange</td>
     <td></td>
     <td>Angaben zur letzten Änderung</td>
@@ -164,7 +164,7 @@ Die Schema-Definition wird mit Hauptelement: `Unit` mittels der Attribute: `xmln
 </table>
 ```
 ::: {.callout-tip}
-Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, das dann `DefinitionRef` ersetzt. Das mag bei kleinen Unit-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
+Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, welches dann `DefinitionRef` ersetzt. Das mag bei kleinen Unit-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
 :::
 
 ## Variablen zur Kodierung
@@ -175,7 +175,7 @@ In Bearbeitung THuste: to do
 * Mit Julian über Variablenbedeutung sprechen
 :::
 
-Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: `BaseVariables` ausgegeben. Die Variablen werden im Testcenter verwendet um Gewichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.
+Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: `BaseVariables` ausgegeben. Die Variablen werden im Testcenter verwendet um Wichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.
 
 
 ```{.xml}
@@ -198,7 +198,7 @@ Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-M
 ```
 
 ```{=html}
-<table border=1>
+<table>
 <tr>
     <th><b>Element</b></th>
     <th><b>Attribut</b></th>
@@ -206,7 +206,7 @@ Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-M
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>BaseVariables</code></td>
+    <td><code>Base-Variables</code></td>
     <td></td>
     <td></td>
     <td>keine Daten, keine Attribute</td>

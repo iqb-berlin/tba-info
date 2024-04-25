@@ -5,7 +5,9 @@ title: "XML zur Testheft-Definition"
 
 ##
 
-Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Der Dateiname kann frei gewählt werden. Folgende Funktionen hat diese Datei:
+Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Der Dateiname kann frei gewählt werden. 
+
+Folgende Funktionen erfüllt die XML:
 
 * Festlegung Reihenfolge Aufgaben
 * **Testlet:** Aufgabenbündelung und Beschränkungen in Testlets
@@ -22,7 +24,7 @@ Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Nam
     <Id>BOOKLET.SAMPLE-1</Id>
     <Label>Sample booklet</Label>
     <Description>This a sample booklet for testing/development/showcase purposes.</Description>
-</Metadata>
+  </Metadata>
 
   <BookletConfig>
     <Config key="unit_screenheader">WITH_BOOKLET_TITLE</Config>
@@ -116,7 +118,7 @@ Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `x
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
+    <td><code>Meta-data</code></td>
     <td></td>
     <td></td>
     <td>Keine Daten, keine Attribute</td>
@@ -134,13 +136,13 @@ Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `x
     <td>Frei wählbarer Wert zur Bezeichnung des Booklets.</td>
 </tr>
 <tr>
-    <td><code>Description</code></td>
+    <td><code>De-scription</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Wert zur weiteren Beschreibung dieses Booklets.</td>
 </tr>
 <tr>
-    <td><code>BookletConfig</code></td>
+    <td><code>Booklet-Config</code></td>
     <td></td>
     <td></td>
     <td>Mehr dazu im Abschnitt: <b>Testheft-Konfiguration.</b></td>
@@ -196,8 +198,13 @@ In Bearbeitung THuste: to do
 Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: `key` im Unterlement: `Config` zur Verfügung. Diesem Attribut können nur vordefinierte Werte und Daten zugewiesen. 
 :::
 
-::: {.callout-tip appearance="minimal"}
-## [Link](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zur Liste möglicher Werte Testheftkonfiguration.
+:::{.callout-importantLinks}
+::::{.callout-importantLinks-header}
+[Link](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zur Liste möglicher Werte Testheft-Konfiguration.
+::::
+::::{.callout-importantLinks-container}
+Eine Liste aller verwendbarer Werte zur Testheft-Konfiguration. Es ist auf gleiche Schreibweise (Groß-/Kleinschreibung) zu achten!
+::::
 :::
 
 Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
@@ -233,7 +240,7 @@ Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>BookletConfig</code></td>
+    <td><code>Booklet-Config</code></td>
     <td></td>
     <td></td>
     <td>Keine Daten, keine Attribute</td>
@@ -305,25 +312,25 @@ Ein Testlet ist eine Gruppe von Aufgaben mit gemeinsamen Restriktionen (falls ge
     <td>Frei wählbarer Wert zur Bezeichnung des Testlets.</td>
 </tr>
 <tr>
-    <td><code>Restrictions</code></td>
+    <td><code>Re-strictions</code></td>
     <td></td>
     <td></td>
     <td>keine Daten, keine Attribute</td>
 </tr>
 <tr>
-    <td><code>CodeToEnter</code></td>
+    <td><code>Code-To-Enter</code></td>
     <td>code</td>
     <td></td>
     <td>Zugangscode für das Testlet. Frei wählbarer Wert.</td>
 </tr>
 <tr>
-    <td><code>CodeToEnter</code></td>
+    <td><code>Code-To-Enter</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Frei wählbarer Text. Dieser Text wird bei der Codeaufforderung angezeigt.</td>
 </tr>
 <tr>
-    <td><code>TimeMax</code></td>
+    <td><code>Time-Max</code></td>
     <td>minutes</td>
     <td></td>
     <td>Frei wählbarer numerischer Wert.</td>

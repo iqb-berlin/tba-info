@@ -6,7 +6,8 @@ title: "XML zur Studien-Definition"
 ## 
 
 Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar.
-Folgende Funktionen erfüllt die Testtaker-XML:
+
+Folgende Funktionen erfüllt die XML:
 
 * Festlegung Zugangsdaten/ Anmeldeverfahren:
 * Gruppierung von Zugangsdaten
@@ -85,7 +86,7 @@ Folgende Funktionen erfüllt die Testtaker-XML:
 </Testtakers>
 ```
 
-In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Anzahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen. 
+In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine Anzahl von Logins (Zugangsdaten) mit verschiedenen Anmeldeverfahren (mit Passwort, ohne Passwort etc.). Jedem Zugang wird ein entsprechender Test-Modus zugewiesen. Einige Gruppen weisen zeitliche Beschränkungen auf, sind also bspw. erst ab einer bestimmten Zeit gültig usw.. 
 
 In der ersten Gruppe: **sample_group** befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (`validFrom`). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: **sample_group**, dem Login: **Test** und dem entsprechenden Code gespeichert. Nach Anmeldung mit den Benutzerdaten des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Person nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren und den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein. 
 
@@ -94,44 +95,44 @@ In der ersten Gruppe: **sample_group** befinden sich 2 Logins. Die Gruppe verfü
 Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema-Definition für die Testtaker-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
 :::
 
 ::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
 :::
 
-Die Schema-Definition wird mit Hauptelement: `Testtakers` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
+Die Schema-Definition wird im Hauptelement: `Testtakers` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
 
 ```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
 
-<Metadata>
+  <Metadata>
     <Description>
     This file contains some logins for testing and works a a sample for developers.
     </Description>
-</Metadata>
+  </Metadata>
 
-<CustomTexts>
-  <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
-</CustomTexts>
+  <CustomTexts>
+    <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+  </CustomTexts>
 
-<Group id="trial_group" label="A Group for Trials and Demos" validFor="45">
-  <Login mode="run-trial" name="test-trial" pw="erds#">
-    <Booklet>BOOKLET.SAMPLE-1</Booklet>
-  </Login>
-  <Login mode="run-demo" name="test-demo" pw="tzu#w">
-    <Booklet>BOOKLET.SAMPLE-1</Booklet>
-  </Login>
-  <Login mode="run-simulation" name="test-simulation" pw="er34#j">
-    <Booklet>BOOKLET.SAMPLE-1</Booklet>
-  </Login>
-  <Login mode="run-hot-return" name="test-hot" pw="vg56t#">
-    <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
-    <Booklet codes="yyy">BOOKLET.SAMPLE-3</Booklet>
-  </Login>
-</Group>
+  <Group id="trial_group" label="A Group for Trials and Demos" validFor="45">
+    <Login mode="run-trial" name="test-trial" pw="erds#">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-demo" name="test-demo" pw="tzu#w">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-simulation" name="test-simulation" pw="er34#j">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="test-hot" pw="vg56t#">
+      <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+      <Booklet codes="yyy">BOOKLET.SAMPLE-3</Booklet>
+    </Login>
+  </Group>
 
 </Testtakers>
 ```
@@ -145,19 +146,19 @@ Die Schema-Definition wird mit Hauptelement: `Testtakers` mittels der Attribute:
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>Metadata</code></td>
+    <td><code>Meta-data</code></td>
     <td></td>
     <td></td>
     <td>Keine Attribute, keine Daten</td>
 </tr>
 <tr>
-    <td><code>Describtion</code></td>
+    <td><code>De-scribtion</code></td>
     <td></td>
     <td>>abc<</td>
     <td>Text frei wählbar</td>
 </tr>
 <tr>
-    <td><code>CustomTexts</code></td>
+    <td><code>Custom-Texts</code></td>
     <td></td>
     <td></td>
     <td>Mehr Informationen dazu sind im Abschnitt: **Textersetzungen** zu finden.</td>
@@ -248,19 +249,19 @@ Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen u
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><code>CustomTexts</code></td>
+    <td><code>Custom-Texts</code></td>
     <td></td>
     <td></td>
     <td>Keine Daten, keine Attribute.</td>   
 </tr>
 <tr>
-    <td><code>CustomText</code></td>
+    <td><code>Custom-Text</code></td>
     <td>key</td>
     <td></td>
-    <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Custom Text Configuration.</b></td>   
+    <td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <b>Liste Werte Textersetzungen.</b></td>   
 </tr>
 <tr>
-    <td><code>CustomText</code></td>
+    <td><code>Custom-Text</code></td>
     <td></td>
     <td>>abc<</td>
     <td>frei wählbar Text zur Anzeige eines Custom Text</td>
@@ -271,8 +272,13 @@ Die Anwendung ermöglicht es zur Laufzeit Änderungen an Texten durchzuführen u
 Die Attributwerte für das Attribut `key` sind nicht frei wählbar. Diese sind einer entsprechenden Liste zu entnehmen. Alle Texte, die nicht geändert werden, erhalten einen Standardtext, der ebenfalls der Liste zu entnehmen ist.
 :::
 
-::: {.callout-tip appearance="minimal"}
-# [Link](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) zur Liste möglicher Werte Textersetzungen
+:::{.callout-importantLinks}
+::::{.callout-importantLinks-header}
+[Link](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) zur Liste möglicher Werte Textersetzungen
+::::
+::::{.callout-importantLinks-container}
+Eine Liste aller verwendbarer Werte zur Textersetzung. Es ist die Groß-/Kleinschreibung zu beachten!
+::::
 :::
 
 ## Gruppenmonitoring

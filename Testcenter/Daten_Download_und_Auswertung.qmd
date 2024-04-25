@@ -17,49 +17,49 @@ Hier ein kleines Beispiel zum besseren Verständnis:
 
 Angenommen in der XML zur Studien-Definition sind zwei Gruppen angelegt:
 
-```{.xml .code-overflow-wrap}
+```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
 
-<Metadata>
+  <Metadata>
     <Description>
-    This file contains some logins for testing and works a a sample for developers.
+      This file contains some logins for testing and works a a sample for developers.
     </Description>
-</Metadata>
+  </Metadata>
 
-<CustomTexts>
+  <CustomTexts>
     <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
-</CustomTexts>
+  </CustomTexts>
 
-<Group id="Gruppe1" label="Erste Gruppe">
-    <Login mode="run-hot-return" name="paul" pw="erds#">
+  <Group id="Gruppe1" label="Erste Gruppe">
+    <Login mode="run-hot-return" name="Testperson 1" pw="erds#">
         <Booklet>BOOKLET.SAMPLE-1</Booklet>
     </Login>
-    <Login mode="run-hot-return" name="sven" pw="ghtz#">
+    <Login mode="run-hot-return" name="Testperson 2" pw="ghtz#">
         <Booklet>BOOKLET.SAMPLE-1</Booklet>
     </Login>
-    <Login mode="run-hot-return" name="dieter" pw="wsds#">
+    <Login mode="run-hot-return" name="Testperson 3" pw="wsds#">
         <Booklet>BOOKLET.SAMPLE-1</Booklet>
     </Login>
-</Group>
-<Group id="Gruppe2" label="Zweite Gruppe">
-    <Login mode="run-hot-return" name="katrin" pw="erss#">
+  </Group>
+  <Group id="Gruppe2" label="Zweite Gruppe">
+    <Login mode="run-hot-return" name="Testperson 4" pw="erss#">
         <Booklet>BOOKLET.SAMPLE-1</Booklet>
     </Login>
-    <Login mode="run-hot-return" name="thomas" pw="stdz#">
+    <Login mode="run-hot-return" name="Testperson 5" pw="stdz#">
         <Booklet>BOOKLET.SAMPLE-1</Booklet>
     </Login>
-    <Login mode="run-hot-return" name="paula" pw="jkiu#">
+    <Login mode="run-hot-return" name="Testperson 6" pw="jkiu#">
         <Booklet>BOOKLET.SAMPLE-1</Booklet>
     </Login>
-</Group>
+  </Group>
 
 </Testtakers>
 ```
 
-Paul meldet sich am Testcenter an und bearbeitet Aufgaben. Dann wird ein Datensatz mit dem Namen: **Erste Gruppe** erzeugt. Melden sich weiterhin Sven und Dieter an, wird der vorhandene Datensatz entsprechend um die gegebenen Antworten von Sven und Dieter erweitert.
+Testperson 1 meldet sich am Testcenter an und bearbeitet Aufgaben. Dann wird ein Datensatz mit dem Namen: **Erste Gruppe** erzeugt. Melden sich weiterhin Testperson 2 und Testperson 3 an, wird der vorhandene Datensatz um die gegebenen Antworten von Testperson 2 und Testperson 3 erweitert.
 
-Melden sich Katrin, Thomas oder Paula am Testcenter an, wird ein weiterer Datensatz mit dem Namen: **Zweite Gruppe** erzeugt.
+Melden sich Testperson 4, Testperson 5 oder Testperson 6 am Testcenter an, wird ein weiterer Datensatz mit dem Namen: **Zweite Gruppe** erzeugt.
 
 ----
 
@@ -77,8 +77,7 @@ Alle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe.
 
 #### Antworten
 
-Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Sepzifikationen unterliegenden Format, vom Player an das Testcenter gesendet.
-Mehr zu den Verona-Daten-Spezifikationen sind [hier](https://github.com/iqb-berlin/verona-data-specifications) zu finden.
+Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Spezifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen ist [hier](https://github.com/iqb-berlin/verona-data-specifications) zu finden.
 
 Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:
 
@@ -131,7 +130,7 @@ Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, wer
 
 #### Kommentare
 
-Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder einzelnen Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:
+Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:
 
 * Name der Person, die den Kommentar gibt
 * Auswahl ob der Kommentar sich auf die aktuell betrachtete Aufgabe oder auf das gesamte Testheft bezieht
@@ -139,11 +138,11 @@ Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jede
 * Kategorie (technisches, inhaltliches, gestalterisches)
 * der eigentliche Kommentar
 
-Alle diese Felder sind auch in der heruntergeladenen CSV wiederzufinden.
+Diese Angaben sind auch in der heruntergeladenen CSV wiederzufinden.
 
 #### System-Check Berichte
 
-Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann dann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.
+Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.
 
 Mehr dazu ist dem Kapitel: **System-Check** zu entnehmen.
 
