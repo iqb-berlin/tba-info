@@ -164,6 +164,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
@@ -389,7 +395,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
-<p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar. Folgende Funktionen erfüllt die Testtaker-XML:</p>
+<p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. Prinzipiell ist der Dateiname aber frei wählbar.</p>
+<p>Folgende Funktionen erfüllt die XML:</p>
 <ul>
 <li>Festlegung Zugangsdaten/ Anmeldeverfahren:</li>
 <li>Gruppierung von Zugangsdaten</li>
@@ -473,7 +480,7 @@ Ein einführendes Beispiel
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine unterschiedliche Anzahl von Logins, Anmeldeverfahren (mit Passwort, ohne Passwort etc.), Modi und zeitlichen Beschränkungen.</p>
+<p>In diesem Beispiel sind 6 Gruppen zu finden. Diese Gruppen enthalten eine Anzahl von Logins (Zugangsdaten) mit verschiedenen Anmeldeverfahren (mit Passwort, ohne Passwort etc.). Jedem Zugang wird ein entsprechender Test-Modus zugewiesen. Einige Gruppen weisen zeitliche Beschränkungen auf, sind also bspw. erst ab einer bestimmten Zeit gültig usw..</p>
 <p>In der ersten Gruppe: <strong>sample_group</strong> befinden sich 2 Logins. Die Gruppe verfügt über eine Zeitbeschränkung (<code>validFrom</code>). Alle dieser Gruppe zugehörigen Logins können sich erst am 01.03.2024 um 10:00 Uhr anmelden. Nach Anmeldung des ersten Logins am Testcenter, stehen je nach erfolgter Code-Eingabe 2 Testhefte zur Auswahl (BOOKLET.SAMPLE-1, BOOKLET.SAMPLE-3). Die Studie soll im Modus: run-hot-return durchgeführt werden, es werden also alle Antworten unter dem Gruppennamen: <strong>sample_group</strong>, dem Login: <strong>Test</strong> und dem entsprechenden Code gespeichert. Nach Anmeldung mit den Benutzerdaten des zweiten Logins wird ein Gruppenmonitor präsentiert. Mit Hilfe dieses Monitor können die Aktivitäten innerhalb der Gruppe überwacht und gesteuert werden. Ist bspw. der erste Login aktiv, ist dies im Gruppenmonitor ersichtlich und die Testleitung kann die angemeldete Person nun im Testheft zu einer anderen Aufgabe oder zu einem anderen Block navigieren, den Test pausieren und den Test beenden. Mit der Beschreibung der ersten Gruppe, sollten nun auch alle andere Gruppe verständlich sein.</p>
 </div>
 </div>
@@ -489,7 +496,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testtaker-XML ist <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd"><strong>hier</strong></a> ersichtlich.</p>
+<p>Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema-Definition für die Testtaker-XML ist <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd"><strong>hier</strong></a> ersichtlich.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -502,38 +509,38 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.</p>
+<p>Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.</p>
 </div>
 </div>
-<p>Die Schema-Definition wird mit Hauptelement: <code>Testtakers</code> mittels der Attribute: <code>xmlns:xsi</code>und <code>xsi</code>eingebunden.</p>
+<p>Die Schema-Definition wird im Hauptelement: <code>Testtakers</code> mittels der Attribute: <code>xmlns:xsi</code>und <code>xsi</code>eingebunden.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    This file contains some logins for testing and works a a sample for developers.</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">CustomTexts</span>&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">CustomTexts</span>&gt;</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"trial_group"</span><span class="ot"> label=</span><span class="st">"A Group for Trials and Demos"</span><span class="ot"> validFor=</span><span class="st">"45"</span>&gt;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-trial"</span><span class="ot"> pw=</span><span class="st">"erds#"</span>&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-demo"</span><span class="ot"> name=</span><span class="st">"test-demo"</span><span class="ot"> pw=</span><span class="st">"tzu#w"</span>&gt;</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-simulation"</span><span class="ot"> name=</span><span class="st">"test-simulation"</span><span class="ot"> pw=</span><span class="st">"er34#j"</span>&gt;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test-hot"</span><span class="ot"> pw=</span><span class="st">"vg56t#"</span>&gt;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"trial_group"</span><span class="ot"> label=</span><span class="st">"A Group for Trials and Demos"</span><span class="ot"> validFor=</span><span class="st">"45"</span>&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-trial"</span><span class="ot"> name=</span><span class="st">"test-trial"</span><span class="ot"> pw=</span><span class="st">"erds#"</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-demo"</span><span class="ot"> name=</span><span class="st">"test-demo"</span><span class="ot"> pw=</span><span class="st">"tzu#w"</span>&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-simulation"</span><span class="ot"> name=</span><span class="st">"test-simulation"</span><span class="ot"> pw=</span><span class="st">"er34#j"</span>&gt;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test-hot"</span><span class="ot"> pw=</span><span class="st">"vg56t#"</span>&gt;</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div>
@@ -546,19 +553,19 @@ Wichtig
 <td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
 </tr>
 <tr class="even">
-<td><code>Metadata</code></td>
+<td><code>Meta-data</code></td>
 <td></td>
 <td></td>
 <td>Keine Attribute, keine Daten</td>
 </tr>
 <tr class="odd">
-<td><code>Describtion</code></td>
+<td><code>De-scribtion</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>Text frei wählbar</td>
 </tr>
 <tr class="even">
-<td><code>CustomTexts</code></td>
+<td><code>Custom-Texts</code></td>
 <td></td>
 <td></td>
 <td>Mehr Informationen dazu sind im Abschnitt: **Textersetzungen** zu finden.</td>
@@ -647,19 +654,19 @@ Wichtig
 <td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
 </tr>
 <tr class="even">
-<td><code>CustomTexts</code></td>
+<td><code>Custom-Texts</code></td>
 <td></td>
 <td></td>
 <td>Keine Daten, keine Attribute.</td>
 </tr>
 <tr class="odd">
-<td><code>CustomText</code></td>
+<td><code>Custom-Text</code></td>
 <td>key</td>
 <td></td>
-<td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <strong>Custom Text Configuration.</strong></td>
+<td>Vordefinierter Wert. Erzeugt einen Custom Text. Siehe <strong>Liste Werte Textersetzungen.</strong></td>
 </tr>
 <tr class="even">
-<td><code>CustomText</code></td>
+<td><code>Custom-Text</code></td>
 <td></td>
 <td>&gt;abc&lt;</td>
 <td>frei wählbar Text zur Anzeige eines Custom Text</td>
@@ -680,17 +687,12 @@ Wichtig
 <p>Die Attributwerte für das Attribut <code>key</code> sind nicht frei wählbar. Diese sind einer entsprechenden Liste zu entnehmen. Alle Texte, die nicht geändert werden, erhalten einen Standardtext, der ebenfalls der Liste zu entnehmen ist.</p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<div class="callout-importantLinks">
+<div class="callout-importantLinks-header">
+<p><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Link</a> zur Liste möglicher Werte Textersetzungen</p>
 </div>
-<div class="callout-title-container flex-fill">
-<a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Link</a> zur Liste möglicher Werte Textersetzungen
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
+<div class="callout-importantLinks-container">
+<p>Eine Liste aller verwendbarer Werte zur Textersetzung. Es ist die Groß-/Kleinschreibung zu beachten!</p>
 </div>
 </div>
 </section>
