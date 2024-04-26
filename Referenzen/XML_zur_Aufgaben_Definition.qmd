@@ -63,7 +63,7 @@ Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar,
 :::
 
 ::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Aufgaben-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
 :::
 
 Die Schema-Definition wird im Hauptelement: `Unit` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
@@ -164,7 +164,7 @@ Die Schema-Definition wird im Hauptelement: `Unit` mittels der Attribute: `xmlns
 </table>
 ```
 ::: {.callout-tip}
-Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, welches dann `DefinitionRef` ersetzt. Das mag bei kleinen Unit-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
+Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, welches dann `DefinitionRef` ersetzt. Das mag bei kleinen Aufgaben-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
 :::
 
 ## Variablen zur Kodierung
