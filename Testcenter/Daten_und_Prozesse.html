@@ -161,12 +161,6 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Die Sicht der Testperson</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Verwaltung_und_Organisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verwaltung und Organisation</span></a>
   </div>
@@ -183,6 +177,9 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Testcenter/Studien_Durchfuehrung.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
@@ -206,8 +203,21 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Kodierbox</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Schritt für Schritt</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Schritt_fuer_Schritt/Studie_durchfuehren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -380,9 +390,9 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Übersicht Testcenter Daten Ein- und Ausgabe</figcaption>
 </figure>
 </div>
-<section id="daten-input-für-das-testcenter" class="level1">
-<h1>Daten-Input für das Testcenter</h1>
-<p>Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Logins), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie (Test-Definition, Unit-Definition). Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten. Die Gesamtheit all dieser Dateien wird auch häufig als <strong>Testdateien</strong> bezeichnet. Die <strong>Testdateien</strong> können während des Aufgabenentwurfs im <strong>IQB-Studio</strong> ausgegeben werden.</p>
+<section id="daten-input-für-das-testcenter" class="level2">
+<h2 class="anchored" data-anchor-id="daten-input-für-das-testcenter">Daten-Input für das Testcenter</h2>
+<p>Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Logins), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie (Test-Definition, Aufgaben-Definition). Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten. Die Gesamtheit all dieser Dateien wird auch häufig als <strong>Testdateien</strong> bezeichnet. Die <strong>Testdateien</strong> können während des Aufgabenentwurfs im <strong>IQB-Studio</strong> ausgegeben werden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -410,8 +420,8 @@ Hinweis
 </div>
 </div>
 <p>Welche <strong>Testdateien</strong> es gibt und welche Funktionen diese aufweisen, ist nachfolgend beschrieben.</p>
-<section id="studien-definition-logins" class="level2">
-<h2 class="anchored" data-anchor-id="studien-definition-logins">Studien-Definition (Logins)</h2>
+<section id="studien-definition-logins" class="level3">
+<h3 class="anchored" data-anchor-id="studien-definition-logins">Studien-Definition (Logins)</h3>
 <p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei zur Studien-Definition wird IQB-intern auch <strong>Testtaker-XML</strong> genannt. Prinzipiell ist der Dateiname aber frei wählbar. Diese Datei ist oben im Bild mit “Login” gekennzeichnet.</p>
 <p><strong>Welche Funktionen übernimmt die XML zur Studien-Definition?</strong></p>
 <ul>
@@ -435,8 +445,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="testheft-definition-test-def" class="level2">
-<h2 class="anchored" data-anchor-id="testheft-definition-test-def">Testheft-Definition (Test-Def)</h2>
+<section id="testheft-definition-test-def" class="level3">
+<h3 class="anchored" data-anchor-id="testheft-definition-test-def">Testheft-Definition (Test-Def)</h3>
 <p>Eine weitere XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen <strong>Booklet-XML</strong>. Auch hier kann der Dateiname frei gewählt werden. Diese Datei ist oben im Bild mit “Test-Def” gekennzeichnet.</p>
 <p><strong>Welche Funktionen übernimmt die XML zur Testheft-Definition?</strong></p>
 <ul>
@@ -458,8 +468,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="aufgaben-definition-unit-def" class="level2">
-<h2 class="anchored" data-anchor-id="aufgaben-definition-unit-def">Aufgaben-Definition (Unit-Def)</h2>
+<section id="aufgaben-definition-unit-def" class="level3">
+<h3 class="anchored" data-anchor-id="aufgaben-definition-unit-def">Aufgaben-Definition (Unit-Def)</h3>
 <p>Die Aufgaben-Definition besteht aus zwei Dateien, die zueinander gehören. Eine XML mit Metadaten wie bspw. ID und Label der Aufgabe. Diese wird IQB-intern allgemein auch als <strong>Unit-XML</strong> bezeichnet. Der Dateiname ist wieder frei wählbar und trägt typischerweise den eindeutigen Namen der Aufgabe. Eine weitere Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung <strong>.VOUD</strong> und wird auch als Ressource zu einer Aufgabe bezeichnet. IQB-intern wird diese Datei allgemein auch als <strong>Unit-VOUD</strong> bezeichnet. Der Name dieser Datei ist wieder frei wählbar , sollte aber günstigerweise den gleichen Namen wie die XML tragen, um die Zugehörigkeit schnell erkennen zu können. Im oberen Bild werden diese beide Dateien zusammen als Unit-Def bezeichnet.</p>
 <section id="unit-xml" class="level4">
 <h4 class="anchored" data-anchor-id="unit-xml">Unit-XML</h4>
@@ -501,8 +511,8 @@ Tipp
 </div>
 </section>
 </section>
-<section id="geo-gebra" class="level2">
-<h2 class="anchored" data-anchor-id="geo-gebra">Geo-Gebra</h2>
+<section id="geo-gebra" class="level3">
+<h3 class="anchored" data-anchor-id="geo-gebra">Geo-Gebra</h3>
 <p>Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource mit der Endung <strong>.ITCR</strong> mit zur Aufgabe in das Testcenter geladen werden. Das GeoGebra-Paket kann unter <a href="https://download.geogebra.org/package/geogebra-math-apps-bundle">https://download.geogebra.org/package/geogebra-math-apps-bundle</a> heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.</p>
 <p>Das Paket kann nicht mitausgeliefert werden, da GeoGebra <a href="https://www.geogebra.org/license">diese Lizenz</a> verwendet.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -519,8 +529,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="kodiervariablen-und-kodierregeln" class="level2">
-<h2 class="anchored" data-anchor-id="kodiervariablen-und-kodierregeln">Kodiervariablen und Kodierregeln</h2>
+<section id="kodiervariablen-und-kodierregeln" class="level3">
+<h3 class="anchored" data-anchor-id="kodiervariablen-und-kodierregeln">Kodiervariablen und Kodierregeln</h3>
 <p>Zu jeder Aufgabe kann im IQB-Studio ein entsprechendes Kodierschema angelegt werden. Bei Ausgabe der Aufgabe erzeugt das Studio eine Datei mit der Endung <strong>.VOCS</strong>. In dieser Datei sind die erstellten Kodierregeln enthalten. In Verbindung mit den Kodiervariablen in der XML zur Aufgaben-Defintion (<strong>Unit-XML</strong>) kann das Testcenter Bedingungen für Aufgaben-Verzweigungen (adaptives Testen) schaffen.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -536,8 +546,8 @@ Hinweis
 </div>
 </div>
 </section>
-<section id="player" class="level2">
-<h2 class="anchored" data-anchor-id="player">Player</h2>
+<section id="player" class="level3">
+<h3 class="anchored" data-anchor-id="player">Player</h3>
 <p>In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente “Player” enthält. Grundidee dieser Teilung ist, dass das interne Format einer Aufgaben-Definition, insbesondere der Aufgaben Ressource (Unit-VOUD), nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die jeweilige Aufgaben-Definition lesen und darstellen kann. Der Player übernimmt weitere Aufgaben (responses complete, presentation complete usw.).</p>
 <p>Für die Vorbereitung eines Tests bedeutet dies:</p>
 <ol type="1">
@@ -548,8 +558,8 @@ Hinweis
 <p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a></p>
 </section>
 </section>
-<section id="daten-output-des-testcenters" class="level1">
-<h1>Daten-Output des Testcenters</h1>
+<section id="daten-output-des-testcenters" class="level2">
+<h2 class="anchored" data-anchor-id="daten-output-des-testcenters">Daten-Output des Testcenters</h2>
 <p>Das Testcenter stellt Daten zur Verfügung, die für die Auswertung einer Studie wichtig sind. Nachfolgende Daten können nach Studienende aus dem Testcenter heruntergeladen werden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -586,8 +596,8 @@ Tipp
 <p>Nach der Durchführung eines System-Checks werden bei Bedarf die Daten in der Datenbank gespeichert und sind ebenfalls abrufbar.</p>
 </section>
 </section>
-<section id="system-check" class="level1">
-<h1>System-Check</h1>
+<section id="system-check" class="level2">
+<h2 class="anchored" data-anchor-id="system-check">System-Check</h2>
 <p>Vor Studiedurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.</p>
 <p>Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -604,8 +614,8 @@ Hinweis
 </div>
 </div>
 </section>
-<section id="daten-bearbeitung" class="level1">
-<h1>Daten-Bearbeitung</h1>
+<section id="daten-bearbeitung" class="level2">
+<h2 class="anchored" data-anchor-id="daten-bearbeitung">Daten-Bearbeitung</h2>
 <p>Die Testdateien für das Testcenter können manuell bearbeitet werden bevor sie in das Testcenter geladen werden. Hierfür ist ein Verständnis der Extensible Markup Language <strong>XML</strong> notwendig. Eine knappe Einleitung bietet hier der Punkt: <strong>Mehr zu XML</strong> in den Referenzen. Detaillierte Informationen dazu sind aber auch im Internet zu finden.</p>
 <p>Der Daten-Output des Testcenters kann mit Hilfe eines weiteren IQB-Tools mit dem Namen: <strong>itc-Toolbox</strong> aufbereitet werden. Da es sich bei dem Daten-Output um CSV-Dateien handelt, kann es im Sinne der Übersichtlichkeit bspw. sinnvoll sein einzelne CSV-Dateien in Excel-Dateien zu wandeln. Mehr zur itc-Toolbox ist auf <a href="https://github.com/iqb-berlin/itc-toolbox">GitHub</a> zu finden.</p>
 

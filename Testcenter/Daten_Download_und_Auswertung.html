@@ -195,12 +195,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Die Sicht der Testperson</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Verwaltung_und_Organisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verwaltung und Organisation</span></a>
   </div>
@@ -217,6 +211,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Testcenter/Studien_Durchfuehrung.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
@@ -240,8 +237,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Kodierbox</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Schritt für Schritt</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Schritt_fuer_Schritt/Studie_durchfuehren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -366,7 +376,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#wie-werden-daten-erzeugt" id="toc-wie-werden-daten-erzeugt" class="nav-link active" data-scroll-target="#wie-werden-daten-erzeugt">Wie werden Daten erzeugt?</a></li>
-  <li><a href="#welche-daten-werden-erzeugt" id="toc-welche-daten-werden-erzeugt" class="nav-link" data-scroll-target="#welche-daten-werden-erzeugt">Welche Daten werden erzeugt?</a></li>
+  <li><a href="#welche-daten-werden-erzeugt" id="toc-welche-daten-werden-erzeugt" class="nav-link" data-scroll-target="#welche-daten-werden-erzeugt">Welche Daten werden erzeugt?</a>
+  <ul class="collapse">
+  <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
+  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
+  <li><a href="#kommentare" id="toc-kommentare" class="nav-link" data-scroll-target="#kommentare">Kommentare</a></li>
+  <li><a href="#system-check-berichte" id="toc-system-check-berichte" class="nav-link" data-scroll-target="#system-check-berichte">System-Check Berichte</a></li>
+  </ul></li>
   <li><a href="#wie-können-die-daten-heruntergeladen-werden" id="toc-wie-können-die-daten-heruntergeladen-werden" class="nav-link" data-scroll-target="#wie-können-die-daten-heruntergeladen-werden">Wie können die Daten heruntergeladen werden?</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
@@ -474,8 +490,8 @@ Hinweis
 <p>Alle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe.</p>
 </div>
 </div>
-<section id="antworten" class="level4">
-<h4 class="anchored" data-anchor-id="antworten">Antworten</h4>
+<section id="antworten" class="level3">
+<h3 class="anchored" data-anchor-id="antworten">Antworten</h3>
 <p>Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Spezifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen ist <a href="https://github.com/iqb-berlin/verona-data-specifications">hier</a> zu finden.</p>
 <p>Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:</p>
 <div>
@@ -517,8 +533,8 @@ Hinweis
 </table>
 </div>
 </section>
-<section id="logs" class="level4">
-<h4 class="anchored" data-anchor-id="logs">Logs</h4>
+<section id="logs" class="level3">
+<h3 class="anchored" data-anchor-id="logs">Logs</h3>
 <p>Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:</p>
 <ul>
 <li>Version des Betriebssystems und des Browsers</li>
@@ -527,8 +543,8 @@ Hinweis
 <li>Zustand des Players</li>
 </ul>
 </section>
-<section id="kommentare" class="level4">
-<h4 class="anchored" data-anchor-id="kommentare">Kommentare</h4>
+<section id="kommentare" class="level3">
+<h3 class="anchored" data-anchor-id="kommentare">Kommentare</h3>
 <p>Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:</p>
 <ul>
 <li>Name der Person, die den Kommentar gibt</li>
@@ -539,8 +555,8 @@ Hinweis
 </ul>
 <p>Diese Angaben sind auch in der heruntergeladenen CSV wiederzufinden.</p>
 </section>
-<section id="system-check-berichte" class="level4">
-<h4 class="anchored" data-anchor-id="system-check-berichte">System-Check Berichte</h4>
+<section id="system-check-berichte" class="level3">
+<h3 class="anchored" data-anchor-id="system-check-berichte">System-Check Berichte</h3>
 <p>Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.</p>
 <p>Mehr dazu ist dem Kapitel: <strong>System-Check</strong> zu entnehmen.</p>
 </section>

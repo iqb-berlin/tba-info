@@ -195,12 +195,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Die_Sicht_der_Testperson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Die Sicht der Testperson</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Verwaltung_und_Organisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verwaltung und Organisation</span></a>
   </div>
@@ -217,6 +211,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Testcenter/Studien_Durchfuehrung.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
@@ -240,8 +237,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Kodierbox</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Schritt für Schritt</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Schritt_fuer_Schritt/Studie_durchfuehren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -472,7 +482,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testtaker-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der Testtaker-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.</p>
+<p>Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Aufgaben-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.</p>
 </div>
 </div>
 <p>Die Schema-Definition wird im Hauptelement: <code>Unit</code> mittels der Attribute: <code>xmlns:xsi</code>und <code>xsi</code>eingebunden.</p>
@@ -580,7 +590,7 @@ Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element <code>Definition</code> zu hinterlegen, welches dann <code>DefinitionRef</code> ersetzt. Das mag bei kleinen Unit-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.</p>
+<p>Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element <code>Definition</code> zu hinterlegen, welches dann <code>DefinitionRef</code> ersetzt. Das mag bei kleinen Aufgaben-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.</p>
 </div>
 </div>
 </section>
