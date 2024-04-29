@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB TBA-Info - Typische Probleme</title>
+<title>IQB TBA-Info - Konfiguration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Testcenter/Testen_der_Anwendung.html" rel="next">
-<link href="../Testcenter/Studienverhalten_konfigurieren.html" rel="prev">
+<link href="../Testcenter/Typische_Probleme.html" rel="next">
+<link href="../Testcenter/Studien_Durchfuehrung_Vorbetrachtung.html" rel="prev">
 <link href="../favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Typische_Probleme.html">Typische Probleme</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Studien_Durchfuehrung.html">Studiendurchführung</a></li><li class="breadcrumb-item"><a href="../Testcenter/Studienverhalten_konfigurieren.html">Konfiguration</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -181,11 +181,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../Testcenter/Studien_Durchfuehrung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studiendurchführung</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Testcenter/Studien_Durchfuehrung_Vorbetrachtung.html" class="sidebar-item-text sidebar-link">
@@ -194,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Studienverhalten_konfigurieren.html" class="sidebar-item-text sidebar-link">
+  <a href="../Testcenter/Studienverhalten_konfigurieren.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Konfiguration</span></a>
   </div>
 </li>
@@ -202,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Typische Probleme</span></a>
   </div>
 </li>
@@ -357,14 +357,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#sollen-aufgaben--und-testheftbezeichner-angezeigt-werden" id="toc-sollen-aufgaben--und-testheftbezeichner-angezeigt-werden" class="nav-link active" data-scroll-target="#sollen-aufgaben--und-testheftbezeichner-angezeigt-werden">Sollen Aufgaben- und Testheftbezeichner angezeigt werden?</a></li>
+  <li><a href="#sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden" id="toc-sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden" class="nav-link" data-scroll-target="#sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden">Sollen Standardtexte der Anwendung durch eigene ersetzt werden?</a></li>
+  <li><a href="#wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben" id="toc-wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben" class="nav-link" data-scroll-target="#wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben">Wie sollen die Navigationsschaltflächen aussehen? Soll es überhaupt welche geben?</a></li>
+  <li><a href="#sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc." id="toc-sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc." class="nav-link" data-scroll-target="#sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc.">Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?</a></li>
+  <li><a href="#soll-es-ein-zusätzliches-menu-zur-navigation-geben" id="toc-soll-es-ein-zusätzliches-menu-zur-navigation-geben" class="nav-link" data-scroll-target="#soll-es-ein-zusätzliches-menu-zur-navigation-geben">Soll es ein zusätzliches Menu zur Navigation geben?</a></li>
+  <li><a href="#wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke" id="toc-wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke" class="nav-link" data-scroll-target="#wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke">Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?</a></li>
+  <li><a href="#was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden" id="toc-was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden" class="nav-link" data-scroll-target="#was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden">Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?</a></li>
+  <li><a href="#was-soll-geschehen-wenn-der-test-beendet-wird" id="toc-was-soll-geschehen-wenn-der-test-beendet-wird" class="nav-link" data-scroll-target="#was-soll-geschehen-wenn-der-test-beendet-wird">Was soll geschehen, wenn der Test beendet wird?</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Typische_Probleme.html">Typische Probleme</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Testcenter/intro.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../Testcenter/Studien_Durchfuehrung.html">Studiendurchführung</a></li><li class="breadcrumb-item"><a href="../Testcenter/Studienverhalten_konfigurieren.html">Konfiguration</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Typische Probleme</h1>
+<h1 class="title">Konfiguration</h1>
 </div>
 
 
@@ -381,21 +394,55 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Diese Seite ist in Berabeitung!</p>
+<p>Die Konfiguration des Studienverhaltens kann mittels der beiden XML’s: XML zur Studien-Definition und XML zur Testheft-Definition vorgenommen werden. Mehr Informationen zu den beiden XML’s und zu entsprechenden Listen möglicher Konfigurationswerte sind den Referenzen zu entnehmen.</p>
 </div>
 </div>
+<p>Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Hier aufgezeigt werden die wichtigsten Fragen zur Konfiguration der Studie, die vor jedem Studienstart gestellt werden sollten.</p>
+<section id="sollen-aufgaben--und-testheftbezeichner-angezeigt-werden" class="level2">
+<h2 class="anchored" data-anchor-id="sollen-aufgaben--und-testheftbezeichner-angezeigt-werden">Sollen Aufgaben- und Testheftbezeichner angezeigt werden?</h2>
+<p>Das in der XML zur Aufgaben-Definition festgelegte Label einer Aufgabe und das in XML zur Testheft-Definition festgelegte Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration mit dem Wert: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden.</p>
+</section>
+<section id="sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden" class="level2">
+<h2 class="anchored" data-anchor-id="sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden">Sollen Standardtexte der Anwendung durch eigene ersetzt werden?</h2>
+<p>Textersetzungen werden in der XML zur Studien-Definition festgelegt. Dazu müssen entsprechende Werte im XML Element <code>&lt;Custom-Text&gt;</code> aus einer Liste hinzugefügt werden.</p>
+</section>
+<section id="wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben" class="level2">
+<h2 class="anchored" data-anchor-id="wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben">Wie sollen die Navigationsschaltflächen aussehen? Soll es überhaupt welche geben?</h2>
+<section id="layout" class="level4">
+<h4 class="anchored" data-anchor-id="layout">Layout</h4>
+<p>Labelshort Aussehen</p>
+</section>
+</section>
+<section id="sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc." class="level2">
+<h2 class="anchored" data-anchor-id="sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc.">Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?</h2>
+<p>responses und presentation complete</p>
+</section>
+<section id="soll-es-ein-zusätzliches-menu-zur-navigation-geben" class="level2">
+<h2 class="anchored" data-anchor-id="soll-es-ein-zusätzliches-menu-zur-navigation-geben">Soll es ein zusätzliches Menu zur Navigation geben?</h2>
+<p>Unit menu</p>
+</section>
+<section id="wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke" class="level2">
+<h2 class="anchored" data-anchor-id="wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke">Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?</h2>
+</section>
+<section id="was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden" class="level2">
+<h2 class="anchored" data-anchor-id="was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden">Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?</h2>
+</section>
+<section id="was-soll-geschehen-wenn-der-test-beendet-wird" class="level2">
+<h2 class="anchored" data-anchor-id="was-soll-geschehen-wenn-der-test-beendet-wird">Was soll geschehen, wenn der Test beendet wird?</h2>
+<p>Test sperren oder nicht</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -816,13 +863,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Testcenter/Studienverhalten_konfigurieren.html" class="pagination-link" aria-label="Konfiguration">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Konfiguration</span>
+      <a href="../Testcenter/Studien_Durchfuehrung_Vorbetrachtung.html" class="pagination-link" aria-label="Vorbetrachtungen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vorbetrachtungen</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Testcenter/Testen_der_Anwendung.html" class="pagination-link" aria-label="Testen der Anwendung">
-        <span class="nav-page-text">Testen der Anwendung</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Testcenter/Typische_Probleme.html" class="pagination-link" aria-label="Typische Probleme">
+        <span class="nav-page-text">Typische Probleme</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -840,7 +887,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
