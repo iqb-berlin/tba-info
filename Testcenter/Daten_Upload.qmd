@@ -12,7 +12,7 @@ Nach dem Laden von Testdateien, werden diese automatisch vom Testcenter gruppier
 * Teilnehmerlisten: Hier werden alle Dateien zur Studien-Definition gelistet.
 * Testhefte: Hier werden alle Dateien zur Testheft-Definition gelistet.
 * Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.
-* Units: Hier werden die Dateien zur Aufgaben-Defintion gelistet.
+* Units: Hier werden die Dateien zur Aufgaben-Definition gelistet.
 
 Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Studien-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
 
@@ -45,9 +45,9 @@ Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in da
 
 **File has no link to XSD-Schema**
 
-Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Testfheft-Definition, Studien-Definition und Aufgaben-Definition** befinden sich im GitHub-Repository der verwendeten Testcenter-Version in entsprechenden Unterordnern.
+Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Testheft-Definition, Studien-Definition und Aufgaben-Definition** befinden sich im GitHub-Repository der verwendeten Testcenter-Version in entsprechenden Unterordnern.
 
-Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Defintion wie folgt eingebunden:
+Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Definition wie folgt eingebunden:
 
 ```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
@@ -67,7 +67,7 @@ Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Te
 
 **Duplicate Login**
 
-In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Defintion, ob die darin enthaltenen Zugänge (`name`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene XML zur Studien-Defintion ist zuvor aus dem Testcenter zu entfernen.
+In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Definition, ob die darin enthaltenen Zugänge (`name`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.
 
 ::: {.callout-important}
 Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterbrechen! Die darin definierten Teilnehmer\*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell eine laufende Studie definiert.

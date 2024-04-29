@@ -56,14 +56,14 @@ Es folgt das Element: `BaseVariables`. Beim Aufgabenentwurf im IQB-Studio kann e
 Das letzte Element:`CodingSchemeRef` gibt die Version des zur Aufgabenkodierung verwendeten Schemer-Moduls an. 
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributwerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributswerte in der Aufgaben-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
 Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema-Definition für die Aufgaben-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd) zu finden.
 :::
 
 ::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Aufgaben-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenterversion passt.
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Aufgaben-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.0 verwendet, sollte auch die Schema-Definition 15.0.0 verwendet werden. Beim Laden der XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenter-Version passt.
 :::
 
 Die Schema-Definition wird im Hauptelement: `Unit` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.

@@ -1,0 +1,79 @@
+---
+lang: de
+title: "Studiendurchführung"
+---
+
+## Vorbereitung
+
+::: {.callout-note}
+Wichtige Informationen sind auch Kapitel: **Vorbetrachtungen** zu finden.
+:::
+
+* Zugangsdaten festlegen, Art der Anmeldung und zeitliche Gültigkeit in der XML zur Studien-Definition festlegen
+* Testablauf planen mittels XML zur Testheft-Definition: Welche Units, welche Zwischenseiten, welche Blöcke mit welchen Beschränkungen?
+* Festlegung der Aufgaben-Bezeichner und der Player zur Wiedergabe in der XML zur Aufgaben-Definition
+* Neuen Arbeitsbereich (Workspace) im Testcenter anlegen
+* Konventionen festlegen (Formulierung bei Instruktionen, Benennung der Units usw.).
+
+## Testcenter konfigurieren
+
+#### System-Check
+
+Soll zur Prüfung der örtlichen Gegebenheiten ein System-Check durchgeführt werden, ist dieser im Testcenter einzurichten. Mehr dazu ist im Kapitel: **System-Check** zu finden.
+
+#### Aufgaben und Testhefte laden
+
+Im nächsten Schritt werden die XML zur Testheft-Definition und die XML's zur Aufgaben-Definition inkl. aller benötigten Ressourcen (.VOUD, .VOCS, .ITCR und Player.html) in den zuvor eingerichteten Arbeitsbereich des Testcenters geladen. Mehr dazu ist im Kapitel: **Daten und Prozesse** zu finden. 
+
+#### XML zur Studie-Definition laden
+
+Studie im Review und Probelauf:
+
+Um sicherzustellen, dass die Studie ohne Probleme laufen kann und vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein, die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: `run-review` festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und betrachten. Es können ach Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Diese Kommentare können anschließend ausgewertet werden. Es können basierend auf diesen Kommentaren Optimierungen an den Aufgabeninhalten oder der Testheftstruktur vorgenommen werden.
+
+Studie final:
+
+* Testmodus für finale Testung in der XML zur Studien-Definition festlegen (`run-hot-return`oder `run-hot-restart`)
+* Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren
+* XML zur Studiendefinition in den Arbeitsbereich laden
+
+## Studienlauf
+
+Nun können sich die Testpersonen mit den in der XML zur Studien-Definition festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testperson erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: **Weiter**. Nach der Anmeldung ist ein sehr reduziertes Startbild zu sehen. Rechts ein paar allgemeine Informationen (Version, Datenschutz etc.), links nur Eingabefelder für Name und Kennwort. Nach der Eingabe wird ein großer Schalter präsentiert, der das Testheft symbolisiert, das gestartet werden soll. Die Anzeige des Testheftes signalisiert auch eine erfolgreiche Anmeldung. Mit Klick auf die Schaltfläche des Testheftes werden alle Testinhalte geladen. Sobald möglich wird auch die erste Seite schon gezeigt und das Laden wird im Hintergrund fortgesetzt.
+
+Die Aufgabennavigation erfolgt rechts oben. Sollte eine Aufgabe aus mehreren Seiten bestehen, dann kann man rechts unten mit entsprechenden Schaltern blättern. Manchmal ist die Bearbeitungszeit begrenzt, dann werden rechtzeitig (5 min und 1 min vor Ende) Hinweise eingeblendet.
+
+::: {.callout-important}
+Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung und ist daher sehr wichtig. Bei längeren Studienlaufzeiten empfiehlt es sich diesen in regelmäßigen Abständen herunterzuladen und zu sichern. Kommt es zu einem Serverausfall oder einem anderen techn. Problem, können so zumindest Teile der Studie ausgewertet werden.
+:::
+
+## Test oder Befragung beenden
+
+Die Beantwortung kann jederzeit beendet werden. Die Antworten werden stets sofort gespeichert und es ist hierfür kein Kommando erforderlich. Manchmal gibt es am Ende einen Schalter "Test beenden" oder "Befragung verlassen". Dann kehrt man zur Auswahl des Testheftes zurück.
+
+## Auswertung, Evaluation
+
+Daten wie vorgesehen auswerten, Berichte schreiben, Rückmeldung an Schulen geben. Evaluieren: Dabei hilft die Vorstellung, dass man die gleiche Studie nächste Woche nochmal durchführen soll.
+
+## Mögliche Probleme
+
+#### Nach erfolgreicher Anmeldung ist kein Startbild mit den Testheften zu sehen
+
+Eventuell besteht keine Internetverbindung. Es sollten entsprechende Routinen zur Fehlerbehebung beginnen (lose Kabel etc.).
+
+#### Es wird für die Anmeldung kein Testheft gefunden
+
+Zugangsdaten prüfen. In der XML zur Studien-Definition prüfen, ob dem Zugang ein entsprechendes Testheft zugewiesen ist und ob dieses Testheft im Arbeitsreich existiert.
+
+#### Schalter Testheft ist inaktiv
+
+Dies kann daraufhin deuten, dass das Testheft gesperrt ist. Je nach Einstellungen in der XML zur Testheft-Definition kann es sein, dass die Testhefte nach Beendigung der Testung gesperrt werden. Ein Testheft kann eventuell auch über einen eingesetzen Gruppenmonitor von der Testleitung gesperrt wurden sein. In diesem Fall kann die Sperrung im Gruppenmonitor auch wieder aufgehoben werden.
+
+#### Aufgabeninhalte werden nicht präsentiert
+
+Werden die Inhalte erst während der Durchführung geladen (Einstellungen zum Ladenverhalten sind in der XML zur Testheft-Definition festzulegen. Hier gibt es zwei Arten: LAZY und EAGER) kann es ein, dass Inhalte (Videos, Audios) noch geladen werden und die Testperson nicht sofort etwas sieht. Eventuell kann hier auch das Neuladen einer Seite hilfreich sein. Falls ein Gruppenmonitor zum Einsatz kommt, könnte dieser verwendet werden um die Testperson noch einmal an den Anfang eines Block zu leiten und somit das Neuladen einer Aufgabe zu erzwingen.
+
+::: {.callout-tip}
+Sollten technische Probleme mit dem Computer auftreten (z. B. Audio-Buchse defekt), dann kann jederzeit der Browser geschlossen und der Test auf einem anderen Computer neu gestartet werden. Die schon gegebenen Antworten werden geladen und der Test kann fortgesetzt werden.
+:::
+

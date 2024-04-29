@@ -21,7 +21,7 @@ Der Gruppenmonitor ist in zwei Teile aufgeteilt, einen mittleren und einen linke
 Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.
 
 ::: {.callout-note}
-Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: **Spalten:** Teil und Abschnitt **Aktivität:** Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtoptionen entsprechend.
+Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: **Spalten:** Teil und Abschnitt **Aktivität:** Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtsoptionen entsprechend.
 :::
 
 ![Übersicht Gruppenmonitor](/Testcenter/Pictures_GM/GM_Gesamtansicht.png)
@@ -36,7 +36,7 @@ Oben rechts ist in Form eines kleinen Symbols der Verbindungsstatus des Gruppenm
 
 Ebenfalls oben rechts ist eine Einstellungs-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht (mehr oder weniger Informationen anzeigen) für das mittlere Fenster, das Aktivitätsfenster, angepasst werden.
 
-#### Aktivitätsfenster (mitte)
+#### Aktivitätsfenster (Mitte)
 
 Hier ist eine Liste aller in dieser Gruppe hinterlegten Personen zu sehen. Außerdem sind die Struktur der Testhefte, der Fortschritt der Testung und weitere hilfreiche Informationen in Spalten sortiert zu sehen.
 
@@ -51,47 +51,47 @@ Hier wird der Status der Testperson angezeigt. Folgende Status gibt es:
 ```{=html}
 <table>
 <tr>
-    <th><b>Symbol</b></th>
+    <th><b>Symbolik</b></th>
     <th><b>Beschreibung</b></th>
 </tr>
 <tr>
-    <td><img src="Pictures_GM/GM_Status_offline.png" ></td>
+    <td align=center><img src="Pictures_GM/GM_Status_offline.png" ></td>
     <td>Test noch nicht gestartet.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Connection_Websocket.png" ></td>
+    <td align=center><img src="GM_Status_Connection_Websocket.png" ></td>
     <td>Test läuft, Verbindung ist live.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Connection_polling.png" ></td>
+    <td align=center><img src="GM_Status_Connection_polling.png" ></td>
     <td>Test läuft. Testläufe und Teilnehmer sind im Polling-Modus verbunden. Dies ist ein Fallback für den Fall, dass der Live-Modus aufgrund des Browsers des Betreuers oder eines technischen Fehlers nicht möglich ist. Die Leistung des Monitors ist hierbei nicht so gleichmäßig.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_ok.png" ></td>
+    <td align=center><img src="GM_Status_ok.png" ></td>
     <td>Der Test scheint zu laufen, aber der Verbindungstyp ist unbekannt. Dies ist mehr oder weniger ein Fallback-Zustand, der anzeigt, dass außer seiner Existenz nichts über den Test bekannt ist. Dies kann bei verschiedenen Fehlerszenarien oder Fehlkonfigurationen der Fall sein, sollte aber im Allgemeinen nicht vorkommen. Es sollte untersucht werden, aber höchstwahrscheinlich kann der Test sicher fortgesetzt werden, da der Fehler eher auf der Seite des Monitors liegt.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Idle.png" ></td>
+    <td align=center><img src="GM_Status_Idle.png" ></td>
     <td>Test ist 5 Minuten oder länger inaktiv.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Pause.png" ></td>
+    <td align=center><img src="GM_Status_Pause.png" ></td>
     <td>Test ist pausiert.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Locked.png" ></td>
+    <td align=center><img src="GM_Status_Locked.png" ></td>
     <td>Test ist gesperrt.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Focus_lost.png" ></td>
-    <td>Fokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browsertab.</td>
+    <td align=center><img src="GM_Status_Focus_lost.png" ></td>
+    <td>Fokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browser-Tab.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Connection_lost.png" ></td>
+    <td align=center><img src="GM_Status_Connection_lost.png" ></td>
     <td>Browserfenster wurde geschlossen oder Netzwerkverbindung ist gestört.</td>
 </tr>
 <tr>
-    <td><img src="GM_Status_Controller_terminated.png" ></td>
+    <td align=center><img src="GM_Status_Controller_terminated.png" ></td>
     <td>Testausführung wurde beendet und kann wieder aufgenommen werden. Der Browser des Teilnehmers ist nicht verbunden und muss neu geladen werden! Zustand tritt ein, wenn im Gruppenmonitor der „Unlock“-Button verwendet wurde.</td>
 </tr>
 
@@ -126,7 +126,7 @@ Es ist möglich mehrere Personen gleichzeitig zu steuern. Hierfür kann der Scha
 
 #### Pausieren
 
-Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie anschließend die Schaltfläche: **Pause**. Ist der Test erfolgreich pausiert, erscheint das entsprechende Statussymbol für Pause bei der Person. Außerdem erscheint im Browser der Person eine entsprechende Meldung, dass der Test pausiert wurde. Soll die Pausierung aufgehoben werden, ist erneut die entsprechende Person zu markieren und anschließend ist die Schaltfläche: **Weiter** zu betätigen. Der Test wird dann fortgeführt.
+Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie anschließend die Schaltfläche: **Pause**. Ist der Test erfolgreich pausiert, erscheint das entsprechende Statussymbol für Pause bei der Person. Außerdem erscheint im Browser der Person eine entsprechende Meldung, dass der Test pausiert wurde. Soll das Pausieren aufgehoben werden, ist erneut die entsprechende Person zu markieren und anschließend ist die Schaltfläche: **Weiter** zu betätigen. Der Test wird dann fortgeführt.
 
 #### Springe zu Block
 

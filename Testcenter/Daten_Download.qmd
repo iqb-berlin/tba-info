@@ -1,0 +1,33 @@
+---
+lang: de
+title: "Daten Download"
+---
+
+## Welche Daten werden erzeugt?
+
+::: {.callout-important}
+Der Modus der Studiendurchführung legt fest, ob Daten gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
+:::
+
+Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Diese Daten werden zusammengefasst dargestellt in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. **Der Datensatz mit den Daten zur Auswertung wird immer mit dem Namen der Gruppe gespeichert.**
+
+Folgende Daten sind je nach gesetztem Modus im Datensatz erhalten:
+
+* Antworten (nur im Modus: `run-hot-return` und `run-hot-restart`)
+* Logs (nur im Modus: `run-hot-return` und `run-hot-restart`)
+* Kommentare (nur im Modus `run-review`)
+
+## Wie können die Daten heruntergeladen werden?
+
+Der gespeicherte Datensatz befindet sich nach Studienende in dem Arbeitsbereich, in dem sich auch die Testdateien zur Studie befinden.
+Nach dem Öffnen des Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Unter dem Reiter: **Ergebnisse/ Antworten** ist der Datensatz zu finden. Diese Daten werden wie vorgehend beschrieben unterteilt in:
+
+* Antworten
+* Logs
+* Kommentare
+
+Zum Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markieren und anschließend ist die entsprechende Schaltfläche zu nutzen.
+
+![Datensatz: Antworten, Logs und Kommentare herunterladen](/Testcenter/TC_DatenDownload.png)
+
+Die Daten werden im CSV-Format heruntergeladen und können anschließend weiter aufbereitet werden. Da Daten im CSV-Format nicht besonders gut zu lesen sind, können die Daten mit dem IQB-Tool: **itc-Toolbox** weiter aufbereitet werden. Mehr Informationen zu diesem Tool sind [hier](https://github.com/iqb-berlin/itc-toolbox) zu finden.

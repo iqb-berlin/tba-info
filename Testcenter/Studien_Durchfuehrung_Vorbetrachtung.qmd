@@ -1,0 +1,54 @@
+---
+lang: de
+title: "Vorbetrachtungen"
+---
+
+Die Beteiligten brauchen rechtzeitig klare Anweisungen, wie die Studie vorbereitet, durchgeführt und ausgewertet wird. Hierzu sind zunächst eine Reihe von Fragen zu beantworten und ggf. bestimmte Schritte vorzuziehen. Mitunter müssen die Festlegungen in Dokumenten festgehalten und verschickt werden: allg. Handreichungen, Manual für die Testleitung, Anschreiben für System-Check, Anträge beim Datenschutz, Elternanschreiben, usw. Eine Studie sollte daher langfristig geplant sein, um eine stabile Durchführung gewährleisten zu können. Nachfolgend werden ein paar Punkte genannt, die vor jeder Studie bedacht werden sollten.
+
+## Endgeräte
+
+Die eigentliche Hardware der Endgeräte spielt bzgl. der Stabilität eines Studienlaufs eine untergeordnete Rolle, da für die Anwendung ehr der Browser entscheidend ist. Durchaus interessant könnte es aber sein, welche Bildschirmgrößen mit welchen Auflösungen zum Einsatz kommen werden. Die Aufgabeninhalte verhalten sich zwar responsive, dennoch kann es sinnvoll sein Aufgaben bzgl. der Darstellung zu optimieren. Kommen bspw. größtenteils kleinere Tablets zum Einsatz, kann es sinnvoll sein, Aufgaben bestehend aus mehreren Seiten zu vermeiden, weil die Seiteninhalte dann nur noch entsprechend klein dargestellt werden können. Die Frage nach den zum Einsatz kommenden Endgeräten sollte sich also nicht erst kurz vor der eigentlichen Studiendurchführung mit dem Testcenter stellen, sondern bereits bei der Aufgabenentwicklung. Da es sich um eine Webanwendung handelt, muss das Endgerät über eine Verbindungsmöglichkeit zum Internet verfügen.
+
+Es kann auch günstig sein in Erfahrung zu bringen, ob Tastaturen zum Einsatz kommen werden. Kommen keine Tastaturen zum Einsatz und muss während der Durchführung mit den systemeigene Tastaturen (bspw. iPad) gearbeitet werden, kann auch dies einen Einfluss auf die Aufgabengestaltung haben und sollte den Aufgabenentwickler\*innen, wenn möglich, bekannt sein.
+
+Werden in den Aufgaben Videos oder Audios verwendet, muss zuvor geklärt werden, ob Kopfhörer zur Verfügung stehen und wie diese an die verwendeten Endgeräte angeschlossen werden können. Je nach Studienumgebung kann es sinnvoll sein Kopfhörer mit Geräuschunterdrückung zu verwenden.
+
+## Internetanbindung
+
+Entscheidend für die Durchführbarkeit einer Studie ist die Internetanbindung der jeweiligen Schule. Ist die Anbindung zu schlecht, kann der Ablauf der Studie durch langsam nachladende Aufgabeninhalte gestört werden. Das Testcenter stellt 2 verschiedene Lademechanismen zur Verfügung. Es können beim Start einer Studie alle Inhalte des Testheftes geladen werden oder das Laden findet sukzessive während der Studiendurchführung statt. Bei schlechter Internetgeschwindigkeit dauert dann entweder das Laden der Studie sehr lange oder das Laden einzelnen Aufgaben benötigt längere Zeit. Es lässt sich an dieser Stelle keine pauschale Mindestanforderung festlegen, weil einfach zu viele Faktoren eine Rolle spielen. Entscheidend dürften hier die Testheftgrößen sein. Kleinere Testheftgröße bzw. Aufgaben mit wenigen Grafiken, Videos oder Audios könnten auch bei einer schlechten Anbindung noch annehmbar schnell geladen werden, während größere Testhefte Probleme bereiten. Es kann an dieser Stelle nur empfohlen werden, die zum Einsatz kommenden Testhefte vor Studiendurchführung zu testen. Hier kann auch ein System-Check mit dem Testcenter vor Studiendurchführung hilfreich sein. Im System-Check kann zum einen die Internetgeschwindigkeit geprüft werden und zum anderen können Aufgaben integriert sein, die in einer Vorschau betrachtet werden können. Ist im Vorfeld bekannt, dass die Einrichtungen in denen eine Studie durchgeführt werden soll über eine schlechte Anbindung verfügt, kann dies auch bereits bei der Aufgabenentwicklung berücksichtigt werden.
+
+::: {.callout-tip}
+Das Testcenter kann auch offline betrieben werden. Hierfür wird das Testcenter auf einem PC installiert und die entsprechenden Endgeräte werden mit diesem verbunden. Der PC fungiert dann als Server. 
+:::
+
+## Browser
+
+Der wohl wichtigste Punkt bzgl. Stabilität und Durchführbarkeit einer Studie, sind die verwendeten Browser. Hier sollte beachtet werden, dass die Browser den Anforderungen entsprechen (Siehe [Testcenter/Überblick](/Testcenter/intro.qmd)). 
+
+::: {.callout-important}
+Veraltete oder nicht unterstütze Browser können zu unerwartetem Verhalten während der Studie führen! Im schlimmsten Fall ist einen Studie dann nicht wie vorgesehen durchführbar.
+:::
+
+**Browser-Plugins:** Es gibt abenteuerliche Erweiterungen für Browser, die mehr Sicherheit, bessere Performance, weniger Werbung, mehr Privatsphäre usw. versprechen. Oft greifen diese Erweiterungen aber massiv in die Kommunikation des Browsers mit dem Server ein und verfälschen Daten. Bei Problemen sollte man also diese Add-Ons usw. zumindest zeitweise deaktivieren.
+
+## IT Sicherheitsstrukturen
+
+Manche IT-Sicherheitskonzepte in den Einrichtungen können die Studiendurchführung stören oder gänzlich unmöglich machen. Daher ist es wichtig zuvor die Erreichbarkeit des Testcenters aus dem Netz der Einrichtung heraus zu prüfen. 
+
+## Zugangsverwaltung
+
+Wie genau soll die Anmeldung der Testperson erfolgen? Durch die Testaufsicht, oder nur teilweise, oder nur durch Link usw.?
+Es stehen einige Optionen zur Verfügung, siehe auch [Anmeldeverfahren](/Referenzen/Anmeldeverfahren.qmd)in den Referenzen. Das Anlegen der Zugänge findet in der XML zur Studien-Definition statt, siehe auch [XML zur Studien-Definition](/Referenzen/XML_zur_Studien_Definition.qmd) in den Referenzen.
+
+## Steuerung der Studie
+
+Es können Hilfsmittel zur Eintaktung, Steuerung und Beobachtung einer Studie zum Einsatz kommen. Das Testcenter stellt hierfür den Gruppenmonitor zur Verfügung. Soll dieser durch die Testleitung verwendet werden, sollte die Testleitung zuvor instruiert werden. Dies kann bspw. durch beigefügte Handreichungen oder den Verweis auf dieses Wiki erfolgen. Für den Gruppenmonitor muss in der XML zur Studien-Durchführung entsprechender Zugang eingerichtet werden. Die hier festgelegten Zugangsdaten müssen dann an die Testleitung gereicht werden.
+
+## Zusatzmaterialien
+
+Welche Zusatzmaterialien werden vor Ort benötigt: Taschenrechner, Lineal, Notizpapier, Kopfhörer?
+
+## Studien Support
+
+* Soll es eine Hotline geben? Für welchen Zeitraum?
+* Wie hoch ist das Risiko für technische Probleme? Soll jemand aus der Systemadministration oder Programmierung ständig greifbar sein?
