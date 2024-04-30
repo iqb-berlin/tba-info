@@ -11,15 +11,19 @@ Die Konfiguration des Studienverhaltens kann mittels der XML zur Testheft-Defini
 Das Ersetzen von Texten im Testcenter und auch von spezifische Texte während des Studienlaufs, kann in der XML zur Studien-Definition stattfinden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Studien-Konfiguration (`CustomText`) hinterlegt werden können. [Link zur Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html)
 :::
 
-Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.
+::: {.callout-tip}
+Detaillierte Informationen zu den beiden XML-Dateien sind den Referenzen zu entnehmen.
+:::
+
+Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor der Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.
 
 ## Aufgaben- und Testheftbezeichner
 
 **Welche Bezeichner sollen angezeigt werden?**
 
-Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (`BookletConfig`) mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.
+Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (`BookletConfig`) mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.
 
-![Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menu](TC_UnitTitle_NaviMenu.png)
+![Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigationsmenu](TC_UnitTitle_NaviMenu.png)
 
 Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: **Aufgabe2**. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert `unit_screenheader` mit dem Datum **WITH_UNIT_TITLE** in der `BookletConfig` beschrieben wird.
 
@@ -53,11 +57,11 @@ Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die
   </Units>
 </Booklet>
 ```
-Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt.
+Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt (Zahlen in den Kästchen).
 
 ## Textersetzungen
 
-**Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden**
+**Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden?**
 
 Textersetzungen werden in der XML zur Studien-Definition festgelegt. Welche Texte ersetzt werden können, ist der Liste zu entnehmen. Der neue Text wird dann in der XML zur Studiendefinition im Element: `<CustomText>` dem Attributswert von `key` zugewiesen. 
 
@@ -65,7 +69,7 @@ Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diese
 
 ![Bild 2: Anzeige Standardtext bei Code-Abfrage](TC_Bsp_Textersetzung1.png)
 
-Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomText>` das Attribut: `key` mit einem gültigen Listenwert beschrieben. Es folgt der gewünschte Text:
+Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomText>` das Attribut: `key` mit einem gültigen Listenwert beschrieben.
 
 ```{.xml}
 <Testtakers>
@@ -86,7 +90,7 @@ Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomTe
   </Group>
 </Testtakers>
 ```
-Nachdem die veränderte XML in der Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: **egx45t** anmeldet, ist der veränderte Text zu sehen:
+Nachdem die veränderte XML in den Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: **egx45t** anmeldet, ist der veränderte Text zu sehen:
 
 ![Bild 3: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
 
@@ -126,7 +130,7 @@ So sieht die Änderung aus:
 
 **Soll ein erweitertes Menu zur Aufgabennavigation sichtbar sein?**
 
-Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe diesen Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.
+Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe dieses Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.
 
 ![Bild 6: Eingeschaltetes Unit-Menu](TC_Unit_Menu_FULL.png){fig-align="left"}
 
