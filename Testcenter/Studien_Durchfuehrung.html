@@ -365,6 +365,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#testcenter-konfigurieren" id="toc-testcenter-konfigurieren" class="nav-link" data-scroll-target="#testcenter-konfigurieren">Testcenter konfigurieren</a></li>
   <li><a href="#studienlauf" id="toc-studienlauf" class="nav-link" data-scroll-target="#studienlauf">Studienlauf</a></li>
   <li><a href="#test-oder-befragung-beenden" id="toc-test-oder-befragung-beenden" class="nav-link" data-scroll-target="#test-oder-befragung-beenden">Test oder Befragung beenden</a></li>
+  <li><a href="#test-fortsetzen" id="toc-test-fortsetzen" class="nav-link" data-scroll-target="#test-fortsetzen">Test fortsetzen</a></li>
   <li><a href="#auswertung-evaluation" id="toc-auswertung-evaluation" class="nav-link" data-scroll-target="#auswertung-evaluation">Auswertung, Evaluation</a></li>
   <li><a href="#mögliche-probleme" id="toc-mögliche-probleme" class="nav-link" data-scroll-target="#mögliche-probleme">Mögliche Probleme</a></li>
   </ul>
@@ -427,9 +428,9 @@ Hinweis
 </section>
 <section id="xml-zur-studie-definition-laden" class="level4">
 <h4 class="anchored" data-anchor-id="xml-zur-studie-definition-laden">XML zur Studie-Definition laden</h4>
-<p>Studie im Review und Probelauf:</p>
+<p><strong>Studie im Review und Probelauf:</strong></p>
 <p>Um sicherzustellen, dass die Studie ohne Probleme laufen kann und vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein, die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: <code>run-review</code> festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und betrachten. Es können ach Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Diese Kommentare können anschließend ausgewertet werden. Es können basierend auf diesen Kommentaren Optimierungen an den Aufgabeninhalten oder der Testheftstruktur vorgenommen werden.</p>
-<p>Studie final:</p>
+<p><strong>Studie final:</strong></p>
 <ul>
 <li>Testmodus für finale Testung in der XML zur Studien-Definition festlegen (<code>run-hot-return</code>oder <code>run-hot-restart</code>)</li>
 <li>Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren</li>
@@ -441,6 +442,7 @@ Hinweis
 <h2 class="anchored" data-anchor-id="studienlauf">Studienlauf</h2>
 <p>Nun können sich die Testpersonen mit den in der XML zur Studien-Definition festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testperson erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: <strong>Weiter</strong>. Nach der Anmeldung ist ein sehr reduziertes Startbild zu sehen. Rechts ein paar allgemeine Informationen (Version, Datenschutz etc.), links nur Eingabefelder für Name und Kennwort. Nach der Eingabe wird ein großer Schalter präsentiert, der das Testheft symbolisiert, das gestartet werden soll. Die Anzeige des Testheftes signalisiert auch eine erfolgreiche Anmeldung. Mit Klick auf die Schaltfläche des Testheftes werden alle Testinhalte geladen. Sobald möglich wird auch die erste Seite schon gezeigt und das Laden wird im Hintergrund fortgesetzt.</p>
 <p>Die Aufgabennavigation erfolgt rechts oben. Sollte eine Aufgabe aus mehreren Seiten bestehen, dann kann man rechts unten mit entsprechenden Schaltern blättern. Manchmal ist die Bearbeitungszeit begrenzt, dann werden rechtzeitig (5 min und 1 min vor Ende) Hinweise eingeblendet.</p>
+<p>Wenn zuvor eingeplant, können die Studienverantwortlichen die Studie auch mittels <strong>Gruppenmonitor</strong> steuern. Mehr dazu ist dem gleichnamigen Kapitel zu entnehmen.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -457,7 +459,41 @@ Wichtig
 </section>
 <section id="test-oder-befragung-beenden" class="level2">
 <h2 class="anchored" data-anchor-id="test-oder-befragung-beenden">Test oder Befragung beenden</h2>
-<p>Die Beantwortung kann jederzeit beendet werden. Die Antworten werden stets sofort gespeichert und es ist hierfür kein Kommando erforderlich. Manchmal gibt es am Ende einen Schalter “Test beenden” oder “Befragung verlassen”. Dann kehrt man zur Auswahl des Testheftes zurück.</p>
+<p>Die Beantwortung kann jederzeit beendet werden. Die Antworten werden stets sofort gespeichert und es ist hierfür kein Kommando erforderlich. Je nachdem wie der Test zuvor konfiguriert wurde, kann über ein zusätzliches Aufgabenmenü rechts oben neben der Aufgabennavigation der Test beendet werden. Ist dieses Menu nicht eingeschaltet, kann der Test durch einen Klick auf das IQB-Logo oben links beendet werden. Anschließend gelangt man wieder zur Ansicht der Testhefte. Bei der Beendung einer Testung kann es je nach Konfiguration des Tests zu Warnungen kommen, wenn ein Test beendet werden soll. Welche Warnungen können je nach Konfiguration angezeigt werden:</p>
+<p><strong>Verlassen eines zeitbeschränkten Blocks:</strong></p>
+<p>Soll der Test beendet werden und befindet sich die Testperson zu diesem Zeitpunkt in einem zeitbeschränkten Block, wird eine Warnung angezeigt, dass nach Verlassen des Blocks nicht mehr in diesen zurückgekehrt werden kann. Wird diese Warnung bestätigt, wird der Block gesperrt. Haben Testpersonen den Block noch nicht vollständig bearbeitet, ist es nicht mehr möglich die Bearbeitung fortzusetzen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Existieren zeitbeschränkte Blöcke in einem Testheft, können diese gesperrt werden, wenn der Test beendet wird. Eventuell haben Testpersonen noch nicht alle Aufgaben eines Blocks bearbeitet und können nach Test beenden nicht mehr auf den Block zugreifen.</p>
+</div>
+</div>
+<p><strong>Presentation und Responses complete:</strong></p>
+<p>Je nach Konfiguration können Aufgaben nur verlassen werden, wenn Pflichtelemente bearbeitet oder alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Befinden sich Personen zum Zeitpunkt der Beendung in einer solchen Aufgabe und sind die genannten Bedingungen noch nicht erfüllt, kann eine Warnung angezeigt werden. Es sollten dann erst die Bedingungen zum Verlassen der Aufgabe erfüllt werden, bevor der Test beendet werden kann.</p>
+</section>
+<section id="test-fortsetzen" class="level2">
+<h2 class="anchored" data-anchor-id="test-fortsetzen">Test fortsetzen</h2>
+<p>Je nach Konfiguration kann das Testheft nach Beendigung des Tests fortgesetzt werden. Auf der Seite der Testheftübersicht ist dann unterhalb des entsprechenden Testheftes der Text: <strong>Fortsetzen</strong> zu sehen. Nach einem Klick auf das Testheft, setzt der Test an der Stelle fort an dem er beendet wurde. Die zuvor gegebenen Antworten sind vollständig erhalten und einsehbar. Ist das Testheft deaktiviert, ist in der Testheft-Konfiguration eine Sperrung bei Beendigung des Tests vorgesehen.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Falls ein Gruppenmonitor zur Steuerung eingesetzt wird, kann auch mittels dieses Monitors der Test beendet und fortgesetzt werden. Mehr dazu ist dem gleichnamigen Kapitel zu entnehmen.</p>
+</div>
+</div>
 </section>
 <section id="auswertung-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="auswertung-evaluation">Auswertung, Evaluation</h2>

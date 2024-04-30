@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -361,14 +395,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#sollen-aufgaben--und-testheftbezeichner-angezeigt-werden" id="toc-sollen-aufgaben--und-testheftbezeichner-angezeigt-werden" class="nav-link active" data-scroll-target="#sollen-aufgaben--und-testheftbezeichner-angezeigt-werden">Sollen Aufgaben- und Testheftbezeichner angezeigt werden?</a></li>
-  <li><a href="#sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden" id="toc-sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden" class="nav-link" data-scroll-target="#sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden">Sollen Standardtexte der Anwendung durch eigene ersetzt werden?</a></li>
-  <li><a href="#wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben" id="toc-wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben" class="nav-link" data-scroll-target="#wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben">Wie sollen die Navigationsschaltflächen aussehen? Soll es überhaupt welche geben?</a></li>
-  <li><a href="#sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc." id="toc-sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc." class="nav-link" data-scroll-target="#sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc.">Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?</a></li>
-  <li><a href="#soll-es-ein-zusätzliches-menu-zur-navigation-geben" id="toc-soll-es-ein-zusätzliches-menu-zur-navigation-geben" class="nav-link" data-scroll-target="#soll-es-ein-zusätzliches-menu-zur-navigation-geben">Soll es ein zusätzliches Menu zur Navigation geben?</a></li>
-  <li><a href="#wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke" id="toc-wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke" class="nav-link" data-scroll-target="#wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke">Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?</a></li>
-  <li><a href="#was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden" id="toc-was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden" class="nav-link" data-scroll-target="#was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden">Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?</a></li>
-  <li><a href="#was-soll-geschehen-wenn-der-test-beendet-wird" id="toc-was-soll-geschehen-wenn-der-test-beendet-wird" class="nav-link" data-scroll-target="#was-soll-geschehen-wenn-der-test-beendet-wird">Was soll geschehen, wenn der Test beendet wird?</a></li>
+  <li><a href="#aufgaben--und-testheftbezeichner" id="toc-aufgaben--und-testheftbezeichner" class="nav-link active" data-scroll-target="#aufgaben--und-testheftbezeichner">Aufgaben- und Testheftbezeichner</a></li>
+  <li><a href="#textersetzungen" id="toc-textersetzungen" class="nav-link" data-scroll-target="#textersetzungen">Textersetzungen</a></li>
+  <li><a href="#aufgabennavigation" id="toc-aufgabennavigation" class="nav-link" data-scroll-target="#aufgabennavigation">Aufgabennavigation</a></li>
+  <li><a href="#beschränkungen" id="toc-beschränkungen" class="nav-link" data-scroll-target="#beschränkungen">Beschränkungen</a></li>
+  <li><a href="#testheft-aufteilung" id="toc-testheft-aufteilung" class="nav-link" data-scroll-target="#testheft-aufteilung">Testheft Aufteilung</a></li>
+  <li><a href="#verhalten-von-blöcken" id="toc-verhalten-von-blöcken" class="nav-link" data-scroll-target="#verhalten-von-blöcken">Verhalten von Blöcken</a></li>
+  <li><a href="#test-beenden" id="toc-test-beenden" class="nav-link" data-scroll-target="#test-beenden">Test beenden</a></li>
+  <li><a href="#gruppenmonitor" id="toc-gruppenmonitor" class="nav-link" data-scroll-target="#gruppenmonitor">Gruppenmonitor</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -404,42 +438,171 @@ Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Konfiguration des Studienverhaltens kann mittels der beiden XML’s: XML zur Studien-Definition und XML zur Testheft-Definition vorgenommen werden. Mehr Informationen zu den beiden XML’s und zu entsprechenden Listen möglicher Konfigurationswerte sind den Referenzen zu entnehmen.</p>
+<p>Die Konfiguration des Studienverhaltens kann mittels der XML zur Testheft-Definition vorgenommen werden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Testheft-Konfiguration (<code>Booklet-Config</code>) hinterlegt werden können. <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html">Link zur Liste</a></p>
 </div>
 </div>
-<p>Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Hier aufgezeigt werden die wichtigsten Fragen zur Konfiguration der Studie, die vor jedem Studienstart gestellt werden sollten.</p>
-<section id="sollen-aufgaben--und-testheftbezeichner-angezeigt-werden" class="level2">
-<h2 class="anchored" data-anchor-id="sollen-aufgaben--und-testheftbezeichner-angezeigt-werden">Sollen Aufgaben- und Testheftbezeichner angezeigt werden?</h2>
-<p>Das in der XML zur Aufgaben-Definition festgelegte Label einer Aufgabe und das in XML zur Testheft-Definition festgelegte Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration mit dem Wert: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das Ersetzen von Texten im Testcenter und auch von spezifische Texte während des Studienlaufs, kann in der XML zur Studien-Definition stattfinden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Studien-Konfiguration (<code>CustomText</code>) hinterlegt werden können. <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Link zur Liste</a></p>
+</div>
+</div>
+<p>Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.</p>
+<section id="aufgaben--und-testheftbezeichner" class="level2">
+<h2 class="anchored" data-anchor-id="aufgaben--und-testheftbezeichner">Aufgaben- und Testheftbezeichner</h2>
+<p><strong>Welche Bezeichner sollen angezeigt werden?</strong></p>
+<p>Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (<code>BookletConfig</code>) mit dem Wert: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TC_UnitTitle_NaviMenu.png" class="img-fluid figure-img"></p>
+<figcaption>Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menu</figcaption>
+</figure>
+</div>
+<p>Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: <strong>Aufgabe2</strong>. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert <code>unit_screenheader</code> mit dem Datum <strong>WITH_UNIT_TITLE</strong> in der <code>BookletConfig</code> beschrieben wird.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Booklet sample 1&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Testheft-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BookletConfig</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_screenheader"</span>&gt;WITH_UNIT_TITLE&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">BookletConfig</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Units</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-100"</span><span class="ot"> label=</span><span class="st">"Startseite"</span><span class="ot"> labelshort=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Tslt1"</span><span class="ot"> label=</span><span class="st">"Aufgabenblock"</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Restrictions</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">CodeToEnter</span><span class="ot"> code=</span><span class="st">"Hase"</span>&gt;Bitte gib das Freigabewort ein.&lt;/<span class="kw">CodeToEnter</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">TimeMax</span><span class="ot"> minutes=</span><span class="st">"1"</span>/&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Restrictions</span>&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-101"</span><span class="ot"> label=</span><span class="st">"Aufgabe1"</span><span class="ot"> labelshort=</span><span class="st">"2"</span>/&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-102"</span><span class="ot"> label=</span><span class="st">"Aufgabe2"</span><span class="ot"> labelshort=</span><span class="st">"3"</span>/&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-103"</span><span class="ot"> label=</span><span class="st">"Aufgabe3"</span><span class="ot"> labelshort=</span><span class="st">"4"</span>/&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Testlet</span>&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-104"</span><span class="ot"> label=</span><span class="st">"Endseite"</span><span class="ot"> labelshort=</span><span class="st">"5"</span>/&gt;</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Units</span>&gt;</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Außerdem wird hier das Attribut <code>labelshort</code> im Element <code>&lt;Unit&gt;</code> verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt.</p>
 </section>
-<section id="sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden" class="level2">
-<h2 class="anchored" data-anchor-id="sollen-standardtexte-der-anwendung-durch-eigene-ersetzt-werden">Sollen Standardtexte der Anwendung durch eigene ersetzt werden?</h2>
-<p>Textersetzungen werden in der XML zur Studien-Definition festgelegt. Dazu müssen entsprechende Werte im XML Element <code>&lt;Custom-Text&gt;</code> aus einer Liste hinzugefügt werden.</p>
+<section id="textersetzungen" class="level2">
+<h2 class="anchored" data-anchor-id="textersetzungen">Textersetzungen</h2>
+<p><strong>Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden</strong></p>
+<p>Textersetzungen werden in der XML zur Studien-Definition festgelegt. Welche Texte ersetzt werden können, ist der Liste zu entnehmen. Der neue Text wird dann in der XML zur Studiendefinition im Element: <code>&lt;CustomText&gt;</code> dem Attributswert von <code>key</code> zugewiesen.</p>
+<p>Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diesem Beispiel gibt die Testperson auf der Anmeldeseite des Testcenters den Zugangsnamen an und klickt auf <strong>Weiter</strong>. Im nächsten Schritt wird der in der XML zur Studien-Definition angelegte Code abgefragt. Hier wird nun der Text zur Code-Eingabe bsph. verändert. Im ersten Schritt war das Attribut: <code>key</code> im Element: <code>&lt;CustomText&gt;</code> nicht beschrieben. Dadurch wird ein Standardtext: “Bitte gib den Schülercode ein….” gesetzt:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TC_Bsp_Textersetzung1.png" class="img-fluid figure-img"></p>
+<figcaption>Bild 2: Anzeige Standardtext bei Code-Abfrage</figcaption>
+</figure>
+</div>
+<p>Im zweiten Schritt wird in der XML zur Studien-Definition im Element: <code>&lt;CustomText&gt;</code> das Attribut: <code>key</code> mit einem gültigen Listenwert beschrieben. Es folgt der gewünschte Text:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Studien-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"login_codeInputPrompt"</span>&gt;Eingabe des Codes erforderlich.&lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"egx45t"</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"er45tz"</span>/&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nachdem die veränderte XML in der Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: <strong>egx45t</strong> anmeldet, ist der veränderte Text zu sehen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TC_Bsp_Textersetzung2.png" class="img-fluid figure-img"></p>
+<figcaption>Bild 3: Anzeige veränderter Text bei Code-Abfrage</figcaption>
+</figure>
+</div>
 </section>
-<section id="wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben" class="level2">
-<h2 class="anchored" data-anchor-id="wie-sollen-die-navigationsschaltflächen-aussehen-soll-es-überhaupt-welche-geben">Wie sollen die Navigationsschaltflächen aussehen? Soll es überhaupt welche geben?</h2>
-<section id="layout" class="level4">
-<h4 class="anchored" data-anchor-id="layout">Layout</h4>
-<p>Labelshort Aussehen</p>
+<section id="aufgabennavigation" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabennavigation">Aufgabennavigation</h2>
+<p><strong>Wie soll die Leiste zur Aufgabennavigation aussehen?</strong></p>
+<p>Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (<code>Booklet-Config</code>) festgelegt werden. Hierfür wird als Attributswert: <code>unit_navibuttons</code> für das Attribut: <code>key</code> eingetragen und ein entsprechender Wert als Datum der Liste entnommen. Im Bild 1 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: <code>key</code> noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: <strong>FULL</strong>. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet werden oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: <strong>ARROWS_ONLY</strong> reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen. Es kann nun nur noch vorwärts und rückwärts navigiert werden.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Booklet sample 1&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Testheft-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BookletConfig</span>&gt;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_navibuttons"</span>&gt;ARROWS_ONLY&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">BookletConfig</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Units</span>&gt;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-100"</span><span class="ot"> label=</span><span class="st">"Startseite"</span><span class="ot"> labelshort=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-101"</span><span class="ot"> label=</span><span class="st">"Aufgabe1"</span><span class="ot"> labelshort=</span><span class="st">"2"</span>/&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-102"</span><span class="ot"> label=</span><span class="st">"Aufgabe2"</span><span class="ot"> labelshort=</span><span class="st">"3"</span>/&gt;</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-103"</span><span class="ot"> label=</span><span class="st">"Aufgabe3"</span><span class="ot"> labelshort=</span><span class="st">"4"</span>/&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-104"</span><span class="ot"> label=</span><span class="st">"Endseite"</span><span class="ot"> labelshort=</span><span class="st">"5"</span>/&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Units</span>&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So sieht die Änderung aus:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TC_Navileiste_FULL.png" class="img-fluid figure-img"></p>
+<figcaption>Bild 4: Navileiste mit allen Optionen</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TC_Navileiste_ARROWS_ONLY.png" class="img-fluid figure-img"></p>
+<figcaption>Bild 5: Navileiste reduziert</figcaption>
+</figure>
+</div>
+<p><strong>Soll ein erweitertes Menu zur Aufgabennavigation sichtbar sein?</strong></p>
+<p>Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe diesen Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="TC_Unit_Menu_FULL.png" class="img-fluid figure-img"></p>
+<figcaption>Bild 6: Eingeschaltetes Unit-Menu</figcaption>
+</figure>
+</div>
+<p>Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuweisung des Wertes: <code>unit_menu</code> zu dem Attribut: <code>key</code>und gewünschten Listenwert, in diesem Fall <strong>FULL</strong>.</p>
+<p><strong>Wie soll durch Seiten einer Aufgabe navigiert werden?</strong></p>
+<p>Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Aufgaben Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das zu und abschalten der Navigation in der Anwendung wird in der XML zur Testheft-Definition im Element: <code>&lt;BookletConfig&gt;</code> mit dem Attributswert: <code>pagingMode</code> des Attributs: <code>key</code> realisiert. Das mögliche Datum ist wieder der Liste zu entnehmen.</p>
 </section>
+<section id="beschränkungen" class="level2">
+<h2 class="anchored" data-anchor-id="beschränkungen">Beschränkungen</h2>
+<p><strong>Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?</strong></p>
+<p>Mit Hilfe der beiden Attributswerte: <code>force_response_complete</code> und <code>force_presentation_complete</code> in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (<code>Booklet-Config</code>) kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum die Attributswerte erhalten können, ist der Liste zu entnehmen.</p>
 </section>
-<section id="sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc." class="level2">
-<h2 class="anchored" data-anchor-id="sollen-beschränkungen-für-die-navigation-erfolgen-weiterblättern-erst-nach-beantwortung-etc.">Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?</h2>
-<p>responses und presentation complete</p>
+<section id="testheft-aufteilung" class="level2">
+<h2 class="anchored" data-anchor-id="testheft-aufteilung">Testheft Aufteilung</h2>
+<p><strong>Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?</strong></p>
 </section>
-<section id="soll-es-ein-zusätzliches-menu-zur-navigation-geben" class="level2">
-<h2 class="anchored" data-anchor-id="soll-es-ein-zusätzliches-menu-zur-navigation-geben">Soll es ein zusätzliches Menu zur Navigation geben?</h2>
-<p>Unit menu</p>
+<section id="verhalten-von-blöcken" class="level2">
+<h2 class="anchored" data-anchor-id="verhalten-von-blöcken">Verhalten von Blöcken</h2>
+<p><strong>Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?</strong></p>
 </section>
-<section id="wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke" class="level2">
-<h2 class="anchored" data-anchor-id="wie-wird-das-testheft-aufgeteilt-gibt-es-beschränkte-blöcke">Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?</h2>
-</section>
-<section id="was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden" class="level2">
-<h2 class="anchored" data-anchor-id="was-soll-beim-verlassen-eines-block-geschehen-soll-der-block-gesperrt-werden-oder-darf-weiter-gearbeitet-werden">Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?</h2>
-</section>
-<section id="was-soll-geschehen-wenn-der-test-beendet-wird" class="level2">
-<h2 class="anchored" data-anchor-id="was-soll-geschehen-wenn-der-test-beendet-wird">Was soll geschehen, wenn der Test beendet wird?</h2>
+<section id="test-beenden" class="level2">
+<h2 class="anchored" data-anchor-id="test-beenden">Test beenden</h2>
+<p><strong>Was soll geschehen, wenn der Test beendet wird?</strong></p>
 <p>Test sperren oder nicht</p>
+</section>
+<section id="gruppenmonitor" class="level2">
+<h2 class="anchored" data-anchor-id="gruppenmonitor">Gruppenmonitor</h2>
+<p><strong>Soll ein Gruppenmonitor eingesetzte werden, um die Studie zentral steuern zu können?</strong></p>
 
 
 </section>
