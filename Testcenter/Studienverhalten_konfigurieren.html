@@ -454,15 +454,28 @@ Tipp
 <p>Das Ersetzen von Texten im Testcenter und auch von spezifische Texte während des Studienlaufs, kann in der XML zur Studien-Definition stattfinden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Studien-Konfiguration (<code>CustomText</code>) hinterlegt werden können. <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Link zur Liste</a></p>
 </div>
 </div>
-<p>Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Detaillierte Informationen zu den beiden XML-Dateien sind den Referenzen zu entnehmen.</p>
+</div>
+</div>
+<p>Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor der Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.</p>
 <section id="aufgaben--und-testheftbezeichner" class="level2">
 <h2 class="anchored" data-anchor-id="aufgaben--und-testheftbezeichner">Aufgaben- und Testheftbezeichner</h2>
 <p><strong>Welche Bezeichner sollen angezeigt werden?</strong></p>
-<p>Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (<code>BookletConfig</code>) mit dem Wert: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.</p>
+<p>Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (<code>BookletConfig</code>) mit dem Wert: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="TC_UnitTitle_NaviMenu.png" class="img-fluid figure-img"></p>
-<figcaption>Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menu</figcaption>
+<figcaption>Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigationsmenu</figcaption>
 </figure>
 </div>
 <p>Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: <strong>Aufgabe2</strong>. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert <code>unit_screenheader</code> mit dem Datum <strong>WITH_UNIT_TITLE</strong> in der <code>BookletConfig</code> beschrieben wird.</p>
@@ -494,11 +507,11 @@ Tipp
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"UNIT.SAMPLE-104"</span><span class="ot"> label=</span><span class="st">"Endseite"</span><span class="ot"> labelshort=</span><span class="st">"5"</span>/&gt;</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Units</span>&gt;</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Außerdem wird hier das Attribut <code>labelshort</code> im Element <code>&lt;Unit&gt;</code> verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt.</p>
+<p>Außerdem wird hier das Attribut <code>labelshort</code> im Element <code>&lt;Unit&gt;</code> verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt (Zahlen in den Kästchen).</p>
 </section>
 <section id="textersetzungen" class="level2">
 <h2 class="anchored" data-anchor-id="textersetzungen">Textersetzungen</h2>
-<p><strong>Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden</strong></p>
+<p><strong>Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden?</strong></p>
 <p>Textersetzungen werden in der XML zur Studien-Definition festgelegt. Welche Texte ersetzt werden können, ist der Liste zu entnehmen. Der neue Text wird dann in der XML zur Studiendefinition im Element: <code>&lt;CustomText&gt;</code> dem Attributswert von <code>key</code> zugewiesen.</p>
 <p>Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diesem Beispiel gibt die Testperson auf der Anmeldeseite des Testcenters den Zugangsnamen an und klickt auf <strong>Weiter</strong>. Im nächsten Schritt wird der in der XML zur Studien-Definition angelegte Code abgefragt. Hier wird nun der Text zur Code-Eingabe bsph. verändert. Im ersten Schritt war das Attribut: <code>key</code> im Element: <code>&lt;CustomText&gt;</code> nicht beschrieben. Dadurch wird ein Standardtext: “Bitte gib den Schülercode ein….” gesetzt:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -507,7 +520,7 @@ Tipp
 <figcaption>Bild 2: Anzeige Standardtext bei Code-Abfrage</figcaption>
 </figure>
 </div>
-<p>Im zweiten Schritt wird in der XML zur Studien-Definition im Element: <code>&lt;CustomText&gt;</code> das Attribut: <code>key</code> mit einem gültigen Listenwert beschrieben. Es folgt der gewünschte Text:</p>
+<p>Im zweiten Schritt wird in der XML zur Studien-Definition im Element: <code>&lt;CustomText&gt;</code> das Attribut: <code>key</code> mit einem gültigen Listenwert beschrieben.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -525,7 +538,7 @@ Tipp
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"er45tz"</span>/&gt;</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Nachdem die veränderte XML in der Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: <strong>egx45t</strong> anmeldet, ist der veränderte Text zu sehen:</p>
+<p>Nachdem die veränderte XML in den Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: <strong>egx45t</strong> anmeldet, ist der veränderte Text zu sehen:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="TC_Bsp_Textersetzung2.png" class="img-fluid figure-img"></p>
@@ -571,7 +584,7 @@ Tipp
 </figure>
 </div>
 <p><strong>Soll ein erweitertes Menu zur Aufgabennavigation sichtbar sein?</strong></p>
-<p>Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe diesen Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.</p>
+<p>Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe dieses Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="TC_Unit_Menu_FULL.png" class="img-fluid figure-img"></p>
