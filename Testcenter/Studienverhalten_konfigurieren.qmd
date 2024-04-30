@@ -4,38 +4,159 @@ title: "Konfiguration"
 ---
 
 ::: {.callout-tip}
-Die Konfiguration des Studienverhaltens kann mittels der beiden XML's: XML zur Studien-Definition und XML zur Testheft-Definition vorgenommen werden. Mehr Informationen zu den beiden XML's und zu entsprechenden Listen möglicher Konfigurationswerte sind den Referenzen zu entnehmen.
+Die Konfiguration des Studienverhaltens kann mittels der XML zur Testheft-Definition vorgenommen werden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Testheft-Konfiguration (`Booklet-Config`) hinterlegt werden können. [Link zur Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html)
 :::
 
-Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Hier aufgezeigt werden die wichtigsten Fragen zur Konfiguration der Studie, die vor jedem Studienstart gestellt werden sollten.
+::: {.callout-tip}
+Das Ersetzen von Texten im Testcenter und auch von spezifische Texte während des Studienlaufs, kann in der XML zur Studien-Definition stattfinden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Studien-Konfiguration (`CustomText`) hinterlegt werden können. [Link zur Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html)
+:::
 
-## Sollen Aufgaben- und Testheftbezeichner angezeigt werden?
+Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.
 
-Das in der XML zur Aufgaben-Definition festgelegte Label einer Aufgabe und das in XML zur Testheft-Definition festgelegte Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden.
+## Aufgaben- und Testheftbezeichner
 
-## Sollen Standardtexte der Anwendung durch eigene ersetzt werden?
+**Welche Bezeichner sollen angezeigt werden?**
 
-Textersetzungen werden in der XML zur Studien-Definition festgelegt. Dazu müssen entsprechende Werte im XML Element `<Custom-Text>` aus einer Liste hinzugefügt werden.
+Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (`BookletConfig`) mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt werden. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.
 
-## Wie sollen die Navigationsschaltflächen aussehen? Soll es überhaupt welche geben?
+![Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menu](TC_UnitTitle_NaviMenu.png)
 
-#### Layout
+Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: **Aufgabe2**. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert `unit_screenheader` mit dem Datum **WITH_UNIT_TITLE** in der `BookletConfig` beschrieben wird.
 
-Labelshort
-Aussehen
+```{.xml}
 
-## Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>BOOKLET.SAMPLE-1</Id>
+    <Label>Booklet sample 1</Label>
+    <Description>Beispielhafte XML zur Testheft-Definition</Description>
+  </Metadata>
 
-responses und presentation complete
+  <BookletConfig>
+    <Config key="unit_screenheader">WITH_UNIT_TITLE</Config>
+  </BookletConfig>
 
-## Soll es ein zusätzliches Menu zur Navigation geben?
+  <Units>
+    <Unit id="UNIT.SAMPLE-100" label="Startseite" labelshort="1" />
 
-Unit menu
+      <Testlet id="Tslt1" label="Aufgabenblock">
+        <Restrictions>
+          <CodeToEnter code="Hase">Bitte gib das Freigabewort ein.</CodeToEnter>
+          <TimeMax minutes="1"/>
+        </Restrictions>
+        <Unit id="UNIT.SAMPLE-101" label="Aufgabe1" labelshort="2"/>
+        <Unit id="UNIT.SAMPLE-102" label="Aufgabe2" labelshort="3"/>
+        <Unit id="UNIT.SAMPLE-103" label="Aufgabe3" labelshort="4"/>
+      </Testlet>
+    
+    <Unit id="UNIT.SAMPLE-104" label="Endseite" labelshort="5"/>
+  </Units>
+</Booklet>
+```
+Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt.
 
-## Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?
+## Textersetzungen
 
-## Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?
+**Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden**
 
-## Was soll geschehen, wenn der Test beendet wird? 
+Textersetzungen werden in der XML zur Studien-Definition festgelegt. Welche Texte ersetzt werden können, ist der Liste zu entnehmen. Der neue Text wird dann in der XML zur Studiendefinition im Element: `<CustomText>` dem Attributswert von `key` zugewiesen. 
+
+Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diesem Beispiel gibt die Testperson auf der Anmeldeseite des Testcenters den Zugangsnamen an und klickt auf **Weiter**. Im nächsten Schritt wird der in der XML zur Studien-Definition angelegte Code abgefragt. Hier wird nun der Text zur Code-Eingabe bsph. verändert. Im ersten Schritt war das Attribut: `key` im Element: `<CustomText>` nicht beschrieben. Dadurch wird ein Standardtext: "Bitte gib den Schülercode ein...." gesetzt:
+
+![Bild 2: Anzeige Standardtext bei Code-Abfrage](TC_Bsp_Textersetzung1.png)
+
+Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomText>` das Attribut: `key` mit einem gültigen Listenwert beschrieben. Es folgt der gewünschte Text:
+
+```{.xml}
+<Testtakers>
+
+  <Metadata>
+    <Description>Beispielhafte XML zur Studien-Definition</Description>
+  </Metadata>
+
+  <CustomTexts>
+    <CustomText key="login_codeInputPrompt">Eingabe des Codes erforderlich.</CustomText>
+  </CustomTexts>
+
+  <Group id="sample_group" label="Primary Sample Group">
+    <Login mode="run-hot-return" name="egx45t">
+      <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="monitor-group" name="test-group-monitor" pw="er45tz"/>
+  </Group>
+</Testtakers>
+```
+Nachdem die veränderte XML in der Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: **egx45t** anmeldet, ist der veränderte Text zu sehen:
+
+![Bild 3: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
+
+## Aufgabennavigation
+
+**Wie soll die Leiste zur Aufgabennavigation aussehen?**
+
+Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Attributswert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechender Wert als Datum der Liste entnommen. Im Bild 1 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet werden oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen. Es kann nun nur noch vorwärts und rückwärts navigiert werden. 
+
+```{.xml}
+
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>BOOKLET.SAMPLE-1</Id>
+    <Label>Booklet sample 1</Label>
+    <Description>Beispielhafte XML zur Testheft-Definition</Description>
+  </Metadata>
+
+  <BookletConfig>
+    <Config key="unit_navibuttons">ARROWS_ONLY</Config>
+  </BookletConfig>
+
+  <Units>
+    <Unit id="UNIT.SAMPLE-100" label="Startseite" labelshort="1" />
+    <Unit id="UNIT.SAMPLE-101" label="Aufgabe1" labelshort="2"/>
+    <Unit id="UNIT.SAMPLE-102" label="Aufgabe2" labelshort="3"/>
+    <Unit id="UNIT.SAMPLE-103" label="Aufgabe3" labelshort="4"/>
+    <Unit id="UNIT.SAMPLE-104" label="Endseite" labelshort="5"/>
+  </Units>
+</Booklet>
+```
+So sieht die Änderung aus:
+
+![Bild 4: Navileiste mit allen Optionen](TC_Navileiste_FULL.png)
+
+![Bild 5: Navileiste reduziert](TC_Navileiste_ARROWS_ONLY.png)
+
+**Soll ein erweitertes Menu zur Aufgabennavigation sichtbar sein?**
+
+Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe diesen Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.
+
+![Bild 6: Eingeschaltetes Unit-Menu](TC_Unit_Menu_FULL.png){fig-align="left"}
+
+Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuweisung des Wertes: `unit_menu` zu dem Attribut: `key`und gewünschten Listenwert, in diesem Fall **FULL**.
+
+**Wie soll durch Seiten einer Aufgabe navigiert werden?**
+
+Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Aufgaben Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das zu und abschalten der Navigation in der Anwendung wird in der XML zur Testheft-Definition im Element: `<BookletConfig>` mit dem Attributswert: `pagingMode` des Attributs: `key` realisiert. Das mögliche Datum ist wieder der Liste zu entnehmen.
+
+## Beschränkungen
+
+**Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?**
+
+Mit Hilfe der beiden Attributswerte: `force_response_complete` und `force_presentation_complete` in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum die Attributswerte erhalten können, ist der Liste zu entnehmen.
+
+## Testheft Aufteilung
+
+**Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?**
+
+## Verhalten von Blöcken
+
+**Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?**
+
+## Test beenden
+
+**Was soll geschehen, wenn der Test beendet wird?**
 
 Test sperren oder nicht
+
+## Gruppenmonitor
+
+**Soll ein Gruppenmonitor eingesetzte werden, um die Studie zentral steuern zu können?**
+
