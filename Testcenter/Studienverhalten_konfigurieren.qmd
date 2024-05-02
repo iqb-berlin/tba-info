@@ -3,27 +3,107 @@ lang: de
 title: "Konfiguration"
 ---
 
-::: {.callout-tip}
-Die Konfiguration des Studienverhaltens kann mittels der XML zur Testheft-Definition vorgenommen werden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Testheft-Konfiguration (`Booklet-Config`) hinterlegt werden können. [Link zur Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html)
-:::
+Vor Beginn einer Studie sollten sich die Verantwortlichen Fragen bzgl. der Konfiguration einer Studie stellen. Nachfolgend sind einige Fragen aufgelistet, die in jedem Fall im Vorfeld gestellt werden sollten. Es kann an dieser Stelle nicht auf alle möglichen Fragen zur Konfiguration eingegangen werden. Die Konfigurationen werden mittels der beiden XML's: **XML zur Studien-Definition** und **XML zur Testheft-Definition** vorgenommen. Nachfolgend werden die Fragen diesen beiden Dateien zugeordnet.
 
 ::: {.callout-tip}
-Das Ersetzen von Texten im Testcenter und auch von spezifische Texte während des Studienlaufs, kann in der XML zur Studien-Definition stattfinden. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die in der Studien-Konfiguration (`CustomText`) hinterlegt werden können. [Link zur Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html)
+Detaillierte Informationen zu den beiden XML-Dateien: **XML zur Studien-Definition** und **XML zur Testheft-Definition**  sind den Referenzen zu entnehmen.
 :::
+
+::: {.callout-important}
+Sind die Vorüberlegungen bzgl. der Studien-Konfiguration abgeschlossen und liegen die Testdateien für die Studie bereit, empfiehlt es sich die Konfigurationen zuvor hausinternen mit mehreren Teilnehmern zu testen (`RUN-SIMULATION`). So können ungünstige Konfigurationen schon im Vorfeld entdeckt werden.
+:::
+
+## XML zur Studien-Definition
+
+**Wie sollen die Zugänge aufgeteilt werde?**
+
+Die Zugangsdaten können Gruppen hinzugefügt werden. Alle gegebenen Antworten werden dann Gruppenabhängig gespeichert, sprich der Datensatz wird mit dem Namen der jeweiligen Gruppe im Testcenter abgespeichert. Im Vorfeld sollten sich die Studienverantwortlichen gut überlegen, wie die Zugangsdaten gruppiert werden sollen, um eine schnelle und übersichtliche Auswertung am Studienende vornehmen zu können. Sollen an einer Studie bspw. mehrere Schulen oder Klassen teilnehmen, sollten für die Schulen und Klassen entsprechende Gruppen angelegt werden. Damit können die Antwortdaten schnell der jeweiligen Klasse bzw. Schule zugeordnet werden.
+
+**Sollen die Zugangsdaten für die Testpersonen zeitlichen Beschränkungen unterliegen?**
+
+Die angelegten Zugangsdaten in der XML zur Studien-Definition können zeitlichen Beschränkungen unterliegen. Folgende stehen zur Auswahl:
+
+* `validFrom`: Eine Anmeldung mit den Zugangsdaten kann erst ab einer bestimmten Zeit erfolgen. Die Eingabe erfolgt im Format: dd/mm/yyyy hh:mm
+* `validTo`: Eine Anmeldung kann bis zu einer bestimmten Zeit erfolgen. Die Eingabe erfolgt im Format: dd/mm/yyyy hh:mm
+* `validFor`: Eine Anmeldung kann in einem bestimmten Zeitfenster erfolgen. Format: Minuten Integer
+
+Die zeitliche Beschränkung wird als Attribut einer Gruppe (`group`) von Zugängen zugewiesen. Nachfolgend ein Beispiel für 'validTo':
+
+```{.xml}
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
+
+  <Metadata>
+    <Description>
+      Beispielhafte XML zur Studien-Definition
+    </Description>
+  </Metadata>
+
+  <CustomTexts>
+    <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+  </CustomTexts>
+
+  <Group id="Gruppe 1" validTo="1/3/2024 19:30" label="An already expired group">
+    <Login mode="run-hot-restart" name="Testperson1" pw="vgf5z">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-restart" name="Testperson2" pw="vgfjh">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+  </Group>
+
+</Testtakers>
+```
+Die beiden Testpersonen 1 und 2 können sich nur bis zum 01.03.2024 19:30Uhr anmelden. Danach ist eine Anmeldung nicht mehr möglich.
+
+**Sollen Standardtexte ersetzt werden?**
 
 ::: {.callout-tip}
-Detaillierte Informationen zu den beiden XML-Dateien sind den Referenzen zu entnehmen.
+Texte werden mit Hilfe bestimmter Attribute und Daten in der XML geändert. Hierfür gibt es eine spezielle Liste mit möglichen Werten, die im Element: `<CustomText>` und dem Attribut: `key` hinzugefügt werden können. [Link zur Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html). Werde Texte nicht individuell ersetzt, erhalten sie eine Standardtext. Welcher Text das ist, ist der Liste zu entnehmen.
 :::
 
-Es gibt eine Vielzahl von Möglichkeiten zur Konfiguration des Studienverhaltens. Es kann an dieser Stelle nicht auf alle Möglichkeiten eingegangen werden. Nachfolgend werden die wichtigsten Konfigurationen aufgezeigt. Vor der Studiendurchführung sollten die Studienverantwortlichen sich dieser Konfigurationsmöglichkeiten bewusst wein.
+Bestimmte Texte in der Anwendung und während des Studienlaufs können individuell angepasst werden. Im Vorfeld kann überlegt werden, an welchen Stellen keine Standardtexte stehen sollen. Hierfür kann einer Liste entnommen werden, welche Standardtexte an welchen Stellen zum Einsatz kommen. Ausgewählte können dann geändert werden.
 
-## Aufgaben- und Testheftbezeichner
+Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diesem Beispiel gibt die Testperson auf der Anmeldeseite des Testcenters den Zugangsnamen an und klickt auf **Weiter**. Im nächsten Schritt wird der in der XML zur Studien-Definition angelegte Code abgefragt. Hier wird nun der Text zur Code-Eingabe bsph. verändert. Im ersten Schritt war das Attribut: `key` im Element: `<CustomText>` nicht beschrieben. Dadurch wird ein Standardtext: "Bitte gib den Schülercode ein...." gesetzt:
 
-**Welche Bezeichner sollen angezeigt werden?**
+![Bild 1: Anzeige Standardtext bei Code-Abfrage](TC_Bsp_Textersetzung1.png)
 
-Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der XML zur Testheft-Definition in der Testheft-Konfiguration (`BookletConfig`) mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe in der sich die Testperson gerade befindet angezeigt.
+Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomText>` das Attribut: `key` mit einem gültigen Listenwert beschrieben.
 
-![Bild 1: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigationsmenu](TC_UnitTitle_NaviMenu.png)
+```{.xml}
+<Testtakers>
+
+  <Metadata>
+    <Description>Beispielhafte XML zur Studien-Definition</Description>
+  </Metadata>
+
+  <CustomTexts>
+    <CustomText key="login_codeInputPrompt">Eingabe des Codes erforderlich.</CustomText>
+  </CustomTexts>
+
+  <Group id="sample_group" label="Primary Sample Group">
+    <Login mode="run-hot-return" name="egx45t">
+      <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="monitor-group" name="test-group-monitor" pw="er45tz"/>
+  </Group>
+</Testtakers>
+```
+Nachdem die veränderte XML in den Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: **egx45t** anmeldet, ist der veränderte Text zu sehen:
+
+![Bild 2: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
+
+## XML zur Testheft-Definition
+
+::: {.callout-tip}
+Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attributs: `key` vorgenommen werden. Die möglichen Werte und Daten, die angegeben werden können, sind einer spezielle [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Außerhalb dieses Elementes können weitere Konfigurationen erfolgen. 
+:::
+
+**Sollen Aufgaben- und Testheftbezeichner angezeigt werden?**
+
+Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der Testheft-Konfiguration (`Config`) mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe, in der sich die Testperson gerade befindet, angezeigt.
+
+![Bild 3: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigationsmenu](TC_UnitTitle_NaviMenu.png)
 
 Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: **Aufgabe2**. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert `unit_screenheader` mit dem Datum **WITH_UNIT_TITLE** in der `BookletConfig` beschrieben wird.
 
@@ -59,46 +139,9 @@ Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die
 ```
 Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt (Zahlen in den Kästchen).
 
-## Textersetzungen
-
-**Sollen Standardtexte der Anwendung durch eigene Texte ersetzt werden?**
-
-Textersetzungen werden in der XML zur Studien-Definition festgelegt. Welche Texte ersetzt werden können, ist der Liste zu entnehmen. Der neue Text wird dann in der XML zur Studiendefinition im Element: `<CustomText>` dem Attributswert von `key` zugewiesen. 
-
-Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diesem Beispiel gibt die Testperson auf der Anmeldeseite des Testcenters den Zugangsnamen an und klickt auf **Weiter**. Im nächsten Schritt wird der in der XML zur Studien-Definition angelegte Code abgefragt. Hier wird nun der Text zur Code-Eingabe bsph. verändert. Im ersten Schritt war das Attribut: `key` im Element: `<CustomText>` nicht beschrieben. Dadurch wird ein Standardtext: "Bitte gib den Schülercode ein...." gesetzt:
-
-![Bild 2: Anzeige Standardtext bei Code-Abfrage](TC_Bsp_Textersetzung1.png)
-
-Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomText>` das Attribut: `key` mit einem gültigen Listenwert beschrieben.
-
-```{.xml}
-<Testtakers>
-
-  <Metadata>
-    <Description>Beispielhafte XML zur Studien-Definition</Description>
-  </Metadata>
-
-  <CustomTexts>
-    <CustomText key="login_codeInputPrompt">Eingabe des Codes erforderlich.</CustomText>
-  </CustomTexts>
-
-  <Group id="sample_group" label="Primary Sample Group">
-    <Login mode="run-hot-return" name="egx45t">
-      <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
-    </Login>
-    <Login mode="monitor-group" name="test-group-monitor" pw="er45tz"/>
-  </Group>
-</Testtakers>
-```
-Nachdem die veränderte XML in den Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: **egx45t** anmeldet, ist der veränderte Text zu sehen:
-
-![Bild 3: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
-
-## Aufgabennavigation
-
 **Wie soll die Leiste zur Aufgabennavigation aussehen?**
 
-Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Attributswert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechender Wert als Datum der Liste entnommen. Im Bild 1 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet werden oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen. Es kann nun nur noch vorwärts und rückwärts navigiert werden. 
+Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Attributswert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechender Wert als Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet werden oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen. Es kann nun nur noch vorwärts und rückwärts navigiert werden. 
 
 ```{.xml}
 
@@ -140,27 +183,77 @@ Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuwe
 
 Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Aufgaben Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das zu und abschalten der Navigation in der Anwendung wird in der XML zur Testheft-Definition im Element: `<BookletConfig>` mit dem Attributswert: `pagingMode` des Attributs: `key` realisiert. Das mögliche Datum ist wieder der Liste zu entnehmen.
 
-## Beschränkungen
-
 **Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?**
 
 Mit Hilfe der beiden Attributswerte: `force_response_complete` und `force_presentation_complete` in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum die Attributswerte erhalten können, ist der Liste zu entnehmen.
 
-## Testheft Aufteilung
+**Sollen Beschränkungen für Testheft-Blöcke festgelegt werden?**
 
-**Wie wird das Testheft aufgeteilt? Gibt es beschränkte Blöcke?**
+In der XML zur Testheft-Definition können Aufgaben Testlets (Blöcken) zugewiesen werden. Für ein Testlet können Beschränkungen angelegt werden. Erreicht die Testperson den jeweiligen Block im Testverlauf, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um die Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.
 
-## Verhalten von Blöcken
+Folgende Beschränkungen stehen zur Verfügung:
+
+* **Freigabewort:** Für den Zugriff auf den Block, muss das richtige Freigabewort eingegeben werden. 
+
+* **Zeitbegrenzung:** Die Aufgaben des Block sind nur eine bestimmte Zeit zur Bearbeitung zu sehen. Nach Ablauf dieser Zeit, wird der Block gesperrt. Möchte die Testperson den Block vor Ablauf der Zeit verlassen, erscheint eine Meldung, dass nicht in den Block zurückgekehrt werden kann. Wird die Meldung bestätigt, wird der Block verlassen und gesperrt.
+
+* **Beschränkungen Navigation:** Unabhängig von eventuell konfigurierten Navigationsbeschränkungen in der Testheft-Konfiguration (`BookletConfig`), können Navigationsbeschränkungen auch für ein Testlet festgelegt werden. Die konfigurierten Beschränkungen im Testlet überschreiben dabei die konfigurierten Beschränkungen in der Testheft-Konfiguration. Außerhalb des Testlets gelten dann wieder die Beschränkungen in der Testheft-Konfiguration.
+
+Hier ein Testlet mit Beschränkungen:
+
+```{.xml}
+
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>runhotres</Id>
+    <Label>Controller Mode: run-hot-restart</Label>
+    <Description>Beispielhafte XML zur Testheft-Definition</Description>
+  </Metadata>
+
+	<BookletConfig>
+		<Config key="force_presentation_complete">OFF</Config>
+		<Config key="force_response_complete">OFF</Config>
+	</BookletConfig>
+
+	<Units>
+		<Unit id="UNIT.SAMPLE-100" label="Startseite" labelshort="1" />
+
+		<Testlet id="Tslt1" label="Aufgabenblock">
+			<Restrictions>
+				<CodeToEnter code="Hase">Bitte gib das Freigabewort ein.</CodeToEnter>
+				<TimeMax minutes="1"/>
+				<DenyNavigationOnIncomplete presentation="ALWAYS" response="ALWAYS" />		
+			</Restrictions>
+			<Unit id="UNIT.SAMPLE-101" label="Aufgabe1" labelshort="2"/>
+			<Unit id="UNIT.SAMPLE-102" label="Aufgabe2" labelshort="3"/>
+			<Unit id="UNIT.SAMPLE-103" label="Aufgabe3" labelshort="4"/>
+		</Testlet>
+		
+		<Unit id="UNIT.SAMPLE-104" label="Aufgabe4" labelshort="5"/>
+    <Unit id="UNIT.SAMPLE-105" label="Endseite" labelshort="6"/>
+	</Units>
+</Booklet>
+
+```
+In der Testheft-Konfiguration ist `force_presentation_complete` und `force_response_complete` ausgeschaltet. Im Testlet sind beide aber für die Navigationsrichtung rückwärts und vorwärts eingeschaltet. Außerhalb des Testlets gelten also keine Navigationsbeschränkungen, innerhalb des Testlets hingegen schon. Für den Zutritt zu diesem Testlet, muss das Freigabewort: Hase eingegeben werden. Die Testpersonen haben dann 1 Minute Zeit die 3 Aufgaben innerhalb des Testlets zu bearbeiten.
+
+**Wie wird das Testheft aufgeteilt bzw. strukturiert?**
+
+Hier kann keine generelle Empfehlung erfolgen, weil es im hohen Maß vom Umfang einer Studie und auch von den Erwartungen an eine Studie abhängt,wie das Testheft aufgeteilt wird. Im Vorfeld sollten sich die Verantwortlichen eine konkrete Vorstellung davon machen, wie ihr Testheft aussehen soll. Nachfolgend ein paar gedanklichen Anregungen, die bestimmen würden, wie ein entsprechendes Testheft bzgl. Anforderungen strukturiert werden müsste:
+
+* Soll bspw. in einer Studie nur eine bestimmte Zeit zur Aufgabenbearbeitung gegeben werden, müssen die entsprechenden Aufgaben einem Testlet hinzugefügt und dieses muss mit einer Zeitbeschränkung versehen werden. 
+
+* Nehmen an der Studie viele Personen teil mit unterschiedlichen Niveau, kann es sinnvoll sein Testlets mit Zugangsbeschränkungen zu versehen. Mit Hilfe dieser Freigabewörter können die Personen synchronisiert werden. Das verhindert, dass einzelne Personen schon mit der Studie durch sind, während andere noch mitten drin stecken.
+
+* Soll ein Gruppenmonitor zur Steuerung einer Studie zum Einsatz kommen, sollten Testlets angelegt werden. Mit Hilfe des Gruppenmonitors kann dann die Testleitung die Testpersonen direkt zu einzelnen Testlets leiten.
+
+Das soll an dieser Stelle erst einmal ausreichend sein. Es gebe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte der Testhefte erfordern würden.
 
 **Was soll beim verlassen eines Block geschehen? Soll der Block gesperrt werden oder darf weiter gearbeitet werden?**
-
-## Test beenden
 
 **Was soll geschehen, wenn der Test beendet wird?**
 
 Test sperren oder nicht
-
-## Gruppenmonitor
 
 **Soll ein Gruppenmonitor eingesetzte werden, um die Studie zentral steuern zu können?**
 

@@ -35,7 +35,7 @@ flowchart TD
 
 Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Testheft-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Testheft-XML. Die Reihenfolge (siehe Bild) ist hier also entscheidend.
 
-Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint in einem solchen Fall eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht. Um eine Datei zu löschen, ist die Datei zuvor zu markieren, anschließend kann die Schaltfläche zum Löschen betätigt werden.
+Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint dann eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.
 
 ::: {.callout-tip}
 Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihenfolge ein.
