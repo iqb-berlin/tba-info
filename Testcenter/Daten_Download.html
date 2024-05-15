@@ -286,6 +286,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Referenzen/Verona_Interfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verona-Interfaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Referenzen/XML_zur_Studien_Definition.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">XML zur Studien-Definition</span></a>
   </div>
@@ -403,13 +409,14 @@ Wichtig
 <p>Der Modus der Studiendurchführung legt fest, ob Daten gespeichert werden oder nicht. Mehr Informationen hierzu sind den <a href="../Referenzen/Modi_der_Testdurchfuehrung.html">Referenzen</a> zu entnehmen.</p>
 </div>
 </div>
-<p>Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Diese Daten werden zusammengefasst dargestellt in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. <strong>Der Datensatz mit den Daten zur Auswertung wird immer mit dem Namen der Gruppe gespeichert.</strong></p>
+<p>Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Außerdem können Daten zu einem Review gespeichert werden. Diese Daten werden bis auf den System-Check Bericht zusammengefasst in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. <strong>Der Datensatz wird immer mit dem Namen der Gruppe gespeichert.</strong></p>
 <p>Folgende Daten sind je nach gesetztem Modus im Datensatz erhalten:</p>
 <ul>
 <li>Antworten (nur im Modus: <code>run-hot-return</code> und <code>run-hot-restart</code>)</li>
 <li>Logs (nur im Modus: <code>run-hot-return</code> und <code>run-hot-restart</code>)</li>
 <li>Kommentare (nur im Modus <code>run-review</code>)</li>
 </ul>
+<p>System-Check Berichte werden erzeugt, wenn eine System-Check-XML in das Testcenter geladen wurde und der System-Check durchgeführt wurde.</p>
 </section>
 <section id="wie-können-die-daten-heruntergeladen-werden" class="level2">
 <h2 class="anchored" data-anchor-id="wie-können-die-daten-heruntergeladen-werden">Wie können die Daten heruntergeladen werden?</h2>
@@ -427,6 +434,7 @@ Wichtig
 </figure>
 </div>
 <p>Die Daten werden im CSV-Format heruntergeladen und können anschließend weiter aufbereitet werden. Da Daten im CSV-Format nicht besonders gut zu lesen sind, können die Daten mit dem IQB-Tool: <strong>itc-Toolbox</strong> weiter aufbereitet werden. Mehr Informationen zu diesem Tool sind <a href="https://github.com/iqb-berlin/itc-toolbox">hier</a> zu finden.</p>
+<p>Wurde ein System-Check durchgeführt, ist der System-Check unter dem Reiter: <strong>System-Check Bericht</strong> zu finden und kann dort heruntergeladen werden.</p>
 
 
 </section>
