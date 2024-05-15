@@ -9,13 +9,15 @@ title: "Daten Download"
 Der Modus der Studiendurchführung legt fest, ob Daten gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
 :::
 
-Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Diese Daten werden zusammengefasst dargestellt in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. **Der Datensatz mit den Daten zur Auswertung wird immer mit dem Namen der Gruppe gespeichert.**
+Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Außerdem können Daten zu einem Review gespeichert werden. Diese Daten werden bis auf den System-Check Bericht zusammengefasst in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. **Der Datensatz wird immer mit dem Namen der Gruppe gespeichert.**
 
 Folgende Daten sind je nach gesetztem Modus im Datensatz erhalten:
 
 * Antworten (nur im Modus: `run-hot-return` und `run-hot-restart`)
 * Logs (nur im Modus: `run-hot-return` und `run-hot-restart`)
 * Kommentare (nur im Modus `run-review`)
+
+System-Check Berichte werden erzeugt, wenn eine System-Check-XML in das Testcenter geladen wurde und der System-Check durchgeführt wurde.
 
 ## Wie können die Daten heruntergeladen werden?
 
@@ -31,3 +33,5 @@ Zum Herunterladen der gewünschten Daten, ist der vorhandene Datensatz zu markie
 ![Datensatz: Antworten, Logs und Kommentare herunterladen](/Testcenter/TC_DatenDownload.png)
 
 Die Daten werden im CSV-Format heruntergeladen und können anschließend weiter aufbereitet werden. Da Daten im CSV-Format nicht besonders gut zu lesen sind, können die Daten mit dem IQB-Tool: **itc-Toolbox** weiter aufbereitet werden. Mehr Informationen zu diesem Tool sind [hier](https://github.com/iqb-berlin/itc-toolbox) zu finden.
+
+Wurde ein System-Check durchgeführt, ist der System-Check unter dem Reiter: **System-Check Bericht** zu finden und kann dort heruntergeladen werden.

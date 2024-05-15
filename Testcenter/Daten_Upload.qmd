@@ -14,13 +14,13 @@ Nach dem Laden von Testdateien, werden diese automatisch vom Testcenter gruppier
 * Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.
 * Units: Hier werden die Dateien zur Aufgaben-Definition gelistet.
 
-Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die Datei zur Studien-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
+Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die XML zur Studien-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
 
 Die Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:
 
-* die XML zur Aufgabendefinition (**Unit-XML**) bindet die Aufgabenressource (**VOUD-Datei**) mittels Dateinamen ein, außerdem wird der zu ladende **Player** mittels Playernamen eingebunden
-* die XML zur Testheft-Definition (**Booklet-XML**) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein
-* die XML zur Studien-Definition (**Testtaker-XML**) bindet die gewünschten Testhefte mittels Testheft-ID ein
+* die XML zur Aufgaben-Definition (**Aufgaben-XML**) bindet die Aufgabenressource (**Aufgaben-VOUD**) mittels Dateinamen ein, außerdem wird der zu ladende Playercode (**Player-HTML**) mittels Playernamen eingebunden
+* die XML zur Testheft-Definition (**Testheft-XML**) bindet die gewünschten Aufgaben mittels Aufgaben-ID ein
+* die XML zur Studien-Definition (**Studien-XML**) bindet die gewünschten Testhefte mittels Testheft-ID ein
 
 ```{mermaid}
 flowchart TD
@@ -33,7 +33,7 @@ flowchart TD
   3 --> 4
 ```
 
-Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Testheft-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Unit-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Testheft-XML. Die Reihenfolge (siehe Bild) ist hier also entscheidend.
+Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Testheft-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Aufgaben-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Testheft-XML. Die Reihenfolge (siehe Bild) ist hier also entscheidend.
 
 Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint dann eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.
 
@@ -67,7 +67,7 @@ Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Te
 
 **Duplicate Login**
 
-In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Definition, ob die darin enthaltenen Zugänge (`name`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.
+In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Definition, ob die darin enthaltenen Zugänge (`name`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.
 
 ::: {.callout-important}
 Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterbrechen! Die darin definierten Teilnehmer\*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell eine laufende Studie definiert.
@@ -75,7 +75,7 @@ Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterb
 
 **Duplicate group**
 
-In der XML zur Studien-Definition (Testtaker-XML) werden die Zugangsdaten der Teilnehmer\*innen Gruppen (`group`) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.
+In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teilnehmer\*innen Gruppen (`group`) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.
 
 ::: {.callout-important}
 Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterbrechen! Die darin definierten Teilnehmer\*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell eine laufende Studie definiert.
@@ -85,4 +85,4 @@ Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterb
 Einige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die **GeoGebra**-Elemente enthalten. Hierfür muss neben den **Testdateien**, die zu jeder Testung gehören, ein spezielles Paket mit der Endung **.itcr.zip** geladen werden. 
 Das GeoGebra-Paket kann unter [https://download.geogebra.org/package/geogebra-math-apps-bundle](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.
 
-Das Paket kann nicht mitausgeliefert werden, da GeoGebra [diese Lizenz](https://www.geogebra.org/license) verwendet.
+Das Paket kann nicht mit ausgeliefert werden, da GeoGebra [diese Lizenz](https://www.geogebra.org/license) verwendet.

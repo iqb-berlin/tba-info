@@ -4,11 +4,69 @@ title: "Daten und Prozesse"
 
 ---
 
-![Übersicht Testcenter Daten Ein- und Ausgabe](TC_Daten_Input_Output.png){fig-align="left"}
+# Daten-Input für das Testcenter
+```{mermaid}
+flowchart LR
+  1
+  style 1 fill:#ffd433
+  2
+  style 2 fill:#a0e3f3  
+  3
+  4
+  style 4 fill:#ececec  
+  A([Studio-Export])
+  style A fill:#ffd433
+  B([Studien-Definition])
+  style B fill:#a0e3f3  
+  C([Testheft-Definition])
+  style C fill:#a0e3f3  
+  D([Aufgaben-Definition])
+  style D fill:#a0e3f3  
+  E([Studien-XML])
+  F([Testheft-XML])
+  G([Aufgaben-XML])
+  H([Aufgaben-VOUD])
+  J([Aufgaben-VOCS])
+  K([Player-HTML])
+  I((Testcenter-Input))
+  style I fill:#ececec
+  1 --> 2
+  2 --> 3
+  3 --> 4
+  A --> B
+  A --> C
+  A --> D
+  B --> E
+  C --> F
+  D --> G
+  D --> H
+  D --> J
+  D --> K
+  E --> I
+  F --> I
+  G --> I
+  H --> I
+  J --> I
+  K --> I
+```
 
-## Daten-Input für das Testcenter
+Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Zugänge), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie. Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten. 
 
-Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Logins), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie (Test-Definition, Aufgaben-Definition). Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten. Die Gesamtheit all dieser Dateien wird auch häufig als **Testdateien** bezeichnet. Die **Testdateien** können während des Aufgabenentwurfs im **IQB-Studio** ausgegeben werden.
+**Schritt 1:**
+
+Die Testdateien können während des Aufgabenentwurfs vom **IQB-Studio** ausgegeben werden.
+
+**Schritt 2:**
+
+Es werden Dateien ausgegeben, die verschiedenen Funktionen zuzuordnen sind.
+
+**Schritt 3:**
+
+Die eigentliche Datei, die die in Schritt 2 genannte Funktion erfüllt. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. **Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.** 
+
+**Schritt 4:**
+
+Der Daten-Input erfolgt in den Arbeitsbereich der Studie.
 
 ::: {.callout-tip}
 Wie diese Daten in das Testcenter geladen werden können, ist im Kapitel **Daten Upload** detailliert beschrieben.
@@ -18,13 +76,11 @@ Wie diese Daten in das Testcenter geladen werden können, ist im Kapitel **Daten
 Videos zu den Testdateien sind auch in der Videothek zu finden.
 :::
 
-Welche **Testdateien** es gibt und welche Funktionen diese aufweisen, ist nachfolgend beschrieben.
+## Studien-Definition
 
-### Studien-Definition (Logins)
+Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in der Studien-Definition festgelegt. Hierfür wird eine XML-Datei verwendet. Diese XML wird IQB-intern auch **Testtaker-XML** genannt. Prinzipiell ist der Dateiname aber frei wählbar. Im weiteren Verlauf wird diese XML allgemein als **Studien-XML** bezeichnet.
 
-Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei zur Studien-Definition wird IQB-intern auch **Testtaker-XML** genannt. Prinzipiell ist der Dateiname aber frei wählbar. Diese Datei ist oben im Bild mit "Login" gekennzeichnet.
-
-**Welche Funktionen übernimmt die XML zur Studien-Definition?**
+**Welche Funktionen übernimmt die Studien-XML?**
 
 * **Festlegung Zugangsdaten/ Anmeldeverfahren:**<br> Um eine Testdurchführung zu starten, müssen die teilnehmenden Personen zuvor mit entsprechenden Zugangsdaten angelegt werden. Die gespeicherten Antworten eines Testdurchlaufs werden dann zugeordnet zu diesen Zugangsdaten im System hinterlegt. Bei der Art der Anmeldung kann zwischen einer Vielzahl von Optionen gewählt werden. Die Anmeldung kann bspw. klassisch mittels Namen und Passwort erfolgen, mittels Code oder via Link. Mehr Informationen zu den [Anmeldeverfahren](/Referenzen/Anmeldeverfahren.qmd) sind den Referenzen zu entnehmen!
 * **Gruppierung von Zugangsdaten:**<br>Die angelegten Testpersonen werden in Gruppen angelegt. Diese Gruppen können mit zeitlichen Beschränkungen versehen werden und mit einem Gruppenmonitor überwacht werden. Bei einer finalen Testdurchführung werden die gegebenen Antworten dann auch Gruppenabhängig gespeichert.
@@ -33,48 +89,64 @@ Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funkti
 * **individuelle Textersetzungen:**<br> Einzelne Texte der Anwendung können individuell an die eigene Bedürfnisse angepasst werden. Bspw. können Texte von Dialogfenster und Warnungen angepasst werden.
 
 ::: {.callout-tip}
-Mehr Informationen zu der XML-Datei für die Studien-Definition sind den [Referenzen](/Referenzen/XML_zur_Studien_Definition.qmd) zu entnehmen.
+Mehr Informationen zur XML der Studien-Definition sind den [Referenzen](/Referenzen/XML_zur_Studien_Definition.qmd) zu entnehmen.
 :::
 
-### Testheft-Definition (Test-Def)
+## Testheft-Definition
 
-Eine weitere XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Auch hier kann der Dateiname frei gewählt werden. Diese Datei ist oben im Bild mit "Test-Def" gekennzeichnet.
+Eine weitere XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Auch hier kann der Dateiname frei gewählt werden. Im weiteren Verlauf wird diese Datei allgemein als **Testheft-XML** bezeichnet.
 
-**Welche Funktionen übernimmt die XML zur Testheft-Definition?**
+**Welche Funktionen übernimmt Testheft-XML?**
 
-* **Aufgabenreihenfolge:**<br> Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe. Aufgaben werden auch oft **Units** genannt!
+* **Aufgabenreihenfolge:**<br> Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe. Aufgaben werden oft auch **Units** genannt!
 * **Aufgabensammlungen:**<br> Aufgaben können **Testlets** zugewiesen werden oder in **Testlets** zusammengefasst werden. Ein Testlet wird häufig auch als **Block** bezeichnet! Für Testlets können Beschränkungen festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich. 
 * **Konfiguration:**<br> Hinsichtlich Funktionalität und Layout der Testumgebung, können hier individuelle Festlegungen getroffen werden.
 
 ::: {.callout-tip}
-Mehr Informationen zu der XML-Datei für die Testheft-Definition sind den [Referenzen](/Referenzen/XML_zur_Testheft_Definition.qmd) zu entnehmen.
+Mehr Informationen zur XML der Testheft-Definition sind den [Referenzen](/Referenzen/XML_zur_Testheft_Definition.qmd) zu entnehmen.
 :::
 
-### Aufgaben-Definition (Unit-Def)
+## Aufgaben-Definition
 
-Die Aufgaben-Definition besteht aus zwei Dateien, die zueinander gehören. Eine XML mit Metadaten wie bspw. ID und Label der Aufgabe. Diese wird IQB-intern allgemein auch als **Unit-XML** bezeichnet. Der Dateiname ist wieder frei wählbar und trägt typischerweise den eindeutigen Namen der Aufgabe.  Eine weitere Datei enthält die Aufgabeninhalte in einem bestimmten Format mit der Endung **.VOUD** und wird auch als Ressource zu einer Aufgabe bezeichnet. IQB-intern wird diese Datei allgemein auch als **Unit-VOUD** bezeichnet. Der Name dieser Datei ist wieder frei wählbar , sollte aber günstigerweise den gleichen Namen wie die XML tragen, um die Zugehörigkeit schnell erkennen zu können. Im oberen Bild werden diese beide Dateien zusammen als Unit-Def bezeichnet. 
+Die Aufgaben-Definition besteht aus mehreren Dateien. Eine XML mit Metadaten wie bspw. ID und Label der Aufgabe. Diese wird hier allgemein als **Aufgaben-XML** bezeichnet. Der Dateiname ist wieder frei wählbar und trägt typischerweise den eindeutigen Namen der Aufgabe.  Eine weitere Datei enthält die Aufgabeninhalte in einem JSON-Format mit der Endung **.VOUD** und wird hier allgemein als **Aufgaben-VOUD** bezeichnet. Der Name dieser Datei ist wieder frei wählbar , sollte aber günstigerweise den gleichen Namen wie die Aufgaben-XML tragen, um die Zugehörigkeit schnell erkennen zu können. Weiterhin gehört zur Aufgaben-Definition eine Datei, die die festgelegten Kodierregeln zur Aufgabe enthält. Diese Datei trägt die Endung **.VOCS** und wird hier als **Aufgaben-VOCS** bezeichnet. Auch diese Datei liegt im JSON-Format vor.
 
-#### Unit-XML
+#### Aufgaben-XML
 
-**Welche Funktionen übernimmt XML zur Aufgaben-Definition?**
+Diese XML enthält folgende Inhalte:
 
-* **Metadaten:**<br> Die Metadaten zu einer Unit. Hierzu gehören eine eindeutige ID der Aufgabe, ein Label und eine Beschreibung.
-* **Angaben zur Aufgabenerstellung und Aufgabenwiedergabe:**<br> Angabe des zur Aufgabenerstellung verwendeten **Editors** und gewünschten **Players** zur Aufgabenwiedergabe. Deklaration der zugehörigen Aufgabenressource (Unit-VOUD).
+* **Metadaten:**<br> Die Metadaten zu einer Aufgabe. Hierzu gehören eine eindeutige ID der Aufgabe, ein Label und eine Beschreibung.
+* **Angaben zur Aufgabenerstellung und Aufgabenwiedergabe:**<br> Angabe des zur Aufgabenerstellung verwendeten **Editors** und gewünschten **Players** zur Aufgabenwiedergabe. Deklaration der zugehörigen Aufgabenressource (Aufgaben-VOUD).
 * **Angaben zur Aufgabenkodierung:**<br> An dieser Stelle wird die Version des verwendeten **Schemers** zur Aufgabenkodierung angegeben. Im Weiteren sind hier alle Variablen bzgl. Aufgabenkodierung aufgeführt.
 
 ::: {.callout-tip}
 Mehr Informationen zur XML der Aufgaben-Definition sind auch den [Referenzen](/Referenzen/XML_zur_Aufgaben_Definition.qmd) zu entnehmen!
 :::
 
-#### Unit-VOUD
+#### Aufgaben-VOUD
 
-Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Sie wird oft auch als **Ressource zu einer Aufgabe** bezeichnet. Aufgrund ihres spezielles Formats ist sie nur schlecht  manuell veränderbar. Änderungen sollten über einen geeigneten Editor erfolgen. Das IQB-Studio bietet einen solchen Editor an.
+Diese Datei enthält die eigentlichen Aufgabenelemente, wie bspw. Grafiken, Multiple Choice usw.. Sie wird oft auch als **Ressource zu einer Aufgabe** bezeichnet. Theoretisch sind die Aufgabeninhalte in dieser Datei manuell anpassbar, die Struktur ist aber sehr unübersichtlich und es können schnell Fehler gemacht werden. Änderungen sollten daher nur mit Hilfe des integrierten Aufgabeneditors im IQB-Studio erfolgen.
 
 ::: {.callout-tip}
-Bei bestimmten Aufgabenelementen, wie bspw. kurzen Textpassagen in einleitenden Aufgaben, wird eventuell keine Unit-VOUD erzeugt. Das Textelement befindet sich dann direkt in der Unit-XML und kann auch dort verändert werden.
+Bei bestimmten Aufgabenelementen, wie bspw. kurzen Textpassagen in einleitenden Aufgaben, wird eventuell keine Aufgaben-VOUD erzeugt. Das Textelement befindet sich dann direkt in der Aufgabe-XML und kann auch dort verändert werden.
 :::
 
-### Geo-Gebra
+#### Aufgaben-VOCS
+
+Zu jeder Aufgabe kann im IQB-Studio ein entsprechendes Kodierschema angelegt werden. Bei Ausgabe der Aufgabe erzeugt das Studio eine Datei mit der Endung **.VOCS**. In dieser Datei sind die erstellten Kodierregeln enthalten. In Verbindung mit den Kodiervariablen in der Aufgaben-XML kann das Testcenter Bedingungen für Aufgaben-Verzweigungen (adaptives Testen) schaffen. 
+
+::: {.callout-note}
+Weitere Informationen zur Aufgabenkodierung sind den [Referenzen](/Referenzen/Aufgabenkodierung.qmd) zu entnehmen.
+:::
+
+#### Player-HTML
+
+Das Testcenter enthält intern eine Komponente "Player", die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Datei, die diese Programmierungen beinhaltet, wird an dieser Stelle als **Player-HTML** bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion, bspw.: **iqb-player-aspect-2.4.11.html**.
+
+Die Player-HTML wird in der Aufgaben-XML deklariert. Der in der Aufgaben-XML deklarierte Player, muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen ohne zuvor die deklarierte Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.
+
+Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind dann unter **Releases** zu finden.
+
+## Geo-Gebra
 
 Werden in Aufgaben GeoGebra-Elemente eingesetzt, muss eine entsprechende Ressource mit der Endung **.ITCR** mit zur Aufgabe in das Testcenter geladen werden. Das GeoGebra-Paket kann unter [https://download.geogebra.org/package/geogebra-math-apps-bundle](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.
 
@@ -84,28 +156,7 @@ Das Paket kann nicht mit ausgeliefert werden, da GeoGebra [diese Lizenz](https:/
 Mehr Informationen zu GeoGebra sind auch den [Referenzen](/Referenzen/Geogebra.qmd) zu entnehmen!
 :::
 
-### Kodiervariablen und Kodierregeln
-
-Zu jeder Aufgabe kann im IQB-Studio ein entsprechendes Kodierschema angelegt werden. Bei Ausgabe der Aufgabe erzeugt das Studio eine Datei mit der Endung **.VOCS**. In dieser Datei sind die erstellten Kodierregeln enthalten. In Verbindung mit den Kodiervariablen in der XML zur Aufgaben-Definition (**Unit-XML**) kann das Testcenter Bedingungen für Aufgaben-Verzweigungen (adaptives Testen) schaffen. 
-
-::: {.callout-note}
-Weitere Informationen zur Aufgabenkodierung sind den [Referenzen](/Referenzen/Aufgabenkodierung.qmd) zu entnehmen.
-:::
-
-### Player
-
-In der Grafik ist dargestellt, dass das Testcenter intern eine Komponente "Player" enthält. Grundidee dieser Teilung ist, dass das interne Format einer Aufgaben-Definition, insbesondere der Aufgaben Ressource (Unit-VOUD), nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die jeweilige Aufgaben-Definition lesen und darstellen kann. Der Player übernimmt weitere Aufgaben (responses complete, presentation complete usw.).
-
-Für die Vorbereitung eines Tests bedeutet dies:
-
-1. jede Aufgaben-Definition einen Verweis auf das Datenformat und damit auf den erforderlichen Player enthalten muss und
-2. alle Player, die von Aufgaben benötigt werden, müssen vorab als Ressource (.HTML) in das Testcenter geladen werden
-
-Der Player wird in der XML zur Aufgaben-Definition (Unit-XML) eingebunden. Die aktuellen Versionen des jeweiligen Players sind in den entsprechenden GitHub-Repositories veröffentlicht und können dort heruntergeladen werden. Der in der XML zur Aufgaben-Definition festgelegte Player, muss dann mit in das Testcenter geladen werden. Zumeist handelt es sich um HTML-Dateien mit dem Namen des Players.
-
-Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io)
-
-### System-Check
+## System-Check
 
 Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.
 
@@ -115,15 +166,147 @@ Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname 
 Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.
 :::
 
-## Daten-Output des Testcenters
+# Daten-Output des Testcenters
+
+```{mermaid}
+flowchart TB
+    subgraph Testcenter
+      B[System-Check]
+      C[Kommentare]
+      A[Test-Logs]
+      subgraph Player
+        D[Unit-Logs]
+        E[Antworten]
+      end
+      style Player fill:#d0d0d0,stroke:#707070
+    end
+    style Testcenter fill:#ececec,stroke:#d1d1e0
+    F((Kodierbox))
+    A --> F
+    D --> F
+    E --> F
+    G("`Cleaning
+    Rekodieren
+    Analysieren
+    Aggregieren`")
+    style G fill:#eaf0f9,stroke:#4c5159
+    F --> G
+    H("`Studie in
+    Umgebung
+    durchführbar?`")
+    style H fill:#eaf0f9,stroke:#4c5159
+    I("`Aufgaben-
+    kommentare
+    während
+    Review.`")
+    style I fill:#eaf0f9,stroke:#4c5159
+    B --> H
+    C --> I
+
+```
+Das Testcenter stellt zur Studienauswertung und zur Studienvorbereitung Daten zur Verfügung. Diese Daten können aus dem Testcenter heruntergeladen werden.
+
+::: {.callout-tip}
+Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel **Daten Download** beschrieben.
+:::
+
+### Welche Daten werden erzeugt?
+
+Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:
+
+* Antworten: Hier sind alle gegebenen Antworten der Teilnehmer\*innen gespeichert.
+* Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
+* Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
+* System-Check Berichte: Diese können helfen abzuschätzen, ob die Studie in der gewünschten Umgebung hinsichtlich Ausstattung durchgeführt werden kann
+
+#### Antworten
+
+::: {.callout-important}
+Der Modus der Studiendurchführung legt fest, ob Antworten gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
+:::
+
+Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Spezifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen ist [hier](https://github.com/iqb-berlin/verona-data-specifications) zu finden.
+
+Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:
+
+```{=html}
+<table>
+<tr>
+    <th><b>Spalte</b></th>
+    <th><b>Inhalt</b></th>
+</tr>  
+<tr>
+    <td>groupname</td>
+    <td>Id der Gruppe</td>
+</tr>
+<tr>
+    <td>loginname</td>
+    <td>Name des Logins</td>
+</tr>
+<tr>
+    <td>code</td>
+    <td>Eindeutiger Code wird dem Login-Namen zugeordnet. Hintergrund: Bei einem bestimmten Modus (<code>run-hot-restart</code>) startet der Test immer wieder von vorne, obwohl immer mit dem selben Login-Namen angemeldet wird. Es werden verschiedene Testpersonen angenommen. Um die Antworten unterscheiden zu können, wird in einem solchen Fall ein anderer Code zu dem Login-Namen erzeugt.</td>
+</tr>
+<tr>
+    <td>bookletname</td>
+    <td>Id des Testheftes</td>
+</tr>
+<tr>
+    <td>unitname</td>
+    <td>Id der Aufgabe</td>
+</tr>
+<tr>
+    <td>responses</td>
+    <td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt.</td>
+</tr>
+<tr>
+    <td>laststate</td>
+    <td>Hier wird der letzte Zustand des Players vermerkt</td>
+</tr>
+ 
+</table>
+```
+
+#### Logs
+
+::: {.callout-important}
+Der Modus der Studiendurchführung legt fest, ob Logs gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
+:::
+
+Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. "Logging" kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:
+
+* Version des Betriebssystems und des Browsers
+* Verweildauer auf einer Seite
+* Zeitpunkt des Beendens der Beantwortung
+* Zustand des Players
+
+#### Kommentare
+
+::: {.callout-note}
+Kommentare können nur abgegeben werden, wenn der Testmodus: `run-review` aktiv ist.
+:::
+
+Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:
+
+* Name der Person, die den Kommentar gibt
+* Auswahl ob der Kommentar sich auf die aktuell betrachtete Aufgabe oder auf das gesamte Testheft bezieht
+* Priorität (dringend, mittelfristig, optional)
+* Kategorie (technisches, inhaltliches, gestalterisches)
+* der eigentliche Kommentar
+
+Diese Angaben sind auch in der heruntergeladenen CSV wiederzufinden.
+
+#### System-Check Berichte
+
+Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.
+
+::: {.callout-note}
+Mehr dazu ist dem Kapitel: **System-Check** zu entnehmen.
+:::
 
 ### Wie werden Daten erzeugt?
 
-::: {.callout-important}
-Der Modus der Studiendurchführung legt fest, ob Daten gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
-:::
-
-Nach der Studiendurchführung kann das Testcenter eine Reihe von Daten zur Studienauswertung zur Verfügung stellen. Diese Daten werden zusammengefasst dargestellt in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. **Der Datensatz mit den Daten zur Auswertung wird immer mit dem Namen der Gruppe gespeichert.**
+Alle Daten bis auf den System-Check Bericht werden zusammengefasst in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. **Der zusammengefasste Datensatz wird immer mit dem Namen der Gruppe gespeichert.**
 
 ---
 
@@ -170,95 +353,6 @@ Testperson 1 meldet sich am Testcenter an und bearbeitet Aufgaben. Dann wird ein
 Melden sich Testperson 4 oder Testperson 5 am Testcenter an, wird ein weiterer Datensatz mit dem Namen: **Zweite Gruppe** erzeugt.
 
 ----
-
-### Welche Daten werden erzeugt?
-
-Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:
-
-* Antworten: Hier sind alle gegebenen Antworten der Teilnehmer\*innen gespeichert.
-* Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
-* Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
-
-::: {.callout-note}
-Alle Daten werden zusammengefasst zu einem Datensatz mit dem Namen der Gruppe. 
-:::
-
-#### Antworten
-
-Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Spezifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen ist [hier](https://github.com/iqb-berlin/verona-data-specifications) zu finden.
-
-Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:
-
-```{=html}
-<table>
-<tr>
-    <th><b>Spalte</b></th>
-    <th><b>Inhalt</b></th>
-</tr>  
-<tr>
-    <td>groupname</td>
-    <td>Id der Gruppe</td>
-</tr>
-<tr>
-    <td>loginname</td>
-    <td>Name des Logins</td>
-</tr>
-<tr>
-    <td>code</td>
-    <td>Eindeutiger Code wird dem Login-Namen zugeordnet. Hintergrund: Bei einem bestimmten Modus (<code>run-hot-restart</code>) startet der Test immer wieder von vorne, obwohl immer mit dem selben Login-Namen angemeldet wird. Es werden verschiedene Testpersonen angenommen. Um die Antworten unterscheiden zu können, wird in einem solchen Fall ein anderer Code zu dem Login-Namen erzeugt.</td>
-</tr>
-<tr>
-    <td>bookletname</td>
-    <td>Id des Testheftes</td>
-</tr>
-<tr>
-    <td>unitname</td>
-    <td>Id der Aufgabe</td>
-</tr>
-<tr>
-    <td>responses</td>
-    <td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt.</td>
-</tr>
-<tr>
-    <td>laststate</td>
-    <td>Hier wird der letzte Zustand des Players vermerkt</td>
-</tr>
- 
-</table>
-```
-
-#### Logs
-
-Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. "Logging" kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:
-
-* Version des Betriebssystems und des Browsers
-* Verweildauer auf einer Seite
-* Zeitpunkt des Beendens der Beantwortung
-* Zustand des Players
-
-#### Kommentare
-
-Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jeder Aufgabe hinterlegt werden. Diese Kommentare können den Aufgabenentwickler*innen helfen die Aufgaben vor finaler Ansicht zu optimieren. In dem Kommentar-Formular kann folgendes angegeben werden:
-
-* Name der Person, die den Kommentar gibt
-* Auswahl ob der Kommentar sich auf die aktuell betrachtete Aufgabe oder auf das gesamte Testheft bezieht
-* Priorität (dringend, mittelfristig, optional)
-* Kategorie (technisches, inhaltliches, gestalterisches)
-* der eigentliche Kommentar
-
-Diese Angaben sind auch in der heruntergeladenen CSV wiederzufinden.
-
-#### System-Check Berichte
-
-Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.
-
-Mehr dazu ist dem Kapitel: **System-Check** zu entnehmen.
-
-Das Testcenter stellt Daten zur Verfügung, die für die Auswertung einer Studie wichtig sind. Nachfolgende Daten können nach Studienende aus dem Testcenter heruntergeladen werden.
-
-::: {.callout-tip}
-Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel **Daten Download** beschrieben.
-:::
 
 ## Daten-Bearbeitung
 
