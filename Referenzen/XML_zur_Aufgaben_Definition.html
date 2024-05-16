@@ -430,11 +430,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
-<p>Die Metadaten einer Aufgabe und die Einbindung von zusätzlichen Aufgabenressourcen werden in einer XML-Datei festgelegt. Diese XML-Datei wird IQB-intern häufig übergreifend auch <strong>Unit-XML</strong> genannt. In der Praxis wird als Dateiname die eigentliche Aufgabenbezeichnung gewählt.</p>
+<p>Die Metadaten einer Aufgabe und die Einbindung von zusätzlichen Aufgabenressourcen werden in einer XML-Datei festgelegt. Diese XML-Datei wird IQB-intern häufig übergreifend auch <strong>Unit-XML</strong> genannt. An dieser Stelle wird diese XML auch allgemein als <strong>Aufgaben-XML</strong> bezeichnet. In der Praxis wird als Dateiname die eigentliche Aufgabenbezeichnung gewählt.</p>
 <p>Folgende Funktionen erfüllt diese XML:</p>
 <ul>
 <li>anlegen von Metadaten zu einer Aufgabe</li>
-<li>einbinden von Aufgabenressourcen (Unit-VOUD)</li>
+<li>einbinden von Aufgabenressourcen (Aufgaben-VOUD)</li>
 <li>Auswahl des Players mit dem die Aufgabe wiedergegeben werden soll</li>
 <li><strong>Variablen zur Kodierung</strong></li>
 </ul>
@@ -623,22 +623,6 @@ Tipp
 </section>
 <section id="variablen-zur-kodierung" class="level2">
 <h2 class="anchored" data-anchor-id="variablen-zur-kodierung">Variablen zur Kodierung</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In Bearbeitung THuste: to do</p>
-<ul>
-<li>Mit Julian über Variablenbedeutung sprechen</li>
-</ul>
-</div>
-</div>
 <p>Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: <code>BaseVariables</code> ausgegeben. Die Variablen werden im Testcenter verwendet um Wichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Unit</span>&gt;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BaseVariables</span>&gt; </span>

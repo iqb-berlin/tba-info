@@ -404,13 +404,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link active" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
+  <li><a href="#prozesse-und-funktionen" id="toc-prozesse-und-funktionen" class="nav-link active" data-scroll-target="#prozesse-und-funktionen">Prozesse und Funktionen</a></li>
+  <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
   <ul class="collapse">
   <li><a href="#studien-definition" id="toc-studien-definition" class="nav-link" data-scroll-target="#studien-definition">Studien-Definition</a></li>
   <li><a href="#testheft-definition" id="toc-testheft-definition" class="nav-link" data-scroll-target="#testheft-definition">Testheft-Definition</a></li>
   <li><a href="#aufgaben-definition" id="toc-aufgaben-definition" class="nav-link" data-scroll-target="#aufgaben-definition">Aufgaben-Definition</a></li>
   <li><a href="#geo-gebra" id="toc-geo-gebra" class="nav-link" data-scroll-target="#geo-gebra">Geo-Gebra</a></li>
-  <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
+  <li><a href="#system-check-1" id="toc-system-check-1" class="nav-link" data-scroll-target="#system-check-1">System-Check</a></li>
   </ul></li>
   <li><a href="#daten-output-des-testcenters" id="toc-daten-output-des-testcenters" class="nav-link" data-scroll-target="#daten-output-des-testcenters">Daten-Output des Testcenters</a>
   <ul class="collapse">
@@ -443,6 +444,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="prozesse-und-funktionen" class="level1">
+<h1>Prozesse und Funktionen</h1>
+<p>Das Testcenter spielt nicht einfach nur Studieninhalte ab, es stellt außerdem eine Reihe von Funktionen bereit.</p>
+<section id="wiedergabe-der-studieninhalte" class="level4">
+<h4 class="anchored" data-anchor-id="wiedergabe-der-studieninhalte">Wiedergabe der Studieninhalte</h4>
+<p>Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter nennt sich <strong>Verona-Schnittstelle</strong>. Ist in einer Anwendung diese Schnittstelle integriert, kann auch ein Verona-PLayer integriert werden.</p>
+<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter <strong>Releases</strong> zu finden.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mehr Informationen zur Verona-Schnittstelle sind <a href="https://verona-interfaces.github.io/intro">hier</a> zu finden.</p>
+</div>
+</div>
+</section>
+<section id="system-check" class="level4">
+<h4 class="anchored" data-anchor-id="system-check">System-Check</h4>
+<p>Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen. Das Testcenter bietet hierfür die Funktion: <strong>System-Check</strong> an. Zum Starten des System-Checks kann dieser zuvor in einer XML konfiguriert werden, anschließend muss diese XML in das Testcenter geladen werden.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.</p>
+</div>
+</div>
+</section>
+<section id="reviews" class="level4">
+<h4 class="anchored" data-anchor-id="reviews">Reviews</h4>
+<p>Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben in einer Vorschau anderen Personen zu präsentieren. Diese können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (<code>run-review</code>) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.</p>
+</section>
+<section id="gruppenmonitor" class="level4">
+<h4 class="anchored" data-anchor-id="gruppenmonitor">Gruppenmonitor</h4>
+<p>Für die Testleitung kann sinnvoll sein Studienteilnehmer*innen zu steuern. Auf diese Weise kann der Studienlauf synchron gehalten werden und alle Teilnehmer*innen befinden sich stets am selben Ausgangspunkt (Anfang eines Block etc.). Weiterhin kann es hilfreich sein zu sehen an welcher Stelle im Testheft sich die Teilnehmer*innen gerade befinden. Diese Funktionen bietet der <strong>Gruppenmonitor</strong>. Der Gruppenmonitor kann in der XML zur Studien-Definition mittels eines speziellen Zugangs eingerichtet werden.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Detaillierte Informationen zum Gruppenmonitor sind dem gleichnamigen Kapitel zu entnehmen.</p>
+</div>
+</div>
+</section>
+</section>
 <section id="daten-input-für-das-testcenter" class="level1">
 <h1>Daten-Input für das Testcenter</h1>
 <div class="cell" data-layout-align="default">
@@ -499,14 +560,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Zugänge), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie. Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten.</p>
-<p><strong>Schritt 1:</strong></p>
-<p>Die Testdateien können während des Aufgabenentwurfs vom <strong>IQB-Studio</strong> ausgegeben werden.</p>
-<p><strong>Schritt 2:</strong></p>
-<p>Es werden Dateien ausgegeben, die verschiedenen Funktionen zuzuordnen sind.</p>
-<p><strong>Schritt 3:</strong></p>
-<p>Die eigentliche Datei, die die in Schritt 2 genannte Funktion erfüllt. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. <strong>Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.</strong></p>
-<p><strong>Schritt 4:</strong></p>
-<p>Der Daten-Input erfolgt in den Arbeitsbereich der Studie.</p>
+<p><strong>1.</strong> Die Testdateien können während des Aufgabenentwurfs vom <strong>IQB-Studio</strong> ausgegeben werden.</p>
+<p><strong>2.</strong> Es werden Dateien ausgegeben, die verschiedenen Funktionen zuzuordnen sind.</p>
+<p><strong>3.</strong> Die eigentliche Datei, die die in Schritt 2 genannte Funktion erfüllt. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. <strong>Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.</strong></p>
+<p><strong>4.</strong> Der Daten-Input erfolgt in den Arbeitsbereich der Studie.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -642,8 +699,8 @@ Hinweis
 </section>
 <section id="player-html" class="level4">
 <h4 class="anchored" data-anchor-id="player-html">Player-HTML</h4>
-<p>Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Datei, die diese Programmierungen beinhaltet, wird an dieser Stelle als <strong>Player-HTML</strong> bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion, bspw.: <strong>iqb-player-aspect-2.4.11.html</strong>.</p>
-<p>Die Player-HTML wird in der Aufgaben-XML deklariert. Der in der Aufgaben-XML deklarierte Player, muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen ohne zuvor die deklarierte Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.</p>
+<p>Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als <strong>Player-HTML</strong> bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion, bspw.: <strong>iqb-player-aspect-2.4.11.html</strong>.</p>
+<p>Die Player-HTML wird in der Aufgaben-XML deklariert. Der so deklarierte Player muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen, ohne zuvor den dort deklarierten Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.</p>
 <p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter <strong>Releases</strong> zu finden.</p>
 </section>
 </section>
@@ -665,23 +722,9 @@ Tipp
 </div>
 </div>
 </section>
-<section id="system-check" class="level2">
-<h2 class="anchored" data-anchor-id="system-check">System-Check</h2>
-<p>Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können über den System-Check auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen.</p>
+<section id="system-check-1" class="level2">
+<h2 class="anchored" data-anchor-id="system-check-1">System-Check</h2>
 <p>Die Konfigurationen des System-Checks erfolgt in einer XML-Datei. Der Dateiname ist frei wählbar. Diese XML muss in einen Arbeitsbereich des Testcenters geladen werden. Es wird dann auf der Anmeldeseite des Testcenter ein entsprechender Schalter für den System-Check angeboten. Nach Klick auf diesen Schalter, wird der in der XML konfigurierte System-Check gestartet.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.</p>
-</div>
-</div>
 </section>
 </section>
 <section id="daten-output-des-testcenters" class="level1">
@@ -707,10 +750,7 @@ Hinweis
     A --&gt; F
     D --&gt; F
     E --&gt; F
-    G("`Cleaning
-    Rekodieren
-    Analysieren
-    Aggregieren`")
+    G(Datenanalyse)
     style G fill:#eaf0f9,stroke:#4c5159
     F --&gt; G
     H("`Studie in
@@ -731,7 +771,7 @@ Hinweis
 </div>
 </div>
 </div>
-<p>Das Testcenter stellt zur Studienauswertung und zur Studienvorbereitung Daten zur Verfügung. Diese Daten können aus dem Testcenter heruntergeladen werden.</p>
+<p>Das Testcenter stellt zur Studienauswertung und zur Studienvorbereitung Daten zur Verfügung. Diese werden sowohl vom Testcenter selbst als auch vom Player generiert. Nachfolgend wird näher beschrieben, wie und welche Daten erzeugt werden</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -752,8 +792,8 @@ Tipp
 <li>Antworten: Hier sind alle gegebenen Antworten der Teilnehmer*innen gespeichert.</li>
 <li>Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr</li>
 <li>Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden</li>
-<li>System-Check Berichte: Diese können helfen abzuschätzen, ob die Studie in der gewünschten Umgebung hinsichtlich Ausstattung durchgeführt werden kann</li>
 </ul>
+<p>Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde. Ein System-Check kann helfen abzuschätzen, ob die Studie in der gewünschten Umgebung hinsichtlich Ausstattung durchgeführt werden kann</p>
 <section id="antworten" class="level4">
 <h4 class="anchored" data-anchor-id="antworten">Antworten</h4>
 <div class="callout callout-style-default callout-important callout-titled">
