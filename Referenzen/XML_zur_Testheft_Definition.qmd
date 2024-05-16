@@ -5,7 +5,7 @@ title: "XML zur Testheft-Definition"
 
 ##
 
-Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Der Dateiname kann frei gewählt werden. 
+Eine XML-Datei übernimmt die Testheft-Definition. Sie trägt häufig IQB-intern den Namen **Booklet-XML**, wird hier aber im weiteren Verlauf als **Testheft-XML** bezeichnet. Der Dateiname kann aber immer frei gewählt werden.
 
 Folgende Funktionen erfüllt die XML:
 
@@ -57,7 +57,7 @@ Folgende Funktionen erfüllt die XML:
 ```
 `Metadata`
 
-In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: **BOOKLET.SAMPLE-1**. Mit Hilfe dieser Id kann das Testheft in der Testheft-Definition (Testtaker-XML) eingebunden und einer Testperson zugeordnet werden. Es folgen ein Label und eine Beschreibung, die frei wählbar sind. 
+In diesem Beispiel erhält das Testheft zuerst eine eindeutige Id: **BOOKLET.SAMPLE-1**. Mit Hilfe dieser Id kann das Testheft in der Testheft-Definition (Studien-XML) eingebunden und einer Testperson zugeordnet werden. Es folgen ein Label und eine Beschreibung, die frei wählbar sind. 
 
 `BookletConfig`
 
@@ -74,14 +74,14 @@ Auf das erste Testlet folgt eine weitere Aufgabe. Es fällt auf, dass diese Aufg
 Es folgt ein weiteres Testlet ohne Beschränkungen und mit nur einer einzigen Aufgabe.
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributswerte in der Booklet-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributswerte in der Testheft-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
-Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Booklet-XML befindet sich im Testcenter GitHub-Repository [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd).
+Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema Definition für die Testheft-XML befindet sich im Testcenter GitHub-Repository [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd).
 :::
 
 ::: {.callout-important}
-Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Booklet-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.1 verwendet, sollte auch die Schema-Definition 15.0.1 verwendet werden. Beim Laden der Booklet-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenter-Version passt.
+Jede Versionsänderung des Testcenters kann auch Änderungen in der Schema-Definition enthalten. Es ist daher darauf zu achten, dass in der verwendeten Testheft-XML auch die aktuelle zur Version passende Schema-Definition verwendet wird. Wird bspw. das Testcenter in Version 15.0.1 verwendet, sollte auch die Schema-Definition 15.0.1 verwendet werden. Beim Laden der Testheft-XML in das Testcenter erzeugt dieses auch eine Warnung, wenn die verwendete Schema-Definition nicht zur Testcenter-Version passt.
 :::
 
 Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `xmlns:xsi`und `xsi`eingebunden.
@@ -127,19 +127,19 @@ Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `x
     <td><code>Id</code></td>
     <td></td>
     <td>>abc<</td>
-    <td>Frei wählbarer Wert. Über diese Id kann das Booklet in der Testtaker-XML eingebunden werden.</td>
+    <td>Frei wählbarer Wert. Über diese Id kann das Testheftes in der Studien-XML eingebunden werden.</td>
 </tr>
 <tr>
     <td><code>Label</code></td>
     <td></td>
     <td>>abc<</td>
-    <td>Frei wählbarer Wert zur Bezeichnung des Booklets.</td>
+    <td>Frei wählbarer Wert zur Bezeichnung des Testheftes.</td>
 </tr>
 <tr>
     <td><code>De-scription</code></td>
     <td></td>
     <td>>abc<</td>
-    <td>Frei wählbarer Wert zur weiteren Beschreibung dieses Booklets.</td>
+    <td>Frei wählbarer Wert zur weiteren Beschreibung dieses Testheftes.</td>
 </tr>
 <tr>
     <td><code>Booklet-Config</code></td>

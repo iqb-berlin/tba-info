@@ -5,7 +5,7 @@ title: "XML zur Studien-Definition"
 
 ## 
 
-Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. Prinzipiell ist der Dateiname aber frei wählbar.
+Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: **Testtaker-XML**. An dieser Stelle wird diese XMl auch allgemein als **Studien-XML** bezeichnet.Prinzipiell ist der Dateiname aber frei wählbar.
 
 Folgende Funktionen erfüllt die XML:
 
@@ -92,7 +92,7 @@ In der ersten Gruppe: **sample_group** befinden sich 2 Logins. Die Gruppe verfü
 
 :::
 
-Die verfügbaren Attribute, die zugehörigen möglichen Attributswerte in der Testtaker-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
+Die verfügbaren Attribute, die zugehörigen möglichen Attributswerte in der Studien-XML und deren Bedeutung werden nachfolgend aufgelistet. Es wird auch aufgezeigt, welchen Elementen Daten zugeordnet werden können. **Die Attribute, Werte und Daten sind in der nachfolgenden Liste dem zugehörigen Element zugeordnet beschrieben.**
 
 ::: {.callout-important}
 Die in der XML-Datei angelegten Attribute und Elemente sind nicht frei wählbar, sondern orientieren sich an einer Schema-Definition. Diese gibt vor, welche Elemente und Attribute verwendet werden dürfen. Die Schema-Definition für die Testtaker-XML ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) ersichtlich.
@@ -283,7 +283,7 @@ Eine Liste aller verwendbarer Werte zur Textersetzung. Es ist die Groß-/Kleinsc
 
 ## Gruppenmonitoring
 
-Der Gruppenmonitor kann in der Testtaker-XML über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: `monitor-group` und `monitor-study`. Im Modus: `monitor-group` können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: `monitor-study` können alle Logins in allen Gruppen gesteuert werden.
+Der Gruppenmonitor kann in der Studien-XML über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: `monitor-group` und `monitor-study`. Im Modus: `monitor-group` können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: `monitor-study` können alle Logins in allen Gruppen gesteuert werden.
 
 Hier ein Beispiel:
 
