@@ -3,8 +3,9 @@ project:
 
 website:
   site-url: https://iqb-berlin.github.io/tba-info/
-  title: "IQB TBA-Info"
+  title: "IQB TBA-info"
   favicon: favicon.ico
+  back-to-top-navigation: true
   page-navigation: true
   repo-url: https://github.com/iqb-berlin/tba-info
   repo-actions: [issue]
@@ -12,6 +13,9 @@ website:
     pinned: true
     search: true
     logo: IQB-klein.png
+    right:
+      - icon: github
+        href: https://github.com/iqb-berlin/tba-info
   page-footer:
     border: true
     background: light
@@ -20,14 +24,14 @@ website:
         href: https://www.iqb.hu-berlin.de
     left:
       - href: index.qmd
-        text: Home
+        text: "{{< fa house >}}"
   sidebar: 
     style: "floating"
     lang: de
     collapse-level: 1
     contents:
       - href: index.qmd
-        text: Home
+        text: Start
       - href: Einfuehrung/intro.qmd
         text: Einführung
       - section: "Testcenter"

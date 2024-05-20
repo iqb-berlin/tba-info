@@ -1,40 +1,76 @@
 ---
 lang: de
-title: "TBA Überblick"
+title: "Einführung"
 ---
 
+Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation beschreibt die technischen und organisatorischen Aspekte der Durchführung. Wenn Sie inhaltliche Fragen haben, lesen Sie bitte hier weiter:
+
+* [IQB: Informationen zu VERA](https://www.iqb.hu-berlin.de/vera/)
+* [IQB: Informationen zum Bildungstrend](https://www.iqb.hu-berlin.de/bt/)
+* [IQB: Informationen zu Bildungsstandards](https://www.iqb.hu-berlin.de/bista/)
+* [KMK: Zum Bildungsmonitoring](https://www.kmk.org/themen/qualitaetssicherung-in-schulen/bildungsmonitoring/)
+
+# TBA-Projekte der Länder
+
+::: {.callout-note}
+## Begriff TBA
+
+In Deutschland werden verschiedene Bezeichnungen für computerbasiertes Testen verwendet - CBA, eAssessment, digitales Testen usw.. TBA steht für **Technologiebasiertes Assessment** und erweitert die Palette der technischen Instrumente zum Testen über den Computer hinaus (z. B. digitale Stifte).
+:::
+
+Die Umstellung der großen Studien des nationalen Bildungsmonitorings auf Online-Tests startete 2018 mit einem Projekt zur Feststellung der Machbarkeit einer Online-Testung. Vorarbeiten gab es seitens der universitären Projekte [zepf](https://www.zepf.eu/) (damals Universität Koblenz-Landau), und [*kompetenztest.de*](https://www.kompetenztest.de/) (Universität Jena) sowie des IQB. Auftrag an das IQB war 2021-2023, Webanwendungen zu entwickeln, die auch durch die Länder installiert und genutzt werden können.
 
 ```{mermaid}
-sequenceDiagram
-  participant Alice
-  participant Bob
-  Alice->>John: Hello John, how are you?
-  loop Healthcheck
-    John->>John: Fight against hypochondria
-  end
-  Note right of John: Rational thoughts <br/>prevail!
-  John-->>Alice: Great!
-  John->>Bob: How about you?
-  Bob-->>John: Jolly good!
+gantt
+title TBA-Projekte der Länder
+dateFormat YYYY-MM-DD
+axisFormat %Y
+tickInterval 12month
+
+section Machbarkeitsstudie
+  Antrag  : 2017-07-01, 2017-12-31
+  Prototyp Erprobung : 2018-01-01, 2019-12-31
+  Verlängerung : 2020-01-01, 2020-12-31
+
+section TBA I Umstellung VERA
+  Antrag : 2020-01-01, 2020-12-31
+  IQB-Testcenter : 2021-01-01, 2023-12-31
+  Übertragung : active, 2024-01-01, 2025-12-31
+
+section TBA II Adaptiv/Formativ
+  Antrag : 2022-07-01, 2023-06-30
+  Prototyp, Erprobung : active, 2023-07-01, 2026-06-30
+
 ```
 
+Dabei sollte das IQB -- wie in den Vorjahren auf der Basis von Papier -- die Testaufgaben und Testsequenzen (Testhefte) zentral entwickeln und dann entweder selbst in bundesweiten Stichproben einsetzen (Bildungstrend), oder den Ländern für eigene landesweite Erhebungen zur Verfügung stellen (VERA).
 
-```{dot}
-digraph G {
-  layout=neato;
-  overlap=false
-  run -> intr;
-  intr -> runbl;
-  runbl -> run;
-  run -> kernel;
-  kernel -> LISA;
-  kernel -> sleep;
-  kernel -> runmem;
-  sleep -> swap;
-  swap -> runswap;
-  runswap -> new;
-  runswap -> runmem;
-  new -> runmem;
-  sleep -> runmem;
-}
-```
+# Architektur Testdurchführung
+
+Für eine effiziente Schätzung der Kompetenzen von Schülerinnen und Schülern sind spezielle Interaktionsformate erforderlich. Einfache Formular-Elemente reichen nicht aus. Das IQB hat bereits im ersten TBA-Projekt (Machbarkeitsstudie) innovative Formate erprobt und arbeitet ständig mit Wissenschaftler*innen der nationalen Fachdidaktik und der empirischen Bildungsforschung an der Weiterentwicklung.
+
+Damit die Länder beim Einsatz der IQB-Aufgaben die Interaktionselemente nicht nachprogrammieren müssen, sondern stets zeitnah Neuentwicklungen verwenden können, hat eine Arbeitsgruppe ein Plugin-System entwickelt. Die Spezifikationen dieser Schnittstellen sind als [Verona-Interfaces](https://verona-interfaces.github.io) veröffentlicht.
+
+Ein Land oder eine Einrichtung, die im Auftrag eine Lernstandserhebung mit IQB-Aufgaben durchführen soll, verfügen i.d.R. bereits über ein Portalsystem zur Administration, Durchführung und Auswertung. Um direkt die IQB-Aufgaben nutzen zu können, stehen zwei Szenarien zur Verfügung.
+
+## Szenario "Player"
+
+Die folgende Darstellung zeigt vereinfacht die Funktionen, die üblicherweise ein System für Lernstandserhebungen erfüllen muss. Die Komponente, mit der der Test durchgeführt wird (hier "Testcenter"), ist eingebettet und eng verzahnt mit der Daten-Infrastruktur.
+
+![Architektur-Szenario "Player"](Architektur_Player-Szenario.png)
+
+Hervorgehoben ist das Verona-Plugin "Player". Für die IQB-Aufgaben steht ein spezieller Player zur Verfügung, der zu Beginn der Testung geladen wird und nachfolgend die Darstellung der Aufgaben übernimmt.
+
+## Szenario "IQB-Testcenter"
+
+Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden. Der Server eines IQB-Testcenters verfügt über eine [ausführlich dokumentierte Schnittstelle](https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html), mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.
+
+![Architektur-Szenario "IQB-Testcenter"](Architektur_TC-Szenario.png)
+
+# Autorensystem zur Aufgabenentwicklung: IQB-Studio
+
+Das IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüberhinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.
+
+Die Federführung der Aufgabenentwicklung liegt beim IQB. Abgeordnete Lehrkräfte liefern erste Entwürfe, die dann in enger Zusammenarbeit mit fachdidaktischen Expertinnen und Experten sowie den Wissenschaftler*innen des IQB bewertet, weiterentwickelt und intensiv erprobt werden. Zu einer Aufgabe werden nicht nur die visuelle Erscheinung und die Interaktion erarbeitet, sondern auch Vorschriften zur Auswertung (sog. Kodierung) und teilweise auch Material, das in den Schulen im Rahmen der Auswertung für die Unterrichtsentwicklung genutzt wird.
+
+Diese Prozesse erfordern ein komplexes Autorensystem. Die Webanwendung "IQB-Studio" ist auf die Anforderungen der Aufgabenentwicklung am IQB zugeschnitten, kann aber auch durch interessierte Länder oder Einrichtungen installiert und betrieben werden. Auf diese Weise können Länder eine eigene Aufgabenentwicklung betreiben, um beispielsweise Erhebungen für die Ermittlung von Lernausgangslagen mit demselben technischen System wie VERA zu administrieren.
