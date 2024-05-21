@@ -478,14 +478,14 @@ section TBA III Rückmeldungen
 </section>
 <section id="hauptkomponenten" class="level1">
 <h1>Hauptkomponenten</h1>
-<p>Der Fokus der Webentwicklungen lag zunächst auf der <strong>Testdurchführung</strong>. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur. Die Beschreibung der Nutzung des IQB-Testcenters nimmt in dieser Dokumentation viel Raum ein. Dieser Abschnitt enthält auch viele technische Diskurse, um Installation und Betrieb zu unterstützen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Der Fokus der Webentwicklungen lag zunächst auf der <strong>Testdurchführung</strong>. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur. Die Beschreibung der Nutzung des IQB-Testcenters nimmt in dieser Dokumentation viel Raum ein. Dieser Abschnitt enthält auch viele technische Diskurse, um Installation und Betrieb zu unterstützen.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
-    R(Aufgabenenticklung) --&gt; H[Testaufgaben]
+    R(Aufgabenentwicklung) --&gt; H[Testaufgaben]
     style R fill:#cdf
     style H fill:white
     H --&gt; B
@@ -536,13 +536,14 @@ section TBA III Rückmeldungen
 </section>
 <section id="szenario-iqb-testcenter" class="level2">
 <h2 class="anchored" data-anchor-id="szenario-iqb-testcenter">Szenario “IQB-Testcenter”</h2>
-<p>Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Der Server eines IQB-Testcenters verfügt über eine <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html">ausführlich dokumentierte Schnittstelle</a>, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.</p>
+<p>Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Der Server eines IQB-Testcenters verfügt über eine <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html">ausführlich dokumentierte Schnittstelle</a>, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Architektur_TC-Szenario.png" class="img-fluid figure-img"></p>
 <figcaption>Architektur-Szenario “IQB-Testcenter”</figcaption>
 </figure>
 </div>
+<p>Der Einsatz des IQB-Testcenters kann vorteilhaft sein, wenn bestimmte Zusatzfunktionen wie Testleitungskonsole, System-Check oder adaptiver Testablauf im eigenen System nicht zur Verfügung stehen. Es kann nachteilig sein, wenn die Bedienung durch Lehrkräfte oder Schüler*innen einheitlich über alle digitalen Angebote eines Landes sein soll. Das IQB-Testcenter kann zwar angepasst werden (Farben, Logo), aber es könnte trotzdem exotisch wirken.</p>
 </section>
 </section>
 <section id="autorensystem-zur-aufgabenentwicklung-iqb-studio" class="level1">
@@ -559,7 +560,6 @@ section TBA III Rückmeldungen
 
 <ol>
 <li id="fn1"><p>Die IQB-Webanwendungen müssen jeweils auf Servern des Landes bzw. der durchführenden Einrichtung installiert und betrieben werden. Das IQB bietet keine Server hierfür an, tritt also nicht als Dienstleister für Serverhosting auf.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Die IQB-Webanwendungen müssen jeweils auf Servern des Landes bzw. der durchführenden Einrichtung installiert und betrieben werden. Das IQB bietet keine Server hierfür an, tritt also nicht als Dienstleister für Serverhosting auf.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
