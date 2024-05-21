@@ -29,25 +29,65 @@ tickInterval 12month
 
 section Machbarkeitsstudie
   Antrag  : 2017-07-01, 2017-12-31
-  Prototyp Erprobung : 2018-01-01, 2019-12-31
-  Verlängerung : 2020-01-01, 2020-12-31
+  Prototyp, Erprobung : 2018-01-01, 2019-12-31
+  Analyse : 2020-01-01, 2020-12-31
 
 section TBA I Umstellung VERA
   Antrag : 2020-01-01, 2020-12-31
   IQB-Testcenter : 2021-01-01, 2023-12-31
-  Übertragung : active, 2024-01-01, 2025-12-31
+  Übertragung VERA : active, 2024-01-01, 2025-12-31
 
 section TBA II Adaptiv/Formativ
   Antrag : 2022-07-01, 2023-06-30
-  Prototyp, Erprobung : active, 2023-07-01, 2026-06-30
+  Entwicklung, Erprobung : active, 2023-07-01, 2026-06-30
 
+section TBA III Rückmeldungen
+  Antrag : 2022-07-01, 2022-12-31
+  Entwicklung, Erprobung : active, 2023-01-01, 2026-06-30
 ```
 
 Dabei sollte das IQB -- wie in den Vorjahren auf der Basis von Papier -- die Testaufgaben und Testsequenzen (Testhefte) zentral entwickeln und dann entweder selbst in bundesweiten Stichproben einsetzen (Bildungstrend), oder den Ländern für eigene landesweite Erhebungen zur Verfügung stellen (VERA).
 
-# Architektur Testdurchführung
+# Hauptkomponenten
 
-Für eine effiziente Schätzung der Kompetenzen von Schülerinnen und Schülern sind spezielle Interaktionsformate erforderlich. Einfache Formular-Elemente reichen nicht aus. Das IQB hat bereits im ersten TBA-Projekt (Machbarkeitsstudie) innovative Formate erprobt und arbeitet ständig mit Wissenschaftler*innen der nationalen Fachdidaktik und der empirischen Bildungsforschung an der Weiterentwicklung.
+Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur. Die Beschreibung der Nutzung des IQB-Testcenters nimmt in dieser Dokumentation viel Raum ein. Dieser Abschnitt enthält auch viele technische Diskurse, um Installation und Betrieb zu unterstützen[^1].
+
+```{mermaid}
+flowchart TD
+    R(Aufgabenenticklung) --> H[Testaufgaben]
+    style R fill:#cdf
+    style H fill:white
+    H --> B
+    G[Testablauf] --> B
+    style G fill:white
+    A[Testpersonen] --> B(Testdurchführung)
+    style A fill:white
+    style B fill:#cdf
+    B --> K[Antworten]
+    style K fill:white
+    B --> J[Logdaten]
+    style J fill:white
+    H -.-> C(Kodierung)
+    style C fill:#cdf
+    K --> C
+    J --> C
+    C -->D(Analyse)
+    style D fill:#cdf
+    L(Vergleichsdaten) --> D
+    style L fill:white
+    D -->E[Bericht/Rückmeldung]
+    style E fill:white
+```
+
+Anschließend war erforderlich, die gesamten Prozesse der **Aufgabenentwicklung** umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler\*innen direkt bedienen. Für die dabei entstandene Webanwendung "IQB-Studio" ist ebenfalls viel Raum in dieser Dokumentation vorgesehen. Insbesondere Aufgabenentwickler\*innen sollen hier eine erste Starthilfe bekommen.
+
+Die **Verarbeitung der Ergebnisse** (Kodierung, Datenanalyse) steht noch am Anfang. Die Webanwendungen dazu starten 2024 erst in die Erprobung. Daher gibt es in dieser Dokumentation nur kurze Funktionsbeschreibungen.
+
+Das TBA-Projekt III zu **Rückmeldungen** ist hier der Vollständigkeit halber erwähnt. Das IQB ist daran nur beratend beteiligt, weshalb es in diese Dokumentation nicht einbezogen ist. Eine kurze Erläuterung der Projektziele finden Sie [hier](https://www.kmk.org/de/themen/bildung-in-der-digitalen-welt/laenderuebergreifende-projekte.html).
+
+# Szenarien Testdurchführung
+
+Für eine effiziente Schätzung der Kompetenzen von Schülerinnen und Schülern sind spezielle Interaktionsformate erforderlich. Einfache Formular-Elemente reichen nicht aus. Das IQB hat bereits im ersten TBA-Projekt (Machbarkeitsstudie) innovative Formate erprobt und arbeitet ständig mit Wissenschaftler\*innen der nationalen Fachdidaktik und der empirischen Bildungsforschung an der Weiterentwicklung.
 
 Damit die Länder beim Einsatz der IQB-Aufgaben die Interaktionselemente nicht nachprogrammieren müssen, sondern stets zeitnah Neuentwicklungen verwenden können, hat eine Arbeitsgruppe ein Plugin-System entwickelt. Die Spezifikationen dieser Schnittstellen sind als [Verona-Interfaces](https://verona-interfaces.github.io) veröffentlicht.
 
@@ -69,9 +109,9 @@ Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genu
 
 # Autorensystem zur Aufgabenentwicklung: IQB-Studio
 
-Das IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüberhinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.
+Das IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüber hinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.
 
-Die Federführung der Aufgabenentwicklung liegt beim IQB. Abgeordnete Lehrkräfte liefern erste Entwürfe, die dann in enger Zusammenarbeit mit fachdidaktischen Expertinnen und Experten sowie den Wissenschaftler*innen des IQB bewertet, weiterentwickelt und intensiv erprobt werden. Zu einer Aufgabe werden nicht nur die visuelle Erscheinung und die Interaktion erarbeitet, sondern auch Vorschriften zur Auswertung (sog. Kodierung) und teilweise auch Material, das in den Schulen im Rahmen der Auswertung für die Unterrichtsentwicklung genutzt wird.
+Die Federführung der Aufgabenentwicklung liegt beim IQB. Abgeordnete Lehrkräfte liefern erste Entwürfe, die dann in enger Zusammenarbeit mit fachdidaktischen Expertinnen und Experten sowie den Wissenschaftler\*innen des IQB bewertet, weiterentwickelt und intensiv erprobt werden. Zu einer Aufgabe werden nicht nur die visuelle Erscheinung und die Interaktion erarbeitet, sondern auch Vorschriften zur Auswertung (sog. Kodierung) und teilweise auch Material, das in den Schulen im Rahmen der Auswertung für die Unterrichtsentwicklung genutzt wird.
 
 Diese Prozesse erfordern ein komplexes Autorensystem. Die Webanwendung "IQB-Studio" ist auf die Anforderungen der Aufgabenentwicklung am IQB zugeschnitten, kann aber auch durch interessierte Länder oder Einrichtungen installiert und betrieben werden. Auf diese Weise können Länder eine eigene Aufgabenentwicklung betreiben, um beispielsweise Erhebungen für die Ermittlung von Lernausgangslagen mit demselben technischen System wie VERA zu administrieren.
 
