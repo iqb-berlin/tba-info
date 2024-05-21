@@ -50,11 +50,11 @@ Dabei sollte das IQB -- wie in den Vorjahren auf der Basis von Papier -- die Tes
 
 # Hauptkomponenten
 
-Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur. Die Beschreibung der Nutzung des IQB-Testcenters nimmt in dieser Dokumentation viel Raum ein. Dieser Abschnitt enthält auch viele technische Diskurse, um Installation und Betrieb zu unterstützen[^1].
+Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur. Die Beschreibung der Nutzung des IQB-Testcenters nimmt in dieser Dokumentation viel Raum ein. Dieser Abschnitt enthält auch viele technische Diskurse, um Installation und Betrieb zu unterstützen.
 
 ```{mermaid}
 flowchart TD
-    R(Aufgabenenticklung) --> H[Testaufgaben]
+    R(Aufgabenentwicklung) --> H[Testaufgaben]
     style R fill:#cdf
     style H fill:white
     H --> B
@@ -106,6 +106,8 @@ Hervorgehoben ist das Verona-Plugin "Player". Für die IQB-Aufgaben steht ein sp
 Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden[^1]. Der Server eines IQB-Testcenters verfügt über eine [ausführlich dokumentierte Schnittstelle](https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html), mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.
 
 ![Architektur-Szenario "IQB-Testcenter"](Architektur_TC-Szenario.png)
+
+Der Einsatz des IQB-Testcenters kann vorteilhaft sein, wenn bestimmte Zusatzfunktionen wie Testleitungskonsole, System-Check oder adaptiver Testablauf im eigenen System nicht zur Verfügung stehen. Es kann nachteilig sein, wenn die Bedienung durch Lehrkräfte oder Schüler\*innen einheitlich über alle digitalen Angebote eines Landes sein soll. Das IQB-Testcenter kann zwar angepasst werden (Farben, Logo), aber es könnte trotzdem exotisch wirken.
 
 # Autorensystem zur Aufgabenentwicklung: IQB-Studio
 
