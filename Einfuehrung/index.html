@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Einfuehrung/intro.html">Einführung</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Einfuehrung/index.html">Einführung</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Einfuehrung/intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Einfuehrung/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
@@ -385,7 +385,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#tba-projekte-der-länder" id="toc-tba-projekte-der-länder" class="nav-link active" data-scroll-target="#tba-projekte-der-länder">TBA-Projekte der Länder</a></li>
-  <li><a href="#architektur-testdurchführung" id="toc-architektur-testdurchführung" class="nav-link" data-scroll-target="#architektur-testdurchführung">Architektur Testdurchführung</a>
+  <li><a href="#hauptkomponenten" id="toc-hauptkomponenten" class="nav-link" data-scroll-target="#hauptkomponenten">Hauptkomponenten</a></li>
+  <li><a href="#szenarien-testdurchführung" id="toc-szenarien-testdurchführung" class="nav-link" data-scroll-target="#szenarien-testdurchführung">Szenarien Testdurchführung</a>
   <ul class="collapse">
   <li><a href="#szenario-player" id="toc-szenario-player" class="nav-link" data-scroll-target="#szenario-player">Szenario “Player”</a></li>
   <li><a href="#szenario-iqb-testcenter" id="toc-szenario-iqb-testcenter" class="nav-link" data-scroll-target="#szenario-iqb-testcenter">Szenario “IQB-Testcenter”</a></li>
@@ -452,18 +453,21 @@ tickInterval 12month
 
 section Machbarkeitsstudie
   Antrag  : 2017-07-01, 2017-12-31
-  Prototyp Erprobung : 2018-01-01, 2019-12-31
-  Verlängerung : 2020-01-01, 2020-12-31
+  Prototyp, Erprobung : 2018-01-01, 2019-12-31
+  Analyse : 2020-01-01, 2020-12-31
 
 section TBA I Umstellung VERA
   Antrag : 2020-01-01, 2020-12-31
   IQB-Testcenter : 2021-01-01, 2023-12-31
-  Übertragung : active, 2024-01-01, 2025-12-31
+  Übertragung VERA : active, 2024-01-01, 2025-12-31
 
 section TBA II Adaptiv/Formativ
   Antrag : 2022-07-01, 2023-06-30
-  Prototyp, Erprobung : active, 2023-07-01, 2026-06-30
+  Entwicklung, Erprobung : active, 2023-07-01, 2026-06-30
 
+section TBA III Rückmeldungen
+  Antrag : 2022-07-01, 2022-12-31
+  Entwicklung, Erprobung : active, 2023-01-01, 2026-06-30
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -472,8 +476,50 @@ section TBA II Adaptiv/Formativ
 </div>
 <p>Dabei sollte das IQB – wie in den Vorjahren auf der Basis von Papier – die Testaufgaben und Testsequenzen (Testhefte) zentral entwickeln und dann entweder selbst in bundesweiten Stichproben einsetzen (Bildungstrend), oder den Ländern für eigene landesweite Erhebungen zur Verfügung stellen (VERA).</p>
 </section>
-<section id="architektur-testdurchführung" class="level1">
-<h1>Architektur Testdurchführung</h1>
+<section id="hauptkomponenten" class="level1">
+<h1>Hauptkomponenten</h1>
+<p>Der Fokus der Webentwicklungen lag zunächst auf der <strong>Testdurchführung</strong>. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur. Die Beschreibung der Nutzung des IQB-Testcenters nimmt in dieser Dokumentation viel Raum ein. Dieser Abschnitt enthält auch viele technische Diskurse, um Installation und Betrieb zu unterstützen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    R(Aufgabenenticklung) --&gt; H[Testaufgaben]
+    style R fill:#cdf
+    style H fill:white
+    H --&gt; B
+    G[Testablauf] --&gt; B
+    style G fill:white
+    A[Testpersonen] --&gt; B(Testdurchführung)
+    style A fill:white
+    style B fill:#cdf
+    B --&gt; K[Antworten]
+    style K fill:white
+    B --&gt; J[Logdaten]
+    style J fill:white
+    H -.-&gt; C(Kodierung)
+    style C fill:#cdf
+    K --&gt; C
+    J --&gt; C
+    C --&gt;D(Analyse)
+    style D fill:#cdf
+    L(Vergleichsdaten) --&gt; D
+    style L fill:white
+    D --&gt;E[Bericht/Rückmeldung]
+    style E fill:white
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Anschließend war erforderlich, die gesamten Prozesse der <strong>Aufgabenentwicklung</strong> umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler*innen direkt bedienen. Für die dabei entstandene Webanwendung “IQB-Studio” ist ebenfalls viel Raum in dieser Dokumentation vorgesehen. Insbesondere Aufgabenentwickler*innen sollen hier eine erste Starthilfe bekommen.</p>
+<p>Die <strong>Verarbeitung der Ergebnisse</strong> (Kodierung, Datenanalyse) steht noch am Anfang. Die Webanwendungen dazu starten 2024 erst in die Erprobung. Daher gibt es in dieser Dokumentation nur kurze Funktionsbeschreibungen.</p>
+<p>Das TBA-Projekt III zu <strong>Rückmeldungen</strong> ist hier der Vollständigkeit halber erwähnt. Das IQB ist daran nur beratend beteiligt, weshalb es in diese Dokumentation nicht einbezogen ist. Eine kurze Erläuterung der Projektziele finden Sie <a href="https://www.kmk.org/de/themen/bildung-in-der-digitalen-welt/laenderuebergreifende-projekte.html">hier</a>.</p>
+</section>
+<section id="szenarien-testdurchführung" class="level1">
+<h1>Szenarien Testdurchführung</h1>
 <p>Für eine effiziente Schätzung der Kompetenzen von Schülerinnen und Schülern sind spezielle Interaktionsformate erforderlich. Einfache Formular-Elemente reichen nicht aus. Das IQB hat bereits im ersten TBA-Projekt (Machbarkeitsstudie) innovative Formate erprobt und arbeitet ständig mit Wissenschaftler*innen der nationalen Fachdidaktik und der empirischen Bildungsforschung an der Weiterentwicklung.</p>
 <p>Damit die Länder beim Einsatz der IQB-Aufgaben die Interaktionselemente nicht nachprogrammieren müssen, sondern stets zeitnah Neuentwicklungen verwenden können, hat eine Arbeitsgruppe ein Plugin-System entwickelt. Die Spezifikationen dieser Schnittstellen sind als <a href="https://verona-interfaces.github.io">Verona-Interfaces</a> veröffentlicht.</p>
 <p>Ein Land oder eine Einrichtung, die im Auftrag eine Lernstandserhebung mit IQB-Aufgaben durchführen soll, verfügen i.d.R. bereits über ein Portalsystem zur Administration, Durchführung und Auswertung. Um direkt die IQB-Aufgaben nutzen zu können, stehen zwei Szenarien zur Verfügung.</p>
@@ -490,7 +536,7 @@ section TBA II Adaptiv/Formativ
 </section>
 <section id="szenario-iqb-testcenter" class="level2">
 <h2 class="anchored" data-anchor-id="szenario-iqb-testcenter">Szenario “IQB-Testcenter”</h2>
-<p>Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Der Server eines IQB-Testcenters verfügt über eine <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html">ausführlich dokumentierte Schnittstelle</a>, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.</p>
+<p>Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Der Server eines IQB-Testcenters verfügt über eine <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html">ausführlich dokumentierte Schnittstelle</a>, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Architektur_TC-Szenario.png" class="img-fluid figure-img"></p>
@@ -501,7 +547,7 @@ section TBA II Adaptiv/Formativ
 </section>
 <section id="autorensystem-zur-aufgabenentwicklung-iqb-studio" class="level1">
 <h1>Autorensystem zur Aufgabenentwicklung: IQB-Studio</h1>
-<p>Das IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüberhinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.</p>
+<p>Das IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüber hinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.</p>
 <p>Die Federführung der Aufgabenentwicklung liegt beim IQB. Abgeordnete Lehrkräfte liefern erste Entwürfe, die dann in enger Zusammenarbeit mit fachdidaktischen Expertinnen und Experten sowie den Wissenschaftler*innen des IQB bewertet, weiterentwickelt und intensiv erprobt werden. Zu einer Aufgabe werden nicht nur die visuelle Erscheinung und die Interaktion erarbeitet, sondern auch Vorschriften zur Auswertung (sog. Kodierung) und teilweise auch Material, das in den Schulen im Rahmen der Auswertung für die Unterrichtsentwicklung genutzt wird.</p>
 <p>Diese Prozesse erfordern ein komplexes Autorensystem. Die Webanwendung “IQB-Studio” ist auf die Anforderungen der Aufgabenentwicklung am IQB zugeschnitten, kann aber auch durch interessierte Länder oder Einrichtungen installiert und betrieben werden. Auf diese Weise können Länder eine eigene Aufgabenentwicklung betreiben, um beispielsweise Erhebungen für die Ermittlung von Lernausgangslagen mit demselben technischen System wie VERA zu administrieren.</p>
 
@@ -513,6 +559,7 @@ section TBA II Adaptiv/Formativ
 
 <ol>
 <li id="fn1"><p>Die IQB-Webanwendungen müssen jeweils auf Servern des Landes bzw. der durchführenden Einrichtung installiert und betrieben werden. Das IQB bietet keine Server hierfür an, tritt also nicht als Dienstleister für Serverhosting auf.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Die IQB-Webanwendungen müssen jeweils auf Servern des Landes bzw. der durchführenden Einrichtung installiert und betrieben werden. Das IQB bietet keine Server hierfür an, tritt also nicht als Dienstleister für Serverhosting auf.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
