@@ -28,11 +28,11 @@ Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu en
 
 #### Reviews
 
-Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben in einer Vorschau anderen Personen zu präsentieren. Diese können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (`run-review`) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.
+Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (`run-review`) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.
 
 #### Gruppenmonitor
 
-Für die Testleitung kann sinnvoll sein Studienteilnehmer\*innen zu steuern. Auf diese Weise kann der Studienlauf synchron gehalten werden und alle Teilnehmer\*innen befinden sich stets am selben Ausgangspunkt (Anfang eines Block etc.). Weiterhin kann es hilfreich sein zu sehen an welcher Stelle im Testheft sich die Teilnehmer\*innen gerade befinden. Diese Funktionen bietet der **Gruppenmonitor**. Der Gruppenmonitor kann in der XML zur Studien-Definition mittels eines speziellen Zugangs eingerichtet werden.
+Mit Hilfe des Gruppenmonitors kann die Testleitung Studienteilnehmer\*innen innerhalb des Testheftes navigieren. Auf diese Weise kann der Studienlauf synchron gehalten werden und alle Teilnehmer\*innen befinden sich stets am selben Ausgangspunkt (Anfang eines Block etc.). Der Gruppenmonitor kann aber auch nur zur Beobachtung des Studienverlaufs eingesetzt werden und verschafft so der Testleitung einen besseren Überblick über den Stand der Durchführung. Der Gruppenmonitor kann in der XML zur Studien-Definition mittels eines speziellen Zugangs eingerichtet werden.
 
 ::: {.callout-note}
 Detaillierte Informationen zum Gruppenmonitor sind dem gleichnamigen Kapitel zu entnehmen.
@@ -168,9 +168,46 @@ Weitere Informationen zur Aufgabenkodierung sind den [Referenzen](/Referenzen/Au
 
 Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als **Player-HTML** bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion, bspw.: **iqb-player-aspect-2.4.11.html**.
 
-Die Player-HTML wird in der Aufgaben-XML deklariert. Der so deklarierte Player muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen, ohne zuvor den dort deklarierten Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.
+Die Player-HTML wird in der Aufgaben-XML deklariert. Der so deklarierte Player muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen, ohne zuvor die dort deklarierte Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.
 
 Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind dann unter **Releases** zu finden.
+
+Es können gemischte Aufgaben mit unterschiedlichen Playern zum Einsatz kommen. Entscheidend ist, dass die in den Aufgaben deklarierten Player in das Testcenter geladen wurden. Befinden sich mehrere Player-Versionen im Testcenter, kann mit dem deklarierten Playernamen in der Aufgaben-XML bestimmt werden, welche Playerversion das Testcenter zu der entsprechenden Aufgabe lädt. 
+
+Dazu sollte zuvor Wissen über den Aufbau der Versionierung bestehen. Die Player-HTML weist immer 3 Nummern auf. Diese sind:
+
+* Major
+* Minor
+* Patch
+
+Im Dateinamen der Player-HTML wird dieser Nummern noch der Name des Players vorangestellt. Der Name der Player-HTML sieht dann bspw. so aus: **iqb-player-aspect@1.3.1.html**
+
+In der Aufgaben-XML kann die Player Deklaration nun auf verschiedene Weise erfolgen. Bspw. so:
+
+```{.xml}
+ <DefinitionRef player="iqb-player-aspect@1.30" editor="iqb-editor-aspect@1.37">Aufgabe1.voud</DefinitionRef>
+```
+Es ginge aber auch:
+
+`iqb-player-aspect@1`
+
+Oder auch so:
+
+`iqb-player-aspect@1.3.1`
+
+Wie die Deklaration erfolgt, entscheidet, welcher Player zur Aufgabe geladen wird. 
+
+**Nur Major angegeben:**
+
+Es wird die Player-HTML mit der angegebenen Major plus der höchsten Minor, die das Testcenter findet, geladen. Wird die angegebene Major nicht gefunden, wird eine Meldung beim Laden erzeugt.
+
+**Major + Minor angegeben:**
+
+Es wird die Player-HTML mit der passenden Major, der passenden Minor und der höchsten Patch-Nummer gesucht. Wird die angegebene Minor nicht gefunden, wird eine Meldung beim Laden erzeugt.
+
+**Major + Minor + Patch angegeben:**
+
+Es wird die Player-HTML mit der passenden Major, der passenden Minor und der passenden Patch-Nummer gesucht. Ist die passende Patch-Nummer nicht zu finden, wird die höchst verfügbare Patch-Nummer gewählt. Wird die angegebene Minor nicht gefunden, wird eine Meldung beim Laden erzeugt.
 
 ## Geo-Gebra
 
@@ -235,7 +272,7 @@ Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:
 * Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
 * Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
 
-Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde. Ein System-Check kann helfen abzuschätzen, ob die Studie in der gewünschten Umgebung hinsichtlich Ausstattung durchgeführt werden kann
+Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde. Ein System-Check kann helfen abzuschätzen, ob die Studie mit der vorhandenen Ausstattung durchgeführt werden kann.
 
 #### Antworten
 
