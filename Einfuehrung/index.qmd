@@ -3,12 +3,7 @@ lang: de
 title: "Einführung"
 ---
 
-Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation beschreibt die technischen und organisatorischen Aspekte der Durchführung. Wenn Sie inhaltliche Fragen haben, lesen Sie bitte hier weiter:
-
-* [IQB: Informationen zu VERA](https://www.iqb.hu-berlin.de/vera/)
-* [IQB: Informationen zum Bildungstrend](https://www.iqb.hu-berlin.de/bt/)
-* [IQB: Informationen zu Bildungsstandards](https://www.iqb.hu-berlin.de/bista/)
-* [KMK: Zum Bildungsmonitoring](https://www.kmk.org/themen/qualitaetssicherung-in-schulen/bildungsmonitoring/)
+Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation beschreibt die technischen und organisatorischen Aspekte der Durchführung. 
 
 # TBA-Projekte der Länder
 
@@ -20,22 +15,36 @@ In Deutschland werden verschiedene Bezeichnungen für computerbasiertes Testen v
 
 Die Umstellung der großen Studien des nationalen Bildungsmonitorings auf Online-Tests startete 2018 mit einem Projekt zur Feststellung der Machbarkeit einer Online-Testung. Vorarbeiten gab es seitens der universitären Projekte [zepf](https://www.zepf.eu/) (damals Universität Koblenz-Landau), und [*kompetenztest.de*](https://www.kompetenztest.de/) (Universität Jena) sowie des IQB. Auftrag an das IQB war 2021-2023, Webanwendungen zu entwickeln, die auch durch die Länder installiert und genutzt werden können.
 
+Dabei sollte das IQB -- wie in den Vorjahren auf der Basis von Papier -- die Testaufgaben und Testsequenzen (Testhefte) zentral entwickeln und dann entweder selbst in bundesweiten Stichproben einsetzen (Bildungstrend), oder den Ländern für eigene landesweite Erhebungen zur Verfügung stellen (VERA).
+
+
 ```{mermaid}
 gantt
-title TBA-Projekte der Länder
+title Digitalisierung des nationalen Bildungsmonitorings
 dateFormat YYYY-MM-DD
 axisFormat %Y
 tickInterval 12month
 
-section Machbarkeitsstudie
+section Machbarkeits-<br/>studie
   Antrag  : 2017-07-01, 2017-12-31
   Prototyp, Erprobung : 2018-01-01, 2019-12-31
   Analyse : 2020-01-01, 2020-12-31
 
-section TBA I Umstellung VERA
+section TBA I Techn. Infrastruktur
   Antrag : 2020-01-01, 2020-12-31
   IQB-Testcenter : 2021-01-01, 2023-12-31
-  Übertragung VERA : active, 2024-01-01, 2025-12-31
+  IQB-Studio : 2021-06-01, 2024-06-30
+  Übertragung VERA-Aufgaben (kont.): active, 2021-01-01, 2025-12-31
+
+section Testentwickung<br/>Bildungstrend
+  Primar De Ma : 2022-09-01, 2024-03-01
+  Sek I De Fr En : active, 2023-09-01, 2025-03-01
+  Sek I Ma Nawi : 2025-09-01, 2027-03-01
+
+section Testentwickung<br/>VERA
+  Primar De Ma : active, 2024-03-01, 2026-12-31
+  Sek I De Fr En : 2025-03-01, 2027-12-31
+  Sek I Ma : 2027-09-01, 2029-12-31
 
 section TBA II Adaptiv/Formativ
   Antrag : 2022-07-01, 2023-06-30
@@ -46,7 +55,15 @@ section TBA III Rückmeldungen
   Entwicklung, Erprobung : active, 2023-01-01, 2026-06-30
 ```
 
-Dabei sollte das IQB -- wie in den Vorjahren auf der Basis von Papier -- die Testaufgaben und Testsequenzen (Testhefte) zentral entwickeln und dann entweder selbst in bundesweiten Stichproben einsetzen (Bildungstrend), oder den Ländern für eigene landesweite Erhebungen zur Verfügung stellen (VERA).
+Die obige Darstellung zeigt vereinfacht die technischen Entwicklungen und die laufende Umstellung der Instrumente des Bildungsmonitorings. Die Testentwicklung für den Bildungstrend führt nach Pilotierung und Normierung zur Erstellung der Kompetenzstufenmodelle. Parallel läuft die Umstellung der Testentwicklung für VERA. Sind die Kompetenzstufenmodelle verfügbar, erfolgt die Pilotierung der VERA-Testaufgaben ebenfalls über das IQB-Testcenter online und die digitale Auslieferung an die Länder ersetzt die Papier-Testhefte.
+
+Wenn Sie hierzu inhaltliche Fragen haben, lesen Sie bitte hier weiter:
+
+* [IQB: Informationen zu VERA](https://www.iqb.hu-berlin.de/vera/)
+* [IQB: Informationen zum Bildungstrend](https://www.iqb.hu-berlin.de/bt/)
+* [IQB: Informationen zu Bildungsstandards](https://www.iqb.hu-berlin.de/bista/)
+* [KMK: Zum Bildungsmonitoring](https://www.kmk.org/themen/qualitaetssicherung-in-schulen/bildungsmonitoring/)
+
 
 # Hauptkomponenten
 
