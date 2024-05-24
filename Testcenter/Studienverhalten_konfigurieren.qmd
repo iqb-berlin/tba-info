@@ -161,7 +161,7 @@ Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der
 
 **Wie soll die Leiste zur Aufgabennavigation aussehen?**
 
-Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Attributswert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechender Wert als Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet werden oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen. Es kann nun nur noch vorwärts und rückwärts navigiert werden. 
+Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Wert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechender Wert als Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet werden oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen. Es kann nun nur noch vorwärts und rückwärts navigiert werden. 
 
 ```{.xml}
 
@@ -193,17 +193,17 @@ So sieht die Änderung aus:
 
 Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe dieses Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.
 
-![Bild 6: Eingeschaltetes Unit-Menu](TC_Unit_Menu_FULL.png){fig-align="left"}
+![Bild 6: Eingeschaltetes Aufgaben-Menu](TC_Unit_Menu_FULL.png){fig-align="left"}
 
 Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuweisung des Wertes: `unit_menu` zu dem Attribut: `key`und gewünschten Listenwert, in diesem Fall **FULL**.
 
 **Wie soll durch Seiten einer Aufgabe navigiert werden?**
 
-Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Aufgaben Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das Zu-/ und Abschalten der Navigation in der Anwendung wird in der XML zur Testheft-Definition im Element: `<BookletConfig>` mit dem Attributswert: `pagingMode` des Attributs: `key` realisiert. Das mögliche Datum ist wieder der Liste zu entnehmen.
+Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Aufgaben Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das Zu-/ und Abschalten der Navigation in der Anwendung wird in der XML zur Testheft-Definition im Element: `<BookletConfig>` mit dem Wert: `pagingMode` des Attributs: `key` realisiert. Das mögliche Datum ist wieder der Liste zu entnehmen.
 
 **Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?**
 
-Mit Hilfe der beiden Attributswerte: `force_response_complete` und `force_presentation_complete` in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum die Attributswerte erhalten können, ist der Liste zu entnehmen.
+Mit Hilfe der beiden Werte: `force_response_complete` und `force_presentation_complete` in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum das Element `<Config>` erhalten kann, ist der Liste zu entnehmen.
 
 **Sollen Beschränkungen für Testheft-Blöcke festgelegt werden?**
 

@@ -10,16 +10,18 @@ Wichtige Informationen sind auch im Kapitel: **Vorbetrachtungen** zu finden.
 :::
 
 * Zugangsdaten festlegen, Art der Anmeldung und zeitliche Gültigkeit in der XML zur Studien-Definition festlegen
-* Testablauf planen mittels XML zur Testheft-Definition: Welche Units, welche Zwischenseiten, welche Blöcke mit welchen Beschränkungen?
-* Festlegung der Aufgaben-Bezeichner und der Player zur Wiedergabe in der XML zur Aufgaben-Definition
-* Neuen Arbeitsbereich (Workspace) im Testcenter anlegen
-* Konventionen festlegen (Formulierung bei Instruktionen, Benennung der Units usw.).
+* Festlegung der Aufgaben-Bezeichner und der Player zur Wiedergabe in der XML zur Aufgaben-Definition (Gute Kurznamen für Aufgaben wählen, sprechende Titel)
+* Testablauf planen mittels XML zur Testheft-Definition: Welche Aufgaben, welche Zwischenseiten, welche Blöcke mit welchen Beschränkungen?
 
 ## Testcenter konfigurieren
 
 #### System-Check
 
 Soll zur Prüfung der örtlichen Gegebenheiten ein System-Check durchgeführt werden, ist dieser im Testcenter einzurichten. Mehr dazu ist im Kapitel: **System-Check** zu finden.
+
+#### Arbeitsbereich anlegen
+
+Es muss ein Bereich für die Testdateien der Studie angelegt werden. Dieser sollte einen eindeutigen Namen mit Bezug zur Studie haben. Sobald Testpersonen die Studie gestartet haben, fallen Daten an. Diese Daten können im Arbeitsbereich heruntergeladen werden.
 
 #### Aufgaben und Testhefte laden
 
@@ -29,13 +31,16 @@ Im nächsten Schritt werden die XML zur Testheft-Definition und die XML's zur Au
 
 **Studie im Review und Probelauf:**
 
-Um sicherzustellen, dass die Studie ohne Probleme läuft und um vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: `run-review` festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und betrachten. Es können ach Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Es können basierend auf diesen Kommentaren Optimierungen an den Aufgabeninhalten oder der Testheftstruktur vorgenommen werden, bevor die Studie final läuft.
+Um sicherzustellen, dass die Studie ohne Probleme läuft und um vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: `run-review` festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und Aufgaben betrachten. Es können auch Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Basierend auf diesen Kommentaren können die Aufgaben im Studio angepasst werden. Anschließend kann die geänderte Aufgabe aus dem Studio exportiert werden und die so angepasste Aufgaben-VOUD kann wieder in das Testcenter hochgeladen werden. Sollen Änderungen in der Testheftstruktur oder im Verhalten der Studie erfolgen, kann die XML zur Testheft-Definition angepasst werden und erneut in das Testcenter geladen werden.
 
-**Studie final:**
+::: {.callout-tip}
+![](TC_Schalter_Review_Kommentar.png)
+:::
 
 * Testmodus für finale Testung in der XML zur Studien-Definition festlegen (`run-hot-return`oder `run-hot-restart`)
 * Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren
 * XML zur Studiendefinition in den Arbeitsbereich laden
+* Einen Probelauf der finalen Version starten und schauen, ob sich alles wie geplant verhält. Es sollte auch geprüft werden, ob entsprechende Daten im Arbeitsbereich erzeugt werden. Wenn alles soweit in Ordnung ist, sollten die erzeugten Daten im Arbeitsbereich gelöscht werden, bevor die finale Studiendurchführung startet. Sonst sind später die Daten des Probelaufs im Datensatz der Studie enthalten.
 
 ## Studienlauf
 
@@ -46,7 +51,7 @@ Die Aufgabennavigation erfolgt rechts oben. Sollte eine Aufgabe aus mehreren Sei
 Wenn zuvor eingeplant, können die Studienverantwortlichen die Studie auch mittels **Gruppenmonitor** steuern. Mehr dazu ist dem gleichnamigen Kapitel zu entnehmen.
 
 ::: {.callout-important}
-Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung und ist daher sehr wichtig. Bei längeren Studienlaufzeiten empfiehlt es sich diesen in regelmäßigen Abständen herunterzuladen und zu sichern. Kommt es zu einem Serverausfall oder einem anderen techn. Problem, können so zumindest Teile der Studie ausgewertet werden.
+Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung und ist daher sehr wichtig. Es empfiehlt sich daher in regelmäßigen Abständen diese Daten herunterzuladen und zu sichten. So können schon während des Studienlaufs eventuell bestehende Probleme frühzeitig erkannt werden und nicht erst am Ende der Studie.
 :::
 
 ## Test oder Befragung beenden

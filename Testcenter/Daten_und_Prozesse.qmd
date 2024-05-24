@@ -12,7 +12,7 @@ Das Testcenter spielt nicht einfach nur Studieninhalte ab, es stellt außerdem e
 
 Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter nennt sich **Verona-Schnittstelle**. Ist in einer Anwendung diese Schnittstelle integriert, kann auch ein Verona-PLayer integriert werden.
 
-Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind dann unter **Releases** zu finden.
+Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind dann unter "Releases" zu finden.
 
 ::: {.callout-tip}
 Mehr Informationen zur Verona-Schnittstelle sind [hier](https://verona-interfaces.github.io/intro) zu finden.
@@ -29,6 +29,10 @@ Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu en
 #### Reviews
 
 Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (`run-review`) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.
+
+::: {.callout-tip}
+![](TC_Schalter_Review_Kommentar.png)
+:::
 
 #### Gruppenmonitor
 
@@ -90,7 +94,7 @@ Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingege
 
 **2.** Es werden Dateien ausgegeben, die verschiedenen Funktionen zuzuordnen sind.
 
-**3.** Die eigentliche Datei, die die in Schritt 2 genannte Funktion erfüllt. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. **Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.** 
+**3.** Die eigentlichen Dateien, die die in Schritt 2 genannten Funktionen erfüllen. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. **Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.** 
 
 **4.** Der Daten-Input erfolgt in den Arbeitsbereich der Studie.
 
@@ -122,9 +126,9 @@ Mehr Informationen zur XML der Studien-Definition sind den [Referenzen](/Referen
 
 Eine weitere XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen **Booklet-XML**. Auch hier kann der Dateiname frei gewählt werden. Im weiteren Verlauf wird diese Datei allgemein als **Testheft-XML** bezeichnet.
 
-**Welche Funktionen übernimmt Testheft-XML?**
+**Welche Funktionen übernimmt die Testheft-XML?**
 
-* **Aufgabenreihenfolge:**<br> Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe. Aufgaben werden oft auch **Units** genannt!
+* **Aufgabenreihenfolge:**<br> Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe.
 * **Aufgabensammlungen:**<br> Aufgaben können **Testlets** zugewiesen werden oder in **Testlets** zusammengefasst werden. Ein Testlet wird häufig auch als **Block** bezeichnet! Für Testlets können Beschränkungen festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich. 
 * **Konfiguration:**<br> Hinsichtlich Funktionalität und Layout der Testumgebung, können hier individuelle Festlegungen getroffen werden.
 
@@ -133,6 +137,10 @@ Mehr Informationen zur XML der Testheft-Definition sind den [Referenzen](/Refere
 :::
 
 ## Aufgaben-Definition
+
+::: {.callout-note}
+Die Aufgaben-Definition wird auch oft als Unit-Definition bezeichnet.
+:::
 
 Die Aufgaben-Definition besteht aus mehreren Dateien. Eine XML mit Metadaten wie bspw. ID und Label der Aufgabe. Diese wird hier allgemein als **Aufgaben-XML** bezeichnet. Der Dateiname ist wieder frei wählbar und trägt typischerweise den eindeutigen Namen der Aufgabe.  Eine weitere Datei enthält die Aufgabeninhalte in einem JSON-Format mit der Endung **.VOUD** und wird hier allgemein als **Aufgaben-VOUD** bezeichnet. Der Name dieser Datei ist wieder frei wählbar , sollte aber günstigerweise den gleichen Namen wie die Aufgaben-XML tragen, um die Zugehörigkeit schnell erkennen zu können. Weiterhin gehört zur Aufgaben-Definition eine Datei, die die festgelegten Kodierregeln zur Aufgabe enthält. Diese Datei trägt die Endung **.VOCS** und wird hier als **Aufgaben-VOCS** bezeichnet. Auch diese Datei liegt im JSON-Format vor.
 
@@ -166,11 +174,11 @@ Weitere Informationen zur Aufgabenkodierung sind den [Referenzen](/Referenzen/Au
 
 #### Player-HTML
 
-Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als **Player-HTML** bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion, bspw.: **iqb-player-aspect-2.4.11.html**.
+Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als **Player-HTML** bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion.
 
 Die Player-HTML wird in der Aufgaben-XML deklariert. Der so deklarierte Player muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen, ohne zuvor die dort deklarierte Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.
 
-Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind dann unter **Releases** zu finden.
+Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind dann unter "Releases" zu finden.
 
 Es können gemischte Aufgaben mit unterschiedlichen Playern zum Einsatz kommen. Entscheidend ist, dass die in den Aufgaben deklarierten Player in das Testcenter geladen wurden. Befinden sich mehrere Player-Versionen im Testcenter, kann mit dem deklarierten Playernamen in der Aufgaben-XML bestimmt werden, welche Playerversion das Testcenter zu der entsprechenden Aufgabe lädt. 
 
@@ -199,7 +207,7 @@ Wie die Deklaration erfolgt, entscheidet, welcher Player zur Aufgabe geladen wir
 
 **Nur Major angegeben:**
 
-Es wird die Player-HTML mit der angegebenen Major plus der höchsten Minor, die das Testcenter findet, geladen. Wird die angegebene Major nicht gefunden, wird eine Meldung beim Laden erzeugt.
+Es wird die Player-HTML mit der angegebenen Major und der höchsten Minor, die das Testcenter findet, geladen. Wird die angegebene Major nicht gefunden, wird eine Meldung beim Laden erzeugt.
 
 **Major + Minor angegeben:**
 
@@ -266,23 +274,25 @@ Wie Daten aus dem Testcenter geladen werden können, ist im Kapitel **Daten Down
 
 ### Welche Daten werden erzeugt?
 
-Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:
+Das Testcenter kann eine Reihe von Daten zur Verfügung stellen.Es können Daten bzgl. der Studienauswertung, aber auch Daten zu einem Review oder von einem System-Check heruntergeladen werden. Alle Daten bis auf System-Check Berichte werden zusammengefasst in einem Datensatz. Jeder Datensatz erhält einen spezifischen Namen. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer\*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. **Der Datensatz wird immer mit dem Namen der Gruppe gespeichert.**
 
-* Antworten: Hier sind alle gegebenen Antworten der Teilnehmer\*innen gespeichert.
-* Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr
-* Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden
+Folgende Daten sind je nach gesetztem Modus im Datensatz erhalten:
 
-Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde. Ein System-Check kann helfen abzuschätzen, ob die Studie mit der vorhandenen Ausstattung durchgeführt werden kann.
+* Antworten (nur im Modus: `run-hot-return` und `run-hot-restart`)
+* Logs (nur im Modus: `run-hot-return` und `run-hot-restart`)
+* Kommentare (nur im Modus `run-review`)
 
-#### Antworten
+Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde.
+
+### Antworten
 
 ::: {.callout-important}
 Der Modus der Studiendurchführung legt fest, ob Antworten gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
 :::
 
-Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Spezifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen ist [hier](https://github.com/iqb-berlin/verona-data-specifications) zu finden.
+Als Antworten bezeichnen wir die Daten, die durch die Interaktion der Testperson mit dem Testsystem entstehen und als Zustände zum Ende der Bearbeitung gespeichert werden. Antworten absolvieren einen Verarbeitungsprozess vom Ursprung (sog. Basis-Variable, Rohdaten-Wert) über Ableitung, Cleaning, Kodierung bis zur Bewertung. Die Daten, die nach der Aufbereitung für die Datenanalyse bereitgestellt werden (z. B. IRT-/Rasch-Analyse), nennen wir Primärdaten.
 
-Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:
+Die Antwortdaten werden als CSV-Datei aus dem Testcenter heruntergeladen. Die CSV ist wie folgt aufgebaut:
 
 ```{=html}
 <table>
@@ -311,8 +321,8 @@ Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen 
     <td>Id der Aufgabe</td>
 </tr>
 <tr>
-    <td>responses</td>
-    <td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt.</td>
+    <td><b>responses</b></td>
+    <td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt. Mehr dazu ist nachfolgend zu lesen.</td>
 </tr>
 <tr>
     <td>laststate</td>
@@ -322,20 +332,35 @@ Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen 
 </table>
 ```
 
-#### Logs
+Das Feld **responses** wird in der folgenden JSON-Datenstruktur abgespeichert:
+
+```{.json}
+{
+    id: string,
+    status: string,
+    value: null | number | string | boolean | number[] | string[] | boolean[],
+    code?: number,
+    score?: number
+}
+```
+Das IQB hat hier Festlegungen getroffen, wie diese JSON aufgebaut sein soll, damit eine Auswertung erfolgen kann. Mehr dazu ist auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io/) unter **Spezifikationen: Antworten** zu finden.
+
+### Logs
 
 ::: {.callout-important}
 Der Modus der Studiendurchführung legt fest, ob Logs gespeichert werden oder nicht. Mehr Informationen hierzu sind den [Referenzen](/Referenzen/Modi_der_Testdurchfuehrung.qmd) zu entnehmen.
 :::
 
-Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. "Logging" kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:
+Aus der Interaktion mit dem Testsystem resultieren weitere Daten, die Log-Daten. Diese beschreiben nicht Zustände zum Ende der Bearbeitung, sondern beschreiben Veränderungen während der Bearbeitung. Sie können zu weiteren Variablen führen.
+
+Dieses sog. "Logging" kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:
 
 * Version des Betriebssystems und des Browsers
 * Verweildauer auf einer Seite
 * Zeitpunkt des Beendens der Beantwortung
 * Zustand des Players
 
-#### Kommentare
+### Kommentare
 
 ::: {.callout-note}
 Kommentare können nur abgegeben werden, wenn der Testmodus: `run-review` aktiv ist.
@@ -351,7 +376,7 @@ Wird eine Studie in einem Review-Modus durchgeführt, können Kommentare zu jede
 
 Diese Angaben sind auch in der heruntergeladenen CSV wiederzufinden.
 
-#### System-Check Berichte
+### System-Check Berichte
 
 Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.
 
