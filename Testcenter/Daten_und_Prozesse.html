@@ -424,6 +424,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#daten-output-des-testcenters" id="toc-daten-output-des-testcenters" class="nav-link" data-scroll-target="#daten-output-des-testcenters">Daten-Output des Testcenters</a>
   <ul class="collapse">
   <li><a href="#welche-daten-werden-erzeugt" id="toc-welche-daten-werden-erzeugt" class="nav-link" data-scroll-target="#welche-daten-werden-erzeugt">Welche Daten werden erzeugt?</a></li>
+  <li><a href="#antworten" id="toc-antworten" class="nav-link" data-scroll-target="#antworten">Antworten</a></li>
+  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
+  <li><a href="#kommentare" id="toc-kommentare" class="nav-link" data-scroll-target="#kommentare">Kommentare</a></li>
+  <li><a href="#system-check-berichte" id="toc-system-check-berichte" class="nav-link" data-scroll-target="#system-check-berichte">System-Check Berichte</a></li>
   <li><a href="#wie-werden-daten-erzeugt" id="toc-wie-werden-daten-erzeugt" class="nav-link" data-scroll-target="#wie-werden-daten-erzeugt">Wie werden Daten erzeugt?</a></li>
   <li><a href="#daten-bearbeitung" id="toc-daten-bearbeitung" class="nav-link" data-scroll-target="#daten-bearbeitung">Daten-Bearbeitung</a></li>
   </ul></li>
@@ -458,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="wiedergabe-der-studieninhalte" class="level4">
 <h4 class="anchored" data-anchor-id="wiedergabe-der-studieninhalte">Wiedergabe der Studieninhalte</h4>
 <p>Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter nennt sich <strong>Verona-Schnittstelle</strong>. Ist in einer Anwendung diese Schnittstelle integriert, kann auch ein Verona-PLayer integriert werden.</p>
-<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter <strong>Releases</strong> zu finden.</p>
+<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter “Releases” zu finden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -493,6 +497,19 @@ Hinweis
 <section id="reviews" class="level4">
 <h4 class="anchored" data-anchor-id="reviews">Reviews</h4>
 <p>Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (<code>run-review</code>) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="TC_Schalter_Review_Kommentar.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
 <section id="gruppenmonitor" class="level4">
 <h4 class="anchored" data-anchor-id="gruppenmonitor">Gruppenmonitor</h4>
@@ -570,7 +587,7 @@ Hinweis
 <p>Um eine Studie mit dem Testcenter durchführen zu können, müssen Daten eingegeben werden. Diese Daten steuern den Zugriff auf die Studie (Zugänge), legen das Verhalten während der Durchführung fest und bestimmen Aufbau, Aufgabenreihenfolge und Aussehen der Studie. Die einzugebenen Daten bestehen aus mehreren einzelnen Dateien in unterschiedlichen Dateiformaten.</p>
 <p><strong>1.</strong> Die Testdateien können während des Aufgabenentwurfs vom <strong>IQB-Studio</strong> ausgegeben werden.</p>
 <p><strong>2.</strong> Es werden Dateien ausgegeben, die verschiedenen Funktionen zuzuordnen sind.</p>
-<p><strong>3.</strong> Die eigentliche Datei, die die in Schritt 2 genannte Funktion erfüllt. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. <strong>Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.</strong></p>
+<p><strong>3.</strong> Die eigentlichen Dateien, die die in Schritt 2 genannten Funktionen erfüllen. An dieser Stelle können die Dateien auch noch einmal bearbeitet und individuell angepasst werden, bevor sie in das Testcenter geladen werden. <strong>Die Gesamtheit all dieser Dateien wird auch häufig als Testdateien bezeichnet.</strong></p>
 <p><strong>4.</strong> Der Daten-Input erfolgt in den Arbeitsbereich der Studie.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -626,9 +643,9 @@ Tipp
 <section id="testheft-definition" class="level2">
 <h2 class="anchored" data-anchor-id="testheft-definition">Testheft-Definition</h2>
 <p>Eine weitere XML-Datei übernimmt die Testheft-Definition. Sie trägt IQB-intern den Namen <strong>Booklet-XML</strong>. Auch hier kann der Dateiname frei gewählt werden. Im weiteren Verlauf wird diese Datei allgemein als <strong>Testheft-XML</strong> bezeichnet.</p>
-<p><strong>Welche Funktionen übernimmt Testheft-XML?</strong></p>
+<p><strong>Welche Funktionen übernimmt die Testheft-XML?</strong></p>
 <ul>
-<li><strong>Aufgabenreihenfolge:</strong><br> Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe. Aufgaben werden oft auch <strong>Units</strong> genannt!</li>
+<li><strong>Aufgabenreihenfolge:</strong><br> Die Reihenfolge der Aufgaben kann frei festgelegt werden. Der Aufruf erfolgt hierbei mittels eindeutiger ID der Aufgabe.</li>
 <li><strong>Aufgabensammlungen:</strong><br> Aufgaben können <strong>Testlets</strong> zugewiesen werden oder in <strong>Testlets</strong> zusammengefasst werden. Ein Testlet wird häufig auch als <strong>Block</strong> bezeichnet! Für Testlets können Beschränkungen festgelegt werden, bspw. kann ein Testlet mit einem Zugangscode versehen werden oder es ist nur für eine bestimmte Zeit zugänglich.</li>
 <li><strong>Konfiguration:</strong><br> Hinsichtlich Funktionalität und Layout der Testumgebung, können hier individuelle Festlegungen getroffen werden.</li>
 </ul>
@@ -648,6 +665,19 @@ Tipp
 </section>
 <section id="aufgaben-definition" class="level2">
 <h2 class="anchored" data-anchor-id="aufgaben-definition">Aufgaben-Definition</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Aufgaben-Definition wird auch oft als Unit-Definition bezeichnet.</p>
+</div>
+</div>
 <p>Die Aufgaben-Definition besteht aus mehreren Dateien. Eine XML mit Metadaten wie bspw. ID und Label der Aufgabe. Diese wird hier allgemein als <strong>Aufgaben-XML</strong> bezeichnet. Der Dateiname ist wieder frei wählbar und trägt typischerweise den eindeutigen Namen der Aufgabe. Eine weitere Datei enthält die Aufgabeninhalte in einem JSON-Format mit der Endung <strong>.VOUD</strong> und wird hier allgemein als <strong>Aufgaben-VOUD</strong> bezeichnet. Der Name dieser Datei ist wieder frei wählbar , sollte aber günstigerweise den gleichen Namen wie die Aufgaben-XML tragen, um die Zugehörigkeit schnell erkennen zu können. Weiterhin gehört zur Aufgaben-Definition eine Datei, die die festgelegten Kodierregeln zur Aufgabe enthält. Diese Datei trägt die Endung <strong>.VOCS</strong> und wird hier als <strong>Aufgaben-VOCS</strong> bezeichnet. Auch diese Datei liegt im JSON-Format vor.</p>
 <section id="aufgaben-xml" class="level4">
 <h4 class="anchored" data-anchor-id="aufgaben-xml">Aufgaben-XML</h4>
@@ -707,9 +737,9 @@ Hinweis
 </section>
 <section id="player-html" class="level4">
 <h4 class="anchored" data-anchor-id="player-html">Player-HTML</h4>
-<p>Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als <strong>Player-HTML</strong> bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion, bspw.: <strong>iqb-player-aspect-2.4.11.html</strong>.</p>
+<p>Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als <strong>Player-HTML</strong> bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion.</p>
 <p>Die Player-HTML wird in der Aufgaben-XML deklariert. Der so deklarierte Player muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen, ohne zuvor die dort deklarierte Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.</p>
-<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter <strong>Releases</strong> zu finden.</p>
+<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter “Releases” zu finden.</p>
 <p>Es können gemischte Aufgaben mit unterschiedlichen Playern zum Einsatz kommen. Entscheidend ist, dass die in den Aufgaben deklarierten Player in das Testcenter geladen wurden. Befinden sich mehrere Player-Versionen im Testcenter, kann mit dem deklarierten Playernamen in der Aufgaben-XML bestimmt werden, welche Playerversion das Testcenter zu der entsprechenden Aufgabe lädt.</p>
 <p>Dazu sollte zuvor Wissen über den Aufbau der Versionierung bestehen. Die Player-HTML weist immer 3 Nummern auf. Diese sind:</p>
 <ul>
@@ -726,7 +756,7 @@ Hinweis
 <p><code>iqb-player-aspect@1.3.1</code></p>
 <p>Wie die Deklaration erfolgt, entscheidet, welcher Player zur Aufgabe geladen wird.</p>
 <p><strong>Nur Major angegeben:</strong></p>
-<p>Es wird die Player-HTML mit der angegebenen Major plus der höchsten Minor, die das Testcenter findet, geladen. Wird die angegebene Major nicht gefunden, wird eine Meldung beim Laden erzeugt.</p>
+<p>Es wird die Player-HTML mit der angegebenen Major und der höchsten Minor, die das Testcenter findet, geladen. Wird die angegebene Major nicht gefunden, wird eine Meldung beim Laden erzeugt.</p>
 <p><strong>Major + Minor angegeben:</strong></p>
 <p>Es wird die Player-HTML mit der passenden Major, der passenden Minor und der höchsten Patch-Nummer gesucht. Wird die angegebene Minor nicht gefunden, wird eine Meldung beim Laden erzeugt.</p>
 <p><strong>Major + Minor + Patch angegeben:</strong></p>
@@ -816,15 +846,17 @@ Tipp
 </div>
 <section id="welche-daten-werden-erzeugt" class="level3">
 <h3 class="anchored" data-anchor-id="welche-daten-werden-erzeugt">Welche Daten werden erzeugt?</h3>
-<p>Folgende Daten werden bei Verwendung eines entsprechenden Modi erzeugt:</p>
+<p>Das Testcenter kann eine Reihe von Daten zur Verfügung stellen.Es können Daten bzgl. der Studienauswertung, aber auch Daten zu einem Review oder von einem System-Check heruntergeladen werden. Alle Daten bis auf System-Check Berichte werden zusammengefasst in einem Datensatz. Jeder Datensatz erhält einen spezifischen Namen. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. <strong>Der Datensatz wird immer mit dem Namen der Gruppe gespeichert.</strong></p>
+<p>Folgende Daten sind je nach gesetztem Modus im Datensatz erhalten:</p>
 <ul>
-<li>Antworten: Hier sind alle gegebenen Antworten der Teilnehmer*innen gespeichert.</li>
-<li>Logs: Daten zur Aktivität bspw. Ladezeiten, Browserversionen und vieles mehr</li>
-<li>Kommentare: Wird eine Testung im Review-Modus durchgeführt, können Kommentare zu den Aufgaben gespeichert werden</li>
+<li>Antworten (nur im Modus: <code>run-hot-return</code> und <code>run-hot-restart</code>)</li>
+<li>Logs (nur im Modus: <code>run-hot-return</code> und <code>run-hot-restart</code>)</li>
+<li>Kommentare (nur im Modus <code>run-review</code>)</li>
 </ul>
-<p>Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde. Ein System-Check kann helfen abzuschätzen, ob die Studie mit der vorhandenen Ausstattung durchgeführt werden kann.</p>
-<section id="antworten" class="level4">
-<h4 class="anchored" data-anchor-id="antworten">Antworten</h4>
+<p>Unabhängig vom Modus wird ein System-Check Bericht erzeugt, wenn ein entsprechender System-Check durchgeführt wurde.</p>
+</section>
+<section id="antworten" class="level3">
+<h3 class="anchored" data-anchor-id="antworten">Antworten</h3>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -838,8 +870,8 @@ Wichtig
 <p>Der Modus der Studiendurchführung legt fest, ob Antworten gespeichert werden oder nicht. Mehr Informationen hierzu sind den <a href="../Referenzen/Modi_der_Testdurchfuehrung.html">Referenzen</a> zu entnehmen.</p>
 </div>
 </div>
-<p>Die Antwortdaten werden in einem vordefinierten, dem Verona-Daten-Spezifikationen unterliegenden Format, vom Player an das Testcenter gesendet. Mehr zu den Verona-Daten-Spezifikationen ist <a href="https://github.com/iqb-berlin/verona-data-specifications">hier</a> zu finden.</p>
-<p>Die gegebenen Antworten werden zugehörig zur Id der Gruppe und zum Login-Namen in einer CSV-Datei gespeichert. Die CSV-Datei ist wie folgt aufgebaut:</p>
+<p>Als Antworten bezeichnen wir die Daten, die durch die Interaktion der Testperson mit dem Testsystem entstehen und als Zustände zum Ende der Bearbeitung gespeichert werden. Antworten absolvieren einen Verarbeitungsprozess vom Ursprung (sog. Basis-Variable, Rohdaten-Wert) über Ableitung, Cleaning, Kodierung bis zur Bewertung. Die Daten, die nach der Aufbereitung für die Datenanalyse bereitgestellt werden (z. B. IRT-/Rasch-Analyse), nennen wir Primärdaten.</p>
+<p>Die Antwortdaten werden als CSV-Datei aus dem Testcenter heruntergeladen. Die CSV ist wie folgt aufgebaut:</p>
 <div>
 <table data-quarto-postprocess="true" class="table">
 <tbody>
@@ -868,8 +900,8 @@ Wichtig
 <td>Id der Aufgabe</td>
 </tr>
 <tr class="odd">
-<td>responses</td>
-<td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt.</td>
+<td><strong>responses</strong></td>
+<td>Datenfeld mit mehreren Variablen. Hier wird die Id des bearbeiteten Aufgabenelements und die gegebene Antwort gespeichert. Außerdem wird hier ein Zeitstempel hinterlegt, der den Zeitpunkt der Bearbeitung anzeigt. Mehr dazu ist nachfolgend zu lesen.</td>
 </tr>
 <tr class="even">
 <td>laststate</td>
@@ -878,9 +910,18 @@ Wichtig
 </tbody>
 </table>
 </div>
+<p>Das Feld <strong>responses</strong> wird in der folgenden JSON-Datenstruktur abgespeichert:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">id</span><span class="fu">:</span> <span class="er">string</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">status</span><span class="fu">:</span> <span class="er">string</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">value</span><span class="fu">:</span> <span class="kw">null</span> <span class="er">|</span> <span class="er">number</span> <span class="er">|</span> <span class="er">string</span> <span class="er">|</span> <span class="er">boolean</span> <span class="er">|</span> <span class="er">number</span><span class="ot">[]</span> <span class="er">|</span> <span class="er">string</span><span class="ot">[]</span> <span class="er">|</span> <span class="er">boolean</span><span class="ot">[]</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="er">code?</span><span class="fu">:</span> <span class="er">number</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="er">score?</span><span class="fu">:</span> <span class="er">number</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das IQB hat hier Festlegungen getroffen, wie diese JSON aufgebaut sein soll, damit eine Auswertung erfolgen kann. Mehr dazu ist auf der <a href="https://iqb-berlin.github.io/">IQB-GitHub-Startseite</a> unter <strong>Spezifikationen: Antworten</strong> zu finden.</p>
 </section>
-<section id="logs" class="level4">
-<h4 class="anchored" data-anchor-id="logs">Logs</h4>
+<section id="logs" class="level3">
+<h3 class="anchored" data-anchor-id="logs">Logs</h3>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -894,7 +935,8 @@ Wichtig
 <p>Der Modus der Studiendurchführung legt fest, ob Logs gespeichert werden oder nicht. Mehr Informationen hierzu sind den <a href="../Referenzen/Modi_der_Testdurchfuehrung.html">Referenzen</a> zu entnehmen.</p>
 </div>
 </div>
-<p>Ereignisse innerhalb einer Aufgabe und auch insgesamt innerhalb eines Tests, werden in ein Protokoll geschrieben. Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:</p>
+<p>Aus der Interaktion mit dem Testsystem resultieren weitere Daten, die Log-Daten. Diese beschreiben nicht Zustände zum Ende der Bearbeitung, sondern beschreiben Veränderungen während der Bearbeitung. Sie können zu weiteren Variablen führen.</p>
+<p>Dieses sog. “Logging” kann reduziert und auch ganz abgestellt werden, um die Datenmenge zu reduzieren. Welche Ereignisse genau gespeichert werden, ist auch vom Player abhängig. Folgende Erkenntnisse lassen sich beispielsweise aus den Log-Daten ablesen:</p>
 <ul>
 <li>Version des Betriebssystems und des Browsers</li>
 <li>Verweildauer auf einer Seite</li>
@@ -902,8 +944,8 @@ Wichtig
 <li>Zustand des Players</li>
 </ul>
 </section>
-<section id="kommentare" class="level4">
-<h4 class="anchored" data-anchor-id="kommentare">Kommentare</h4>
+<section id="kommentare" class="level3">
+<h3 class="anchored" data-anchor-id="kommentare">Kommentare</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -927,8 +969,8 @@ Hinweis
 </ul>
 <p>Diese Angaben sind auch in der heruntergeladenen CSV wiederzufinden.</p>
 </section>
-<section id="system-check-berichte" class="level4">
-<h4 class="anchored" data-anchor-id="system-check-berichte">System-Check Berichte</h4>
+<section id="system-check-berichte" class="level3">
+<h3 class="anchored" data-anchor-id="system-check-berichte">System-Check Berichte</h3>
 <p>Wurde ein System-Check eingerichtet und durchgeführt, wird ein entsprechender Bericht gespeichert. Mit Hilfe der enthaltenen Informationen kann beurteilt werden, ob die Studiendurchführung in der geplanten Umgebung (Computer-Labor etc.) gesichert stattfinden kann.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -944,44 +986,43 @@ Hinweis
 </div>
 </div>
 </section>
-</section>
 <section id="wie-werden-daten-erzeugt" class="level3">
 <h3 class="anchored" data-anchor-id="wie-werden-daten-erzeugt">Wie werden Daten erzeugt?</h3>
 <p>Alle Daten bis auf den System-Check Bericht werden zusammengefasst in einem Datensatz. In der XML zur Studien-Definition werden die Zugangsdaten für die Teilnehmer*innen hinterlegt und einer Gruppe zugeordnet. Jede Gruppe erhält einen Namen und eine ID. <strong>Der zusammengefasste Datensatz wird immer mit dem Namen der Gruppe gespeichert.</strong></p>
 <hr>
 <p>Hier ein kleines Beispiel zum besseren Verständnis:</p>
 <p>Angenommen in der XML zur Studien-Definition sind zwei Gruppen angelegt:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      This file contains some logins for testing and works a a sample for developers.</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">CustomTexts</span>&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"Gruppe1"</span><span class="ot"> label=</span><span class="st">"Erste Gruppe"</span>&gt;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 1"</span><span class="ot"> pw=</span><span class="st">"erds#"</span>&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 2"</span><span class="ot"> pw=</span><span class="st">"ghtz#"</span>&gt;</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"Gruppe2"</span><span class="ot"> label=</span><span class="st">"Zweite Gruppe"</span>&gt;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 4"</span><span class="ot"> pw=</span><span class="st">"erss#"</span>&gt;</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 5"</span><span class="ot"> pw=</span><span class="st">"stdz#"</span>&gt;</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd"</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      This file contains some logins for testing and works a a sample for developers.</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"app_title"</span>&gt;Hier steht ein Custom Text&lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">CustomTexts</span>&gt;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"Gruppe1"</span><span class="ot"> label=</span><span class="st">"Erste Gruppe"</span>&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 1"</span><span class="ot"> pw=</span><span class="st">"erds#"</span>&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 2"</span><span class="ot"> pw=</span><span class="st">"ghtz#"</span>&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"Gruppe2"</span><span class="ot"> label=</span><span class="st">"Zweite Gruppe"</span>&gt;</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 4"</span><span class="ot"> pw=</span><span class="st">"erss#"</span>&gt;</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"Testperson 5"</span><span class="ot"> pw=</span><span class="st">"stdz#"</span>&gt;</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Testperson 1 meldet sich am Testcenter an und bearbeitet Aufgaben. Dann wird ein Datensatz mit dem Namen: <strong>Erste Gruppe</strong> erzeugt. Meldet sich weiterhin Testperson 2 an, wird der vorhandene Datensatz um die gegebenen Antworten von Testperson 2 erweitert.</p>
 <p>Melden sich Testperson 4 oder Testperson 5 am Testcenter an, wird ein weiterer Datensatz mit dem Namen: <strong>Zweite Gruppe</strong> erzeugt.</p>
 <hr>

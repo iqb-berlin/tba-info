@@ -424,10 +424,8 @@ Hinweis
 </div>
 <ul>
 <li>Zugangsdaten festlegen, Art der Anmeldung und zeitliche Gültigkeit in der XML zur Studien-Definition festlegen</li>
-<li>Testablauf planen mittels XML zur Testheft-Definition: Welche Units, welche Zwischenseiten, welche Blöcke mit welchen Beschränkungen?</li>
-<li>Festlegung der Aufgaben-Bezeichner und der Player zur Wiedergabe in der XML zur Aufgaben-Definition</li>
-<li>Neuen Arbeitsbereich (Workspace) im Testcenter anlegen</li>
-<li>Konventionen festlegen (Formulierung bei Instruktionen, Benennung der Units usw.).</li>
+<li>Festlegung der Aufgaben-Bezeichner und der Player zur Wiedergabe in der XML zur Aufgaben-Definition (Gute Kurznamen für Aufgaben wählen, sprechende Titel)</li>
+<li>Testablauf planen mittels XML zur Testheft-Definition: Welche Aufgaben, welche Zwischenseiten, welche Blöcke mit welchen Beschränkungen?</li>
 </ul>
 </section>
 <section id="testcenter-konfigurieren" class="level2">
@@ -436,6 +434,10 @@ Hinweis
 <h4 class="anchored" data-anchor-id="system-check">System-Check</h4>
 <p>Soll zur Prüfung der örtlichen Gegebenheiten ein System-Check durchgeführt werden, ist dieser im Testcenter einzurichten. Mehr dazu ist im Kapitel: <strong>System-Check</strong> zu finden.</p>
 </section>
+<section id="arbeitsbereich-anlegen" class="level4">
+<h4 class="anchored" data-anchor-id="arbeitsbereich-anlegen">Arbeitsbereich anlegen</h4>
+<p>Es muss ein Bereich für die Testdateien der Studie angelegt werden. Dieser sollte einen eindeutigen Namen mit Bezug zur Studie haben. Sobald Testpersonen die Studie gestartet haben, fallen Daten an. Diese Daten können im Arbeitsbereich heruntergeladen werden.</p>
+</section>
 <section id="aufgaben-und-testhefte-laden" class="level4">
 <h4 class="anchored" data-anchor-id="aufgaben-und-testhefte-laden">Aufgaben und Testhefte laden</h4>
 <p>Im nächsten Schritt werden die XML zur Testheft-Definition und die XML’s zur Aufgaben-Definition inkl. aller benötigten Ressourcen (Aufgaben-VOUD, Aufgaben-VOCS, GeoGebra-ITCR und Player-HTML) in den zuvor eingerichteten Arbeitsbereich des Testcenters geladen. Mehr dazu ist im Kapitel: <strong>Daten und Prozesse</strong> zu finden.</p>
@@ -443,12 +445,25 @@ Hinweis
 <section id="xml-zur-studie-definition-laden" class="level4">
 <h4 class="anchored" data-anchor-id="xml-zur-studie-definition-laden">XML zur Studie-Definition laden</h4>
 <p><strong>Studie im Review und Probelauf:</strong></p>
-<p>Um sicherzustellen, dass die Studie ohne Probleme läuft und um vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: <code>run-review</code> festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und betrachten. Es können ach Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Es können basierend auf diesen Kommentaren Optimierungen an den Aufgabeninhalten oder der Testheftstruktur vorgenommen werden, bevor die Studie final läuft.</p>
-<p><strong>Studie final:</strong></p>
+<p>Um sicherzustellen, dass die Studie ohne Probleme läuft und um vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: <code>run-review</code> festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und Aufgaben betrachten. Es können auch Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Basierend auf diesen Kommentaren können die Aufgaben im Studio angepasst werden. Anschließend kann die geänderte Aufgabe aus dem Studio exportiert werden und die so angepasste Aufgaben-VOUD kann wieder in das Testcenter hochgeladen werden. Sollen Änderungen in der Testheftstruktur oder im Verhalten der Studie erfolgen, kann die XML zur Testheft-Definition angepasst werden und erneut in das Testcenter geladen werden.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="TC_Schalter_Review_Kommentar.png" class="img-fluid"></p>
+</div>
+</div>
 <ul>
 <li>Testmodus für finale Testung in der XML zur Studien-Definition festlegen (<code>run-hot-return</code>oder <code>run-hot-restart</code>)</li>
 <li>Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren</li>
 <li>XML zur Studiendefinition in den Arbeitsbereich laden</li>
+<li>Einen Probelauf der finalen Version starten und schauen, ob sich alles wie geplant verhält. Es sollte auch geprüft werden, ob entsprechende Daten im Arbeitsbereich erzeugt werden. Wenn alles soweit in Ordnung ist, sollten die erzeugten Daten im Arbeitsbereich gelöscht werden, bevor die finale Studiendurchführung startet. Sonst sind später die Daten des Probelaufs im Datensatz der Studie enthalten.</li>
 </ul>
 </section>
 </section>
@@ -467,7 +482,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung und ist daher sehr wichtig. Bei längeren Studienlaufzeiten empfiehlt es sich diesen in regelmäßigen Abständen herunterzuladen und zu sichern. Kommt es zu einem Serverausfall oder einem anderen techn. Problem, können so zumindest Teile der Studie ausgewertet werden.</p>
+<p>Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung und ist daher sehr wichtig. Es empfiehlt sich daher in regelmäßigen Abständen diese Daten herunterzuladen und zu sichten. So können schon während des Studienlaufs eventuell bestehende Probleme frühzeitig erkannt werden und nicht erst am Ende der Studie.</p>
 </div>
 </div>
 </section>
