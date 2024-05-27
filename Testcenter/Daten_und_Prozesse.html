@@ -461,8 +461,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Das Testcenter spielt nicht einfach nur Studieninhalte ab, es stellt außerdem eine Reihe von Funktionen bereit.</p>
 <section id="wiedergabe-der-studieninhalte" class="level4">
 <h4 class="anchored" data-anchor-id="wiedergabe-der-studieninhalte">Wiedergabe der Studieninhalte</h4>
-<p>Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter nennt sich <strong>Verona-Schnittstelle</strong>. Ist in einer Anwendung diese Schnittstelle integriert, kann auch ein Verona-PLayer integriert werden.</p>
-<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind dann unter “Releases” zu finden.</p>
+<p>Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter wird als Verona-Schnittstelle bezeichnet und unterliegt den Verona Spezifikationen.</p>
+<p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind “Releases” zu finden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -497,19 +497,7 @@ Hinweis
 <section id="reviews" class="level4">
 <h4 class="anchored" data-anchor-id="reviews">Reviews</h4>
 <p>Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (<code>run-review</code>) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <p><img src="TC_Schalter_Review_Kommentar.png" class="img-fluid"></p>
-</div>
-</div>
 </section>
 <section id="gruppenmonitor" class="level4">
 <h4 class="anchored" data-anchor-id="gruppenmonitor">Gruppenmonitor</h4>
@@ -910,7 +898,7 @@ Wichtig
 </tbody>
 </table>
 </div>
-<p>Das Feld <strong>responses</strong> wird in der folgenden JSON-Datenstruktur abgespeichert:</p>
+<p>Das Feld <strong>responses</strong> enthält die folgenden Variablen im JSON-Format und ist spezifiziert. Mehr zu dieser Spezifikation ist auf <a href="https://iqb-berlin.github.io/">IQB-GitHub-Startseite</a> unter <strong>Spezifikationen: Antworten</strong> zu finden.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">id</span><span class="fu">:</span> <span class="er">string</span><span class="fu">,</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">status</span><span class="fu">:</span> <span class="er">string</span><span class="fu">,</span></span>
@@ -918,7 +906,6 @@ Wichtig
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="er">code?</span><span class="fu">:</span> <span class="er">number</span><span class="fu">,</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="er">score?</span><span class="fu">:</span> <span class="er">number</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Das IQB hat hier Festlegungen getroffen, wie diese JSON aufgebaut sein soll, damit eine Auswertung erfolgen kann. Mehr dazu ist auf der <a href="https://iqb-berlin.github.io/">IQB-GitHub-Startseite</a> unter <strong>Spezifikationen: Antworten</strong> zu finden.</p>
 </section>
 <section id="logs" class="level3">
 <h3 class="anchored" data-anchor-id="logs">Logs</h3>
