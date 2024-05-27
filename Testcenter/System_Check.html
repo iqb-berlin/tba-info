@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -371,7 +405,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#was-ist-ein-system-check" id="toc-was-ist-ein-system-check" class="nav-link active" data-scroll-target="#was-ist-ein-system-check">Was ist ein System-Check?</a></li>
+  <li><a href="#wie-wird-ein-system-check-gestartet" id="toc-wie-wird-ein-system-check-gestartet" class="nav-link" data-scroll-target="#wie-wird-ein-system-check-gestartet">Wie wird ein System-Check gestartet?</a></li>
+  <li><a href="#was-kann-der-system-check-leisten" id="toc-was-kann-der-system-check-leisten" class="nav-link" data-scroll-target="#was-kann-der-system-check-leisten">Was kann der System-Check leisten?</a></li>
+  <li><a href="#planung" id="toc-planung" class="nav-link" data-scroll-target="#planung">Planung</a></li>
+  <li><a href="#konfiguration" id="toc-konfiguration" class="nav-link" data-scroll-target="#konfiguration">Konfiguration</a></li>
+  <li><a href="#durchführung" id="toc-durchführung" class="nav-link" data-scroll-target="#durchführung">Durchführung</a></li>
+  <li><a href="#auswertung" id="toc-auswertung" class="nav-link" data-scroll-target="#auswertung">Auswertung</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -395,6 +441,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="was-ist-ein-system-check" class="level2">
+<h2 class="anchored" data-anchor-id="was-ist-ein-system-check">Was ist ein System-Check?</h2>
+<p>Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der <strong>System-Check</strong> ist ein Weg vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.</p>
+</section>
+<section id="wie-wird-ein-system-check-gestartet" class="level2">
+<h2 class="anchored" data-anchor-id="wie-wird-ein-system-check-gestartet">Wie wird ein System-Check gestartet?</h2>
+<p>Der System-Check wird in einer XML konfiguriert. Diese wird nach Abschluss der Konfiguration in den Arbeitsbereich der jeweiligen Studie geladen für die eine Durchführbarkeit geprüft werden soll. Wird zur Anmeldeseite des Testcenters gewechselt, ist dann ein Schalter für den System-Check neben dem Schalter: Impressum/Datenschutz zu sehen. Wird der Schalter betätigt, wird eine Liste aller zur Verfügung stehenden System-Checks im Testcenter angezeigt. Nach Auswahl wird der jeweilige Check gestartet.</p>
+<p>Ein System-Check kann beliebig oft wiederholt werden. Wurde ein Check bereits vollständig durchgeführt und ein entsprechender Bericht gespeichert, kann zu einem anderen Endgerät gewechselt werden und der System-Check erneut gestartet werden. Wird ein Bericht zu diesem zweiten Check gespeichert, wird der vorhandene Bericht einfach nur um die Daten des neuen Checks erweitert.</p>
+</section>
+<section id="was-kann-der-system-check-leisten" class="level2">
+<h2 class="anchored" data-anchor-id="was-kann-der-system-check-leisten">Was kann der System-Check leisten?</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein System-Check kann <strong>keine</strong> Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.</p>
+</div>
+</div>
+<p><strong>Schritt 1:</strong> Nach dem Start werden zuerst einmal wichtige Informationen gesammelt. Dazu gehören:</p>
+<ul>
+<li>Bildschirmauflösung</li>
+<li>Browserversion</li>
+<li>Betriebssystemversion</li>
+<li>Browser-Cookies Abfrage</li>
+<li>Browser-Plugins</li>
+</ul>
+<p><strong>Schritt 2:</strong> Ermittlung der Internetgeschwindigkeit</p>
+<p><strong>Schritt 3:</strong> Ansicht einer Beispielaufgabe.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hier kann nur eine Aufgabe angelegt werden! Die Aufgabe kann aber aus mehreren Seite bestehen und somit viele Aufgabenfunktionen abbilden.</p>
+</div>
+</div>
+<p><strong>Schritt 4:</strong> Befragungen. Hier können individuelle Fragen zur Beispielaufgabe oder anderem angezeigt werden</p>
+<p>Die Navigation durch alle Schritte des System-Checks sind selbsterklärend und verständlich gekennzeichnet.</p>
+</section>
+<section id="planung" class="level2">
+<h2 class="anchored" data-anchor-id="planung">Planung</h2>
+<p>Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Ist bspw. eine Testung mit 10 Schüler*innen und einem Booklet mit jeweils 10 Aufgaben geplant, stellt dies sicherlich eine geringere Anforderung an die IT-Systeme dar, als eine Testung mit 100 Schüler*innen und mehreren Testheften. In diesem Zusammenhang dürfte die Bandbreite der Internetverbindung ein wichtiges Kriterium bzgl. Durchführbarkeit einer Testung sein. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar.</p>
+<p>Es sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden.</p>
+<p>Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen im Vorfeld abgeklärt werden:</p>
+<ul>
+<li>Welche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden?</li>
+<li>Gibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?</li>
+<li>Ist bekannt, ob es seitens des eigenen IT-Netzes besondere Beschränkungen bzgl. der Firewall gibt? Kommen spezielle Plugins in den Browsern zum Einsatz?</li>
+<li>Falls Tablets zum Einsatz kommen: Verfügen diese über externe Tastaturen?</li>
+</ul>
+<p>Auf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:</p>
+<p><strong>Gibt es im geplanten Testheft Aufgabe, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?</strong></p>
+<p>Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.</p>
+<p><strong>Gibt es im Testheft Aufgaben mit Audio-Wiedergaben?</strong></p>
+<p>Wenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.</p>
+<p><strong>Gibt es im Testheft Aufgaben mit Eingabefeldern oder ähnlichem?</strong></p>
+<p>Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit Eingabefeldern in den System-Check eingebunden werden und im Verlauf gefragt werden, ob Text oder auch Sonderzeichen in die Felder eingegeben werden konnten. Auf diese Weise können auch Tablet-Tastaturen und die IQB-eigene Tastatur zur Eingabe von Sonderzeichen getestet werden.</p>
+<p><strong>Gibt es im Testheft Aufgaben mit Drag-and-Drop-Elementen oder ähnlichem?</strong></p>
+<p>Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit solchen Elementen eingebunden werden. So kann sichergestellt werden, dass auch auf Tablets diese Elemente richtig funktionieren.</p>
+<p><strong>Soll ein Passwort zur Speicherung eines System-Check-Berichtes eingerichtet werden?</strong> Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Auch ein Bericht kann am Ende gespeichert werden. Es ist also möglich, dass die Ergebnisse verfälscht werden und nicht zwingend die richtigen Daten vorliegen. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Im System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Weitere Anregungen bzgl. der System-Check Planung sind auch dem Kapitel: <strong>Studiendurchführung: Vorbetrachtungen</strong> zu entnehmen.</p>
+</div>
+</div>
+<p>Sind die Vorüberlegungen abgeschlossen, kann mit der Konfiguration des System-Checks begonnen</p>
+</section>
+<section id="konfiguration" class="level2">
+<h2 class="anchored" data-anchor-id="konfiguration">Konfiguration</h2>
+<p>Die Konfiguration findet in einer XML statt. Der Name der XML ist beliebig, die Struktur (welche Elemente, welche Attribute) hingegen nicht. Diese richtet sich nach einer Schema-Definition und muss zwingend eingehalten werden. Die Schema-Definition ist auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a> unter <strong>Spezifikationen: IQB-Testcenter: Input System-Check-Xml</strong> zu finden.</p>
+<p>Der Inhalt der nachfolgenden System-Check-XML kann kopiert und entsprechend erweitert werden. Anschließend kann die Datei in einen Arbeitsbereich geladen werden. Nach Wechsel zur Anmeldeseite des Testcenters kann der System-Check gestartet werden.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -405,11 +554,194 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Diese Seite ist in Berabeitung!</p>
+<p>Ist eine Aufgabe eingebunden, muss die Aufgabe und alle in der Aufgaben-XML deklarierten Ressourcen (Aufgaben-VOUD, Player etc.) mit in den Arbeitsbereich geladen werden.</p>
 </div>
 </div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_SysCheck.xsd"</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;SYSCHECK_TBA2&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;System-Check TBA II Verzweigungen Test&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Description</span>&gt;Prüfung Studiendurchführbarkeit&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> unit=</span><span class="st">"bsp_unit"</span><span class="ot"> savekey=</span><span class="st">"saveme"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">UploadSpeed</span><span class="ot"> min=</span><span class="st">"1024"</span><span class="ot"> good=</span><span class="st">"2048"</span><span class="ot"> maxDevianceBytesPerSecond=</span><span class="st">"10000"</span><span class="ot"> maxErrorsPerSequence=</span><span class="st">"0"</span><span class="ot"> maxSequenceRepetitions=</span><span class="st">"15"</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        100000, 200000, 400000, 800000</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">UploadSpeed</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">DownloadSpeed</span><span class="ot"> min=</span><span class="st">"1024"</span><span class="ot"> good=</span><span class="st">"2048"</span><span class="ot"> maxDevianceBytesPerSecond=</span><span class="st">"200000"</span><span class="ot"> maxErrorsPerSequence=</span><span class="st">"0"</span><span class="ot"> maxSequenceRepetitions=</span><span class="st">"15"</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        400000, 800000, 1600000, 3200000</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">DownloadSpeed</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"1"</span><span class="ot"> type=</span><span class="st">"header"</span><span class="ot"> prompt=</span><span class="st">"Abschnitt I: Allgemeine Fragen."</span>/&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"2"</span><span class="ot"> type=</span><span class="st">"radio"</span><span class="ot"> prompt=</span><span class="st">"1. Wer ist an der Schule die Ansprechperson für technische Fragen?"</span>&gt;der Schulkoordinator/die Schulkoordinatorin selbst#eine andere Person (Eingabe nächstes Feld)#es gibt keine Ansprechperson&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"3"</span><span class="ot"> type=</span><span class="st">"header"</span><span class="ot"> prompt=</span><span class="st">"Abschnitt II: Fragen zur Beispielaufgabe."</span>/&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"4"</span><span class="ot"> type=</span><span class="st">"text"</span><span class="ot"> prompt=</span><span class="st">"1. Funktioniert die Textmarkierung auf der linken Seite?"</span>/&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"5"</span><span class="ot"> type=</span><span class="st">"text"</span><span class="ot"> prompt=</span><span class="st">"2. Ist das Bild auf der linken Seite neben dem Text zu sehen?"</span>/&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"6"</span><span class="ot"> type=</span><span class="st">"text"</span><span class="ot"> prompt=</span><span class="st">"3. Ist das Audio zu hören?"</span>/&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"7"</span><span class="ot"> type=</span><span class="st">"text"</span><span class="ot"> prompt=</span><span class="st">"4. Ist das Video zu sehen?"</span>/&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nachfolgend werden die Inhalte dieser XML näher erklärt.</p>
+<section id="metadaten" class="level4">
+<h4 class="anchored" data-anchor-id="metadaten"><code>Metadaten</code></h4>
+<div>
+<table data-quarto-postprocess="true" class="table">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><strong>Element</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
+</tr>
+<tr class="even">
+<td><code>Label</code></td>
+<td>Eindeutiges Label. Dieses erscheint als Bezeichner für den System-Check in der System-Check Auswahl.</td>
+</tr>
+<tr class="odd">
+<td><code>Description</code></td>
+<td>Beschreibung des System-Checks. Erscheint auch unterhalb des Bezeichners des System-Checks in der System-Check Auswahl.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="config" class="level4">
+<h4 class="anchored" data-anchor-id="config"><code>Config</code></h4>
+<div>
+<table data-quarto-postprocess="true" class="table">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
+</tr>
+<tr class="even">
+<td><code>unit</code></td>
+<td>ID der anzuzeigenden Aufgabe während des System-Checks.</td>
+</tr>
+<tr class="odd">
+<td><code>savekey</code></td>
+<td>Kennwort zum Speichern des System-Check Berichtes</td>
+</tr>
+<tr class="even">
+<td><code>skipnetwork</code></td>
+<td>Ein-bzw. Ausschalten Ermittlung der Internetgeschwindigkeit</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="uploadspeed" class="level4">
+<h4 class="anchored" data-anchor-id="uploadspeed"><code>UploadSpeed</code></h4>
+<div>
+<table data-quarto-postprocess="true" class="table">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
+</tr>
+<tr class="even">
+<td><code>min</code></td>
+<td>Mindestwert für die ermittelte Geschwindigkeit</td>
+</tr>
+<tr class="odd">
+<td><code>good</code></td>
+<td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben.</td>
+</tr>
+<tr class="even">
+<td><code>maxDevianceBytesPerSecond</code></td>
+<td>Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von <code>maxSequenceRepetitions</code> wiederholt.</td>
+</tr>
+<tr class="odd">
+<td><code>maxErrorsPerSequence</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>maxSequenceRepetitions</code></td>
+<td>Legt fest wie oft eine Messung wiederholt, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Die Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.</p>
+</section>
+<section id="downloadspeed" class="level4">
+<h4 class="anchored" data-anchor-id="downloadspeed"><code>DownloadSpeed</code></h4>
+<div>
+<table data-quarto-postprocess="true" class="table">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
+</tr>
+<tr class="even">
+<td><code>min</code></td>
+<td>Mindestwert für die ermittelte Geschwindigkeit</td>
+</tr>
+<tr class="odd">
+<td><code>good</code></td>
+<td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben.</td>
+</tr>
+<tr class="even">
+<td><code>maxDevianceBytesPerSecond</code></td>
+<td>Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von <code>maxSequenceRepetitions</code> wiederholt.</td>
+</tr>
+<tr class="odd">
+<td><code>maxErrorsPerSequence</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>maxSequenceRepetitions</code></td>
+<td>Legt fest wie oft eine Messung wiederholt, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Die Daten: 400000, 800000, 1600000, 3200000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.</p>
+</section>
+<section id="q" class="level4">
+<h4 class="anchored" data-anchor-id="q"><code>Q</code></h4>
+<div>
+<table data-quarto-postprocess="true" class="table">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><strong>Attribut</strong></td>
+<td data-quarto-table-cell-role="th"><strong>Beschreibung</strong></td>
+</tr>
+<tr class="even">
+<td><code>id</code></td>
+<td>Legt eine Id für die Frage fest.</td>
+</tr>
+<tr class="odd">
+<td><code>type</code></td>
+<td>Legt den Typ der Frage fest. Es gibt: <code>header</code>: Überschrift Abschnitt; <code>text</code>: Mehrzeiliges Textfeld; <code>string</code>: Einzeiliges Textfeld; <code>radio</code>: Radiobutton mit parametrierbaren Optionen über das Datenfeld.</td>
+</tr>
+<tr class="even">
+<td><code>prompt</code></td>
+<td>Legt den Text zum gewählten Fragetyp, siehe <code>type</code>, fest.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="durchführung" class="level2">
+<h2 class="anchored" data-anchor-id="durchführung">Durchführung</h2>
+<p>Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.</p>
+</section>
+<section id="auswertung" class="level2">
+<h2 class="anchored" data-anchor-id="auswertung">Auswertung</h2>
+<p>Der System-Check Bericht kann nach Abschluss eines System-Checks im CSV-Format aus dem Arbeitsbereich unter dem Reiter: <strong>System-Check Berichte</strong> heruntergeladen werden. Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:</p>
+<p><strong>Ist das Betriebssystem und der Browser für die Testung geeignet?</strong></p>
+<p>Im einleitenden Kapitel zum Testcenter, werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystemversion zwingend erfüllt sein sollten.</p>
+<p><strong>Wie hoch ist die Auflösung des Wiedergabebildschirms?</strong></p>
+<p>Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgabe bzgl. der vorhandenen Bildschirme noch einmal angepasst werden muss.</p>
+<p><strong>Welche Internet-Bandbreite wird für die Testung mindestens benötigt?</strong></p>
+<p>Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch ein ungeplantes System-Update irgendwo anders im Haus, das einen umfangreichen Download auslöst.</p>
+<p>Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite kann man folgendermaßen vorgehen: 1. Ermittlung der Größe des größten Booklets: Im Testcenter wird unter dem Reiter: <strong>Dateien</strong> des Arbeitsbereiches eine Spalte “Größe” angezeigt. Diese Größe ist bei allen Dateien die tatsächliche Größe der Datei. Eine Ausnahme stellen die Dateien zur Testheft-Definition dar. Hier wird die Summe aller Dateien angezeigt, die für dieses Testheft geladen werden müssen (Testheft-XML, Aufgaben-XMLs, Aufgaben-VOUDs, Player-HTML). 2. Festlegung der maximalen Zeit in Sekunden, nach der dieses Booklet geladen sein soll. 3. Die Formel <strong>Testheft * 8 / Ladezeit</strong> ergibt den Mindestwert für den Download in MBit/s.</p>
+<p>Dieses Verfahren ist einigermaßen verlässlich, weil die Ermittlung der Download-Geschwindigkeit das Ladeverhalten des Testcenters nachbildet. Die Pakete werden beispielsweise nacheinander geladen und nicht parallel.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -854,7 +1186,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
