@@ -14,7 +14,7 @@ Nach dem Laden von Testdateien, werden diese automatisch vom Testcenter gruppier
 * Ressourcen: Hier werden Dateien gelistet, die in der Aufgaben-Definition aufgeführt sind, wie Player, VOUD-Datei, VOCS-Dateien und GeoGebra-Pakete.
 * Units: Hier werden die Dateien zur Aufgaben-Definition gelistet.
 
-Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate hinsichtlich des Dateinamens geben. Nicht alle Testdateien haben eine Id, wie bspw. die XML zur Studien-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
+Manchmal müssen Dateien nachdem sie in das Testcenter geladen wurden noch einmal bearbeitet werden. Es ist möglich bereits vorhandene Dateien zu überschreiben. Das Testcenter lässt dies allerdings nur zu, wenn die Id und der Dateiname nicht verändert wurden. Hintergrund: Jede Datei im Testcenter muss eine eindeutige Id haben, es darf keine Duplikate geben. Im Sinne der Übersichtlichkeit darf es auch keine Duplikate im Dateinamen geben. Nicht alle Testdateien haben eine Id, wie bspw. die XML zur Studien-Definition und die Ressourcen-Dateien (VOUD und VOCS). Sollen hier bereits vorhandene Dateien ersetzt werden, darf der Dateiname nicht verändert werden.
 
 Die Testdateien weisen untereinander Abhängigkeiten auf. Folgende Abhängigkeiten bestehen:
 
@@ -33,9 +33,9 @@ flowchart TD
   3 --> 4
 ```
 
-Beim Laden werden diese Abhängigkeit einbezogen und geprüft, ob eine definierte Testdatei auch vorhanden ist. Wird bspw. eine Testheft-XML mit definierten Aufgaben in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier definierten Aufgaben bereits im Testcenter sind. Ansonsten erscheint eine Fehlermeldung, die darauf hinweist, dass die definierten Aufgaben (Aufgaben-XMLs) nicht vorhanden sind. In diesem Fall müssen zuerst die Aufgaben geladen werden und anschließend die Testheft-XML. Die Reihenfolge (siehe Bild) ist hier also entscheidend.
+Beim Laden werden diese Abhängigkeiten einbezogen und geprüft. Wird bspw. eine Testheft-XML mit einer deklarierten Aufgabe in das Testcenter geladen, wird diese Datei nur vollständig geladen, wenn die hier deklarierte Aufgabe zuvor in das Testcenter geladen wurde. Wird dies nicht beachtet erscheint eine entsprechende Fehlermeldung. Die Reihenfolge (siehe Bild) ist hier also entscheidend.
 
-Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich Aufgaben zu löschen ohne vorher das Testheft zu löschen in dem sie eingebunden sind. Es erscheint dann eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.
+Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge vorzugehen. Es können keine Dateien gelöscht werden, die noch in einer anderen Datei eingebunden sind. Es ist bspw. nicht möglich, Aufgaben zu löschen, ohne vorher das Testheft zu löschen, in dem sie eingebunden sind. Es erscheint dann eine entsprechende Fehlermeldung und die Datei wird nicht gelöscht.
 
 ::: {.callout-tip}
 Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihenfolge ein.
@@ -45,7 +45,7 @@ Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in da
 
 **File has no link to XSD-Schema**
 
-Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Testheft-Definition, Studien-Definition und Aufgaben-Definition** befinden sich im GitHub-Repository der verwendeten Testcenter-Version in entsprechenden Unterordnern.
+Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Testheft-Definition, Studien-Definition und Aufgaben-Definition** sind auf unserer [IQB-GitHub-Startseite](https://iqb-berlin.github.io/) unter **Spezifikationen: IQB-Testcenter: Spec Xsd** zu finden.
 
 Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Definition wie folgt eingebunden:
 
@@ -83,6 +83,6 @@ Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterb
 
 ## Laden spezieller Formate
 Einige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die **GeoGebra**-Elemente enthalten. Hierfür muss neben den **Testdateien**, die zu jeder Testung gehören, ein spezielles Paket mit der Endung **.itcr.zip** geladen werden. 
-Das GeoGebra-Paket kann unter [https://download.geogebra.org/package/geogebra-math-apps-bundle](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.
+Das GeoGebra-Paket kann [hier](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.
 
 Das Paket kann nicht mit ausgeliefert werden, da GeoGebra [diese Lizenz](https://www.geogebra.org/license) verwendet.

@@ -5,35 +5,33 @@ title: "Verwaltung und Organisation"
 
 ## Administrative Zugänge
 
-Das Testcenter bietet zwei administrativen Ebenen zur Verwaltung und Organisation. 
+Das Testcenter bietet zwei administrative Ebenen zur Verwaltung und Organisation. 
 
 #### Super-Admin
 
-Nach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Zugriffsmöglichkeiten. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:
+Nach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Berechtigungen. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:
 
 * Arbeitsbereiche anlegen
 * Nutzer\*innen anlegen (Workspace-Admins) und Zugriffe auf Arbeitsbereiche festlegen
 * individuelle Änderungen an Texten (Custom-Text) und Layout des Testcenters vornehmen
 
-Ein solcher Zugang sollte nur für einige wenige Personen eingerichtet sein, denn die weitreichenden Befugnisse bergen auch Gefahren. Bspw. könnten Super-Admins Arbeitsbereiche versehentlich löschen, die für laufenden Studien verwendet werden. Es fehlen dann im schlimmste Fall bereits entstandene Antwortdaten.
-
 Nach der Eingabe der Zugangsdaten ist der Schalter: **Weiter als Admin** zur Anmeldung zu verwenden.
 
-Anschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es steht außerdem ein Schalter für die **Systemeinstellungen** bereit. Wird dieser Schalter verwendet, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:
+Anschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es ist außerdem ein Schalter für die **Systemeinstellungen** zu sehen. Wird dieser Schalter betätigt, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:
 
 * **Users:**<br>
-Hier können bestehende Nutzer\*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Benutzer\*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer\*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt, auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind dabei noch einmal unterteilt in "read only" (RO) und "read and write" (RW).
+Hier können bestehende Nutzer\*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer\*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer\*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in "read only" (RO) und "read and write" (RW).
 
 * **Arbeitsbereiche:**<br>
 Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.
 
 * **Einstellungen:**<br>
-Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, Hintergrundfarben der Anwendung und verschiedener Anzeigebereiche anzupassen und Texte zu verändern. Es können weiterhin Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen um die Änderungen zu übernehmen.
+Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.
 
 
 #### Workspace-Admin
 
-Nutzer\*innen, die mit einem solch definierten Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus dem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters. 
+Nutzer\*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters. 
 
 ::: {.callout-note}
 Als Workspace-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.
@@ -47,13 +45,13 @@ Anschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche
 
 #### Testpersonen
 
-Dieser Personenkreis erhält die Zugangsdaten durch eine spezielle XML-Datei (XML zur Studien-Definition), die in den Arbeitsbereich der Studie geladen wird. Meldet sich eine Testperson mit den in dieser XML hinterlegten Zugangsdaten am Testcenter an, wird ein hinterlegtes Testheft gestartet. Mit anderen Worten, eine Testung wird gestartet.
+Dieser Personenkreis erhält die Zugangsdaten durch eine spezielle XML-Datei (XML zur Studien-Definition), die in den Arbeitsbereich der Studie geladen wird. Meldet sich eine Testperson mit den in dieser XML hinterlegten Zugangsdaten am Testcenter an, wird ein Testheft gestartet. Mit anderen Worten, eine Testung wird gestartet.
 
 Nach der Eingabe der Zugangsdaten ist der Schalter: **Weiter** zur Anmeldung zu verwenden.
 
 ## Arbeitsbereich
 
-Damit mehrere Studien gleichzeitig auf einem Testsystem durchgeführt bzw. vorbereitet werden können, werden von den Super-Admins Arbeitsbereiche für die Studien eingerichtet und Zugriffe darauf geregelt. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.
+Zur Organisation von Studien stehen Arbeitsbereiche zur Verfügung. Diese legen die Super-Admins an und vergeben die entsprechenden Berechtigungen. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.
 
 Nach der Anmeldung präsentiert das System eine Liste aller Arbeitsbereiche, die für eine Person freigegeben sind. Mit einem Klick auf den jeweiligen Arbeitsbereich wird dieser geöffnet. Zur Liste der Arbeitsbereiche kehrt man zurück, indem man auf das IQB-Logo links oben in der Ecke klickt.
 
@@ -65,7 +63,7 @@ Der Arbeitsbereich hat drei Grundfunktionen. Diese können mit einem Klick auf d
 
 #### Dateien
 
-Alle Testinhalte und Definitionen eines Tests bzw. einer Befragung, werden über Dateien (Testdateien) in das System hochgeladen. 
+Alle Testinhalte und Definitionen eines Tests bzw. einer Befragung (Testdateien), werden über den Reiter: Dateien in das System hochgeladen. 
 
 ::: {.callout-note}
 Welche Testdateien es gibt und welche Funktionen diese übernehmen ist dem Kapitel: **Daten und Prozesse** zu entnehmen.
