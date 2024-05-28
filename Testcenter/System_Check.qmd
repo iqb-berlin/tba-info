@@ -10,15 +10,21 @@ Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg vorab diese Eig
 
 ## Wie wird ein System-Check gestartet?
 
-Der System-Check wird in einer XML konfiguriert. Diese wird nach Abschluss der Konfiguration in den Arbeitsbereich der jeweiligen Studie geladen für die eine Durchführbarkeit geprüft werden soll. Wird zur Anmeldeseite des Testcenters gewechselt, ist dann ein Schalter für den System-Check neben dem Schalter: Impressum/Datenschutz zu sehen. Wird der Schalter betätigt, wird eine Liste aller zur Verfügung stehenden System-Checks im Testcenter angezeigt. Nach Auswahl wird der jeweilige Check gestartet. 
+Der System-Check wird in einer XML konfiguriert. Diese wird nach Abschluss der Konfiguration in den Arbeitsbereich der jeweiligen Studie geladen. Wird zur Anmeldeseite des Testcenters gewechselt, ist dann ein Schalter für den System-Check neben dem Schalter: Impressum/Datenschutz zu sehen. Wird der Schalter betätigt, wird eine Liste aller zur Verfügung stehenden System-Checks im Testcenter angezeigt. Nach Auswahl wird der jeweilige Check gestartet. 
 
-Ein System-Check kann beliebig oft wiederholt werden. Wurde ein Check bereits vollständig durchgeführt und ein entsprechender Bericht gespeichert, kann zu einem anderen Endgerät gewechselt werden und der System-Check erneut gestartet werden. Wird ein Bericht zu diesem zweiten Check gespeichert, wird der vorhandene Bericht einfach nur um die Daten des neuen Checks erweitert.
+::: {.callout-note}
+Es können mehrere System-Checks im Testcenter angelegt sein. Das System bietet dann eine Auswahl aller System-Checks an. Der System-Check Bericht wird dabei immer in dem Arbeitsbereich gespeichert, in dem sich die ausgeführte System-Check-XML befindet.
+:::
+
+Ein System-Check kann beliebig oft wiederholt werden. Wurde ein Check bereits vollständig durchgeführt und ein entsprechender Bericht gespeichert, kann zu einem anderen Endgerät gewechselt werden und der selbe System-Check erneut gestartet werden. Wird ein Bericht zu diesem zweiten Check gespeichert, wird der vorhandene Bericht nur um die Daten des neuen Checks erweitert.
 
 ## Was kann der System-Check leisten?
 
 ::: {.callout-important}
 Ein System-Check kann **keine** Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.
 :::
+
+**Ablauf eines System-Checks:**
 
 **Schritt 1:** Nach dem Start werden zuerst einmal wichtige Informationen gesammelt. Dazu gehören:
 
@@ -28,25 +34,25 @@ Ein System-Check kann **keine** Aussage darüber machen, ob die gewählte IT-Umg
 * Browser-Cookies Abfrage
 * Browser-Plugins
 
-**Schritt 2:** Ermittlung der Internetgeschwindigkeit
+**Schritt 2:** Ermittlung der Internetgeschwindigkeit (optional, kann auch ausgeschaltet werden)
 
-**Schritt 3:** Ansicht einer Beispielaufgabe. 
+**Schritt 3:** Ansicht einer Beispielaufgabe (optional).
 
-::: {.callout-important}
-Hier kann nur eine Aufgabe angelegt werden! Die Aufgabe kann aber aus mehreren Seite bestehen und somit viele Aufgabenfunktionen abbilden.
+::: {.callout-note}
+Hier kann nur eine Aufgabe angelegt werden! Die Aufgabe kann aber aus mehreren Seite bestehen und somit viele Aufgabenfunktionen abbilden, die vielleicht nicht auf eine Seite passen würden.
 :::
 
-**Schritt 4:** Befragungen. Hier können individuelle Fragen zur Beispielaufgabe oder anderem angezeigt werden
+**Schritt 4:** Befragungen (optional). Hier können individuelle Fragen zur Beispielaufgabe oder anderem angezeigt werden
 
 Die Navigation durch alle Schritte des System-Checks sind selbsterklärend und verständlich gekennzeichnet. 
 
 ## Planung
 
-Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Ist bspw. eine Testung mit 10 Schüler\*innen und einem Booklet mit jeweils 10 Aufgaben geplant, stellt dies sicherlich eine geringere Anforderung an die IT-Systeme dar, als eine Testung mit 100 Schüler\*innen und mehreren Testheften. In diesem Zusammenhang dürfte die Bandbreite der Internetverbindung ein wichtiges Kriterium bzgl. Durchführbarkeit einer Testung sein. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar.
+Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung,  dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.
 
 Es sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden. 
 
-Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen im Vorfeld abgeklärt werden:
+Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen schon im Vorfeld abgeklärt werden:
 
 * Welche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden? 
 * Gibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?
@@ -59,7 +65,7 @@ Auf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weiter
 
 Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.
 
-**Gibt es im Testheft Aufgaben mit Audio-Wiedergaben?**
+**Gibt es im Testheft Aufgaben mit Audios?**
 
 Wenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.
 
@@ -72,7 +78,8 @@ Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe 
 Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit solchen Elementen eingebunden werden. So kann sichergestellt werden, dass auch auf Tablets diese Elemente richtig funktionieren.
 
 **Soll ein Passwort zur Speicherung eines System-Check-Berichtes eingerichtet werden?**
-Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Auch ein Bericht kann am Ende gespeichert werden. Es ist also möglich, dass die Ergebnisse verfälscht werden und nicht zwingend die richtigen Daten vorliegen. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.
+
+Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.
 
 ::: {.callout-tip}
 Im System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
@@ -192,7 +199,7 @@ Nachfolgend werden die Inhalte dieser XML näher erklärt.
 </tr>
 <tr>
     <td><code>maxSequenceRepetitions</code></td>
-    <td>Legt fest wie oft eine Messung wiederholt, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
+    <td>Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
 </tr>
 </table>
 ```
@@ -224,7 +231,7 @@ Die Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße 
 </tr>
 <tr>
     <td><code>maxSequenceRepetitions</code></td>
-    <td>Legt fest wie oft eine Messung wiederholt, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
+    <td>Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
 </tr>
 </table>
 ```
@@ -257,6 +264,10 @@ Die Daten: 400000, 800000, 1600000, 3200000 geben die zu testende Testheftgröß
 
 Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.
 
+::: {.callout-note}
+Um reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.
+:::
+
 ## Auswertung
 
 Der System-Check Bericht kann nach Abschluss eines System-Checks im CSV-Format aus dem Arbeitsbereich unter dem Reiter: **System-Check Berichte** heruntergeladen werden. Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:
@@ -267,13 +278,14 @@ Im einleitenden Kapitel zum Testcenter, werden Systemanforderungen genannt, die 
 
 **Wie hoch ist die Auflösung des Wiedergabebildschirms?**
 
-Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgabe bzgl. der vorhandenen Bildschirme noch einmal angepasst werden muss.
+Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.
 
 **Welche Internet-Bandbreite wird für die Testung mindestens benötigt?**
 
 Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch ein ungeplantes System-Update irgendwo anders im Haus, das einen umfangreichen Download auslöst.
 
 Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite kann man folgendermaßen vorgehen:
+
 1. Ermittlung der Größe des größten Booklets: Im Testcenter wird unter dem Reiter: **Dateien** des Arbeitsbereiches eine Spalte "Größe" angezeigt. Diese Größe ist bei allen Dateien die tatsächliche Größe der Datei. Eine Ausnahme stellen die Dateien zur Testheft-Definition dar. Hier wird die Summe aller Dateien angezeigt, die für dieses Testheft geladen werden müssen (Testheft-XML, Aufgaben-XMLs, Aufgaben-VOUDs, Player-HTML).
 2. Festlegung der maximalen Zeit in Sekunden, nach der dieses Booklet geladen sein soll.
 3. Die Formel **Testheft * 8 / Ladezeit** ergibt den Mindestwert für den Download in MBit/s.
