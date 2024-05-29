@@ -66,7 +66,7 @@ Bestimmte Texte in der Anwendung und während des Studienlaufs können individue
 
 Die Testperson kann sich auf verschiedene Weise am Testcenter anmelden. In diesem Beispiel gibt die Testperson auf der Anmeldeseite des Testcenters den Zugangsnamen an und klickt auf **Weiter**. Im nächsten Schritt wird der in der XML zur Studien-Definition angelegte Code abgefragt. Hier wird nun der Text zur Code-Eingabe bsph. verändert. Im ersten Schritt war das Attribut: `key` im Element: `<CustomText>` nicht beschrieben. Dadurch wird ein Standardtext: "Bitte gib den Schülercode ein...." gesetzt:
 
-![Bild 1: Anzeige Standardtext bei Code-Abfrage](TC_Bsp_Textersetzung1.png)
+![Bild 1: Anzeige Standardtext bei Code-Abfrage](Pictures/TC_Bsp_Textersetzung1.png)
 
 Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomText>` das Attribut: `key` mit einem gültigen Listenwert beschrieben.
 
@@ -86,7 +86,7 @@ Im zweiten Schritt wird in der XML zur Studien-Definition im Element: `<CustomTe
 ```
 Nachdem die veränderte XML in den Arbeitsbereich der Studie geladen wurde und die Testperson sich mit dem Namen: **egx45t** anmeldet, ist der veränderte Text zu sehen:
 
-![Bild 2: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
+![Bild 2: Anzeige veränderter Text bei Code-Abfrage](Pictures/TC_Bsp_Textersetzung2.png)
 
 **Soll ein Gruppenmonitor eingesetzt werden, um die Studie zentral steuern zu können?**
 
@@ -123,7 +123,7 @@ Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attrib
 
 Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird in der Testheft-Konfiguration (`Config`) mit dem Wert: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe, in der sich die Testperson gerade befindet, angezeigt.
 
-![Bild 3: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigationsmenü](TC_UnitTitle_NaviMenu.png)
+![Bild 3: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigationsmenü](Pictures/TC_UnitTitle_NaviMenu.png)
 
 Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: **Aufgabe2**. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert `unit_screenheader` mit dem Datum **WITH_UNIT_TITLE** in der `BookletConfig` beschrieben wird.
 
@@ -187,13 +187,13 @@ Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-De
 ```
 So sieht die Änderung aus:
 
-![Bild 4: Navileiste reduziert](TC_Navileiste_ARROWS_ONLY.png)
+![Bild 4: Navileiste reduziert](Pictures/TC_Navileiste_ARROWS_ONLY.png)
 
 **Soll ein erweitertes Menu zur Aufgabennavigation sichtbar sein?**
 
 Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe dieses Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.
 
-![Bild 6: Eingeschaltetes Aufgaben-Menu](TC_Unit_Menu_FULL.png){fig-align="left"}
+![Bild 6: Eingeschaltetes Aufgaben-Menu](Pictures/TC_Unit_Menu_FULL.png){fig-align="left"}
 
 Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuweisung des Wertes: `unit_menu` zu dem Attribut: `key`und gewünschten Listenwert, in diesem Fall **FULL**.
 
