@@ -1,0 +1,24 @@
+---
+lang: de
+title: "Sicherheit"
+---
+
+Diese Seite enthält Statements zu verschiedenen Sicherheitsthemen
+
+## Content-Security-Policy
+Die [Content-Security-Policy (CSP) des testcenters](https://github.com/iqb-berlin/testcenter/blob/master/frontend/config/nginx.conf)
+wird gelegentlich als zu locker wahrgenommen. Tatsächlich sind die -
+[üblicher Weise empfohlenen](https://owasp.org/www-project-secure-headers/#div-bestpractices) - strengeren Restriktionen
+aufgrund der modularen Architektur (Verona-Player und -Host) und anderer Anforderungen nicht möglich.
+Beispiele:
+* `data:` ist als Quelle für Medien notwendig, um in Units eingebettete Medien zeigen zu können.
+* `upgrade-insecure-requests;` kann nicht verwendet werden, das das Testcenter in Offline-Szenarien über HTTP benutzt wird.
+* `https: http: 'unsafe-eval'` für `script-src` ist nötig für GeoGebra.
+
+## Passwortrichtline
+Aufgrund der vielen verschiedenen Anwendungsbereiche des Testcenters ist keine allgemeine Passwortrichtlinie für
+Teilnehmeraccounts vorhanden. Für Administratoren ist die einzige Einschränkung, dass das Passwort mindestens sieben
+Zeichen lang sein muss. Aus diesem Grund können Passwörter nur von Super-Administratoren gegeben und geändert werden,
+und auf diese Weise auf administrativer Ebene sichere Passwörter sichergestellt werden.
+Mit Testcenter 16 ist geplant, diese Administratoren über einen externen Identity-Provider zu verwalten, hier werden
+sichere Passwörter dann auch technisch sichergestellt.
