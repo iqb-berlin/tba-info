@@ -3,6 +3,317 @@ lang: de
 title: "Testen der Anwendung"
 ---
 
-::: {.callout-note}
-Diese Seite ist in Berabeitung!
+## Einführung
+
+Nach der Installation oder einem Update der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer\*innen getestet werden. Diese Art der Testung nennt sich **End-to-end-Testung** oder auch **Akzeptanztest**. Sie soll sicherstellen, dass durch die Installation oder durch ein Update keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es können mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werde. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben getestet werden
+
+Vor jeder Veröffentlichung einer neuen Version führt das **IQB** eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen **E2E-Testungen** und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests noch manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer\*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.
+
+Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge geben, einfach weil das IQB sich sehr viel damit beschäftigt hat.
+
+## Eigene Testszenarien entwerfen
+
+Eine E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Wenn möglich planen Sie diese Zeiträume daher rechtzeitig ein und beginnen Sie ehr früher als später. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein zweites Mal provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter Dokumentation erreicht. Entwurfsphase und entsprechende Vorüberlegungen sind also genauso wichtig, wie die eigentliche Durchführung der Testung.
+
+Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist einmal bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.
+
+* Können sich die in der Testtaker-XML angelegten Testpersonen am Testcenter anmelden?
+* Können die angelegten Booklets gestartet werden?
+* Werden die vorgesehenen Aufgaben in festgelegter Reihenfolge dargestellt?
+* Funktioniert das Blättern zwischen den Aufgaben auf die gewünschte Weise?
+* Sind vorgesehene Bezeichner und Schaltflächen vorhanden?
+* Darf erst zur nächsten Aufgabe geblättert werden, wenn Pflichtfelder zuvor ausgefüllt wurden?
+* Wenn Zeitbeschränkungen eingerichtet sind, sind diese während der Testung aktiv und funktional?
+* Weisen Aufgabenelemente die gewünschten Funktionen auf, sprich können diese wie vorgesehen bedient werden?
+* Werden die gegebenen Antworten auch korrekt gespeichert?
+
+Sind Schwerpunkte definiert, können weitere Überlegungen angestellt werden:
+
+* Welche Testdaten werden benötigt?
+* Auf welchen Endgeräten und mit welchen Browsern soll die Studie durchgeführt werden?
+* In welchem Stadium der Studienplanung können Testdaten repräsentativ eingesetzt werden?
+* Mit welcher Version der Anwendung soll die Studie durchgeführt werden und steht diese zum Testzeitpunkt in der eigenen IT-Infrastruktur zur Verfügung?
+* Wie soll getestet werden, manuell oder automatisiert?
+
+Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden. Nachfolgend gibt es eine kurze Erläuterung zu den Begriffen Testschritt und Testfall.
+
+**Testfall/ Testschritt:**
+
+Ein Testfall ist genau das wonach es klingt: Ein Testszenario, welches die Funktionalität einer Reihe von Aktionen oder Bedingungen misst, um das erwartete Ergebnis zu überprüfen. Ein Testfall enthält die einzelnen Testschritte, beginnt meist mit einer knappen Umschreibung und endet mit einer Erwartungsprüfung.
+
+Testfälle mit einer großen Anzahl von Testschritten sollten vermieden werden. Die Testfälle sollten dann besser aufgeteilt werden.Dies erhöht die Übersichtlichkeit. Testschritte sollte so atomar wie möglich gehalten werden, um die Abhängigkeit von anderen Testschritten zu minimieren.
+
+Eine solche Testung wird schnell groß und komplex. Es ist daher entscheidend im Vorfeld eine gute Planung vorzunehmen und Prioritäten zu setzen, welche Testschritte zum Einsatz kommen und wie diese aussehen sollen.
+
+### Manuelles vs automatisiertes Testen
+
+Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen. 
+
+#### Manuelles Testen
+
+* sinnvoll bei selten ausgeführten Testungen und kleineren Studien
+* relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung
+* Pflege und Update sind relativ einfach, da nur Skripte angepasst werden müssen
+* keine zusätzliche Software oder Programmierkenntnisse notwendig
+* Ausführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend
+* Auswertung muss ebenfalls manuell erfolgen, das kostet Zeit
+* Skripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)
+* wenn oft ausgeführt, werden aus mangelnder Motivation gerne Abkürzungen genommen und damit eventuell entscheidende Stelle nicht wie im Skript vorgeschrieben geprüft
+* alle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein
+
+::: {.callout-tip}
+Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die das Organisieren von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. **Testomat.io** und **Testbench** genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind.
 :::
+
+#### Automatisiertes Testen
+
+* sinnvoll bei häufig ausgeführten Testungen und größeren Studien
+* Ausführung ist schnell und homogen
+* gute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden
+* Verwaltung der Tests und zugehörige Auswertungen ist übersichtlich
+* zu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden
+* Entwurfsphase benötigt Zeit
+* Pflege und Update können je nach eingesetzter Software aufwändig werden
+* zusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig
+
+Wurde sich für das automatisierte Testen entschieden, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das **IQB** bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle unsere persönlichen Erfahrungen einbringen und Empfehlungen abgeben. Das **IQB** empfiehlt an dieser Stelle **Cypress** oder **Selenium** zu verwenden. Im folgenden werden die beiden Anwendungen näher vorgestellt. Letztlich muss aber jeder selbst entscheiden, welche Anwendung zum Einsatz kommen soll. 
+
+### Selenium
+
+Selenium ist ein alter Hase in der Softwaretestung. Hier gibt es unzählige Foren, Tutorials etc.. Selenium führt Testungen mittels einer spezielles Browser-Plugins gegen den Browser durch. Selenium spricht hier von einem Treiber. Der große Vorteil von Selenium ist, dass es sowohl von techn. versierten als auch von techn. weniger versierten Anwender\*innen angewendet werden kann. Selenium wird in Module aufgeteilt angeboten. [**Hier**](https://www.selenium.dev/) der Link zur Auswahlseite. Interessant sind in die Module **Selenium-IDE** und **Selenium-Webdriver**.
+
+**Selenium IDE:**
+
+Alle Informationen zu **Selenium-IDE** sind [**hier**](https://www.selenium.dev/selenium-ide/docs/en/introduction/getting-started) zu finden.
+
+Dieses Modul richtet sich an **techn. weniger versierte Anwender\*innen**. Es handelt es sich um ein Plugin, welches dem Browser hinzugefügt wird. Mithilfe dieses Plugins können Testschritte aufgezeichnet werden. Dazu wird ein Rekorder verwendet, der jedes Event auf einer Website aufzeichnen und anschließend wieder abspielen kann. Ein auf diese Weise entworfener Testfall kann gespeichert werden und in einem anderen Browser mittels vorheriger Plugin Installation wieder abgespielt werden. Der Rekorder verwendet für die Aufzeichnung Selektoren und Befehle. Um Elemente, wie bspw. einen Button auf einer Seite zu finden, muss das entsprechende Element irgendwie selektiert werden. Anschließend kann auf dieses selektierte Element ein Befehl abgesetzt werden. Beispielsweise könnte ein `Click` auf diesen Button ausgeführt werden. Für techn. weniger versierte dürfte die Schwierigkeit darin bestehen diese Selektoren festzulegen. Dies ist aber nur eine Gewöhnung und geht mit der Zeit immer schneller von der Hand. Mehr zu den Selektoren finden Sie im Abschnitt **Selektoren**. Selenium unterstütz alle gängigen Selektoren wie bspw. CSS und X-Path.
+
+Nachteile:
+
+* Installation des Plugins könnte auf einigen Endgeräten kompliziert werden, bspw. Android-Browser oder auch Apple-Browser wie Safari
+* alle zu testenden Browser und entsprechende Endgeräte müssen physisch vorhanden sein, es kann nicht gegen emulierte Geräte getestet werden
+* keine gespeicherte Auswertung, es erfolgt nur zur Laufzeit eine Auswertung
+
+**Selenium Webdriver:**
+
+Die Selenium-Webdriver Dokumentation finden Sie [**hier**](https://www.selenium.dev/documentation/).
+
+Diese Modul ist ehr geeignet für Anwender\*innen die techn. versiert sind und auch vor einer Programmiersprache nicht zurückschrecken. Folgende Programmiersprachen werden angeboten:
+
+* Java
+* Javascript
+* Ruby
+* C#
+* Python
+
+Testfälle können dann in dieser Programmiersprache verfasst ausgeführt werden. Hierfür wird eine entsprechende Umgebung benötigt. Es können auch Tests gegen emulierte Geräte gefahren werden. Die Geräte müssen dann nicht in ihrer Vielfalt physisch vorhanden sein. Genannt sei an dieser Stelle einmal bsw. der Anbieter Browserstack.
+
+Vorteile:
+
+* Schnell und gute Übersichtlichkeit über die angelegten Testfälle
+* für allen möglichen Browser und Endgeräte geeignet
+* Endgeräte müssen nicht physisch vorhanden sein (testen gegen emulierte Geräte möglich)
+* Auswertungen werden detailliert gespeichert
+
+Nachteile:
+
+* bedingt techn. Kenntnisse in der Programmierung vorausgesetzt
+* es muss Zusatzsoftware auf dem Testrechner installiert werden
+* es wird ein Account bei Browserstack benötigt, wenn gegen emulierte Geräte getestet werden soll
+* Warten auf ein Ereignis muss eigenständig programmiert werden, das heißt jedes warten auf ein Ereignis muss eigenständig abgefangen werden
+* es muss ein Browser spezifischer Treiber in den Umgebungsvariablen des Testrechners eingetragen werden
+
+Hier ein Beispiel wie ein Test mit SE-Webdriver aussehen könnte:
+
+```{.js}
+//Testfall Beispiel
+describe('Check Google', function () {
+
+    //1. Schritt: Prüfe ob Google geladen werden kann
+    it('Öffne Google Seite', async function () {
+
+        //Erzeuge Webdriver Instanz für diesen Testschritt
+        let driver = await new Builder().forBrowser("chrome").build();
+
+        //Versuche die Website zu laden.
+        await driver.get("http://google.com");
+
+        //Erwartungsprüfung: Wenn die Seite geladen wurde, 
+        //wird ein bestimmter Title der Seite erwartet
+        var title = await driver.getTitle();
+        assert.equal(title, "Google", "Error: Seitenladefehler.");
+
+        //Schliesse Webdriver Instanz
+        await driver.quit();
+
+    });
+
+    //2. Schritt: Tue noch etwas auf der Google Seite
+    it('Tue noch etwas...', async function () {
+
+        //Erzeuge Webdriver Instanz für diesen Testschritt
+        let driver = await new Builder().forBrowser("chrome").build();
+
+        //tue etwas....
+
+        //Schliesse Webdriver Instanz
+        await driver.quit();
+
+    });
+});
+```
+
+### Cypress
+
+Die Cypress Dokumentation ist [**hier**](https://docs.cypress.io/guides/overview/why-cypress) zu finden.
+
+Cypress ist noch nicht so lange in der Welt des Testens unterwegs, wird aber aufgrund seiner Beliebtheit bereits großflächig eingesetzt. Cypress richtet sich eigentlich ehr an Entwickler\*innen unterscheidet sich aber bzgl. benötigter Kompetenzen kaum von Selenium-Webdriver. Cypress arbeitet prinzipiell etwas anders als Selenium. Hier wird der programmierte Testcode direkt im Browser durchgeführt. Es wird also nicht wie bei Selenium ein entsprechender Treiber für den jeweiligen Browser benötigt. Es entsteht also keine zusätzliche Fehlerquelle (Flaschenhals) durch eine zusätzliche Schnittstelle (Treiber) zum Browser. Cypress unterstütz im Vergleich zu Selenium **noch nicht** alle Browser und Endgeräte. Es werden (Stand: Mai 2024) die folgenden Browser unterstützt:
+
+* Chrome und Browser die auf der Chrome Engine aufbauen
+* Edge
+* Firefox
+* Electron
+* WebKit (Experimental)
+
+Testfälle können in den Sprachen: Javascript und Typescript verfasst ausgeführt werden. Hierfür wird eine entsprechende Umgebung benötigt. Es ist auch möglich gegen emulierte Geräte zu testen. Genannt sei an dieser Stelle bspw. Browserstack.
+
+Vorteile:
+
+* Schnell und gute Übersichtlichkeit über die angelegten Testfälle
+* Endgeräte müssen nicht physisch vorhanden sein (testen gegen emulierte Geräte möglich)
+* wenn **IQB** Repository verwendet wird, ist das Anlegen von Testfällen relativ schnell vollzogen
+* Auswertungen werden detailliert gespeichert
+* warten auf Ereignis muss nicht eigenständig programmiert werden wie bei Selenium
+
+Nachteile:
+
+* bedingt techn. Kenntnisse in der Programmierung vorausgesetzt
+* es muss Zusatzsoftware (siehe README im entsprechenden Repository) auf dem Testrechner installiert werden
+* es wird ein Account bei Browserstack benötigt, wenn gegen emulierte Geräte getestet werden soll
+* **derzeitig (Stand: Mai 2024) werden nicht alle Endgeräte und Browser unterstützt, auch nicht mittels Browserstack**
+
+Abschließend ein Beispiel wie ein Testfall mit Cypress aussieht (TypeScript):
+
+```{.ts}
+//Testfall Beispiel
+describe('Check Google', () => {
+
+    //1.Testschritt: Prüfe ob Google geladen werden kann
+    it('Öffne Google', () => {
+        //Öffne Seite
+        cy.visit(`www.google.com`);
+        //Erwartungsauswertung: Konnte Seite geladen werden, 
+        //dann sollte sie "Google" enthalten
+        cy.contains('Google')
+            .should('exist');
+    });
+
+    //2.Testschritt: Tue noch etwas auf der Google Seite
+    it('Öffne Google', () => {
+        
+        //Tue etwas....
+    });
+});
+```
+
+### Cypress oder Selenium?
+
+Für welche Software sich entschieden wird, hängt nun maßgeblich davon ab, mit welchen Endgeräten und Browsern getestet werden soll. Soll es nur Firefox, Chrome, Edge, Safari und Electron auf den Betriebssystemen Windows oder Linux sein, würden wir Cypress klar empfehlen. Cypress ist übersichtlicher, es müssen keine Wartebedingungen programmiert werden und es wird kein zusätzlicher Treiber für den Browser benötigt. Müssen Browser auf mobilen Endgeräten, darunter auch Exoten, getestet werden, fällt Cypress aus der Auswahl und es sollte besser Selenium zum Einsatz kommen.
+
+### Selektoren
+
+Um ein Element auf einer Website zu lokalisieren, können sowohl bei Cypress als auch bei Selenium **CSS-Selektoren** oder **XPath-Selektoren** verwendet werden. Richtig gewählte Selektoren bestimmen, wie schnell und zuverlässig ein Element bei einer Testung gefunden wird. Nachfolgend wird der Unterschied zwischen beiden Selektoren erläutert.
+
+#### CSS-Selektor
+
+Eine Website besteht aus unterschiedlichen HTML-Elementen wie bspw. Textfeldern, Eingabefeldern, aber auch Bereichen und vielen weiteren. Um Einfluss auf das Layout dieser Elemente zu nehmen, kommt die Gestaltungs- und Formatierungssprache **CSS** (Cascading Stytle Sheet) zum Einsatz. Ein **CSS-Layout** wird auf ein **HTML-Element** mittels eines **Selektors** angewendet. Über diesen Selektor erfolgt eine eindeutige Zuweisung des Layouts zu einem bestimmten Html-Element. Dabei kann der CSS-Selektor das Html-Element auf viele unterschiedliche Arten selektieren. Es gibt Typen-, Klassen-, ID-, Attribut-Selektoren und einige weitere. Da der Programmcode der Anwendung Testscenter Änderungen unterliegt (Fehlerbehebung, Änderungen des Layouts, Aktualisierungen etc.), müssen die Selektoren auch nach diesen Änderungen noch zuverlässig arbeiten. Wird ein ungünstiger CSS-Selektor gewählt, kann es passieren, dass dieser Selektor bspw. nach einer programmseitigen Änderung des Layouts nicht mehr funktioniert. Dann muss mühselig der Testcode angepasst werden, um Testabbrüche zu vermeiden. Nachfolgend sind daher einmal die zu bevorzugenden Selektoren aufgezählt:
+
+1. **Data:**  Dieses Attribut ist speziell für Javascript konzipiert. Bspw. können über dieses Attribut Eventlistener auf das Html-Element zugreifen. Wenn ein solches Attribut in einem zu selektierendem Element angelegt ist, sollte dieses bevorzugt zum Einsatz kommen. 
+
+2. **ID:** Dieses Attribut kennzeichnet ein Html-Element eindeutig, denn der verwendete Wert (String) für **ID** darf nicht mehrmals in einem Html-Dokument vorkommen. Wenn ein Element das Attribut: **ID** aufweist und kein **Data-Attribut** vorhanden ist, sollte **ID** zum selektieren verwendet werden.
+
+3. **CSS-Pfad:** Sind die beiden oben genannten Attribute für ein Element nicht angelegt, können Sie versuchen das Element mit dem gesamten CSS-Pfad zu einem Element zu selektieren. Dazu ist die Browser Entwicklerkonsole, wie weiter unten beschrieben, zu verwenden.
+
+#### XPath-Selektoren
+
+XPath stellt eine andere Möglichkeit der Selektierung von Html-Elementen dar. Jede Html-Seite wird vom Browser mittels eines Parsers in eine spezielle Baumstruktur überführt. Diese Baumstruktur nennt sich **DOM** (Document Object Model). Mittels dieser Struktur kann bspw. Javascript auf einzelne Elemente zugreifen. Mit Hilfe von XPath können einzelne Elemente im DOM selektiert werden. In einer Baumstruktur gibt es Eltern und Kinderelemente, also Elemente die von anderen Elementen abhängen. Um eine Element mittels XPath zu selektieren, müssen diese Abhängigkeiten einbezogen werden. Befindet sich ein Element in tieferen DOM-Ebenen, nimmt die Suche längere Zeit in Anspruch. Außerdem ist XPath gegenüber Änderungen am DOM empfindlich. Ändert sich bspw. ein Elternelement, kann eventuell das in einer Testung verwendete Kinderelement nicht mehr gefunden werden. Nach jeder Änderungen in der Programmierung (neues Release) kann es also passieren, dass XPath-Selektoren im Testcode angepasst werden müssen.
+
+::: {.callout-tip}
+XPath-Selektoren sollten nur zum Einsatz kommen, wenn keine geeigneten CSS-Selektoren gefunden werden!
+:::
+
+#### Auffinden von Selektoren
+
+Um den geeigneten Selektoren zu finden, sollte die Browser Entwicklerkonsole verwendet werden. In den Browsern Firefox, Chrome und Edge wird die Konsole mittels der Taste **F12** aufgerufen. Die Konsole bietet sehr viele Funktionen. Nachfolgend ist zu sehen, wie die Konsole zum Auffinden von Selektoren nach Betätigung von F12 verwendet wird.
+
+![Browser Konsole](Pictures//TC_BrowserKonsole.png)
+
+In der Konsole werden nun die entsprechenden Attribute wie bspw. **ID** oder **Data** angezeigt und können als CSS-Selektor in einem Test verwendet werden. Dieses Element weist bspw. ein **Data-Attribut** auf. Dieses könnte nun direkt im Test verwendet werden.
+
+![Browser Konsole Informationen](Pictures/TC_ElementInformationen_BrowserKonsole.png)
+
+Sollte kein geeignetes Attribut gefunden werden, kann mit der rechten MT auf das markierte Element geklickt werden und anschließend ist in der Auswahl der Punkt: "Kopieren" zu wählen. Es öffnet sich eine weitere Auswahl.
+
+:information_source: Die nachfolgenden Methoden zum finden von günstigen Selektoren sollten nur angewendet werden, wenn kein **ID-** und kein **Data-Attribut** vorhanden ist.
+
+![Konsole Copy Informationen](Pictures/TC_CpyElementInformationen_BrowserKonsole_01.png)
+
+Die folgenden Kopieroptionen sind entscheidend und werden nachfolgend näher beschrieben:
+
+* **CSS-Selektor:** Kopiert den günstigsten CSS-Selektor in die Zwischenablage. Würde sich hier bspw. ein ID-Attribut befinden, würde diese entsprechend kopiert.
+* **CSS-Pfad:** Sollte ein kopierter CSS-Selektor nicht zuverlässig funktionieren, ist es möglich den kompletten CSS-Pfad in die Zwischenablage zu kopieren.
+* **XPATH:** Kopiert den XPath in die Zwischenablage. Xpath sollte nur verwendet werden, wenn die vorherigen CSS-Kopieroptionen keinen Erfolg bringen.
+
+## E2E-Tests des IQB verwenden
+
+Wie eingangs bereits erwähnt sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können. 
+
+::: {.callout-note}
+Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann an dieser Stelle keine Aussage getroffen werden, ob die nachfolgenden Schritte genauso funktionieren.
+:::
+
+### Welche Software wird benötigt?
+
+* **Entwicklungsumgebung (IDE):** Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.
+* **Node.js:** Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.
+* **Git:** Wird zum Duplizieren des Testcenter Repositories benötigt.
+* **Cypress in Version 13.3.3:** Hinweise zur Installation sind [hier](https://docs.cypress.io/guides/getting-started/installing-cypress) zu finden.
+
+### Cypress starten
+
+1. starten der IDE
+2. spiegeln (clonen) des Testcenter [GitHub-Repos](https://github.com/iqb-berlin/testcenter)
+3. öffnen des gespiegelten Ordners mit der IDE
+4. Terminal öffnen und den Befehl: `make test-system` eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt öffnet sich die Cypress Oberfläche
+5. "E2E Testing" in der Cypress Oberfläche auswählen
+6. Browser mit dem getestet werden soll auswählen
+
+### Cypress Tests ausführen
+
+Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer\*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer\*innen für ihre Konfiguration der Testdateien genutzt werden könnten.
+
+Einige Testfälle sind gruppiert in Ordner!
+
+**Session-Management/hot-restart-mode** und **Session-Management/hot-return-mode**
+
+Hier werden die Grundfunktionen der Modi: `hot-restart` und `hot-return` getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten wie vorgesehen:
+
+* hot-restart: Bei erneuter Anmeldung wird eine neue Person angenommen und der Test wird neu gestartet
+* hot-return: Bei erneuter Anmeldung wird die selbe Testperson angenommen und der Test wird fortgesetzt
+
+**Session-Management/time-restrictions**
+
+Es wird die Funktion zeitlicher Beschränkungen in Testheftblöcken getestet.
+
+**Test-Controller/RunHotRestart** und **Test-Controller/RunHotReturn**
+
+Es werden alle [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html) gelisteten Funktionen der beide Modi getestet (ausgenommen der bereits im Session-Management getesteten Funktionen).
+
+::: {.callout-note}
+Die Testschritte sind so geschrieben, dass relativ einfach herauszulesen ist was diese Schritte tun, also was damit getestet wird.
+:::
+
+### Wo ist der Code der Tests zu finden
+
+Der Testcode ist im Projektverzeichnis: **/e2e/cypress/e2e** zu finden. Die Struktur der Testfälle ist dann genau so zu sehen wie in der Cypress-Oberfläche. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Beispielaufgaben eingebunden werden sollen, sind diese unter: **/sampledata/system-test** zu hinterlegen. Anschließend müssen sie in der Klasse: **WorkspaceInitializer.class.php** eingetragen werden. Es empfiehlt sich daraufhin das laufende Test-System noch einmal zu stoppen und erneut zu starten mit `make test-system`. Hierbei werden die neuen Daten der Datenbank hinzugefügt.
+

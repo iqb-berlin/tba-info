@@ -1,8 +1,33 @@
 ---
 lang: de
-title: "Typische Probleme"
+title: "Troubleshooting"
 ---
 
-::: {.callout-note}
-Diese Seite ist in Berabeitung!
-:::
+Die Online-Testung mit dem IQB-Testcenter erfolgt über den Browser. Es handelt sich also beim Testcenter nicht um eine unabhängige Software. Der Vorteil ist, dass man nichts installieren muss vorher und der Test durch Software erfolgen kann, die auf jedem Computer verfügbar ist. Der Nachteil ist, dass das Funktionieren der Testung von vielen Faktoren abhängig ist, auf die die Programmierung keinen oder wenig Einfluss hat. Es sind viele Betriebssysteme in Nutzung, viele Versionen, viele Browser, und man kann durch Einstellungen auf dem System das Verhalten dieser Komponenten und damit des Tests drastisch verändern. Im Extremfall kann durch ein Update irgendeines Browsers die Testung komplett scheitern.
+
+## Generelle Hinweise
+
+1. Ein einfaches **Neuladen der Seite** hilft manchmal. Eine Testperson muss sich in diesem Fall nicht neu anmelden und landet sofort bei der Aufgabe, die zuletzt bearbeitet wurde. Wenn für die Bearbeitung einer Aufgabenfolge eine Maximalzeit gesetzt wurde, dann wird die vor dem Neuladen verstrichene Zeit abgezogen und man startet also nicht neu.
+2. Zwischenspeicher (**Cache**) des Browsers löschen: Manchmal speichert der Browser Teile der Programmierung. Sollte aber auf dem Server eine neue Version dieser Programmierung vorliegen, muss diese unbedingt geladen werden - sonst funktioniert die Kommunikation mit dem Server nicht. Die Vorgehensweise ist [hier](https://www.go4u.de/browser-cache-leeren.htm) beschrieben. 
+3. Browser-**Plugins** deaktivieren/deinstallieren: Es gibt abenteuerliche Erweiterungen für Browser, die mehr Sicherheit, bessere Performance, weniger Werbung, mehr Privatsphäre usw. versprechen. Oft greifen diese Erweiterungen aber massiv in die Kommunikation des Browsers mit dem Server ein und verfälschen Daten. Bei Problemen sollte man also diese Add-Ons usw. zumindest zeitweise deaktivieren.
+4. **Anderen Browser** benutzen: Die Web-Standards werden unterschiedlich durch die Browser implementiert. Daher lohnt es sich bei Problemen, auf einen anderen Browser zu wechseln.
+
+## Fehler berichten
+
+### Hotline
+
+Die Verantwortlichen einer Studie bzw. die Kolleg:innen der Hotline können oft helfen, wenn sie Informationen über das Problem bekommen. Bei einem Fehlerbericht sollten stets folgende Informationen dabei sein:
+
+* Name und Version des Betriebssystems, z. B. Windows 10
+* Name und Version des Browsers, z. B. Firefox 100.0.2 (64-Bit)
+* Version des Testcenters (zu finden bei Startbildschirm, dann Impressum/Datenschutz), z. B. Version 12.1.7/12.4.1/4.0.3
+
+Es reicht ein Screenshot mit einem Handy, dann spart man sich viel Text. Ansonsten bitte die Fehlersituation so genau wie möglich beschreiben.
+
+### Meldung an das Entwicklerteam
+
+Über die obigen Daten hinaus kann man noch mehr Informationen schicken, wenn das Problem dem Entwicklerteam vorgelegt werden soll:
+
+* Interne Meldungen des Browsers: Man kann (außer bei iPads) bei Browsern ein Fenster öffnen, wo der Browser eventuell weitere Fehlermeldungen hineinschreibt. Wie man diese sog. Konsole aktiviert, ist [hier](https://support.monday.com/hc/de/articles/360002197259-So-%C3%B6ffnet-man-die-Entwicklerkonsole) beschrieben.
+* Protokolle des Servers: Die Person, die die Installation auf dem Server vorgenommen hat, kann in den Docker-Containern für die Datenbank, den Broadcasting-Service und die API (php) die Logs einsehen und schicken.
+
