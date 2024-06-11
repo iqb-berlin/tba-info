@@ -1,5 +1,5 @@
 ---
-title: "Testcenter: Lastverhalten"
+title: "Lastverhalten"
 lang: de
 date: 2024-01-22
 date-modified: 2024-06-10
@@ -178,5 +178,5 @@ Folgende Überlegungen gehen in die weitere Entwicklung der Lasttests ein:
 
 * Sollte das Verhalten nachgebildet werden, dass nach dem ersten Block bereits eine Bearbeitung starten kann? Allerdings könnte man dann den gesamten Test auf den ersten Block begrenzen.
 * Sollte man das Frontend mit einbeziehen? Dessen Ladezeit zu Beginn ist eventuell nicht unerheblich.
-* Das Anlegen und dann wieder Löschen von 2.000 Logins entspricht dem realen Use Case, ist aber sehr aufwändig. Könnte ein Login im Modus `RUN-HOT-RESTART` hinreichend sein für die Ermittlung der Kapazität?
+* Das Anlegen und dann wieder Löschen von 20.000 Logins entspricht dem realen Use Case, ist aber sehr aufwändig. Könnte ein Login im Modus `RUN-HOT-RESTART` hinreichend sein für die Ermittlung der Kapazität?
 * Es gibt sehr viele potenzielle Faktoren serverseitig, die das Laden beeinflussen können. Um den Anteil herauszurechnen, der durch die Programmierung bzw. die Architektur des Testcenters verursacht wird, müsste man eine Art Kalibrierung vornehmen -- also einen Ladevorgang simulieren mit dem effizientesten Verfahren, das ein Server bieten könnte.
