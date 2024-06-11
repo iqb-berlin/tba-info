@@ -1,0 +1,38 @@
+---
+lang: de
+title: "Testcenter Installation"
+---
+
+Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) beschrieben.
+
+Allerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. In freier Wildbahn ist ein Server vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese "SysOp" genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. "Systemhaus") eingebunden werden. Sonst kann der Server schnell offline gehen -- durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.
+
+Die Seiten in diesem Bereich decken schrittweise Themen ab, die für einen SysOp interessant sein könnten. Sie spiegeln zunächst die Erfahrungen des IQB wider, diskutieren aber auch Aspekte, die durch Partner vorgebracht wurden.
+
+* Lastverhalten, Abschätzung der Kapazität
+* Datensicherheit
+* Datenschutz
+* [Offline-Installation](offline.qmd)
+
+Nachfolgend sprechen wir einige Themen kurz an, nach denen wir zwar oft gefragt werden, zu denen wir aber aktuell keine Lösung anbieten -- teils, weil andere Funktionen wichtiger waren, teils weil wir es nicht als unsere Aufgabe sehen.
+
+## Servermonitoring
+
+Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährtet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.
+
+Das IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als [Infrastruktur](https://github.com/iqb-berlin/traefik). Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloudanbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.
+
+Was wir uns allerdings vorgenommen haben, ist die Einrichtung von Server-Endpunkten für einen sog. Health-Check.
+
+## Backup
+
+Die IQB-Webanwendungen verfügen nicht über einen eingebauten Backup-Mechanismus. Teilweise gibt es zwar Versionsmanagement oder Undo-/Redo-Funktion, aber serverseitig muss ein SysOp die Möglichkeit der Wiederherstellung verlorengegangener Daten organisieren.
+
+Das IQB praktiziert zwei Wege
+
+1. Sichern eines kompletten Servers: Vor Updates oder einmal in der Woche wird der gesamte Server samt Betriebssystem als sog. Image gespeichert.
+2. Sichern der Laufwerke, die an die Docker-Container gebunden sind sowie Datenbank-Dump. Hier muss zeitweise ein Nutzerzugriff unterbunden werden (Aktivieren einer Wartungsseite).
+
+## ssh / Zertifikate
+
+Wir empfehlen dringend, den direkten Zugriff für Systemadmins auf ssh (zertifikatbasiert) zu beschränken. Ein Verlust von Zugangsdaten kann dann keinen Schaden anrichten.
