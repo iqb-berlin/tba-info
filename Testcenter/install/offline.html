@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Huaning Yang">
 
-<title>TBA-Verstehen und Anwenden - TBA Blog</title>
+<title>TBA-Verstehen und Anwenden - Offline-Szenario</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.ico" rel="icon">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -57,80 +90,22 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -140,25 +115,25 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./IQB-klein.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../IQB-klein.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">TBA-Verstehen und Anwenden</span>
     </a>
   </div>
         <div class="quarto-navbar-tools tools-end">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
+          <div id="quarto-search" class="" title="Suchen"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">TBA Blog</li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Offline-Szenario</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -171,43 +146,43 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Start</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Einfuehrung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Einfuehrung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Testcenter/intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testcenter</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/Daten_und_Prozesse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten und Prozesse</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Daten_Download.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Daten_Download.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten Download</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Daten_Upload.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Daten_Upload.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten Upload</span></a>
   </div>
 </li>
@@ -215,40 +190,40 @@ window.Quarto = {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Verwaltung_und_Organisation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Verwaltung_und_Organisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verwaltung und Organisation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/System_Check.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/System_Check.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">System Check</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Gruppenmonitor.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Gruppenmonitor.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Testcenter/Studien_Durchfuehrung.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/Studien_Durchfuehrung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studiendurchführung</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Studien_Durchfuehrung_Vorbetrachtung.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Studien_Durchfuehrung_Vorbetrachtung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorbetrachtungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Studienverhalten_konfigurieren.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Studienverhalten_konfigurieren.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Konfiguration</span></a>
   </div>
 </li>
@@ -256,13 +231,33 @@ window.Quarto = {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Typische_Probleme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Typische Probleme</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../install/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">install/load-test.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">install/security.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">install/offline.qmd</span>
+  </li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Testcenter/Testen_der_Anwendung.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Testen_der_Anwendung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testen der Anwendung</span></a>
   </div>
 </li>
@@ -270,40 +265,40 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Studio/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
  <span class="menu-text">Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/Aufgabenkodierung.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/Aufgabenkodierung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgabenkodierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/Anmeldeverfahren.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/Anmeldeverfahren.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anmeldeverfahren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/Geogebra.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/Geogebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Geo-Gebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/Modi_der_Testdurchfuehrung.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/Modi_der_Testdurchfuehrung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Modi der Testdurchführung</span></a>
   </div>
 </li>
@@ -312,25 +307,25 @@ window.Quarto = {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/Mehr_zu_Xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/Mehr_zu_Xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mehr zu XML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/XML_zur_Studien_Definition.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/XML_zur_Studien_Definition.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">XML zur Studien-Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/XML_zur_Testheft_Definition.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/XML_zur_Testheft_Definition.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">XML zur Testheft-Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Referenzen/XML_zur_Aufgaben_Definition.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">XML zur Aufgaben-Definition</span></a>
   </div>
 </li>
@@ -338,46 +333,46 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
  <span class="menu-text">Videothek</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videothek/Aufgaben_Editoren.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Videothek/Aufgaben_Editoren.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben Editoren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videothek/Gruppenmonitor.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Videothek/Gruppenmonitor.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videothek/Studio.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Videothek/Studio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videothek/Tba_Einfuehrung.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Videothek/Tba_Einfuehrung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TBA Einführung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videothek/Testcenter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Videothek/Testcenter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testcenter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videothek/Testdateien.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Videothek/Testdateien.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testdateien</span></a>
   </div>
 </li>
@@ -389,21 +384,44 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="architektur">architektur <span class="quarto-category-count">(2)</span></div><div class="category" data-category="loadtest">loadtest <span class="quarto-category-count">(1)</span></div><div class="category" data-category="opensource">opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="performance">performance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="player">player <span class="quarto-category-count">(1)</span></div><div class="category" data-category="testcenter">testcenter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="verona">verona <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link active" data-scroll-target="#vorbereitung">Vorbereitung</a></li>
+  <li><a href="#installation-testcenter" id="toc-installation-testcenter" class="nav-link" data-scroll-target="#installation-testcenter">Installation Testcenter</a></li>
+  <li><a href="#lokaler-dns-server" id="toc-lokaler-dns-server" class="nav-link" data-scroll-target="#lokaler-dns-server">Lokaler DNS Server</a></li>
+  <li><a href="#bereinigung-des-testcenters" id="toc-bereinigung-des-testcenters" class="nav-link" data-scroll-target="#bereinigung-des-testcenters">Bereinigung des Testcenters</a></li>
+  <li><a href="#umgebungsvariable-tls_enabled" id="toc-umgebungsvariable-tls_enabled" class="nav-link" data-scroll-target="#umgebungsvariable-tls_enabled">Umgebungsvariable: TLS_ENABLED</a></li>
+  <li><a href="#lange-startzeiten-des-testcenters-umgehen" id="toc-lange-startzeiten-des-testcenters-umgehen" class="nav-link" data-scroll-target="#lange-startzeiten-des-testcenters-umgehen">Lange Startzeiten des Testcenters umgehen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TBA Blog</h1>
+<h1 class="title">Offline-Szenario</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Huaning Yang <a href="mailto:huaning.yang@iqb.hu-berlin.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2. Mai 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -413,125 +431,78 @@ window.Quarto = {
 </header>
 
 
+<p>Das IQB-Testcenter ist eine Webanwendung, d.&nbsp;h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.</p>
+<p>Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.</p>
+<section id="vorbereitung" class="level1">
+<h1>Vorbereitung</h1>
+<ul>
+<li>Installation von <a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Docker</a> und <a href="https://docs.docker.com/compose/install/standalone/#on-linux">Docker-Compose</a> sowie <em>make</em></li>
+<li>Router im Access Point Modus</li>
+<li>(Optional) Installation von <em>dnsmasq</em> für lokalen DNS Server</li>
+</ul>
+<p>Wenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> Netzwerk.</p>
+<p>Um die Wiederverwendbarkeit zu erleichtern empfehle ich ein neues Profil für diese Verbindung anzulegen.</p>
+<p>Das wichtige ist, dass <strong>Make available to other users</strong> unter Details und <strong>Shared to other computers</strong> unter IPv4 aktiviert sind.</p>
+<p>Nach Erstellung des Profils sollte es so aussehen:</p>
+<p><img src="offline1.png" class="img-fluid"></p>
+<p><img src="offline2.png" class="img-fluid"></p>
+</section>
+<section id="installation-testcenter" class="level1">
+<h1>Installation Testcenter</h1>
+<p>Dem <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guide</a> für die Installation des Testcenters folgen. Während man das Installationsskript (<code>install.sh</code>) ausführt gibt es einige Schritte die zu beachten sind.</p>
+<p>Unter <strong>HOSTNAME</strong> muss entweder die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel <strong>10.42.0.1</strong>) oder eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan), allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines lokalen DNS Servers.</p>
+<p>Außerdem sollte die Setup-Frage “<strong>Use TLS?</strong>” mit <strong>N</strong> (No) beantwortet werden.</p>
+<p>Man sollte den weiteren Hinweisen des <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guides</a> ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden können und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet.</p>
+</section>
+<section id="lokaler-dns-server" class="level1">
+<h1>Lokaler DNS Server</h1>
+<p>Um einen lokalen DNS Server zu starten können Tools wie <a href="https://wiki.ubuntuusers.de/Dnsmasq/">dnsmasq</a> oder <a href="https://wiki.ubuntuusers.de/DNS-Server_Bind/">bind</a> verwendet werden. Dieser Guide verwendet dnsmasq.</p>
+<p>Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse hinzugefügt werden. Dies kann man z.B. mit nano erledigen:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/dnsmasq.conf</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dort diese Regel hinzufügen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/#/x.x.x.x</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Für x muss der vorher ausgewählte Hostname eingesetzt werden und für <code>x.x.x.x</code> die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/iqb-testcenter.lan/10.42.0.1</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dnsmasq.service</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.</p>
+<p>Dieser lokaler DNS Server wurde in einer Umgebung getestet in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.</p>
+</section>
+<section id="bereinigung-des-testcenters" class="level1">
+<h1>Bereinigung des Testcenters</h1>
+<p>Möchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">make</span> down </span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">docker</span> rm <span class="at">-f</span> <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">docker</span> volume rm <span class="va">$(</span><span class="ex">docker</span> volume ls <span class="at">-q</span><span class="va">)</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">docker</span> rmi <span class="va">$(</span><span class="ex">docker</span> images <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>beendet die Anwendung.</li>
+<li>entfernt alle Container.</li>
+<li>entfernt alle Volumes.</li>
+<li>entfernt dann alle Images.</li>
+</ol>
+<p>Danach kann das bisherige Installationsverzeichnis gelöscht werden.</p>
+</section>
+<section id="umgebungsvariable-tls_enabled" class="level1">
+<h1>Umgebungsvariable: TLS_ENABLED</h1>
+<p>Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen. Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .env</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Und dann den Wert der Umgebungsvariable <code>TLS_ENABLED</code> wie folgt setzen:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">TLS_ENABLED</span><span class="op">=</span>no</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="lange-startzeiten-des-testcenters-umgehen" class="level1">
+<h1>Lange Startzeiten des Testcenters umgehen</h1>
+<p>Das Testcenter validiert standardmäßig beim Starten alle Units, Booklets sowie Testtaker. Dies kann bei einer hohen Anzahl von Booklets und Testtakern zur einer sehr hohen Startzeit führen.</p>
+<p>Dies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Instalationsordner des Testcenters durchführen:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In der zweiten Konsole dann diesen Befehl ausführen:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “<strong>make stop</strong>” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="loadtest,testcenter,performance" data-listing-date-sort="1674345600000" data-listing-file-modified-sort="1718111731491" data-listing-date-modified-sort="1674950400000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1842">
-<div class="thumbnail">
-<p><a href="./posts/TC-Load.html" class="no-external"></a></p><a href="./posts/TC-Load.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/TC-Load.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/TC-Load.html" class="no-external">Testcenter: Lastverhalten</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/TC-Load.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('loadtest'); return false;">
-loadtest
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('testcenter'); return false;">
-testcenter
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('performance'); return false;">
-performance
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/TC-Load.html" class="no-external">Wie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/TC-Load.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="verona,architektur,player" data-listing-date-sort="1673136000000" data-listing-file-modified-sort="1718111731491" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="833">
-<div class="thumbnail">
-<p><a href="./posts/Checkliste-Player-Integration.html" class="no-external"></a></p><a href="./posts/Checkliste-Player-Integration.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Checkliste-Player-Integration.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Checkliste-Player-Integration.html" class="no-external">Integration eines Verona-Players</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Checkliste-Player-Integration.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('verona'); return false;">
-verona
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('architektur'); return false;">
-architektur
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('player'); return false;">
-player
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Checkliste-Player-Integration.html" class="no-external">Wenn man in eine Webanwendung für computerbasiertes Testen einen Verona-Player integrieren möchte, kann das Probleme bereiten. Was sind die Voraussetzungen?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Checkliste-Player-Integration.html" class="no-external">
-<div class="listing-date">
-Jan 8, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="verona,architektur,opensource" data-listing-date-sort="1673136000000" data-listing-file-modified-sort="1718111731491" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1330">
-<div class="thumbnail">
-<p><a href="./posts/Verona-vs-Datenformat.html" class="no-external"></a></p><a href="./posts/Verona-vs-Datenformat.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Verona-vs-Datenformat.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Verona-vs-Datenformat.html" class="no-external">Diskurs Verona vs.&nbsp;Datenformat</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Verona-vs-Datenformat.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('verona'); return false;">
-verona
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('architektur'); return false;">
-architektur
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opensource'); return false;">
-opensource
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Verona-vs-Datenformat.html" class="no-external">Das Plugin-Prinzip der TBA-Webanwendungen ist umstritten. Was sind Vor- und Nachteile?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Verona-vs-Datenformat.html" class="no-external">
-<div class="listing-date">
-Jan 8, 2023
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -586,12 +557,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -954,7 +925,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
 <p><i class="fa-solid fa-house" aria-label="house"></i></p>
 </a>
   </li>  
@@ -968,7 +939,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
