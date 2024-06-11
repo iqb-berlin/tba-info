@@ -5,15 +5,15 @@ title: "Testen der Anwendung"
 
 ## Einführung
 
-Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer\*innen getestet werden. Diese Art der Testung nennt sich **End-to-end-Testung** oder auch **Akzeptanztest**. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es können mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werde. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben getestet werden
+Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer\*innen getestet werden. Diese Art der Testung nennt sich **End-to-end-Testung** oder auch **Akzeptanztest**. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werde. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden
 
-Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen **E2E-Testungen** und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests noch manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer\*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.
+Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen **E2E-Testungen** und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer\*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.
 
 Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge geben, einfach weil das IQB sich sehr viel damit beschäftigt hat.
 
 ## Eigene Testszenarien entwerfen
 
-Eine E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Wenn möglich planen Sie diese Zeiträume daher rechtzeitig ein und beginnen Sie ehr früher als später. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein zweites Mal provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter Dokumentation erreicht. Entwurfsphase und entsprechende Vorüberlegungen sind also genauso wichtig, wie die eigentliche Durchführung der Testung.
+Eine E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.
 
 Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist einmal bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.
 
@@ -54,7 +54,7 @@ Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt üb
 * alle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein
 
 ::: {.callout-tip}
-Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die das Organisieren von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. **Testomat.io** und **Testbench** genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind.
+Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. **Testomat.io** und **Testbench** genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.
 :::
 
 #### Automatisiertes Testen
@@ -68,7 +68,7 @@ Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter
 * Pflege und Aktualisierung können je nach eingesetzter Software aufwändig werden
 * zusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig
 
-Wurde sich für das automatisierte Testen entschieden, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug **Cypress** zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.
+Ist eine Entscheidung für das automatisierte Testen gefallen, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug **Cypress** zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.
 
 Hier ein kleines Beispiel, wie ein sehr einfacher Test mit Cypress aussehen könnte:
 
@@ -95,10 +95,10 @@ describe('Check Google', () => {
 ```
 ## E2E-Tests des IQB verwenden
 
-Wie eingangs bereits erwähnt sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können. 
+Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können. 
 
 ::: {.callout-note}
-Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann an dieser Stelle keine Aussage getroffen werden, ob die nachfolgenden Schritte genauso funktionieren.
+Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann hinsichtlich der Funktionalität der nachfolgend genannten Schritte keine Aussage getroffen werden.
 :::
 
 ### Welche Software wird benötigt?
