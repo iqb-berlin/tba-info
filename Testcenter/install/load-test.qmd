@@ -1,21 +1,17 @@
 ---
 title: "Testcenter: Lastverhalten"
-description: "Wie sieht ein sinnvoller Lasttest aus? Ermittlung der Serverkapazität der Version 15."
 lang: de
-date: "1/22/2023"
-date-modified: "1/29/2023"
-categories:
-  - loadtest
-  - testcenter
-  - performance
+date: 2024-01-22
+date-modified: 2024-06-10
 execute:
   echo: false
 ---
+
 # Vorüberlegungen
 
 ## Ziel
 
-Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wie viele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.
+Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.
 
 Unter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.
 
@@ -83,9 +79,42 @@ Bevor man nun die teure Serverkapazität erhöht sollte man sicherstellen, dass 
 * Aufsetzen mehrerer getrennter Server jeweils mit einer Testcenter-Installation; Aufteilen der Testpopulation mit fixer Zuweisung des Servers; späteres manuelles Zusammenführen der Antwortdaten,
 * (derzeit noch nicht verfügbar) Installation des Testcenters auf einem System mit Lastverteilung (z. B. Kubernetes), wodurch die Administration erleichtert wird; Achtung: Auch in diesem Fall muss eine höhere Serverausstattung bereitgestellt werden (die Synchronisation der Datenbank-Inhalte erzeugt zusätzliche Last).
 
-# Vergleich Testcenter Versionen 14 und 15
+# Lasttest Version 15
 
-* Serverausstattung des Testcenters: 8 CPUs, 16 GB RAM (virtueller Cloud-Server bei Ionos)
+Serverausstattung des Testcenters: 8 CPUs, 16 GB RAM (virtueller Cloud-Server bei Ionos); Dezember 2023
+
+
+```{ojs}
+data = FileAttachment("load-test.csv").csv({ typed: true })
+```
+
+```{ojs}
+//| fig-cap: "Ladezeit in Abhängigkeit der Personenzahl"
+Plot.plot({
+  style: "overflow: visible;",
+  y: {grid: true},
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(data, {x: "users", y: "complete_time_s", stroke: "size"}),
+    Plot.text(data, Plot.selectLast({x: "users", y: "complete_time_s", z: "size", text: "size", textAnchor: "start", dx: 3}))
+  ]
+})
+```
+
+```{ojs}
+//| fig-cap: "Abbruch in Abhängigkeit der Personenzahl"
+Plot.plot({
+  style: "overflow: visible;",
+  y: {grid: true},
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(data, {x: "users", y: "error_count", stroke: "size"}),
+    Plot.text(data, Plot.selectLast({x: "users", y: "error_count", z: "size", text: "size", textAnchor: "start", dx: 3}))
+  ]
+})
+```
+
+## Vergleich mit Version 14
 
 Größe Content | Users | Version | Ladezeit Median sec | Errors
 -- | --: | -- | --: | --:
@@ -143,44 +172,11 @@ Größe Content | Users | Version | Ladezeit Median sec | Errors
 
 : Lastvergleich Testcenter Versionen 14 und 15, Dezember 2023 {.hover}
 
-```{ojs}
-data = FileAttachment("lasttest.csv").csv({ typed: true })
-```
+# Weiterentwicklung
 
-```{ojs}
-viewof versions = Inputs.checkbox(
-  ["v14.13", "v15-rc9"], 
-  { value: ["v14.13", "v15-rc9"], 
-    label: "Testcenter-Version:"
-  }
-)
-```
+Folgende Überlegungen gehen in die weitere Entwicklung der Lasttests ein:
 
-```{ojs}
-filtered = data.filter(function(penguin) {
-  return versions.includes(penguin.version);
-})
-```
-
-```{ojs}
-Plot.plot({
-  style: "overflow: visible;",
-  y: {grid: true},
-  marks: [
-    Plot.ruleY([0]),
-    Plot.lineY(filtered, {x: "users", y: "complete_time_ms", stroke: "size"}),
-    Plot.text(filtered, Plot.selectLast({x: "users", y: "complete_time_ms", z: "size", text: "size", textAnchor: "start", dx: 3}))
-  ]
-})
-```
-```{ojs}
-Plot.plot({
-  style: "overflow: visible;",
-  y: {grid: true},
-  marks: [
-    Plot.ruleY([0]),
-    Plot.lineY(filtered, {x: "users", y: "error_count", stroke: "size"}),
-    Plot.text(filtered, Plot.selectLast({x: "users", y: "error_count", z: "size", text: "size", textAnchor: "start", dx: 3}))
-  ]
-})
-```
+* Sollte das Verhalten nachgebildet werden, dass nach dem ersten Block bereits eine Bearbeitung starten kann? Allerdings könnte man dann den gesamten Test auf den ersten Block begrenzen.
+* Sollte man das Frontend mit einbeziehen? Dessen Ladezeit zu Beginn ist eventuell nicht unerheblich.
+* Das Anlegen und dann wieder Löschen von 2.000 Logins entspricht dem realen Use Case, ist aber sehr aufwändig. Könnte ein Login im Modus `RUN-HOT-RESTART` hinreichend sein für die Ermittlung der Kapazität?
+* Es gibt sehr viele potenzielle Faktoren serverseitig, die das Laden beeinflussen können. Um den Anteil herauszurechnen, der durch die Programmierung bzw. die Architektur des Testcenters verursacht wird, müsste man eine Art Kalibrierung vornehmen -- also einen Ladevorgang simulieren mit dem effizientesten Verfahren, das ein Server bieten könnte.
