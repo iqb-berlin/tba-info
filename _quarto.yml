@@ -14,9 +14,6 @@ website:
     search: true
     logo: IQB-klein.png
     background: '#536171'
-    right:
-      - icon: github
-        href: https://github.com/iqb-berlin/tba-info
   page-footer:
     border: true
     background: light
@@ -24,8 +21,11 @@ website:
       - text: "IQB 2024"
         href: https://www.iqb.hu-berlin.de
     left:
-      - href: index.qmd
-        text: "{{< fa house >}}"
+      - text: "{{< fa house >}}"
+        href: index.qmd
+      - icon: github
+        href: https://github.com/iqb-berlin/item-table
+        aria-label: Source Code
   sidebar: 
     style: "floating"
     lang: de
@@ -38,14 +38,12 @@ website:
       - section: "Testcenter"
         href: Testcenter/intro.qmd
         contents:
-          - Testcenter/Installation.qmd
           - section: "Daten und Prozesse"
             href: Testcenter/Daten_und_Prozesse.qmd
             contents: 
             - Testcenter/Daten_Download.qmd
             - Testcenter/Daten_Upload.qmd
           - Testcenter/Verwaltung_und_Organisation.qmd
-          - Testcenter/Testmethodik.qmd
           - Testcenter/System_Check.qmd
           - Testcenter/Gruppenmonitor.qmd
           - section: "Studiendurchführung" 
@@ -58,12 +56,6 @@ website:
       - section: "Studio"
         href: Studio/intro.qmd
         contents:
-      - section: "Kodierbox"
-        href: Kodierbox/intro.qmd
-        contents:
-      - section: "Schritt für Schritt"
-        contents:
-          - Schritt_fuer_Schritt/Studie_durchfuehren.qmd
       - section: "Referenzen"
         contents:
           - Referenzen/Aufgabenkodierung.qmd
