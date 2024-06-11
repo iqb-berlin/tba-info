@@ -214,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Testcenter: Lastverhalten</span></a>
+ <span class="menu-text">Lastverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -425,13 +425,13 @@ Geplante Weiterentwicklung
 <p>Das IQB-Testcenter wird perspektivisch an eine Identitätsverwaltung über OpenID Connect angeschlossen. Damit wird die Vergabe der Kennworte ausgelagert und kann dann bis zur Zweifaktor-Authentifizierung gehen.</p>
 </div>
 </div>
-<p>Seit der Version 15.1.7 ist eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.</p>
+<p>Seit der Version 15.1 ist eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.</p>
 </section>
 <section id="testpersonen" class="level2">
 <h2 class="anchored" data-anchor-id="testpersonen">Testpersonen</h2>
-<p>Die Anmeldung einer Person, die einen Test oder eine Befragung ausführen soll, gilt nicht als Login. Dies ist vielmehr in Analogie zu sehen wie das Füllen eines Warenkorbes ohne Account. Folgende Use Cases verhindern die übliche Sichtweise ‘Login’:</p>
+<p>Die Anmeldung einer Person, die einen Test oder eine Befragung ausführen soll, gilt nicht als Login. Dies ist vielmehr zu sehen wie das Füllen eines Warenkorbes ohne Account. Folgende Use Cases verhindern die übliche Sichtweise ‘Login’:</p>
 <ol type="1">
-<li>Es muss durch das Testcenter auch abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer/*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus <code>RUN-HOT-RESTART</code>).</li>
+<li>Es muss durch das Testcenter auch abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus <code>RUN-HOT-RESTART</code>).</li>
 <li>Ein Test soll nur durch die Eingabe eines Link/einer Url gestartet werden können. Dann wird KEIN Kennwort vergeben.</li>
 </ol>
 <p>Diese Szenarien bedeuten aus der Sicht der Datensicherheit, dass eine Anmeldung einer Testperson keiner Kennwortrichtlinie unterliegen muss. Der potenzielle Datenverlust besteht auch nur in einer unbeabsichtigten Veröffentlichung von Testitems, die ggf. vertraulich bleiben sollen. Es ist kein Zugriff auf Daten anderer möglich.</p>
@@ -860,8 +860,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Testcenter/install/load-test.html" class="pagination-link" aria-label="Testcenter: Lastverhalten">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Testcenter: Lastverhalten</span>
+      <a href="../../Testcenter/install/load-test.html" class="pagination-link" aria-label="Lastverhalten">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lastverhalten</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
