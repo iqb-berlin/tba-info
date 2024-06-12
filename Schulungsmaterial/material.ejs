@@ -29,6 +29,9 @@
                         <%= item.link.text %>
                     </a>
                 </div>
+                <% if (typeof item["video-length"] === "string") { %>
+                    <div class="listing-date">Länge: <%= item["video-length"] %></div>
+                <% } %>
                 <div class="listing-author">Autor*in: <%= item.author %></div>
                 <div class="listing-date">Datum: <%= item.date %></div>
                 <div class="listing-date">Lizenz: 
