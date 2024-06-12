@@ -4,8 +4,9 @@ Dieses Repo enthält alle Texte und Bilder für die Dokumentation "TBA-info". Es
 
 ## to do
 
-* link zu GitHub-Wiki auf https://iqb-berlin.github.io/ entfernen, wenn Wiki in Quarto portiert
 * Navbar: Logo und Text nicht auf gleicher Höhe
 * callout-importantLinks: Text nicht mittig im Feld
-* wo sollen LInks zu wichtigen Repo
+* FAQ anpassen
+* Schritt für Schritt Studie durchführen
+* wenn altes Wiki gelöscht, Daten in Assets löschen
 

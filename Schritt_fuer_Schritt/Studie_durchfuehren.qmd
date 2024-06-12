@@ -1,8 +1,133 @@
 ---
 lang: de
-title: "Studie durchführen"
+title: "Studie durchführen mit dem Testcenter"
 ---
 
 ::: {.callout-note}
 Diese Seite ist noch in Bearbeitung und wird demnächst mit Inhalten gefüllt.
 :::
+
+::: {.callout-note}
+Vor der Durchführung dieser Schritt für Schritt Anleitung, wird empfohlen zuvor alle Texte im Kapitel: **Testcenter** zu lesen. An dieser Stelle finden keine Erklärungen zu Themen statt, die bereits an anderer Stelle erfolgt sind. 
+:::
+
+An dieser Stelle soll eine kleine exemplarische Studien durchgeführt werden. Anwender\*innen sollen so ein besseres Gefühl für das Testcenter bekommen.
+
+## Anforderungen an die Studie
+
+Die Studie soll aus insgesamt 2 Aufgaben bestehen. Es soll eine Seite zur Begrüßung und eine weitere zur Verabschiedung geben. In Aufgabe 1 soll ein Audio abgespielt werden und anschließend soll eine einfache Frage dazu beantwortet werden. Das Weiterblättern zur Aufgabe 2 soll erst erlaubt sein, wenn die Frage zum Audio beantwortet wurde (Pflichtfeld). In Aufgabe 2 wird ein Video angezeigt und es werden Fragen dazu gestellt. Die Aufgabe kann auch ohne Beantwortung verlassen werden, sprich es kann jederzeit in die Aufgabe davor oder dahinter navigiert werden. Die Aufgaben 1 und 2 sollen sich in einem Block befinden. Der Block kann erst betreten werden, wenn das richtige Freigabewort eingegeben wurde. Außerdem soll der Block über eine Zeitbeschränkung von 3 Minuten verfügen. Sind die 3 Minuten abgelaufen, wird der Block gesperrt und darin befindlichen Aufgaben sind dann nicht mehr sichtbar. Zur Navigation soll eine entsprechende Navigationsleiste mit den Nummern der Aufgaben angezeigt werden. Außerdem soll ein Navigationsmenu zu sehen sein mit welchem der Test auch beendet werden kann. Im Kopf soll der Aufgabenname angezeigt werden. Der Test soll im Modus: **run-hot-return** durchgeführt werden. Der Test kann nach Beendigung jederzeit weiter bearbeitet werden. Natürlich nur solange die Blockzeit noch nicht abgelaufen ist. Es sollen nur 3 Testpersonen Zugriff auf die Studie haben. Diese müssen sich mit Namen und Passwort am Testcenter anmelden. Weiterhin ist ein Gruppenmonitor vorzusehen mit dem der Bearbeitungsstand der 3 Testpersonen verfolgt werden kann.
+
+## 1. Die Testdateien
+
+Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören zum einen die Aufgaben, die während einer Studie angezeigt werden sollen und zum anderen die Dateien, die die Studien bzgl. der oben genannten Anforderungen gestalten (XML zur Studien-Definition und XML zur Testheft-Definition)
+
+Sind die Aufgabe nach den oben genannten Anforderungen entworfen, können diese aus dem IQB-Studio exportiert werden. Hierbei kann auch die zu den Aufgaben passende Player-HTML exportiert werden. Außerdem kann die XML zur Studien-Definition und zur Testheft-Definition konfiguriert und exportiert werden.
+
+Um die oben genannten Anforderungen zu erfüllen, sollten die Testdateien wie folgt aussehen:
+
+#### Aufgaben-Definitionen
+
+Jede Aufgaben-Definition besteht mindestens aus 2 Dateien pro Aufgabe, die Aufgaben-XML und die Aufgaben-VOUD. Es können weitere Dateien entstehen, wenn bspw. eine Kodierregel für eine Aufgabe im Studio angelegt wurde. Das ist aber hier nicht der Fall. Nachfolgend sind die 4 Aufgaben-XML zu sehen. Die 4 zugehörigen Aufgaben-VOUD werden hier nicht aufgezeigt. Zur Aufgaben-Definition gehört auch, die in allen Aufgaben-XML deklarierte Player-HTML: **iqb-player-aspect-2.4.11.html**.
+
+Alle Dateien können [hier]() herunterladen werden.
+
+**Begrüßung:**
+
+```{.xml}
+<?xml version="1.0"?>
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
+  <Metadata lastChange="2024-06-11T10:11:04.160Z">
+    <Id>Start</Id>
+    <Label>Begrüßung</Label>
+    <Reference/>
+  </Metadata>
+  <DefinitionRef player="iqb-player-aspect@2.4" editor="iqb-editor-aspect@2.4" lastChange="2024-06-11T10:08:19.476Z">Start.voud</DefinitionRef>
+  <CodingSchemeRef schemer="" lastChange="2024-06-11T10:05:37.073Z"/>
+</Unit>
+```
+**Aufgabe 1:**
+
+```{.xml}
+<?xml version="1.0"?>
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
+  <Metadata lastChange="2024-06-11T10:12:09.243Z">
+    <Id>Aufgabe1</Id>
+    <Label>Aufgabe1</Label>
+    <Reference/>
+  </Metadata>
+  <DefinitionRef player="iqb-player-aspect@2.4" editor="iqb-editor-aspect@2.4" lastChange="2024-06-11T10:31:44.658Z">Aufgabe1.voud</DefinitionRef>
+  <BaseVariables>
+    <Variable id="audio_1" type="number" format="" nullable="false" multiple="false" page=""/>
+    <Variable id="radio_1" type="integer" format="" nullable="false" multiple="false" page="">
+      <Values complete="true">
+        <Value>
+          <label>ja</label>
+          <value>1</value>
+        </Value>
+        <Value>
+          <label>nein</label>
+          <value>2</value>
+        </Value>
+      </Values>
+    </Variable>
+  </BaseVariables>
+  <CodingSchemeRef schemer="iqb-schemer@1.5" lastChange="2024-06-11T10:11:48.387Z"/>
+</Unit>
+```
+
+**Aufgabe 2:**
+
+```{.xml}
+<?xml version="1.0"?>
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
+  <Metadata lastChange="2024-06-11T10:29:33.404Z">
+    <Id>Aufgabe2</Id>
+    <Label>Aufgabe2</Label>
+    <Reference/>
+  </Metadata>
+  <DefinitionRef player="iqb-player-aspect@2.4" editor="iqb-editor-aspect@2.4" lastChange="2024-06-11T10:34:27.069Z">Aufgabe2.voud</DefinitionRef>
+  <BaseVariables>
+    <Variable id="video_1" type="number" format="" nullable="false" multiple="false" page=""/>
+    <Variable id="radio_1" type="integer" format="" nullable="false" multiple="false" page="">
+      <Values complete="true">
+        <Value>
+          <label>Mehr als 10 Autos</label>
+          <value>1</value>
+        </Value>
+        <Value>
+          <label>Die Zeit ist beschleunigt</label>
+          <value>2</value>
+        </Value>
+      </Values>
+    </Variable>
+  </BaseVariables>
+  <CodingSchemeRef schemer="" lastChange="2024-06-11T10:29:33.404Z"/>
+</Unit>
+```
+**Verabschiedung:**
+
+```{.xml}
+<?xml version="1.0"?>
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Unit.xsd">
+  <Metadata lastChange="2024-06-11T10:10:53.384Z">
+    <Id>Ende</Id>
+    <Label>Verabschiedung</Label>
+    <Reference/>
+  </Metadata>
+  <DefinitionRef player="iqb-player-aspect@2.4" editor="iqb-editor-aspect@2.4" lastChange="2024-06-11T10:10:53.445Z">Ende.voud</DefinitionRef>
+  <CodingSchemeRef schemer="" lastChange="2024-06-11T10:10:53.384Z"/>
+</Unit>
+```
+
+**Testheft-Definition**
+
+Nachfolgend ist die XML zur Testheft-Definition zu sehen. Diese ist so konfiguriert, dass die oben genannten Anforderungen erfüllt werden.
+
+
+
+**Studien-Definition**
+
+
+
+
+
