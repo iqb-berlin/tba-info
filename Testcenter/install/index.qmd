@@ -3,7 +3,8 @@ lang: de
 title: "Testcenter Installation"
 ---
 
-Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) beschrieben.
+Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, findet sich
+ [hier](https://iqb-berlin.github.io/tba-info/Testcenter/install/configuration.html).
 
 Allerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. In freier Wildbahn ist ein Server vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese "SysOp" genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. "Systemhaus") eingebunden werden. Sonst kann der Server schnell offline gehen -- durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.
 
@@ -17,7 +18,7 @@ Nachfolgend sprechen wir einige Themen kurz an, nach denen wir zwar oft gefragt 
 
 ## Servermonitoring
 
-Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährtet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.
+Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährdet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.
 
 Das IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als [Infrastruktur](https://github.com/iqb-berlin/traefik). Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloudanbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.
 
