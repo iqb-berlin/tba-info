@@ -1,0 +1,132 @@
+---
+lang: de
+title: "Schritt 1"
+---
+
+## Bereitstellen der Testdateien
+
+Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören zum einen die Aufgaben, die während einer Studie angezeigt werden sollen und zum anderen die Dateien, die die Studien bzgl. der oben genannten Anforderungen gestalten (XML zur Studien-Definition und XML zur Testheft-Definition)
+
+Sind die Aufgabe nach den oben genannten Anforderungen entworfen, können diese aus dem IQB-Studio exportiert werden. Hierbei kann auch die zu den Aufgaben passende Player-HTML exportiert werden. Außerdem kann die XML zur Studien-Definition und zur Testheft-Definition konfiguriert und exportiert werden.
+
+Um die oben genannten Anforderungen zu erfüllen, sollten die Testdateien wie folgt aussehen:
+
+### Aufgaben-Definitionen
+
+Jede Aufgaben-Definition besteht aus mindestens 2 Dateien pro Aufgabe, die Aufgaben-XML und die Aufgaben-VOUD. Es können weitere Dateien entstehen, wenn bspw. eine Kodierregel für eine Aufgabe im Studio angelegt wurde. Das ist aber hier nicht der Fall. Die Aufgaben wurden im IQB-Studio so entworfen, dass sie den oben genannten Anforderungen entsprechen. Zur Aufgaben-Definition gehört auch die in allen Aufgaben-XML deklarierte Player-HTML: **iqb-player-aspect-2.4.11.html**.
+
+::: {.callout-note icon=false}
+## {{< fa download >}} Download Testdateien
+
+* [Begrüßung](Testdateien.zip)
+:::
+
+---
+
+### Testheft-Definition
+
+Nachfolgend ist die XML zur Testheft-Definition dargestellt und wie diese aussehen müsste, um die genannten Anforderungen zu erfüllen. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.
+
+```{.xml}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>TH01</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <BookletConfig>
+    <Config key="unit_show_time_left">ON</Config>
+    <Config key="unit_screenheader">EMPTY</Config>
+    <Config key="unit_menu">FULL</Config>
+    <Config key="force_presentation_complete">ON</Config>
+    <Config key="force_response_complete">ON</Config>
+  </BookletConfig>
+  <Units>
+    <Unit id="Start" label="Begrüßung" labelshort=""/>
+    	<Testlet id="Block1" label="Aufgabenblock1">
+          <Restrictions>
+            <CodeToEnter code="Hase">Bitte gib das Freigabewort ein.</CodeToEnter>
+            <TimeMax minutes="3"/>
+          </Restrictions>
+          <Unit id="Aufgabe1" label="Aufgabe1" labelshort="1"/>
+          <Unit id="Aufgabe2" label="Aufgabe2" labelshort="2"/>
+	    </Testlet>
+    <Unit id="Ende" label="Verabschiedung" labelshort=""/>
+  </Units>
+</Booklet>
+
+```
+Nachfolgend soll näher aufgeführt werden, wie die genannten Anforderungen in dieser XML umgesetzt wurden. 
+
+#### `BookletConfig`
+
+* `key="unit_show_time_left"` mit dem Wert: **ON**:<br>
+Auf diese Weise wird die verbleibende Zeit im Kopf des Testcenters angezeigt.
+
+* `key="unit_screenheader"` mit dem Wert: **EMPTY**:<br>
+Setzt die Anforderung bzgl. Aufgabentitel Anzeige im Kopf der Aufgabe um. An dieser Stelle müsste dieses Attribut nicht explizit einen Wert erhalten, da der Standardwert bereits **EMPTY** ist.
+
+* `key="unit_menu"` mit dem Wert: **FULL**:<br>
+Setzt die Anforderung bzgl. des zusätzlichen Navigationsmenus mit der Möglichkeit der Test Beendigung um.
+
+* `key="force_presentation_complete"` mit dem Wert: **ON**:<br>
+Es darf erst vorwärts geblättert werden, wenn alles gesehen und angehört wurde.
+
+* `key="force_response_complete"` mit dem Wert: **ON**:<br>
+Sind Pflichtelemente enthalten, müssen diese erst bedient werden, bevor vorwärts geblättert werden kann.
+
+::: {.callout-note}
+Welche Werte dem Attribut:`key`zugewiesen werden können, ist der folgenden [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Zu beachten sind hierbei die hervorgehobenen Werte. Diese werden als Standard verwendet, wenn sie nicht explizit in der XML zur Testheft-Definition überschrieben werden.
+:::
+
+#### `Unit`
+
+* `labelshort`:<br>
+Der hier zugewiesene Wert wird in der Navigationsleiste angezeigt. Das sieht dann so aus:![](TC_Labelshort_Unit.png){fig-align="left"}
+
+#### `Testlet`
+Hier wird ein Block erzeugt. Diesem Block werden die beiden Aufgaben 1 und 2 zugewiesen.
+
+* `Restrictions`:<br>
+Hier wird ein Freigabewort für den Zugang zum Block angelegt. Außerdem wird eine Bearbeitungszeit von 3 Minuten für den Block festgelegt.
+
+---
+
+### Studien-Definition
+
+Nachfolgend ist die XML zur Studien-Definition dargestellt und wie diese aussehen müsste, um die genannten Anforderungen zu erfüllen. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.
+
+```{.xml}
+<?xml version="1.0"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd">
+  <Metadata/>
+  <Group id="Gruppe1" label="Teilnehmer Gruppe 1">
+    <Login mode="run-hot-return" name="T01_v3x4v" pw="h6z5">
+      <Booklet>TH01</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="T02_d7a9t" pw="q7a5">
+      <Booklet>TH01</Booklet>
+    </Login>
+    <Login mode="run-hot-return" name="T03_f7q3v" pw="c2f2">
+      <Booklet>TH01</Booklet>
+    </Login>
+    <Login mode="monitor-group" name="TL_x6r9h" pw="t7r6"/>
+  </Group>
+</Testtakers>
+```
+
+#### `Login`
+
+Es werden insgesamt 4 Login-Elemente angelegt. Hier können die Zugangsdaten und der Testmodus für 3 Personen angelegt werden. Das 4. Login-Element ist für einen Gruppenmonitor vorgesehen.
+
+* `mode="run-hot-return`:<br>
+Nach Eingabe der angelegten Zugangsdaten in diesen Login-Elementen, wird eine "heiße" Testung mit Speicherung der Antworten gestartet.
+
+* `mode="monitor-group"`:<br>
+Nach Eingabe der angelegten Zugangsdaten in diesem Login-Element, wird der Gruppenmonitor gestartet.
+
+* `name`:<br>
+Benutzername der Testpersonen, Benutzername zum starten des Gruppenmonitors.
+
+* `pw`:<br>
+Passwort der Testpersonen, Passwort zum starten des Gruppenmonitors.
