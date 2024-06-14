@@ -16,6 +16,8 @@ wird gelegentlich als zu locker wahrgenommen. Tatsächlich sind einige -- [übli
 * `upgrade-insecure-requests;` kann nicht verwendet werden, da das Testcenter in Offline-Szenarien über HTTP benutzt wird.
 * `https: http: 'unsafe-eval'` für `script-src` ist nötig für das Nachladen von [GeoGebra](https://www.geogebra.org/).
 
+Die CSP wird ausschließlich mit der index.html ausgelifert, denn sie lädt alle weiteren Inhalte, einschießlich der Player oder anderer etwaiger HTML inhalte die dann, weil im iFrame ausgeführt, die CSP erben. API-Endpunkte mit einer CSP zu versehen ist nicht sinnvoll, da nur Browser diese interpretieren und über etwaige sonstige Konsumenten der API keine Aussage gemacht werden kann.
+
 # Passwortrichtlinien und Anmeldeverzögerung
 
 Üblicherweise schafft ein Login-Prozess Zugang zu sensiblen schützenswerten Daten. Sinnvollerweise sind daher Richtlinien einzuhalten, um ein Mindestmaß an Sicherheit zu erreichen.
