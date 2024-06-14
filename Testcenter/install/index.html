@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Testcenter/install/configuration.html" rel="next">
+<link href="../../Testcenter/install/load-test.html" rel="next">
 <link href="../../Testcenter/Typische_Probleme/index.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -213,12 +213,6 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Konfiguration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lastverhalten</span></a>
   </div>
@@ -392,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">hier</a> beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, findet sich <a href="https://iqb-berlin.github.io/tba-info/Testcenter/install/configuration.html">hier</a>.</p>
+<p>Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">hier</a> beschrieben.</p>
 <p>Allerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. In freier Wildbahn ist ein Server vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese “SysOp” genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. “Systemhaus”) eingebunden werden. Sonst kann der Server schnell offline gehen – durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.</p>
 <p>Die Seiten in diesem Bereich decken schrittweise Themen ab, die für einen SysOp interessant sein könnten. Sie spiegeln zunächst die Erfahrungen des IQB wider, diskutieren aber auch Aspekte, die durch Partner vorgebracht wurden.</p>
 <ul>
@@ -403,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Nachfolgend sprechen wir einige Themen kurz an, nach denen wir zwar oft gefragt werden, zu denen wir aber aktuell keine Lösung anbieten – teils, weil andere Funktionen wichtiger waren, teils weil wir es nicht als unsere Aufgabe sehen.</p>
 <section id="servermonitoring" class="level2">
 <h2 class="anchored" data-anchor-id="servermonitoring">Servermonitoring</h2>
-<p>Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährdet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.</p>
+<p>Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährtet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.</p>
 <p>Das IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als <a href="https://github.com/iqb-berlin/traefik">Infrastruktur</a>. Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloudanbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.</p>
 <p>Was wir uns allerdings vorgenommen haben, ist die Einrichtung von Server-Endpunkten für einen sog. Health-Check.</p>
 </section>
@@ -847,8 +841,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Testcenter/install/configuration.html" class="pagination-link" aria-label="Konfiguration">
-        <span class="nav-page-text">Konfiguration</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Testcenter/install/load-test.html" class="pagination-link" aria-label="Lastverhalten">
+        <span class="nav-page-text">Lastverhalten</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
