@@ -63,15 +63,15 @@ Nach Speicherung der Änderungen, muss die geänderte Datei erneut in das Testce
 
 ### Wie starte ich meinen angelegten Test und gibt es eine Art Voransicht?
 
-Die Zugangsdaten der Testpersonen werden in der XML zur Studien-Definition festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: "Weiter" anmelden. In der XML zur Studien-Definition wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mit Hilfe dieses Modus kann festgelegt werden, ob der Test "heiß" ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).
+Die Zugangsdaten der Testpersonen werden in der XML zur Studien-Definition festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: "Weiter" anmelden. In der XML zur Studien-Definition wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mithilfe dieses Modus kann festgelegt werden, ob der Test "heiß" ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).
 
 ### Das Booklet kann bei einer Testdurchführung nicht geöffnet werden, es erscheint die folgende Meldung: *root element to Booklet should be: booklet*
 
-Eventuell ist die verwendete Testheft-XML beschädigt oder beinhaltet ein so genanntes BOM (byte order mark). Dieses BOM kann weitere Metadaten zu der Datei enthalten. Ist ein solches BOM in der Testheft-XML angelegt, erscheint diese Fehlermeldung im Testcenter, da das BOM nicht gelesen werden kann. Außerdem kann die Datei beschädigt sein, weil sie bspw. mit Word oder einem anderen nicht geeigneten Instrument verändert wurde. Verwenden Sie für die Bearbeitung der XML-Datei nur geeignete Editoren wie bspw. Notepadd++. Arbeiten Sie bereits mit einem geeigneten Editor, achten Sie auf die Einstellungen zur Zeichenkodierung. Hier darf die Option: UTF-8-BOM nicht aktiv sein.
+Eventuell ist die verwendete Testheft-XML beschädigt oder beinhaltet ein sogenanntes BOM (byte order mark). Dieses BOM kann weitere Metadaten zu der Datei enthalten. Ist ein solches BOM in der Testheft-XML angelegt, erscheint diese Fehlermeldung im Testcenter, da das BOM nicht gelesen werden kann. Außerdem kann die Datei beschädigt sein, weil sie bspw. mit Word oder einem anderen nicht geeigneten Instrument verändert wurde. Verwenden Sie für die Bearbeitung der XML-Datei nur geeignete Editoren wie bspw. Notepad++. Arbeiten Sie bereits mit einem geeigneten Editor, achten Sie auf die Einstellungen zur Zeichenkodierung. Hier darf die Option: UTF-8-BOM nicht aktiv sein.
 
 ### Kann ich den Test überwachen oder steuern?
 
-Das Testcenter stellt hierfür den **Gruppenmonitor** zur Verfügung. **Mehr dazu kann den Kapitel: Testcenter/Gruppenmonitor entnommen werden.**
+Das Testcenter stellt hierfür den **Gruppenmonitor** zur Verfügung. **Mehr dazu kann den Kapiteln: Testcenter/Gruppenmonitor entnommen werden.**
 
 ### Warum stimmt die Reihenfolge meiner Aufgabe nicht?
 
@@ -88,4 +88,6 @@ Bitte prüfen Sie, ob für Chrome eine Erweiterung mit dem Namen "Urban VPN prox
 ### Wie kann ich den Test auswerten? Wo finde ich die Daten?
 
 Das Testcenter speichert in bestimmten **Testmodi** die Ergebnisse eines Tests in dem Arbeitsbereich ab, in welchem sich auch die Testdateien für den Test befinden. Öffnen Sie den jeweiligen Arbeitsbereich und klicken Sie auf den Reiter: **Ergebnisse/Antworten**. Dort können Sie die Ergebnisse herunterladen. Die Dateien werden dann in einem CSV-Format gespeichert.
+
+
 
