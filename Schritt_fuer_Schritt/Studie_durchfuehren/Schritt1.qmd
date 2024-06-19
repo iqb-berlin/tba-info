@@ -5,27 +5,27 @@ title: "Schritt 1"
 
 ## Bereitstellen der Testdateien
 
-Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören zum einen die Aufgaben, die während einer Studie angezeigt werden sollen und zum anderen die Dateien, die die Studien bzgl. der oben genannten Anforderungen gestalten (XML zur Studien-Definition und XML zur Testheft-Definition)
+Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Aufgaben und weitere Dateien, die die Studie bzgl. der genannten Anforderungen gestalten (XML zur Studien-Definition und XML zur Testheft-Definition).
 
-Sind die Aufgabe nach den oben genannten Anforderungen entworfen, können diese aus dem IQB-Studio exportiert werden. Hierbei kann auch die zu den Aufgaben passende Player-HTML exportiert werden. Außerdem kann die XML zur Studien-Definition und zur Testheft-Definition konfiguriert und exportiert werden.
+Sind die Aufgabe bzgl. genannter Anforderungen entworfen, können diese mit dem deklarierten Player aus dem IQB-Studio exportiert werden. Die XML zur Studien-Definition und zur Testheft-Definition kann im Studio hinsichtlich bestimmter Parameter konfiguriert werden und ebenfalls ausgegeben werden. Falls gewünscht, können diese Dateien mit einem Editor nachträglich angepasst werden.
 
-Um die oben genannten Anforderungen zu erfüllen, sollten die Testdateien wie folgt aussehen:
+Bzgl. der genannten Anforderungen, sollten die Testdateien dann wie folgt aussehen:
 
-### Aufgaben-Definitionen
+### Dateien für die Aufgaben-Definitionen 
 
-Jede Aufgaben-Definition besteht aus mindestens 2 Dateien pro Aufgabe, die Aufgaben-XML und die Aufgaben-VOUD. Es können weitere Dateien entstehen, wenn bspw. eine Kodierregel für eine Aufgabe im Studio angelegt wurde. Das ist aber hier nicht der Fall. Die Aufgaben wurden im IQB-Studio so entworfen, dass sie den oben genannten Anforderungen entsprechen. Zur Aufgaben-Definition gehört auch die in allen Aufgaben-XML deklarierte Player-HTML: **iqb-player-aspect-2.4.11.html**.
+Jede Aufgaben-Definition besteht aus mindestens 2 Dateien pro Aufgabe, die Aufgaben-XML und die Aufgaben-VOUD. Die Aufgaben wurden im IQB-Studio so entworfen, dass sie den genannten Anforderungen entsprechen. Zur Aufgaben-Definition gehört auch, die in allen Aufgaben-XML deklarierte Player-HTML: **iqb-player-aspect-2.4.11.html**.
 
 ::: {.callout-note icon=false}
-## {{< fa download >}} Download Testdateien
+## {{< fa download >}} Download
 
-* [Begrüßung](Testdateien.zip)
+* [Dateien zur Aufgaben-Definitionen](Beispiel-Aufgaben.zip)
 :::
 
 ---
 
-### Testheft-Definition
+### Datei zur Testheft-Definition
 
-Nachfolgend ist die XML zur Testheft-Definition dargestellt und wie diese aussehen müsste, um die genannten Anforderungen zu erfüllen. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.
+Nachfolgend ist die XML zur Testheft-Definition (Testheft-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.
 
 ```{.xml}
 <?xml version="1.0"?>
@@ -56,9 +56,9 @@ Nachfolgend ist die XML zur Testheft-Definition dargestellt und wie diese ausseh
 </Booklet>
 
 ```
-Nachfolgend soll näher aufgeführt werden, wie die genannten Anforderungen in dieser XML umgesetzt wurden. 
+#### Mit Hilfe welcher Werte und Attribute wurden die Anforderungen an Navigation und Testheft Strukturierung umgesetzt?
 
-#### `BookletConfig`
+**`BookletConfig`**
 
 * `key="unit_show_time_left"` mit dem Wert: **ON**:<br>
 Auf diese Weise wird die verbleibende Zeit im Kopf des Testcenters angezeigt.
@@ -67,7 +67,7 @@ Auf diese Weise wird die verbleibende Zeit im Kopf des Testcenters angezeigt.
 Setzt die Anforderung bzgl. Aufgabentitel Anzeige im Kopf der Aufgabe um. An dieser Stelle müsste dieses Attribut nicht explizit einen Wert erhalten, da der Standardwert bereits **EMPTY** ist.
 
 * `key="unit_menu"` mit dem Wert: **FULL**:<br>
-Setzt die Anforderung bzgl. des zusätzlichen Navigationsmenus mit der Möglichkeit der Test Beendigung um.
+Setzt die Anforderung bzgl. des zusätzlichen Navigations-Menus mit der Möglichkeit der Test Beendigung um.
 
 * `key="force_presentation_complete"` mit dem Wert: **ON**:<br>
 Es darf erst vorwärts geblättert werden, wenn alles gesehen und angehört wurde.
@@ -79,22 +79,22 @@ Sind Pflichtelemente enthalten, müssen diese erst bedient werden, bevor vorwär
 Welche Werte dem Attribut:`key`zugewiesen werden können, ist der folgenden [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Zu beachten sind hierbei die hervorgehobenen Werte. Diese werden als Standard verwendet, wenn sie nicht explizit in der XML zur Testheft-Definition überschrieben werden.
 :::
 
-#### `Unit`
+**`Unit`**
 
 * `labelshort`:<br>
 Der hier zugewiesene Wert wird in der Navigationsleiste angezeigt. Das sieht dann so aus:![](TC_Labelshort_Unit.png){fig-align="left"}
 
-#### `Testlet`
-Hier wird ein Block erzeugt. Diesem Block werden die beiden Aufgaben 1 und 2 zugewiesen.
+**`Testlet`**
+Es wird ein Block erzeugt. Diesem Block werden die beiden Aufgaben 1 und 2 zugewiesen.
 
 * `Restrictions`:<br>
-Hier wird ein Freigabewort für den Zugang zum Block angelegt. Außerdem wird eine Bearbeitungszeit von 3 Minuten für den Block festgelegt.
+Es wird ein Freigabewort für den Zugang zum Block angelegt (`CodeToEnter`). Außerdem wird eine Bearbeitungszeit von 3 Minuten für den Block festgelegt (`TimeMax`).
 
 ---
 
-### Studien-Definition
+### Datei zur Studien-Definition
 
-Nachfolgend ist die XML zur Studien-Definition dargestellt und wie diese aussehen müsste, um die genannten Anforderungen zu erfüllen. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.
+Nachfolgend ist die XML zur Studien-Definition (Studien-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.
 
 ```{.xml}
 <?xml version="1.0"?>
@@ -115,18 +115,28 @@ Nachfolgend ist die XML zur Studien-Definition dargestellt und wie diese aussehe
 </Testtakers>
 ```
 
-#### `Login`
+#### Mit Hilfe welcher Werte und Attribute wurden die Anforderungen hinsichtlich der Studien-Konfiguration erfüllt?
+
+**`Login`**
 
 Es werden insgesamt 4 Login-Elemente angelegt. Hier können die Zugangsdaten und der Testmodus für 3 Personen angelegt werden. Das 4. Login-Element ist für einen Gruppenmonitor vorgesehen.
 
 * `mode="run-hot-return`:<br>
 Nach Eingabe der angelegten Zugangsdaten in diesen Login-Elementen, wird eine "heiße" Testung mit Speicherung der Antworten gestartet.
 
+* `name`:<br>
+Benutzername der Testpersonen
+
+* `pw`:<br>
+Passwort der Testpersonen
+
+#### Mit Hilfe welcher Werte und Attribute wurden die Anforderungen hinsichtlich der Studien-Hilfsmittel erfüllt?
+
 * `mode="monitor-group"`:<br>
 Nach Eingabe der angelegten Zugangsdaten in diesem Login-Element, wird der Gruppenmonitor gestartet.
 
 * `name`:<br>
-Benutzername der Testpersonen, Benutzername zum starten des Gruppenmonitors.
+Benutzername zum starten des Gruppenmonitors.
 
 * `pw`:<br>
-Passwort der Testpersonen, Passwort zum starten des Gruppenmonitors.
+Passwort zum starten des Gruppenmonitors.
