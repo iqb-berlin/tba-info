@@ -247,6 +247,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lastverhalten</span></a>
   </div>
@@ -491,8 +497,8 @@ Tipp
 <p>Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: <strong>itc-Toolbox</strong> helfen das Erzeugen solcher Zugänge zu beschleunigen.</p>
 </div>
 </div>
-<section id="klassisch-anmeldename-kennwort" class="level2">
-<h2 class="anchored" data-anchor-id="klassisch-anmeldename-kennwort">Klassisch: Anmeldename, Kennwort</h2>
+<section id="klassisch-anmeldename-kennwort" class="level1">
+<h1>Klassisch: Anmeldename, Kennwort</h1>
 <p>Beim Aufruf der Internet-Seite und damit der Webanwendung wird ein Formular präsentiert zur Eingabe dieser Daten. Diese Anmeldeform wird üblicherweise erwartet. Der Anmeldename wird im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d.&nbsp;h. man kann nicht mitlesen.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>
@@ -500,8 +506,8 @@ Tipp
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="kurz-nur-anmeldename" class="level2">
-<h2 class="anchored" data-anchor-id="kurz-nur-anmeldename">Kurz: Nur Anmeldename</h2>
+<section id="kurz-nur-anmeldename" class="level1">
+<h1>Kurz: Nur Anmeldename</h1>
 <p>Das Kennwort kann weggelassen werden. Hier hat man keine geringere Sicherheit, wenn die Länge und Zeichenzusammensetzung des Namens hinreichend ungewöhnlich ist. Eine laufende Nummer am Ende ist z. B. problematisch, denn sie kann bei Kenntnis eines Namens erraten werden. Die Länge sollte dann min. 8 Zeichen betragen. Diese Anmeldeform sollte gewählt werden, wenn das Verbergen des Kennwortes stört.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">""</span>&gt;</span>
@@ -509,8 +515,8 @@ Tipp
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="noch-kürzer-link" class="level2">
-<h2 class="anchored" data-anchor-id="noch-kürzer-link">Noch kürzer: Link</h2>
+<section id="noch-kürzer-link" class="level1">
+<h1>Noch kürzer: Link</h1>
 <p>Wenn nur ein Anmeldename ohne Kennwort (das Attribut: <strong>pw</strong> muss leer oder gar nicht vorhanden sein) als Login festgelegt wurde, dann kann man auch einen Link an die Testpersonen verschicken. Zu beachten ist hierbei, dass der Name aus Sicherheitsgründen min. 8 Zeichen lang sein sollte und die Zeichenzusammensetzung hinreichend ungewöhnlich ist.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span>&gt;</span>
@@ -521,8 +527,8 @@ Tipp
 <p>https://www.iqb-testcenter.de/#/u8h5m2a4c3x2f2g8</p>
 <p>Dadurch macht man es noch einfacher: Auf den Link klicken, und man muss nur noch das Testheft wählen. Diese Form der Anmeldung kann z. B. bei Befragungen in Kombination mit dem Durchführungsmodus <code>run-hot-restart</code> verwendet werden: Es wird nur ein Login in einer Einladungs-E-Mail verschickt, und eine vorher unbekannte Anzahl Personen kann die Befragung starten.</p>
 </section>
-<section id="länger-anmeldename-kennwort-personencode" class="level2">
-<h2 class="anchored" data-anchor-id="länger-anmeldename-kennwort-personencode">Länger: Anmeldename, Kennwort, Personencode</h2>
+<section id="länger-anmeldename-kennwort-personencode" class="level1">
+<h1>Länger: Anmeldename, Kennwort, Personencode</h1>
 <p>Es kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, einen Standard-Benutzer anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, wenn auf jedem Computer schon Anmeldename und Kennwort eingegeben werden kann und also ein Anmeldeprozess gestartet wird. Anmeldename und Kennwort sind dann für die Gruppe gleich. Es reicht dann anschließend die Eingabe eines kurzen Personencodes durch die Testperson, um eine eindeutige Identifizierung sicherzustellen. Man spart so Testzeit und vermeidet Fehleingaben. Dieses Szenario bietet sich z. B. an, wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemieteten Computer-Lab durchführt.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span>&gt;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>
@@ -530,8 +536,8 @@ Tipp
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="gültigkeit-einer-anmeldung" class="level2">
-<h2 class="anchored" data-anchor-id="gültigkeit-einer-anmeldung">Gültigkeit einer Anmeldung</h2>
+<section id="gültigkeit-einer-anmeldung" class="level1">
+<h1>Gültigkeit einer Anmeldung</h1>
 <p>Es kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: <code>validTo</code>, <code>validFrom</code> und <code>validFor</code> hinzugefügt.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"TestakerGroup1"</span><span class="ot"> label=</span><span class="st">"TestakerGroup1"</span><span class="ot"> validFrom=</span><span class="st">"17/02/2022 10:00"</span>&gt;</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-review"</span><span class="ot"> name=</span><span class="st">"e3p2p"</span><span class="ot"> pw=</span><span class="st">"h7u5"</span>&gt;</span>

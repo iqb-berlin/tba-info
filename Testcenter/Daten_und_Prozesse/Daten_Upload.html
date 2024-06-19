@@ -250,6 +250,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lastverhalten</span></a>
   </div>
@@ -467,8 +473,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="wie-werden-die-daten-in-das-testcenter-geladen" class="level2">
-<h2 class="anchored" data-anchor-id="wie-werden-die-daten-in-das-testcenter-geladen">Wie werden die Daten in das Testcenter geladen?</h2>
+<section id="wie-werden-die-daten-in-das-testcenter-geladen" class="level1">
+<h1>Wie werden die Daten in das Testcenter geladen?</h1>
 <p>Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: <strong>Dateien</strong>, <strong>System-Check Berichte</strong> und <strong>Ergebnisse/ Antworten</strong> zu sehen. Die zu ladenden Testdateien können unter dem Reiter: <strong>Dateien</strong> mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.</p>
 <p>Nach dem Laden von Testdateien, werden diese automatisch vom Testcenter gruppiert. Das Testcenter erkennt bei welcher Datei es sich um eine Testheft-Definition, um eine Studien-Definition und welche Datei für die Aufgaben-Definition zuständig ist. Die Dateien werden den folgenden Gruppen zugeordnet:</p>
 <ul>
@@ -519,8 +525,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="warnungen" class="level2">
-<h2 class="anchored" data-anchor-id="warnungen">Warnungen</h2>
+<section id="warnungen" class="level1">
+<h1>Warnungen</h1>
 <p><strong>File has no link to XSD-Schema</strong></p>
 <p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: <strong>Testheft-Definition, Studien-Definition und Aufgaben-Definition</strong> sind auf unserer <a href="https://iqb-berlin.github.io/">IQB-GitHub-Startseite</a> unter dem Reiter: <strong>Spezifikationen</strong> im Abschnitt: <strong>IQB-Testcenter: Input Unit-Xml</strong> zu finden.</p>
 <p>Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Definition wie folgt eingebunden:</p>
@@ -529,8 +535,8 @@ Tipp
 <p><strong>Outdated or wrong version of XSD-schema</strong></p>
 <p>Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.</p>
 </section>
-<section id="fehlermeldungen" class="level2">
-<h2 class="anchored" data-anchor-id="fehlermeldungen">Fehlermeldungen</h2>
+<section id="fehlermeldungen" class="level1">
+<h1>Fehlermeldungen</h1>
 <p><strong>Ressource not found</strong></p>
 <p>Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Es sind dann zuvor die definierten Ressourcen zu laden.</p>
 <p><strong>Duplicate Login</strong></p>
@@ -564,8 +570,8 @@ Wichtig
 </div>
 </div>
 </section>
-<section id="laden-spezieller-formate" class="level2">
-<h2 class="anchored" data-anchor-id="laden-spezieller-formate">Laden spezieller Formate</h2>
+<section id="laden-spezieller-formate" class="level1">
+<h1>Laden spezieller Formate</h1>
 <p>Einige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die <strong>GeoGebra</strong>-Elemente enthalten. Hierfür muss neben den <strong>Testdateien</strong>, die zu jeder Testung gehören, ein spezielles Paket mit der Endung <strong>.itcr.zip</strong> geladen werden. Das GeoGebra-Paket kann <a href="https://download.geogebra.org/package/geogebra-math-apps-bundle">hier</a> heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.</p>
 <p>Das Paket kann nicht mit ausgeliefert werden, da GeoGebra <a href="https://www.geogebra.org/license">diese Lizenz</a> verwendet.</p>
 

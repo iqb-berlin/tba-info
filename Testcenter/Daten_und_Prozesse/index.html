@@ -250,6 +250,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lastverhalten</span></a>
   </div>
@@ -438,7 +444,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#prozesse-und-funktionen" id="toc-prozesse-und-funktionen" class="nav-link active" data-scroll-target="#prozesse-und-funktionen">Prozesse und Funktionen</a></li>
+  <li><a href="#prozesse-und-funktionen" id="toc-prozesse-und-funktionen" class="nav-link active" data-scroll-target="#prozesse-und-funktionen">Prozesse und Funktionen</a>
+  <ul class="collapse">
+  <li><a href="#wiedergabe-der-studieninhalte" id="toc-wiedergabe-der-studieninhalte" class="nav-link" data-scroll-target="#wiedergabe-der-studieninhalte">Wiedergabe der Studieninhalte</a></li>
+  <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
+  <li><a href="#reviews" id="toc-reviews" class="nav-link" data-scroll-target="#reviews">Reviews</a></li>
+  <li><a href="#gruppenmonitor" id="toc-gruppenmonitor" class="nav-link" data-scroll-target="#gruppenmonitor">Gruppenmonitor</a></li>
+  </ul></li>
   <li><a href="#daten-input-für-das-testcenter" id="toc-daten-input-für-das-testcenter" class="nav-link" data-scroll-target="#daten-input-für-das-testcenter">Daten-Input für das Testcenter</a>
   <ul class="collapse">
   <li><a href="#studien-definition" id="toc-studien-definition" class="nav-link" data-scroll-target="#studien-definition">Studien-Definition</a></li>
@@ -485,8 +497,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="prozesse-und-funktionen" class="level1">
 <h1>Prozesse und Funktionen</h1>
 <p>Das Testcenter spielt nicht einfach nur Studieninhalte ab, es stellt außerdem eine Reihe von Funktionen bereit.</p>
-<section id="wiedergabe-der-studieninhalte" class="level4">
-<h4 class="anchored" data-anchor-id="wiedergabe-der-studieninhalte">Wiedergabe der Studieninhalte</h4>
+<section id="wiedergabe-der-studieninhalte" class="level2">
+<h2 class="anchored" data-anchor-id="wiedergabe-der-studieninhalte">Wiedergabe der Studieninhalte</h2>
 <p>Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter wird als Verona-Schnittstelle bezeichnet und unterliegt den Verona Spezifikationen.</p>
 <p>Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der <a href="https://iqb-berlin.github.io">IQB-GitHub-Startseite</a>. Die letzten verfügbaren Versionen der Player sind unter dem Reiter: <strong>Releases</strong> zu finden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -503,8 +515,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="system-check" class="level4">
-<h4 class="anchored" data-anchor-id="system-check">System-Check</h4>
+<section id="system-check" class="level2">
+<h2 class="anchored" data-anchor-id="system-check">System-Check</h2>
 <p>Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen. Das Testcenter bietet hierfür die Funktion: <strong>System-Check</strong> an. Zum Starten des System-Checks kann dieser zuvor in einer XML konfiguriert werden, anschließend muss diese XML in das Testcenter geladen werden.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -520,13 +532,13 @@ Hinweis
 </div>
 </div>
 </section>
-<section id="reviews" class="level4">
-<h4 class="anchored" data-anchor-id="reviews">Reviews</h4>
+<section id="reviews" class="level2">
+<h2 class="anchored" data-anchor-id="reviews">Reviews</h2>
 <p>Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (<code>run-review</code>) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.</p>
 <p><img src="TC_Schalter_Review_Kommentar.png" class="img-fluid"></p>
 </section>
-<section id="gruppenmonitor" class="level4">
-<h4 class="anchored" data-anchor-id="gruppenmonitor">Gruppenmonitor</h4>
+<section id="gruppenmonitor" class="level2">
+<h2 class="anchored" data-anchor-id="gruppenmonitor">Gruppenmonitor</h2>
 <p>Mit Hilfe des Gruppenmonitors kann die Testleitung Studienteilnehmer*innen innerhalb des Testheftes navigieren. Auf diese Weise kann der Studienlauf synchron gehalten werden und alle Teilnehmer*innen befinden sich stets am selben Ausgangspunkt (Anfang eines Block etc.). Der Gruppenmonitor kann aber auch nur zur Beobachtung des Studienverlaufs eingesetzt werden und verschafft so der Testleitung einen besseren Überblick über den Stand der Durchführung. Der Gruppenmonitor kann in der XML zur Studien-Definition mittels eines speziellen Zugangs eingerichtet werden.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
