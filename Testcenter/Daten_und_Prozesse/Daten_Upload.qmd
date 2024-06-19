@@ -3,7 +3,7 @@ lang: de
 title: "Daten Upload"
 ---
 
-## Wie werden die Daten in das Testcenter geladen?
+# Wie werden die Daten in das Testcenter geladen?
 
 Das Laden von Testdateien findet in einem Arbeitsbereich statt. Nach dem Öffnen eines Arbeitsbereichs sind 3 Reiter mit den Bezeichner: **Dateien**, **System-Check Berichte** und **Ergebnisse/ Antworten** zu sehen. Die zu ladenden Testdateien können unter dem Reiter: **Dateien** mittels einer eindeutigen Schaltfläche ausgewählt und geladen werden. Dateien können sowohl einzeln als auch in einem verpackten Format (ZIP) geladen werden.
 
@@ -41,7 +41,7 @@ Sollen einzelne Dateien wieder gelöscht werden, ist in umgekehrter Reihenfolge 
 Es ist möglich alle **Testdateien** gemeinsam verpackt in einer ZIP-Datei in das **Testcenter** zu laden. Dabei hält das **Testcenter** automatisch die entsprechende Reihenfolge ein.
 :::
 
-## Warnungen
+# Warnungen
 
 **File has no link to XSD-Schema**
 
@@ -58,8 +58,7 @@ Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wi
 
 Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.
 
-
-## Fehlermeldungen
+# Fehlermeldungen
 
 **Ressource not found**
 
@@ -81,7 +80,7 @@ In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teil
 Das Löschen von XML-Dateien zur Studien-Definition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer\*innen können sich dann nicht mehr zur Studiendurchführung anmelden. Vor dem Löschen ist daher gut zu überlegen, ob die zu löschende XML eventuell eine laufende Studie definiert.
 :::
 
-## Laden spezieller Formate
+# Laden spezieller Formate
 Einige Aufgaben-Elemente erfordern zusätzliche Ressourcen. Dazu gehören bspw. Aufgaben die **GeoGebra**-Elemente enthalten. Hierfür muss neben den **Testdateien**, die zu jeder Testung gehören, ein spezielles Paket mit der Endung **.itcr.zip** geladen werden. 
 Das GeoGebra-Paket kann [hier](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in GeoGebra.itcr.zip umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch die Aufgaben-Definitionen mit den GeoGebra-Elementen befinden.
 

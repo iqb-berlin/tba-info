@@ -3,7 +3,7 @@ lang: de
 title: "XML zur Aufgaben-Definition"
 ---
 
-##
+#
 
 Die Metadaten einer Aufgabe und die Einbindung von zusätzlichen Aufgabenressourcen werden in einer XML-Datei festgelegt. Diese XML-Datei wird IQB-intern häufig übergreifend auch **Unit-XML** genannt. An dieser Stelle wird diese XML auch allgemein als **Aufgaben-XML** bezeichnet. In der Praxis wird als Dateiname die eigentliche Aufgabenbezeichnung gewählt. 
 
@@ -168,7 +168,7 @@ Die Schema-Definition wird im Hauptelement: `Unit` mittels der Attribute: `xmlns
 Die Schema-Definition sieht die Möglichkeit vor, die Aufgabeninhalte nicht als externe Datei (Aufgaben-VOUD), sondern in einem XML-Element `Definition` zu hinterlegen, welches dann `DefinitionRef` ersetzt. Das mag bei kleinen Aufgaben-Definitionen ausreichen, wie bspw. Instruktionen in einleitenden Aufgaben.
 :::
 
-## Variablen zur Kodierung
+# Variablen zur Kodierung
 
 Im IQB-Studio können zu Aufgabenelementen Kodieranweisungen mit einem Schemer-Modul angelegt werden. Um eine Kodierregel anzuwenden, werden dem Aufgabenelement Variablen zugewiesen und der Wert dieser Variablen wird dann in einer Kodierregel verarbeitet. Die so erzeugten Variablen werden beim Export der Aufgabe mit in der Aufgaben-XML im Element: `BaseVariables` ausgegeben. Die Variablen werden im Testcenter verwendet um Wichtungen für das adaptive Testen festlegen zu können. Nachfolgend werden die möglichen Attribute, Daten und deren Bedeutung anhand eines Beispiels aufgelistet.
 

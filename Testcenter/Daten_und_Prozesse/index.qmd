@@ -8,7 +8,7 @@ title: "Daten und Prozesse"
 
 Das Testcenter spielt nicht einfach nur Studieninhalte ab, es stellt außerdem eine Reihe von Funktionen bereit.
 
-#### Wiedergabe der Studieninhalte
+## Wiedergabe der Studieninhalte
 
 Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter wird als Verona-Schnittstelle bezeichnet und unterliegt den Verona Spezifikationen.
 
@@ -18,7 +18,7 @@ Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmi
 Mehr Informationen zur Verona-Schnittstelle sind [hier](https://verona-interfaces.github.io/intro) zu finden.
 :::
 
-#### System-Check
+## System-Check
 
 Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen. Das Testcenter bietet hierfür die Funktion: **System-Check** an. Zum Starten des System-Checks kann dieser zuvor in einer XML konfiguriert werden, anschließend muss diese XML in das Testcenter geladen werden.
 
@@ -26,13 +26,13 @@ Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und di
 Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.
 :::
 
-#### Reviews
+## Reviews
 
 Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (`run-review`) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.
 
 ![](TC_Schalter_Review_Kommentar.png)
 
-#### Gruppenmonitor
+## Gruppenmonitor
 
 Mit Hilfe des Gruppenmonitors kann die Testleitung Studienteilnehmer\*innen innerhalb des Testheftes navigieren. Auf diese Weise kann der Studienlauf synchron gehalten werden und alle Teilnehmer\*innen befinden sich stets am selben Ausgangspunkt (Anfang eines Block etc.). Der Gruppenmonitor kann aber auch nur zur Beobachtung des Studienverlaufs eingesetzt werden und verschafft so der Testleitung einen besseren Überblick über den Stand der Durchführung. Der Gruppenmonitor kann in der XML zur Studien-Definition mittels eines speziellen Zugangs eingerichtet werden.
 

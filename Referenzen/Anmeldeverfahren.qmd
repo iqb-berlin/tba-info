@@ -11,7 +11,7 @@ Für eine Testdurchführung erlaubt das IQB-Testcenter verschiedene Arten der An
 Jeder Login muss eine eindeutige ID (Namen) erhalten und je nach gewähltem Anmeldeverfahren ein Passwort, einen Code usw.. Bei einer großen Anzahl von Testpersonen kann das mühselig sein. Hier kann ein vom IQB entwickeltes Programm mit dem Namen: **itc-Toolbox** helfen das Erzeugen solcher Zugänge zu beschleunigen.
 :::
 
-## Klassisch: Anmeldename, Kennwort
+# Klassisch: Anmeldename, Kennwort
 
 Beim Aufruf der Internet-Seite und damit der Webanwendung wird ein Formular präsentiert zur Eingabe dieser Daten. 
 Diese Anmeldeform wird üblicherweise erwartet. Der Anmeldename wird im Klartext gezeigt, die Eingabe des Kennwortes erzeugt 
@@ -25,7 +25,7 @@ aber nur Punkte, d. h. man kann nicht mitlesen.
 </Group>
 ```
 
-## Kurz: Nur Anmeldename
+# Kurz: Nur Anmeldename
 
 Das Kennwort kann weggelassen werden. Hier hat man keine geringere Sicherheit, wenn die Länge und Zeichenzusammensetzung 
 des Namens hinreichend ungewöhnlich ist. Eine laufende Nummer am Ende ist z. B. problematisch, denn sie kann bei Kenntnis eines Namens 
@@ -39,7 +39,7 @@ erraten werden. Die Länge sollte dann min. 8 Zeichen betragen. Diese Anmeldefor
 </Group>
 ```
 
-## Noch kürzer: Link
+# Noch kürzer: Link
 
 Wenn nur ein Anmeldename ohne Kennwort (das Attribut: **pw** muss leer oder gar nicht vorhanden sein) als Login festgelegt wurde, dann kann man auch einen Link an die Testpersonen verschicken. Zu beachten ist hierbei, dass der Name aus Sicherheitsgründen min. 8 Zeichen lang sein sollte und die Zeichenzusammensetzung hinreichend ungewöhnlich ist.
 
@@ -59,7 +59,7 @@ Dadurch macht man es noch einfacher: Auf den Link klicken, und man muss nur noch
 Anmeldung kann z. B. bei Befragungen in Kombination mit dem Durchführungsmodus `run-hot-restart` verwendet werden: 
 Es wird nur ein Login in einer Einladungs-E-Mail verschickt, und eine vorher unbekannte Anzahl Personen kann die Befragung starten.
 
-## Länger: Anmeldename, Kennwort, Personencode
+# Länger: Anmeldename, Kennwort, Personencode
 
 Es kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, 
 einen Standard-Benutzer anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, 
@@ -76,7 +76,7 @@ wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemie
 </Group>
 ``` 
 
-## Gültigkeit einer Anmeldung
+# Gültigkeit einer Anmeldung
 
 Es kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: `validTo`, `validFrom` und `validFor` hinzugefügt.
 
