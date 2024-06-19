@@ -1,0 +1,52 @@
+---
+lang: de
+title: "Schritt 4"
+---
+
+## Auswertung
+
+
+Unter dem Reiter: "Ergebnisse/Antworten" im Arbeitsbereich der Studie, können Antwortdaten heruntergeladen werden. Hier ist nun ein Datensatz mit dem Namen: "Teilnehmer Gruppe 1" zu finden. Der Name kommt aus der Studien-XML und entspricht dem Text im Attribut: `label` im Element: `Group`.
+
+Der Datensatz setzt sich zusammen aus den gegebenen Antworten und Logs. Wird der Datensatz markiert, kann zwischen den beiden Möglichkeiten gewählt werden. Die Daten werden dann im CSV-Format heruntergeladen. Nachfolgend ist der Inhalt aufgezeigt.
+
+```{.csv}
+﻿groupname;loginname;code;bookletname;unitname;responses;laststate
+"Gruppe1";"T01_v3x4v";"";"TH01";"Start";"[{""id"":""elementCodes"",""content"":""[{\""id\"":\""text_1\"",\""value\"":[],\""status\"":\""DISPLAYED\""}]"",""ts"":1718615360949,""responseType"":""iqb-standard@1.0""},{""id"":""stateVariableCodes"",""content"":""[]"",""ts"":1718615360949,""responseType"":""iqb-standard@1.0""}]";"{""PLAYER"":""RUNNING"",""PRESENTATION_PROGRESS"":""complete"",""RESPONSE_PROGRESS"":""complete""}"
+"Gruppe1";"T01_v3x4v";"";"TH01";"Aufgabe1";"[{""id"":""elementCodes"",""content"":""[{\""id\"":\""text_1\"",\""value\"":[],\""status\"":\""DISPLAYED\""},{\""id\"":\""audio_1\"",\""value\"":1,\""status\"":\""VALUE_CHANGED\""},{\""id\"":\""radio_1\"",\""value\"":1,\""status\"":\""VALUE_CHANGED\""}]"",""ts"":1718618501261,""responseType"":""iqb-standard@1.0""},{""id"":""stateVariableCodes"",""content"":""[]"",""ts"":1718618474802,""responseType"":""iqb-standard@1.0""}]";"{""PLAYER"":""RUNNING"",""PRESENTATION_PROGRESS"":""complete"",""RESPONSE_PROGRESS"":""complete""}"
+"Gruppe1";"T01_v3x4v";"";"TH01";"Aufgabe2";"[{""id"":""elementCodes"",""content"":""[{\""id\"":\""text_1\"",\""value\"":[],\""status\"":\""DISPLAYED\""},{\""id\"":\""video_1\"",\""value\"":0.011742152636388508,\""status\"":\""VALUE_CHANGED\""},{\""id\"":\""radio_1\"",\""value\"":null,\""status\"":\""DISPLAYED\""}]"",""ts"":1718618660456,""responseType"":""iqb-standard@1.0""},{""id"":""stateVariableCodes"",""content"":""[]"",""ts"":1718618504295,""responseType"":""iqb-standard@1.0""}]";"{""PLAYER"":""RUNNING"",""PRESENTATION_PROGRESS"":""some"",""RESPONSE_PROGRESS"":""complete""}"
+"Gruppe1";"T01_v3x4v";"";"TH01";"Ende";"[{""id"":""elementCodes"",""content"":""[{\""id\"":\""text_1\"",\""value\"":[],\""status\"":\""DISPLAYED\""}]"",""ts"":1718618665472,""responseType"":""iqb-standard@1.0""},{""id"":""stateVariableCodes"",""content"":""[]"",""ts"":1718618665472,""responseType"":""iqb-standard@1.0""}]";"{""PLAYER"":""RUNNING"",""PRESENTATION_PROGRESS"":""complete"",""RESPONSE_PROGRESS"":""complete""}"
+```
+Jede Zeile beginnt mit der Id der Gruppe, dem Benutzername (loginname), dem Testheftname (bookletname) und dem Aufgabenname (unitname). Im Anschluss folgt ein Antwortfeld (responses). In diesem Antwortfeld sind die Id's aller Aufgabenelemente und die zugehörigen Werte aufgelistet, die sich in der Aufgabe befinden. Die Struktur des Antwortfeldes sieht für jedes Aufgabenelement so aus:
+
+```{.json}
+{
+    id: string,
+    status: string,
+    value: null | number | string | boolean | number[] | string[] | boolean[],
+}
+```
+Würden alle 3 angelegten Testpersonen die Testung vom Anfang bis zum Ende durchführen, würden 12 Zeilen mit je einem Antwortfeld in der CSV zu finden sein.
+
+Bzgl. der gegebenen Antworten interessieren an dieser Stelle nur die Aufgaben 1 und 2 und hier auch nur die Aufgabenelemente zur Beantwortung. Sprich Text-Elemente, Audio- und Video-Elemente werden an dieser Stelle nicht betrachtet.
+
+**Aufgabe 1:**
+
+```{.json}
+{
+    id: radio_1,
+    status: DISPLAYED,
+    value: :1,
+}
+```
+**Aufgabe 2:**
+
+```{.json}
+{
+    id: radio_1,
+    status: DISPLAYED,
+    value: :2,
+}
+```
+Die Auswertung ergibt dann abschließend folgendes: In Aufgabe 1 wurde das erste Radio-Element aktiviert, also die Antwort "Ja" gewählt. In Aufgabe 2 wurde das 2. Radio-Element aktiviert, sprich die Antwort: "Die Zeit ist beschleunigt" wurde gewählt.
+
