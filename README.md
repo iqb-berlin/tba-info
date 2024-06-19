@@ -5,10 +5,8 @@ Dieses Repo enthält alle Texte und Bilder für die Dokumentation "TBA-info". Es
 ## to do
 
 * Navbar: Logo und Text nicht auf gleicher Höhe
-* callout-importantLinks: Text nicht mittig im Feld
-* Schritt für Schritt Studie durchführen
 * wenn altes Wiki gelöscht, Daten in Assets löschen
-* Downloads?
+* vielleicht mal Unterschied zwischen Kap. typische Probleme und FAQ klären
 
 Hier liegen alle Schulungsinhalte vom TBA-Team. Felicitas Federlein wird hier mehr System einbringen.
 Dokumente TBA-Team: i:/digitales Testen

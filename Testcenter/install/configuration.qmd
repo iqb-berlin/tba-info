@@ -13,7 +13,8 @@ aller aktuell vorhandenen Konfig-Parameter befinden sich
 Diese sollten nur mit Vorsicht und Kenntnis verändert werden.
 
 ## Version
-```{ini}
+
+```{.ini}
 VERSION=15.1.8
 ```
 Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start
@@ -22,27 +23,30 @@ erfolgen, sondern mittels der `update.sh` (siehe: TODO), da diese auch die compo
 *Downgrades sollten grundsätzlich vermieden werden*.
 
 ## Basic Network
+
 Grundsätzliche Netzwerkeinstellungen.
-```{ini}
+
+```{.ini}
 HOSTNAME=localhost
 ```
 Servername, z. B. `ìqb-testcenter4.de`. Wenn sie eine www-subdomain als Alternativen Namen verwenden wollen, geben Sie
 das `www` *nicht* mit an - es wird eine automatische Weiterleitung eingerichtet.
 
-```{ini}
+```{.ini}
 TLS_ENABLED=no
 ```
 Soll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen (siehe TODO).
 Der default ist hier natürlich `yes`.
 
-```{ini}
+```{.ini}
 PORT=80
 TLS_PORT=443
 ```
 Der Post auf dem das Testcenter laufen soll. Nur eines davon wird verwendet, je nachdem ob TLS_ENABLED gesetzt wird.
 
 ## Security
-```{ini}
+
+```{.ini}
 PASSWORD_SALT=t
 ```
 Salt für verwendeten admin-passwörter.
@@ -50,8 +54,10 @@ Achtung: Ändern Sie das nie, sonst können Sie sicht nicht mehr einloggen.
 
 
 ## Services
+
 ### Database connection
-```{ini}
+
+```{.ini}
 MYSQL_ROOT_PASSWORD=secret_root_pw
 MYSQL_DATABASE=iqb_tba_testcenter
 MYSQL_USER=iqb_tba_db_user
@@ -60,7 +66,8 @@ MYSQL_PASSWORD=iqb_tba_db_password
 Verbindungen zur Datenbank. Wird normalerweise bei der Installation gesetzt und nicht mehr angefasst.
 
 ### Broadcasting Service
-```{ini}
+
+```{.ini}
 BROADCAST_SERVICE_ENABLED=true
 ```
 Der Broadcasting-Service ist ein **optionaler** Zusatzservice, der Websocket-Verbindungen ermöglicht. Sollten ihre
@@ -68,14 +75,16 @@ Server oder Teilnehmer aus irgendwelchen Gründen Websockets nicht verwenden wol
 abschalten.
 
 ### File Service
-```{ini}
+
+```{.ini}
 FILE_SERVICE_ENABLED=true
 ```
 Der File-Service übernimmt die Auslieferung der eigentlichen Testinhalte. Ihn abzuschalten und die Inhalte mit dem
 Backend ausliefern verschlechtert die Performance des Testcenters maßgeblich.
 
 ### Cache Service
-```{ini}
+
+```{.ini}
 CACHE_SERVICE_INCLUDE_FILES=no
 CACHE_SERVICE_RAM=1073741824
 ```
@@ -87,52 +96,54 @@ parameter auf `yes` zu setzen und eine entsprechende Menge dafür freigegebenen 
 Es liegen bisher wenig Erkenntnisse über Performance-Gewinn, Fehleranfälligkeit usw. dieser Option vor, daher ist sie
 Standardmäßig ausgeschaltet.
 
-
 ## Advanced Network
-```{ini}
+
+```{.ini}
 DOCKER_DAEMON_MTU=1500
 ```
 MTU wert des Netzwerks. Außer in bestimmten Server-Umgebungen ist er 1500.
 
-```{ini}
+```{.ini}
 DOCKERHUB_PROXY=''
 ```
 Sie verwenden einen lokalen Proxy für DockerHub? Dann können Sie ihn hier angeben.
 
-```{ini}
+```{.ini}
 RESTART_POLICY=no
 ```
 Restart-Policy der Docker-Container: no, always, on-failure, unless-stopped
 
 ## Backend Init Parameters
+
 Die folgenden Parameter können für Experimente, in Debug-Situationen usw. eingesetzt werden. Sie sollten im
 Normalbetrieb aber nie im .env File auftauchen:
 
-```{ini}
+```{.ini}
 OVERWRITE_INSTALLATION="no"
 ```
 Bei Neustart wird die Installation neu aufgesetzt. *Alle Daten, User, Testinhalte und Konfigurationen gehen verloren*.
 
-```{ini}
+```{.ini}
 SKIP_READ_FILES="no"
 ```
 Das (Neu-)Einlesen der Dateien beim Start wird übersprungen. Damit kann der Systemstart deutlich beschleunigt werden,
 die Datenintegrität ist jedoch nicht mehr gewahrt. **Ab Testcenter 15.2.0 werden ohnehin nur noch Workspaces neu
 eingelesen, die sich verändert haben. Die Einstellung ist damit beinahe obsolet.**
 
-```{ini}
+```{.ini}
 SKIP_DB_INTEGRITY="no"
 ```
 Der Integritätscheck der Datenbank beim Starten wird übersprungen. Nur dann nützlich, wenn man ein kaputtes System
 unbedingt noch einmal hochfahren will.
 
-```{ini}
+```{.ini}
 NO_SAMPLE_DATA="no"
 ```
 Das Anlegen des Beispiel-Arbeitsbereiches wird bei einer Neuinstallation übersprungen. Wird ein bereits vorhandenes
 System gestartet, hat diese Einstellung keine Auswirkungen.
 
 # Server-Admin: TLS einrichten
+
 Außer in [Offline-Szenarien](https://iqb-berlin.github.io/tba-info/Testcenter/install/offline.html) muss TLS verwendet
 werden. Dazu sind Zertifikate zu besorgen und im testcenter-Verzeichnis unter `config/certs` abzulegen. Die Namen der
 Zertifikatsdateien sind in der Datei `config/tls-config.yml` anzugeben.
@@ -141,22 +152,27 @@ Ist TLS nicht eingerichtet, so wird ein self-signed-Certificate verwendet - mit 
 eine Sicherheitswarnung von ihrem Browser bekommen.
 
 # Super-Admin: Konfigurationsoptionen in der UI
+
 Der Super-Admin kann, wenn er sich im Testcenter einloggt unter `Systemverwaltung` und dem Reiter `Einstellungen`
 verschiedene weitere Konfigurationen vornehmen.
 
 ## Ändern der Standard-Texte
+
 Die meisten Texte, die ein Testteilnehmer zu Gesicht bekommen, lassen sich hier für die gesamte Instanz ändern. Diese
 lassen sich dann wiederum [für einzelne Studien oder Booklets ändern]
 (https://iqb-berlin.github.io/tba-info/Testcenter/Studiendurchfuehrung/Studienverhalten_konfigurieren.html).
 
 ## Eine Warnung auf die Startseite schalten
+
 Es lässt sich für eine definierte Zeit eine Warnung auf die Startseite schalten.
 
 ## Das Aussehen der Anwendung grundsätzlich anpassen
+
 Hintergrundfarbe, Name, Logo u. Ä. der Anwendung lässt sich verändern. Bei den Farben sind sämtliche
 [CSS-Farben](https://www.w3schools.com/cssref/css_colors.php) und sogar CSS-Farbverläufe usw. möglich.
 
 ## Die Fehlerreport-Funktion konfigurieren
+
 Wenn immer im Testcenter eine Fehlermeldung auftaucht, gibt es die Möglichkeit, einen ausführlichen Report anzuzeigen,
 und herunterzuladen. Wird dieser an die Entwickler gesendet, haben diese eine Chance das Problem zu beheben. Eine
 Testcenterinstanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopfdruck direkt eingesendet werden können.
