@@ -395,11 +395,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#wie-bearbeite-ich-meine-testdateien" id="toc-wie-bearbeite-ich-meine-testdateien">Wie bearbeite ich meine Testdateien?</a></li>
   <li><a href="#wie-werden-meine-änderungen-an-einer-der-testdateien-wirksam" id="toc-wie-werden-meine-änderungen-an-einer-der-testdateien-wirksam">Wie werden meine Änderungen an einer der Testdateien wirksam?</a></li>
   <li><a href="#wie-starte-ich-meinen-angelegten-test-und-gibt-es-eine-art-voransicht" id="toc-wie-starte-ich-meinen-angelegten-test-und-gibt-es-eine-art-voransicht">Wie starte ich meinen angelegten Test und gibt es eine Art Voransicht?</a></li>
+  <li><a href="#das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet" id="toc-das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet">Das Booklet kann bei einer Testdurchführung nicht geöffnet werden, es erscheint die folgende Meldung: <em>root element to Booklet should be: booklet</em></a></li>
   <li><a href="#kann-ich-den-test-überwachen-oder-steuern" id="toc-kann-ich-den-test-überwachen-oder-steuern">Kann ich den Test überwachen oder steuern?</a></li>
   <li><a href="#warum-stimmt-die-reihenfolge-meiner-aufgabe-nicht" id="toc-warum-stimmt-die-reihenfolge-meiner-aufgabe-nicht">Warum stimmt die Reihenfolge meiner Aufgabe nicht?</a></li>
-  <li><a href="#wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" id="toc-wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten">Wie kann ich den Test auswerten? Wo finde ich die Daten?</a></li>
+  <li><a href="#audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv." id="toc-audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv.">Audios können nicht gestartet werden. Der Play-Knopf ist inaktiv.</a></li>
   <li><a href="#warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt" id="toc-warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt">Warum werden Aufgabeninhalte in Chrome nur kurz angezeigt?</a></li>
-  <li><a href="#das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet" id="toc-das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet">Das Booklet kann bei einer Testdurchführung nicht geöffnet werden, es erscheint die folgende Meldung: <em>root element to Booklet should be: booklet</em></a></li>
+  <li><a href="#wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" id="toc-wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten">Wie kann ich den Test auswerten? Wo finde ich die Daten?</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
 <section id="wie-kann-ich-auf-das-testcenter-zugreifen" class="level3">
@@ -468,6 +469,10 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="wie-starte-ich-meinen-angelegten-test-und-gibt-es-eine-art-voransicht">Wie starte ich meinen angelegten Test und gibt es eine Art Voransicht?</h3>
 <p>Die Zugangsdaten der Testpersonen werden in der XML zur Studien-Definition festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: “Weiter” anmelden. In der XML zur Studien-Definition wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mit Hilfe dieses Modus kann festgelegt werden, ob der Test “heiß” ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).</p>
 </section>
+<section id="das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet" class="level3">
+<h3 class="anchored" data-anchor-id="das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet">Das Booklet kann bei einer Testdurchführung nicht geöffnet werden, es erscheint die folgende Meldung: <em>root element to Booklet should be: booklet</em></h3>
+<p>Eventuell ist die verwendete Testheft-XML beschädigt oder beinhaltet ein so genanntes BOM (byte order mark). Dieses BOM kann weitere Metadaten zu der Datei enthalten. Ist ein solches BOM in der Testheft-XML angelegt, erscheint diese Fehlermeldung im Testcenter, da das BOM nicht gelesen werden kann. Außerdem kann die Datei beschädigt sein, weil sie bspw. mit Word oder einem anderen nicht geeigneten Instrument verändert wurde. Verwenden Sie für die Bearbeitung der XML-Datei nur geeignete Editoren wie bspw. Notepadd++. Arbeiten Sie bereits mit einem geeigneten Editor, achten Sie auf die Einstellungen zur Zeichenkodierung. Hier darf die Option: UTF-8-BOM nicht aktiv sein.</p>
+</section>
 <section id="kann-ich-den-test-überwachen-oder-steuern" class="level3">
 <h3 class="anchored" data-anchor-id="kann-ich-den-test-überwachen-oder-steuern">Kann ich den Test überwachen oder steuern?</h3>
 <p>Das Testcenter stellt hierfür den <strong>Gruppenmonitor</strong> zur Verfügung. <strong>Mehr dazu kann den Kapitel: Testcenter/Gruppenmonitor entnommen werden.</strong></p>
@@ -476,17 +481,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="warum-stimmt-die-reihenfolge-meiner-aufgabe-nicht">Warum stimmt die Reihenfolge meiner Aufgabe nicht?</h3>
 <p>Die Reihenfolge der Aufgaben wird in der XMl zur Testheft-Definition festgelegt. Die Wiedergabe entspricht der hier angelegten Aufgaben von oben nach unten.</p>
 </section>
-<section id="wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" class="level3">
-<h3 class="anchored" data-anchor-id="wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten">Wie kann ich den Test auswerten? Wo finde ich die Daten?</h3>
-<p>Das Testcenter speichert in bestimmten <strong>Testmodi</strong> die Ergebnisse eines Tests in dem Arbeitsbereich ab, in welchem sich auch die Testdateien für den Test befinden. Öffnen Sie den jeweiligen Arbeitsbereich und klicken Sie auf den Reiter: <strong>Ergebnisse/Antworten</strong>. Dort können Sie die Ergebnisse herunterladen. Die Dateien werden dann in einem CSV-Format gespeichert.</p>
+<section id="audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv." class="level3">
+<h3 class="anchored" data-anchor-id="audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv.">Audios können nicht gestartet werden. Der Play-Knopf ist inaktiv.</h3>
+<p>Das Audio darf nicht Mono sein, sollte eine feste Bitrate aufweisen und muss im MP3-Format vorliegen.</p>
 </section>
 <section id="warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt" class="level3">
 <h3 class="anchored" data-anchor-id="warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt">Warum werden Aufgabeninhalte in Chrome nur kurz angezeigt?</h3>
 <p>Bitte prüfen Sie, ob für Chrome eine Erweiterung mit dem Namen “Urban VPN proxy Unblocker” installiert ist. Falls ja, deinstallieren Sie diese Erweiterung probeweise.</p>
 </section>
-<section id="das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet" class="level3">
-<h3 class="anchored" data-anchor-id="das-booklet-kann-bei-einer-testdurchführung-nicht-geöffnet-werden-es-erscheint-die-folgende-meldung-root-element-to-booklet-should-be-booklet">Das Booklet kann bei einer Testdurchführung nicht geöffnet werden, es erscheint die folgende Meldung: <em>root element to Booklet should be: booklet</em></h3>
-<p>Eventuell ist die verwendete Testheft-XML beschädigt oder beinhaltet ein so genanntes BOM (byte order mark). Dieses BOM kann weitere Metadaten zu der Datei enthalten. Ist ein solches BOM in der Testheft-XML angelegt, erscheint diese Fehlermeldung im Testcenter, da das BOM nicht gelesen werden kann. Außerdem kann die Datei beschädigt sein, weil sie bspw. mit Word oder einem anderen nicht geeigneten Instrument verändert wurde. Verwenden Sie für die Bearbeitung der XML-Datei nur geeignete Editoren wie bspw. Notepadd++. Arbeiten Sie bereits mit einem geeigneten Editor, achten Sie auf die Einstellungen zur Zeichenkodierung. Hier darf die Option: UTF-8-BOM nicht aktiv sein.</p>
+<section id="wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" class="level3">
+<h3 class="anchored" data-anchor-id="wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten">Wie kann ich den Test auswerten? Wo finde ich die Daten?</h3>
+<p>Das Testcenter speichert in bestimmten <strong>Testmodi</strong> die Ergebnisse eines Tests in dem Arbeitsbereich ab, in welchem sich auch die Testdateien für den Test befinden. Öffnen Sie den jeweiligen Arbeitsbereich und klicken Sie auf den Reiter: <strong>Ergebnisse/Antworten</strong>. Dort können Sie die Ergebnisse herunterladen. Die Dateien werden dann in einem CSV-Format gespeichert.</p>
 
 
 </section>
