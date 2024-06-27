@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.556">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -470,8 +470,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="aufbau-und-funktion" class="level1">
 <h1>Aufbau und Funktion</h1>
-<p>Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Informationen im Format einer Textdatei zu übertragen. Es ist daher auch möglich XML-Dateien mit einem ganz normalen Texteditor zu bearbeiten. Einige spezialisierte Editoren bieten die Möglichkeit die Struktur (Syntax) einer XML-Datei entsprechend hervorzuheben, was die Arbeit durchaus erleichtert.</p>
-<p>Nachfolgend ist ein einfaches Beispiel zum Aufbau einer XML:</p>
+<p>Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien. Die meisten dieser Testdateien sind XML-Datei. XML-Dateien werden verwendet um Informationen im Format einer Textdatei zu übertragen. Es ist daher auch möglich XML-Dateien mit einem ganz normalen Texteditoren zu bearbeiten. Einige spezialisierte Editoren bieten die Möglichkeit die Struktur (Syntax) einer XML-Datei entsprechend hervorzuheben, was die Arbeit durchaus erleichtert.</p>
+<p>Nachfolgend ist ein einfaches Beispiel zum Aufbau einer XML zu sehen:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Eine XML besteht aus Elementen. Diese Elemente werden mit spitzen Klammern eingeleitet und müssen mit spitzen Klammern und einem Schrägstrich (slash) abgeschlossen sein. Die Elemente können Kinderelemente enthalten und können beliebig verschachtelt werden. Im Beispiel ist das Hauptelement <code>&lt;Buecher&gt;</code> und die Kinderelemente <code>&lt;Buch&gt;</code>.</p>
 <p>Jedem Element können Daten und Attribute zugewiesen werden. Daten sind immer zwischen den spitzen Klammern angeordnet. Im Beispiel sind Daten für Titel, Autor und Preis hinterlegt. Das 1. Kinderelement <code>&lt;Buch&gt;</code> enthält ein Attribut mit dem Namen: <code>kategorie</code> und einen zugewiesenen Wert: <strong>kochen</strong>.</p>
 <p>Dieses XML-Beispiel kann nun beliebig ausgebaut werden. Es können weitere Bücher hinzugefügt und weitere Metadaten zu den Büchern hinterlegt werden. Es können auch weitere Attribute hinzugefügt werden, so könnte bspw. der Preis noch ein Attribut <code>währung</code> erhalten oder ähnliches. Unter Einhaltung der Syntaxregeln kann eine XML also völlig frei strukturiert werden. Damit eine Anwendung, die in der XML enthaltenen Daten und Attribute auch lesen kann, muss der Anwendung die angelegte Struktur bekannt sein. Nehmen wir an eine einfache Webanwendung soll alle in der XML angelegten Bücher anzeigen. Hierfür muss die Anwendung wissen, dass ein Buch unter dem Hauptelement Bücher zu finden ist. Nehmen wir weiterhin an, dass ein Filter in der Webanwendung Bücher nach Kategorien geordnet anzeigen kann. Dann muss der Anwendung bekannt sein, dass es eine Kategorie im Kinderelement: <code>Buch</code> gibt. Der Programmierer der Webanwendung wird also in seinem Programmcode definieren, an welcher Stelle in der XML das Attribut: <code>kategorie</code> zu finden ist. Wird die XML bearbeitet und dabei die Struktur verändert oder wird bspw. der Name des Hauptelements <code>Buecher</code> unbenannt in <code>books</code>, kann die Anwendung die XML nicht mehr lesen. Im besten Fall zeigt dann die Webanwendung mit dem gesetzten Filter eine Fehlermeldung an. Im schlechtesten Fall werden einfach keine Bücher angezeigt und es erscheint keine Fehlermeldung, was Anwender*innen dazu verleiten könnte anzunehmen, dass es einfach keine Bücher in der gesuchten Kategorie gibt.</p>
-<p>Um einen solchen sehr ungünstigen Zustand auszuschließen, wird eine <strong>XML-Schema-Definition</strong> hinterlegt. Die Schema-Definition definiert wie eine XML-Datei, die in eine Anwendung geladen werden soll, auszusehen hat. Es handelt sich also um eine Art Vorlage. Die Struktur der zu ladenden XML-Datei wird mit dieser Vorlage abgeglichen. Bei Unstimmigkeit wird bereits beim Laden eine Fehlermeldung angezeigt, die auf Unstimmigkeiten hinweist. Dies verhindert zur Laufzeit Probleme beim Lesen einer XML-Datei.</p>
+<p>Um einen solchen sehr ungünstigen Zustand auszuschließen, wird eine <strong>XML-Schema-Definition</strong> hinterlegt. Die Schema-Definition definiert, wie eine XML-Datei, die in eine Anwendung geladen werden soll, auszusehen hat. Es handelt sich also um eine Art Vorlage. Die Struktur der zu ladenden XML-Datei wird mit dieser Vorlage abgeglichen. Bei Unstimmigkeit wird bereits beim Laden eine Fehlermeldung angezeigt, die auf Unstimmigkeiten hinweist. Dies verhindert zur Laufzeit Probleme beim Lesen einer XML-Datei.</p>
 </section>
 <section id="werkzeuge" class="level1">
 <h1>Werkzeuge</h1>
