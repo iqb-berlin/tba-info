@@ -5,9 +5,9 @@ title: "Mehr zu XML"
 
 # Aufbau und Funktion
 
-Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien. Die meisten dieser Testdateien sind XML-Datei. XML-Datei werden verwendet um Informationen im Format einer Textdatei zu übertragen. Es ist daher auch möglich XML-Dateien mit einem ganz normalen Texteditor zu bearbeiten. Einige spezialisierte Editoren bieten die Möglichkeit die Struktur (Syntax) einer XML-Datei entsprechend hervorzuheben, was die Arbeit durchaus erleichtert.
+Um eine Studien durchführen zu können, benötigt das Testcenter einen bestimmten Daten-Input. Dieser Input besteht aus mehreren Dateien, den so genannten Testdateien. Die meisten dieser Testdateien sind XML-Datei. XML-Dateien werden verwendet um Informationen im Format einer Textdatei zu übertragen. Es ist daher auch möglich XML-Dateien mit einem ganz normalen Texteditoren zu bearbeiten. Einige spezialisierte Editoren bieten die Möglichkeit die Struktur (Syntax) einer XML-Datei entsprechend hervorzuheben, was die Arbeit durchaus erleichtert.
 
-Nachfolgend ist ein einfaches Beispiel zum Aufbau einer XML:
+Nachfolgend ist ein einfaches Beispiel zum Aufbau einer XML zu sehen:
 
 ```{.xml}
 
@@ -36,7 +36,7 @@ Jedem Element können Daten und Attribute zugewiesen werden. Daten sind immer zw
 Dieses XML-Beispiel kann nun beliebig ausgebaut werden. Es können weitere Bücher hinzugefügt und weitere Metadaten zu den Büchern hinterlegt werden. Es können auch weitere Attribute hinzugefügt werden, so könnte bspw. der Preis noch ein Attribut `währung` erhalten oder ähnliches. Unter Einhaltung der Syntaxregeln kann eine XML also völlig frei strukturiert werden. Damit eine Anwendung, die in der XML enthaltenen Daten und Attribute auch lesen kann, muss der Anwendung die angelegte Struktur bekannt sein. Nehmen wir an eine einfache Webanwendung soll alle in der XML angelegten Bücher anzeigen. Hierfür muss die Anwendung wissen, dass ein Buch unter dem Hauptelement Bücher zu finden ist. Nehmen wir weiterhin an, dass ein Filter in der Webanwendung Bücher nach Kategorien geordnet anzeigen kann. Dann muss der Anwendung bekannt sein, dass es eine Kategorie im Kinderelement: `Buch` gibt. Der Programmierer der Webanwendung wird also in seinem Programmcode definieren, an welcher Stelle in der XML das Attribut: `kategorie` zu finden ist. Wird die XML bearbeitet und dabei die Struktur verändert oder wird bspw. der Name des Hauptelements `Buecher` unbenannt in `books`, kann die Anwendung die XML nicht mehr lesen.
 Im besten Fall zeigt dann die Webanwendung mit dem gesetzten Filter eine Fehlermeldung an. Im schlechtesten Fall werden einfach keine Bücher angezeigt und es erscheint keine Fehlermeldung, was Anwender\*innen dazu verleiten könnte anzunehmen, dass es einfach keine Bücher in der gesuchten Kategorie gibt.
 
-Um einen solchen sehr ungünstigen Zustand auszuschließen, wird eine **XML-Schema-Definition** hinterlegt. Die Schema-Definition definiert wie eine XML-Datei, die in eine Anwendung geladen werden soll, auszusehen hat. Es handelt sich also um eine Art Vorlage. Die Struktur der zu ladenden XML-Datei wird mit dieser Vorlage abgeglichen. Bei Unstimmigkeit wird bereits beim Laden eine Fehlermeldung angezeigt, die auf Unstimmigkeiten hinweist. Dies verhindert zur Laufzeit Probleme beim Lesen einer XML-Datei.
+Um einen solchen sehr ungünstigen Zustand auszuschließen, wird eine **XML-Schema-Definition** hinterlegt. Die Schema-Definition definiert, wie eine XML-Datei, die in eine Anwendung geladen werden soll, auszusehen hat. Es handelt sich also um eine Art Vorlage. Die Struktur der zu ladenden XML-Datei wird mit dieser Vorlage abgeglichen. Bei Unstimmigkeit wird bereits beim Laden eine Fehlermeldung angezeigt, die auf Unstimmigkeiten hinweist. Dies verhindert zur Laufzeit Probleme beim Lesen einer XML-Datei.
 
 # Werkzeuge
 
