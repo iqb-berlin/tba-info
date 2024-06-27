@@ -11,134 +11,343 @@
     ]
   },
   {
-    "objectID": "Testcenter/install/index.html",
-    "href": "Testcenter/install/index.html",
-    "title": "Testcenter Installation",
+    "objectID": "Testcenter/install/offline.html",
+    "href": "Testcenter/install/offline.html",
+    "title": "Offline-Szenario",
     "section": "",
-    "text": "Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles hier beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, findet sich hier.\nAllerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. In freier Wildbahn ist ein Server vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese “SysOp” genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. “Systemhaus”) eingebunden werden. Sonst kann der Server schnell offline gehen – durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.\nDie Seiten in diesem Bereich decken schrittweise Themen ab, die für einen SysOp interessant sein könnten. Sie spiegeln zunächst die Erfahrungen des IQB wider, diskutieren aber auch Aspekte, die durch Partner vorgebracht wurden.\nNachfolgend sprechen wir einige Themen kurz an, nach denen wir zwar oft gefragt werden, zu denen wir aber aktuell keine Lösung anbieten – teils, weil andere Funktionen wichtiger waren, teils weil wir es nicht als unsere Aufgabe sehen.",
-    "crumbs": [
-      "Testcenter",
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/index.html#servermonitoring",
-    "href": "Testcenter/install/index.html#servermonitoring",
-    "title": "Testcenter Installation",
-    "section": "Servermonitoring",
-    "text": "Servermonitoring\nMan kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährdet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.\nDas IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als Infrastruktur. Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloudanbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.\nWas wir uns allerdings vorgenommen haben, ist die Einrichtung von Server-Endpunkten für einen sog. Health-Check.",
-    "crumbs": [
-      "Testcenter",
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/index.html#backup",
-    "href": "Testcenter/install/index.html#backup",
-    "title": "Testcenter Installation",
-    "section": "Backup",
-    "text": "Backup\nDie IQB-Webanwendungen verfügen nicht über einen eingebauten Backup-Mechanismus. Teilweise gibt es zwar Versionsmanagement oder Undo-/Redo-Funktion, aber serverseitig muss ein SysOp die Möglichkeit der Wiederherstellung verlorengegangener Daten organisieren.\nDas IQB praktiziert zwei Wege\n\nSichern eines kompletten Servers: Vor Updates oder einmal in der Woche wird der gesamte Server samt Betriebssystem als sog. Image gespeichert.\nSichern der Laufwerke, die an die Docker-Container gebunden sind sowie Datenbank-Dump. Hier muss zeitweise ein Nutzerzugriff unterbunden werden (Aktivieren einer Wartungsseite).",
-    "crumbs": [
-      "Testcenter",
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/index.html#ssh-zertifikate",
-    "href": "Testcenter/install/index.html#ssh-zertifikate",
-    "title": "Testcenter Installation",
-    "section": "ssh / Zertifikate",
-    "text": "ssh / Zertifikate\nWir empfehlen dringend, den direkten Zugriff für Systemadmins auf ssh – schlüsselbasiert – zu beschränken (ssh-Key). Ein Verlust von Zugangsdaten kann dann keinen Schaden anrichten.",
-    "crumbs": [
-      "Testcenter",
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/security.html",
-    "href": "Testcenter/install/security.html",
-    "title": "Datensicherheit",
-    "section": "",
-    "text": "Für verschiedene Institutionen oder auch Firmen gehört eine ausführliche Sicherheitsprüfung zu den Bedingungen der Installation einer Webanwendung. Für Rechenzentren der Länder beispielsweise ist durch Verwaltungsvorschriften festgelegt, dass erst nach einer Überprüfung nach dem BSI-Standard Cloud Computing C5 eine Installation freigegeben werden kann.\nDas IQB unterstützt diese Anforderungen, indem Monita zeitnah umgesetzt werden. Einige Anforderungen stehen jedoch der Funktionalität des Testcenters entgegen oder beruhen auf einem Missverständnis. Diese Punkte sind nachfolgend erläutert.",
+    "text": "Das IQB-Testcenter ist eine Webanwendung, d. h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.\nDieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.\n\nVorbereitung\n\nInstallation von Docker und Docker-Compose sowie make\nRouter im Access Point Modus\n(Optional) Installation von dnsmasq für lokalen DNS Server\n\nWenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen  Netzwerk.\nUm die Wiederverwendbarkeit zu erleichtern empfehle ich ein neues Profil für diese Verbindung anzulegen.\nDas wichtige ist, dass Make available to other users unter Details und Shared to other computers unter IPv4 aktiviert sind.\nNach Erstellung des Profils sollte es so aussehen:\n\n\n\n\nInstallation Testcenter\nDem Guide für die Installation des Testcenters folgen. Während man das Installationsskript (install.sh) ausführt gibt es einige Schritte die zu beachten sind.\nUnter HOSTNAME muss entweder die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel 10.42.0.1) oder eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan), allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines lokalen DNS Servers.\nAußerdem sollte die Setup-Frage “Use TLS?” mit N (No) beantwortet werden.\nMan sollte den weiteren Hinweisen des Guides ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden können und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet.\n\n\nLokaler DNS Server\nUm einen lokalen DNS Server zu starten können Tools wie dnsmasq oder bind verwendet werden. Dieser Guide verwendet dnsmasq.\nNach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse hinzugefügt werden. Dies kann man z.B. mit nano erledigen:\nsudo nano /etc/dnsmasq.conf\nDort diese Regel hinzufügen:\naddress=/#/x.x.x.x\nFür x muss der vorher ausgewählte Hostname eingesetzt werden und für x.x.x.x die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:\naddress=/iqb-testcenter.lan/10.42.0.1\nNach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.\nsudo systemctl restart dnsmasq.service\nSofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.\nDieser lokaler DNS Server wurde in einer Umgebung getestet in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.\n\n\nBereinigung des Testcenters\nMöchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:\nmake down \ndocker rm -f $(docker ps -a -q)\ndocker volume rm $(docker volume ls -q)\ndocker rmi $(docker images -a -q)\n\nbeendet die Anwendung.\nentfernt alle Container.\nentfernt alle Volumes.\nentfernt dann alle Images.\n\nDanach kann das bisherige Installationsverzeichnis gelöscht werden.\n\n\nUmgebungsvariable: TLS_ENABLED\nDas Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen. Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:\nnano .env\nUnd dann den Wert der Umgebungsvariable TLS_ENABLED wie folgt setzen:\nTLS_ENABLED=no\n\n\nLange Startzeiten des Testcenters umgehen\nDas Testcenter validiert standardmäßig beim Starten alle Units, Booklets sowie Testtaker. Dies kann bei einer hohen Anzahl von Booklets und Testtakern zur einer sehr hohen Startzeit führen.\nDies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Instalationsordner des Testcenters durchführen:\nmake run\nIn der zweiten Konsole dann diesen Befehl ausführen:\ndocker exec -it testcenter-backend sed -i '6s/$/ --skip_read_workspace_files/' /entrypoint.sh\nNun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “make stop” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.\n\n\n\n\n Zurück nach oben",
     "crumbs": [
       "Testcenter",
       "Installation",
-      "Datensicherheit"
+      "Offline-Szenario"
     ]
   },
   {
-    "objectID": "Testcenter/install/security.html#administratoren",
-    "href": "Testcenter/install/security.html#administratoren",
-    "title": "Datensicherheit",
-    "section": "Administratoren",
-    "text": "Administratoren\nZur Verwaltung der Inhalte und dem Download der Antwortdaten sind personenbezogene Accounts eingerichtet. Nur ein besonders privilegierter Admin darf diese Accounts anlegen und die Kennworte ändern bzw. vergeben. Nach einer entsprechenden Einweisung stellt diese Person die erforderliche Mindestlänge usw. sicher. Technisch ist eine Mindestlänge von 7 eingestellt.\n\n\n\n\n\n\nGeplante Weiterentwicklung\n\n\n\nDas IQB-Testcenter wird perspektivisch an eine Identitätsverwaltung über OpenID Connect angeschlossen. Damit wird die Vergabe der Kennworte ausgelagert und kann dann bis zur Zweifaktor-Authentifizierung gehen.\n\n\nSeit der Version 15.1 ist eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.",
+    "objectID": "Testcenter/install/configuration.html",
+    "href": "Testcenter/install/configuration.html",
+    "title": "Konfiguration",
+    "section": "",
+    "text": "Eine Testcenter-Instanz kann auf unterschiedliche Weise konfiguriert werden",
     "crumbs": [
       "Testcenter",
       "Installation",
-      "Datensicherheit"
+      "Konfiguration"
     ]
   },
   {
-    "objectID": "Testcenter/install/security.html#testpersonen",
-    "href": "Testcenter/install/security.html#testpersonen",
-    "title": "Datensicherheit",
-    "section": "Testpersonen",
-    "text": "Testpersonen\nDie Anmeldung einer Person, die einen Test oder eine Befragung ausführen soll, gilt nicht als Login. Dies ist vielmehr zu sehen wie das Füllen eines Warenkorbes ohne Account. Folgende Use Cases verhindern die übliche Sichtweise ‘Login’:\n\nEs muss durch das Testcenter auch abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus RUN-HOT-RESTART).\nEin Test soll nur durch die Eingabe eines Link/einer Url gestartet werden können. Dann wird KEIN Kennwort vergeben.\n\nDiese Szenarien bedeuten aus der Sicht der Datensicherheit, dass eine Anmeldung einer Testperson keiner Kennwortrichtlinie unterliegen muss. Der potenzielle Datenverlust besteht auch nur in einer unbeabsichtigten Veröffentlichung von Testitems, die ggf. vertraulich bleiben sollen. Es ist kein Zugriff auf Daten anderer möglich.\nAus diesem Grund ist es auch unbedenklich, dass die Testtaker-Xml nicht verschlüsselt hochgeladen werden. Eine Anmeldeverzögerung ist ebenfalls nicht erforderlich, sondern würde nur die mögliche Anzahl an Testpersonen, die sich zeitgleich anmelden können, künstlich begrenzen.",
+    "objectID": "Testcenter/install/configuration.html#version",
+    "href": "Testcenter/install/configuration.html#version",
+    "title": "Konfiguration",
+    "section": "Version",
+    "text": "Version\nVERSION=15.1.8\nDie verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings nie von Hand erfolgen, sondern mittels der update.sh (siehe: TODO), da diese auch die compose-files usw. mit updated. Downgrades sollten grundsätzlich vermieden werden.",
     "crumbs": [
       "Testcenter",
       "Installation",
-      "Datensicherheit"
+      "Konfiguration"
     ]
   },
   {
-    "objectID": "Testcenter/Testmethodik/index.html",
-    "href": "Testcenter/Testmethodik/index.html",
-    "title": "Testmethodik",
+    "objectID": "Testcenter/install/configuration.html#basic-network",
+    "href": "Testcenter/install/configuration.html#basic-network",
+    "title": "Konfiguration",
+    "section": "Basic Network",
+    "text": "Basic Network\nGrundsätzliche Netzwerkeinstellungen.\nHOSTNAME=localhost\nServername, z. B. ìqb-testcenter4.de. Wenn sie eine www-subdomain als Alternativen Namen verwenden wollen, geben Sie das www nicht mit an - es wird eine automatische Weiterleitung eingerichtet.\nTLS_ENABLED=no\nSoll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen (siehe TODO). Der default ist hier natürlich yes.\nPORT=80\nTLS_PORT=443\nDer Post auf dem das Testcenter laufen soll. Nur eines davon wird verwendet, je nachdem ob TLS_ENABLED gesetzt wird.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#security",
+    "href": "Testcenter/install/configuration.html#security",
+    "title": "Konfiguration",
+    "section": "Security",
+    "text": "Security\nPASSWORD_SALT=t\nSalt für verwendeten admin-passwörter. Achtung: Ändern Sie das nie, sonst können Sie sicht nicht mehr einloggen.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#services",
+    "href": "Testcenter/install/configuration.html#services",
+    "title": "Konfiguration",
+    "section": "Services",
+    "text": "Services\n\nDatabase connection\nMYSQL_ROOT_PASSWORD=secret_root_pw\nMYSQL_DATABASE=iqb_tba_testcenter\nMYSQL_USER=iqb_tba_db_user\nMYSQL_PASSWORD=iqb_tba_db_password\nVerbindungen zur Datenbank. Wird normalerweise bei der Installation gesetzt und nicht mehr angefasst.\n\n\nBroadcasting Service\nBROADCAST_SERVICE_ENABLED=true\nDer Broadcasting-Service ist ein optionaler Zusatzservice, der Websocket-Verbindungen ermöglicht. Sollten ihre Server oder Teilnehmer aus irgendwelchen Gründen Websockets nicht verwenden wollen oder können, können Sie ihn hier abschalten.\n\n\nFile Service\nFILE_SERVICE_ENABLED=true\nDer File-Service übernimmt die Auslieferung der eigentlichen Testinhalte. Ihn abzuschalten und die Inhalte mit dem Backend ausliefern verschlechtert die Performance des Testcenters maßgeblich.\n\n\nCache Service\nCACHE_SERVICE_INCLUDE_FILES=no\nCACHE_SERVICE_RAM=1073741824\nDer Cache-Service cached Authentifizierungen für den File-Service, sodass beim Laden der Testinhalte daas Backend nicht mehr verwendet werden muss.\nEr kann aber auch verwendet werden, um die Testinhalte selbst im Arbeitsspeicher des Servers zu cachen. Dazu ist dieser parameter auf yes zu setzen und eine entsprechende Menge dafür freigegebenen Arbeitsspeicher (in Byte) anzugeben. Es liegen bisher wenig Erkenntnisse über Performance-Gewinn, Fehleranfälligkeit usw. dieser Option vor, daher ist sie Standardmäßig ausgeschaltet.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#advanced-network",
+    "href": "Testcenter/install/configuration.html#advanced-network",
+    "title": "Konfiguration",
+    "section": "Advanced Network",
+    "text": "Advanced Network\nDOCKER_DAEMON_MTU=1500\nMTU wert des Netzwerks. Außer in bestimmten Server-Umgebungen ist er 1500.\nDOCKERHUB_PROXY=''\nSie verwenden einen lokalen Proxy für DockerHub? Dann können Sie ihn hier angeben.\nRESTART_POLICY=no\nRestart-Policy der Docker-Container: no, always, on-failure, unless-stopped",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#backend-init-parameters",
+    "href": "Testcenter/install/configuration.html#backend-init-parameters",
+    "title": "Konfiguration",
+    "section": "Backend Init Parameters",
+    "text": "Backend Init Parameters\nDie folgenden Parameter können für Experimente, in Debug-Situationen usw. eingesetzt werden. Sie sollten im Normalbetrieb aber nie im .env File auftauchen:\nOVERWRITE_INSTALLATION=\"no\"\nBei Neustart wird die Installation neu aufgesetzt. Alle Daten, User, Testinhalte und Konfigurationen gehen verloren.\nSKIP_READ_FILES=\"no\"\nDas (Neu-)Einlesen der Dateien beim Start wird übersprungen. Damit kann der Systemstart deutlich beschleunigt werden, die Datenintegrität ist jedoch nicht mehr gewahrt. Ab Testcenter 15.2.0 werden ohnehin nur noch Workspaces neu eingelesen, die sich verändert haben. Die Einstellung ist damit beinahe obsolet.\nSKIP_DB_INTEGRITY=\"no\"\nDer Integritätscheck der Datenbank beim Starten wird übersprungen. Nur dann nützlich, wenn man ein kaputtes System unbedingt noch einmal hochfahren will.\nNO_SAMPLE_DATA=\"no\"\nDas Anlegen des Beispiel-Arbeitsbereiches wird bei einer Neuinstallation übersprungen. Wird ein bereits vorhandenes System gestartet, hat diese Einstellung keine Auswirkungen.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#ändern-der-standard-texte",
+    "href": "Testcenter/install/configuration.html#ändern-der-standard-texte",
+    "title": "Konfiguration",
+    "section": "Ändern der Standard-Texte",
+    "text": "Ändern der Standard-Texte\nDie meisten Texte, die ein Testteilnehmer zu Gesicht bekommen, lassen sich hier für die gesamte Instanz ändern. Diese lassen sich dann wiederum [für einzelne Studien oder Booklets ändern] (https://iqb-berlin.github.io/tba-info/Testcenter/Studiendurchfuehrung/Studienverhalten_konfigurieren.html).",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#eine-warnung-auf-die-startseite-schalten",
+    "href": "Testcenter/install/configuration.html#eine-warnung-auf-die-startseite-schalten",
+    "title": "Konfiguration",
+    "section": "Eine Warnung auf die Startseite schalten",
+    "text": "Eine Warnung auf die Startseite schalten\nEs lässt sich für eine definierte Zeit eine Warnung auf die Startseite schalten.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#das-aussehen-der-anwendung-grundsätzlich-anpassen",
+    "href": "Testcenter/install/configuration.html#das-aussehen-der-anwendung-grundsätzlich-anpassen",
+    "title": "Konfiguration",
+    "section": "Das Aussehen der Anwendung grundsätzlich anpassen",
+    "text": "Das Aussehen der Anwendung grundsätzlich anpassen\nHintergrundfarbe, Name, Logo u. Ä. der Anwendung lässt sich verändern. Bei den Farben sind sämtliche CSS-Farben und sogar CSS-Farbverläufe usw. möglich.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/configuration.html#die-fehlerreport-funktion-konfigurieren",
+    "href": "Testcenter/install/configuration.html#die-fehlerreport-funktion-konfigurieren",
+    "title": "Konfiguration",
+    "section": "Die Fehlerreport-Funktion konfigurieren",
+    "text": "Die Fehlerreport-Funktion konfigurieren\nWenn immer im Testcenter eine Fehlermeldung auftaucht, gibt es die Möglichkeit, einen ausführlichen Report anzuzeigen, und herunterzuladen. Wird dieser an die Entwickler gesendet, haben diese eine Chance das Problem zu beheben. Eine Testcenterinstanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopfdruck direkt eingesendet werden können. Betreiber eines Testcenters können auf diese Weise auftretende Fehler geordnet tracken.\nAls Bugtracker kann derzeit nur GitHub angeschlossen werden. Dazu kann der Super-Admin entsprechend ein Token und ein Repository angeben.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Konfiguration"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/load-test.html",
+    "href": "Testcenter/install/load-test.html",
+    "title": "Lastverhalten",
     "section": "",
-    "text": "Hinweis\n\n\n\nDiese Seite ist in Bearbeitung.\n\n\n\n\n\n Zurück nach oben"
+    "text": "Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.\nUnter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.\n\n\n\nDie kritische Phase bei einer Lernstandserhebung mit dem Testcenter ist das Laden der Testinhalte. Um Verzögerungen während des Testablaufs zu verhindern (dies würde die Vergleichbarkeit der Ergebnisse gefährden), müssen die Testinhalte (auch Bilder, Audio-/Videosequenzen) geladen werden, bevor der Testperson etwas präsentiert wird. Das Testcenter kann jedoch auch so konfiguriert werden, dass die ersten Seiten angezeigt werden können, nachdem der erste Block geladen wurde (lazy loading). Diese Ladestrategie muss jedoch mit Bedacht gewählt werden: Es muss genügend Zeit im ersten Block zugebracht werden, damit das Betreten des nächsten Blockes nicht verzögert wird.\nAlle Testinhalte sollen also zu Beginn vom Server geladen werden. Vorher muss noch eine Anmeldung am Testsystem erfolgreich sein, damit das richtige Testheft zugewiesen wird und die Antworten der richtigen Person zugeordnet werden. Nach dem Ladevorgang präsentiert der Browser nacheinander die Aufgaben, wobei die Antworten bzw. der Status der Bearbeitung sofort an den Server geschickt werden. Mit Blick auf den Lasttest stellt jedoch die Phase der Bearbeitung und des Speicherns der Antworten einen relativ geringen Anteil an der Belastung des Servers dar. Im Vergleich zum anfänglichen Laden sind das sehr kleine Datenpakete. Für einen Lasttest wird also die anfängliche Ladephase simuliert: Aufruf der Startseite, Eingeben der Login-Daten, Laden der Testinhalte.\nDie Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestellt, dass pro Testperson nur eine Datei gleichzeitig abgerufen wird - Inhalte werden also nacheinander und nicht parallel abgerufen. Dieses serielle Laden verhindert, dass wenige Testpersonen viele parallele Ladevorgänge auslösen und früh alles geladen haben, andere Testpersonen jedoch durch die Begrenzung der Netzverbindungen keine Ladevorgänge auslösen können und sehr lange auf die Testinhalte warten.\n\n\n\nDie Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: Anzahl Testpersonen und Ladezeit. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.\nEin Lasttest weist üblicherweise außerdem die Fehlerrate aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 x, retry mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn die 5 Ladeversuche gescheitert sind und also die Testperson eine Fehlermeldung bekommt.\nNach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Lastverhalten"
+    ]
   },
   {
-    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html",
-    "href": "Testcenter/Verwaltung_und_Organisation/index.html",
-    "title": "Verwaltung und Organisation",
+    "objectID": "Testcenter/install/load-test.html#ziel",
+    "href": "Testcenter/install/load-test.html#ziel",
+    "title": "Lastverhalten",
     "section": "",
-    "text": "Das Testcenter bietet zwei administrative Ebenen zur Verwaltung und Organisation.\n\n\nNach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Berechtigungen. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:\n\nArbeitsbereiche anlegen\nNutzer*innen anlegen (Workspace-Admins) und Zugriffe auf Arbeitsbereiche festlegen\nindividuelle Änderungen an Texten (Custom-Text) und Layout des Testcenters vornehmen\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es ist außerdem ein Schalter für die Systemeinstellungen zu sehen. Wird dieser Schalter betätigt, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:\n\nUsers: Hier können bestehende Nutzer*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in “read only” (RO) und “read and write” (RW).\nArbeitsbereiche: Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.\nEinstellungen: Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.\n\n\n\n\nNutzer*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters.\n\n\n\n\n\n\nHinweis\n\n\n\nAls Workspace-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.\n\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche. Durch ein Klick auf einen Arbeitsbereich, können Daten in den Arbeitsbereich geladen werden. Falls Antwortdaten vorhanden sind, können diese heruntergeladen werden.",
+    "text": "Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.\nUnter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.",
     "crumbs": [
       "Testcenter",
-      "Verwaltung und Organisation"
+      "Installation",
+      "Lastverhalten"
     ]
   },
   {
-    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html#administrative-zugänge",
-    "href": "Testcenter/Verwaltung_und_Organisation/index.html#administrative-zugänge",
-    "title": "Verwaltung und Organisation",
+    "objectID": "Testcenter/install/load-test.html#beschreibung-des-ladeverhaltens",
+    "href": "Testcenter/install/load-test.html#beschreibung-des-ladeverhaltens",
+    "title": "Lastverhalten",
     "section": "",
-    "text": "Das Testcenter bietet zwei administrative Ebenen zur Verwaltung und Organisation.\n\n\nNach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Berechtigungen. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:\n\nArbeitsbereiche anlegen\nNutzer*innen anlegen (Workspace-Admins) und Zugriffe auf Arbeitsbereiche festlegen\nindividuelle Änderungen an Texten (Custom-Text) und Layout des Testcenters vornehmen\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es ist außerdem ein Schalter für die Systemeinstellungen zu sehen. Wird dieser Schalter betätigt, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:\n\nUsers: Hier können bestehende Nutzer*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in “read only” (RO) und “read and write” (RW).\nArbeitsbereiche: Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.\nEinstellungen: Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.\n\n\n\n\nNutzer*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters.\n\n\n\n\n\n\nHinweis\n\n\n\nAls Workspace-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.\n\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche. Durch ein Klick auf einen Arbeitsbereich, können Daten in den Arbeitsbereich geladen werden. Falls Antwortdaten vorhanden sind, können diese heruntergeladen werden.",
+    "text": "Die kritische Phase bei einer Lernstandserhebung mit dem Testcenter ist das Laden der Testinhalte. Um Verzögerungen während des Testablaufs zu verhindern (dies würde die Vergleichbarkeit der Ergebnisse gefährden), müssen die Testinhalte (auch Bilder, Audio-/Videosequenzen) geladen werden, bevor der Testperson etwas präsentiert wird. Das Testcenter kann jedoch auch so konfiguriert werden, dass die ersten Seiten angezeigt werden können, nachdem der erste Block geladen wurde (lazy loading). Diese Ladestrategie muss jedoch mit Bedacht gewählt werden: Es muss genügend Zeit im ersten Block zugebracht werden, damit das Betreten des nächsten Blockes nicht verzögert wird.\nAlle Testinhalte sollen also zu Beginn vom Server geladen werden. Vorher muss noch eine Anmeldung am Testsystem erfolgreich sein, damit das richtige Testheft zugewiesen wird und die Antworten der richtigen Person zugeordnet werden. Nach dem Ladevorgang präsentiert der Browser nacheinander die Aufgaben, wobei die Antworten bzw. der Status der Bearbeitung sofort an den Server geschickt werden. Mit Blick auf den Lasttest stellt jedoch die Phase der Bearbeitung und des Speicherns der Antworten einen relativ geringen Anteil an der Belastung des Servers dar. Im Vergleich zum anfänglichen Laden sind das sehr kleine Datenpakete. Für einen Lasttest wird also die anfängliche Ladephase simuliert: Aufruf der Startseite, Eingeben der Login-Daten, Laden der Testinhalte.\nDie Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestellt, dass pro Testperson nur eine Datei gleichzeitig abgerufen wird - Inhalte werden also nacheinander und nicht parallel abgerufen. Dieses serielle Laden verhindert, dass wenige Testpersonen viele parallele Ladevorgänge auslösen und früh alles geladen haben, andere Testpersonen jedoch durch die Begrenzung der Netzverbindungen keine Ladevorgänge auslösen können und sehr lange auf die Testinhalte warten.",
     "crumbs": [
       "Testcenter",
-      "Verwaltung und Organisation"
+      "Installation",
+      "Lastverhalten"
     ]
   },
   {
-    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html#zugänge-ohne-befugnisse",
-    "href": "Testcenter/Verwaltung_und_Organisation/index.html#zugänge-ohne-befugnisse",
-    "title": "Verwaltung und Organisation",
-    "section": "Zugänge ohne Befugnisse",
-    "text": "Zugänge ohne Befugnisse\n\nTestpersonen\nDieser Personenkreis erhält die Zugangsdaten durch eine spezielle XML-Datei (XML zur Studien-Definition), die in den Arbeitsbereich der Studie geladen wird. Meldet sich eine Testperson mit den in dieser XML hinterlegten Zugangsdaten am Testcenter an, wird ein Testheft gestartet. Mit anderen Worten, eine Testung wird gestartet.\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter zur Anmeldung zu verwenden.",
+    "objectID": "Testcenter/install/load-test.html#indikatoren",
+    "href": "Testcenter/install/load-test.html#indikatoren",
+    "title": "Lastverhalten",
+    "section": "",
+    "text": "Die Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: Anzahl Testpersonen und Ladezeit. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.\nEin Lasttest weist üblicherweise außerdem die Fehlerrate aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 x, retry mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn die 5 Ladeversuche gescheitert sind und also die Testperson eine Fehlermeldung bekommt.\nNach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.",
     "crumbs": [
       "Testcenter",
-      "Verwaltung und Organisation"
+      "Installation",
+      "Lastverhalten"
     ]
   },
   {
-    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html#arbeitsbereich",
-    "href": "Testcenter/Verwaltung_und_Organisation/index.html#arbeitsbereich",
-    "title": "Verwaltung und Organisation",
-    "section": "Arbeitsbereich",
-    "text": "Arbeitsbereich\nZur Organisation von Studien stehen Arbeitsbereiche zur Verfügung. Diese legen die Super-Admins an und vergeben die entsprechenden Berechtigungen. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.\nNach der Anmeldung präsentiert das System eine Liste aller Arbeitsbereiche, die für eine Person freigegeben sind. Mit einem Klick auf den jeweiligen Arbeitsbereich wird dieser geöffnet. Zur Liste der Arbeitsbereiche kehrt man zurück, indem man auf das IQB-Logo links oben in der Ecke klickt.\nDer Arbeitsbereich hat drei Grundfunktionen. Diese können mit einem Klick auf den entsprechenden Reiter ausgewählt werden:\n\nDateien\nSystem-Check Berichte\nErgebnisse/Antworten\n\n\nDateien\nAlle Testinhalte und Definitionen eines Tests bzw. einer Befragung (Testdateien), werden über den Reiter: Dateien in das System hochgeladen.\n\n\n\n\n\n\nHinweis\n\n\n\nWelche Testdateien es gibt und welche Funktionen diese übernehmen ist dem Kapitel: Daten und Prozesse zu entnehmen.\n\n\nSobald eine Datei hochgeladen ist, ist sie wirksam. D. h. unmittelbar nachdem eine Datei mit Login-Daten (XML zur Studien-Definition) hochgeladen wurde, kann sich eine Testperson mit diesen Daten anmelden. Sollte man feststellen, dass eine Aufgabe Fehler enthält, kann man die Aufgaben-Datei überarbeiten und erneut in das Testcenter laden. Jeder danach gestartete Test, wird dann die neue Aufgabe verwenden.\n\n\n\n\n\n\nHinweis\n\n\n\nWeitere Infos zum Laden von Testdateien sind dem Kapitel: Daten Upload zu entnehmen.\n\n\n\n\nSystem-Check Berichte\nHier können die Berichte, die von einem System-Check erzeugt wurden, heruntergeladen werden. Es handelt sich um CSV-Dateien, die man sich gleich z. B. in Microsoft Excel anschauen kann.\n\n\nErgebnisse/Antworten\nHier können Antworten und Logs, die über die Tests bzw. Befragungen innerhalb dieses Arbeitsbereiches gespeichert wurden, heruntergeladen werden. Auch hier ist das Dateiformat CSV. Sollte das Testcenter über ein Länderportal verwaltet werden, dann steht hier auch ein Download im JSON-Format zur Verfügung.",
+    "objectID": "Testcenter/install/load-test.html#warum-reicht-nicht-ein-standard-test-für-webserver",
+    "href": "Testcenter/install/load-test.html#warum-reicht-nicht-ein-standard-test-für-webserver",
+    "title": "Lastverhalten",
+    "section": "Warum reicht nicht ein Standard-Test für Webserver?",
+    "text": "Warum reicht nicht ein Standard-Test für Webserver?\nMan könnte annehmen, dass es sich beim IQB-Testcenter um eine Webseite handelt und einen üblichen Lasttest beauftragen. Auch hier wird berichtet, wieviele Personen gleichzeitig Zugriff haben können. Aus folgenden Gründen sind Standard-Tests jedoch problematisch:\n\nDas Besucherverhalten wird als lose, teilweise zufällige Abfolge von Navigationsentscheidungen simuliert. Seiten werden oft vollständig geladen, manchmal wird aber auch das Laden abgebrochen durch eine andere Navigation. Das ist beim Testcenter nicht der Fall.\nEs wird pro Besucher zugelassen, dass mehrere Ladevorgänge parallel angestoßen werden (eine Webseite hat üblicherweise mehrere Elemente wie z. B. Bilder). Wenn dies passiert, belastet ein Besucher den Server mehrfach. Das ist beim Testcenter nicht der Fall, so dass die Kapazität des Testcenters systematisch unterschätzt wird.\nEs wird ein praktisch unendlich aktiver Besucher simuliert. Dadurch kann nicht ermittelt werden, wann ein Testheft geladen wurde und eine einmal gestartete Testperson behindert weiterhin die anderen - es gibt keine Entlastung nach der Ladephase zugunsten anderer Testpersonen. Dadurch wird die Kapazität des Testcenters systematisch unterschätzt und es fehlt die wichtige Information über die Ladezeit.",
     "crumbs": [
       "Testcenter",
-      "Verwaltung und Organisation"
+      "Installation",
+      "Lastverhalten"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/load-test.html#eigenprogrammierung",
+    "href": "Testcenter/install/load-test.html#eigenprogrammierung",
+    "title": "Lastverhalten",
+    "section": "Eigenprogrammierung",
+    "text": "Eigenprogrammierung\nLeider sind die verfügbaren Open Source-Systeme zum Bauen eines Lasttests (z. B. Locust, Tsung) stets auf den oben beschriebenen Standardfall ausgerichtet. Es sind viele Zufallsfaktoren eingebaut, so dass sich ein streng serielles Laden kaum realisieren lässt. Das IQB verwendet daher eine eigene Programmierung für Lasttests, die die Aufrufe in der Startphase korrekt nachstellt:\n\nAnmeldung am Testsystem; für alle folgenden Requests wird das bei der Anmeldung erhaltene Auth-Token verwendet\nNach erfolgreicher Anmeldung Abruf der Daten: Testheft (also Liste der erforderlichen Dateien)\nAbruf der Dateien\n\nDer Server, der geprüft wird, hat eine definierte Ausgangssituation. Das bedeutet, dass stets dieselben Testinhalte bereit stehen und sich noch niemand vorher angemeldet hat. Für jede Testperson wird ein separates Login bereitgestellt. Wenn also eine Last von 10.000 Testpersonen erzeugt werden soll, hält der Server 10.000 Logins bereit, die der angreifende Server dann benutzt.\nDer Server, der die Last erzeugt, muss hierfür sehr viele Prozesse gleichzeitig managen können. Diese Bedingung konnte nur die Computersprache Go hinreichend erfüllen. Die Programmierung für den IQB-Lasttest ist also in Go implementiert.\nIm Moment ist die Programmierung auf die Anforderungen des IQB ausgerichtet. Nach der Diskussion mit Fachleuten auf dem Gebiet des Lasttests und weiterer Erprobung würden wir die Software so ausbauen, dass sie einfach durch Dritte installiert und genutzt werden kann (MIT-Lizenz). Auf der Liste der gewünschten Features stehen noch Einbeziehung von Daten aus dem Monitoring des angegriffenen Systems (Docker stats bzw. Informationen über CPU-Auslastung, RAM usw.), Automatisierung des Uploads des Testcenter-Content und einfache Parametrisierung der Testläufe.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Lastverhalten"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/load-test.html#szenarien",
+    "href": "Testcenter/install/load-test.html#szenarien",
+    "title": "Lastverhalten",
+    "section": "Szenarien",
+    "text": "Szenarien\nEs werden zwei Parameter der Testung variiert:\n\ngleichzeitige Anzahl der Testpersonen: 100, 1.000, 2.000, 5.000, 10.000, 20.000; hierbei erfolgt real eine Streckung der Login-Anfragen: maximal 100 Anmeldungen pro Sekunde (sonst wird ein DoS-Angriffszenario simuliert)\nGesamtgröße des Content: klein (70 kB), mittel (20 MB), groß (38 MB)\n\nDas IQB betreibt zwei konstante Server, damit die Lasttests vergleichbar sind. Hier ist das Ziel nicht, eine spezifische Lernstandserhebung vorzubereiten, sondern Versionen des Testcenters auf Veränderungen des Lastverhaltens zu prüfen. Die Serverausstattung wird bewusst nicht variiert.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Lastverhalten"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/load-test.html#strategien-bei-unbefriedigenden-lasttest-ergebnissen",
+    "href": "Testcenter/install/load-test.html#strategien-bei-unbefriedigenden-lasttest-ergebnissen",
+    "title": "Lastverhalten",
+    "section": "Strategien bei unbefriedigenden Lasttest-Ergebnissen",
+    "text": "Strategien bei unbefriedigenden Lasttest-Ergebnissen\nUm die Lücke zwischen der erforderlichen Kapazität und den ermittelten Werten zu verringern, bieten sich folgende Strategien an:\n\nVerringerung der Testheft-Größe:\n\nSind alle Bilder, Audio- und Videosequenzen unverzichtbar?\nKönnte man die Auflösung von Bildern, Audio- und Videosequenzen verringern bei vertretbarem Qualitätsverlust?\nKönnte man ein Testheft aufteilen in mehrere Testhefte?\n\nStreckung des Testzeitraumes: Bereits eine Teilung der Testpopulation und dann Versatz um eine (Unterrichts-)Stunde würde die tägliche Kapazität verdoppeln; entsprechend wäre der Gewinn bei der Ausdehnung der Testung auf eine Woche\n\nBevor man nun die teure Serverkapazität erhöht sollte man sicherstellen, dass die anderen Infrastruktur-Komponenten noch Reserven haben. Wenn die Anbindung der Schulen an das Internet, die Verteilung in der Schule (WLAN-Access-Points) sowie die Endgeräte keinen Engpass bilden, sollten mehr Server bereitgestellt werden:\n\nAufsetzen mehrerer getrennter Server jeweils mit einer Testcenter-Installation; Aufteilen der Testpopulation mit fixer Zuweisung des Servers; späteres manuelles Zusammenführen der Antwortdaten,\n(derzeit noch nicht verfügbar) Installation des Testcenters auf einem System mit Lastverteilung (z. B. Kubernetes), wodurch die Administration erleichtert wird; Achtung: Auch in diesem Fall muss eine höhere Serverausstattung bereitgestellt werden (die Synchronisation der Datenbank-Inhalte erzeugt zusätzliche Last).",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Lastverhalten"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/load-test.html#vergleich-mit-version-14",
+    "href": "Testcenter/install/load-test.html#vergleich-mit-version-14",
+    "title": "Lastverhalten",
+    "section": "Vergleich mit Version 14",
+    "text": "Vergleich mit Version 14\n\nLastvergleich Testcenter Versionen 14 und 15, Dezember 2023\n\n\nGröße Content\n Users\nVersion\nLadezeit Median sec\nErrors\n\n\n\n\n70 kB\n \n \n  \n\n\n\n \n100\n \n \n \n\n\n \n \n14.13\n13\n0\n\n\n \n \n15-rc9\n4\n0\n\n\n \n500\n \n \n \n\n\n \n \n14.13\n53\n0\n\n\n \n \n15-rc9\n8\n0\n\n\n \n1.000\n \n \n \n\n\n \n \n14.13\n102\n0\n\n\n \n \n15-rc9\n17\n0\n\n\n \n2.000\n \n \n \n\n\n \n \n14.13\n232\n0\n\n\n \n \n15-rc9\n23\n0\n\n\n \n5.000\n \n \n \n\n\n \n \n14.13\n355\n2.008\n\n\n \n \n15-rc9\n46\n0\n\n\n \n10.000\n \n \n \n\n\n \n \n15-rc9\n96\n25\n\n\n20 MB\n \n \n  \n\n\n\n \n100\n \n \n \n\n\n \n \n14.13\n20\n0\n\n\n \n \n15-rc9\n4\n0\n\n\n \n500\n \n \n \n\n\n \n \n14.13\n91\n0\n\n\n \n \n15-rc9\n10\n0\n\n\n \n1.000\n \n \n \n\n\n \n \n14.13\n163\n0\n\n\n \n \n15-rc9\n12\n0\n\n\n \n2.000\n \n \n \n\n\n \n \n14.13\n378\n3\n\n\n \n \n15-rc9\n18\n0\n\n\n \n5.000\n \n \n \n\n\n \n \n14.13\n567\n2.274\n\n\n \n \n15-rc9\n53\n352\n\n\n \n10.000\n \n \n \n\n\n \n \n15-rc9\n136\n1.337\n\n\n38 MB\n \n \n  \n\n\n\n \n100\n \n \n \n\n\n \n \n14.13\n94\n0\n\n\n \n \n15-rc9\n5\n0\n\n\n \n500\n \n \n \n\n\n \n \n14.13\n379\n0\n\n\n \n \n15-rc9\n11\n112\n\n\n \n1.000\n \n \n \n\n\n \n \n14.13\n787\n2\n\n\n \n \n15-rc9\n17\n91\n\n\n \n2.000\n \n \n \n\n\n \n \n14.13\n1.433\n320\n\n\n \n \n15-rc9\n21\n1.704\n\n\n \n5.000\n \n \n \n\n\n \n \n15-rc9\n197\n3.314",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Lastverhalten"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html",
+    "href": "Testcenter/System_Check/index.html",
+    "title": "System Check",
+    "section": "",
+    "text": "Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der System-Check ist ein Weg vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#was-ist-ein-system-check",
+    "href": "Testcenter/System_Check/index.html#was-ist-ein-system-check",
+    "title": "System Check",
+    "section": "",
+    "text": "Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der System-Check ist ein Weg vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#wie-wird-ein-system-check-gestartet",
+    "href": "Testcenter/System_Check/index.html#wie-wird-ein-system-check-gestartet",
+    "title": "System Check",
+    "section": "Wie wird ein System-Check gestartet?",
+    "text": "Wie wird ein System-Check gestartet?\nDer System-Check wird in einer XML konfiguriert. Diese wird nach Abschluss der Konfiguration in den Arbeitsbereich der jeweiligen Studie geladen. Wird zur Anmeldeseite des Testcenters gewechselt, ist dann ein Schalter für den System-Check neben dem Schalter: Impressum/Datenschutz zu sehen. Wird der Schalter betätigt, wird eine Liste aller zur Verfügung stehenden System-Checks im Testcenter angezeigt. Nach Auswahl wird der jeweilige Check gestartet.\n\n\n\n\n\n\nHinweis\n\n\n\nEs können mehrere System-Checks im Testcenter angelegt sein. Das System bietet dann eine Auswahl aller System-Checks an. Der System-Check Bericht wird dabei immer in dem Arbeitsbereich gespeichert, in dem sich die ausgeführte System-Check-XML befindet.\n\n\nEin System-Check kann beliebig oft wiederholt werden. Wurde ein Check bereits vollständig durchgeführt und ein entsprechender Bericht gespeichert, kann zu einem anderen Endgerät gewechselt werden und der selbe System-Check erneut gestartet werden. Wird ein Bericht zu diesem zweiten Check gespeichert, wird der vorhandene Bericht nur um die Daten des neuen Checks erweitert.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#was-kann-der-system-check-leisten",
+    "href": "Testcenter/System_Check/index.html#was-kann-der-system-check-leisten",
+    "title": "System Check",
+    "section": "Was kann der System-Check leisten?",
+    "text": "Was kann der System-Check leisten?\nEin System-Check kann keine Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.\nEin positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Aktualisierungen) belegt ist.\nIm einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.\nAblauf eines System-Checks:\nSchritt 1: Nach dem Start werden zuerst einmal wichtige Informationen gesammelt. Dazu gehören:\n\nBildschirmauflösung\nBrowserversion\nBetriebssystemversion\nBrowser-Cookies Abfrage\nBrowser-Plugins\n\nSchritt 2: Ermittlung der Internetgeschwindigkeit (optional, kann auch ausgeschaltet werden)\nSchritt 3: Ansicht einer Beispielaufgabe (optional).\n\n\n\n\n\n\nHinweis\n\n\n\nHier kann nur eine Aufgabe angelegt werden. Die Aufgabe kann aber aus mehreren Seite bestehen und somit viele Aufgabenfunktionen abbilden, die vielleicht nicht auf eine Seite passen würden.\n\n\nSchritt 4: Befragungen (optional). Hier können individuelle Fragen zur Beispielaufgabe oder anderem angezeigt werden\nDie Navigation durch alle Schritte des System-Checks sind selbsterklärend und verständlich gekennzeichnet.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#planung",
+    "href": "Testcenter/System_Check/index.html#planung",
+    "title": "System Check",
+    "section": "Planung",
+    "text": "Planung\nBzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung, dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.\nEs sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden.\nVor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen schon im Vorfeld abgeklärt werden:\n\nWelche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden?\nGibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?\nIst bekannt, ob es seitens des eigenen IT-Netzes besondere Beschränkungen bzgl. der Firewall gibt? Kommen spezielle Plugins in den Browsern zum Einsatz?\nFalls Tablets zum Einsatz kommen: Verfügen diese über externe Tastaturen?\n\nAuf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:\nGibt es im geplanten Testheft Aufgabe, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?\nWenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.\nGibt es im Testheft Aufgaben mit Audios?\nWenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.\nGibt es im Testheft Aufgaben mit Eingabefeldern oder ähnlichem?\nWenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit Eingabefeldern in den System-Check eingebunden werden und im Verlauf gefragt werden, ob Text oder auch Sonderzeichen in die Felder eingegeben werden konnten. Auf diese Weise können auch Tablet-Tastaturen und die IQB-eigene Tastatur zur Eingabe von Sonderzeichen getestet werden.\nGibt es im Testheft Aufgaben mit Drag-and-Drop-Elementen oder ähnlichem?\nWenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit solchen Elementen eingebunden werden. So kann sichergestellt werden, dass auch auf Tablets diese Elemente richtig funktionieren.\nSoll ein Passwort zur Speicherung eines System-Check-Berichtes eingerichtet werden?\nWird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.\n\n\n\n\n\n\nTipp\n\n\n\nIm System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.\n\n\n\n\n\n\n\n\nTipp\n\n\n\nWeitere Anregungen bzgl. der System-Check Planung sind auch dem Kapitel: Studiendurchführung: Vorbetrachtungen zu entnehmen.\n\n\nSind die Vorüberlegungen abgeschlossen, kann mit der Konfiguration des System-Checks begonnen werden.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#konfiguration",
+    "href": "Testcenter/System_Check/index.html#konfiguration",
+    "title": "System Check",
+    "section": "Konfiguration",
+    "text": "Konfiguration\nDie Konfiguration findet in einer XML statt. Der Name der XML ist beliebig, die Struktur (welche Elemente, welche Attribute) hingegen nicht. Diese richtet sich nach einer Schema-Definition und muss zwingend eingehalten werden. Die Schema-Definition ist auf der IQB-GitHub-Startseite unter dem Reiter: Spezifikationen im Abschnitt: IQB-Testcenter: Input System-Check-Xml zu finden.\nDer Inhalt der nachfolgenden System-Check-XML kann kopiert und entsprechend erweitert werden. Anschließend kann die Datei in einen Arbeitsbereich geladen werden. Nach Wechsel zur Anmeldeseite des Testcenters kann der System-Check gestartet werden.\n\n\n\n\n\n\nHinweis\n\n\n\nIst eine Aufgabe eingebunden, muss die Aufgabe und alle in der Aufgaben-XML deklarierten Ressourcen (Aufgaben-VOUD, Player etc.) mit in den Arbeitsbereich geladen werden.\n\n\n&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n&lt;SysCheck xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n          xsi:noNamespaceSchemaLocation=\"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_SysCheck.xsd\"&gt;\n    &lt;Metadata&gt;\n        &lt;Id&gt;SYSCHECK_TBA2&lt;/Id&gt;\n        &lt;Label&gt;System-Check TBA II Verzweigungen Test&lt;/Label&gt;\n        &lt;Description&gt;Prüfung Studiendurchführbarkeit&lt;/Description&gt;\n    &lt;/Metadata&gt;\n\n    &lt;Config unit=\"bsp_unit\" savekey=\"saveme\" skipnetwork=\"false\"&gt;\n        &lt;UploadSpeed min=\"1024\" good=\"2048\" maxDevianceBytesPerSecond=\"10000\" maxErrorsPerSequence=\"0\" maxSequenceRepetitions=\"15\"&gt;\n        100000, 200000, 400000, 800000\n        &lt;/UploadSpeed&gt;\n        &lt;DownloadSpeed min=\"1024\" good=\"2048\" maxDevianceBytesPerSecond=\"200000\" maxErrorsPerSequence=\"0\" maxSequenceRepetitions=\"15\"&gt;\n        400000, 800000, 1600000, 3200000\n        &lt;/DownloadSpeed&gt;\n\n        &lt;Q id=\"1\" type=\"header\" prompt=\"Abschnitt I: Allgemeine Fragen.\"/&gt;\n        &lt;Q id=\"2\" type=\"radio\" prompt=\"1. Wer ist an der Schule die Ansprechperson für technische Fragen?\"&gt;der Schulkoordinator/die Schulkoordinatorin selbst#eine andere Person (Eingabe nächstes Feld)#es gibt keine Ansprechperson&lt;/Q&gt;\n        &lt;Q id=\"3\" type=\"header\" prompt=\"Abschnitt II: Fragen zur Beispielaufgabe.\"/&gt;\n        &lt;Q id=\"4\" type=\"text\" prompt=\"1. Funktioniert die Textmarkierung auf der linken Seite?\"/&gt;\n        &lt;Q id=\"5\" type=\"text\" prompt=\"2. Ist das Bild auf der linken Seite neben dem Text zu sehen?\"/&gt;\n        &lt;Q id=\"6\" type=\"text\" prompt=\"3. Ist das Audio zu hören?\"/&gt;\n        &lt;Q id=\"7\" type=\"text\" prompt=\"4. Ist das Video zu sehen?\"/&gt;\n    &lt;/Config&gt;\n&lt;/SysCheck&gt;\nNachfolgend werden die Inhalte dieser XML näher erklärt.\n\nMetadaten\n\n\n\nElement\nBeschreibung\n\n\nLabel\nEindeutiges Label. Dieses erscheint als Bezeichner für den System-Check in der System-Check Auswahl.\n\n\nDescription\nBeschreibung des System-Checks. Erscheint auch unterhalb des Bezeichners des System-Checks in der System-Check Auswahl.\n\n\n\n\n\nConfig\n\n\n\nAttribut\nBeschreibung\n\n\nunit\nID der anzuzeigenden Aufgabe während des System-Checks.\n\n\nsavekey\nKennwort zum Speichern des System-Check Berichtes\n\n\nskipnetwork\nEin-bzw. Ausschalten Ermittlung der Internetgeschwindigkeit\n\n\n\n\n\nUploadSpeed\n\n\n\nAttribut\nBeschreibung\n\n\nmin\nMindestwert für die ermittelte Geschwindigkeit\n\n\ngood\nWird dieser Wert bei der Messung erreicht, wird die Bewertung \"gut\" vergeben.\n\n\nmaxDevianceBytesPerSecond\nWird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von maxSequenceRepetitions wiederholt.\n\n\nmaxErrorsPerSequence\n\n\n\nmaxSequenceRepetitions\nLegt fest wie oft eine Messung wiederholt wird, wenn der Wert in maxDevianceBytesPerSecond überschritten wurde.\n\n\n\nDie Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.\n\n\nDownloadSpeed\n\n\n\nAttribut\nBeschreibung\n\n\nmin\nMindestwert für die ermittelte Geschwindigkeit\n\n\ngood\nWird dieser Wert bei der Messung erreicht, wird die Bewertung \"gut\" vergeben.\n\n\nmaxDevianceBytesPerSecond\nWird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von maxSequenceRepetitions wiederholt.\n\n\nmaxErrorsPerSequence\n\n\n\nmaxSequenceRepetitions\nLegt fest wie oft eine Messung wiederholt wird, wenn der Wert in maxDevianceBytesPerSecond überschritten wurde.\n\n\n\nDie Daten: 400000, 800000, 1600000, 3200000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.\n\n\nQ\n\n\n\nAttribut\nBeschreibung\n\n\nid\nLegt eine Id für die Frage fest.\n\n\ntype\nLegt den Typ der Frage fest. Es gibt: header: Überschrift Abschnitt; text: Mehrzeiliges Textfeld; string: Einzeiliges Textfeld; radio: Radiobutton mit parametrierbaren Optionen über das Datenfeld.\n\n\nprompt\nLegt den Text zum gewählten Fragetyp, siehe type, fest.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#durchführung",
+    "href": "Testcenter/System_Check/index.html#durchführung",
+    "title": "System Check",
+    "section": "Durchführung",
+    "text": "Durchführung\nVerantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.\n\n\n\n\n\n\nHinweis\n\n\n\nUm reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#auswertung",
+    "href": "Testcenter/System_Check/index.html#auswertung",
+    "title": "System Check",
+    "section": "Auswertung",
+    "text": "Auswertung\nDer System-Check Bericht kann nach Abschluss eines System-Checks im CSV-Format aus dem Arbeitsbereich unter dem Reiter: System-Check Berichte heruntergeladen werden. Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:\nIst das Betriebssystem und der Browser für die Testung geeignet?\nIm einleitenden Kapitel zum Testcenter, werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystemversion zwingend erfüllt sein sollten.\nWie hoch ist die Auflösung des Wiedergabebildschirms?\nDiese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.\nWelche Internet-Bandbreite wird für die Testung mindestens benötigt?\nIst die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.\nEine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite kann man folgendermaßen vorgehen:\n\nErmittlung der Größe des größten Booklets: Im Testcenter wird unter dem Reiter: Dateien des Arbeitsbereiches eine Spalte “Größe” angezeigt. Diese Größe ist bei allen Dateien die tatsächliche Größe der Datei. Eine Ausnahme stellen die Dateien zur Testheft-Definition dar. Hier wird die Summe aller Dateien angezeigt, die für dieses Testheft geladen werden müssen (Testheft-XML, Aufgaben-XMLs, Aufgaben-VOUDs, Player-HTML).\nFestlegung der maximalen Zeit in Sekunden, nach der dieses Booklet geladen sein soll.\nDie Formel Testheft * 8 / Ladezeit ergibt den Mindestwert für den Download in MBit/s.\n\nDieses Verfahren ist einigermaßen verlässlich, weil die Ermittlung der Download-Geschwindigkeit das Ladeverhalten des Testcenters nachbildet. Die Pakete werden beispielsweise nacheinander geladen und nicht parallel.",
+    "crumbs": [
+      "Testcenter",
+      "System Check"
     ]
   },
   {
@@ -306,11 +515,11 @@
     ]
   },
   {
-    "objectID": "Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html",
-    "href": "Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html",
+    "objectID": "Testcenter/Studiendurchfuehrung/Vorbetrachtung.html",
+    "href": "Testcenter/Studiendurchfuehrung/Vorbetrachtung.html",
     "title": "Vorbetrachtungen",
     "section": "",
-    "text": "Die Beteiligten brauchen rechtzeitig klare Anweisungen, wie die Studie vorbereitet, durchgeführt und ausgewertet wird. Hierzu sind zunächst eine Reihe von Fragen zu beantworten und ggf. bestimmte Schritte vorzuziehen. Mitunter müssen die Festlegungen in Dokumenten festgehalten und verschickt werden: allg. Handreichungen, Manual für die Testleitung, Anschreiben für System-Check, Anträge beim Datenschutz, Elternanschreiben, usw. Eine Studie sollte daher langfristig geplant sein, um eine stabile Durchführung gewährleisten zu können. Nachfolgend werden ein paar Punkte genannt, die vor jeder Studie bedacht werden sollten.",
+    "text": "Eine Studiendurchführung kann schnell komplex werden und eine Reihe von Anforderungen stellen. Daher sollten die Vorbereitungszeiten nicht unterschätzt werden und entsprechende Zeiträume dafür eingeplant werden. Darüber hinaus ergeben sich aus den individuellen Anforderungen sicherlich weitere Themen.",
     "crumbs": [
       "Testcenter",
       "Studiendurchführung",
@@ -318,8 +527,8 @@
     ]
   },
   {
-    "objectID": "Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html#audio",
-    "href": "Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html#audio",
+    "objectID": "Testcenter/Studiendurchfuehrung/Vorbetrachtung.html#audio",
+    "href": "Testcenter/Studiendurchfuehrung/Vorbetrachtung.html#audio",
     "title": "Vorbetrachtungen",
     "section": "Audio",
     "text": "Audio\nAudios mit geringem Anspruch an die Qualität (nur Sprache):\n\nKompression: MP3\nKanal: Stereo\nAbtastrate: 24000 Hz\nBitraten Modus: Konstant\nBitrate: 64kbps\n\nAudios mit höherem Anspruch an die Qualität (Musik enthalten):\n\nKompression: MP3\nKanal: Stereo\nAbtastrate: 44100 Hz\nBitraten Modus: Konstant\nBitrate: 96kbps",
@@ -330,8 +539,8 @@
     ]
   },
   {
-    "objectID": "Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html#video",
-    "href": "Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html#video",
+    "objectID": "Testcenter/Studiendurchfuehrung/Vorbetrachtung.html#video",
+    "href": "Testcenter/Studiendurchfuehrung/Vorbetrachtung.html#video",
     "title": "Vorbetrachtungen",
     "section": "Video",
     "text": "Video\n\nKompression: h.264 (MPEG-4 AVC)\nKanal: Stereo\n\n\n\n\n\n\n\nWichtig\n\n\n\nLiegen Medien in anderen Formaten vor oder weisen nicht die genannten Eigenschaften auf, können diese während der Studiendurchführung eventuell nicht wiedergegeben werden.",
@@ -906,409 +1115,206 @@
     ]
   },
   {
-    "objectID": "Testcenter/Testen_der_Anwendung/index.html",
-    "href": "Testcenter/Testen_der_Anwendung/index.html",
+    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html",
+    "href": "Testcenter/Verwaltung_und_Organisation/index.html",
+    "title": "Verwaltung und Organisation",
+    "section": "",
+    "text": "Das Testcenter bietet zwei administrative Ebenen zur Verwaltung und Organisation.\n\n\nNach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Berechtigungen. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:\n\nArbeitsbereiche anlegen\nNutzer*innen anlegen (Workspace-Admins) und Zugriffe auf Arbeitsbereiche festlegen\nindividuelle Änderungen an Texten (Custom-Text) und Layout des Testcenters vornehmen\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es ist außerdem ein Schalter für die Systemeinstellungen zu sehen. Wird dieser Schalter betätigt, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:\n\nUsers: Hier können bestehende Nutzer*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in “read only” (RO) und “read and write” (RW).\nArbeitsbereiche: Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.\nEinstellungen: Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.\n\n\n\n\nNutzer*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters.\n\n\n\n\n\n\nHinweis\n\n\n\nAls Workspace-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.\n\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche. Durch ein Klick auf einen Arbeitsbereich, können Daten in den Arbeitsbereich geladen werden. Falls Antwortdaten vorhanden sind, können diese heruntergeladen werden.",
+    "crumbs": [
+      "Testcenter",
+      "Verwaltung und Organisation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html#administrative-zugänge",
+    "href": "Testcenter/Verwaltung_und_Organisation/index.html#administrative-zugänge",
+    "title": "Verwaltung und Organisation",
+    "section": "",
+    "text": "Das Testcenter bietet zwei administrative Ebenen zur Verwaltung und Organisation.\n\n\nNach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Berechtigungen. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:\n\nArbeitsbereiche anlegen\nNutzer*innen anlegen (Workspace-Admins) und Zugriffe auf Arbeitsbereiche festlegen\nindividuelle Änderungen an Texten (Custom-Text) und Layout des Testcenters vornehmen\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es ist außerdem ein Schalter für die Systemeinstellungen zu sehen. Wird dieser Schalter betätigt, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:\n\nUsers: Hier können bestehende Nutzer*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in “read only” (RO) und “read and write” (RW).\nArbeitsbereiche: Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.\nEinstellungen: Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.\n\n\n\n\nNutzer*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters.\n\n\n\n\n\n\nHinweis\n\n\n\nAls Workspace-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.\n\n\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter als Admin zur Anmeldung zu verwenden.\nAnschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche. Durch ein Klick auf einen Arbeitsbereich, können Daten in den Arbeitsbereich geladen werden. Falls Antwortdaten vorhanden sind, können diese heruntergeladen werden.",
+    "crumbs": [
+      "Testcenter",
+      "Verwaltung und Organisation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html#zugänge-ohne-befugnisse",
+    "href": "Testcenter/Verwaltung_und_Organisation/index.html#zugänge-ohne-befugnisse",
+    "title": "Verwaltung und Organisation",
+    "section": "Zugänge ohne Befugnisse",
+    "text": "Zugänge ohne Befugnisse\n\nTestpersonen\nDieser Personenkreis erhält die Zugangsdaten durch eine spezielle XML-Datei (XML zur Studien-Definition), die in den Arbeitsbereich der Studie geladen wird. Meldet sich eine Testperson mit den in dieser XML hinterlegten Zugangsdaten am Testcenter an, wird ein Testheft gestartet. Mit anderen Worten, eine Testung wird gestartet.\nNach der Eingabe der Zugangsdaten ist der Schalter: Weiter zur Anmeldung zu verwenden.",
+    "crumbs": [
+      "Testcenter",
+      "Verwaltung und Organisation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Verwaltung_und_Organisation/index.html#arbeitsbereich",
+    "href": "Testcenter/Verwaltung_und_Organisation/index.html#arbeitsbereich",
+    "title": "Verwaltung und Organisation",
+    "section": "Arbeitsbereich",
+    "text": "Arbeitsbereich\nZur Organisation von Studien stehen Arbeitsbereiche zur Verfügung. Diese legen die Super-Admins an und vergeben die entsprechenden Berechtigungen. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.\nNach der Anmeldung präsentiert das System eine Liste aller Arbeitsbereiche, die für eine Person freigegeben sind. Mit einem Klick auf den jeweiligen Arbeitsbereich wird dieser geöffnet. Zur Liste der Arbeitsbereiche kehrt man zurück, indem man auf das IQB-Logo links oben in der Ecke klickt.\nDer Arbeitsbereich hat drei Grundfunktionen. Diese können mit einem Klick auf den entsprechenden Reiter ausgewählt werden:\n\nDateien\nSystem-Check Berichte\nErgebnisse/Antworten\n\n\nDateien\nAlle Testinhalte und Definitionen eines Tests bzw. einer Befragung (Testdateien), werden über den Reiter: Dateien in das System hochgeladen.\n\n\n\n\n\n\nHinweis\n\n\n\nWelche Testdateien es gibt und welche Funktionen diese übernehmen ist dem Kapitel: Daten und Prozesse zu entnehmen.\n\n\nSobald eine Datei hochgeladen ist, ist sie wirksam. D. h. unmittelbar nachdem eine Datei mit Login-Daten (XML zur Studien-Definition) hochgeladen wurde, kann sich eine Testperson mit diesen Daten anmelden. Sollte man feststellen, dass eine Aufgabe Fehler enthält, kann man die Aufgaben-Datei überarbeiten und erneut in das Testcenter laden. Jeder danach gestartete Test, wird dann die neue Aufgabe verwenden.\n\n\n\n\n\n\nHinweis\n\n\n\nWeitere Infos zum Laden von Testdateien sind dem Kapitel: Daten Upload zu entnehmen.\n\n\n\n\nSystem-Check Berichte\nHier können die Berichte, die von einem System-Check erzeugt wurden, heruntergeladen werden. Es handelt sich um CSV-Dateien, die man sich gleich z. B. in Microsoft Excel anschauen kann.\n\n\nErgebnisse/Antworten\nHier können Antworten und Logs, die über die Tests bzw. Befragungen innerhalb dieses Arbeitsbereiches gespeichert wurden, heruntergeladen werden. Auch hier ist das Dateiformat CSV. Sollte das Testcenter über ein Länderportal verwaltet werden, dann steht hier auch ein Download im JSON-Format zur Verfügung.",
+    "crumbs": [
+      "Testcenter",
+      "Verwaltung und Organisation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/Testmethodik/index.html",
+    "href": "Testcenter/Testmethodik/index.html",
+    "title": "Testmethodik",
+    "section": "",
+    "text": "Hinweis\n\n\n\nDiese Seite ist in Bearbeitung.\n\n\n\n\n\n Zurück nach oben"
+  },
+  {
+    "objectID": "Testcenter/install/security.html",
+    "href": "Testcenter/install/security.html",
+    "title": "Datensicherheit",
+    "section": "",
+    "text": "Für verschiedene Institutionen oder auch Firmen gehört eine ausführliche Sicherheitsprüfung zu den Bedingungen der Installation einer Webanwendung. Für Rechenzentren der Länder beispielsweise ist durch Verwaltungsvorschriften festgelegt, dass erst nach einer Überprüfung nach dem BSI-Standard Cloud Computing C5 eine Installation freigegeben werden kann.\nDas IQB unterstützt diese Anforderungen, indem Monita zeitnah umgesetzt werden. Einige Anforderungen stehen jedoch der Funktionalität des Testcenters entgegen oder beruhen auf einem Missverständnis. Diese Punkte sind nachfolgend erläutert.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Datensicherheit"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/security.html#administratoren",
+    "href": "Testcenter/install/security.html#administratoren",
+    "title": "Datensicherheit",
+    "section": "Administratoren",
+    "text": "Administratoren\nZur Verwaltung der Inhalte und dem Download der Antwortdaten sind personenbezogene Accounts eingerichtet. Nur ein besonders privilegierter Admin darf diese Accounts anlegen und die Kennworte ändern bzw. vergeben. Nach einer entsprechenden Einweisung stellt diese Person die erforderliche Mindestlänge usw. sicher. Technisch ist eine Mindestlänge von 7 eingestellt.\n\n\n\n\n\n\nGeplante Weiterentwicklung\n\n\n\nDas IQB-Testcenter wird perspektivisch an eine Identitätsverwaltung über OpenID Connect angeschlossen. Damit wird die Vergabe der Kennworte ausgelagert und kann dann bis zur Zweifaktor-Authentifizierung gehen.\n\n\nSeit der Version 15.1 ist eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Datensicherheit"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/security.html#testpersonen",
+    "href": "Testcenter/install/security.html#testpersonen",
+    "title": "Datensicherheit",
+    "section": "Testpersonen",
+    "text": "Testpersonen\nDie Anmeldung einer Person, die einen Test oder eine Befragung ausführen soll, gilt nicht als Login. Dies ist vielmehr zu sehen wie das Füllen eines Warenkorbes ohne Account. Folgende Use Cases verhindern die übliche Sichtweise ‘Login’:\n\nEs muss durch das Testcenter auch abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus RUN-HOT-RESTART).\nEin Test soll nur durch die Eingabe eines Link/einer Url gestartet werden können. Dann wird KEIN Kennwort vergeben.\n\nDiese Szenarien bedeuten aus der Sicht der Datensicherheit, dass eine Anmeldung einer Testperson keiner Kennwortrichtlinie unterliegen muss. Der potenzielle Datenverlust besteht auch nur in einer unbeabsichtigten Veröffentlichung von Testitems, die ggf. vertraulich bleiben sollen. Es ist kein Zugriff auf Daten anderer möglich.\nAus diesem Grund ist es auch unbedenklich, dass die Testtaker-Xml nicht verschlüsselt hochgeladen werden. Eine Anmeldeverzögerung ist ebenfalls nicht erforderlich, sondern würde nur die mögliche Anzahl an Testpersonen, die sich zeitgleich anmelden können, künstlich begrenzen.",
+    "crumbs": [
+      "Testcenter",
+      "Installation",
+      "Datensicherheit"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/index.html",
+    "href": "Testcenter/install/index.html",
+    "title": "Testcenter Installation",
+    "section": "",
+    "text": "Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloudserver, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles hier beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, findet sich hier.\nAllerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. In freier Wildbahn ist ein Server vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese “SysOp” genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. “Systemhaus”) eingebunden werden. Sonst kann der Server schnell offline gehen – durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.\nDie Seiten in diesem Bereich decken schrittweise Themen ab, die für einen SysOp interessant sein könnten. Sie spiegeln zunächst die Erfahrungen des IQB wider, diskutieren aber auch Aspekte, die durch Partner vorgebracht wurden.\nNachfolgend sprechen wir einige Themen kurz an, nach denen wir zwar oft gefragt werden, zu denen wir aber aktuell keine Lösung anbieten – teils, weil andere Funktionen wichtiger waren, teils weil wir es nicht als unsere Aufgabe sehen.",
+    "crumbs": [
+      "Testcenter",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/index.html#servermonitoring",
+    "href": "Testcenter/install/index.html#servermonitoring",
+    "title": "Testcenter Installation",
+    "section": "Servermonitoring",
+    "text": "Servermonitoring\nMan kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährdet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.\nDas IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als Infrastruktur. Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloudanbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.\nWas wir uns allerdings vorgenommen haben, ist die Einrichtung von Server-Endpunkten für einen sog. Health-Check.",
+    "crumbs": [
+      "Testcenter",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/index.html#backup",
+    "href": "Testcenter/install/index.html#backup",
+    "title": "Testcenter Installation",
+    "section": "Backup",
+    "text": "Backup\nDie IQB-Webanwendungen verfügen nicht über einen eingebauten Backup-Mechanismus. Teilweise gibt es zwar Versionsmanagement oder Undo-/Redo-Funktion, aber serverseitig muss ein SysOp die Möglichkeit der Wiederherstellung verlorengegangener Daten organisieren.\nDas IQB praktiziert zwei Wege\n\nSichern eines kompletten Servers: Vor Updates oder einmal in der Woche wird der gesamte Server samt Betriebssystem als sog. Image gespeichert.\nSichern der Laufwerke, die an die Docker-Container gebunden sind sowie Datenbank-Dump. Hier muss zeitweise ein Nutzerzugriff unterbunden werden (Aktivieren einer Wartungsseite).",
+    "crumbs": [
+      "Testcenter",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/index.html#ssh-zertifikate",
+    "href": "Testcenter/install/index.html#ssh-zertifikate",
+    "title": "Testcenter Installation",
+    "section": "ssh / Zertifikate",
+    "text": "ssh / Zertifikate\nWir empfehlen dringend, den direkten Zugriff für Systemadmins auf ssh – schlüsselbasiert – zu beschränken (ssh-Key). Ein Verlust von Zugangsdaten kann dann keinen Schaden anrichten.",
+    "crumbs": [
+      "Testcenter",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "Testcenter/install/E2E_Tests.html",
+    "href": "Testcenter/install/E2E_Tests.html",
     "title": "Testen der Anwendung",
     "section": "",
     "text": "Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer*innen getestet werden. Diese Art der Testung nennt sich End-to-end-Testung oder auch Akzeptanztest. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werde. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden\nVor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen E2E-Testungen und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.\nEs ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge geben, einfach weil das IQB sich sehr viel damit beschäftigt hat.",
     "crumbs": [
       "Testcenter",
+      "Installation",
       "Testen der Anwendung"
     ]
   },
   {
-    "objectID": "Testcenter/Testen_der_Anwendung/index.html#manuelles-vs-automatisiertes-testen",
-    "href": "Testcenter/Testen_der_Anwendung/index.html#manuelles-vs-automatisiertes-testen",
+    "objectID": "Testcenter/install/E2E_Tests.html#manuelles-vs-automatisiertes-testen",
+    "href": "Testcenter/install/E2E_Tests.html#manuelles-vs-automatisiertes-testen",
     "title": "Testen der Anwendung",
     "section": "Manuelles vs automatisiertes Testen",
-    "text": "Manuelles vs automatisiertes Testen\nSind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen.\n\nManuelles Testen\n\nsinnvoll bei selten ausgeführten Testungen und kleineren Studien\nrelativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung\nPflege und Aktualisierung sind relativ einfach, da nur Skripte angepasst werden müssen\nkeine zusätzliche Software oder Programmierkenntnisse notwendig\nAusführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend\nAuswertung muss ebenfalls manuell erfolgen, das kostet Zeit\nSkripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)\nwenn oft ausgeführt, werden aus mangelnder Motivation gerne Abkürzungen genommen und damit eventuell entscheidende Stelle nicht wie im Skript vorgeschrieben geprüft\nalle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein\n\n\n\n\n\n\n\nTipp\n\n\n\nEs sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. Testomat.io und Testbench genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.\n\n\n\n\nAutomatisiertes Testen\n\nsinnvoll bei häufig ausgeführten Testungen und größeren Studien\nAusführung ist schnell und homogen\ngute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden\nVerwaltung der Tests und zugehörige Auswertungen ist übersichtlich\nzu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden\nEntwurfsphase benötigt Zeit\nPflege und Aktualisierung können je nach eingesetzter Software aufwändig werden\nzusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig\n\nIst eine Entscheidung für das automatisierte Testen gefallen, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug Cypress zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.\nHier ein kleines Beispiel, wie ein sehr einfacher Test mit Cypress aussehen könnte:\n//Testfall Beispiel\ndescribe('Check Google', () =&gt; {\n\n    //1.Testschritt: Prüfe ob Google geladen werden kann\n    it('Öffne Google', () =&gt; {\n        //Öffne Seite\n        cy.visit(`www.google.com`);\n        //Erwartungsauswertung: Konnte Seite geladen werden, \n        //dann sollte sie \"Google\" enthalten\n        cy.contains('Google')\n            .should('exist');\n    });\n\n    //2.Testschritt: Tue noch etwas auf der Google Seite\n    it('Öffne Google', () =&gt; {\n        \n        //Tue etwas....\n    });\n});",
+    "text": "Manuelles vs automatisiertes Testen\nSind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen.\n\nManuelles Testen\n\nsinnvoll bei selten ausgeführten Testungen und kleineren Studien\nrelativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung\nPflege und Aktualisierung sind relativ einfach, da nur Skripte angepasst werden müssen\nkeine zusätzliche Software oder Programmierkenntnisse notwendig\nAusführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend\nAuswertung muss ebenfalls manuell erfolgen, das kostet Zeit\nSkripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)\nwenn oft ausgeführt, werden aus mangelnder Motivation gerne Abkürzungen genommen und damit eventuell entscheidende Stelle nicht wie im Skript vorgeschrieben geprüft\nalle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein\n\n\n\n\n\n\n\nTipp\n\n\n\nEs sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. Testomat.io und Testbench genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.\n\n\n\n\nAutomatisiertes Testen\n\nsinnvoll bei häufig ausgeführten Testungen und größeren Studien\nAusführung ist schnell und homogen\ngute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden\nVerwaltung der Tests und zugehörige Auswertungen ist übersichtlich\nzu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden\nEntwurfsphase benötigt Zeit\nPflege und Aktualisierung können je nach eingesetzter Software aufwändig werden\nzusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig\n\nIst eine Entscheidung für das automatisierte Testen gefallen, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug Cypress zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.\nHier ein kleines Beispiel, wie ein sehr einfacher Test mit Cypress aussehen könnte:\n//Testfall Beispiel\ndescribe('Check Google', () =&gt; {\n\n    //1.Testschritt: Prüfe ob Google geladen werden kann\n    it('Öffne Google', () =&gt; {\n        //Öffne Seite\n        cy.visit(`www.google.com`);\n        //Erwartungsauswertung: Konnte Seite geladen werden, \n        //dann sollte sie \"Google\" enthalten\n        cy.contains('Google')\n            .should('exist');\n    });\n\n    //2.Testschritt: Tue noch etwas auf der Google Seite\n    it('Öffne Google', () =&gt; {\n        \n        //Tue etwas....\n    });\n});",
     "crumbs": [
       "Testcenter",
+      "Installation",
       "Testen der Anwendung"
     ]
   },
   {
-    "objectID": "Testcenter/Testen_der_Anwendung/index.html#vorbereitungen",
-    "href": "Testcenter/Testen_der_Anwendung/index.html#vorbereitungen",
+    "objectID": "Testcenter/install/E2E_Tests.html#vorbereitungen",
+    "href": "Testcenter/install/E2E_Tests.html#vorbereitungen",
     "title": "Testen der Anwendung",
     "section": "Vorbereitungen",
     "text": "Vorbereitungen\n\nEntwicklungsumgebung (IDE): Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.\nNode.js: Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.\nGit: Wird zum Duplizieren des Testcenter Repositories benötigt.\nCypress in Version 13.3.3: Hinweise zur Installation sind hier zu finden.",
     "crumbs": [
       "Testcenter",
+      "Installation",
       "Testen der Anwendung"
     ]
   },
   {
-    "objectID": "Testcenter/Testen_der_Anwendung/index.html#cypress-starten",
-    "href": "Testcenter/Testen_der_Anwendung/index.html#cypress-starten",
+    "objectID": "Testcenter/install/E2E_Tests.html#cypress-starten",
+    "href": "Testcenter/install/E2E_Tests.html#cypress-starten",
     "title": "Testen der Anwendung",
     "section": "Cypress starten",
     "text": "Cypress starten\n\nstarten der IDE\nspiegeln (clonen) des Testcenter GitHub-Repos\nöffnen des gespiegelten Ordners mit der IDE\nTerminal öffnen und den Befehl: make test-system eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt öffnet sich die Cypress Oberfläche\n“E2E Testing” in der Cypress Oberfläche auswählen\nBrowser mit dem getestet werden soll auswählen",
     "crumbs": [
       "Testcenter",
+      "Installation",
       "Testen der Anwendung"
     ]
   },
   {
-    "objectID": "Testcenter/Testen_der_Anwendung/index.html#cypress-tests-ausführen",
-    "href": "Testcenter/Testen_der_Anwendung/index.html#cypress-tests-ausführen",
+    "objectID": "Testcenter/install/E2E_Tests.html#cypress-tests-ausführen",
+    "href": "Testcenter/install/E2E_Tests.html#cypress-tests-ausführen",
     "title": "Testen der Anwendung",
     "section": "Cypress Tests ausführen",
     "text": "Cypress Tests ausführen\nNachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer*innen für ihre Konfiguration der Testdateien genutzt werden könnten.\nInformation: Einige Testfälle sind gruppiert in Ordner.\nSession-Management/hot-restart-mode und Session-Management/hot-return-mode\nHier werden die Grundfunktionen der Modi: hot-restart und hot-return getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten wie vorgesehen:\n\nhot-restart: Bei erneuter Anmeldung wird eine neue Person angenommen und der Test wird neu gestartet\nhot-return: Bei erneuter Anmeldung wird die selbe Testperson angenommen und der Test wird fortgesetzt\n\nSession-Management/time-restrictions\nEs wird die Funktion zeitlicher Beschränkungen in Testheftblöcken getestet.\nTest-Controller/RunHotRestart und Test-Controller/RunHotReturn\nEs werden alle hier gelisteten Funktionen der beide Modi getestet (ausgenommen der bereits im Session-Management getesteten Funktionen).\n\n\n\n\n\n\nHinweis\n\n\n\nDie Testschritte sind so geschrieben, dass relativ einfach herauszulesen ist was diese Schritte tun, also was damit getestet wird.",
     "crumbs": [
       "Testcenter",
+      "Installation",
       "Testen der Anwendung"
     ]
   },
   {
-    "objectID": "Testcenter/Testen_der_Anwendung/index.html#wo-ist-der-testcode-zu-finden",
-    "href": "Testcenter/Testen_der_Anwendung/index.html#wo-ist-der-testcode-zu-finden",
+    "objectID": "Testcenter/install/E2E_Tests.html#wo-ist-der-testcode-zu-finden",
+    "href": "Testcenter/install/E2E_Tests.html#wo-ist-der-testcode-zu-finden",
     "title": "Testen der Anwendung",
     "section": "Wo ist der Testcode zu finden?",
     "text": "Wo ist der Testcode zu finden?\nDer Testcode ist im Projektverzeichnis: /e2e/cypress/e2e zu finden. Die Struktur der Testfälle ist dann genau so zu sehen wie in der Cypress-Oberfläche. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Beispielaufgaben eingebunden werden sollen, sind diese unter: /sampledata/system-test zu hinterlegen. Anschließend müssen sie in der Klasse: WorkspaceInitializer.class.php eingetragen werden. Es empfiehlt sich daraufhin das laufende Test-System noch einmal zu stoppen und erneut zu starten mit make test-system. Hierbei werden die neuen Daten der Datenbank hinzugefügt.",
     "crumbs": [
       "Testcenter",
+      "Installation",
       "Testen der Anwendung"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html",
-    "href": "Testcenter/System_Check/index.html",
-    "title": "System Check",
-    "section": "",
-    "text": "Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der System-Check ist ein Weg vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#was-ist-ein-system-check",
-    "href": "Testcenter/System_Check/index.html#was-ist-ein-system-check",
-    "title": "System Check",
-    "section": "",
-    "text": "Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der System-Check ist ein Weg vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#wie-wird-ein-system-check-gestartet",
-    "href": "Testcenter/System_Check/index.html#wie-wird-ein-system-check-gestartet",
-    "title": "System Check",
-    "section": "Wie wird ein System-Check gestartet?",
-    "text": "Wie wird ein System-Check gestartet?\nDer System-Check wird in einer XML konfiguriert. Diese wird nach Abschluss der Konfiguration in den Arbeitsbereich der jeweiligen Studie geladen. Wird zur Anmeldeseite des Testcenters gewechselt, ist dann ein Schalter für den System-Check neben dem Schalter: Impressum/Datenschutz zu sehen. Wird der Schalter betätigt, wird eine Liste aller zur Verfügung stehenden System-Checks im Testcenter angezeigt. Nach Auswahl wird der jeweilige Check gestartet.\n\n\n\n\n\n\nHinweis\n\n\n\nEs können mehrere System-Checks im Testcenter angelegt sein. Das System bietet dann eine Auswahl aller System-Checks an. Der System-Check Bericht wird dabei immer in dem Arbeitsbereich gespeichert, in dem sich die ausgeführte System-Check-XML befindet.\n\n\nEin System-Check kann beliebig oft wiederholt werden. Wurde ein Check bereits vollständig durchgeführt und ein entsprechender Bericht gespeichert, kann zu einem anderen Endgerät gewechselt werden und der selbe System-Check erneut gestartet werden. Wird ein Bericht zu diesem zweiten Check gespeichert, wird der vorhandene Bericht nur um die Daten des neuen Checks erweitert.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#was-kann-der-system-check-leisten",
-    "href": "Testcenter/System_Check/index.html#was-kann-der-system-check-leisten",
-    "title": "System Check",
-    "section": "Was kann der System-Check leisten?",
-    "text": "Was kann der System-Check leisten?\nEin System-Check kann keine Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.\nEin positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Aktualisierungen) belegt ist.\nIm einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.\nAblauf eines System-Checks:\nSchritt 1: Nach dem Start werden zuerst einmal wichtige Informationen gesammelt. Dazu gehören:\n\nBildschirmauflösung\nBrowserversion\nBetriebssystemversion\nBrowser-Cookies Abfrage\nBrowser-Plugins\n\nSchritt 2: Ermittlung der Internetgeschwindigkeit (optional, kann auch ausgeschaltet werden)\nSchritt 3: Ansicht einer Beispielaufgabe (optional).\n\n\n\n\n\n\nHinweis\n\n\n\nHier kann nur eine Aufgabe angelegt werden. Die Aufgabe kann aber aus mehreren Seite bestehen und somit viele Aufgabenfunktionen abbilden, die vielleicht nicht auf eine Seite passen würden.\n\n\nSchritt 4: Befragungen (optional). Hier können individuelle Fragen zur Beispielaufgabe oder anderem angezeigt werden\nDie Navigation durch alle Schritte des System-Checks sind selbsterklärend und verständlich gekennzeichnet.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#planung",
-    "href": "Testcenter/System_Check/index.html#planung",
-    "title": "System Check",
-    "section": "Planung",
-    "text": "Planung\nBzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung, dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.\nEs sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden.\nVor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen schon im Vorfeld abgeklärt werden:\n\nWelche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden?\nGibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?\nIst bekannt, ob es seitens des eigenen IT-Netzes besondere Beschränkungen bzgl. der Firewall gibt? Kommen spezielle Plugins in den Browsern zum Einsatz?\nFalls Tablets zum Einsatz kommen: Verfügen diese über externe Tastaturen?\n\nAuf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:\nGibt es im geplanten Testheft Aufgabe, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?\nWenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.\nGibt es im Testheft Aufgaben mit Audios?\nWenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.\nGibt es im Testheft Aufgaben mit Eingabefeldern oder ähnlichem?\nWenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit Eingabefeldern in den System-Check eingebunden werden und im Verlauf gefragt werden, ob Text oder auch Sonderzeichen in die Felder eingegeben werden konnten. Auf diese Weise können auch Tablet-Tastaturen und die IQB-eigene Tastatur zur Eingabe von Sonderzeichen getestet werden.\nGibt es im Testheft Aufgaben mit Drag-and-Drop-Elementen oder ähnlichem?\nWenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit solchen Elementen eingebunden werden. So kann sichergestellt werden, dass auch auf Tablets diese Elemente richtig funktionieren.\nSoll ein Passwort zur Speicherung eines System-Check-Berichtes eingerichtet werden?\nWird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.\n\n\n\n\n\n\nTipp\n\n\n\nIm System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.\n\n\n\n\n\n\n\n\nTipp\n\n\n\nWeitere Anregungen bzgl. der System-Check Planung sind auch dem Kapitel: Studiendurchführung: Vorbetrachtungen zu entnehmen.\n\n\nSind die Vorüberlegungen abgeschlossen, kann mit der Konfiguration des System-Checks begonnen werden.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#konfiguration",
-    "href": "Testcenter/System_Check/index.html#konfiguration",
-    "title": "System Check",
-    "section": "Konfiguration",
-    "text": "Konfiguration\nDie Konfiguration findet in einer XML statt. Der Name der XML ist beliebig, die Struktur (welche Elemente, welche Attribute) hingegen nicht. Diese richtet sich nach einer Schema-Definition und muss zwingend eingehalten werden. Die Schema-Definition ist auf der IQB-GitHub-Startseite unter dem Reiter: Spezifikationen im Abschnitt: IQB-Testcenter: Input System-Check-Xml zu finden.\nDer Inhalt der nachfolgenden System-Check-XML kann kopiert und entsprechend erweitert werden. Anschließend kann die Datei in einen Arbeitsbereich geladen werden. Nach Wechsel zur Anmeldeseite des Testcenters kann der System-Check gestartet werden.\n\n\n\n\n\n\nHinweis\n\n\n\nIst eine Aufgabe eingebunden, muss die Aufgabe und alle in der Aufgaben-XML deklarierten Ressourcen (Aufgaben-VOUD, Player etc.) mit in den Arbeitsbereich geladen werden.\n\n\n&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n&lt;SysCheck xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n          xsi:noNamespaceSchemaLocation=\"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_SysCheck.xsd\"&gt;\n    &lt;Metadata&gt;\n        &lt;Id&gt;SYSCHECK_TBA2&lt;/Id&gt;\n        &lt;Label&gt;System-Check TBA II Verzweigungen Test&lt;/Label&gt;\n        &lt;Description&gt;Prüfung Studiendurchführbarkeit&lt;/Description&gt;\n    &lt;/Metadata&gt;\n\n    &lt;Config unit=\"bsp_unit\" savekey=\"saveme\" skipnetwork=\"false\"&gt;\n        &lt;UploadSpeed min=\"1024\" good=\"2048\" maxDevianceBytesPerSecond=\"10000\" maxErrorsPerSequence=\"0\" maxSequenceRepetitions=\"15\"&gt;\n        100000, 200000, 400000, 800000\n        &lt;/UploadSpeed&gt;\n        &lt;DownloadSpeed min=\"1024\" good=\"2048\" maxDevianceBytesPerSecond=\"200000\" maxErrorsPerSequence=\"0\" maxSequenceRepetitions=\"15\"&gt;\n        400000, 800000, 1600000, 3200000\n        &lt;/DownloadSpeed&gt;\n\n        &lt;Q id=\"1\" type=\"header\" prompt=\"Abschnitt I: Allgemeine Fragen.\"/&gt;\n        &lt;Q id=\"2\" type=\"radio\" prompt=\"1. Wer ist an der Schule die Ansprechperson für technische Fragen?\"&gt;der Schulkoordinator/die Schulkoordinatorin selbst#eine andere Person (Eingabe nächstes Feld)#es gibt keine Ansprechperson&lt;/Q&gt;\n        &lt;Q id=\"3\" type=\"header\" prompt=\"Abschnitt II: Fragen zur Beispielaufgabe.\"/&gt;\n        &lt;Q id=\"4\" type=\"text\" prompt=\"1. Funktioniert die Textmarkierung auf der linken Seite?\"/&gt;\n        &lt;Q id=\"5\" type=\"text\" prompt=\"2. Ist das Bild auf der linken Seite neben dem Text zu sehen?\"/&gt;\n        &lt;Q id=\"6\" type=\"text\" prompt=\"3. Ist das Audio zu hören?\"/&gt;\n        &lt;Q id=\"7\" type=\"text\" prompt=\"4. Ist das Video zu sehen?\"/&gt;\n    &lt;/Config&gt;\n&lt;/SysCheck&gt;\nNachfolgend werden die Inhalte dieser XML näher erklärt.\n\nMetadaten\n\n\n\nElement\nBeschreibung\n\n\nLabel\nEindeutiges Label. Dieses erscheint als Bezeichner für den System-Check in der System-Check Auswahl.\n\n\nDescription\nBeschreibung des System-Checks. Erscheint auch unterhalb des Bezeichners des System-Checks in der System-Check Auswahl.\n\n\n\n\n\nConfig\n\n\n\nAttribut\nBeschreibung\n\n\nunit\nID der anzuzeigenden Aufgabe während des System-Checks.\n\n\nsavekey\nKennwort zum Speichern des System-Check Berichtes\n\n\nskipnetwork\nEin-bzw. Ausschalten Ermittlung der Internetgeschwindigkeit\n\n\n\n\n\nUploadSpeed\n\n\n\nAttribut\nBeschreibung\n\n\nmin\nMindestwert für die ermittelte Geschwindigkeit\n\n\ngood\nWird dieser Wert bei der Messung erreicht, wird die Bewertung \"gut\" vergeben.\n\n\nmaxDevianceBytesPerSecond\nWird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von maxSequenceRepetitions wiederholt.\n\n\nmaxErrorsPerSequence\n\n\n\nmaxSequenceRepetitions\nLegt fest wie oft eine Messung wiederholt wird, wenn der Wert in maxDevianceBytesPerSecond überschritten wurde.\n\n\n\nDie Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.\n\n\nDownloadSpeed\n\n\n\nAttribut\nBeschreibung\n\n\nmin\nMindestwert für die ermittelte Geschwindigkeit\n\n\ngood\nWird dieser Wert bei der Messung erreicht, wird die Bewertung \"gut\" vergeben.\n\n\nmaxDevianceBytesPerSecond\nWird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von maxSequenceRepetitions wiederholt.\n\n\nmaxErrorsPerSequence\n\n\n\nmaxSequenceRepetitions\nLegt fest wie oft eine Messung wiederholt wird, wenn der Wert in maxDevianceBytesPerSecond überschritten wurde.\n\n\n\nDie Daten: 400000, 800000, 1600000, 3200000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.\n\n\nQ\n\n\n\nAttribut\nBeschreibung\n\n\nid\nLegt eine Id für die Frage fest.\n\n\ntype\nLegt den Typ der Frage fest. Es gibt: header: Überschrift Abschnitt; text: Mehrzeiliges Textfeld; string: Einzeiliges Textfeld; radio: Radiobutton mit parametrierbaren Optionen über das Datenfeld.\n\n\nprompt\nLegt den Text zum gewählten Fragetyp, siehe type, fest.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#durchführung",
-    "href": "Testcenter/System_Check/index.html#durchführung",
-    "title": "System Check",
-    "section": "Durchführung",
-    "text": "Durchführung\nVerantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.\n\n\n\n\n\n\nHinweis\n\n\n\nUm reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/System_Check/index.html#auswertung",
-    "href": "Testcenter/System_Check/index.html#auswertung",
-    "title": "System Check",
-    "section": "Auswertung",
-    "text": "Auswertung\nDer System-Check Bericht kann nach Abschluss eines System-Checks im CSV-Format aus dem Arbeitsbereich unter dem Reiter: System-Check Berichte heruntergeladen werden. Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:\nIst das Betriebssystem und der Browser für die Testung geeignet?\nIm einleitenden Kapitel zum Testcenter, werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystemversion zwingend erfüllt sein sollten.\nWie hoch ist die Auflösung des Wiedergabebildschirms?\nDiese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.\nWelche Internet-Bandbreite wird für die Testung mindestens benötigt?\nIst die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.\nEine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite kann man folgendermaßen vorgehen:\n\nErmittlung der Größe des größten Booklets: Im Testcenter wird unter dem Reiter: Dateien des Arbeitsbereiches eine Spalte “Größe” angezeigt. Diese Größe ist bei allen Dateien die tatsächliche Größe der Datei. Eine Ausnahme stellen die Dateien zur Testheft-Definition dar. Hier wird die Summe aller Dateien angezeigt, die für dieses Testheft geladen werden müssen (Testheft-XML, Aufgaben-XMLs, Aufgaben-VOUDs, Player-HTML).\nFestlegung der maximalen Zeit in Sekunden, nach der dieses Booklet geladen sein soll.\nDie Formel Testheft * 8 / Ladezeit ergibt den Mindestwert für den Download in MBit/s.\n\nDieses Verfahren ist einigermaßen verlässlich, weil die Ermittlung der Download-Geschwindigkeit das Ladeverhalten des Testcenters nachbildet. Die Pakete werden beispielsweise nacheinander geladen und nicht parallel.",
-    "crumbs": [
-      "Testcenter",
-      "System Check"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html",
-    "href": "Testcenter/install/load-test.html",
-    "title": "Lastverhalten",
-    "section": "",
-    "text": "Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.\nUnter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.\n\n\n\nDie kritische Phase bei einer Lernstandserhebung mit dem Testcenter ist das Laden der Testinhalte. Um Verzögerungen während des Testablaufs zu verhindern (dies würde die Vergleichbarkeit der Ergebnisse gefährden), müssen die Testinhalte (auch Bilder, Audio-/Videosequenzen) geladen werden, bevor der Testperson etwas präsentiert wird. Das Testcenter kann jedoch auch so konfiguriert werden, dass die ersten Seiten angezeigt werden können, nachdem der erste Block geladen wurde (lazy loading). Diese Ladestrategie muss jedoch mit Bedacht gewählt werden: Es muss genügend Zeit im ersten Block zugebracht werden, damit das Betreten des nächsten Blockes nicht verzögert wird.\nAlle Testinhalte sollen also zu Beginn vom Server geladen werden. Vorher muss noch eine Anmeldung am Testsystem erfolgreich sein, damit das richtige Testheft zugewiesen wird und die Antworten der richtigen Person zugeordnet werden. Nach dem Ladevorgang präsentiert der Browser nacheinander die Aufgaben, wobei die Antworten bzw. der Status der Bearbeitung sofort an den Server geschickt werden. Mit Blick auf den Lasttest stellt jedoch die Phase der Bearbeitung und des Speicherns der Antworten einen relativ geringen Anteil an der Belastung des Servers dar. Im Vergleich zum anfänglichen Laden sind das sehr kleine Datenpakete. Für einen Lasttest wird also die anfängliche Ladephase simuliert: Aufruf der Startseite, Eingeben der Login-Daten, Laden der Testinhalte.\nDie Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestellt, dass pro Testperson nur eine Datei gleichzeitig abgerufen wird - Inhalte werden also nacheinander und nicht parallel abgerufen. Dieses serielle Laden verhindert, dass wenige Testpersonen viele parallele Ladevorgänge auslösen und früh alles geladen haben, andere Testpersonen jedoch durch die Begrenzung der Netzverbindungen keine Ladevorgänge auslösen können und sehr lange auf die Testinhalte warten.\n\n\n\nDie Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: Anzahl Testpersonen und Ladezeit. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.\nEin Lasttest weist üblicherweise außerdem die Fehlerrate aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 x, retry mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn die 5 Ladeversuche gescheitert sind und also die Testperson eine Fehlermeldung bekommt.\nNach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#ziel",
-    "href": "Testcenter/install/load-test.html#ziel",
-    "title": "Lastverhalten",
-    "section": "",
-    "text": "Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.\nUnter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#beschreibung-des-ladeverhaltens",
-    "href": "Testcenter/install/load-test.html#beschreibung-des-ladeverhaltens",
-    "title": "Lastverhalten",
-    "section": "",
-    "text": "Die kritische Phase bei einer Lernstandserhebung mit dem Testcenter ist das Laden der Testinhalte. Um Verzögerungen während des Testablaufs zu verhindern (dies würde die Vergleichbarkeit der Ergebnisse gefährden), müssen die Testinhalte (auch Bilder, Audio-/Videosequenzen) geladen werden, bevor der Testperson etwas präsentiert wird. Das Testcenter kann jedoch auch so konfiguriert werden, dass die ersten Seiten angezeigt werden können, nachdem der erste Block geladen wurde (lazy loading). Diese Ladestrategie muss jedoch mit Bedacht gewählt werden: Es muss genügend Zeit im ersten Block zugebracht werden, damit das Betreten des nächsten Blockes nicht verzögert wird.\nAlle Testinhalte sollen also zu Beginn vom Server geladen werden. Vorher muss noch eine Anmeldung am Testsystem erfolgreich sein, damit das richtige Testheft zugewiesen wird und die Antworten der richtigen Person zugeordnet werden. Nach dem Ladevorgang präsentiert der Browser nacheinander die Aufgaben, wobei die Antworten bzw. der Status der Bearbeitung sofort an den Server geschickt werden. Mit Blick auf den Lasttest stellt jedoch die Phase der Bearbeitung und des Speicherns der Antworten einen relativ geringen Anteil an der Belastung des Servers dar. Im Vergleich zum anfänglichen Laden sind das sehr kleine Datenpakete. Für einen Lasttest wird also die anfängliche Ladephase simuliert: Aufruf der Startseite, Eingeben der Login-Daten, Laden der Testinhalte.\nDie Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestellt, dass pro Testperson nur eine Datei gleichzeitig abgerufen wird - Inhalte werden also nacheinander und nicht parallel abgerufen. Dieses serielle Laden verhindert, dass wenige Testpersonen viele parallele Ladevorgänge auslösen und früh alles geladen haben, andere Testpersonen jedoch durch die Begrenzung der Netzverbindungen keine Ladevorgänge auslösen können und sehr lange auf die Testinhalte warten.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#indikatoren",
-    "href": "Testcenter/install/load-test.html#indikatoren",
-    "title": "Lastverhalten",
-    "section": "",
-    "text": "Die Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: Anzahl Testpersonen und Ladezeit. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.\nEin Lasttest weist üblicherweise außerdem die Fehlerrate aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 x, retry mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn die 5 Ladeversuche gescheitert sind und also die Testperson eine Fehlermeldung bekommt.\nNach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#warum-reicht-nicht-ein-standard-test-für-webserver",
-    "href": "Testcenter/install/load-test.html#warum-reicht-nicht-ein-standard-test-für-webserver",
-    "title": "Lastverhalten",
-    "section": "Warum reicht nicht ein Standard-Test für Webserver?",
-    "text": "Warum reicht nicht ein Standard-Test für Webserver?\nMan könnte annehmen, dass es sich beim IQB-Testcenter um eine Webseite handelt und einen üblichen Lasttest beauftragen. Auch hier wird berichtet, wieviele Personen gleichzeitig Zugriff haben können. Aus folgenden Gründen sind Standard-Tests jedoch problematisch:\n\nDas Besucherverhalten wird als lose, teilweise zufällige Abfolge von Navigationsentscheidungen simuliert. Seiten werden oft vollständig geladen, manchmal wird aber auch das Laden abgebrochen durch eine andere Navigation. Das ist beim Testcenter nicht der Fall.\nEs wird pro Besucher zugelassen, dass mehrere Ladevorgänge parallel angestoßen werden (eine Webseite hat üblicherweise mehrere Elemente wie z. B. Bilder). Wenn dies passiert, belastet ein Besucher den Server mehrfach. Das ist beim Testcenter nicht der Fall, so dass die Kapazität des Testcenters systematisch unterschätzt wird.\nEs wird ein praktisch unendlich aktiver Besucher simuliert. Dadurch kann nicht ermittelt werden, wann ein Testheft geladen wurde und eine einmal gestartete Testperson behindert weiterhin die anderen - es gibt keine Entlastung nach der Ladephase zugunsten anderer Testpersonen. Dadurch wird die Kapazität des Testcenters systematisch unterschätzt und es fehlt die wichtige Information über die Ladezeit.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#eigenprogrammierung",
-    "href": "Testcenter/install/load-test.html#eigenprogrammierung",
-    "title": "Lastverhalten",
-    "section": "Eigenprogrammierung",
-    "text": "Eigenprogrammierung\nLeider sind die verfügbaren Open Source-Systeme zum Bauen eines Lasttests (z. B. Locust, Tsung) stets auf den oben beschriebenen Standardfall ausgerichtet. Es sind viele Zufallsfaktoren eingebaut, so dass sich ein streng serielles Laden kaum realisieren lässt. Das IQB verwendet daher eine eigene Programmierung für Lasttests, die die Aufrufe in der Startphase korrekt nachstellt:\n\nAnmeldung am Testsystem; für alle folgenden Requests wird das bei der Anmeldung erhaltene Auth-Token verwendet\nNach erfolgreicher Anmeldung Abruf der Daten: Testheft (also Liste der erforderlichen Dateien)\nAbruf der Dateien\n\nDer Server, der geprüft wird, hat eine definierte Ausgangssituation. Das bedeutet, dass stets dieselben Testinhalte bereit stehen und sich noch niemand vorher angemeldet hat. Für jede Testperson wird ein separates Login bereitgestellt. Wenn also eine Last von 10.000 Testpersonen erzeugt werden soll, hält der Server 10.000 Logins bereit, die der angreifende Server dann benutzt.\nDer Server, der die Last erzeugt, muss hierfür sehr viele Prozesse gleichzeitig managen können. Diese Bedingung konnte nur die Computersprache Go hinreichend erfüllen. Die Programmierung für den IQB-Lasttest ist also in Go implementiert.\nIm Moment ist die Programmierung auf die Anforderungen des IQB ausgerichtet. Nach der Diskussion mit Fachleuten auf dem Gebiet des Lasttests und weiterer Erprobung würden wir die Software so ausbauen, dass sie einfach durch Dritte installiert und genutzt werden kann (MIT-Lizenz). Auf der Liste der gewünschten Features stehen noch Einbeziehung von Daten aus dem Monitoring des angegriffenen Systems (Docker stats bzw. Informationen über CPU-Auslastung, RAM usw.), Automatisierung des Uploads des Testcenter-Content und einfache Parametrisierung der Testläufe.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#szenarien",
-    "href": "Testcenter/install/load-test.html#szenarien",
-    "title": "Lastverhalten",
-    "section": "Szenarien",
-    "text": "Szenarien\nEs werden zwei Parameter der Testung variiert:\n\ngleichzeitige Anzahl der Testpersonen: 100, 1.000, 2.000, 5.000, 10.000, 20.000; hierbei erfolgt real eine Streckung der Login-Anfragen: maximal 100 Anmeldungen pro Sekunde (sonst wird ein DoS-Angriffszenario simuliert)\nGesamtgröße des Content: klein (70 kB), mittel (20 MB), groß (38 MB)\n\nDas IQB betreibt zwei konstante Server, damit die Lasttests vergleichbar sind. Hier ist das Ziel nicht, eine spezifische Lernstandserhebung vorzubereiten, sondern Versionen des Testcenters auf Veränderungen des Lastverhaltens zu prüfen. Die Serverausstattung wird bewusst nicht variiert.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#strategien-bei-unbefriedigenden-lasttest-ergebnissen",
-    "href": "Testcenter/install/load-test.html#strategien-bei-unbefriedigenden-lasttest-ergebnissen",
-    "title": "Lastverhalten",
-    "section": "Strategien bei unbefriedigenden Lasttest-Ergebnissen",
-    "text": "Strategien bei unbefriedigenden Lasttest-Ergebnissen\nUm die Lücke zwischen der erforderlichen Kapazität und den ermittelten Werten zu verringern, bieten sich folgende Strategien an:\n\nVerringerung der Testheft-Größe:\n\nSind alle Bilder, Audio- und Videosequenzen unverzichtbar?\nKönnte man die Auflösung von Bildern, Audio- und Videosequenzen verringern bei vertretbarem Qualitätsverlust?\nKönnte man ein Testheft aufteilen in mehrere Testhefte?\n\nStreckung des Testzeitraumes: Bereits eine Teilung der Testpopulation und dann Versatz um eine (Unterrichts-)Stunde würde die tägliche Kapazität verdoppeln; entsprechend wäre der Gewinn bei der Ausdehnung der Testung auf eine Woche\n\nBevor man nun die teure Serverkapazität erhöht sollte man sicherstellen, dass die anderen Infrastruktur-Komponenten noch Reserven haben. Wenn die Anbindung der Schulen an das Internet, die Verteilung in der Schule (WLAN-Access-Points) sowie die Endgeräte keinen Engpass bilden, sollten mehr Server bereitgestellt werden:\n\nAufsetzen mehrerer getrennter Server jeweils mit einer Testcenter-Installation; Aufteilen der Testpopulation mit fixer Zuweisung des Servers; späteres manuelles Zusammenführen der Antwortdaten,\n(derzeit noch nicht verfügbar) Installation des Testcenters auf einem System mit Lastverteilung (z. B. Kubernetes), wodurch die Administration erleichtert wird; Achtung: Auch in diesem Fall muss eine höhere Serverausstattung bereitgestellt werden (die Synchronisation der Datenbank-Inhalte erzeugt zusätzliche Last).",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/load-test.html#vergleich-mit-version-14",
-    "href": "Testcenter/install/load-test.html#vergleich-mit-version-14",
-    "title": "Lastverhalten",
-    "section": "Vergleich mit Version 14",
-    "text": "Vergleich mit Version 14\n\nLastvergleich Testcenter Versionen 14 und 15, Dezember 2023\n\n\nGröße Content\n Users\nVersion\nLadezeit Median sec\nErrors\n\n\n\n\n70 kB\n \n \n  \n\n\n\n \n100\n \n \n \n\n\n \n \n14.13\n13\n0\n\n\n \n \n15-rc9\n4\n0\n\n\n \n500\n \n \n \n\n\n \n \n14.13\n53\n0\n\n\n \n \n15-rc9\n8\n0\n\n\n \n1.000\n \n \n \n\n\n \n \n14.13\n102\n0\n\n\n \n \n15-rc9\n17\n0\n\n\n \n2.000\n \n \n \n\n\n \n \n14.13\n232\n0\n\n\n \n \n15-rc9\n23\n0\n\n\n \n5.000\n \n \n \n\n\n \n \n14.13\n355\n2.008\n\n\n \n \n15-rc9\n46\n0\n\n\n \n10.000\n \n \n \n\n\n \n \n15-rc9\n96\n25\n\n\n20 MB\n \n \n  \n\n\n\n \n100\n \n \n \n\n\n \n \n14.13\n20\n0\n\n\n \n \n15-rc9\n4\n0\n\n\n \n500\n \n \n \n\n\n \n \n14.13\n91\n0\n\n\n \n \n15-rc9\n10\n0\n\n\n \n1.000\n \n \n \n\n\n \n \n14.13\n163\n0\n\n\n \n \n15-rc9\n12\n0\n\n\n \n2.000\n \n \n \n\n\n \n \n14.13\n378\n3\n\n\n \n \n15-rc9\n18\n0\n\n\n \n5.000\n \n \n \n\n\n \n \n14.13\n567\n2.274\n\n\n \n \n15-rc9\n53\n352\n\n\n \n10.000\n \n \n \n\n\n \n \n15-rc9\n136\n1.337\n\n\n38 MB\n \n \n  \n\n\n\n \n100\n \n \n \n\n\n \n \n14.13\n94\n0\n\n\n \n \n15-rc9\n5\n0\n\n\n \n500\n \n \n \n\n\n \n \n14.13\n379\n0\n\n\n \n \n15-rc9\n11\n112\n\n\n \n1.000\n \n \n \n\n\n \n \n14.13\n787\n2\n\n\n \n \n15-rc9\n17\n91\n\n\n \n2.000\n \n \n \n\n\n \n \n14.13\n1.433\n320\n\n\n \n \n15-rc9\n21\n1.704\n\n\n \n5.000\n \n \n \n\n\n \n \n15-rc9\n197\n3.314",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Lastverhalten"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html",
-    "href": "Testcenter/install/configuration.html",
-    "title": "Konfiguration",
-    "section": "",
-    "text": "Eine Testcenter-Instanz kann auf unterschiedliche Weise konfiguriert werden",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#version",
-    "href": "Testcenter/install/configuration.html#version",
-    "title": "Konfiguration",
-    "section": "Version",
-    "text": "Version\nVERSION=15.1.8\nDie verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings nie von Hand erfolgen, sondern mittels der update.sh (siehe: TODO), da diese auch die compose-files usw. mit updated. Downgrades sollten grundsätzlich vermieden werden.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#basic-network",
-    "href": "Testcenter/install/configuration.html#basic-network",
-    "title": "Konfiguration",
-    "section": "Basic Network",
-    "text": "Basic Network\nGrundsätzliche Netzwerkeinstellungen.\nHOSTNAME=localhost\nServername, z. B. ìqb-testcenter4.de. Wenn sie eine www-subdomain als Alternativen Namen verwenden wollen, geben Sie das www nicht mit an - es wird eine automatische Weiterleitung eingerichtet.\nTLS_ENABLED=no\nSoll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen (siehe TODO). Der default ist hier natürlich yes.\nPORT=80\nTLS_PORT=443\nDer Post auf dem das Testcenter laufen soll. Nur eines davon wird verwendet, je nachdem ob TLS_ENABLED gesetzt wird.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#security",
-    "href": "Testcenter/install/configuration.html#security",
-    "title": "Konfiguration",
-    "section": "Security",
-    "text": "Security\nPASSWORD_SALT=t\nSalt für verwendeten admin-passwörter. Achtung: Ändern Sie das nie, sonst können Sie sicht nicht mehr einloggen.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#services",
-    "href": "Testcenter/install/configuration.html#services",
-    "title": "Konfiguration",
-    "section": "Services",
-    "text": "Services\n\nDatabase connection\nMYSQL_ROOT_PASSWORD=secret_root_pw\nMYSQL_DATABASE=iqb_tba_testcenter\nMYSQL_USER=iqb_tba_db_user\nMYSQL_PASSWORD=iqb_tba_db_password\nVerbindungen zur Datenbank. Wird normalerweise bei der Installation gesetzt und nicht mehr angefasst.\n\n\nBroadcasting Service\nBROADCAST_SERVICE_ENABLED=true\nDer Broadcasting-Service ist ein optionaler Zusatzservice, der Websocket-Verbindungen ermöglicht. Sollten ihre Server oder Teilnehmer aus irgendwelchen Gründen Websockets nicht verwenden wollen oder können, können Sie ihn hier abschalten.\n\n\nFile Service\nFILE_SERVICE_ENABLED=true\nDer File-Service übernimmt die Auslieferung der eigentlichen Testinhalte. Ihn abzuschalten und die Inhalte mit dem Backend ausliefern verschlechtert die Performance des Testcenters maßgeblich.\n\n\nCache Service\nCACHE_SERVICE_INCLUDE_FILES=no\nCACHE_SERVICE_RAM=1073741824\nDer Cache-Service cached Authentifizierungen für den File-Service, sodass beim Laden der Testinhalte daas Backend nicht mehr verwendet werden muss.\nEr kann aber auch verwendet werden, um die Testinhalte selbst im Arbeitsspeicher des Servers zu cachen. Dazu ist dieser parameter auf yes zu setzen und eine entsprechende Menge dafür freigegebenen Arbeitsspeicher (in Byte) anzugeben. Es liegen bisher wenig Erkenntnisse über Performance-Gewinn, Fehleranfälligkeit usw. dieser Option vor, daher ist sie Standardmäßig ausgeschaltet.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#advanced-network",
-    "href": "Testcenter/install/configuration.html#advanced-network",
-    "title": "Konfiguration",
-    "section": "Advanced Network",
-    "text": "Advanced Network\nDOCKER_DAEMON_MTU=1500\nMTU wert des Netzwerks. Außer in bestimmten Server-Umgebungen ist er 1500.\nDOCKERHUB_PROXY=''\nSie verwenden einen lokalen Proxy für DockerHub? Dann können Sie ihn hier angeben.\nRESTART_POLICY=no\nRestart-Policy der Docker-Container: no, always, on-failure, unless-stopped",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#backend-init-parameters",
-    "href": "Testcenter/install/configuration.html#backend-init-parameters",
-    "title": "Konfiguration",
-    "section": "Backend Init Parameters",
-    "text": "Backend Init Parameters\nDie folgenden Parameter können für Experimente, in Debug-Situationen usw. eingesetzt werden. Sie sollten im Normalbetrieb aber nie im .env File auftauchen:\nOVERWRITE_INSTALLATION=\"no\"\nBei Neustart wird die Installation neu aufgesetzt. Alle Daten, User, Testinhalte und Konfigurationen gehen verloren.\nSKIP_READ_FILES=\"no\"\nDas (Neu-)Einlesen der Dateien beim Start wird übersprungen. Damit kann der Systemstart deutlich beschleunigt werden, die Datenintegrität ist jedoch nicht mehr gewahrt. Ab Testcenter 15.2.0 werden ohnehin nur noch Workspaces neu eingelesen, die sich verändert haben. Die Einstellung ist damit beinahe obsolet.\nSKIP_DB_INTEGRITY=\"no\"\nDer Integritätscheck der Datenbank beim Starten wird übersprungen. Nur dann nützlich, wenn man ein kaputtes System unbedingt noch einmal hochfahren will.\nNO_SAMPLE_DATA=\"no\"\nDas Anlegen des Beispiel-Arbeitsbereiches wird bei einer Neuinstallation übersprungen. Wird ein bereits vorhandenes System gestartet, hat diese Einstellung keine Auswirkungen.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#ändern-der-standard-texte",
-    "href": "Testcenter/install/configuration.html#ändern-der-standard-texte",
-    "title": "Konfiguration",
-    "section": "Ändern der Standard-Texte",
-    "text": "Ändern der Standard-Texte\nDie meisten Texte, die ein Testteilnehmer zu Gesicht bekommen, lassen sich hier für die gesamte Instanz ändern. Diese lassen sich dann wiederum [für einzelne Studien oder Booklets ändern] (https://iqb-berlin.github.io/tba-info/Testcenter/Studiendurchfuehrung/Studienverhalten_konfigurieren.html).",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#eine-warnung-auf-die-startseite-schalten",
-    "href": "Testcenter/install/configuration.html#eine-warnung-auf-die-startseite-schalten",
-    "title": "Konfiguration",
-    "section": "Eine Warnung auf die Startseite schalten",
-    "text": "Eine Warnung auf die Startseite schalten\nEs lässt sich für eine definierte Zeit eine Warnung auf die Startseite schalten.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#das-aussehen-der-anwendung-grundsätzlich-anpassen",
-    "href": "Testcenter/install/configuration.html#das-aussehen-der-anwendung-grundsätzlich-anpassen",
-    "title": "Konfiguration",
-    "section": "Das Aussehen der Anwendung grundsätzlich anpassen",
-    "text": "Das Aussehen der Anwendung grundsätzlich anpassen\nHintergrundfarbe, Name, Logo u. Ä. der Anwendung lässt sich verändern. Bei den Farben sind sämtliche CSS-Farben und sogar CSS-Farbverläufe usw. möglich.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/configuration.html#die-fehlerreport-funktion-konfigurieren",
-    "href": "Testcenter/install/configuration.html#die-fehlerreport-funktion-konfigurieren",
-    "title": "Konfiguration",
-    "section": "Die Fehlerreport-Funktion konfigurieren",
-    "text": "Die Fehlerreport-Funktion konfigurieren\nWenn immer im Testcenter eine Fehlermeldung auftaucht, gibt es die Möglichkeit, einen ausführlichen Report anzuzeigen, und herunterzuladen. Wird dieser an die Entwickler gesendet, haben diese eine Chance das Problem zu beheben. Eine Testcenterinstanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopfdruck direkt eingesendet werden können. Betreiber eines Testcenters können auf diese Weise auftretende Fehler geordnet tracken.\nAls Bugtracker kann derzeit nur GitHub angeschlossen werden. Dazu kann der Super-Admin entsprechend ein Token und ein Repository angeben.",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Konfiguration"
-    ]
-  },
-  {
-    "objectID": "Testcenter/install/offline.html",
-    "href": "Testcenter/install/offline.html",
-    "title": "Offline-Szenario",
-    "section": "",
-    "text": "Das IQB-Testcenter ist eine Webanwendung, d. h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.\nDieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.\n\nVorbereitung\n\nInstallation von Docker und Docker-Compose sowie make\nRouter im Access Point Modus\n(Optional) Installation von dnsmasq für lokalen DNS Server\n\nWenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen  Netzwerk.\nUm die Wiederverwendbarkeit zu erleichtern empfehle ich ein neues Profil für diese Verbindung anzulegen.\nDas wichtige ist, dass Make available to other users unter Details und Shared to other computers unter IPv4 aktiviert sind.\nNach Erstellung des Profils sollte es so aussehen:\n\n\n\n\nInstallation Testcenter\nDem Guide für die Installation des Testcenters folgen. Während man das Installationsskript (install.sh) ausführt gibt es einige Schritte die zu beachten sind.\nUnter HOSTNAME muss entweder die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel 10.42.0.1) oder eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan), allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines lokalen DNS Servers.\nAußerdem sollte die Setup-Frage “Use TLS?” mit N (No) beantwortet werden.\nMan sollte den weiteren Hinweisen des Guides ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden können und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet.\n\n\nLokaler DNS Server\nUm einen lokalen DNS Server zu starten können Tools wie dnsmasq oder bind verwendet werden. Dieser Guide verwendet dnsmasq.\nNach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse hinzugefügt werden. Dies kann man z.B. mit nano erledigen:\nsudo nano /etc/dnsmasq.conf\nDort diese Regel hinzufügen:\naddress=/#/x.x.x.x\nFür x muss der vorher ausgewählte Hostname eingesetzt werden und für x.x.x.x die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:\naddress=/iqb-testcenter.lan/10.42.0.1\nNach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.\nsudo systemctl restart dnsmasq.service\nSofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.\nDieser lokaler DNS Server wurde in einer Umgebung getestet in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.\n\n\nBereinigung des Testcenters\nMöchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:\nmake down \ndocker rm -f $(docker ps -a -q)\ndocker volume rm $(docker volume ls -q)\ndocker rmi $(docker images -a -q)\n\nbeendet die Anwendung.\nentfernt alle Container.\nentfernt alle Volumes.\nentfernt dann alle Images.\n\nDanach kann das bisherige Installationsverzeichnis gelöscht werden.\n\n\nUmgebungsvariable: TLS_ENABLED\nDas Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen. Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:\nnano .env\nUnd dann den Wert der Umgebungsvariable TLS_ENABLED wie folgt setzen:\nTLS_ENABLED=no\n\n\nLange Startzeiten des Testcenters umgehen\nDas Testcenter validiert standardmäßig beim Starten alle Units, Booklets sowie Testtaker. Dies kann bei einer hohen Anzahl von Booklets und Testtakern zur einer sehr hohen Startzeit führen.\nDies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Instalationsordner des Testcenters durchführen:\nmake run\nIn der zweiten Konsole dann diesen Befehl ausführen:\ndocker exec -it testcenter-backend sed -i '6s/$/ --skip_read_workspace_files/' /entrypoint.sh\nNun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “make stop” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.\n\n\n\n\n Zurück nach oben",
-    "crumbs": [
-      "Testcenter",
-      "Installation",
-      "Offline-Szenario"
     ]
   }
 ]

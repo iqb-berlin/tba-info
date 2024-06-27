@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Testen_der_Anwendung/index.html">Testen der Anwendung</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/E2E_Tests.html">Testen der Anwendung</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/Studiendurchfuehrung/Studien_Durchfuehrung_Vorbetrachtung.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Studiendurchfuehrung/Vorbetrachtung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorbetrachtungen</span></a>
   </div>
 </li>
@@ -240,11 +240,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/install/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
@@ -269,14 +269,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Offline-Szenario</span></a>
   </div>
 </li>
-      </ul>
-  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/Testen_der_Anwendung/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Testcenter/install/E2E_Tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Testen der Anwendung</span></a>
   </div>
 </li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/faq/index.html" class="sidebar-item-text sidebar-link">
@@ -463,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Testen_der_Anwendung/index.html">Testen der Anwendung</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/E2E_Tests.html">Testen der Anwendung</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Testen der Anwendung</h1>
 </div>
@@ -514,7 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.</p>
 <section id="manuelles-vs-automatisiertes-testen" class="level2">
 <h2 class="anchored" data-anchor-id="manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</h2>
-<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen.</p>
+<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen.</p>
 <section id="manuelles-testen" class="level3">
 <h3 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h3>
 <ul>
