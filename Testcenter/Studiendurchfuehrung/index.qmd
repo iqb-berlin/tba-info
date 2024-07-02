@@ -29,11 +29,9 @@ Im nächsten Schritt werden die XML zur Testheft-Definition und die XML's zur Au
 
 ## XML zur Studie-Definition laden
 
-**Studie im Review und Probelauf:**
-
-Um sicherzustellen, dass die Studie ohne Probleme läuft und um vorab die Aufgabeninhalte zu betrachten, kann es sinnvoll sein die Studie erst einmal in einer Vorschau zu betrachten. Hierfür wird für bestimmte Zugänge der Testmodus: `run-review` festgelegt. Die entsprechenden Zugänge können dann den Studienverlauf testen und Aufgaben betrachten. Es können auch Kommentare zu den Aufgaben oder zum gesamten Testheft abgegeben werden. Basierend auf diesen Kommentaren können die Aufgaben im Studio angepasst werden. Anschließend kann die geänderte Aufgabe aus dem Studio exportiert werden und die so angepasste Aufgaben-VOUD kann wieder in das Testcenter hochgeladen werden. Sollen Änderungen in der Testheftstruktur oder im Verhalten der Studie erfolgen, kann die XML zur Testheft-Definition angepasst werden und erneut in das Testcenter geladen werden.
-
-![](TC_Schalter_Review_Kommentar.png)
+::: {.callout-note}
+Um sicherzustellen, dass die Studie wie gewünscht verläuft, kann es sinnvoll sein diese erst einmal in einer Vorschau zu betrachten. Dazu wird für bestimmte Zugänge der Testmodus: `run-review` festgelegt. Es ist möglich während der Vorschau Kommentare zu den Aufgaben oder zum gesamten Testheft abzugeben. Basierend auf diesen Kommentaren können die Aufgaben und Strukturen der Studien vor finaler Durchführung noch einmal angepasst werden.
+:::
 
 * Testmodus für finale Testung in der XML zur Studien-Definition festlegen (`run-hot-return`oder `run-hot-restart`)
 * Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren
@@ -49,12 +47,12 @@ Die Aufgabennavigation erfolgt rechts oben. Sollte eine Aufgabe aus mehreren Sei
 Wenn zuvor eingeplant, können die Studienverantwortlichen die Studie auch mittels **Gruppenmonitor** steuern. Mehr dazu ist dem gleichnamigen Kapitel zu entnehmen.
 
 ::: {.callout-important}
-Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung und ist daher sehr wichtig. Es empfiehlt sich daher in regelmäßigen Abständen diese Daten herunterzuladen und zu sichten. So können schon während des Studienlaufs eventuell bestehende Probleme frühzeitig erkannt werden und nicht erst am Ende der Studie.
+Während des Studienlaufs fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung. Es empfiehlt sich daher in regelmäßigen Abständen diese Daten herunterzuladen und zu sichten. So können schon während des Studienlaufs eventuell bestehende Probleme frühzeitig erkannt werden und nicht erst am Ende der Studie.
 :::
 
 # Test oder Befragung beenden
 
-Die Beantwortung kann jederzeit beendet werden. Die Antworten werden stets sofort gespeichert und es ist hierfür kein Kommando erforderlich. Je nachdem wie der Test zuvor konfiguriert wurde, kann über ein zusätzliches Aufgabenmenü rechts oben neben der Aufgabennavigation der Test beendet werden. Ist dieses Menu nicht eingeschaltet, kann der Test durch einen Klick auf das IQB-Logo oben links beendet werden. Anschließend gelangt man wieder zur Ansicht der Testhefte. Bei der Beendung einer Testung kann es je nach Konfiguration des Tests zu Warnungen kommen, wenn ein Test beendet werden soll. Welche Warnungen können je nach Konfiguration angezeigt werden:
+Die Beantwortung kann jederzeit beendet werden. Die Antworten werden stets sofort gespeichert und es ist hierfür kein Kommando erforderlich. Je nachdem wie der Test zuvor konfiguriert wurde, kann über ein zusätzliches Aufgabenmenü der Test beendet werden. Ist dieses Menu nicht eingeschaltet, kann der Test durch einen Klick auf das IQB-Logo oben links beendet werden. Anschließend gelangt man wieder zur Ansicht der Testhefte. Bei der Beendung einer Testung kann es je nach Konfiguration des Tests zu Warnungen kommen. Welche Warnungen können je nach Konfiguration angezeigt werden:
 
 **Verlassen eines zeitbeschränkten Blocks:**
 
@@ -66,11 +64,11 @@ Existieren zeitbeschränkte Blöcke in einem Testheft, können diese gesperrt we
 
 **Verlassen bei aktiven Navigationsbeschränkungen:**
 
-Je nach Konfiguration können Aufgaben nur verlassen werden, wenn Pflichtelemente bearbeitet oder alle Bestandteile einer Aufgabe gesehen oder angehört wurden (presentation/ response complete). Befinden sich Personen zum Zeitpunkt der Beendung in einer solchen Aufgabe und sind die genannten Bedingungen noch nicht erfüllt, kann eine Warnung angezeigt werden. Es sollten dann erst die Bedingungen zum Verlassen der Aufgabe erfüllt werden, bevor der Test beendet werden kann.
+Je nach Konfiguration können Aufgaben nur verlassen werden, wenn Pflichtelemente bearbeitet oder alle Bestandteile einer Aufgabe gesehen oder angehört wurden (presentation/ response complete). Befinden sich Personen zum Zeitpunkt der Beendigung in einer solchen Aufgabe und sind die genannten Bedingungen noch nicht erfüllt, kann eine Warnung angezeigt werden. Es sollten dann erst die Bedingungen zum Verlassen der Aufgabe erfüllt werden, bevor der Test beendet werden kann.
 
 # Test fortsetzen
 
-Je nach Konfiguration kann das Testheft nach Beendigung des Tests fortgesetzt werden. Auf der Seite der Testheftübersicht ist dann unterhalb des entsprechenden Testheftes der Text: **Fortsetzen** zu sehen. Nach einem Klick auf das Testheft, setzt der Test an der Stelle fort an dem er beendet wurde. Die zuvor gegebenen Antworten sind vollständig erhalten und einsehbar. Ist das Testheft deaktiviert, ist in der Testheft-Konfiguration eine Sperrung bei Beendigung des Tests vorgesehen.
+Je nach Konfiguration kann das Testheft nach Beendigung des Tests fortgesetzt werden. Auf der Seite der Testheftübersicht ist dann unterhalb des entsprechenden Testheftes der Text: **Fortsetzen** zu sehen. Nach einem Klick auf das Testheft, setzt der Test an der Stelle fort an dem er beendet wurde. Die zuvor gegebenen Antworten sind vollständig erhalten und einsehbar. Ist das Testheft deaktiviert, ist in der Testheft-Konfiguration eine Sperrung des Tests vorgesehen, wenn dieser beendet wird.
 
 ::: {.callout-note}
 Falls ein Gruppenmonitor zur Steuerung eingesetzt wird, kann auch mittels dieses Monitors der Test beendet oder fortgesetzt werden. Mehr dazu ist in dem Kapitel **System-Check** zu entnehmen.
