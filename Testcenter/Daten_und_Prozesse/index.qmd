@@ -4,41 +4,7 @@ title: "Daten und Prozesse"
 
 ---
 
-# Prozesse und Funktionen
-
-Das Testcenter spielt nicht einfach nur Studieninhalte ab, es stellt außerdem eine Reihe von Funktionen bereit.
-
-## Wiedergabe der Studieninhalte
-
-Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Durch diese Technik wird eine hohe Flexibilität erreicht: Änderungen der Aufgabenbezogenen Programmierung führen nicht zu einem neuen Testcenter, sondern nur der Plug-In-Code des Players wird ausgetauscht. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter wird als Verona-Schnittstelle bezeichnet und unterliegt den Verona Spezifikationen.
-
-Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind unter dem Reiter: **Releases** zu finden.
-
-::: {.callout-tip}
-Mehr Informationen zur Verona-Schnittstelle sind [hier](https://verona-interfaces.github.io/intro) zu finden.
-:::
-
-## System-Check
-
-Vor Studiendurchführung kann geprüft werden, ob die vorhandene Hardware und die Internetanbindung für die Durchführung ausreichend sind. Es können auch Befragung erzeugt werden, die die Studienverantwortlichen sensibilisieren, bestimmte Faktoren, die der Stabilität einer Studiendurchführung dienen, zu beachten. Hier genannt sei als Beispiel das Abfrage von Browserversionen und der Verweis auf unterstütze Versionen. Das Testcenter bietet hierfür die Funktion: **System-Check** an. Zum Starten des System-Checks kann dieser zuvor in einer XML konfiguriert werden, anschließend muss diese XML in das Testcenter geladen werden.
-
-::: {.callout-note}
-Detaillierte Informationen zum System-Check sind dem gleichnamigen Kapitel zu entnehmen.
-:::
-
-## Reviews
-
-Vor finaler Studiendurchführung kann es sinnvoll sein, die Aufgaben anderen Personen zugänglich zu machen. So können dann mit Hilfe einer Kommentarfunktion entsprechende Hinweise zu den Aufgaben hinterlassen werden. Am Ende der Review-Phase können diese Hinweise zur Aufgabenoptimierung genutzt werden. Das Testcenter stellt diese Kommentarfunktion zur Verfügung, wenn in der XML zur Studien-Definition ein bestimmter Modus (`run-review`) für einen Zugang festgelegt wird. Jeder Kommentar wird dann gespeichert und kann abschließend ausgewertet werden.
-
-![](TC_Schalter_Review_Kommentar.png)
-
-## Gruppenmonitor
-
-Mit Hilfe des Gruppenmonitors kann die Testleitung Studienteilnehmer\*innen innerhalb des Testheftes navigieren. Auf diese Weise kann der Studienlauf synchron gehalten werden und alle Teilnehmer\*innen befinden sich stets am selben Ausgangspunkt (Anfang eines Block etc.). Der Gruppenmonitor kann aber auch nur zur Beobachtung des Studienverlaufs eingesetzt werden und verschafft so der Testleitung einen besseren Überblick über den Stand der Durchführung. Der Gruppenmonitor kann in der XML zur Studien-Definition mittels eines speziellen Zugangs eingerichtet werden.
-
-::: {.callout-note}
-Detaillierte Informationen zum Gruppenmonitor sind dem gleichnamigen Kapitel zu entnehmen.
-:::
+Um die Funktionen des Testcenters nutzen zu können, müssen Dateien zur Konfiguration in das Testcenter geladen werden. Diese Dateien legen fest, wie eine Studien aussehen und wie sie ablaufen soll. Außerdem werden über diese Dateien die zusätzlichen Funktionen: System-Check und Gruppenmonitor konfiguriert und es kann eine Voransicht einer Studien gestartet werden.
 
 # Daten-Input für das Testcenter
 ```{mermaid}
@@ -172,7 +138,15 @@ Weitere Informationen zur Aufgabenkodierung sind den [Referenzen](/Referenzen/Au
 
 #### Player-HTML
 
-Die Player spezifischen Programmierungen befinden sich in einer separat zu ladenden Datei. An dieser Stelle wird diese Datei allgemein als **Player-HTML** bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion.
+Das Testcenter enthält intern eine Komponente “Player”, die zur Aufgabenwiedergabe dient. Sinn der Teilung zwischen Testcenter und Player ist, dass das interne Format einer Aufgaben-XML, insbesondere der Aufgaben-VOUD, nicht direkt vom Testcenter selbst verarbeitet wird, sondern von einem Plug-In, welches je nach Aufgaben-Datentyp hinzugeladen wird. Der Player ist somit eine eigenständige Programmierung, die die Aufgaben-XML und Aufgaben-VOUD lesen und darstellen kann und für weitere Funktionen, wie bspw. der beschränkte Navigation (Presentation complete und Response complete), zuständig ist. Die Schnittstelle zwischen Player und Testcenter wird als Verona-Schnittstelle bezeichnet und unterliegt den Verona Spezifikationen.
+
+Das IQB hat verschiedene Player für unterschiedliche Aufgaben-Formate programmiert. Alle Player sind bei GitHub veröffentlicht. Eine Übersicht ist zu finden auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io). Die letzten verfügbaren Versionen der Player sind unter dem Reiter: **Releases** zu finden.
+
+::: {.callout-tip}
+Mehr Informationen zur Verona-Schnittstelle sind [hier](https://verona-interfaces.github.io/intro) zu finden.
+:::
+
+Im weiteren Verlauf wird die Datei mit den Programmierungen zum Player als **Player-HTML** bezeichnet. Typischerweise trägt die Datei den Namen des Players und der Playerversion.
 
 Die Player-HTML wird in der Aufgaben-XML deklariert. Der so deklarierte Player muss mit in das Testcenter geladen werden. Wird eine Aufgaben-XML geladen, ohne zuvor die dort deklarierte Player-HTML zu laden, erscheint eine entsprechende Fehlermeldung.
 
