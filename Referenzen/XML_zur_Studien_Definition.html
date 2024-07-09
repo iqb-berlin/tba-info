@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -477,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="section" class="level1">
 <h1></h1>
-<p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. An dieser Stelle wird diese XMl auch allgemein als <strong>Studien-XML</strong> bezeichnet.Prinzipiell ist der Dateiname aber frei wählbar.</p>
+<p>Die Zugangsdaten für die teilnehmenden Testpersonen und weitere wichtige Funktionen für den Testablauf werden in einer XML-Datei festgelegt. Diese XML-Datei trägt IQB-intern den Namen: <strong>Testtaker-XML</strong>. An dieser Stelle wird diese XML auch allgemein als <strong>Studien-XML</strong> bezeichnet.Prinzipiell ist der Dateiname aber frei wählbar.</p>
 <p>Folgende Funktionen erfüllt die XML:</p>
 <ul>
 <li>Festlegung Zugangsdaten/ Anmeldeverfahren:</li>
@@ -762,26 +762,26 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Werte für das Attribut <code>key</code> sind nicht frei wählbar. Diese sind einer entsprechenden Liste zu entnehmen. Alle Texte, die nicht geändert werden, erhalten einen Standardtext, der ebenfalls der Liste zu entnehmen ist.</p>
+<p>Die Werte für das Attribut <code>key</code> sind nicht frei wählbar. Diese sind einer entsprechenden Liste zu entnehmen. Bei Verwendung eines Listenwertes ist die Groß-/Kleinschreibung zu beachten. Alle Texte, die nicht geändert werden, erhalten einen Standardtext, der ebenfalls der Liste zu entnehmen ist.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Link zu den Werten derTextersetzungen</a>
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Eine Liste aller verwendbarer Werte zur Textersetzung. Es ist die Groß-/Kleinschreibung zu beachten.</p>
+<p><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Liste der Textersetzungen</a></p>
 </div>
 </div>
 </section>
 <section id="gruppenmonitoring" class="level1">
 <h1>Gruppenmonitoring</h1>
-<p>Der Gruppenmonitor kann in der Studien-XML über den Modus eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: <code>monitor-group</code> und <code>monitor-study</code>. Im Modus: <code>monitor-group</code> können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: <code>monitor-study</code> können alle Logins in allen Gruppen gesteuert werden.</p>
+<p>Der Gruppenmonitor kann in der Studien-XML über spezifische Modi eingeschaltet werden. Es stehen zwei Modi dafür zur Verfügung: <code>monitor-group</code> und <code>monitor-study</code>. Im Modus: <code>monitor-group</code> können alle Logins der zugehörigen Gruppe gesteuert werden. Im Modus: <code>monitor-study</code> können alle Logins in allen Gruppen gesteuert werden.</p>
 <p>Hier ein Beispiel:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> validFrom=</span><span class="st">"1/3/2024 10:00"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
@@ -792,7 +792,7 @@ Wichtig
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"er45tz"</span>/&gt;</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel wird ein Gruppenmonitor für die Gruppe: <strong>sample_group</strong> angelegt. Nach der Anmeldung am Testcenter mit dem Namen: <strong>test-group-monitor</strong> und dem Passwort: <strong>er45tz</strong> können die beiden Testhefte: <strong>BOOKLET.SAMPLE-1</strong> und <strong>BOOKLET.SAMPLE-3</strong> zu Voransicht gestartet werden. Außerdem ist eine Schaltfläche zu sehen, die den Gruppenmonitor startet. Der Gruppenmonitor zeigt den Status der beiden angelegten Personen (Codes): <strong>xxx</strong> und <strong>yyy</strong> und die Testheftstrukturen der zugeordneten Testhefte: <strong>BOOKLET.SAMPLE-1</strong> und <strong>BOOKLET.SAMPLE-3</strong> an.</p>
+<p>In diesem Beispiel wird ein Gruppenmonitor für die Gruppe: <strong>sample_group</strong> angelegt. Nach der Anmeldung am Testcenter mit dem Namen: <strong>test-group-monitor</strong> und dem Passwort: <strong>er45tz</strong> können die beiden Testhefte: <strong>BOOKLET.SAMPLE-1</strong> und <strong>BOOKLET.SAMPLE-3</strong> zur Voransicht gestartet werden. Außerdem ist eine Schaltfläche zu sehen, die den Gruppenmonitor startet. Der Gruppenmonitor zeigt den Status der beiden angelegten Personen (Codes): <strong>xxx</strong> und <strong>yyy</strong> und die Testheftstrukturen der zugeordneten Testhefte: <strong>BOOKLET.SAMPLE-1</strong> und <strong>BOOKLET.SAMPLE-3</strong> an.</p>
 
 
 </section>

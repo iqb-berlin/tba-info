@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -480,12 +480,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="bereitstellen-der-testdateien" class="level1">
 <h1>Bereitstellen der Testdateien</h1>
-<p>Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Aufgaben und weitere Dateien, die die Studie bzgl. der genannten Anforderungen gestalten (XML zur Studien-Definition und XML zur Testheft-Definition).</p>
-<p>Sind die Aufgabe bzgl. genannter Anforderungen entworfen, können diese mit dem deklarierten Player aus dem IQB-Studio exportiert werden. Die XML zur Studien-Definition und zur Testheft-Definition kann im Studio hinsichtlich bestimmter Parameter konfiguriert werden und ebenfalls ausgegeben werden. Falls gewünscht, können diese Dateien mit einem Editor nachträglich angepasst werden.</p>
+<p>Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Dateien zur Aufgaben-Definition und Dateien die die Studie bzgl. der genannten Anforderungen konfigurieren (XML zur Studien-Definition und XML zur Testheft-Definition).</p>
+<p>Nach finalem Aufgabenentwurf, können die Dateien zur Aufgaben-Definition (Aufgaben-XML, Aufgaben-VOUD, Player-HTML) aus dem IQB-Studio exportiert werden. Die XML zur Studien-Definition und zur Testheft-Definition kann im Studio hinsichtlich bestimmter Parameter vorkonfiguriert und ebenfalls ausgegeben werden. Bei Bedarf kann jederzeit eine manuelle Nachbearbeitung stattfinden.</p>
 <p>Bzgl. der genannten Anforderungen, sollten die Testdateien dann wie folgt aussehen:</p>
 <section id="dateien-für-die-aufgaben-definitionen" class="level2">
 <h2 class="anchored" data-anchor-id="dateien-für-die-aufgaben-definitionen">Dateien für die Aufgaben-Definitionen</h2>
-<p>Jede Aufgaben-Definition besteht aus mindestens 2 Dateien pro Aufgabe, die Aufgaben-XML und die Aufgaben-VOUD. Die Aufgaben wurden im IQB-Studio so entworfen, dass sie den genannten Anforderungen entsprechen. Zur Aufgaben-Definition gehört auch, die in allen Aufgaben-XML deklarierte Player-HTML: <strong>iqb-player-aspect-2.4.11.html</strong>.</p>
+<p>Mit Hilfe des im IQB-Studio integrierten Editors werden die Aufgaben den Anforderungen entsprechend aufgebaut. Anschließend können die Aufgaben aus dem IQB-Studio exportiert werden. Das IQB-Studio gibt dabei mindestens 2 Dateien aus, eine XML- und eine VOUD-Datei. In der VOUD-Datei sind alle Aufgabenelemente (Checkbox, Audios etc.) kodiert enthalten. Zu jeder Aufgabe wird in der Entwurfsphase festgelegt, mit welchem Player diese Aufgabe wiedergegeben werden soll. Optional kann der festgelegte Player (Player-HTML) beim Export zu den beiden anderen Dateien mit ausgegeben werden. Es können weitere Dateien hinzukommen, wenn bspw. für eine Aufgabe Kodierregeln festgelegt wurden. Alle diese Dateien gehören zur Aufgaben-Definition.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -505,7 +505,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="datei-zur-testheft-definition" class="level2">
 <h2 class="anchored" data-anchor-id="datei-zur-testheft-definition">Datei zur Testheft-Definition</h2>
-<p>Nachfolgend ist die XML zur Testheft-Definition (Testheft-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
+<p>Nachfolgend ist die XML zur Testheft-Definition (Testheft-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -568,7 +568,7 @@ Hinweis
 </section>
 <section id="datei-zur-studien-definition" class="level2">
 <h2 class="anchored" data-anchor-id="datei-zur-studien-definition">Datei zur Studien-Definition</h2>
-<p>Nachfolgend ist die XML zur Studien-Definition (Studien-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung: XML gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
+<p>Nachfolgend ist die XML zur Studien-Definition (Studien-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>/&gt;</span>

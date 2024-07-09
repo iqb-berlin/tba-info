@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -476,7 +476,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Jeder angelegten Testperson wird ein Modus zugewiesen. Der gewählte Modus bestimmt das Testverhalten und weist spezifische Eigenschaften und Funktionen auf. Bspw. werden in manchen Modi die gegebenen Antworten gespeichert, in anderen Modi nicht. Da jeder hinterlegten Testperson auch ein Testheft zugewiesen wird, können verschiedene Anmeldungen mit denselben Testheften zu unterschiedlichem Verhalten führen. Mit Hilfe des Modus kann aber nicht nur das Testverhalten festgelegt werden, es stehen auch spezielle Modi für die Testleitung zur Verfügung, die zur Teststeuerung und Überwachung (Gruppenmonitor) verwendet werden können.</p>
 <section id="wo-wird-das-festgelegt" class="level1">
 <h1>Wo wird das festgelegt?</h1>
-<p>Die Festlegung erfolgt in der XML zur Studien-Definition im Element <code>Login</code> mit Hilfe des Attributs <code>mode</code> und eines zugehörigen Wertes. Nachfolgend ist ein einfaches Beispiel zu sehen:</p>
+<p>Die Festlegung erfolgt in der XML zur Studien-Definition im Element <code>Login</code> mit Hilfe des Attributs <code>mode</code> und einem zugehörigen Wert. Nachfolgend ist ein einfaches Beispiel zu sehen:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -487,7 +487,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Werte des Attributs: <code>mode</code> sind nicht frei wählbar und sind einer entsprechenden Liste zu entnehmen. Hierbei ist die Groß-/Kleinschreibung zu beachten.</p>
+<p>Die Werte des Attributs: <code>mode</code> sind nicht frei wählbar. Sie sind einer entsprechenden Liste zu entnehmen. Es ist die Groß-/Kleinschreibung zu beachten bei Übernahme eines Listenwertes.</p>
 </div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-overflow-wrap code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
@@ -506,20 +506,20 @@ Wichtig
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     &lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">Testtakers</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
-<p>In diesem Beispiel wird dem ersten Login: <strong>me4r5t6</strong> der Modus: <code>run-review</code> zugewiesen. Nach Anmeldung wird dieser Testperson das Booklet: <strong>Booklet_Version1</strong> in diesem Modus präsentiert. Wie dem Namen schon zu entnehmen ist, werden bei diesem Modus spezielle Funktionen der Vorbetrachtung bereitgestellt. Die angemeldete Person kann bspw. über eine Kommentarfunktion entsprechende Kommentare zu den Aufgaben hinterlegen. Diese Kommentare können anschließend heruntergeladen werden. Aufgabenentwickler*innen können diese dann für eine Korrektur der Aufgaben vor finaler Testdurchführung verwenden.</p>
+<p>In diesem Beispiel wird dem ersten Login: <strong>me4r5t6</strong> der Modus: <code>run-review</code> zugewiesen. Nach Anmeldung der Testperson das Booklet: <strong>Booklet_Version1</strong> präsentiert. Wie dem Namen schon zu entnehmen ist, werden bei diesem Modus spezielle Funktionen der Vorbetrachtung bereitgestellt. Die angemeldete Person kann bspw. über eine Kommentarfunktion entsprechende Kommentare zu den Aufgaben hinterlegen. Diese Kommentare können anschließend heruntergeladen werden. Aufgabenentwickler*innen können diese dann zur Aufgabenoptimierung vor finaler Studiendurchführung verwenden.</p>
 <p>Dem zweiten Login: <strong>susz67j</strong> wird das Testheft: <strong>Booklet_Version1</strong> im Modus: <code>run-hot-return</code> präsentiert. Wie der Name des Modus vielleicht schon erahnen lässt, wird die Testung “heiß” durchgeführt. Hier werden bspw. zum Zwecke der Auswertung alle Antworten gespeichert.</p>
 <p>An dieser Stelle kann nicht auf alle Funktionen der Modis eingegangen werden. Eine nähere Beschreibung ist der Liste zu entnehmen.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html">Link zur Liste möglicher Modi</a>
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Eine Liste aller Testmodi, deren Funktionen und Beschreibungen dazu.</p>
+<p><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html">Liste möglicher Modi</a></p>
 </div>
 </div>
 
