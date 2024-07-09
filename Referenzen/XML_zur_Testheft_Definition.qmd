@@ -189,13 +189,11 @@ Die Schema-Definition wird mit Hauptelement: `Booklet` mittels der Attribute: `x
 # Testheft Konfiguration
 
 ::: {.callout-important}
-Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: `key` im Kinderelement: `Config` zur Verfügung. Diesem Attribut können nur vordefinierte Werte und Daten zugewiesen. 
+Es ist möglich Testhefte individuell zu konfigurieren. Hierfür steht ein Attribut: `key` im Kinderelement: `Config` zur Verfügung. Diesem Attribut können nur vordefinierte Werte und Daten aus einer entsprechenden Liste zugewiesen werden. Bei Verwendung der Listenwerte ist die Groß-/Kleinschreibung zu beachten.
 :::
 
-::: {.callout-note icon=false}
-# [Link zu den Werten Testheft-Konfiguration](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html)
-
-Eine Liste aller verwendbarer Werte zur Testheft-Konfiguration. Es ist auf gleiche Schreibweise (Groß-/Kleinschreibung) zu achten.
+::: {.callout-note}
+[Liste der Werte zur Testheft-Konfiguration](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html)
 :::
 
 Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
@@ -251,7 +249,7 @@ Nachfolgend ein Codebeispiel mit einigen individuellen Konfigurationen:
 </table>
 ```
 ::: {.callout-note}
-Werden Werte und Daten in der Testheft-Konfiguration nicht aufgeführt, werden Standardwerte und Standarddaten verwendet. Wird bspw. **unit_screenheader** nicht aufgeführt, wird hierfür das Standarddatum: **EMPTY** angenommen, der Testheftname wird dann nicht mehr angezeigt.
+Werden Werte und Daten in der Testheft-Konfiguration nicht aufgeführt, werden Standardwerte und Standarddaten verwendet. Wird bspw. **unit_screenheader** nicht explizit in der `Booklet-Config` beschrieben, wird hierfür das Standarddatum: **EMPTY** angenommen, der Testheftname wird dann nicht mehr angezeigt.
 :::
 
 # Testlet (Block)
