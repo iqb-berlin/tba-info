@@ -8,7 +8,7 @@ Eine Testcenter-Instanz kann auf unterschiedliche Weise konfiguriert werden
 # Server-Admin: Konfigurationsoptionen in der .env
 
 Betreiber einer Testcenter-Instanz können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste
-aller aktuell vorhandenen Konfig-Parameter befinden sich
+aller aktuell vorhandenen Konfigurationsparameter befinden sich
 [hier](https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env).
 Diese sollten nur mit Vorsicht und Kenntnis verändert werden.
 
@@ -18,9 +18,9 @@ Diese sollten nur mit Vorsicht und Kenntnis verändert werden.
 VERSION=15.1.8
 ```
 Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start
-entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings *nie* von Hand
-erfolgen, sondern mittels der `update.sh` (siehe: TODO), da diese auch die compose-files usw. mit updated.
-*Downgrades sollten grundsätzlich vermieden werden*.
+entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings **niemals** von Hand
+erfolgen, sondern mittels der `update.sh`, da diese auch die compose-files usw. aktualisiert.
+Downgrades sollten grundsätzlich vermieden werden.
 
 ## Basic Network
 
