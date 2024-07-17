@@ -498,11 +498,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Eine Testcenter-Instanz kann auf unterschiedliche Weise konfiguriert werden</p>
 <section id="server-admin-konfigurationsoptionen-in-der-.env" class="level1">
 <h1>Server-Admin: Konfigurationsoptionen in der .env</h1>
-<p>Betreiber einer Testcenter-Instanz können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste aller aktuell vorhandenen Konfig-Parameter befinden sich <a href="https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env">hier</a>. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
+<p>Betreiber einer Testcenter-Instanz können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste aller aktuell vorhandenen Konfigurationsparameter befinden sich <a href="https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env">hier</a>. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
 <section id="version" class="level2">
 <h2 class="anchored" data-anchor-id="version">Version</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">VERSION</span><span class="ot">=</span><span class="st">15.1.8</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings <em>nie</em> von Hand erfolgen, sondern mittels der <code>update.sh</code> (siehe: TODO), da diese auch die compose-files usw. mit updated. <em>Downgrades sollten grundsätzlich vermieden werden</em>.</p>
+<p>Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings <strong>niemals</strong> von Hand erfolgen, sondern mittels der <code>update.sh</code>, da diese auch die compose-files usw. aktualisiert. Downgrades sollten grundsätzlich vermieden werden.</p>
 </section>
 <section id="basic-network" class="level2">
 <h2 class="anchored" data-anchor-id="basic-network">Basic Network</h2>
