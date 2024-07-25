@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../Studio/index.html" rel="next">
-<link href="../../Testcenter/Typische_Probleme/index.html" rel="prev">
+<link href="../../Testcenter/Studiendurchfuehrung/faq/index.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -244,12 +244,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/Typische_Probleme/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Typische Probleme</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/faq/index.html" class="sidebar-item-text sidebar-link active">
@@ -471,6 +465,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
+  <li><a href="#wie-können-fehler-gemeldet-werden" id="toc-wie-können-fehler-gemeldet-werden">Wie können Fehler gemeldet werden?</a></li>
+  <li><a href="#allgemeine-hinweise-zu-typischen-problemen" id="toc-allgemeine-hinweise-zu-typischen-problemen">Allgemeine Hinweise zu typischen Problemen</a></li>
   <li><a href="#wie-kann-ich-auf-das-testcenter-zugreifen" id="toc-wie-kann-ich-auf-das-testcenter-zugreifen">Wie kann ich auf das Testcenter zugreifen?</a></li>
   <li><a href="#welchen-browser-sollte-ich-verwenden" id="toc-welchen-browser-sollte-ich-verwenden">Welchen Browser sollte ich verwenden?</a></li>
   <li><a href="#wie-wird-das-testcenter-installiert" id="toc-wie-wird-das-testcenter-installiert">Wie wird das Testcenter installiert?</a></li>
@@ -493,6 +489,34 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" id="toc-wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten">Wie kann ich den Test auswerten? Wo finde ich die Daten?</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
+<section id="wie-können-fehler-gemeldet-werden" class="level3">
+<h3 class="anchored" data-anchor-id="wie-können-fehler-gemeldet-werden">Wie können Fehler gemeldet werden?</h3>
+<p><strong>An die Hotline</strong></p>
+<p>Die Verantwortlichen einer Studie bzw. die Kolleg:innen der Hotline können oft helfen, wenn sie Informationen über das Problem bekommen. Bei einem Fehlerbericht sollten stets folgende Informationen dabei sein:</p>
+<ul>
+<li>Name und Version des Betriebssystems, z. B. Windows 10</li>
+<li>Name und Version des Browsers, z. B. Firefox 100.0.2 (64-Bit)</li>
+<li>Version des Testcenters (zu finden bei Startbildschirm, dann Impressum/Datenschutz), z. B. Version 12.1.7/12.4.1/4.0.3</li>
+</ul>
+<p>Es reicht ein Screenshot mit einem Handy, dann spart man sich viel Text. Ansonsten bitte die Fehlersituation so genau wie möglich beschreiben.</p>
+<p><strong>An das Entwicklerteam</strong></p>
+<p>Über die obigen Daten hinaus kann man noch mehr Informationen schicken, wenn das Problem dem Entwicklerteam vorgelegt werden soll:</p>
+<ul>
+<li>Das Wichtigste beim Berichten von Fehlern ist der Fehlerbericht, der bei jeder Fehlermeldung im Testcenter angezeigt und heruntergeladen werden kann. Im Idealfall ist das Testcenter <a href="https://iqb-berlin.github.io/tba-info/Testcenter/install/configuration.html">so konfiguriert</a>, dass er auf Knopfdruck automatisch gesendet werden kann.</li>
+<li>Interne Meldungen des Browsers: Man kann (außer bei iPads) bei Browsern ein Fenster öffnen, wo der Browser eventuell weitere Fehlermeldungen hineinschreibt. Die Konsole wird in Firefox, Edge und Chrome mit der Taste F12 geöffnet. In Safari muss zuerst das Entwickler-Menu aktiviert werden. Anschließend kann mit der Tastenkombinationen: <strong>Cmd + Option + C</strong> die Konsole geöffnet werden. Alternativ kann mit der rechten Maustaste auf die Webseite und dann auf „Element überprüfen“ geklickt werden.</li>
+<li>Protokolle des Servers: Jede Person mit Serverzugriff kann Protokolle herunterladen, die die Fehlersuche noch einmal deutlich vereinfachen können.</li>
+</ul>
+</section>
+<section id="allgemeine-hinweise-zu-typischen-problemen" class="level3">
+<h3 class="anchored" data-anchor-id="allgemeine-hinweise-zu-typischen-problemen">Allgemeine Hinweise zu typischen Problemen</h3>
+<p>Es sind viele Betriebssysteme in Nutzung, viele Versionen, viele Browser, und man kann durch Einstellungen auf dem System das Verhalten dieser Komponenten und damit des Tests drastisch verändern. Damit gehen manchmal Probleme einher, die durch einige Maßnahmen schnell behoben werden können:</p>
+<ul>
+<li>Ein einfaches Neuladen der Seite hilft manchmal. Eine Testperson muss sich in diesem Fall nicht neu anmelden und landet sofort bei der Aufgabe, die zuletzt bearbeitet wurde. Wenn für die Bearbeitung einer Aufgabenfolge eine Maximalzeit gesetzt wurde, dann wird die vor dem Neuladen verstrichene Zeit abgezogen und man startet also nicht neu.</li>
+<li>Zwischenspeicher (Cache) des Browsers löschen: Manchmal speichert der Browser Teile der Programmierung. Sollte aber auf dem Server eine neue Version dieser Programmierung vorliegen, muss diese unbedingt geladen werden - sonst funktioniert die Kommunikation mit dem Server nicht. Die Vorgehensweise ist <a href="https://www.go4u.de/browser-cache-leeren.htm">hier</a> beschrieben.</li>
+<li>Browser-Plugins deaktivieren/deinstallieren: Es gibt abenteuerliche Erweiterungen für Browser, die mehr Sicherheit, bessere Performance, weniger Werbung, mehr Privatsphäre usw. versprechen. Oft greifen diese Erweiterungen aber massiv in die Kommunikation des Browsers mit dem Server ein und verfälschen Daten. Bei Problemen sollte man also diese Add-Ons usw. zumindest zeitweise deaktivieren.</li>
+<li>Anderen Browser benutzen: Die Web-Standards werden unterschiedlich durch die Browser implementiert. Daher lohnt es sich bei Problemen, auf einen anderen Browser zu wechseln.</li>
+</ul>
+</section>
 <section id="wie-kann-ich-auf-das-testcenter-zugreifen" class="level3">
 <h3 class="anchored" data-anchor-id="wie-kann-ich-auf-das-testcenter-zugreifen">Wie kann ich auf das Testcenter zugreifen?</h3>
 <p>Der Zugriff erfolgt mittels Adresseingabe in Ihrem Webbrowser. Beachten Sie bitte: Das Testcenter muss zuvor in Ihrer IT-Netzstruktur auf einem dafür geeignetem Server installiert werden. Die Serveradresse erhalten Sie dann von Ihrem IT-Dienstleister oder den internen Administrator*innen.</p>
@@ -1016,8 +1040,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Testcenter/Typische_Probleme/index.html" class="pagination-link" aria-label="Typische Probleme">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Typische Probleme</span>
+      <a href="../../Testcenter/Studiendurchfuehrung/faq/index.html" class="pagination-link" aria-label="Häufig gestellten Fragen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Häufig gestellten Fragen</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
