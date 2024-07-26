@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Testen der Anwendung – TBA-Verstehen und Anwenden</title>
+<title>Softwarequalität – TBA-Verstehen und Anwenden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/E2E_Tests.html">Testen der Anwendung</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/Softwarequalität.html">Softwarequalität</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -201,8 +201,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/E2E_Tests.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Testen der Anwendung</span></a>
+  <a href="../../Testcenter/install/Softwarequalität.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Softwarequalität</span></a>
   </div>
 </li>
       </ul>
@@ -476,14 +476,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung">Einführung</a></li>
+  <li><a href="#e2e-test" id="toc-e2e-test" class="nav-link active" data-scroll-target="#e2e-test">E2E-Test</a>
+  <ul class="collapse">
+  <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung">Einführung</a></li>
   <li><a href="#eigene-testszenarien-entwerfen" id="toc-eigene-testszenarien-entwerfen" class="nav-link" data-scroll-target="#eigene-testszenarien-entwerfen">Eigene Testszenarien entwerfen</a>
   <ul class="collapse">
-  <li><a href="#manuelles-vs-automatisiertes-testen" id="toc-manuelles-vs-automatisiertes-testen" class="nav-link" data-scroll-target="#manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</a>
-  <ul class="collapse">
-  <li><a href="#manuelles-testen" id="toc-manuelles-testen" class="nav-link" data-scroll-target="#manuelles-testen">Manuelles Testen</a></li>
-  <li><a href="#automatisiertes-testen" id="toc-automatisiertes-testen" class="nav-link" data-scroll-target="#automatisiertes-testen">Automatisiertes Testen</a></li>
-  </ul></li>
+  <li><a href="#manuelles-vs-automatisiertes-testen" id="toc-manuelles-vs-automatisiertes-testen" class="nav-link" data-scroll-target="#manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</a></li>
   </ul></li>
   <li><a href="#e2e-tests-des-iqb-verwenden" id="toc-e2e-tests-des-iqb-verwenden" class="nav-link" data-scroll-target="#e2e-tests-des-iqb-verwenden">E2E-Tests des IQB verwenden</a>
   <ul class="collapse">
@@ -492,15 +490,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cypress-tests-ausführen" id="toc-cypress-tests-ausführen" class="nav-link" data-scroll-target="#cypress-tests-ausführen">Cypress Tests ausführen</a></li>
   <li><a href="#wo-ist-der-testcode-zu-finden" id="toc-wo-ist-der-testcode-zu-finden" class="nav-link" data-scroll-target="#wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</a></li>
   </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/E2E_Tests.html">Testen der Anwendung</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/Softwarequalität.html">Softwarequalität</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Testen der Anwendung</h1>
+<h1 class="title">Softwarequalität</h1>
 </div>
 
 
@@ -517,14 +516,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="einführung" class="level1">
-<h1>Einführung</h1>
+<section id="e2e-test" class="level1">
+<h1>E2E-Test</h1>
+<section id="einführung" class="level2">
+<h2 class="anchored" data-anchor-id="einführung">Einführung</h2>
 <p>Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer*innen getestet werden. Diese Art der Testung nennt sich <strong>End-to-end-Testung</strong> oder auch <strong>Akzeptanztest</strong>. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden</p>
 <p>Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen <strong>E2E-Testungen</strong> und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.</p>
 <p>Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge geben, einfach weil das IQB sich sehr viel damit beschäftigt hat.</p>
 </section>
-<section id="eigene-testszenarien-entwerfen" class="level1">
-<h1>Eigene Testszenarien entwerfen</h1>
+<section id="eigene-testszenarien-entwerfen" class="level2">
+<h2 class="anchored" data-anchor-id="eigene-testszenarien-entwerfen">Eigene Testszenarien entwerfen</h2>
 <p>Eine E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
 <p>Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist einmal bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.</p>
 <ul>
@@ -547,11 +548,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Wie soll getestet werden, manuell oder automatisiert?</li>
 </ul>
 <p>Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.</p>
-<section id="manuelles-vs-automatisiertes-testen" class="level2">
-<h2 class="anchored" data-anchor-id="manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</h2>
+<section id="manuelles-vs-automatisiertes-testen" class="level3">
+<h3 class="anchored" data-anchor-id="manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</h3>
 <p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen.</p>
-<section id="manuelles-testen" class="level3">
-<h3 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h3>
+<section id="manuelles-testen" class="level4">
+<h4 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h4>
 <ul>
 <li>sinnvoll bei selten ausgeführten Testungen und kleineren Studien</li>
 <li>relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung</li>
@@ -577,8 +578,8 @@ Tipp
 </div>
 </div>
 </section>
-<section id="automatisiertes-testen" class="level3">
-<h3 class="anchored" data-anchor-id="automatisiertes-testen">Automatisiertes Testen</h3>
+<section id="automatisiertes-testen" class="level4">
+<h4 class="anchored" data-anchor-id="automatisiertes-testen">Automatisiertes Testen</h4>
 <ul>
 <li>sinnvoll bei häufig ausgeführten Testungen und größeren Studien</li>
 <li>Ausführung ist schnell und homogen</li>
@@ -613,8 +614,8 @@ Tipp
 </section>
 </section>
 </section>
-<section id="e2e-tests-des-iqb-verwenden" class="level1">
-<h1>E2E-Tests des IQB verwenden</h1>
+<section id="e2e-tests-des-iqb-verwenden" class="level2">
+<h2 class="anchored" data-anchor-id="e2e-tests-des-iqb-verwenden">E2E-Tests des IQB verwenden</h2>
 <p>Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -629,8 +630,8 @@ Hinweis
 <p>Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann hinsichtlich der Funktionalität der nachfolgend genannten Schritte keine Aussage getroffen werden.</p>
 </div>
 </div>
-<section id="vorbereitungen" class="level2">
-<h2 class="anchored" data-anchor-id="vorbereitungen">Vorbereitungen</h2>
+<section id="vorbereitungen" class="level3">
+<h3 class="anchored" data-anchor-id="vorbereitungen">Vorbereitungen</h3>
 <ul>
 <li><strong>Entwicklungsumgebung (IDE):</strong> Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.</li>
 <li><strong>Node.js:</strong> Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.</li>
@@ -638,8 +639,8 @@ Hinweis
 <li><strong>Cypress in Version 13.3.3:</strong> Hinweise zur Installation sind <a href="https://docs.cypress.io/guides/getting-started/installing-cypress">hier</a> zu finden.</li>
 </ul>
 </section>
-<section id="cypress-starten" class="level2">
-<h2 class="anchored" data-anchor-id="cypress-starten">Cypress starten</h2>
+<section id="cypress-starten" class="level3">
+<h3 class="anchored" data-anchor-id="cypress-starten">Cypress starten</h3>
 <ol type="1">
 <li>starten der IDE</li>
 <li>spiegeln (clonen) des Testcenter <a href="https://github.com/iqb-berlin/testcenter">GitHub-Repos</a></li>
@@ -649,8 +650,8 @@ Hinweis
 <li>Browser mit dem getestet werden soll auswählen</li>
 </ol>
 </section>
-<section id="cypress-tests-ausführen" class="level2">
-<h2 class="anchored" data-anchor-id="cypress-tests-ausführen">Cypress Tests ausführen</h2>
+<section id="cypress-tests-ausführen" class="level3">
+<h3 class="anchored" data-anchor-id="cypress-tests-ausführen">Cypress Tests ausführen</h3>
 <p>Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer*innen für ihre Konfiguration der Testdateien genutzt werden könnten.</p>
 <p>Information: Einige Testfälle sind gruppiert in Ordner.</p>
 <p><strong>Session-Management/hot-restart-mode</strong> und <strong>Session-Management/hot-return-mode</strong></p>
@@ -677,11 +678,12 @@ Hinweis
 </div>
 </div>
 </section>
-<section id="wo-ist-der-testcode-zu-finden" class="level2">
-<h2 class="anchored" data-anchor-id="wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</h2>
+<section id="wo-ist-der-testcode-zu-finden" class="level3">
+<h3 class="anchored" data-anchor-id="wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</h3>
 <p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/cypress/e2e</strong> zu finden. Die Struktur der Testfälle ist dann genau so zu sehen wie in der Cypress-Oberfläche. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Beispielaufgaben eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden. Es empfiehlt sich daraufhin das laufende Test-System noch einmal zu stoppen und erneut zu starten mit <code>make test-system</code>. Hierbei werden die neuen Daten der Datenbank hinzugefügt.</p>
 
 
+</section>
 </section>
 </section>
 
