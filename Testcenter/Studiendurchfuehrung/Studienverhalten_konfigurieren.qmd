@@ -3,7 +3,7 @@ lang: de
 title: "Studien Konfiguration"
 ---
 
-Mit Hilfe der beiden Testdateien **XML zur Studien-Definition** und **XML zur Testheft-Definition** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen einer Konfigurationen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend Fragen formuliert, die sich alle Studienverantwortlichen im Vorfeld mindestend stellen sollten.
+Mit Hilfe der beiden Testdateien **XML zur Studien-Definition** und **XML zur Testheft-Definition** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen einer Konfigurationen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die alle Studienverantwortlichen im Vorfeld betrachten sollten.
 
 ::: {.callout-tip}
 Detaillierte Informationen zu den beiden XML-Dateien: **XML zur Studien-Definition** und **XML zur Testheft-Definition**  sind den Referenzen zu entnehmen.
@@ -15,11 +15,11 @@ Sind die Vorüberlegungen bzgl. der Studien-Konfiguration abgeschlossen und lieg
 
 # XML zur Studien-Definition
 
-#### Wie sollen die Zugänge aufgeteilt werden?
+## Aufteilung der Zugänge
 
 Die Zugangsdaten können Gruppen zugeordnet werden. Alle gegebenen Antworten werden dann abhängig von der Gruppe gespeichert, sprich der Datensatz wird mit dem Namen der jeweiligen Gruppe im Testcenter abgespeichert. Im Vorfeld sollten sich die Studienverantwortlichen gut überlegen, wie die Zugangsdaten gruppiert werden sollen. So wird eine schnelle Zuordnung der Testpersonen bei der Auswertung erreicht.
 
-#### Sollen die Zugangsdaten zeitlichen Beschränkungen unterliegen?
+## Zeitlichen Beschränkungen der Zugänge
 
 Die angelegten Zugangsdaten in der XML zur Studien-Definition können zeitlichen Beschränkungen unterliegen. Folgende stehen zur Auswahl:
 
@@ -56,7 +56,7 @@ Zeitliche Beschränkungen können als Attribut einer Gruppe (`group`) zugewiesen
 ```
 Die beiden Testpersonen 1 und 2 können sich nur bis zum 01.03.2024 19:30Uhr anmelden. Danach ist eine Anmeldung nicht mehr möglich.
 
-#### Sollen Standardtexte ersetzt werden?
+## Textersetzungen
 
 Bestimmte Texte in der Anwendung und während des Studienlaufs können individuell angepasst werden. Im Vorfeld können Überlegungen stattfinden, an welchen Stellen die Standardtexte durch individuelle Texte ersetzt werden sollen.
 
@@ -96,7 +96,7 @@ Nach Anmeldung einer Testperson, erscheint bei der Codeeingabe der neue Text.
 
 ![Bild 2: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
 
-#### Soll ein Gruppenmonitor eingesetzt werden?
+## Gruppenmonitor
 
 Bei einer größeren Anzahl von Studienteilnehmer\*innen kann es sinnvoll sein einen Gruppenmonitor einzusetzen. Dieser erlaubt der Testleitung die Testpersonen zu steuern und einzutakten. Der Gruppenmonitor wird mit Hilfe eines speziellen Zugangs mit dem Modus: `monitor-group` in der zu beobachtenden Gruppe angelegt. Siehe Code-Beispiel oben.
 
@@ -108,7 +108,7 @@ Mehr zum Gruppenmonitor ist dem gleichnamigen Kapitel zu entnehmen.
 Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attributs: `key` vorgenommen werden. Die möglichen Werte und Daten, die angegeben werden können, sind einer spezielle [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Außerhalb dieses Elementes können weitere Konfigurationen erfolgen. 
 :::
 
-#### Sollen Aufgaben- und Testheftbezeichner angezeigt werden?
+## Anzeige Aufgaben-, Testheftbezeichner
 
 Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird mit Hilfe des Wertes: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe angezeigt.
 
@@ -148,7 +148,7 @@ Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die
 ```
 Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt (Zahlen in den Kästchen).
 
-#### Wie soll die Leiste zur Aufgabennavigation aussehen?
+## Aussehen der Navigationselemente
 
 Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Wert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechendes Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen, es kann nun nur noch vorwärts und rückwärts navigiert werden. 
 
@@ -178,7 +178,7 @@ So sieht die Änderung aus:
 
 ![Bild 4: Navileiste reduziert](TC_Navileiste_ARROWS_ONLY.png)
 
-#### Soll ein erweitertes Menu zur Aufgabennavigation sichtbar sein?
+## Erweiterte Optionen zur Navigation
 
 Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilfe dieses Menus kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menu befindet sich dann rechts neben der Navigationsleiste.
 
@@ -186,15 +186,15 @@ Es kann ein zusätzliches Menu zur Aufgabennavigation angezeigt werden. Mit Hilf
 
 Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuweisung des Wertes: `unit_menu` zu dem Attribut: `key`und gewünschten Listendatum, in diesem Fall **FULL**.
 
-#### Wie soll durch Seiten einer Aufgabe navigiert werden?
+## Seitennavigation
 
 Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das Zu-/ und Abschalten der Navigation in der Anwendung, wird in der XML zur Testheft-Definition im Element: `<Config>` vorgenommen. Hierfür wird dem Attribut:`key`der Wert:`pagingMode` zugewiesen. Das mögliche Datum ist wieder der Liste zu entnehmen.
 
-#### Sollen Beschränkungen für die Navigation erfolgen (Weiterblättern erst nach Beantwortung etc.)?
+## Navigationsbeschränkungen
 
 Mit Hilfe der beiden Werte: `force_response_complete` und `force_presentation_complete` im Teil der Testheft-Konfiguration (`Booklet-Config`), kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum den beiden Werten zugeordnet werden kann, ist der Liste zu entnehmen.
 
-#### Sollen Beschränkungen für Testheft-Blöcke festgelegt werden?
+## Blockbeschränkungen
 
 In der XML zur Testheft-Definition können Aufgaben so genannten Testlets (Block) zugewiesen werden. Für einen Block können Beschränkungen festgelegt werden. Wird im Testverlauf der Block erreicht, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.
 
@@ -244,7 +244,7 @@ Hier ein Block mit Beschränkungen:
 ```
 In der Testheft-Konfiguration ist `force_presentation_complete` und `force_response_complete` ausgeschaltet. Im Block sind aber beide für die Navigationsrichtung rückwärts und vorwärts eingeschaltet. Außerhalb des Blocks gelten also keine Navigationsbeschränkungen, innerhalb des Blocks hingegen schon. Für den Zutritt zu diesem Block, muss das Freigabewort: "Hase" eingegeben werden. Die Testpersonen haben dann 1 Minute Zeit die 3 Aufgaben innerhalb des Blocks zu bearbeiten.
 
-#### Wie wird das Testheft aufgeteilt bzw. strukturiert?
+## Strukturierung Testhefte
 
 Hier kann keine generelle Empfehlung erfolgen, weil es in hohem Maß vom Umfang einer Studie und auch von den Erwartungen an eine Studie abhängt. Im Vorfeld sollten sich die Verantwortlichen eine konkrete Vorstellung davon machen, wie ihr Testheft aussehen soll. Nachfolgend ein paar gedanklichen Anregungen zur Gestaltung eines Testheftes.
 
@@ -256,7 +256,7 @@ Hier kann keine generelle Empfehlung erfolgen, weil es in hohem Maß vom Umfang 
 
 Das soll an dieser Stelle erst einmal ausreichend sein. Es gebe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte Struktur der Testhefte erfordern würden.
 
-#### Was soll geschehen, wenn der Test beendet wird?
+## Test beenden
 
 Es kann unter Umständen sinnvoll sein einen Test nach dem Beenden zu sperren. Dies kann mit Hilfe der Zuweisung des Wertes: `lock_test_on_termination` zum Attribut: `key` geschehen. Der Standardwert sorgt dafür, dass der Test nicht gesperrt wird. Das heißt, solange die Zugangsdaten (XML zur Studien-Definition) im Testcenter vorhanden sind, können sich die dort definierten Personen am Testcenter anmelden und den Test fortsetzen.
 
