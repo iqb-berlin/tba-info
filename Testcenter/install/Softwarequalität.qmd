@@ -1,9 +1,11 @@
 ---
 lang: de
-title: "Testen der Anwendung"
+title: "Softwarequalität"
 ---
 
-# Einführung
+# E2E-Test
+
+## Einführung
 
 Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer\*innen getestet werden. Diese Art der Testung nennt sich **End-to-end-Testung** oder auch **Akzeptanztest**. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden
 
@@ -11,7 +13,7 @@ Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen 
 
 Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge geben, einfach weil das IQB sich sehr viel damit beschäftigt hat.
 
-# Eigene Testszenarien entwerfen
+## Eigene Testszenarien entwerfen
 
 Eine E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.
 
@@ -37,11 +39,11 @@ Sind Schwerpunkte definiert, können weitere Überlegungen angestellt werden:
 
 Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.
 
-## Manuelles vs automatisiertes Testen
+### Manuelles vs automatisiertes Testen
 
 Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen. 
 
-### Manuelles Testen
+#### Manuelles Testen
 
 * sinnvoll bei selten ausgeführten Testungen und kleineren Studien
 * relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung
@@ -57,7 +59,7 @@ Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt üb
 Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. **Testomat.io** und **Testbench** genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.
 :::
 
-### Automatisiertes Testen
+#### Automatisiertes Testen
 
 * sinnvoll bei häufig ausgeführten Testungen und größeren Studien
 * Ausführung ist schnell und homogen
@@ -93,7 +95,7 @@ describe('Check Google', () => {
     });
 });
 ```
-# E2E-Tests des IQB verwenden
+## E2E-Tests des IQB verwenden
 
 Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können. 
 
@@ -101,14 +103,14 @@ Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-
 Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann hinsichtlich der Funktionalität der nachfolgend genannten Schritte keine Aussage getroffen werden.
 :::
 
-## Vorbereitungen
+### Vorbereitungen
 
 * **Entwicklungsumgebung (IDE):** Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.
 * **Node.js:** Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.
 * **Git:** Wird zum Duplizieren des Testcenter Repositories benötigt.
 * **Cypress in Version 13.3.3:** Hinweise zur Installation sind [hier](https://docs.cypress.io/guides/getting-started/installing-cypress) zu finden.
 
-## Cypress starten
+### Cypress starten
 
 1. starten der IDE
 2. spiegeln (clonen) des Testcenter [GitHub-Repos](https://github.com/iqb-berlin/testcenter)
@@ -117,7 +119,7 @@ Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Fü
 5. "E2E Testing" in der Cypress Oberfläche auswählen
 6. Browser mit dem getestet werden soll auswählen
 
-## Cypress Tests ausführen
+### Cypress Tests ausführen
 
 Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer\*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer\*innen für ihre Konfiguration der Testdateien genutzt werden könnten.
 
@@ -142,7 +144,7 @@ Es werden alle [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-m
 Die Testschritte sind so geschrieben, dass relativ einfach herauszulesen ist was diese Schritte tun, also was damit getestet wird.
 :::
 
-## Wo ist der Testcode zu finden?
+### Wo ist der Testcode zu finden?
 
 Der Testcode ist im Projektverzeichnis: **/e2e/cypress/e2e** zu finden. Die Struktur der Testfälle ist dann genau so zu sehen wie in der Cypress-Oberfläche. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Beispielaufgaben eingebunden werden sollen, sind diese unter: **/sampledata/system-test** zu hinterlegen. Anschließend müssen sie in der Klasse: **WorkspaceInitializer.class.php** eingetragen werden. Es empfiehlt sich daraufhin das laufende Test-System noch einmal zu stoppen und erneut zu starten mit `make test-system`. Hierbei werden die neuen Daten der Datenbank hinzugefügt.
 
