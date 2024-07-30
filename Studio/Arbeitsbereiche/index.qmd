@@ -3,9 +3,49 @@ lang: de
 title: "Arbeitsbereiche"
 ---
 
-* Zugriffsrechte
+Das Studio bietet nicht nur die Organisation in Arbeitsbereichen an. Es stehen auch noch so genannte **Bereichsgruppen** zur Verfügung. Diese tragen typischer Weise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die darin enthaltenen Aufgaben. Um die Zugriffe auf Arbeitsbereiche besser regeln zu können, erhalten die Verantwortlichen einer Studie administrativen Zugang zu einer Bereichsgruppe. In den administrativen Bereichsgruppen-Einstellungen kann dann festgelegt werden, welche Teammitglieder Zugriff auf die Arbeitsbereiche erhalten soll. Das Team zur Aufgabenentwicklung ist somit in der Lage sich selbst innerhalb einer Studie zu organisieren. Das sorgt auch dafür, dass System-Administrator\*innen sich nicht um die Zugriffe in den Bereichsgruppen kümmern müssen.
+
+Nachfolgend dazu ein kleines Beispiel für eine Beispielstudie:
+
+```{mermaid}
+flowchart TD
+  Bereichsgruppe
+  style Bereichsgruppe fill:#ffd433
+  Arbeitsbereich
+  style Arbeitsbereich fill:#ffd433
+  Aufgaben
+  style Aufgaben fill:#ffd433
+  Bereichsgruppe --> Arbeitsbereich --> Aufgaben
+  A[Deutsch Sek1] --> B[Hörverstehen]
+  A[Deutsch Sek1] --> C[Leseverstehen]
+  A[Deutsch Sek1] --> D[Instruktionen]
+  B --> E[Aufgabe1]
+  B --> F[Aufgabe2]
+  C --> H[Aufgabe1]
+  C --> I[Aufgabe2]
+  D --> K[Aufgabe1]
+  D --> L[Aufgabe2]
+  
+```
+Die Studienverantwortlichen können in diesem Beispiel mithilfe der Bereichsgruppen-Einstellungen festlegen, welche Teammitglieder Zugriff auf die Arbeitsbereiche: Hörverstehen, Leseverstehen und Instruktionen erhalten sollen.
+
+::: {.callout-note}
+Mehr zu den Bereichsgruppen-Einstellungen ist dem Abschnitt: **Zugriffsrechte** zu entnehmen.
+:::
+
+In den Arbeitsbereichen findet die Organisation der Aufgaben statt. Außerdem kann hier mittels eines Editors die Aufgabengestaltung vorgenommen werden. Nach Auswahl eines leeren Arbeitsbereichs ist eine Seite mit mehreren Optionen zu sehen. 
+
+![Arbeitsbereich ohne Aufgaben](Leerer_Arbeitsbereich.png)
+
+
+
+
+
+---
+
+
+
 * allg. Operationen (Print, Copy, Löschen...)
 * Kommentierung
-* Metadaten
 * Aufgabenfolgen
 * Codebook...
