@@ -1,22 +1,188 @@
 ---
 lang: de
-title: "System Check"
+title: "System-Check"
+lightbox: auto
 ---
 
-## Was ist ein System-Check?
+Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.
 
-Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen 
-Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.
+Ein System-Check wird angelegt, indem eine XML-Datei mit einem spezifischen Inhalt in einen Arbeitsbereich hochgeladen wird. Das IQB-Testcenter erzeugt dann automatisch einen Link zu diesem System-Check auf der Startseite. Alle Besucher\*innen der Webanwendung können dann ohne Anmeldung den System-Check ausführen. Wenn ein Kennwort eingegeben wird, kann man das Ergebnis des System-Checks auch auf dem Server speichern. Dann stehen über die Verwaltung des Arbeitsbereichs die Ergebnisse gebündelt als Tabelle zum Download bereit.
 
-## Wie wird ein System-Check gestartet?
+# System-Check anlegen
 
-Der System-Check wird in einer XML konfiguriert. Diese wird nach Abschluss der Konfiguration in den Arbeitsbereich der jeweiligen Studie geladen. Wird zur Anmeldeseite des Testcenters gewechselt, ist dann ein Schalter für den System-Check neben dem Schalter: Impressum/Datenschutz zu sehen. Wird der Schalter betätigt, wird eine Liste aller zur Verfügung stehenden System-Checks im Testcenter angezeigt. Nach Auswahl wird der jeweilige Check gestartet. 
+Man muss zugriffsberechtigt sein zu einem Arbeitsbereich einer IQB-Testcenter-Installation. Dann lädt man eine XML-Datei hoch. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).
 
-::: {.callout-note}
-Es können mehrere System-Checks im Testcenter angelegt sein. Das System bietet dann eine Auswahl aller System-Checks an. Der System-Check Bericht wird dabei immer in dem Arbeitsbereich gespeichert, in dem sich die ausgeführte System-Check-XML befindet.
-:::
+## Grundfunktionen
 
-Ein System-Check kann beliebig oft wiederholt werden. Wurde ein Check bereits vollständig durchgeführt und ein entsprechender Bericht gespeichert, kann zu einem anderen Endgerät gewechselt werden und der selbe System-Check erneut gestartet werden. Wird ein Bericht zu diesem zweiten Check gespeichert, wird der vorhandene Bericht nur um die Daten des neuen Checks erweitert.
+```{.xml filename="syscheck1.xml"}
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+	<Metadata>
+		<Id>SYSCHECK_TBA2</Id>
+		<Label>System-Check TBA II Verzweigungen Test</Label>
+	</Metadata>
+	<Config skipnetwork="true"></Config>
+</SysCheck>
+```
+
+Erläuterungen der Syntax:
+
+* Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+* Metadata: Die `Id` dient der internen Zuordnung der Ergebnisse, das `Label` wird angezeigt.
+* Das `Config`-Element ist notwendig, um den Netzwerktest zu unterdrücken.
+
+Das obige XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt. 
+
+![Kleinste Version eines System-Checks](syscheck1.png){group="input"}
+
+## Fehler beim Hochladen
+
+Das Hochladen ist nur erfolgreich, wenn es sich um eine gültige System-Check-Konfiguration handelt. Sollte sich beim Editieren ein Fehler eingeschlichen haben, versucht das Testcenter mit einer Fehlermeldung zu helfen:
+
+![Fehlermeldung beim Hochladen](syscheck2.png){group="input"}
+
+## Angepasste Texte: CustomTexts
+
+Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich ändern. Der Mechanismus hierzu ist auch an anderen Stellen der Textcenter-Konfiguration verfügbar und nennt sich **CustomTexts**. 
+
+```{.xml filename="syscheck2.xml"}
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+	<Metadata>
+		<Id>SYSCHECK_TBA2</Id>
+		<Label>System-Check TBA II Verzweigungen Test</Label>
+	</Metadata>
+	<Config skipnetwork="true">
+		<CustomText key="syscheck_intro">
+			Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben
+		</CustomText>
+	</Config>
+</SysCheck>
+```
+
+![System-Check mit angepasstem Text](syscheck3.png){group="input"}
+
+Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html). Suchen Sie nach dem Präfix `syscheck_`!
+
+## Netzwerkanbindung
+
+```{.xml filename="syscheck3.xml"}
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+	<Metadata>
+		<Id>SYSCHECK_TBA2</Id>
+		<Label>System-Check TBA II Verzweigungen Test</Label>
+		<Description>Prüfung Studiendurchführbarkeit</Description>
+	</Metadata>
+
+	<Config skipnetwork="false">
+		<UploadSpeed
+			min="1024"
+			good="2048"
+			maxDevianceBytesPerSecond="10000"
+			maxErrorsPerSequence="0"
+			maxSequenceRepetitions="15">
+			100000, 200000, 400000, 800000
+		</UploadSpeed>
+		<DownloadSpeed
+			min="1024"
+			good="2048"
+			maxDevianceBytesPerSecond="200000"
+			maxErrorsPerSequence="0"
+			maxSequenceRepetitions="15">
+			400000, 800000, 1600000, 3200000
+		</DownloadSpeed>
+		<CustomText key="syscheck_intro">
+			Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!
+		</CustomText>
+	</Config>
+</SysCheck>
+```
+
+Die obige Konfiguration führt zu einem Netzwerktest. Die Parameter sind weiter unten erläutert und geben bereits eine Rückmeldung, ob bestimmte Schwellenwerte erreicht wurden. Für die Nutzer\*innen sieht das z. B. so aus:
+
+![Test der Netzwerkanbindung](syscheck4.png){group="input"}
+
+| Parameter | Bedeutung im Test |
+|-----|--------------------------------------|
+| `min` | Mindestwert für die ermittelte Geschwindigkeit |
+| `good` | Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben. |
+| `maxDevianceBytesPerSecond` | Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von `maxSequenceRepetitions` wiederholt. |
+| `maxErrorsPerSequence` | Anzahl zulässiger Übertragungsfehler |
+| `maxSequenceRepetitions` | Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in `maxDevianceBytesPerSecond` überschritten wurde. |
+
+: Parameter des Netzwerk-Tests {.striped}
+
+Die Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.
+
+## Speichern der Ergebnisse auf dem Server
+
+```{.xml}
+	<Config savekey="eckensteher" skipnetwork="false">
+```
+
+Wenn wie im obigen Beispiel ein `savekey` definiert wurde, kann die Person, die den System-Check durchführt, die Ergebnisse speichern. Ein entsprechender Button wird eingeblendet und das Kennwort wird abgefragt.
+
+## Einbinden einer Unit
+
+Das IQB-Testcenter ist die Anwendung, mit der Testaufgaben bzw. Frageitems präsentiert werden und Antworten gespeichert werden. Der Programmcode für Präsentation und Interaktion ist über das [Verona-Prinzip](https://verona-interfaces.github.io/player-docs/) ausgelagert. Welche Player bzw. spezifischen Interaktionsmodelle verwendet werden, ist dem Testcenter und also auch dem System-Check nicht bekannt. Daher kann bei der Konfiguration eines System-Check ein Player und eine Unit eingebunden werden.
+
+Die Antworten werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog (s. u.) Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.
+
+```{.xml}
+	<Config unit="bsp_unit" savekey="saveme" skipnetwork="false">
+```
+
+Die Unit muss natürlich mit all ihren Dateien (xml, voud usw.) im Arbeitsbereich hochgeladen werden, auch der Player. Ansonsten wird der System-Check sofort mit einer Fehlermeldung abgebrochen.
+
+## Fragenkatalog
+
+Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter `savekey` kann man so die Antworten erhalten.
+
+```{.xml filename="syscheck4.xml"}
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+	<Metadata>
+		<Id>SYSCHECK_TBA2</Id>
+		<Label>System-Check TBA II Verzweigungen Test</Label>
+		<Description>Prüfung Studiendurchführbarkeit</Description>
+	</Metadata>
+
+	<Config savekey="saveme" skipnetwork="true">
+		<Q id="1" type="header" prompt="Die folgenden Fragen helfen uns, die Ergebnisse des System-Checks einordnen zu können."></Q>
+		<Q id="2" type="radio" prompt="1. An welchem Gerät wurde der System-Check durchgeführt?">Tablet#Desktop/Laptop</Q>
+		<Q id="3" type="radio" prompt="2. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet?">Ja#Nein#Weiß ich nicht</Q>
+		<Q id="4" type="radio" prompt="3. Wurde der System-Check während der Unterrichtszeit durchgeführt?">Ja#Nein</Q>
+		<Q id="5" type="radio" prompt="4. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum?">Nie#Einmal im Jahr#Einmal im halben Jahr#Einmal im Quartal#Einmal im Monat#Einmal in der Woche#Mehrmals pro Woche#Weiß ich nicht</Q>
+		<Q id="6" type="string" prompt="5. Gibt es sonstige technische Einschränkungen bezüglich der Geräte, die Sie gerne mitteilen möchten?"/>
+	</Config>
+</SysCheck>
+```
+
+Diese Konfiguration führt zu folgendem Ergebnis:
+
+![System-Check mit Fragenkatalog](syscheck5.png){group="input"}
+
+| Parameter | Bedeutung im Fragenkatalog |
+|-----|--------------------------------------|
+| `header` | Überschrift: Hervorgehobener Text für die Strukturierung der Fragen |
+| `string` | Einzeilige Texteingabe |
+| `text` | Mehrzeilige Texteingabe |
+| `check` | Ankreuzfeld |
+| `select` | Auswahl, als Klappbox dargestellt; die Optionen sind als Inhalt des `<Q>`-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel) |
+| `radio` | Auswahl - jede Option wird in einer neuen Zeile dargestellt; die Optionen sind als Inhalt des `<Q>`-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel) |
+
+: Formulartypen als Parameter `type` {.striped}
+
+
+
+Folgende  zur Verfügung:
+
+
 
 ## Was kann der System-Check leisten?
 
@@ -175,69 +341,7 @@ Nachfolgend werden die Inhalte dieser XML näher erklärt.
 </table>
 ```
 
-#### `UploadSpeed`
 
-```{=html}
-<table>
-<tr>
-    <th><b>Attribut</b></th>
-    <th><b>Beschreibung</b></th>
-</tr>
-<tr>
-    <td><code>min</code></td>
-    <td>Mindestwert für die ermittelte Geschwindigkeit</td>
-</tr>
-<tr>
-    <td><code>good</code></td>
-    <td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben.</td>
-</tr>
-<tr>
-    <td><code>maxDevianceBytesPerSecond</code></td>
-    <td>Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von <code>maxSequenceRepetitions</code> wiederholt.</td>
-</tr>
-<tr>
-    <td><code>maxErrorsPerSequence</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>maxSequenceRepetitions</code></td>
-    <td>Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
-</tr>
-</table>
-```
-Die Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.
-
-#### `DownloadSpeed`
-
-```{=html}
-<table>
-<tr>
-    <th><b>Attribut</b></th>
-    <th><b>Beschreibung</b></th>
-</tr>
-<tr>
-    <td><code>min</code></td>
-    <td>Mindestwert für die ermittelte Geschwindigkeit</td>
-</tr>
-<tr>
-    <td><code>good</code></td>
-    <td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben.</td>
-</tr>
-<tr>
-    <td><code>maxDevianceBytesPerSecond</code></td>
-    <td>Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von <code>maxSequenceRepetitions</code> wiederholt.</td>
-</tr>
-<tr>
-    <td><code>maxErrorsPerSequence</code></td>
-    <td></td>
-</tr>
-<tr>
-    <td><code>maxSequenceRepetitions</code></td>
-    <td>Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
-</tr>
-</table>
-```
-Die Daten: 400000, 800000, 1600000, 3200000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet.
 
 #### `Q`
 
