@@ -26,13 +26,11 @@ Man muss zugriffsberechtigt sein zu einem Arbeitsbereich einer IQB-Testcenter-In
 </SysCheck>
 ```
 
-Erläuterungen der Syntax:
+Das obige XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt. Erläuterungen der Syntax:
 
 * Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
 * Metadata: Die `Id` dient der internen Zuordnung der Ergebnisse, das `Label` wird angezeigt.
-* Das `Config`-Element ist notwendig, um den Netzwerktest zu unterdrücken.
-
-Das obige XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt. 
+* Das `Config`-Element ist hier nur notwendig, um den Netzwerktest zu unterdrücken.
 
 ![Kleinste Version eines System-Checks](syscheck1.png){group="input"}
 
@@ -178,11 +176,62 @@ Diese Konfiguration führt zu folgendem Ergebnis:
 
 : Formulartypen als Parameter `type` {.striped}
 
+# Auswertung
 
+Alle Personen, die Zugriff auf den Arbeitsbereich im Testcenter haben, in dem der Systemcheck definiert wurde, können die Daten herunterladen. Es handelt sich jeweils um eine `CSV`-Datei mit folgender Struktur:
 
-Folgende  zur Verfügung:
+| Spaltenname | Erläuterung | Beispiel |
+|-----|--------------------------|------------|
+| `SysCheck-Id` | ID des System-Checks entsprechend Metadaten | SYSCHECK_VERA-TBA-2024 |
+| `SysCheck` | Label des System-Checks entsprechend Metadaten | System-Check für VERA-TBA-Erprobung 2024 |
+| `DatumTS` | Zeitpunkt der Speicherung als JavaScript-TimeStamp | 1716886457 |
+| `Datum` | Zeitpunkt der Speicherung als Text | 28.05.2024 10:54:17 |
+| `FileName` | Interner Dateiname der Daten im System für Fehlersuche | report_66559bb9a4c825.91698723.json |
 
+: Download von System-Check-Daten: Allgemeine Daten {.striped}
 
+| Spaltenname | Beispiel |
+|-----|--------------------------|
+| `Betriebsystem` | Windows |
+| `Betriebsystem-Version` | 10 |
+| `Bildschirm-Auflösung` | 1536 x 864 |
+| `Browser` | Chrome |
+| `Browser-Cookies aktiviert` | 1 (Wahr) |
+| `Browser-Plugins` | PDF Viewer, Chrome PDF Viewer, Chromium PDF Viewer, Microsoft Edge PDF Viewer, WebKit built-in PDF |
+| `Browser-Sprache` | de-DE |
+| `Browser-Version` | 125 |
+| `CPU-Kerne` | 4 |
+| `Fenster-Größe` | 810 x 1010 |
+| `Gerätehersteller` | Apple |
+| `Gerätemodell` | iPad |
+| `Gerätetyp` | tablet |
+| `Zeitabweichung` | -1 |
+| `Zeitzone` | Europe/Berlin |
+| `Downloadgeschwindigkeit` | 71.12 Mbit/s |
+| `Downloadgeschwindigkeit benötigt` | 8.19 kbit/s |
+| `Downloadbewertung` | good |
+| `Uploadgeschwindigkeit` | 4.46 Mbit/s |
+| `Uploadgeschwindigkeit benötigt` | 8.19 kbit/s |
+| `Uploadbewertung` | ok |
+| `Gesamtbewertung` | ok |
+| `Netzwerkprofil des Browsers` | nicht verfügbar |
+| `CPU-Architektur` | amd64 |
+| `RoundTrip in Ms` | 50 |
+| `Netzwerktyp nach Leistung` | 4g |
+| `Downlink MB/s` | 10 |
+
+: Download von System-Check-Daten: Spalten zum System und Netzwerk {.striped}
+
+| Spaltenname | Inhalt |
+|---------------|----|
+| 1. An welchem Gerät wurde der System-Check durchgeführt? | Desktop/Laptop |
+| 2. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet? | Ja |
+| 3. Wurde der System-Check während der Unterrichtszeit durchgeführt? | Nein |
+| 4. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum? | Weiß ich nicht |
+
+: Download von System-Check-Daten: Spalten für Fragenkatalog Beispiel {.striped}
+
+# Planung und Diskussion
 
 ## Was kann der System-Check leisten?
 
@@ -191,28 +240,6 @@ Ein System-Check kann **keine** Aussage darüber machen, ob die gewählte IT-Umg
 Ein positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Aktualisierungen) belegt ist.
 
 Im einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.
-
-**Ablauf eines System-Checks:**
-
-**Schritt 1:** Nach dem Start werden zuerst einmal wichtige Informationen gesammelt. Dazu gehören:
-
-* Bildschirmauflösung
-* Browserversion
-* Betriebssystemversion
-* Browser-Cookies Abfrage
-* Browser-Plugins
-
-**Schritt 2:** Ermittlung der Internetgeschwindigkeit (optional, kann auch ausgeschaltet werden)
-
-**Schritt 3:** Ansicht einer Beispielaufgabe (optional).
-
-::: {.callout-note}
-Hier kann nur eine Aufgabe angelegt werden. Die Aufgabe kann aber aus mehreren Seite bestehen und somit viele Aufgabenfunktionen abbilden, die vielleicht nicht auf eine Seite passen würden.
-:::
-
-**Schritt 4:** Befragungen (optional). Hier können individuelle Fragen zur Beispielaufgabe oder anderem angezeigt werden
-
-Die Navigation durch alle Schritte des System-Checks sind selbsterklärend und verständlich gekennzeichnet. 
 
 ## Planung
 
@@ -253,120 +280,7 @@ Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird
 Im System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
 :::
 
-::: {.callout-tip}
-Weitere Anregungen bzgl. der System-Check Planung sind auch dem Kapitel: **Studiendurchführung: Vorbetrachtungen** zu entnehmen.
-:::
-
-Sind die Vorüberlegungen abgeschlossen, kann mit der Konfiguration des System-Checks begonnen werden.
-
-## Konfiguration
-
-Die Konfiguration findet in einer XML statt. Der Name der XML ist beliebig, die Struktur (welche Elemente, welche Attribute) hingegen nicht. Diese richtet sich nach einer Schema-Definition und muss zwingend eingehalten werden. Die Schema-Definition ist auf der [IQB-GitHub-Startseite](https://iqb-berlin.github.io) unter dem Reiter: **Spezifikationen** im Abschnitt: **IQB-Testcenter: Input System-Check-Xml** zu finden. 
-
-Der Inhalt der nachfolgenden System-Check-XML kann kopiert und entsprechend erweitert werden. Anschließend kann die Datei in einen Arbeitsbereich geladen werden. Nach Wechsel zur Anmeldeseite des Testcenters kann der System-Check gestartet werden.
-
-::: {.callout-note}
-Ist eine Aufgabe eingebunden, muss die Aufgabe und alle in der Aufgaben-XML deklarierten Ressourcen (Aufgaben-VOUD, Player etc.) mit in den Arbeitsbereich geladen werden. 
-:::
-
-```{.xml}
-<?xml version="1.0" encoding="utf-8"?>
-<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_SysCheck.xsd">
-	<Metadata>
-		<Id>SYSCHECK_TBA2</Id>
-		<Label>System-Check TBA II Verzweigungen Test</Label>
-		<Description>Prüfung Studiendurchführbarkeit</Description>
-	</Metadata>
-
-	<Config unit="bsp_unit" savekey="saveme" skipnetwork="false">
-		<UploadSpeed min="1024" good="2048" maxDevianceBytesPerSecond="10000" maxErrorsPerSequence="0" maxSequenceRepetitions="15">
-		100000, 200000, 400000, 800000
-		</UploadSpeed>
-		<DownloadSpeed min="1024" good="2048" maxDevianceBytesPerSecond="200000" maxErrorsPerSequence="0" maxSequenceRepetitions="15">
-		400000, 800000, 1600000, 3200000
-		</DownloadSpeed>
-
-		<Q id="1" type="header" prompt="Abschnitt I: Allgemeine Fragen."/>
-		<Q id="2" type="radio" prompt="1. Wer ist an der Schule die Ansprechperson für technische Fragen?">der Schulkoordinator/die Schulkoordinatorin selbst#eine andere Person (Eingabe nächstes Feld)#es gibt keine Ansprechperson</Q>
-		<Q id="3" type="header" prompt="Abschnitt II: Fragen zur Beispielaufgabe."/>
-		<Q id="4" type="text" prompt="1. Funktioniert die Textmarkierung auf der linken Seite?"/>
-		<Q id="5" type="text" prompt="2. Ist das Bild auf der linken Seite neben dem Text zu sehen?"/>
-		<Q id="6" type="text" prompt="3. Ist das Audio zu hören?"/>
-		<Q id="7" type="text" prompt="4. Ist das Video zu sehen?"/>
-	</Config>
-</SysCheck>
-```
-Nachfolgend werden die Inhalte dieser XML näher erklärt.
-
-#### `Metadaten`
-
-```{=html}
-<table>
-<tr>
-    <th><b>Element</b></th>
-    <th><b>Beschreibung</b></th>
-</tr>
-<tr>
-    <td><code>Label</code></td>
-    <td>Eindeutiges Label. Dieses erscheint als Bezeichner für den System-Check in der System-Check Auswahl.</td>
-</tr>
-<tr>
-    <td><code>Description</code></td>
-    <td>Beschreibung des System-Checks. Erscheint auch unterhalb des Bezeichners des System-Checks in der System-Check Auswahl.</td>
-</tr>
-</table>
-```
-
-#### `Config`
-
-```{=html}
-<table>
-<tr>
-    <th><b>Attribut</b></th>
-    <th><b>Beschreibung</b></th>
-</tr>
-<tr>
-    <td><code>unit</code></td>
-    <td>ID der anzuzeigenden Aufgabe während des System-Checks.</td>
-</tr>
-<tr>
-    <td><code>savekey</code></td>
-    <td>Kennwort zum Speichern des System-Check Berichtes</td>
-</tr>
-<tr>
-    <td><code>skipnetwork</code></td>
-    <td>Ein-bzw. Ausschalten Ermittlung der Internetgeschwindigkeit</td>
-</tr>
-</table>
-```
-
-
-
-#### `Q`
-
-```{=html}
-<table>
-<tr>
-    <th><b>Attribut</b></th>
-    <th><b>Beschreibung</b></th>
-</tr>
-<tr>
-    <td><code>id</code></td>
-    <td>Legt eine Id für die Frage fest.</td>
-</tr>
-<tr>
-    <td><code>type</code></td>
-    <td>Legt den Typ der Frage fest. Es gibt: <code>header</code>: Überschrift Abschnitt;  <code>text</code>: Mehrzeiliges Textfeld; <code>string</code>: Einzeiliges Textfeld; <code>radio</code>: Radiobutton mit parametrierbaren Optionen über das Datenfeld.</td>
-</tr>
-<tr>
-    <td><code>prompt</code></td>
-    <td>Legt den Text zum gewählten Fragetyp, siehe <code>type</code>, fest.</td>
-</tr>
-</table>
-```
-
-## Durchführung
+## Hinweise zur Durchführung
 
 Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.
 
@@ -374,9 +288,9 @@ Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an 
 Um reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.
 :::
 
-## Auswertung
+## Hinweise zur Auswertung
 
-Der System-Check Bericht kann nach Abschluss eines System-Checks im CSV-Format aus dem Arbeitsbereich unter dem Reiter: **System-Check Berichte** heruntergeladen werden. Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:
+Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:
 
 **Ist der Browser für die Studiendurchführung geeignet?**
 
