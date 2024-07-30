@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Studio/Aufgaben_gestalten/index.html" rel="next">
+<link href="../../Studio/Arbeitsbereiche/Zugriffsrechte/index.html" rel="next">
 <link href="../../Studio/install.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -295,21 +298,32 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Studio/Arbeitsbereiche/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Studio/Arbeitsbereiche/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Arbeitsbereiche</span></a>
+  <a href="../../Studio/Arbeitsbereiche/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zugriffsrechte</span></a>
   </div>
 </li>
+      </ul>
+  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Studio/Aufgaben_gestalten/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben gestalten</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Studio/Aufgaben_gestalten/layout.html" class="sidebar-item-text sidebar-link">
@@ -366,11 +380,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../Referenzen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referenzen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Referenzen/Anmeldeverfahren.html" class="sidebar-item-text sidebar-link">
@@ -445,11 +459,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Das Studio bietet nicht nur die Organisation in Arbeitsbereichen an. Es stehen auch noch so genannte <strong>Bereichsgruppen</strong> zur Verfügung. Diese tragen typischer Weise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die darin enthaltenen Aufgaben. Um die Zugriffe auf Arbeitsbereiche besser regeln zu können, erhalten die Verantwortlichen einer Studie administrativen Zugang zu einer Bereichsgruppe. In den administrativen Bereichsgruppen-Einstellungen kann dann festgelegt werden, welche Teammitglieder Zugriff auf die Arbeitsbereiche erhalten soll. Das Team zur Aufgabenentwicklung ist somit in der Lage sich selbst innerhalb einer Studie zu organisieren. Das sorgt auch dafür, dass System-Administrator*innen sich nicht um die Zugriffe in den Bereichsgruppen kümmern müssen.</p>
+<p>Nachfolgend dazu ein kleines Beispiel für eine Beispielstudie:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  Bereichsgruppe
+  style Bereichsgruppe fill:#ffd433
+  Arbeitsbereich
+  style Arbeitsbereich fill:#ffd433
+  Aufgaben
+  style Aufgaben fill:#ffd433
+  Bereichsgruppe --&gt; Arbeitsbereich --&gt; Aufgaben
+  A[Deutsch Sek1] --&gt; B[Hörverstehen]
+  A[Deutsch Sek1] --&gt; C[Leseverstehen]
+  A[Deutsch Sek1] --&gt; D[Instruktionen]
+  B --&gt; E[Aufgabe1]
+  B --&gt; F[Aufgabe2]
+  C --&gt; H[Aufgabe1]
+  C --&gt; I[Aufgabe2]
+  D --&gt; K[Aufgabe1]
+  D --&gt; L[Aufgabe2]
+  
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Die Studienverantwortlichen können in diesem Beispiel mithilfe der Bereichsgruppen-Einstellungen festlegen, welche Teammitglieder Zugriff auf die Arbeitsbereiche: Hörverstehen, Leseverstehen und Instruktionen erhalten sollen.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mehr zu den Bereichsgruppen-Einstellungen ist dem Abschnitt: <strong>Zugriffsrechte</strong> zu entnehmen.</p>
+</div>
+</div>
+<p>In den Arbeitsbereichen findet die Organisation der Aufgaben statt. Außerdem kann hier mittels eines Editors die Aufgabengestaltung vorgenommen werden. Nach Auswahl eines leeren Arbeitsbereichs ist eine Seite mit mehreren Optionen zu sehen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Leerer_Arbeitsbereich.png" class="img-fluid figure-img"></p>
+<figcaption>Arbeitsbereich ohne Aufgaben</figcaption>
+</figure>
+</div>
+<hr>
 <ul>
-<li>Zugriffsrechte</li>
 <li>allg. Operationen (Print, Copy, Löschen…)</li>
 <li>Kommentierung</li>
-<li>Metadaten</li>
 <li>Aufgabenfolgen</li>
 <li>Codebook…</li>
 </ul>
@@ -891,8 +956,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Studio/Aufgaben_gestalten/index.html" class="pagination-link" aria-label="Aufgaben gestalten">
-        <span class="nav-page-text">Aufgaben gestalten</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Studio/Arbeitsbereiche/Zugriffsrechte/index.html" class="pagination-link" aria-label="Zugriffsrechte">
+        <span class="nav-page-text">Zugriffsrechte</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
