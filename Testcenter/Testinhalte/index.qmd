@@ -1,0 +1,85 @@
+---
+lang: de
+title: "Testinhalte"
+---
+
+# Was sind "Testinhalte"?
+
+Es sind für die Testvorbereitung mindestens 4 Arten von Datendateien erforderlich. Die folgende Darstellung zeigt auch die Abhängigkeit der Inhaltsdateien voneinander. Da das Testcenter diese Abhängigkeiten auf Gültigkeit prüft, müssen die Inhaltsdateien in der dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.
+
+```{mermaid}
+flowchart LR
+  A[Basis-Pakete für Player] --> B[Player]
+  style B fill:#a0e3f3
+  B --> C[Units]
+  style C fill:#a0e3f3
+  C --> D[Booklets]
+  style D fill:#a0e3f3
+  D --> E[Testtakers]
+  style E fill:#a0e3f3
+```
+
+## Basis-Pakete für Player
+
+Die Verona-Architektur sieht vor, dass ein Player während der Laufzeit Code nachladen darf. Es handelt sich also nicht um Testinhalte, die zu Beginn geladen werden, sondern nach Bedarf. Dieses Vorgehen ist erforderlich z. B. im Zusammenhang mit GeoGebra: Erst wenn die Testperson an eine Stelle kommt innerhalb der Unit, wo eine GeoGebra-Darstellung nötig ist, lädt der Player das Paket. Ob ein Player, der in der Studie verwendet wird, eine solche Abhängigkeit hat, muss der Player-Dokumentation entnommen werden. Ein Basis-Paket ist eine ZIP-Datei.
+
+## Player
+
+Nicht das Testcenter stellt die Testaufgaben bzw. die Frageitems dar, sondern eine separate Programmierung "Player" ist dafür verantwortlich. Das Testcenter stellt einen Bildschirmbereich dafür bereit und sorgt für das Speichern der Antworten. Dadurch kann flexibel die Art der Darstellung geändert werden. Es kann auch eine neue, nur für diesen Test bestimmte Darstellung erreicht werden, ohne andere Tests zu stören.
+
+Für eine Testdurchführung ist mindestens ein Player notwendig. Es kann vorkommen, dass ein Player ein oder mehrere Basis-Pakete benötigt (s. o.). Ein Player ist eine Html-Datei und folgt der Verona-Spezifikation. Die Player des IQB [finden Sie hier]().
+
+## Units
+
+Eine Unit entspricht einer Seite mit Frageitems im Testauflauf. Es kann sich auch um eine simple Begrüßungsseite handeln völlig ohne Items. Wie genau Items zu Units gebündelt werden, hängt von vielen Faktoren ab und ändert sich vielleicht auch mal. Aus der Sicht des Testcenters ist ein Test eine Folge von Units, und welche Funktion die Unit konkret hat, ist unerheblich. Units sollen unabhängig gedacht werden - unabhängig voneinander und von konkreten Tests. Die Platzierung in einem spezifischen Test an einer bestimmten Position soll die Unit-Entwicklung nicht beeinflussen.
+
+Es ist mindestens eine XML-Datei pro Unit erforderlich. Bei großen oder komplexen Units sind Teile der Unit-Daten ausgelagert in separate Dateien, z. B. im JSON-Format. Die XML-Datei ist strikt spezifiziert und enthält z. B. eine ID. Außerdem muss ein Verweis auf einen Player enthalten sein.
+
+Weiter: [Unit-XML im Detail](Unit-XML/index.qmd)
+
+## Booklets
+
+Ein Booklet definiert die Abfolge von Units, die eine Testperson nacheinander angezeigt bekommt und bearbeiten soll. Es gibt eine Vielzahl von Parametern zur Steuerung, und es ist auch ab Ende 2024 möglich, alternative Unit-Blöcke zu definieren. Die Entscheidung, welche Units der Testperson vorgelegt werden, ergibt sich dann aus den Antworten der ersten Units.
+
+Eine Booklet-Datei ist stets eine strikt spezifizierte XML-Datei. Für einen Test muss mindestens ein Booklet definiert werden. Die Units sind im Booklet über ihre ID referenziert und müssen ebenfalls im Arbeitsbereich vorhanden sein.
+
+Weiter: [Booklet-XML im Detail](Booklet-XML/index.qmd)
+
+## Testtakers
+
+Eine Testtaker-Datei ist ebenfalls eine strikt spezifizierte XML-Datei. Es werden Login-Daten definiert und die Booklets über ihre ID aufgeführt. Nach dem Login kann die Testperson das Booklet wählen. Es muss mindestens eine Testtaker-Datei im Arbeitsbereich hochgeladen werden, um einen Test zu ermöglichen.
+
+Für die Gestaltung eines Logins gibt es mehrere Varianten, um eine gute Passung zur Testpopulation und zur Durchführungspraxis zu erreichen. Z. B. kann auf das Kennwort verzichtet werden, um mit einem Link sofort die Authentifikation zu erreichen.
+
+Außer für die "heiße" Durchführung eines Tests bzw. einer Befragung kann durch einen "Modus"-Parameter gesteuert werden, dass keine Antworten gespeichert werden (z. B. für die Demonstration von Units) oder dass Kommentare vergeben werden können (Review von Booklets bzw. Units).
+
+Weiter: [Testtaker-XML im Detail](Testtaker-XML/index.qmd)
+
+# Erstellung der Testinhalte
+
+Da das Testcenter nur das Hochladen der fertigen Testinhalte unterstützt und komplett auf Dialoge für Parameter verzichtet, muss es andere Wege geben, mit vertretbarem Aufwand zu den Dateien zu kommen.
+
+## Units
+
+Da die Units vom Player abhängig sind, muss man also danach unterscheiden, was der Player benötigt. Für die **IQB-Player** gibt es folgende Optionen:
+
+* [Aspect](https://github.com/iqb-berlin/verona-modules-aspect/releases): Dies ist der Standard-Player für komplexe Testaufgaben oder Seiten des IQB. Die Units für die Monitoringinstrumente [VERA](https://www.iqb.hu-berlin.de/vera/ueberblick/) und [Bildungstrend](https://www.iqb.hu-berlin.de/bt/) werden damit erstellt. Zu diesem Player steht ein Editor zur Verfügung, und die Webanwendung IQB-Studio ist darauf spezialisiert, diese Aufgaben interaktiv zu erstellen. Dort gibt es auch einen Menüpunkt, mit dem man Aufgaben und auch den zugehörigen Player exportiert. Diesen Export kann unverändert in das Testcenter hochladen.
+* [Abi](https://github.com/iqb-berlin/verona-player-abi/releases): Player für eine einfache Scriptsprache mit dynamischen Unterformularen. Dieser Player ist für Befragungen von Erwachsenen sehr gut geeignet. Pro Zeile wird ein Frageitem definiert. Dadurch kann eine große Anzahl von Frageitems automatisiert erstellt werden (Excel), was eine komplexe Rotation der Fragen in Abhängigkeit vom Profil der Befragten ermöglicht.
+* [Speed Test - multi](https://github.com/iqb-berlin/verona-player-speedtest/releases): Player für einen Lesegeschwindigkeitstests (mehrere Items pro Unit; Text und Bild). Auch hierfür gibt es einen Editor für IQB-Studio und die Unit-Defintionen werden einfach exportiert.
+* [Speed Test Player - mono](https://github.com/iqb-berlin/verona-player-speedtest/releases): Player für einen Lesegeschwindigkeitstests (ein Item pro Unit; nur Text). Dieser Player benötigt nur eine Zeile Text pro Unit und ist daher auch gut mit kleineren Hilfsmitteln erzeugt.
+* [Simple Player](https://github.com/iqb-berlin/verona-player-simple/releases): Universeller Player für Html. Hier müssen übliche Hilfsmittel zur Erstellung von Html-Seiten genutzt werden.
+
+## Booklets
+
+Die Vielfalt von Testszenarien ist sehr hoch, so dass es hierfür kaum passende Angebote geben kann. Es wird meist dabei bleiben, dass die Testentwickler\*innen manuell die Booklet-XML in einem auf XML spezialisierten Editor bearbeiten. Folgende Unterstützungen gibt es:
+
+* Beim Export von Units aus dem IQB-Studio kann man angeben, dass für die ausgewählten Units ein Booklet erzeugt und mit exportiert wird. Dieses Booklet fügt die Units in alphabetischer Reihenfolge ein, was sicher danach geändert werden muss. Aber als Startpunkt mag das helfen.
+* Das Windows-Programm [itc-ToolBox/Booklet](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-booklet.md) liest ein Test-Design aus einer Excel-Datei ein und erzeugt daraus für alle gefundenen Booklets die Booklet-XML. Nach etwas Übung sollte diese Hilfe gut klappen für einen Großteil der Testungen.
+
+## Testtaker
+
+Durch die vielen Szenarien, die in einer Testtaker-XML abgebildet werden können, ist auch an dieser Stelle bisher keine dialoggesteuerte universelle Hilfe verfügbar. In den Studien des IQB haben sich auf den jeweiligen Anwendungsfall spezialisierte Excel-Dateien bewährt. Diese Excel-Tabellen dienen dann auch gleich der Erzeugung von Massen-E-Mails, d. h. an die richtigen Empfänger\*innen kommen die richtigen Zugangsdaten. Folgende Hilfen gibt es:
+
+* Das Windows-Programm [itc-ToolBox/Codes](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-codes.md) erzeugt eine große Anzahl eindeutiger Codes, die dann als Grundlage für die Logins genutzt werden können.
+* Das Windows-Programm [itc-ToolBox/QR](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-logins-docx.md) erzeugt nach Einlesen einer Testtaker-Datei Docx-Dateien, die einen QR-Code enthalten können. Diese Funktion wurde programmiert zur Erstellung von Zetteln, die den Testpersonen in die Hand gegeben werden.
+* Beim Export von Units aus dem IQB-Studio kann man angeben, dass das erzeugte Booklet um eine Testtaker-XML ergänzt wird. Für eine definierbare Anzahl Testpersonen werden Logins erzeugt und das Booklet zugewiesen.
