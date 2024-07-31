@@ -434,8 +434,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#funktionen-zur-aufgabenorganisation" id="toc-funktionen-zur-aufgabenorganisation" class="nav-link active" data-scroll-target="#funktionen-zur-aufgabenorganisation">Funktionen zur Aufgabenorganisation</a></li>
+  <li><a href="#bereichsgruppen" id="toc-bereichsgruppen" class="nav-link" data-scroll-target="#bereichsgruppen">Bereichsgruppen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -469,11 +476,112 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Diese Seite ist in Bearbeitung und wird demnächst fertig gestellt.</p>
+<p>Diese Seite befindet sich in Bearbeitung.</p>
 </div>
 </div>
-<p>Das Studio bietet nicht nur die Organisation in Arbeitsbereichen an. Es stehen auch noch so genannte <strong>Bereichsgruppen</strong> zur Verfügung. Diese tragen typischer Weise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die darin enthaltenen Aufgaben. Um die Zugriffe auf Arbeitsbereiche besser regeln zu können, erhalten die Verantwortlichen einer Studie administrativen Zugang zu einer Bereichsgruppe. In den administrativen Bereichsgruppen-Einstellungen kann dann festgelegt werden, welche Teammitglieder Zugriff auf die Arbeitsbereiche erhalten soll. Das Team zur Aufgabenentwicklung ist somit in der Lage sich selbst innerhalb einer Studie zu organisieren. Das sorgt auch dafür, dass System-Administrator*innen sich nicht um die Zugriffe in den Bereichsgruppen kümmern müssen.</p>
-<p>Nachfolgend dazu ein kleines Beispiel für eine Beispielstudie:</p>
+<p>Ein Arbeitsbereich erfüllt zwei Kernaufgaben:</p>
+<p><strong>Organisation</strong></p>
+<p>Es können neue Aufgaben angelegt, kopiert, verschoben oder gelöscht werden und vieles mehr. Zur besseren Übersichtlichkeit ist es möglich Aufgaben zu gruppieren. Um alle diese Funktionen nutzen zu können, steht ein Menu mit den Funktionen zur Verfügung.</p>
+<p><strong>Aufgabenentwurf</strong></p>
+<p>Mithilfe eines Editors können Aufgaben entworfen werden. Die im Entwurf befindlichen Aufgaben können in einer Vorschau begutachtet werden. Es ist auch möglich Metadaten zu bearbeiten und Kodierregeln einzurichten. All diese Funktionen sind im Arbeitsbereich über mehrere eindeutige Reiter erreichbar.</p>
+<p>Ein noch leerer Arbeitsbereich ist hier zu sehen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Leerer_Arbeitsbereich.png" class="img-fluid figure-img"></p>
+<figcaption>Arbeitsbereich ohne Aufgaben</figcaption>
+</figure>
+</div>
+<p><strong>Links (rot markiert):</strong><br> Dieser Bereich dient vorwiegend der Organisation von Aufgaben. Hier ist die noch leere Aufgabenliste zu sehen. Darunter die Funktionen zur Organisation von Aufgaben, wie bspw. das Anlegen, Löschen, Kopieren von Aufgaben.</p>
+<p><strong>Rechts (blau markiert):</strong><br> Der Bereich mit den Funktion für den Aufgabenentwurf. Die Funktionen sind auf mehrere Reiter oben verteilt. Hier ist noch alles inaktiv, weil noch keine Aufgabe ausgewählt wurde.</p>
+<section id="funktionen-zur-aufgabenorganisation" class="level1">
+<h1>Funktionen zur Aufgabenorganisation</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die gezeigten Funktionen zur Aufgaben Organisation setzen einen Zugriff mit Admin-Rechten auf den Arbeitsbereich voraus. Bei Zugriffsrechten als Entwickler:in ist die Auswahl der Funktionen beschränkt.</p>
+</div>
+</div>
+<p>Die Funktionen zur Organisation sind im rot markierten Bereich unterhalb der Aufgabenliste zu finden. Nachfolgend werden die einzelnen Funktionen beschrieben.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Funktionen_Aufgabenhandhabung_Plus.png" class="img-fluid figure-img"></p>
+<figcaption>Funktionen zur Aufgabenhandhabung Schalter: Plus</figcaption>
+</figure>
+</div>
+<p><strong>Neue Aufgabe:</strong><br></p>
+<p>Erzeugt eine neue Aufgabe. Dabei müssen Metadaten zur Aufgabe angegeben werden. Der hier gewählte Kurzname sollte aussagekräftig und eindeutig sein. Dieser darf nur einmal im Arbeitsbereich vorkommen. Außerdem kann eine Gruppe gewählt werden oder eine neue Gruppe bei der Aufgabenerzeugung erstellt werden. Bei einer großen Zahl von Aufgaben, kann die Aufgabenliste unübersichtlich sein, daher ist es möglich die Aufgaben zu gruppieren.</p>
+<p><strong>Neu von vorhandener Aufgabe:</strong><br></p>
+<p>Sollen Aufgaben als Vorlage für eine neue Aufgabe verwendet werden, kann diese Funktion genutzt werden. Nach einem Klick auf diese Funktion kann eine Bereichsgruppe ausgewählt werden. Anschließend werden die freigegebenen Aufgaben in dieser Bereichsgruppe angezeigt. Nach Auswahl einer Aufgabe erscheint ein Formular zur Eingabe von Metadaten zur neuen Aufgabe.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In den Bereichsgruppen-Einstellungen können Zugangsberechtigungen für Aufgaben eingerichtet werden. In der oben genannten Liste der Aufgaben zur Auswahl, werden nur Aufgaben angezeigt die über die Zugriffsberechtigung als “Admin” verfügen.</p>
+</div>
+</div>
+<p><strong>Import von Aufgaben:</strong><br></p>
+<p>Es können Aufgaben importiert werden, die sich bspw. lokal auf dem Computer befinden. Aufgaben werden über mehrere Dateien definiert. Eine Aufgabe besteht aus mindestens 2 Dateien zur Aufgaben-Definition. Eine Aufgaben-XML und eine Aufgaben-VOUD. Es kommen weitere Dateien hinzu, wenn Kodierregeln und Metadatenprofile eingerichtet sind. Beim Import müssen alle diese Dateien ausgewählt werden, damit die Aufgabe vollumfänglich importiert wird. Es können auch alle Dateien verpackt in einem ZIP-Format vorliegen, dann muss nur diese ZIP importiert werden.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Funktionen_Aufgabenhandhabung_Sandwich.png" class="img-fluid figure-img"></p>
+<figcaption>Funktionen zur Aufgabenhandhabung Schalter: Menu</figcaption>
+</figure>
+</div>
+<p><strong>Einstellungen:</strong><br></p>
+<p>An dieser Stelle können Einstellungen für den Arbeitsbereich vorgenommen werden. Hier können der Player, der Editor, der Schemer und Metadatenprofile angegeben werden, die für alle Aufgaben in dem jeweiligen Arbeitsbereich gesetzt werden. Es ist außerdem noch möglich nur stabile Modul-Versionen (keine Beta-Versionen) auswählen zu können.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Diese Funktion steht nur zur Verfügung, wenn Berechtigungen als Bereichsgruppen-Administrator*in vorhanden sind.</p>
+</div>
+</div>
+<p><strong>Gruppen verwalten:</strong><br></p>
+<p>Aufgaben können in Gruppen organisiert werden. Mit dieser Funktion können neue Gruppe hinzugefügt, Gruppenbezeichner geändert und Gruppen gelöscht werden. Außerdem können hier die bestehenden Aufgaben den Gruppen zugeordnet werden.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nach Aufgabenzuordnung zu einer Gruppe, müssen die Änderungen gespeichert werden, ansonsten gehen die Änderungen verloren.</p>
+</div>
+</div>
+<p><strong>Aufgabenfolgen:</strong><br></p>
+<p><strong>Nutzer:innen:</strong><br></p>
+<p><strong>Export:</strong><br></p>
+<p><strong>Berichte:</strong><br></p>
+<p><strong>Druckvorschau:</strong><br></p>
+<p><strong>Verschieben:</strong><br></p>
+<p><strong>Kopieren nach:</strong><br></p>
+</section>
+<section id="bereichsgruppen" class="level1">
+<h1>Bereichsgruppen</h1>
+<p>Die Organisation und Bearbeitung von Aufgaben findet in Arbeitsbereichen statt. Die Organisation von Arbeitsbereichen wiederum findet in sogenannten <strong>Bereichsgruppen</strong> statt. Diese tragen typischerweise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die zugehörigen Aufgaben. Um eine eigenständige Organisation durch die Studienverantwortlichen innerhalb einer Bereichsgruppe zu ermöglichen, erhalten die Studienverantwortlichen von den System-Administrator*innen Zugriff auf eine Bereichsgruppe. Die Einrichtung von Arbeitsbereichen und die Zugriffsregelung für diese Arbeitsbereiche können dann in den Bereichsgruppen-Einstellungen vorgenommen werden. Das sorgt auch dafür, dass System-Administrator*innen sich nicht um die Zugriffe in den Bereichsgruppen kümmern müssen.</p>
+<p>Nachfolgend sind die genannten Bereiche und deren Zusammenwirken an einem Beispiel zu sehen.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -503,7 +611,6 @@ Hinweis
 </div>
 </div>
 </div>
-<p>Die Studienverantwortlichen können in diesem Beispiel mithilfe der Bereichsgruppen-Einstellungen festlegen, welche Teammitglieder Zugriff auf die Arbeitsbereiche: Hörverstehen, Leseverstehen und Instruktionen erhalten sollen.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -517,13 +624,6 @@ Hinweis
 <p>Mehr zu den Bereichsgruppen-Einstellungen ist dem Abschnitt: <strong>Zugriffsrechte</strong> zu entnehmen.</p>
 </div>
 </div>
-<p>In den Arbeitsbereichen findet die Organisation der Aufgaben statt. Außerdem kann hier mittels eines Editors die Aufgabengestaltung vorgenommen werden. Nach Auswahl eines leeren Arbeitsbereichs ist eine Seite mit mehreren Optionen zu sehen.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Leerer_Arbeitsbereich.png" class="img-fluid figure-img"></p>
-<figcaption>Arbeitsbereich ohne Aufgaben</figcaption>
-</figure>
-</div>
 <hr>
 <ul>
 <li>allg. Operationen (Print, Copy, Löschen…)</li>
@@ -533,6 +633,7 @@ Hinweis
 </ul>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -994,7 +1095,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
