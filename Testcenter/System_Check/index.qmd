@@ -1,10 +1,13 @@
 ---
 lang: de
 title: "System-Check"
+format:
+  html:
+    code-overflow: wrap
 lightbox: auto
 ---
 
-Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall-/ und damit die Frustrate deutlich senken.
+Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall- und damit die Frustrate deutlich senken.
 
 Ein System-Check wird angelegt, indem eine XML-Datei mit einem spezifischen Inhalt in einen Arbeitsbereich hochgeladen wird. Das IQB-Testcenter erzeugt dann automatisch einen Link zu diesem System-Check auf der Startseite. Alle Besucher\*innen der Webanwendung können dann ohne Anmeldung den System-Check ausführen. Wenn ein Kennwort eingegeben wird, kann man das Ergebnis des System-Checks auch auf dem Server speichern. Dann stehen über die Verwaltung des Arbeitsbereichs die Ergebnisse gebündelt als Tabelle zum Download bereit.
 
@@ -14,23 +17,22 @@ Man muss zugriffsberechtigt sein zu einem Arbeitsbereich einer IQB-Testcenter-In
 
 ## Grundfunktionen
 
+Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt.
+
 ```{.xml filename="syscheck1.xml"}
 <?xml version="1.0" encoding="utf-8"?>
 <SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
-	<Metadata>
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"> # <1>
+	<Metadata> # <2>
 		<Id>SYSCHECK_TBA2</Id>
 		<Label>System-Check TBA II Verzweigungen Test</Label>
 	</Metadata>
-	<Config skipnetwork="true"></Config>
+	<Config skipnetwork="true"></Config> # <3>
 </SysCheck>
 ```
-
-Das obige XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt. Erläuterungen der Syntax:
-
-* Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
-* Metadata: Die `Id` dient der internen Zuordnung der Ergebnisse, das `Label` wird angezeigt.
-* Das `Config`-Element ist hier nur notwendig, um den Netzwerktest zu unterdrücken.
+1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2. Metadata: Die `Id` dient der internen Zuordnung der Ergebnisse, das `Label` wird angezeigt.
+3. Das `Config`-Element ist hier nur notwendig, um den Netzwerktest zu unterdrücken.
 
 ![Kleinste Version eines System-Checks](syscheck1.png){group="input"}
 
@@ -53,12 +55,14 @@ Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich �
 		<Label>System-Check TBA II Verzweigungen Test</Label>
 	</Metadata>
 	<Config skipnetwork="true">
-		<CustomText key="syscheck_intro">
-			Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben
+		<CustomText key="syscheck_intro"> # <1>
+			Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben! # <2>
 		</CustomText>
 	</Config>
 </SysCheck>
 ```
+1. Über das Attribut `key` referenziert man einen bestimmten Eintrag
+2. Im Inhalt des `CustomText`-Elementes wird der neue zu verwendende Text platziert.
 
 ![System-Check mit angepasstem Text](syscheck3.png){group="input"}
 
