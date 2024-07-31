@@ -1,0 +1,146 @@
+---
+lang: de
+title: "Aufgabenorganisation"
+---
+
+In einem Arbeitsbereich (links) kann die Organisation von Aufgaben erfolgen. Hierfür stehen entsprechende Funktionen zur Verfügung.
+
+![Funktionen Aufgabenorganisation](Funktionen_Aufgabenhandhabung){fig-align="left"}
+
+# Funktionen zur Aufgabenorganisation
+
+::: {.callout-note}
+Einige Funktionen zur Aufgaben Organisation werden nur angezeigt, wenn Berechtigungen als Admin für den Arbeitsbereich vorhanden sind. Bei Zugriffsrechten als Entwickler:in ist die Auswahl der Funktionen beschränkt. Einige Funktionen sind auch erst sichtbar, wenn administrative Bereichsgruppen-Berechtigungen vorhanden sind. Nachfolgend sind alle Funktionen zu sehen. Zu jeder Funktion wird angegeben, mit welchen Berechtigungen diese sichtbar ist. Mehr zu den Berechtigungen ist dem Kapitel Zugriffsrechte zu entnehmen.
+:::
+
+Die Funktionen zur Organisation sind im rot markierten Bereich unterhalb der Aufgabenliste zu finden. Nachfolgend werden die einzelnen Funktionen beschrieben.
+
+![Funktionen zur Aufgabenhandhabung Schalter: Plus](Funktionen_Aufgabenhandhabung_Plus.png){fig-align="left"}
+
+### Neue Aufgabe
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png)
+
+Erzeugt eine neue Aufgabe. Dabei müssen Metadaten zur Aufgabe angegeben werden. Der hier gewählte Kurzname sollte aussagekräftig und eindeutig sein. Dieser darf nur einmal im Arbeitsbereich vorkommen. Außerdem kann eine Gruppe gewählt werden oder eine neue Gruppe bei der Aufgabenerzeugung erstellt werden. Bei einer großen Zahl von Aufgaben, kann die Aufgabenliste unübersichtlich sein, daher ist es möglich die Aufgaben zu gruppieren.
+
+### Neu von vorhandener Aufgabe
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png)
+
+Sollen Aufgaben als Vorlage für eine neue Aufgabe verwendet werden, kann diese Funktion genutzt werden. Nach einem Klick auf diese Funktion kann eine Bereichsgruppe ausgewählt werden. Anschließend werden die freigegebenen Aufgaben in dieser Bereichsgruppe angezeigt. Nach Auswahl einer Aufgabe erscheint ein Formular zur Eingabe von Metadaten zur neuen Aufgabe.
+
+### Import von Aufgaben
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png)
+
+Es können Aufgaben importiert werden, die sich bspw. lokal auf dem Computer befinden. Aufgaben werden über mehrere Dateien definiert. Eine Aufgabe besteht aus mindestens 2 Dateien zur Aufgaben-Definition. Eine Aufgaben-XML und eine Aufgaben-VOUD. Es kommen weitere Dateien hinzu, wenn Kodierregeln und Metadatenprofile eingerichtet sind. Beim Import müssen alle diese Dateien ausgewählt werden, damit die Aufgabe vollumfänglich importiert wird. Es können auch alle Dateien verpackt in einem ZIP-Format vorliegen, dann muss nur diese ZIP importiert werden.
+
+
+![Funktionen zur Aufgabenhandhabung Schalter: Menu](Funktionen_Aufgabenhandhabung_Sandwich.png){fig-align="left"}
+
+### Einstellungen
+
+**Erforderliche Berechtigung:** Bereichsgruppen-Admin
+
+An dieser Stelle können Einstellungen für den Arbeitsbereich vorgenommen werden. Hier können der Player, der Editor, der Schemer und Metadatenprofile angegeben werden, die für alle Aufgaben in dem jeweiligen Arbeitsbereich gesetzt werden. Es ist außerdem noch möglich nur stabile Modul-Versionen (keine Beta-Versionen) auswählen zu können.
+
+### Gruppen verwalten
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png)
+
+Aufgaben können in Gruppen organisiert werden. Mit dieser Funktion können neue Gruppe hinzugefügt, Gruppenbezeichner geändert und Gruppen gelöscht werden. Außerdem können hier die bestehenden Aufgaben den Gruppen zugeordnet werden. 
+
+::: {.callout-note}
+Nach Aufgabenzuordnung zu einer Gruppe, müssen die Änderungen gespeichert werden, ansonsten gehen die Änderungen verloren.
+:::
+
+### Aufgabenfolgen
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png)
+
+Diese Funktion ermöglicht es eine Art Voransicht mit einer bestimmten Reihenfolge von Aufgaben einzurichten. Diese Funktion soll es Aufgabenentwickler\*innen ermöglichen Aufgaben vor dem Export aus dem Studio anderen Personen zur Bewertung zugänglich zu machen. 
+
+Nach einem Klick auf diese Funktion öffnet sich ein Formular:
+
+![Funktionen zur Aufgabenhandhabung Schalter: Menu](Formular_Aufgabenfolgen.png){fig-align="left"}
+
+Das Formular ist in 3 Bereiche unterteilt:
+
+**Links:**
+
+* Erzeugen neuer Aufgabenfolgen
+* Löschen einer Aufgabenfolge
+* Export einer Aufgabenfolge
+* Starten einer Druckvorschau
+* Aufgabenfolge Link generieren:<br>
+    Über diesen Link ist die Aufgabenfolge erreichbar. Dies ist vor allem für externe Betrachter gedacht. Diese Funktion ist erst aktiv, wenn ein min. 4-stelliges Kennwort rechts unter dem Menüpunkt: Review gesetzt wurde.
+
+**Mitte:**
+
+* Hier können die Aufgaben ausgewählt werden, die bei der Wiedergabe der Aufgabefolge angezeigt werden sollen. Hier werden nur Aufgaben angezeigt, die sich im geöffneten Arbeitsbereich befinden.
+
+**Rechts:**
+
+* Menu Review
+
+    Hier können Konfigurationen für den Review vorgenommen werden. Bspw. kann hier festgelegt werden, ob zum Starten der Aufgabenfolge ein Kennwort benötigt wird oder ob Kommentare erlaubt sind.
+
+* Menu Booklet-Einstellungen
+    
+    In der XML zur Testheft-Definition befindet sich ein Feld zur Konfiguration des Testheftes. Hier können fest vorgegebene Werte für bestimmte Konfigurationen hinterlegt werden. Für die Aufgabenfolge können an dieser Stelle einige dieser möglichen Werte ausgewählt werden. So können während einer Aufgabenfolge nicht nur Aufgaben bewertet werden, sondern auch das Verhalten und Aussehen des Testheftes, wie es bei der Studiendurchführung zum Einsatz kommt.
+
+### Nutzer:innen
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Kommentator:in ![](Symbol_Zugriff_Kommentierer.png)
+
+Eine Übersicht der Personen, die Zugriff auf den Arbeitsbereich besitzen.
+
+### Export
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Kommentator:in ![](Symbol_Zugriff_Kommentierer.png)
+
+Hier können Aufgaben ausgegeben werden. Zuvor können einige Konfigurationen vorgenommen werden. Durch einen Klick auf diese Funktion erscheint zunächst ein Formular:
+
+![Formular Export](Formular_Export.png)
+
+**Links:**
+
+* Auswahl der zu exportierenden Aufgaben. Es werden nur Aufgaben angezeigt, die sich im aktiven Arbeitsbereich befinden.
+
+**Rechts:**
+
+ * Testtaker-Einstellungen
+
+     Es kann der, in den Eigenschaften der Aufgabe, definierte Player ausgegeben werden. Außerdem kann eine XML zur Studien-Definition generiert werden. Hier werden unter anderem die Zugänge für die Testpersonen angelegt. Diese Datei wird immer dann mit erzeugt, sobald einer der möglichen angebotenen Logins größer Null ist. Bei der Auswahl eines Logins wird unterschieden in "Review" (Modus: run-review), "Monitor" (Modus: monitor-group) und in "Test" (Modus: run-hot-return). Wird einer dieser Logins größer Null gewählt, werden in der XML zur Studien-Definition Zugänge mit dem gewünschten Modus hinterlegt. Für jeden Zugang wird ein Benutzername generiert und auf Wunsch auch ein Passwort.
+
+* Booklet-Einstellungen
+
+     Es kann die XML zur Testheft-Definition ausgegeben werden. Dies geschieht immer automatisch dann, wenn in den Testtaker-Einstellungen ein möglicher Login größer Null gewählt wird. Zusätzlich können in dieser XML bereits einige Konfigurationen vorgenommen werden. Hierfür stehen vordefinierte Werte zur Auswahl, die dann in ein Konfigurationsfeld innerhalb der XML übernommen werden.
+
+### Berichte
+
+::: {.callout-note}
+THuste: In Bearbeitung. Hier folgen weitere Inhalte.
+:::
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Kommentator:in ![](Symbol_Zugriff_Kommentierer.png)
+
+Hier können Berichte zu den Metadaten, zur Kodierung und zum Codebook generiert und bei Bedarf heruntergeladen werden.
+
+### Druckvorschau
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Kommentator:in ![](Symbol_Zugriff_Kommentierer.png)
+
+Es erscheint zunächst ein Formular. Hier kann man die Druckvorschau konfigurieren. Die Konfigurationsmöglichkeiten, sollten selbsterklärend sein.
+
+### Verschieben
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png)
+
+Aufgaben können in entfernte Arbeitsbereiche verschoben werden. Es kann nur in Bereiche verschoben werden, die über die Berechtigung: Arbeitsbereich-Admin ![](Symbol_Zugriff_Admin.png) verfügen.
+
+### Kopieren nach
+
+**Erforderliche Berechtigung:** Arbeitsbereich-Kommentator:in ![](Symbol_Zugriff_Kommentierer.png)
+
+Es ist möglich Aufgaben in entfernte Arbeitsbereiche zu kopieren. Die entfernten Arbeitsbereiche müssen aber Arbeitsbereich-Admin Berechtigungen ![](Symbol_Zugriff_Admin.png) aufweisen.

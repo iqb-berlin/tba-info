@@ -1,0 +1,33 @@
+---
+lang: de
+title: "Bereichsgruppen"
+---
+
+Die Organisation und Bearbeitung von Aufgaben findet in Arbeitsbereichen statt. Die Organisation von Arbeitsbereichen wiederum findet in sogenannten **Bereichsgruppen** statt. Diese tragen typischerweise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die zugehörigen Aufgaben. Um eine eigenständige Organisation durch die Studienverantwortlichen innerhalb einer Bereichsgruppe zu ermöglichen, erhalten die Studienverantwortlichen von den System-Administrator\*innen Zugriff auf eine Bereichsgruppe. Die Einrichtung von Arbeitsbereichen und die Zugriffsregelung für diese Arbeitsbereiche können dann in den Bereichsgruppen-Einstellungen vorgenommen werden. Das sorgt auch dafür, dass System-Administrator\*innen sich nicht um die Zugriffe in den Bereichsgruppen kümmern müssen.
+
+Nachfolgend sind die genannten Bereiche und deren Zusammenwirken an einem Beispiel zu sehen.
+
+```{mermaid}
+flowchart TD
+  Bereichsgruppe
+  style Bereichsgruppe fill:#ffd433
+  Arbeitsbereich
+  style Arbeitsbereich fill:#ffd433
+  Aufgaben
+  style Aufgaben fill:#ffd433
+  Bereichsgruppe --> Arbeitsbereich --> Aufgaben
+  A[Deutsch Sek1] --> B[Hörverstehen]
+  A[Deutsch Sek1] --> C[Leseverstehen]
+  A[Deutsch Sek1] --> D[Instruktionen]
+  B --> E[Aufgabe1]
+  B --> F[Aufgabe2]
+  C --> H[Aufgabe1]
+  C --> I[Aufgabe2]
+  D --> K[Aufgabe1]
+  D --> L[Aufgabe2]
+  
+```
+
+::: {.callout-note}
+Mehr zu den Bereichsgruppen-Einstellungen ist dem Abschnitt: **Zugriffsrechte** zu entnehmen.
+:::
