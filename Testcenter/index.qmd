@@ -13,13 +13,13 @@ Das IQB-Testcenter ist eine Webanwendung für die **Durchführung von Kompetenzt
 * Die Daten, die die Durchführung eines Tests oder einer Befragung steuern, sollen in Dateiform vorliegen. Das IQB-Testcenter verfügt nicht über Konfigurationsdialoge und aufwändige Assistenten, um z. B. Zeitbegrenzungen für Aufgabenblöcke zu definieren. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats in das IQB-Testcenter hochgeladen. Nur über diesen Weg ist es möglich, die Parameter eines Tests festzulegen.
 * Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldung der Ergebnisse soll oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen, und über das API können gut die Antworten und Logdaten heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.
 
-::: {.callout-caution}
+::: {.callout-note}
 ## Verona-Architektur
 
 Ein Testcenter bestimmt in keiner Weise die Präsentation und Interaktion der einzelnen Testaufgaben. Es gibt einen rechteckigen Bildschirmbereich, in dem die Aufgaben bzw. Frageitems dargestellt werden, jedoch ist die Programmierung dafür in einen sog. Player ausgelagert. Siehe hierzu [Verona-Interfaces](https://verona-interfaces.github.io/)!
 :::
 
-Funktionen der Testdurchführung:
+**Funktionen der Testdurchführung**:
 
 * Anmeldung der Testperson: Über Link (z. B. QR-Code), Name und Kennwort oder zweistufig mit einem zusätzlichen Code
 * Anmeldung ohne Personenbezug, z. B. für Befragungen
@@ -32,6 +32,12 @@ Funktionen der Testdurchführung:
 * sofortige Speicherung: Alle Antworten werden sofort zum Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann der vorherige Stand wiederhergestellt werden
 * In Abhängigkeit gegebener Antworten und einer zuvor festgelegten Wichtung, kann zu bestimmten Aufgaben verzweigt werden (adaptives Testen)
 
+Die Steuerung eines Tests ist im Abschnitt [Testinhalte](Testinhalte/index.qmd) ausführlich beschrieben.
+
+Im Abschnitt [Datenauswertung](Datenauswertung/index.qmd) finden Sie Verfahren und Spezifikationen zum Download der Ergebnisse.
+
+Eine Sammlung von Ratschlägen für die Vorbereitung, Durchführung und Auswertung von Tests bzw. Befragungen [finden Sie hier](Studien-Ratgeber/index.qmd).
+
 ## System-Check
 
 Ein [System-Check](System_Check/index.qmd) wird im Vorfeld der Testung mit dem Serversystem und der Schulhard- und -software durchgeführt, die dann auch beim Test eingesetzt werden soll. Daher ist der System-Check fester Bestandteil des Systems zur Testdurchführung. So sollen Schwachstellen aufgedeckt und mögliche Probleme bei der Durchführung vermieden werden. Es können dann noch andere Geräte beschafft oder Browser aktualisiert werden. Auch Software zum Jugendschutz oder andere Inhaltsfilter werden bemerkt und können besser konfiguriert werden.
@@ -40,31 +46,6 @@ Ein [System-Check](System_Check/index.qmd) wird im Vorfeld der Testung mit dem S
 
 Über eine spezielle Anmeldung kann die Testleitung einen [Gruppenmonitor](Gruppenmonitor/index.qmd) aufrufen. Man kann darüber den Fortschritt jeder Testperson einer Gruppe beobachten. Man kann das Weiterleiten in andere Blöcke erzwingen, den Test pausieren, beenden oder sperren.
 
-## Administration
-
-Nach der Installation ist zunächst ein administratives Konto mit maximalen Zugriffsrechten angelegt: "Super-Admin". Über dieses Konto werden dann andere Administrationskonten angelegt, Arbeitsbereiche hinzugefügt und Zugriffsrechte darauf vergeben.
-
-Für je einen Test oder Befragung wird ein Arbeitsbereich genutzt. Hier können auch System-Checks definiert werden. Durch Hochladen von Dateien wird der Test vorbereitet. Das IQB-Testcenter nimmt eine umfangreiche Prüfung der hochgeladenen Dateien vor, um die Konsistenz der Daten zu sichern und Hinweise auf mögliche Probleme zu geben.
-
-In einem Arbeitsbereich kann man dann den Gesamtfortschritt beobachten und diverse Daten herunterladen (Antworten, Logs, Review-Berichte, System-Check-Ergebnisse). 
-
 # Installation
 
-Das IQB hat alle Programmierungen unter der Open Source-Lizenz [MIT](https://iqb-berlin.github.io/license.html) veröffentlicht und erleichtert die [Installation](install/index.qmd) durch Containervirtualisierung (Docker). Für die Installation muss man einen Linux-Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern, übernimmt aber im Schadensfall keine Haftung.
-
-
-# Verwaltung und Organisation einer Studie
-
-Mehr dazu ist dem gleichnamigen Kapitel zu entnehmen.
-
-#  Daten und Prozesse
-
-Sowohl zur Studiendurchführung als auch zur Nutzung weiterer Funktionen des Testcenters, werden Dateien zur Konfiguration benötigt. Diese Dateien müssen in das Testcenter geladen werden. Diese Dateien werden im weiteren Verlauf häufig als **Testdateien** bezeichnet.Das Testcenter stellt außerdem eine Reihe von Daten zur Studienauswertung bereit. Diese können aus dem Testcenter heruntergeladen werden. Mehr dazu ist dem gleichnamigen Kapitel zu entnehmen.
-
-
-# Studiendurchführung
-
-Durch Eingabe der Adresse des installierten Testcenters, erhält man ein Anmeldeformular. Zur Testdurchführung müssen sich hier die Testpersonen mit entsprechenden Zugangsdaten anmelden, um eine für sie eingerichtete Testung zu starten. Die gültigen Anmeldedaten werden in einer der Testdateien hinterlegt. Nach erfolgreicher Anmeldung startet dann das für diese Person vorbereitete Testheft mit einer Abfolge von Aufgaben. Folgende besonderen Funktionen sind im IQB-Testcenter derzeit umgesetzt:
-
-
-Es können mehrere Tests oder Befragungen gleichzeitig laufen. Mehr zum Thema Studiendurchführung kann dem gleichnamigen Kapitel entnommen werden.
+Das IQB hat alle Programmierungen unter der Open Source-Lizenz [MIT](https://iqb-berlin.github.io/license.html) veröffentlicht und erleichtert die [Installation](install/index.qmd) durch Containervirtualisierung (Docker). Für die Installation muss man einen Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern, übernimmt aber im Schadensfall keine Haftung.
