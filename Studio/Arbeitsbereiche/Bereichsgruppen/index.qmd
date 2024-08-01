@@ -13,18 +13,25 @@ flowchart TD
   style Bereichsgruppe fill:#ffd433
   Arbeitsbereich
   style Arbeitsbereich fill:#ffd433
+  Gruppen
+  style Gruppen fill:#ffd433
   Aufgaben
   style Aufgaben fill:#ffd433
-  Bereichsgruppe --> Arbeitsbereich --> Aufgaben
+  Bereichsgruppe --> Arbeitsbereich --> Gruppen --> Aufgaben
   A[Deutsch Sek1] --> B[Hörverstehen]
   A[Deutsch Sek1] --> C[Leseverstehen]
-  A[Deutsch Sek1] --> D[Instruktionen]
-  B --> E[Aufgabe1]
-  B --> F[Aufgabe2]
-  C --> H[Aufgabe1]
-  C --> I[Aufgabe2]
-  D --> K[Aufgabe1]
-  D --> L[Aufgabe2]
+  B --> D[GruppeA]
+  B --> E[GruppeB]
+  C --> F[GruppeA]
+  C --> G[GruppeB]
+  D --> H[Aufg1]
+  D --> I[Aufg2]
+  E --> J[Aufg1]
+  E --> K[Aufg2]
+  F --> L[Aufg1]
+  F --> M[Aufg2]
+  G --> N[Aufg1]
+  G --> O[Aufg2]
   
 ```
 
