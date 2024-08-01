@@ -14,8 +14,8 @@ flowchart LR
   A[Basis-Pakete für Player] --> B[Player]
   B --> C[Units]
   C --> D[Booklets]
-  style C fill:#a0e3f3
   D --> E[Testtakers]
+  style C fill:#a0e3f3
 ```
 
 # Grundstruktur
@@ -27,20 +27,19 @@ Das Beispiel zeigt eine minimale Version einer Unit-XML.
 <Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/13.0.0/definitions/vo_Unit.xsd"> # <1>
   <Metadata lastChange="2023-01-02T10:22:42.763Z"> # <2>
-    <Id>EAT1</Id>
-    <Label>Arbeit am IQB</Label>
-    <Description/>
-  </Metadata>
+    <Id>EAT1</Id> # <2>
+    <Label>Arbeit am IQB</Label> # <2>
+    <Description/> # <2>
+  </Metadata> # <2>
   <Definition player="iqb-player-abi@4.0.0-beta" editor="iqb-editor-plaintext@1.0" lastChange="2022-02-08T16:57:30.000Z"> # <3>
 	iqb-scripted::1.0  # <4>
-	title::Deine Nutzung der eat-Pakete
-	hr
-	text::Durch das Methodenteam des IQB wird eine Reihe von R-Paketen entwickelt und in Stand gehalten, die häufige Arbeitsprozesse automatisieren und vereinfachen sollen. Diese Pakete tragen das Präfix eat („Educational Assessment Tools“).
-
-	multiple-choice::nutzung_eat::1::Nutzt Du eat-Pakete in der Projektarbeit oder eigenen Forschungsarbeit?::Ja##Nein
-	if-start::nutzung_eat::2
-		input-text::hindernis_nutzung::0::Gibt es etwas, das Dich an der Nutzung von (spezifischen) eat-Paketen hindert?::::6
-	if-end
+	title::Deine Nutzung der eat-Pakete  # <4>
+	hr  # <4>
+	text::Durch das Methodenteam des IQB wird eine Reihe von R-Paketen entwickelt und in Stand gehalten, die häufige Arbeitsprozesse automatisieren und vereinfachen sollen. Diese Pakete tragen das Präfix eat („Educational Assessment Tools“).  # <4>
+	multiple-choice::nutzung_eat::1::Nutzt Du eat-Pakete in der Projektarbeit oder eigenen Forschungsarbeit?::Ja##Nein  # <4>
+	if-start::nutzung_eat::2  # <4>
+		input-text::hindernis_nutzung::0::Gibt es etwas, das Dich an der Nutzung von (spezifischen) eat-Paketen hindert?::::6  # <4>
+	if-end  # <4>
   </Definition>
 </Unit>
 ```

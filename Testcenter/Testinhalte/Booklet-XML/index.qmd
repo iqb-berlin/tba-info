@@ -1,6 +1,12 @@
 ---
 lang: de
 title: "Booklet-XML"
+format:
+  html:
+    code-overflow: wrap
+    other-links:
+      - text: XML-Spezifikation für Booklet
+        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd
 ---
 
 ```{mermaid}
@@ -9,5 +15,99 @@ flowchart LR
   B --> C[Units]
   C --> D[Booklets]
   D --> E[Testtakers]
-  style E fill:#a0e3f3
+  style D fill:#a0e3f3
 ```
+
+# Grundstruktur
+
+Das Beispiel zeigt eine minimale Version einer Booklet-XML.
+
+```{.xml filename="booklet1.xml"}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"> # <1>
+  <Metadata> # <2>
+    <Id>booklet1</Id> # <2>
+    <Label>Testheft 1</Label> # <2>
+  </Metadata> # <2>
+  <Units>
+    <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/> # <3>
+    <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/> # <3>
+    <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/> # <3>
+  </Units>
+</Booklet>
+```
+1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen.
+3. Units: Die Liste der Units, die präsentiert werden sollen. Die `id` verweist auf eine im Arbeitsbereich vorhandene Unit. Das `label` wird ggf. als Überschrift verwendet. Das `labelshort` wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.
+
+# Booklet-Einstellungen
+
+Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.
+
+```{.xml filename="booklet2.xml"}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>booklet1</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <BookletConfig> # <1>
+    <Config key="pagingMode">buttons</Config> # <2>
+    <Config key="page_navibuttons">OFF</Config> # <2>
+    <Config key="controller_design">2018</Config> # <2>
+  </BookletConfig>
+  <Units>
+    <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/>
+    <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/>
+    <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/>
+  </Units>
+</Booklet>
+```
+1. Das BookletConfig-Element muss unmittelbar nach den Metadaten platziert werden.
+2. Jeder Konfigurationseintrag besteht aus einem `key` und dem inneren Teil des Elementes, dem Wert (`value`)
+
+Die vollständige Liste der Booklet-Einstellungen [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters). Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.
+
+# Strukturierung über Blöcke
+
+Die Units in Blöcke (engl. testlets) aufzuteilen dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d. h. es entspricht der Tradition.
+
+Im Testcenter können aber für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:
+
+```{.xml filename="booklet3.xml"}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>booklet1</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <Units>
+    <Unit id="Welcome" label="Willkommen zum Test" labelshort="-"/>
+    <Testlet id="Testlet1" label="Aufgaben"> # <1>
+      <Restrictions> # <2>
+        <CodeToEnter code="BUS">  # <3>
+          Bitte warte, bis dir ein Freigabewort gesagt wird.  # <3>
+        </CodeToEnter> # <3>
+        <TimeMax minutes="10" />  # <4>
+        <DenyNavigationOnIncomplete presentation="ALWAYS" response="ALWAYS" /> # <5>
+      </Restrictions>
+      <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/>
+      <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/>
+      <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/>
+    </Testlet>
+    <Unit id="Goodbye" label="Danke für Deine Teilnahme" labelshort="-"/>
+  </Units>
+</Booklet>
+```
+1. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet sein. Das `label` kann z. B. auf einer erweiterten Navigationsseite verwendet werden.
+2. Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber -- sofern vorhanden -- in genau dieser Reihenfolge vorkommen.
+3. Die Restriktion CodeToEnter legt fest, dass eine Dialogbox gezeigt wird beim Versuch, den Block zu betreten. Erst nach Eingabe des Codes, der im Attribute `code` übergeben wird, kann man den Block betreten. Groß- und Kleinschreibung spielt keine Rolle. Der Text innerhalb des Elementes wird in der Dialogbox als Aufforderung angezeigt. Diese Restriktion dient der Synchronisation des Testablaufes innerhalb einer Testgruppe (Klasse), um Gelegenheit für weitere Ansagen zu haben.
+4. TimeMax: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert. Die Testperson kann das nicht verhindern. Es gibt für den Versuch des vorzeitigen Verlassens des Blockes ein optionales Attribut `leave`, das festlegt, ob eine Warnung ausgegeben wird (Wert `confirm`; Standardverhalten) oder ein Verlassen generell nicht erlaubt wird (Wert `forbidden`).
+5. Mit der Restriktion DenyNavigationOnIncomplete wird das Verlassen einer Unit verhindert, wenn die Präsentation (Attribut `presentation`) und/oder die Antworten (Attribut `response`) unvollständig sind. Die möglichen Werte sind `OFF`-Keine Beschränkung, `ON`-Vorwärtsgehen wird verhindert und `ALWAYS`-Vor- und Rückwärtsgehen wird verhindert. Damit überschreibt man für diesen Block eine ggf. als Booklet-Konfiguration gesetzte Regel (`force_presentation_complete` bzw. `force_response_complete`; beide haben `OFF` als Standard).
+
+::: {.callout-warning}
+Sehen Sie stets alleinstehende Units jeweils vor und nach einem Block mit Restriktionen vor. Das können einfache Ankündigungen sein. Dadurch verhindern Sie, dass die Restriktionen von Blöcken sich gegenseitig behindern und die Testperson weder vor- noch zurückgehen kann.
+:::
