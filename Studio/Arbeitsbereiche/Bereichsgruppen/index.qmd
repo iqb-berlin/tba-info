@@ -3,7 +3,7 @@ lang: de
 title: "Bereichsgruppen"
 ---
 
-Die Organisation und Bearbeitung von Aufgaben findet in Arbeitsbereichen statt. Die Organisation von Arbeitsbereichen wiederum findet in sogenannten **Bereichsgruppen** statt. Diese tragen typischerweise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die zugehörigen Aufgaben. Um eine eigenständige Organisation durch die Studienverantwortlichen innerhalb einer Bereichsgruppe zu ermöglichen, erhalten die Studienverantwortlichen von den System-Administrator\*innen Zugriff auf eine Bereichsgruppe. Die Einrichtung von Arbeitsbereichen und die Zugriffsregelung für diese Arbeitsbereiche können dann in den Bereichsgruppen-Einstellungen vorgenommen werden. Das sorgt auch dafür, dass System-Administrator\*innen sich nicht um die Zugriffe in den Bereichsgruppen kümmern müssen.
+Die Organisation und Bearbeitung von Aufgaben findet in Arbeitsbereichen statt. Die Organisation von Arbeitsbereichen wiederum findet in sogenannten **Bereichsgruppen** statt. Diese tragen typischerweise den Namen einer Studie und enthalten alle zur Studie gehörenden Arbeitsbereiche und die zugehörigen Aufgaben. Um eine eigenständige Organisation (Arbeitsbereiche anlegen, Zugriffe auf Arbeitsbereiche regeln) durch die Studienverantwortlichen innerhalb einer Bereichsgruppe zu ermöglichen, erhalten die Studienverantwortlichen von den System-Administrator\*innen Zugriff auf eine Bereichsgruppe. Sie sind dann Bereichsgruppen-Administrator\*innen. Auf diese Weise findet eine Trennung zwischen System-Administrator\*innen und Bereichsgruppen-Administrator\*innen statt. System-Administrator\*innen müssen sich dann nicht mehr um Zugriffsrechte in den Studien (Bereichsgruppen) kümmern.
 
 Nachfolgend sind die genannten Bereiche und deren Zusammenwirken an einem Beispiel zu sehen.
 
@@ -28,6 +28,137 @@ flowchart TD
   
 ```
 
+# Bereichsgruppen-Einstellungen\*in
+
 ::: {.callout-note}
-Mehr zu den Bereichsgruppen-Einstellungen ist dem Abschnitt: **Zugriffsrechte** zu entnehmen.
+Die Bereichsgruppen-Einstellungen können nur von Bereichsgruppen-Administrator\*innen genutzt werden. Fehlen die Berechtigungen, wird neben der Bereichsgruppe kein Zahnrad angezeigt.
 :::
+
+Die Einstellungen sind über den Schalter: **Zahnrad** neben der jeweiligen Bereichsgruppe zu erreichen.
+
+![Bild: Schalter Einstellungen Bereichsgruppe](Schalter_Einstellungen_Bereich.png){fig-align="left"}
+
+Nach Betätigung des Schalters ist eine Seite mit den folgenden Reitern zu sehen:
+
+* Nutzer:innen
+* Arbeitsbereiche
+* Einstellungen
+
+Nachfolgend wird auf die Funktionen näher eingegangen.
+
+### Reiter: Nutzer:innen
+
+Links ist eine Liste aller Zugänge zum Studio zu sehen. Rechts ist eine Liste der Arbeitsbereiche zu sehen, die sich in dieser Bereichsgruppe befinden. Durch Markierung eines Zugangs, kann rechts festgelegt werden auf welchen Arbeitsbereich zugegriffen werden darf. Dabei stehen verschiedene Optionen zur Auswahl:
+
+![](Symbol_Zugriff_Kommentierer.png) **Kommentierer\*in**:<br> 
+Diese Rolle ist gedacht für die Aufgabenkorrektur. Aufgaben können nicht direkt verändert werden. Es können aber Hinweise für die Aufgabenentwickler\*innen zur Korrektur hinterlassen werden.
+
+![](Symbol_Zugriff_Dev.png) **Entwickler\*in**:<br>
+Diese Rolle ist gedacht für Aufgabenentwickler\*innen, die zum Aufgabenentwurf ausschließlich mit Assistenten arbeiten sollen. Assistenten generieren nur vorgefertigte Aufgabenelemente mit nicht änderbaren Parametern.
+
+![](Symbol_Zugriff_Admin.png) **Admin**:<br>
+In dieser Rolle können Aufgaben in vollem Umfang entworfen werden. Das heißt: Alle Parameter eines Aufgabenelementes sind zugänglich und können angepasst werden.
+
+Nachfolgend eine Übersicht über die Berechtigungen in den verschiedenen Rollen:
+
+```{=html}
+<table>
+<tr>
+    <th><b>Funktionalität</b></th>
+    <th align=center><img src="Symbol_Zugriff_Kommentierer.png" ></th>
+    <th align=center><img src="Symbol_Zugriff_Dev.png" ></th>
+    <th align=center><img src="Symbol_Zugriff_Admin.png" ></th>
+</tr>
+<tr>
+    <td>Aufgaben anlegen</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgaben kopieren</td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgaben verschieben</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgaben löschen</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgaben exportieren</td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgaben importieren</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgabenfolgen anlegen</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgabenfolgen löschen</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Aufgabengruppen verwalten</td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_kein_Zugriff.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Kommentare schreiben</td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Berichte erstellen</td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+<tr>
+    <td>Druckansichten erstellen</td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+    <td align=center><img src="Symbol_Zugriff_erlaubt.png" ></td>
+</tr>
+</table>
+
+```
+
+### Reiter: Arbeitsbereiche
+
+**Links** ist eine Liste aller Arbeitsbereiche zu sehen. Darüber sind die folgenden Funktionen angeordnet:
+
+![Bild: Funktionen Arbeitsbereiche in Bereichsgruppen](Funktionen_Arbeitsbereiche_Bereichsgruppe.png){fig-align="left"}
+
+Mithilfe dieser Funktionen können neue Arbeitsbereiche angelegt, gelöscht oder umbenannt werden. Es ist auch möglich Arbeitsbereiche zu verschieben. Dies geht nur, wenn Zugriffsrechte für die Ziel-Bereichsgruppe vorhanden sind. Es können auch Einstellungen für den Arbeitsbereich vorgenommen werden. Hier kann festgelegt werden, welches Player-, Schemer- oder Editor-Modul als Standard gesetzt ist. Wird eine neue Aufgabe erzeugt, werden automatisch die Module für die Aufgabe hinterlegt, die in den Einstellungen als Standard gesetzt wurden. Zur Übersicht kann eine Liste ausgegeben werden, die die verwendeten Module in den Arbeitsbereichen auflistet. Das kann hilfreich sein, wenn bereits sehr viele Module in das Studio geladen sind und nicht mehr benötigte Module entfernt werden sollen.
+
+**Rechts** sind alle Nutzer\*innen des Studios aufgelistet. Wird ein Arbeitsbereich links markiert, kann eine Nutzer\*innen rechts dazu ausgewählt werden und die Art der Zugriffsberechtigung festgelegt werden. Eine Übersicht, welche Funktionen für welche Rechte aktiv sind, ist in der Beschreibung zum Reiter: Nutzer:in zu finden.
+
+### Reiter: Einstellungen
+
+::: {.callout-note}
+THuste: In Bearbeitung
+:::
+
+Hier können Einstellungen zu den Metadaten-Profilen vorgenommen werden.
