@@ -1,0 +1,44 @@
+---
+lang: de
+title: "Testtaker-XML"
+---
+
+```{mermaid}
+flowchart LR
+  A[Basis-Pakete für Player] --> B[Player]
+  B --> C[Units]
+  C --> D[Booklets]
+  D --> E[Testtakers]
+  style E fill:#a0e3f3
+```
+
+# Grundstruktur
+
+Das Beispiel zeigt eine minimale Version einer Testtaker-XML.
+
+```{.xml filename="testtaker1.xml"}
+<?xml version="1.0"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"> # <1>
+  <Metadata/> # <2>
+  <Group id="TestTakerGroup_d4c9t" label="Login-Gruppe A"> # <3>
+    <Login mode="run-review" name="t9f5y" pw="v6e5">
+      <Booklet>booklet1</Booklet>
+    </Login>
+    <Login mode="run-review" name="y3u6u" pw="y4v5">
+      <Booklet>booklet1</Booklet>
+    </Login>
+  </Group>
+</Testtakers>
+```
+1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2. Das `Metadata`-Element ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein `Description`-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet -- sind also nur zur Verbesserung des Lesens dieser XML gedacht.
+3. dadaeda
+
+
+
+# Angepasste Texte: CustomTexts
+
+Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Eingabeaufforderung oder Warnung usw. gezeigt werden, können -- **spezifisch für die Logins dieser XML** -- geändert werden.
+
+{{< include _custom-texts.qmd >}}
