@@ -3,83 +3,93 @@ lang: de
 title: Datenauswertung
 ---
 
-## Administrative Zugänge
+# Download
 
-Das Testcenter bietet zwei administrative Ebenen zur Verwaltung und Organisation. 
+Um die Daten aus einer Testung oder einer Befragung zu erhalten, meldet man sich am Testcenter mit Admin-Rechten an und geht im betreffenden Arbeitsbereich auf den Tab "Ergebnisse/Antworten":
 
-#### Super-Admin
+![Datensatz: Antworten, Logs und Kommentare herunterladen](TC_DatenDownload.png)
 
-Nach der Installation des Testcenters ist bereits ein Zugang eingerichtet mit weitgehenden Berechtigungen. Dieser Zugang wird als Super-Admin bezeichnet. Super-Admins können folgendes tun:
+Nach Auswahl der gewünschten Testgruppe(n) erhält man die Daten als CSV-Datei.
 
-* Arbeitsbereiche anlegen
-* Nutzer\*innen anlegen (Workspace-Admins) und Zugriffe auf Arbeitsbereiche festlegen
-* individuelle Änderungen an Texten (Custom-Text) und Layout des Testcenters vornehmen
+::: {.callout-tip}
+## Download über API
 
-Nach der Eingabe der Zugangsdaten ist der Schalter: **Weiter als Admin** zur Anmeldung zu verwenden.
-
-Anschließend werden alle eingerichteten Arbeitsbereiche aufgelistet. Es ist außerdem ein Schalter für die **Systemeinstellungen** zu sehen. Wird dieser Schalter betätigt, wird eine weitere Seite geladen, die die folgenden 3 Reiter anzeigt:
-
-* **Users:**<br>
-Hier können bestehende Nutzer\*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer\*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderungen von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer\*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in "read only" (RO) und "read and write" (RW).
-
-* **Arbeitsbereiche:**<br>
-Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.
-
-* **Einstellungen:**<br>
-Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich ein Logo einzufügen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.
-
-
-#### Workspace-Admin
-
-Nutzer\*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters. 
-
-::: {.callout-note}
-Als Workspace-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.
+Bei großen Datenmengen kann ein manueller Download recht mühsam sein. Besser ist die Nutzung der API - der Serverschnittstelle des Testcenters. Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox) nutzt das API und bereitet für die Antwortformate des IQB die Daten auf.
 :::
 
-Nach der Eingabe der Zugangsdaten ist der Schalter: **Weiter als Admin** zur Anmeldung zu verwenden.
+## Antworten
 
-Anschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche. Durch ein Klick auf einen Arbeitsbereich, können Daten in den Arbeitsbereich geladen werden. Falls Antwortdaten vorhanden sind, können diese heruntergeladen werden.
+Die gegebenen Antworten werden mit einem Zeitstempel versehen in der Datenbank gespeichert. Das Testcenter speichert nicht bei jedem Tastendruck, aber nach einer kleinen Verzögerung zum Sammeln von Änderungen wird gespeichert. Sollte eine Unit erneut betreten werden (Neustart des Tests oder Zurückblättern), werden die Antworten wiederhergestellt.
 
-## Zugänge ohne Befugnisse
+Das Speichern und die Wiederherstellung betreffen auch allgemeine Zustände wie "Fortschritt Beantwortung" oder "Fortschritt Präsentation". Auch der Stand des Abspielens einer Audiosequenz wird als Status gespeichert.
 
-#### Testpersonen
+Das Format der Antworten ist nicht spezifiziert. Im Rahmen der Verona-Spezifikationen ist festgelegt, dass die Antwort auf mehrere Daten-Chunks verteilt sein kann, aber die Antworten selbst sind als String gespeichert. Datenstrukturen sind also dem Testcenter nicht bekannt[^1] und die nachfolgenden Verarbeitungsschritte müssen eine sinnvolle Interpretation der Antwortdaten übernehmen. Durch diese Offenheit wird die Datenverarbeitung erschwert, aber sie ist auch sehr flexibel.
 
-Dieser Personenkreis erhält die Zugangsdaten durch eine spezielle XML-Datei (XML zur Studien-Definition), die in den Arbeitsbereich der Studie geladen wird. Meldet sich eine Testperson mit den in dieser XML hinterlegten Zugangsdaten am Testcenter an, wird ein vorgesehenes Testheft gestartet und die enthaltenen Aufgaben werden präsentiert. Mit anderen Worten: Es wird ein Test gestartet.
+| Spaltenname | Inhalt (Beispiel) |
+|--------|---------------------------------------------|
+| groupname | TestakerGroup1 |
+| loginname | pankow |
+| code | |
+| bookletname | BOOKLET4 |
+| unitname | Textmarker |
+| responses | {\"elementCodes\": \"[{\"id\":\"text_1\",\"value\":[\"468-659-#ffa06a\",\"1541-1617-#f9f871\",\"1617-1627-#9de8eb\",\"1627-1726-#f9f871\"],\"status\":\"VALUE_CHANGED\"},{\"id\":\"button_1\",\"status\":\"DISPLAYED\"},{\"id\":\"image_1\",\"value\":false,\"status\":\"DISPLAYED\"},{\"id\":\"checkbox_1\",\"value\":false,\"status\":\"DISPLAYED\"},{\"id\":\"checkbox_2\",\"value\":true,\"status\":\"VALUE_CHANGED\"},{\"id\":\"radio_1\",\"value\":1,\"status\":\"VALUE_CHANGED\"}]\"} |
+| responseType | iqb-standard@1.0 |
+| response-ts | 1,64155E+12 |
+| laststate	| {\"PLAYER\":\"RUNNING\",\"RESPONSE_PROGRESS\":\"complete\",\"PRESENTATION_PROGRESS\":\"complete\"} |
 
-Nach der Eingabe der Zugangsdaten ist der Schalter: **Weiter** zur Anmeldung zu verwenden.
+## Logdaten
 
-## Arbeitsbereich
+Logdaten sind zeitpunktbezogene Zustände. Sie dienen in wissenschaftlichen Erhebungen als wichtige Datenquelle. Darüber können Erkenntnisse erlangt werden, zu denen vorher kein Konzept, keine Hypothese existierte. Aus diesem explorativen Ansatz können neue Ideen für hypothesengeleitete Forschungsprojekte entstehen. Außerdem spielen Logdaten eine wichtige Rolle bei Reanalysen: Nachdem die Fragestellungen der durchgeführten Studie beantwortet sind, können später neue methodische Fortschritte eine erneute Analyse interessant machen. Der "Beifang" -- also Daten ohne direkten Bezug zur ursprünglichen Studie -- wird dann wichtig.
 
-Zur Organisation von Studien stehen Arbeitsbereiche zur Verfügung. Diese legen die Super-Admins an und vergeben die entsprechenden Berechtigungen. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.
+Aktuell gibt es in Deutschland in den großen Studien des Bildungsmonitorings keinen Bedarf für Logdaten. Als Datenquellen für die Kompetenzschätzungen dienen die Antworten, also der jeweils letzte Stand der Beantwortung der Items durch die Testperson. In Befragungen spielen Logdaten ebenfalls keine Rolle. Eine Auswertung der Logdaten erfolgt am IQB in folgenden Zusammenhängen:
 
-Nach der Anmeldung präsentiert das System eine Liste aller Arbeitsbereiche, die für eine Person freigegeben sind. Mit einem Klick auf den jeweiligen Arbeitsbereich wird dieser geöffnet. Zur Liste der Arbeitsbereiche kehrt man zurück, indem man auf das IQB-Logo links oben in der Ecke klickt.
+* Time-on-page: Psychometrisch ist die Verweildauer einer Testperson auf einer Seite interessant. Ein sehr kurzes Verweilen und Beantworten könnte auf eine geringe Testteilnahmemotivation schließen lassen. Es gibt zahlreiche Studien hierzu und das IQB wertet derartige Daten aus, jedoch hat noch kein methodischer Ansatz Eingang in nationale Large Scale Assessments gefunden.
+* Protokollierung technischer Parameter: Aus den Logdaten lassen sich Informationen gewinnen, die für die technische Verbesserung des Testsystems verwendet werden können. Dazu gehören z. B. Betriebssystem und andere Systeminformationen sowie Ladezeiten von Testinhalten. Aufgetretene Probleme könnten so besser untersucht werden.
 
-Der Arbeitsbereich hat drei Grundfunktionen. Diese können mit einem Klick auf den entsprechenden Reiter ausgewählt werden:
+Das Testcenter bietet zwei Möglichkeiten, Logdaten zu erzeugen:
 
-* Dateien
-* System-Check Berichte
-* Ergebnisse/Antworten
+* Logging durch das Testcenter
+* Logging durch den Player: Über die Verona-Schnittstelle können Player Logdaten an den Host geben, und das Testcenter speichert diese Daten in die Datenbank
 
-#### Dateien
+In einem Arbeitsbereich kann man die Logdaten herunterladen. Es handelt sich um eine CSV-Datei mit folgendem Inhalt:
 
-Alle Testinhalte und Definitionen eines Tests bzw. einer Befragung (Testdateien), werden über den Reiter: Dateien in das System hochgeladen. 
+| Spaltenname | Inhalt (Beispiel) |
+|--------|---------------------------------------------|
+| groupname | IQB |
+| loginname | ID94 |
+| code | e4r |
+| bookletname | ABIEVALBOOKLET_ST_MATHEMATIK_GN_WTR |
+| unitname | M02360 |
+| timestamp | 1620629925532 |
+| logentry | PLAYER = LOADING<br/>PRESENTATION_PROGRESS = complete<br/>RESPONSE_PROGRESS = none |
 
-::: {.callout-note}
-Welche Testdateien es gibt und welche Funktionen diese übernehmen ist dem Kapitel: **Daten und Prozesse** zu entnehmen.
-:::
+# Weiterverarbeitung
 
-Sobald eine Datei hochgeladen ist, ist sie wirksam. D. h. unmittelbar nachdem eine Datei mit Zugangsdaten (XML zur Studien-Definition) hochgeladen wurde, kann sich eine Testperson mit diesen Zugangsdaten anmelden. Sollte man feststellen, dass eine Aufgabe Fehler enthält, kann man die Datei zur Aufgabe überarbeiten und erneut in das Testcenter laden. Jeder danach gestartete Test, wird dann die neue Aufgabe verwenden.
+Die Antwortdaten werden vom Player erzeugt. Die Verona-Spezifikationen sehen hier keinen Standard vor. Es werden nur Daten als String transportiert, d. h. die beteiligten Komponenten müssen selbst dafür sorgen, die Daten zu parsen und zu validieren.
 
-::: {.callout-note}
-Weitere Infos zum Laden von Testdateien sind dem Kapitel: **Daten und Prozesse/ Daten Upload** zu entnehmen.
-:::
+Das IQB hat für die Antworten ein [Standardformat](https://iqb-berlin.github.io/coding-info/data-structures/response.html) entwickelt. Die wichtigsten Player des IQB erzeugen diese universelle Antwortstruktur. Andere Tools und Webanwendungen, die das IQB entwickelt und auch unter MIT-Lizenz bereitstellt, setzen dieses Antwortformat voraus.
 
-#### System-Check Berichte
+## itc-ToolBox
 
-Hier können die Berichte, die von einem System-Check erzeugt wurden, heruntergeladen werden. Es handelt sich um CSV-Dateien, die man sich gleich z. B. in Microsoft Excel anschauen kann.
+![Windows-Programm itc-ToolBox](itc-ToolBox.png)
 
-#### Ergebnisse/Antworten
+Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-output.md) liest die Antwort- und Logdaten entweder als CSV oder im direkten Zugriff auf eine IQB-Testcenter-Installation und erstellt eine Excel-Datei. Hier sind alle Antworten tabellarisch geordnet. Außerdem finden sich Daten zu time-on-page und zu den Systemparametern (Betriebssystem, Browser usw.) der Testsitzungen. Wenn die Daten über den Direktzugriff auf eine Testcenter-Installation eingelesen werden, greift die itc-ToolBox auch die Größenangaben der Testinhalte ab und liefert einen Indikator für die Download-Geschwindigkeit in kBytes/sec.
 
-Hier können Antworten und Logs, die über die Tests bzw. Befragungen innerhalb dieses Arbeitsbereiches gespeichert wurden, heruntergeladen werden. Auch hier ist das Dateiformat CSV. Sollte das Testcenter über ein Länderportal verwaltet werden, dann steht hier auch ein Download im JSON-Format zur Verfügung.
+Voraussetzung für die Nutzung der itc-ToolBox ist, dass der Player das [IQB-Standardformat](https://iqb-berlin.github.io/coding-info/data-structures/response.html) für die Speicherung der Antworten benutzt.
 
+## Kodierung
+
+Das IQB stellt Bibliotheken in JavaScript bereit, die eine Weiterverarbeitung unterstützen:
+
+* [responses](https://www.npmjs.com/package/@iqb/responses): Hier finden sich die Datenstrukturen als Interfaces, die automatische Kodierung und die Erzeugung von Textfassungen vom Kodierschema.
+* [coding-components](https://www.npmjs.com/package/@iqb/ngx-coding-components): Html-Komponenten rund um das Kodieren. Hier findet sich auch der Schemer -- die UI, mit der im IQB-Studio das Kodierschema einer Aufgabe interaktiv entwickelt wird.
+
+Voraussetzung für die Nutzung der Bibliotheken ist, dass der Player das [IQB-Standardformat](https://iqb-berlin.github.io/coding-info/data-structures/response.html) für die Speicherung der Antworten benutzt.
+
+Weitere Informationen zu den Programmierungen des IQB zur Kodierung finden Sie in dieser Dokumentation im [Bereich Studio](/Studio/Kodierschema/) sowie separat [an dieser Stelle](https://iqb-berlin.github.io/coding-info/).
+
+## IQB-Kodierbox
+
+Die Webanwendung [IQB-Kodierbox](https://github.com/iqb-berlin/coding-box) ist derzeit noch im Aufbau und wird auf den bisherigen IQB-Bibliotheken zur Kodierung aufbauen und diese erweitern. Als Webanwendung wird sie dem IQB und allen Interessierten vor allem die manuelle Kodierung ermöglichen. Außerdem werden Antwortdaten aus verschiedenen Quellen zusammengespielt und (nach Bedarf gefiltert, aggregiert, transformiert, formatiert) den anschießenden Analyseschritten zur Verfügung zu stellen.
+
+[^1]: Eine Ausnahme bildet die adaptive Testdurchführung: Dann wird das IQB-Standardformat bei den Antworten angenommen und entsprechend eine Kodierung und Bewertung vorgenommen.
