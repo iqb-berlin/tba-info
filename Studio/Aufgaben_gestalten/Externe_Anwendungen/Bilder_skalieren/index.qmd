@@ -1,0 +1,106 @@
+---
+lang: de
+title: "How to: Bilder skalieren in Gimp"
+---
+
+## Warum sollen Bilder skaliert werden?
+
+Nicht alle Bilder passen in ihrer Ursprungsgröße sinnvoll in das IQB-Teststudio (z. B. beim Stimulus). 
+Auch bei der Anlegung der Items sollten in der Regel alle Bilder gleich groß sein, da es visuell sonst zu 
+Problemen kommt. Es sieht verwirrend aus, wenn beispielsweise alle Bilder in einer Drag & Drop 
+Liste oder bei einem Multiple Choice-Item unterschiedlich groß sind. 
+
+Um die gewünschten Bilder in Bezug auf die Größe anzupassen, skalieren wir sie zuvor in gimp und 
+laden sie im Anschluss ins IQB-Teststudio hoch. 
+
+## Gimp herunterladen
+
+Gimp für Windows, Linux oder Mac unter https://www.gimp.org/downloads/ kostenfrei herunterladen und installieren.
+
+## Zieldatei (Bild, das skaliert werden soll) öffnen
+
+(bevorzugt vorher Kopie der Zieldatei erstellen, um diese nicht aus Versehen zu überschreiben)
+
+![](Zieldatei.jpeg)
+
+Eventuell muss GIMP noch per „Andere App auswählen“ manuell ausgewählt werden (dazu die Dateien von GIMP ausfindig machen und die .exe Datei auswählen, danach sollte GIMP standardmäßig in dieser Liste zur Auswahl stehen).
+
+## Bild skalieren
+
+Im IQB-Teststudio skalieren wir die Bilder im Regelfall wie folgt:
+
+*  Drag-and-Drop mehrere Bilder nebeneinander auf 150x150 Pixel, damit 3 Bilder auch auf kleinen Bildschirmen nebeneinander passen (z. B. Vo2_DnD_Bilder_B)
+
+*  Drag-and-Drop mehrere Bilder untereinander auf 175x175 Pixel (z. B. Vo2_DnD_Bilder_A)
+
+::: {.callout-note}
+ bei Drag-and-Drop-Items sollen alle Bilder quadratisch sein, bei Multiple Choice-Items sollen alle Bilder dieselbe Breite haben 
+:::
+
+Menüleiste oben ➔ Bild ➔ Bild skalieren
+
+![](Skalieren.jpeg)
+
+Anschließend die gewünscht Anzahl von Pixeln bei Breite oder Höhe eingeben, der jeweils andere Wert wird automatisch angepasst. Anschließend auf „Skalieren“ klicken.
+
+![](Skalieren_zwei.jpeg)
+
+::: {.callout-important}
+Die Klammer im roten Kreis muss geschlossen bleiben, damit die Seitenverhältnisse beibehalten werden. Bei einem Bild, dessen Höhe und Breite gleich ist, ist das zwar irrelevant. Wenn ich aber ein Bild mit z.B. 1200 x 1000 Pixel auf 200 x 200 skaliere, wird das Bild dabei verzerrt.
+:::
+
+### Bild mit unterschiedlicher Höhe und Breite skalieren 
+
+Hat das Bild, das skaliert werden soll, eine unterschiedliche Höhe und Breite, ist der Vorgang der Skalierung anders als bei Bildern, bei denen Höhe und Breite sind nicht unterscheiden, da es sonst zu Verzerrungen kommt. 
+
+Beipsiel: 
+
+::: {layout="[70,30]" layout-valign="bottom"}
+![546 x 288 Pixel sollen skaliert werden](Skalieren_Normal.jpeg)
+
+![200 x 200 Pixel sehen verzerrt aus](Skalieren_Verzerrt.jpeg)
+:::
+
+**Lösung:** Bild „zu klein“ skalieren, dann weißen Hintergrund auf gewünschte Maße vergrößern
+
+#### a) Bild so skalieren, dass die längere der beiden Seiten den gewünschten Wert annimmt (Klammer weiterhin geschlossen lassen!)
+
+![](Bild_skalieren_Losung_eins.jpeg)
+
+Solange die Klammer geschlossen ist, bleibt das Seitenverhältnis gesperrt und der andere Wert passt sich automatisch an. Anschließend auf „Skalieren“ klicken.
+
+#### b) „Leinwand“ (weißen Hintergrund) vergrößern: Bild ➔ Leinwandgröße
+
+![](Bild_Skalieren_Losung_zwei.jpeg)
+
+::: {layout-ncol=2}
+
+1. Kürzere Seite manuell auf den gewünschten Wert einstellen. (Klammer sollte automatisch offen sein, falls nicht: zum Öffnen anklicken)
+
+2.  Auf „Zentrieren“ klicken,sodass der Inhalt des Bildes in den Mittelpunkt gerückt wird
+
+3.  Ggf. bei „Ebenengrößen ändern“ „Alle“ auswählen.
+
+![](Skalieren_Leinwandgrose.jpeg)
+
+4. Ggf. bei „Füllung“ „Weiß“ auswählen
+
+5. Auf „Größe ändern“ klicken
+
+:::
+
+## Bild als .jpg oder .png exportieren
+
+![](Bild_exportieren.jpeg){width=400}
+
+
+Datei ➔ Exportieren nach … ➔ Speicherort & Dateiformat auswählen (.jpg oder .png manuell 
+eintragen) ➔ Exportieren
+
+![](Bild_exportiere_zwei.jpeg){width=400}
+
+Für JPG Dateien: Qualitätsregler auf 100 stellen
+
+![](Bild_exportieren_drei.jpeg){width=300}
+
+Danach ist das Bild im ausgewählten Ordner mit dem entsprechenden Dateinamen abgespeichert. Nun kann die Datei ins IQB-Teststudio in die gewünschte Aufgabe hochgeladen werden.
