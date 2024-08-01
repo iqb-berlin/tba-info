@@ -10,24 +10,22 @@ Es sind für die Testvorbereitung mindestens 4 Arten von Datendateien erforderli
 ```{mermaid}
 flowchart LR
   A[Basis-Pakete für Player] --> B[Player]
-  style B fill:#a0e3f3
   B --> C[Units]
-  style C fill:#a0e3f3
   C --> D[Booklets]
-  style D fill:#a0e3f3
   D --> E[Testtakers]
-  style E fill:#a0e3f3
 ```
 
 ## Basis-Pakete für Player
 
-Die Verona-Architektur sieht vor, dass ein Player während der Laufzeit Code nachladen darf. Es handelt sich also nicht um Testinhalte, die zu Beginn geladen werden, sondern nach Bedarf. Dieses Vorgehen ist erforderlich z. B. im Zusammenhang mit GeoGebra: Erst wenn die Testperson an eine Stelle kommt innerhalb der Unit, wo eine GeoGebra-Darstellung nötig ist, lädt der Player das Paket. Ob ein Player, der in der Studie verwendet wird, eine solche Abhängigkeit hat, muss der Player-Dokumentation entnommen werden. Ein Basis-Paket ist eine ZIP-Datei.
+Die Verona-Architektur sieht vor, dass ein Player während der Laufzeit Code nachladen darf. Es handelt sich also nicht um Testinhalte, die zu Beginn geladen werden, sondern nach Bedarf. Dieses Vorgehen ist erforderlich z. B. im Zusammenhang mit GeoGebra: Erst wenn die Testperson an eine Stelle kommt innerhalb der Unit, wo eine GeoGebra-Darstellung nötig ist, lädt der Player das Paket. Ob ein Player, der in der Studie verwendet wird, eine solche Abhängigkeit hat, muss der Player-Dokumentation entnommen werden. Ein Basis-Paket ist eine ZIP-Datei und muss die Dateiendung **.itcr.zip** haben.
+
+Das GeoGebra-Paket kann [hier](https://download.geogebra.org/package/geogebra-math-apps-bundle) heruntergeladen werden. Die heruntergeladene Datei muss dann in `GeoGebra.itcr.zip` umbenannt werden und in den Arbeitsbereich geladen werden, in dem sich auch der Player befindet, der GeoGebra als Bedingung enthält. GeoGebra wird aus lizenzrechtlichen Gründen nicht mit dem IQB-Testcenter ausgeliefert.
 
 ## Player
 
 Nicht das Testcenter stellt die Testaufgaben bzw. die Frageitems dar, sondern eine separate Programmierung "Player" ist dafür verantwortlich. Das Testcenter stellt einen Bildschirmbereich dafür bereit und sorgt für das Speichern der Antworten. Dadurch kann flexibel die Art der Darstellung geändert werden. Es kann auch eine neue, nur für diesen Test bestimmte Darstellung erreicht werden, ohne andere Tests zu stören.
 
-Für eine Testdurchführung ist mindestens ein Player notwendig. Es kann vorkommen, dass ein Player ein oder mehrere Basis-Pakete benötigt (s. o.). Ein Player ist eine Html-Datei und folgt der Verona-Spezifikation. Die Player des IQB [finden Sie hier]().
+Für eine Testdurchführung ist mindestens ein Player notwendig. Es kann vorkommen, dass ein Player ein oder mehrere Basis-Pakete benötigt (s. o.). Ein Player ist eine Html-Datei und folgt der Verona-Spezifikation. Die Player des IQB [finden Sie unten](#units-des-iqb).
 
 ## Units
 
@@ -59,7 +57,7 @@ Weiter: [Testtaker-XML im Detail](Testtaker-XML/index.qmd)
 
 Da das Testcenter nur das Hochladen der fertigen Testinhalte unterstützt und komplett auf Dialoge für Parameter verzichtet, muss es andere Wege geben, mit vertretbarem Aufwand zu den Dateien zu kommen.
 
-## Units
+## Units des IQB
 
 Da die Units vom Player abhängig sind, muss man also danach unterscheiden, was der Player benötigt. Für die **IQB-Player** gibt es folgende Optionen:
 
@@ -83,3 +81,46 @@ Durch die vielen Szenarien, die in einer Testtaker-XML abgebildet werden können
 * Das Windows-Programm [itc-ToolBox/Codes](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-codes.md) erzeugt eine große Anzahl eindeutiger Codes, die dann als Grundlage für die Logins genutzt werden können.
 * Das Windows-Programm [itc-ToolBox/QR](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-logins-docx.md) erzeugt nach Einlesen einer Testtaker-Datei Docx-Dateien, die einen QR-Code enthalten können. Diese Funktion wurde programmiert zur Erstellung von Zetteln, die den Testpersonen in die Hand gegeben werden.
 * Beim Export von Units aus dem IQB-Studio kann man angeben, dass das erzeugte Booklet um eine Testtaker-XML ergänzt wird. Für eine definierbare Anzahl Testpersonen werden Logins erzeugt und das Booklet zugewiesen.
+
+# Hochladen / Upload
+
+Man benötigt einen [Schreibzugriff](../workspaces.qmd) auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können.
+
+Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.
+
+Um den Upload zu vereinfachen, können auch **ZIP**-Dateien hochgeladen werden. Das IQB-Studio erzeugt auch den Aufgaben-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!
+
+::: {.callout-important}
+Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer\*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.
+:::
+
+## Warnungen
+
+**File has no link to XSD-Schema**
+
+Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Testheft-Definition, Studien-Definition und Aufgaben-Definition** sind auf unserer [IQB-GitHub-Startseite](https://iqb-berlin.github.io/) unter dem Reiter: **Spezifikationen** im Abschnitt: **IQB-Testcenter: Input Unit-Xml** zu finden.
+
+Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Definition wie folgt eingebunden:
+
+```{.xml}
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd">
+
+```
+**Outdated or wrong version of XSD-schema**
+
+Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.
+
+## Fehlermeldungen
+
+**Ressource not found**
+
+Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Es sind dann zuvor die definierten Ressourcen zu laden.
+
+**Duplicate Login**
+
+In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Definition, ob die darin enthaltenen Zugänge (`name`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.
+
+**Duplicate group**
+
+In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teilnehmer\*innen Gruppen (`group`) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.

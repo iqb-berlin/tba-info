@@ -1,5 +1,83 @@
 ---
 lang: de
 title: "Unit-XML"
+format:
+  html:
+    code-overflow: wrap
+    other-links:
+      - text: XML-Spezifikation für Unit
+        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Unit.xsd
 ---
 
+```{mermaid}
+flowchart LR
+  A[Basis-Pakete für Player] --> B[Player]
+  B --> C[Units]
+  C --> D[Booklets]
+  style C fill:#a0e3f3
+  D --> E[Testtakers]
+```
+
+# Grundstruktur
+
+Das Beispiel zeigt eine minimale Version einer Unit-XML.
+
+```{.xml filename="unit1.xml"}
+<?xml version="1.0"?>
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/13.0.0/definitions/vo_Unit.xsd"> # <1>
+  <Metadata lastChange="2023-01-02T10:22:42.763Z"> # <2>
+    <Id>EAT1</Id>
+    <Label>Arbeit am IQB</Label>
+    <Description/>
+  </Metadata>
+  <Definition player="iqb-player-abi@4.0.0-beta" editor="iqb-editor-plaintext@1.0" lastChange="2022-02-08T16:57:30.000Z"> # <3>
+	iqb-scripted::1.0  # <4>
+	title::Deine Nutzung der eat-Pakete
+	hr
+	text::Durch das Methodenteam des IQB wird eine Reihe von R-Paketen entwickelt und in Stand gehalten, die häufige Arbeitsprozesse automatisieren und vereinfachen sollen. Diese Pakete tragen das Präfix eat („Educational Assessment Tools“).
+
+	multiple-choice::nutzung_eat::1::Nutzt Du eat-Pakete in der Projektarbeit oder eigenen Forschungsarbeit?::Ja##Nein
+	if-start::nutzung_eat::2
+		input-text::hindernis_nutzung::0::Gibt es etwas, das Dich an der Nutzung von (spezifischen) eat-Paketen hindert?::::6
+	if-end
+  </Definition>
+</Unit>
+```
+1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2. Metadaten: Die ID ist zwingend zu deklarieren.
+3. Der Player muss angegeben werden, der Editor ist optional
+4. Unit-Definition: Als Inhalt des Definition-Tags findet sich hier eine einfache Syntax zum Generieren eines Formulars.
+
+
+# Unit-Definition als separate Datei
+
+Im folgenden Beispiel ist das `Definition`-Element ersetzt durch ein `DefinitionRef`-Element. Dann ist die eigentliche Unit-Definition, die dem Player übergeben wird, nicht mehr Teil der Unit-XML.
+
+```{.xml filename="unit2.xml"}
+<?xml version="1.0"?>
+<Unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/13.0.0/definitions/vo_Unit.xsd">
+  <Metadata lastChange="2023-01-02T10:22:42.763Z">
+    <Id>EAT1</Id>
+    <Label>Arbeit am IQB</Label>
+    <Description/>
+  </Metadata>
+  <DefinitionRef player="iqb-player-abi@4.0.0-beta" editor="iqb-editor-plaintext@1.0" lastChange="2022-02-08T16:57:30.000Z">
+    EAT1.voud
+  </DefinitionRef>
+</Unit>
+```
+
+Die Auslagerung der Unit-Definition ist vor allem dann zu empfehlen, wenn es sich um ein besonderes Datenformat handelt, wie z. B. JSON. Eine Einbettung in die Unit-XML würde dazu führen, dass viele Zeichen besonders markiert werden müssen (sog. "Escaping"), damit die XML-Syntax nicht gestört wird. Das ist lästig und führt zu Fehlern.
+
+Als Datei-Endung wird am IQB `.voud` verwendet (für **V**era **O**nline **U**nit **D**efinition). Das ist aber nicht Teil der Spezifikation, sondern kann frei gewählt werden.
+
+# Weitere Unit-Daten
+
+Die Spezifikation der Unit erlaubt noch weit mehr Elemente, als für die Testung erforderlich ist. Grund dafür ist, dass die Unit-XML auch allgemein als Datenaustauschformat verwendet wird. Möchte man z. B. eine Unit, die das IQB im Rahmen der VERA-Testung an die Länder gibt, in einer eigenen Installation des IQB-Studios importieren, dann benötigt man ein Datenformat für alle relevanten Informationen:
+
+* Metadaten: In Units müssen Items definiert werden, und sowohl für die Unit als auch für die Items werden üblicherweise Metadaten hinterlegt. Das betrifft z. B. die geschätzte Schwierigkeit, das Itemformat, den Texttyp usw.
+* Kodierschema: Es müssen Instruktionen oder Regeln gespeichert werden, um eine manuelle oder automatische Kodierung der Antworten durchführen zu können. Für das Testcenter werden diese Informationen nur benötigt, wenn die Testdurchführung adaptiv erfolgt.
+* Variablenliste: Hier werden Informationen gespeichert, die die Variablen innerhalb der Unit-Definition betreffen.
+* Abhängigkeiten: Hier besteht die Möglichkeit, weitere nötige Dateien oder Serveradressen aufzulisten.
