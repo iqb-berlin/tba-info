@@ -3,7 +3,9 @@ lang: de
 title: "Testinhalte"
 ---
 
-# Was sind "Testinhalte"?
+# Begriff "Testinhalte"
+
+Unter Testinhalte werden alle Dateien verstanden, die im Vorfeld eines Tests oder einer Befragung hochgeladen werden müssen. Sie bestimmen die Testitems, den Testablauf und die Personen, die diese Tests durchführen dürfen. Das Testcenter greift nie auf Inhalts-Ressourcen außerhalb der jeweiligen Testcenter-Installation zu.
 
 Es sind für die Testvorbereitung mindestens 4 Arten von Datendateien erforderlich. Die folgende Darstellung zeigt auch die Abhängigkeit der Inhaltsdateien voneinander. Da das Testcenter diese Abhängigkeiten auf Gültigkeit prüft, müssen die Inhaltsdateien in der dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.
 
@@ -14,6 +16,14 @@ flowchart LR
   C --> D[Booklets]
   D --> E[Testtakers]
 ```
+
+Der Name einer Datei spielt allgemein keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:
+
+* Unit-, Booklet- und Testtaker-Dateien müssen die Endung `xml` haben.
+* Ein Player muss die Endung `html` haben.
+* Basis-Pakete müssen die Endung `.itcr.zip` haben.
+* Dateien mit der Endung `zip` werden beim Hochladen ausgepackt und die darin enthaltenen Dateien separat im Arbeitsbereich gespeichert (Ausnahme Basis-Pakete).
+* Eine Unit kann in ihrer XML-Datei weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen `xml`, `html` und `zip` nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.
 
 ## Basis-Pakete für Player
 
