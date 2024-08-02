@@ -38,7 +38,7 @@ Das Beispiel zeigt eine minimale Version einer Booklet-XML.
 </Booklet>
 ```
 1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
-2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen.
+2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.
 3. Units: Die Liste der Units, die präsentiert werden sollen. Die `id` verweist auf eine im Arbeitsbereich vorhandene Unit. Das `label` wird ggf. als Überschrift verwendet. Das `labelshort` wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.
 
 # Booklet-Einstellungen
@@ -110,6 +110,28 @@ Im Testcenter können aber für Units in Blöcken bestimmte Restriktionen gesetz
 
 ::: {.callout-tip}
 Sehen Sie stets alleinstehende Units jeweils vor und nach einem Block mit Restriktionen vor. Das können einfache Ankündigungen sein. Dadurch verhindern Sie, dass die Restriktionen von Blöcken sich gegenseitig behindern und die Testperson weder vor- noch zurückgehen kann.
+:::
+
+Blöcke können **geschachtelt** sein, d. h. Blöcke können wieder Blöcke enthalten usw. Damit können Sie Restriktionen feingranular setzen. Gehen Sie damit vorsichtig um, da Restriktionen sich auch gegenseitig behindern können.
+
+# Unit-Alias
+
+Es mag Units geben, die mehrfach von der Testperson beantwortet werden sollen. Dazu gehören z. B. Fragen zur Einstellung zum Test, da diese sich über den Verlauf des Tests ändern könnte. Auch Feedback-Items, die Kommentare der Testperson an die Macher des Tests abfragen, gehören dazu. Es ist dann kein Versehen, sondern gehört zum Testgegenstand dazu.
+
+Prinzipiell ist das ein Problem, denn die Antworten werden stets der Unit zugeordnet. Diese Zuordnung ist gefährdet, wenn eine Unit mehrfach vorkommt. Daher erzeugt das Testcenter in diesem Fall automatisch einen Alias: An die Unit-Definition wird ein numerischer Suffix angehängt, und die Zuordnung erfolgt korrekt. In den Antwortdaten finden sich dann beide Vorkommen der Unit mit unterschiedlichen Unit-Bezeichnungen.
+
+Dieses automatische Verhalten kann man steuern, indem im Unit-Element das Attribut `alias` gesetzt wird:
+
+```{.xml}
+  <Unit id="Motivation42" alias="Motivation42_Start"
+        label="Eine Frage zum Start" labelshort="1"/>
+  ...
+  <Unit id="Motivation42" alias="Motivation42_End"
+        label="Eine Frage zum Ende" labelshort="18"/>
+```
+
+::: {.callout-caution}
+Wenn eine Unit mehrfach vorkommt, aber in verschiedenen Booklets, kann das Testcenter diese mögliche Kollision der Antwortdaten nicht feststellen. Führen Sie also bei der Verarbeitung der Antwortdaten stets die Booklet-Id mit, um darüber die Eindeutigkeit zu gewährleisten.
 :::
 
 # Angepasste Texte: CustomTexts
