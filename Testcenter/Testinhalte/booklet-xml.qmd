@@ -108,7 +108,7 @@ Im Testcenter können aber für Units in Blöcken bestimmte Restriktionen gesetz
 4. TimeMax: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert. Die Testperson kann das nicht verhindern. Es gibt für den Versuch des vorzeitigen Verlassens des Blockes ein optionales Attribut `leave`, das festlegt, ob eine Warnung ausgegeben wird (Wert `confirm`; Standardverhalten) oder ein Verlassen generell nicht erlaubt wird (Wert `forbidden`).
 5. Mit der Restriktion DenyNavigationOnIncomplete wird das Verlassen einer Unit verhindert, wenn die Präsentation (Attribut `presentation`) und/oder die Antworten (Attribut `response`) unvollständig sind. Die möglichen Werte sind `OFF`-Keine Beschränkung, `ON`-Vorwärtsgehen wird verhindert und `ALWAYS`-Vor- und Rückwärtsgehen wird verhindert. Damit überschreibt man für diesen Block eine ggf. als Booklet-Konfiguration gesetzte Regel (`force_presentation_complete` bzw. `force_response_complete`; beide haben `OFF` als Standard).
 
-::: {.callout-warning}
+::: {.callout-tip}
 Sehen Sie stets alleinstehende Units jeweils vor und nach einem Block mit Restriktionen vor. Das können einfache Ankündigungen sein. Dadurch verhindern Sie, dass die Restriktionen von Blöcken sich gegenseitig behindern und die Testperson weder vor- noch zurückgehen kann.
 :::
 

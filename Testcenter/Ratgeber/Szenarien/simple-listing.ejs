@@ -1,0 +1,19 @@
+```{=html}
+<% for (const item of items) { %>
+    <div class="quarto-post" data-index="0"
+        data-listing-file-modified-sort="1"
+        data-listing-reading-time-sort="1"
+        data-listing-word-count-sort="1"
+        data-categories="null"
+        data-listing-date-sort="null">
+        <div class="body">
+            <h3 class="no-anchor listing-title">
+                <a href="<%- item.path %>"><%= item.title %></a>
+            </h3>
+            <div class="listing-description">
+                <a href="<%- item.path %>" class="no-external" data-original-href="<%- item.path %>"><%= item.description %></a>
+            </div>
+    	</div>
+    </div>
+<% } %>
+```
