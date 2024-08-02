@@ -17,14 +17,6 @@ flowchart LR
   D --> E[Testtakers]
 ```
 
-Der Name einer Datei spielt allgemein keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:
-
-* Unit-, Booklet- und Testtaker-Dateien müssen die Endung `xml` haben.
-* Ein Player muss die Endung `html` haben.
-* Basis-Pakete müssen die Endung `.itcr.zip` haben.
-* Dateien mit der Endung `zip` werden beim Hochladen ausgepackt und die darin enthaltenen Dateien separat im Arbeitsbereich gespeichert (Ausnahme Basis-Pakete).
-* Eine Unit kann in ihrer XML-Datei weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen `xml`, `html` und `zip` nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.
-
 ## Basis-Pakete für Player
 
 Die Verona-Architektur sieht vor, dass ein Player während der Laufzeit Code nachladen darf. Es handelt sich also nicht um Testinhalte, die zu Beginn geladen werden, sondern nach Bedarf. Dieses Vorgehen ist erforderlich z. B. im Zusammenhang mit GeoGebra: Erst wenn die Testperson an eine Stelle kommt innerhalb der Unit, wo eine GeoGebra-Darstellung nötig ist, lädt der Player das Paket. Ob ein Player, der in der Studie verwendet wird, eine solche Abhängigkeit hat, muss der Player-Dokumentation entnommen werden. Ein Basis-Paket ist eine ZIP-Datei und muss die Dateiendung **.itcr.zip** haben.
@@ -98,7 +90,15 @@ Man benötigt einen [Schreibzugriff](../workspaces.qmd) auf einen Arbeitsbereich
 
 Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.
 
-Um den Upload zu vereinfachen, können auch **ZIP**-Dateien hochgeladen werden. Das IQB-Studio erzeugt auch den Aufgaben-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!
+Der Name einer Datei spielt allgemein keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:
+
+* Unit-, Booklet- und Testtaker-Dateien müssen die Endung `xml` haben.
+* Ein Player muss die Endung `html` haben.
+* Basis-Pakete müssen die Endung `.itcr.zip` haben.
+* Dateien mit der Endung `zip` werden beim Hochladen ausgepackt und die darin enthaltenen Dateien separat im Arbeitsbereich gespeichert (Ausnahme Basis-Pakete).
+* Eine Unit kann in ihrer XML-Datei weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen `xml`, `html` und `zip` nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.
+
+Das IQB-Studio erzeugt den Aufgaben-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!
 
 ::: {.callout-important}
 Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer\*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.
