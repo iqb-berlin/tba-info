@@ -625,8 +625,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#tortendiagramm-einfarbig" id="toc-tortendiagramm-einfarbig" class="nav-link active" data-scroll-target="#tortendiagramm-einfarbig">Tortendiagramm einfarbig</a></li>
+  <li><a href="#tortendiagramm-zwei--und-dreifarbig" id="toc-tortendiagramm-zwei--und-dreifarbig" class="nav-link" data-scroll-target="#tortendiagramm-zwei--und-dreifarbig">Tortendiagramm zwei- und dreifarbig</a></li>
+  <li><a href="#tortendiagramm-verschieben" id="toc-tortendiagramm-verschieben" class="nav-link" data-scroll-target="#tortendiagramm-verschieben">Tortendiagramm verschieben</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -650,6 +658,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="tortendiagramm-einfarbig" class="level2">
+<h2 class="anchored" data-anchor-id="tortendiagramm-einfarbig">Tortendiagramm einfarbig</h2>
+<p>Bei dieser Vorlage lassen sich Kreissegmente mit Mausklick auswählen, ausgewählte Segmente sind eingefärbt. Zusätzlich lässt sich der Zielwert für eingefärbte Kreissegmente einstellen, die Aufgabe ist dann richtig bearbeitet, wenn die Zahl der eingefärbten Kreissegmente genau dem Zielwert entspricht. Falls andere Kriterien für die Auswertung gewünscht sind kann der Zielwert ignoriert werden.</p>
+<p>Allgemeine Anleitung zum Umgang mit der Vorlage/den Vorlagen:</p>
+<ol type="1">
+<li>Mit dem Schieberegler für die Zahl „n“ die gewünschte Anzahl Kreissegmente einstellen. Mit dem Schieberegler für die Zahl „Zielwert“ einstellen, wie viele Kreissegmente für die richtige Lösung eingefärbt sein sollen.
+<ol type="a">
+<li>Es ist wichtig, dass die Zahlen über den Schieberegler verändert werden und nicht über die Algebra-Ansicht, weil der Schieberegler ein Skript enthält, ohne das das Diagramm nicht richtig konstruiert wird. <img src="Grafiken/ggb_torte_einfarbig_01.png" class="img-fluid"></li>
+</ol></li>
+<li>Jeweils mit Rechtsklick auf die Schieberegler und im Kontextmenü „Einstellungen“ auswählen.
+<ol type="a">
+<li>Alternativ lässt sich das Menü „Einstellungen“ auch über die Algebra-Ansicht ansteuern. <img src="Grafiken/ggb_torte_einfarbig_02.png" class="img-fluid"></li>
+</ol></li>
+<li>Haken setzen bei „Objekt fixiert“, Haken entfernen bei „Objekt anzeigen“ und „Auswahl erlaubt“
+<ol type="a">
+<li>Ggf. muss das GeoGebra Fenster dafür vergrößert werden, dieses anschließend einfach wieder kleiner ziehen <img src="Grafiken/ggb_torte_einfarbig_03.png" class="img-fluid"> <img src="Grafiken/ggb_torte_einfarbig_04.png" class="img-fluid"> <img src="Grafiken/ggb_torte_einfarbig_05.png" class="img-fluid"></li>
+</ol></li>
+<li>Einstellungen wieder schließen. Beide Schieberegler sollten versteckt sein.</li>
+<li>„Werkzeugleiste anpassen“ -&gt; Alle Werkzeuge entfernen und Einstellungen übernehmen.</li>
+<li>Speichern</li>
+</ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -660,11 +689,63 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Hier entsteht eine GeoGebra Anleitung</p>
+<p>In der Algebra-Ansicht findet sich eine Reihe von Wahrheitswerten, die mit der Auswertung der Aufgabe zusammenhängen. Ändert man diese manuell, zum Beispiel indem man versehentlich in die Liste mit Wahrheitswerten klickt, so kann dies die korrekte Auswertung der Aufgabe gefährden! Daher ist es am besten man benutzt erst gar nicht die Algebra-Ansicht, wenn es nicht sein muss.</p>
+</div>
+</div>
+</section>
+<section id="tortendiagramm-zwei--und-dreifarbig" class="level2">
+<h2 class="anchored" data-anchor-id="tortendiagramm-zwei--und-dreifarbig">Tortendiagramm zwei- und dreifarbig</h2>
+<p>Diese Vorlagen erlauben einen Farbwechsel, wenn die Kreissegmente angeklickt werden. Zweifarbig bedeutet, es gibt zwei Farben und weiß, d.h. zunächst werden die Kreissegmente weiß dargestellt, beim ersten Klick auf ein Kreissegment wird es in die erste Farbe umgefärbt, beim zweiten Klick in die zweite und beim dritten Klick zurück zu weiß. Die dreifarbige Vorlage funktioniert analog mit einer dritten Farbe.</p>
+<p>Anleitung:</p>
+<ol type="1">
+<li>Schieberegler einstellen, analog zum Tortendiagramm einfarbig oben.
+<ol type="a">
+<li>Zielwerte können hier für alle Farben eingestellt werden. Nicht benötigte Schieberegler kann man ignorieren.</li>
+</ol></li>
+<li>Zusätzlich kann man hier die Farben einstellen, die die Kreissegmente annehmen. Dazu dienen die drei/vier Textobjekte auf der linken Seite, die als Farbe0, Farbe1, etc. beschriftet sind.
+<ol type="a">
+<li>Farbe0 ist die Farbe, die die Kreissegmente haben, wenn sie noch nicht angeklickt sind, Farbe1 die Farbe nach dem ersten Klick, usw.</li>
+<li>Die Farben sind angegeben als Hexadezimalcode mit Transparenzwert, d.h. in der Form: “#AARRGGBB” wobei AA für Transparenz steht, RR für Rot, GG für Grün und BB für Blau. Für „AA“ wählt man eine Hexadezimalzahl zwischen 01 (volle Transparenz) und FF (keine Transparenz). Der Wert 80 entspricht 50% Transparenz. Für „RRGGBB“ setzt man den Hexadezimalcode für die gewünschte Farbe ein.</li>
+</ol></li>
+<li>Wenn man mit den Farben zufrieden ist, kann man per Rechtsklick auf die Textobjekte zugreifen und sie verstecken, genau wie die Schieberegler.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es ist auch möglich mit mehr als drei Farben zu arbeiten, aber das erfordert Änderungen im Skript, siehe Expertenanleitung.</p>
+</div>
+</div>
+</section>
+<section id="tortendiagramm-verschieben" class="level2">
+<h2 class="anchored" data-anchor-id="tortendiagramm-verschieben">Tortendiagramm verschieben</h2>
+<p>Bei dieser Vorlage lässt sich ein Punkt eines Kreissektor auswählen und verschieben, d.h. Schüler*innen können stufenlos einen Anteil des Kreises auswählen.</p>
+<p>Anleitung:</p>
+<ol type="1">
+<li>Schieberegler verwenden wie in der Anleitung von Tortendiagramm einfarbig oben beschrieben</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Werkzeugleiste sollte nicht verändert werden, denn um den Punkt zu bewegen braucht man das „Bewege“ Werkzeug.</p>
 </div>
 </div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1126,7 +1207,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
