@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../../">
-<link href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_einfarben/index.html" rel="next">
+<link href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_skalieren/index.html" rel="next">
 <link href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/GeoGebra.html" rel="prev">
 <link href="../../../../../favicon.ico" rel="icon">
 <script src="../../../../../site_libs/quarto-html/quarto.js"></script>
@@ -544,12 +544,6 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to: Bilder einfärben</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to: Bilder skalieren in Gimp</span></a>
   </div>
@@ -601,6 +595,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung">Einleitung</a></li>
+  <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link" data-scroll-target="#erste-schritte">Erste Schritte</a></li>
+  <li><a href="#werkzeuge-benutzen-elemente-hinzufügen" id="toc-werkzeuge-benutzen-elemente-hinzufügen" class="nav-link" data-scroll-target="#werkzeuge-benutzen-elemente-hinzufügen">Werkzeuge benutzen, Elemente hinzufügen</a></li>
+  <li><a href="#koordinatensystem-und-punktfang-einstellen" id="toc-koordinatensystem-und-punktfang-einstellen" class="nav-link" data-scroll-target="#koordinatensystem-und-punktfang-einstellen">Koordinatensystem und Punktfang einstellen</a></li>
+  <li><a href="#elemente-entfernen" id="toc-elemente-entfernen" class="nav-link" data-scroll-target="#elemente-entfernen">Elemente entfernen</a></li>
+  <li><a href="#algebraansicht" id="toc-algebraansicht" class="nav-link" data-scroll-target="#algebraansicht">Algebraansicht</a></li>
+  <li><a href="#einstellungen-der-elemente" id="toc-einstellungen-der-elemente" class="nav-link" data-scroll-target="#einstellungen-der-elemente">Einstellungen der Elemente</a></li>
+  <li><a href="#positionierung-des-bildschirms" id="toc-positionierung-des-bildschirms" class="nav-link" data-scroll-target="#positionierung-des-bildschirms">Positionierung des Bildschirms</a></li>
+  <li><a href="#werkzeuge-anpassen" id="toc-werkzeuge-anpassen" class="nav-link" data-scroll-target="#werkzeuge-anpassen">Werkzeuge anpassen</a></li>
+  <li><a href="#dateien-speichern-und-öffnen" id="toc-dateien-speichern-und-öffnen" class="nav-link" data-scroll-target="#dateien-speichern-und-öffnen">Dateien speichern (und öffnen)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -626,25 +629,249 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="einleitung" class="level2">
+<h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
+<p>GeoGebra ist eine vielseitige Anwendung, die es uns erlaubt Aufgaben zu konstruieren, die sonst nicht im Studio möglich wären. Schüler*innen können zeichnen, mit Diagrammen interagieren und Figuren verschieben. Sogar Aufgaben in 3D sind denkbar, wurden bisher aber noch nicht entwickelt.</p>
+<p>Im Folgenden wird auf die wichtigsten Features von GeoGebra zur Entwicklung von Aufgaben für das IQB Studio eingegangen. Dazu gibt es ein Beispiel einer Aufgabe, die wir von Null entwickeln. Es gibt allerdings auch Vorlagen für häufig vorkommende Aufgabentypen mit eigenen, ausführlichen Anleitungen.</p>
+<p>Falls Sie noch nie mit GeoGebra gearbeitet haben empfehlen wir, diese Anleitung zuerst zu lesen und das Beispiel Schritt für Schritt mitzugehen. Danach können Sie sich an jede Art von Aufgabe wagen. Sollten Sie einmal nicht weiterkommen hilft Ihnen diese Anleitung, das offizielle <a href="https://wiki.geogebra.org/de/Men%C3%BCleiste">GeoGebra Wiki</a> oder die Suchmaschine Ihrer Wahl.</p>
+</section>
+<section id="erste-schritte" class="level2">
+<h2 class="anchored" data-anchor-id="erste-schritte">Erste Schritte</h2>
+<p>Im Laufe dieser Anleitung bauen wir eine einfache Aufgabe ohne eine Vorlage zu verwenden. Bei der Aufgabe wird ein Dreieck vorgegeben und die Schüler*innen sollen es entlang der Hypotenuse spiegeln. An einigen Stellen werden Sie aufgefordert, selbst in GeoGebra zu arbeiten. Sie können also immer die Anleitung lesen, bis Sie aufgefordert werden, selbst tätig zu werden. Bevor wir beginnen müssen wir die GeoGebra App herunterladen und installieren. Dazu gehen wir auf <a href="https://www.geogebra.org/download">diese Webseite</a> und laden „GeoGebra Classic 6“ herunter.</p>
+<p><img src="Grafiken/ggb_allg_download.png" class="img-fluid"></p>
+</section>
+<section id="werkzeuge-benutzen-elemente-hinzufügen" class="level2">
+<h2 class="anchored" data-anchor-id="werkzeuge-benutzen-elemente-hinzufügen">Werkzeuge benutzen, Elemente hinzufügen</h2>
+<p>Wenn wir GeoGebra öffnen sehen wir zunächst diesen Bildschirm:</p>
+<p><img src="Grafiken/ggb_allg_geometrieauswahl.png" class="img-fluid"></p>
+<p>Auf der rechten Seite können wir aus einer Reihe von Voreinstellungen wählen, meist ist „Geometrie“ die passende Option, daher wählen wir sie für unser Beispiel. Anschließend sehen wir folgende Benutzeroberfläche:</p>
+<p><img src="Grafiken/ggb_allg_beispiel-geometrieansicht.png" class="img-fluid"></p>
+<p>Dies ist die sogenannte „Geometrieansicht“ die, wie der Name andeutet, mehrere Werkzeuge für geometrische Konstruktion besitzt. Die Werkzeuge sind oben in einer Reihe angeordnet. Probieren Sie gerne aus, was die einzelnen Werkzeuge machen. Sollten die Auswahl der verschiedenen Ansichten nicht direkt angezeigt werden, kann man auch einfach den Rechner unten schließen, indem man auf das Kreuz klicken.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Jetzt sind Sie dran!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Hier entsteht die Allgemeine Anleitung für GeoGebra.</p>
+<p>Öffnen Sie GeoGebra und wählen Sie „Geometrie“ aus wie im Beispiel. Versuchen Sie mit den Werkzeugen erst ein Dreieck zu konstruieren und dann den zugehörigen Umkreis. Hinweis: Sie können den letzten Schritt rückgängig machen, indem Sie entweder die Tastenkombination Strg+Z (Windows) bzw. CMD+Z (Mac) benutzen oder das Pfeil zurück Symbol <img src="Grafiken/ggb_allg_pfeilzuruck.png" class="img-fluid"> oben rechts anklicken.</p>
 </div>
 </div>
-<section id="einleitung" class="level2">
-<h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>GeoGebra ist eine vielseitige Anwendung, die es uns erlaubt Aufgaben zu konstruieren, die sonst nicht im Studio möglich wären. Schüler*innen können zeichnen, mit Diagrammen interagieren und Figuren verschieben. Sogar Aufgaben in 3D sind denkbar, wurden bisher aber noch nicht entwickelt.</p>
-<p>Im Folgenden wird auf die wichtigsten Features von GeoGebra zur Entwicklung von Aufgaben für das IQB Studio eingegangen. Dazu gibt es ein Beispiel einer Aufgabe, die wir von Null entwickeln. Es gibt allerdings auch Vorlagen für häufig vorkommende Aufgabentypen mit eigenen, ausführlichen Anleitungen.</p>
-<p>Falls Sie noch nie mit GeoGebra gearbeitet haben empfehlen wir, diese Anleitung zuerst zu lesen und das Beispiel Schritt für Schritt mitzugehen. Danach können Sie sich an jede Art von Aufgabe wagen. Sollten Sie einmal nicht weiterkommen hilft Ihnen diese Anleitung, das offizielle <a href="https://wiki.geogebra.org/de/Men%C3%BCleiste">GeoGebra Wiki</a> oder die Suchmaschine Ihrer Wahl.</p>
-<p><img src="Grafiken/ggb_allg_download.png" class="img-fluid"></p>
+</section>
+<section id="koordinatensystem-und-punktfang-einstellen" class="level2">
+<h2 class="anchored" data-anchor-id="koordinatensystem-und-punktfang-einstellen">Koordinatensystem und Punktfang einstellen</h2>
+<p>Bisher arbeiten wir noch auf einem weißen Hintergrund. In diesem Schritt wollen wir das ändern und ein Koordinatensystem einführen. Außerdem wollen wir verhindern, dass Punkte außerhalb eines bestimmten Rasters ausgewählt werden können.</p>
+<p>Während das Auswahl-Werkzeug <img src="Grafiken/ggb_allg_Zeiger-Werkzeug.png" class="img-fluid" width="28"> aktiv ist, klicken Sie auf das Menüsymbol <img src="Grafiken/ggb_allg_menu-button.png" class="img-fluid" width="28"> und es öffnet sich das folgende Kontextmenü:</p>
+<p><img src="Grafiken/ggb_allg_geometriemenu.png" class="img-fluid"></p>
+<p>Dieses Menü ist abhängig von dem aktiven Werkzeug: Wenn das Punkt-Werkzeug ausgewählt ist können wir z.B. die Größe und Farbe der Punkte verändern, die wir mit dem Werkzeug setzen. Im Moment ist das Auswahl-Werkzeug aktiv, daher sehen wir einige Optionen, die mit der aktuellen Ansicht zu tun haben.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 85%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><img src="Grafiken/ggb_allg_koordinatensystem-button.png" class="img-fluid"></td>
+<td>Mit diesem Knopf können wir das Koordinatensystem anzeigen bzw. verbergen.</td>
+</tr>
+<tr class="even">
+<td><img src="Grafiken/ggb_allg_raster-button.png" class="img-fluid"></td>
+<td>Mit diesem Knopf können wir ein zugrundeliegendes Raster auswählen.</td>
+</tr>
+<tr class="odd">
+<td><img src="Grafiken/ggb_allg_punktfang-button.png" class="img-fluid"></td>
+<td>Mit diesem Knopf kommen wir zu den Optionen für den Punktfang, d.h. ob neu gesetzte Punkte frei gesetzt werden können, sich am Raster orientieren oder nur auf dem Raster gesetzt werden können.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wir wollen eine Aufgabe mit Hintergrundraster, aber ohne Koordinatensystem anlegen. Zur einfacheren Bearbeitung sollen Punkte nur auf dem Raster gesetzt werden können. Versuchen Sie dies einzustellen und testen Sie dann mit dem Punkt-Werkzeug, ob der Punktfang wie gewünscht funktioniert.</p>
+</div>
+</div>
+</section>
+<section id="elemente-entfernen" class="level2">
+<h2 class="anchored" data-anchor-id="elemente-entfernen">Elemente entfernen</h2>
+<p>Unsere Aufgabe sollte jetzt ungefähr so aussehen :</p>
+<p><img src="Grafiken/ggb_allg_beispiel-dreieck2.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sieht Ihre Aufgabe ganz anders aus?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Wenn Ihre Aufgabe von dem gezeigten abweicht, z.B. weil Sie das „Vieleck“ Werkzeug benutzt haben, dann ist das kein Problem, die nachfolgenden Anweisungen können Sie leicht an Ihre Aufgabe anpassen. Alternativ können Sie natürlich auch die Aufgaben bauen, wie hier gezeigt, indem Sie drei Punkte setzen und diese dann durch Strecken verbinden.</p>
+</div>
+</div>
+</div>
+<p>Hier sind noch einige Informationen, die für die Aufgabe später nicht relevant sein werden, etwa die Beschriftung der Seiten. Zunächst wollen wir aber den Umkreis entfernen, den wir nur zur Übung hinzugefügt haben. Per Rechtsklick auf den Kreis öffnet sich ein Kontextmenü. Dort können wir einfach „Löschen“ wählen.</p>
+<p><img src="Grafiken/ggb_allg_kontextmenue-elemente.png" class="img-fluid"> Alternativ können wir das Löschwerkzeug benutzen, das sich unter dem Verschiebe-Werkzeug verbirgt: <img src="Grafiken/ggb_allg_verschiebe-symbol.png" class="img-fluid" width="28"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Löschen Sie den Umkreis und alle anderen Elemente, die wir nicht mehr benötigen. Lassen Sie das Dreieck, das aus drei Punkten und drei Strecken besteht, so wie es ist.</p>
+</div>
+</div>
+</section>
+<section id="algebraansicht" class="level2">
+<h2 class="anchored" data-anchor-id="algebraansicht">Algebraansicht</h2>
+<p>Jetzt sind die unnötigen Elemente nicht mehr im Weg, aber wir sehen immer noch Dinge, die wir nicht brauchen: Zum einen die Beschriftung der Seiten bzw. Strecken, zum anderen die Punkte inklusive ihrer Beschriftung.</p>
+<p>Nun können wir leider die Punkte nicht löschen, denn wenn wir das tun, werden auch die zugehörigen Strecken gelöscht. ::: {.callout-tip collapse=“true”} ## Warum ist das so? Das liegt daran, dass GeoGebra Elemente voneinander abhängig aufbaut. In diesem Fall sind die Strecken über die Punkte definiert, also z.B. ist f die Strecke zwischen den Punkten A und B. Ohne die Punkte kann GeoGebra die Strecke nicht mehr definieren und löscht sie gleich mit. ::: Und die Beschriftung der Seiten könnte man zwar über das Kontextmenü ausschalten, aber es gibt eine Möglichkeit, wie wir bei mehreren Elementen gleichzeitig die Einstellungen ändern können: Die Algebraansicht.</p>
+<p>Diese öffnen wir über das Hauptmenü von GeoGebra wie folgt:</p>
+<p><img src="Grafiken/ggb_allg_Hauptmenu-algebraansicht.png" class="img-fluid"></p>
+<p>Danach sollte der Bildschirm ungefähr so aussehen:</p>
+<p><img src="Grafiken/ggb_allg_Hauptmenu-algebraansicht2.png" class="img-fluid"></p>
+<p>Mit einem erneuten Klick auf das Symbol für das Hauptmenü <img src="Grafiken/ggb_allg_hauptmenu-button.png" class="img-fluid" width="28"> schließen wir es.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Öffnen Sie jetzt auch die Algebraansicht. Dazu gehen Sie in das Hauptmenü, klicken auf „Ansicht“ und wählen dann „Algebra“ aus, wie oben beschrieben. Schließen Sie dann das Hauptmenü.</p>
+</div>
+</div>
+</section>
+<section id="einstellungen-der-elemente" class="level2">
+<h2 class="anchored" data-anchor-id="einstellungen-der-elemente">Einstellungen der Elemente</h2>
+<p>Nun sehen wir links eine Liste aller Elemente in unserer GeoGebra Datei. Die Punkte, die über ihre Koordinaten definiert sind, sowie die Strecken, die über die Punkte definiert sind. ::: {.callout-tip collapse=“true”} ## In Ihrer Aufgabe stehen andere Namen für die Elemente? Auch hier kann es zu leichten Abweichungen kommen, je nachdem, wie Sie Ihr Dreieck gebaut haben. Solange Sie aber Punkte und Strecken haben können Sie die kommenden Beispiele nachvollziehen. ::: Im nächsten Schritt wollen wir uns die Einstellungen eines Objekts angucken und verhindern, dass unser gebautes Dreieck irgendwie verändert werden kann.</p>
+<p>Um die Einstellungen eines Elements zu öffnen klickt man in der Algebraansicht, d.h. in der Liste der Elemente auf die drei Punkte rechts von dem Element, dessen Einstellungen man bearbeiten möchte.</p>
+<p><img src="Grafiken/ggb_allg_beispiel-algebra-einstellungen.png" class="img-fluid"></p>
+<p>Und in dem sich öffnenden Kontextmenü wählt man „Einstellungen“ aus:</p>
+<p><img src="Grafiken/ggb_allg_beispiel-algebra-kontext.png" class="img-fluid"></p>
+<p>Danach sollten die Einstellungen für das ausgewählte Element auf der rechten Seite angezeigt werden.</p>
+<p><img src="Grafiken/ggb_allg_beispiel-einstellungen.png" class="img-fluid"></p>
+<p>In diesem Menü können wir alle Einstellungen des Elements ändern. Oben finden sich 5 Reiter, wir befinden uns im Moment in den „Grundeinstellungen“. Weiter unten sind Auswahlkästchen für „Objekt anzeigen“ und „Objekt fixieren“. Bei diesen wollen wir das Häkchen entfernen bzw. setzen, sodass der Punkt nicht angezeigt wird, aber fixiert ist.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warum diese Einstellungen?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Der Punkt sollte fixiert sein, damit wir ihn nicht versehentlich beim weiteren Erstellen der Aufgabe ändern. Die Punkte sollten am Ende nicht angezeigt werden, weil sie zum Bearbeiten der Aufgabe nicht nötig sind.</p>
+</div>
+</div>
+</div>
+<p>Nun kann man fast gar nicht mehr mit dem Punkt interagieren, aber man könnte ihn noch mit dem Löschen Werkzeug entfernen. Um das zu ändern wechseln wir zum Reiter „Erweitert“.</p>
+<p><img src="Grafiken/ggb_allg_beispiel-algebra-einstellungen-erweitert.png" class="img-fluid"></p>
+<p>Dort finden wir die Einstellung „Auswahl erlaubt“ und entfernen das Häkchen. Jetzt ist es unmöglich mit dem Punkt zu interagieren, es sei denn man setzt die Einstellungen des Punkts zurück. Die Punkte bleiben nur noch bestehen, um die Strecken zu definieren.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Stellen Sie bei den drei Punkten die Einstellungen um wie oben beschrieben. Zuerst entfernen Sie das Häkchen bei „Objekt anzeigen“, dann setzen Sie eines bei „Objekt fixieren“. Wechseln Sie dann zu den erweiterten Einstellungen und entfernen das Häkchen bei „Auswahl erlaubt“.</p>
+<p>Bei den Strecken setzen Sie das Häkchen bei „Objekt fixieren“ aber entfernen es nicht bei „Objekt anzeigen“. Außerdem sollten Sie noch das Häkchen bei „Beschriftung anzeigen“ entfernen. Dann wechseln Sie zu den erweiterten Einstellungen um bei „Auswahl erlaubt“ ein Häkchen zu setzen.</p>
+</div>
+</div>
+<p>Wenn wir die Einstellungen schließen, mit dem Kreuz oben rechts, dann sollte unsere Aufgabe ungefähr so aussehen:</p>
+<p><img src="Grafiken/ggb_allg_beispiel-dreieck3.png" class="img-fluid"></p>
+</section>
+<section id="positionierung-des-bildschirms" class="level2">
+<h2 class="anchored" data-anchor-id="positionierung-des-bildschirms">Positionierung des Bildschirms</h2>
+<p>Nun haben wir unser Dreieck mit allen gewünschten Einstellungen. Wir können uns darauf vorbereiten, die Aufgabe zu speichern. Dazu müssen wir den Inhalt unserer Aufgabe richtig positionieren und dann die Werkzeuge anpassen.</p>
+<p>Zunächst wollen wir die Algebraansicht wieder schließen, indem wir das Hauptmenü öffnen, „Ansicht“ anklicken und dann Algebra abwählen.</p>
+<p><img src="Grafiken/ggb_allg_Hauptmenu-algebraansicht2.png" class="img-fluid"></p>
+<p>Danach können wir sehen, wo genau unser Dreieck sich gerade befindet. Wir positionieren es jetzt so, dass oben links noch genug Platz ist, um die Aufgabe sinnvoll zu bearbeiten. Ungefähr so:</p>
+<p><img src="Grafiken/ggb_allg_beispiel-dreieck-position.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Schließen auch Sie die Algebraansicht und positionieren Sie anschließend den Bildschirm mit dem Auswahlwerkzeug, wie Sie es für sinnvoll halten.</p>
+</div>
+</div>
+</section>
+<section id="werkzeuge-anpassen" class="level2">
+<h2 class="anchored" data-anchor-id="werkzeuge-anpassen">Werkzeuge anpassen</h2>
+<p>Im Moment stehen noch viel zu viele Werkzeuge zur Verfügung. Zur Bearbeitung einer Aufgabe werden meist nur eine sehr begrenzte Anzahl von Werkzeugen zur Verfügung gestellt. Für diese Aufgabe wollen wir nur ein Werkzeug, das Strecken einzeichnet und ein Werkzeug, das Elemente löschen kann.</p>
+<p>Um die Werkzeuge zu ändern müssen wir wieder ins Hauptmenü und dort erst den Eintrag „Werkzeuge“, dann „Werkzeugleiste anpassen“ auswählen.</p>
+<p><img src="Grafiken/ggb_allg_hauptmenu-werkzeuge.png" class="img-fluid"></p>
+<p>Dann sehen wir dieses Menü:</p>
+<p><img src="Grafiken/ggb_allg_werkzeugmenu.png" class="img-fluid"></p>
+<p>Links sind die Werkzeuge, die wir in der Werkzeugleiste haben, rechts die, die dort nicht angezeigt werden. Im Moment sind fast alle Werkzeuge in unserer Leiste. Dies wollen wir ändern, indem wir sie von links nach rechts in die andere Liste ziehen. Die gewünschten Werkzeuge „Strecke“ und „Löschen“ können wir anschließend wieder von rechts nach links ziehen.</p>
+<p>Das sollte dann so aussehen:</p>
+<p><img src="Grafiken/ggb_allg_werkzeugmenu-fertig.png" class="img-fluid"></p>
+<p>Wir bestätigen unsere Auswahl, indem wir auf „Übernehmen“ klicken.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Öffnen Sie das Werkzeugmenü über das Hauptmenü und verschieben Sie erst alle unnötigen Werkzeuge nach rechts, dann die benötigten nach rechts.</p>
+</div>
+</div>
+<p>Und unsere Aufgabe sollte dann so aussehen:</p>
+<p><img src="Grafiken/ggb_allg_beispiel-dreieck-fertig.png" class="img-fluid"></p>
+</section>
+<section id="dateien-speichern-und-öffnen" class="level2">
+<h2 class="anchored" data-anchor-id="dateien-speichern-und-öffnen">Dateien speichern (und öffnen)</h2>
+<p>Wir sind fast fertig, unsere Aufgabe muss nur noch gespeichert werden. Dazu öffnen wir wieder das Hauptmenü, klicken dann auf „Datei“, „Herunterladen als…“ und zuletzt „GeoGebra Datei (.ggb)“.</p>
+<p>::: {.callout-tip collapse=“true”} ## Warum speichern wir auf diese Weise? Diese Methode zum Speichern ist die Verlässlichste. GeoGebra bietet zwar auch die Option „Auf dem Computer speichern“ aber in der Vergangenheit kam es dabei zu Fehlern, die die Datei unbrauchbar machten. Daher wird „Herunterladen als…“ zum Speichern der Datei empfohlen. ::: Es ist auch eine gute Idee, die Datei vorher noch einmal zu prüfen, ob alles funktioniert wie es soll. Z.B. ob der Punktfang richtig eingestellt ist und ob unser Dreieck von dem Löschen Werkzeug gelöscht werden kann, das sollte es nicht. In diesem Fall müssten wir noch einmal die Einstellungen der Objekte durchgehen, s. Abschnitt Algebraansicht.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jetzt sind Sie dran!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Speichern Sie jetzt die Datei wie beschrieben. Wählen Sie einen geeigneten Speicherort und klar zuordbaren Namen.</p>
+</div>
+</div>
+<p>Damit haben Sie die Anleitung zum Anlegen einer GeoGebra Aufgabe erfolgreich abgeschlossen! Wenn Sie eigene Aufgaben entwickeln empfiehlt es sich in den meisten Fällen, die Vorlagen vom IQB zu verwenden. Sehen Sie sich dazu auch die spezifischen Anleitungen an.</p>
 
 
 </section>
@@ -1084,8 +1311,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_einfarben/index.html" class="pagination-link" aria-label="How to: Bilder einfärben">
-        <span class="nav-page-text">How to: Bilder einfärben</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_skalieren/index.html" class="pagination-link" aria-label="How to: Bilder skalieren in Gimp">
+        <span class="nav-page-text">How to: Bilder skalieren in Gimp</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
