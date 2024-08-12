@@ -654,15 +654,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#formel" id="toc-formel" class="nav-link" data-scroll-target="#formel">Formel</a></li>
   <li><a href="#rechenkästchen" id="toc-rechenkästchen" class="nav-link" data-scroll-target="#rechenkästchen">Rechenkästchen</a></li>
   </ul></li>
-  <li><a href="#auswahl" id="toc-auswahl" class="nav-link" data-scroll-target="#auswahl">Auswahl</a>
-  <ul class="collapse">
-  <li><a href="#optionsfelder-mc" id="toc-optionsfelder-mc" class="nav-link" data-scroll-target="#optionsfelder-mc">Optionsfelder (MC)</a></li>
-  <li><a href="#optionentabelle-cmc" id="toc-optionentabelle-cmc" class="nav-link" data-scroll-target="#optionentabelle-cmc">Optionentabelle (CMC)</a></li>
-  <li><a href="#klappliste" id="toc-klappliste" class="nav-link" data-scroll-target="#klappliste">Klappliste</a></li>
-  <li><a href="#kontrollkästchen" id="toc-kontrollkästchen" class="nav-link" data-scroll-target="#kontrollkästchen">Kontrollkästchen</a></li>
-  <li><a href="#schieberegler" id="toc-schieberegler" class="nav-link" data-scroll-target="#schieberegler">Schieberegler</a></li>
-  <li><a href="#bildbereiche" id="toc-bildbereiche" class="nav-link" data-scroll-target="#bildbereiche">Bildbereiche</a></li>
-  </ul></li>
+  <li><a href="#auswahl" id="toc-auswahl" class="nav-link" data-scroll-target="#auswahl">Auswahl</a></li>
   <li><a href="#zuordnung" id="toc-zuordnung" class="nav-link" data-scroll-target="#zuordnung">Zuordnung</a>
   <ul class="collapse">
   <li><a href="#ablegeliste-drag-drop-dad" id="toc-ablegeliste-drag-drop-dad" class="nav-link" data-scroll-target="#ablegeliste-drag-drop-dad">Ablegeliste (Drag &amp; Drop, DaD)</a></li>
@@ -745,21 +737,31 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="eingabefeld">Eingabefeld</h3>
 <p><img src="Grafiken/eingabe_ef.png" class="img-fluid"></p>
 <p>Eingabefelder sind Elemente für einzeilige Textantworten.</p>
+<p>Elementspezifische Einstellungen</p>
+<p>Ein Eingabeelement lässt sich mit einer Beschriftung versehen, die verschwindet, sobald etwas in dem Eingabeelement eingetragen wird.</p>
+<p>Eingabeelemente können als schreibgeschützt eingestellt werden, damit der Inhalt nicht verändert werden kann, z.B. wenn man ein Beispiel darstellen möche.</p>
+<p>Eingabeelemente können eine Vorbelegung erhalten. Das ist nützlich für Beispiele oder Aufgaben, bei denen Sätze korrigiert werden sollen.</p>
+<p>Meist sind die Eingabeelemte umrandet dargestellt, es gibt aber auch die Option “ausgefüllt”, die nur eine Unterstreichung bietet.</p>
+<p>Eingabefelder (nicht -bereiche) können eine Maximallänge erhalten. Wird diese überschritten erscheint eine Warnung. Alternativ kann man auch die Eingabe auf die Maximallänge begrenzen. Standardmäßig ist die Eingabe unbegrenzt.</p>
+<p>Eingabeelemente können mit einer Eingabehilfe versehen werden. Dazu muss zunächst die IQB-Tastatur aktiviert werden, indem man “Tastatur einblenden” auswählt, dann kann die Eingabehilfe eingestellt werden. Dazu gibt es eine Reihe von Voreinstellungen oder die Möglichkeit eine eigene Zeichenkette einzugeben indem man “Eigene Zeichen” auswählt. Anschließend kann man noch die Position der Eingabehilfe verändern, Pfeiltasten zum Navigieren innerhalb der Eingabe und eine Löschtaste hinzufügen (nützlich für Aufgaben an mobilen Geräten) und die Bearbeitung anderer Zeichen verhindern. Letzteres bedeutet, dass nur die Zeichen aus der Eingabehilfe hinzugefügt oder entfernt werden können und kann z.B. verwendet werden bei Aufgaben, bei denen Satzzeichen in einen Satz eingefügt werden sollen.</p>
 </section>
 <section id="eingabebereich" class="level3">
 <h3 class="anchored" data-anchor-id="eingabebereich">Eingabebereich</h3>
 <p><img src="Grafiken/eingabe_eb.png" class="img-fluid"></p>
 <p>Eingabebereiche sind Elemente für mehrzeilige Textantworten.</p>
+<p>Eingabebereiche teilen sich die meisten elementspezifischen Einstellungen mit Eingabefeldern, aber sie haben keine Einstellung für eine Maximallänge. Stattdessen gibt es die Möglichkeit die Anzahl der Zeilen zu bestimmen. Entweder man setzt die Anzahl der Zeilen manuell oder man lässt es dynamisch einstellen, indem man die erwartete Zeichenzahl eingibt, also die Anzahl von Zeichen in der längsten zu erwartenden Antwort. Der Eingabebereich wird darauf basierend automatisch mit genug Zeilen angezeigt, dass man diese Anzahl Zeichen eingeben kann.</p>
 </section>
 <section id="wort-korrigieren" class="level3">
 <h3 class="anchored" data-anchor-id="wort-korrigieren">Wort Korrigieren</h3>
 <p><img src="Grafiken/eingabe_korrigieren.png" class="img-fluid"></p>
-<p>Das Korrekturelement zeigt einen Text, der in einzelne Worte unterteilt ist. Jedes Wort kann angeklickt werden, woraufhin es durchgestrichen wird und man eine Korrektur darunter eingeben kann.</p>
+<p>Das Korrekturelement zeigt einen Textabschnitt, der korrigiert werden kann. Wenn man ihn anklickt wird er durchgestrichen und man kann eine Korrektur eingeben. Üblicherweise wird für jedes Wort ein einzelnes Korrekturelement verwendet.</p>
+<p>Die Beschriftung des Elements ist der zu korrigierende Textabschnitt.</p>
+<p>Wie bei anderen Eingabeelemten kann man auch hier eine Eingabehilfe einstellen.</p>
 </section>
 <section id="formel" class="level3">
 <h3 class="anchored" data-anchor-id="formel">Formel</h3>
 <p><img src="Grafiken/eingabe_formel.png" class="img-fluid"></p>
-<p>Das Formelelement ist gedacht für mathematische Formeln.</p>
+<p>Das Formelelement ist gedacht für Antworten, die mathematische Formeln enthalten sollen. Wenn man es in der Vorschau oder im Test auswählt und auf das Sigma klickt erscheint ein Menü zum Einfügen der Formel.</p>
 </section>
 <section id="rechenkästchen" class="level3">
 <h3 class="anchored" data-anchor-id="rechenkästchen">Rechenkästchen</h3>
@@ -769,30 +771,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="auswahl" class="level2">
 <h2 class="anchored" data-anchor-id="auswahl">Auswahl</h2>
-<section id="optionsfelder-mc" class="level3">
-<h3 class="anchored" data-anchor-id="optionsfelder-mc">Optionsfelder (MC)</h3>
-<p><img src="Grafiken/auswahl_mc.png" class="img-fluid"></p>
-</section>
-<section id="optionentabelle-cmc" class="level3">
-<h3 class="anchored" data-anchor-id="optionentabelle-cmc">Optionentabelle (CMC)</h3>
-<p><img src="Grafiken/auswahl_cmc.png" class="img-fluid"></p>
-</section>
-<section id="klappliste" class="level3">
-<h3 class="anchored" data-anchor-id="klappliste">Klappliste</h3>
-<p><img src="Grafiken/auswahl_klappliste.png" class="img-fluid"></p>
-</section>
-<section id="kontrollkästchen" class="level3">
-<h3 class="anchored" data-anchor-id="kontrollkästchen">Kontrollkästchen</h3>
-<p><img src="Grafiken/auswahl_kontrollkasten.png" class="img-fluid"></p>
-</section>
-<section id="schieberegler" class="level3">
-<h3 class="anchored" data-anchor-id="schieberegler">Schieberegler</h3>
-<p><img src="Grafiken/auswahl_schieberegler.png" class="img-fluid"></p>
-</section>
-<section id="bildbereiche" class="level3">
-<h3 class="anchored" data-anchor-id="bildbereiche">Bildbereiche</h3>
-<p><img src="Grafiken/auswahl_bildbereiche.png" class="img-fluid"></p>
-</section>
+{{&lt; auswahl.qmd  &gt;}}
 </section>
 <section id="zuordnung" class="level2">
 <h2 class="anchored" data-anchor-id="zuordnung">Zuordnung</h2>
