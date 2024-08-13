@@ -5,21 +5,73 @@ lang: de
 ### Optionsfelder (MC)
 ![](Grafiken/auswahl_mc.png)
 
+Optionsfelder erlauben die Auswahl von genau einer Option aus beliebig vielen. 
+
+Ein Optionsfeldelement kann beschriftet werden, die Beschriftung erscheint dann überhalb der Auswahloptioptionen. Im Feld "Option" lassen sich die einzelnen Optionen festlegen. Bei Optionsfeld mit Text gibt man sie ein und drückt dann Enter oder klickt auf das Plus. Für Optionsfelder mit Bilder gibt es zusätzlich einen Knopf zum Hochladen der Bilder. Jede Option bekommt ein Bild. Man kann die Optionen nachträglich bearbeiten, indem man das Schraubenschlüssel Symbol anklickt.
+
+Es öffnet sich ein Dialog mit vereinfachtem Texteditor und, falls man Optionsfelder mit Bild benutzt, den Optionen "Bild laden", "Bild entfernen" und "Bildposition". Mit "Bild laden" wählt man das Bild für die ausgewählte Option aus. Mit "Bild entfernen" kann man das aktuell geladene Bild der ausgewählten Option löschen. Mit "Bildposition" kann man einstellen wo das Bild in Relation zum Text stehen soll. Auch bei Optionsfeldern mit Bild kann man Text, zusätzlich zu den Bildern, einfügen.
+
 
 ### Optionentabelle (CMC)
 ![](Grafiken/auswahl_cmc.png)
 
+In einer Optionentabelle werden zeilenweise Antworten gegeben, indem man genau eine Spalte auswählt.
+
+Eine Optionentabelle kann beschriftet werden, die Beschriftung erscheint dann ganz oben bei der Tabelle. Außerdem kann die erste Spalte eine gesonderte Überschrift kriegen. Im Allgemeinen werden aber Spaltenüberschriften unter "Optionen" festgelegt. Die Optionen sind Analog zum Optionsfeld: Je Spalte gibt man die Überschrift ein und bestätigt mit Enter oder indem man auf das Plus klickt. Man kann auch Bilder als Überschriften hochladen. Die Zeilen werden genause festgelegt.
+
+Für lange Tabellen empfiehlt sich die Option "haftende Kopfzeile", ist dort ein Haken gesetzt werden die Spaltenüberschriften immer angezeigt, auch wenn man runterscrollt, bis man das Ende der Tabelle erreicht.
+
+Zudem kann man einstellen wieviel Platz die erste Spalte anteilig an der Breite der Tabelle einnimmt. Dafür gibt es die Option "Anteil der ersten Spalte". Die erste Spalte ist die statische, d.h. sie enthält die Items auf die mit Hilfe der anderen Spalten geantwortet werden soll. Sollte eine große Lücke zwischen der ersten Spalte und den anderen Spalten bestehen, oder die Spaltenübschriften der anderen Spalten zu gedrängt dastehen, dann kann man den Anteil der ersten Spalte verringern, um dies zu beheben.
 
 ### Klappliste
 ![](Grafiken/auswahl_klappliste.png)
+
+Die Klappliste ist ein Dropdown-Menü, d.h. wenn man es anklickt öffnet sich eine Liste von auswählbaren Optionen.
+
+Die Klappliste hat eine Beschriftung, die man anpassen oder löschen kann. Es gibt ein Feld zum Eintragen von Optionen. Diese gibt man einzeln als Text ein und bestätigt mit Enter oder indem man das Plus anklickt. Bereits bestehende Optionen kann man mit Klick auf den Schraubenschlüssel bearbeiten oder mit dem Kreuz entfernen.
+
+Außerdem kann man einstellen, welche Option standardmäßig ausgewählt ist, dazu das Menü "Vorbelegung" öffnen. Zudem kann man "Deselektion" erlauben, d.h. die Möglichkeit gewählte Optionen abzuwählen, sodass man auch keine Auswahl treffen kann.
 
 
 ### Kontrollkästchen
 ![](Grafiken/auswahl_kontrollkasten.png)
 
+Ein Kontrollkästchen ist eine Box zum Anklicken, die man auswählen und wieder abwählen kann.
+
+Die Beschriftung eines Kontrollkästchens erscheint daneben.
+
+Das Kontrollkästchen kann eine Vorbelegung erhalten: "Wahr" für angekreuzt bzw. ausgewählt oder "Falsch" für nicht angekreuzt bzw. nicht ausgewählt.
+
+Außerdem kann man einstellen, dass bei Auswahl des Kontrollkästchens, also wenn es auf "Wahr" gestellt ist, die Beschriftung durchgestrichen wird. Dazu "Auswahl durchstreichen" anklicken.
+
 ### Schieberegler
 ![](Grafiken/auswahl_schieberegler.png)
 
+Beim Schieberegler kann man einen Punkt aus einem Wertebereich auswählen.
+
+Dafür legt man in den Einstellungen einen Minimal- und einen Maximalwert fest. Man kann auswählen, ob diese Werte angezeigt werden sollen.
+
+Der "Zahlenstrahl-Modus" ist eine optische Veränderung, funktional bleibt der Schieberegler gleich.
+
+Wird die Option "Zeige gewählten Wer" ausgewählt dann sieht man beim Bewegen des Punktes des aktuellen Wert als Tooltip.
+
+Man kann eine Vorbelegung aus dem Wertebereich angeben, standardmäßig ist dies der Minimalwert.
 
 ### Bildbereiche
 ![](Grafiken/auswahl_bildbereiche.png)
+
+Ein Bildbereichelement besteht aus einem Bild, auf dem mehrere Bereiche existieren, die angeklickt werden können, um sie auszuwählen. Um dieses Element anzulegen, muss ein Bild hochgeladen werden.
+
+Das Bild lässt sich nachträglich über die Elementeinstellungen durch ein anderes ersetzen.
+
+Um einen Bereich hinzuzufügen benutzt man das Plus Symbol unter "Bereiche". Es erscheint ein Rechteck im Bild. In der Liste der Bereiche kann man es mit Klick auf den Schraubenschlüssel bearbeiten. Dort hat man folgende Optionen:
+
+* Abstand von oben/links: Damit stellt man die Position des Bereichs relativ zur oberen bzw. linken Kante des Bildes ein. Die Abstände werden in Pixeln gerechnet.
+* Bereichsbreite/-höhe: Damit stellt man die Größe des Bereichs in Pixeln ein.
+* Bereichsform: Man kann rechteckige, elliptische und dreieckige Bereiche einstellen.
+* Rahmenbreite: Hier stellt man ein wie dick der Rahmen des Bereiches ist. Man kann auch 0 einstellen, um den Rahmen zu deaktivieren.
+* Rahmenfarbe: Hier gibt man die Farbe des Rahmens als Hexadezimalcode ein. Man kann auch englische Namen üblicher Farben verwenden.
+* Füllfarbe: Die Farbe des Bereichs, wenn er ausgewählt ist. Die Farbe lässt sich so wie bei der Rahmenfarbe einstellen.
+* Drehung: Hier kann man einstellen, um wieviel Grad der Berreich gedreht sein soll.
+* Aktivierter Bereich: Ob der Bereich bereits ausgewählt ist oder nicht.
+* Schreibgeschützt: Ob man den Bereich auswählen bzw. abwählen kann.
