@@ -842,6 +842,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="ablegeliste-drag-drop-dad" class="level3">
 <h3 class="anchored" data-anchor-id="ablegeliste-drag-drop-dad">Ablegeliste (Drag &amp; Drop, DaD)</h3>
 <p><img src="Grafiken/zuordnung_ablegeliste.png" class="img-fluid"></p>
+<p>Ablegelisten sind Elemente, in denen Optionen liegen können, die man verschieben kann. Entweder passiert dies innerhalb der Ablegeliste, dann handelt es sich um eine Sortierliste. Oder man zieht die Optionen von einer Liste und legt sie in eine andere ab, das sogenannte Drag and Drop, kurz DaD oder D&amp;D.</p>
+<p>Unter “Vorbelegung” gibt man die Optionen für die Ablegeliste ein. Dafür klickt man auf das Plus Symbol oder gibt einen Text ein und drückt Enter. Die Optionen werden in einer Liste in den Eigenschaften der Ablegeliste angezeigt. Um die Optionen zu bearbeiten klickt man auf den Schraubenschlüssel, um sie zu löschen auf das Kreuz.</p>
+<p>Wenn man die Optionen bearbeitet kann man auch ein Bild oder ein Audio hochladen. Zudem hat jede Option eine ID, so wie auch Elemente eine ID haben.</p>
+<p>Unter “Verbundene Ablegelisten” wählt man, in welche Ablegelisten man Optionen ziehen kann. Wenn man Optionen in beide Richtungen bewegen können soll, dann muss man bei beiden Ablegelisten die jeweils andere als “Verbundene Ablegeliste” auswählen.</p>
+<p>Die Einstellung “Ausrichtung” bestimmt, wie die Optionen in der Liste angeordnet sind. Horizontal und Vertikal ordnet die Optionen entsprechend an.</p>
+<p>Wenn die Ablegeliste als Sortierliste funktionieren soll gibt es einen Kasten zum Ankreuzen dafür in den elementspezifischen Einstellungen.</p>
+<p>Man kann außerdem einstellen, dass nur ein Element in der Liste erlaubt ist. D.h. man kann dort nicht mehr als eine Option anlegen und nicht mehr als eine dort ablegen, wenn man die Aufgabe bearbeitet.</p>
+<p>Die Option “Verdrängen erlauben” setzt automatisch die Option “Nur ein Element”. Ist dies eingestellt, so wird, wenn man eine Option in eine Ablegeliste zieht, in der bereit eine Option liegt, die alte Option mit der neuen ersetzt. Die alte Option wird dann auf ihre vorherige Liste verdrängt.</p>
+<p>Wenn man “Elemente kopieren” auswählt, dann wird, wenn man eine Option verschiebt, eine Kopie dieser Option angelegt. Dadurch kann man beim Bearbeiten der Aufgabe die Optionen beliebig oft verwenden.</p>
+<p>Man kann die Optionen in der Ablegeliste automatisch nummerieren. Die Nummerierung erscheint unabhängig von der Ausrichtung der Optionen immer links von den Optionen. Die Nummerierung kann auch bei 0 beginnen, wenn man den Kasten “Nummerierung bei 0 beginnen” auswählt.</p>
+<p>Wenn man Optionen von einer Ablegeliste zieht, dann werden die Listen, in denen man die Option ablegen kann, farblich hervorgehoben, wenn man “Potentielle Ablagen hervorheben” einstellt.</p>
 </section>
 </section>
 <section id="verbund" class="level2">
@@ -849,10 +860,26 @@ ul.task-list li input[type="checkbox"] {
 <section id="lückentext" class="level3">
 <h3 class="anchored" data-anchor-id="lückentext">Lückentext</h3>
 <p><img src="Grafiken/verbund_luckentext.png" class="img-fluid"></p>
+<p>Lückentextelemente haben einen eigenen Editor, der wie der normale Texteditor funktioniert, bei dem man aber zusätzlich noch folgende Elemente einfügen kann:</p>
+<ul>
+<li>Eingabefeld</li>
+<li>Ablegeliste</li>
+<li>Optionsfeld</li>
+<li>Knopf</li>
+<li>Kontrollkästchen</li>
+</ul>
+<p>Eingabefeld, Ablegeliste und Knopf entsprechen den Elementen, wie man sie auch normal im Studio anlegen kann, eine Anleitung dazu gibt es hier <strong>Link einfügen</strong></p>
+<p>Das Optionsfeld wird mit zwei Optionen erstellt, man kann diese wie beim normalen Optionsfeld bearbeiten. Allerdings werden sie hier durch Anklicken ausgewählt und dann farblich hinterlegt. Alternativ kann man auch auswählen, dass die gewählte bzw. nicht gewählte Option durchgestrichen wird.</p>
+<p>Das Kontrollkästchen erscheint ebenfalls ohne Kästchen, aber wenn man es anklickt wird es farblich markiert. Alternativ kann es auch durchgestrichen werden.</p>
 </section>
 <section id="tabelle" class="level3">
 <h3 class="anchored" data-anchor-id="tabelle">Tabelle</h3>
 <p><img src="Grafiken/verbund_tabelle.png" class="img-fluid"></p>
+<p>Ein Tabellenelement besteht aus mehreren Zeilen und Spalten, die in einem Raster angeordnet sind und durch Linien unterteilt werden. Dieses Raster ist unabhängig vom normalen Raster im Studio, d.h. ein Tabellenelement kann eine Zelle im Raster in mehrere Zellen unterteilen.</p>
+<p>In den Elementeinstellungen lassen sich über die Schaltfläche “Elemente anpassen” neue Elemente in die Tabelle einfügen. Die Einstellungen für die Elemente sind identisch zu den normalen Einstellungen, aber die Größe der Elemente ist fest an die Größe der Tabellenzelle gebunden, die Elemente füllen die Zelle immer ganz aus. Um Elemente zu löschen nutzt man ebenfalls die Schaltfläche “Elemente anpassen”.</p>
+<p>Auch in den Elementeinstellungen kann man die Anzahl der Zeilen und Spalten bestimmen. Alle Zeilen und Spalten können, ähnlich wie im normalen Raster, eine anteilige oder eine feste Größe in Pixeln erhalten.</p>
+<p>Standardmäßig wird die Tabelle ohne äußere Ränder angezeigt, man kann aber auch “Tabellenränder zeichnen” auswählen, dann werden die äußeren Ränder eingezeichnet.</p>
+<p>In den Gestaltungseinstellungen für das Tabellenelement kann man das Design der Rahmen anpassen. Die Einstellung “Radius” bestimmt die Krümmung der Linien, die die einzelnen Zellen umgeben. Die Farbe der Linien kann als Hexadezimalcode oder mit englischen Bezeichnungen angegeben werden. Der “Stil” der Linie drückt aus, ob sie durchgezogen (solid) oder gepunktet (dotted) oder anders gestaltet ist. Die Stärke gibt an, wie dick die Linien der Tabelle gezeichnet sind.</p>
 </section>
 </section>
 <section id="sonstige" class="level2">
@@ -860,6 +887,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="knopf" class="level3">
 <h3 class="anchored" data-anchor-id="knopf">Knopf</h3>
 <p><img src="Grafiken/sonstige_knopf.png" class="img-fluid"></p>
+<p>Das Knopfelement wird benutzt um Teile der Aufgabe oder des Tests zu steuern, etwa um zur nächsten Seite zu springen.</p>
+<p>Knöpfe können dargestellt werden als Knopf, Bild (muss hochgeladen werden) oder Hyperlink. Die Beschriftung kann hochgestellt oder tiefgestellt werden.</p>
+<p>Unter “Tooltip” kann ein Tooltip hinzugefügt werden, also ein Text der angezeigt wird, wenn man mit dem Mauszeiger über das Knopfelement fährt. Der Tooltip kann über oder unter dem Knopf angezeigt werden.</p>
+<p>Unter “Aktion” wird festgelegt, was passiert, wenn man den Knopf anklickt. Dies sind die Optionen:</p>
+<ul>
+<li>Unitnavigation: Verschiedene Optionen zu anderen Units, also Aufgaben im Test, zu springen</li>
+<li>Seitennavigation: Als Optionen erscheinen die Seiten der Aufgabe, bei Knopfdruck gelangt man dorthin</li>
+<li>Textabschnitt hervorheben: Als Option erscheinen die zur Hervorhebung festgelegten Textabschnitte <strong>s. Link</strong></li>
+<li>Zustandsvariable ändern: Hier kann man eine Zustandsvariable wählen und welchen Wert sie bei Knopfdruck annehmen soll</li>
+</ul>
 </section>
 <section id="rahmen" class="level3">
 <h3 class="anchored" data-anchor-id="rahmen">Rahmen</h3>
