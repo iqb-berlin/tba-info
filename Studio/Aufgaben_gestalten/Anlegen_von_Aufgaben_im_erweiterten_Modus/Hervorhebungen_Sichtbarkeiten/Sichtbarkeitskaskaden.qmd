@@ -1,0 +1,66 @@
+---
+lang: de
+title: "Sichtbarkeitskaskaden"
+---
+
+Sichtbarkeitskaskaden ermöglichen eine kaskadenartige Freischaltung von Studio-Abschnitten. So kann zum Beispiel zunächst ein Audio-Stimulus angezeigt werden; wenn dieser gestartet wird, ist auch die Instruktion zu sehen und wenn er beendet ist, sind die Schaltflächen zur ersten Aufgabe geöffnet. Nun kann zur ersten Aufgabe gelangt werden und diese bearbeitet werden. Wenn diese Aufgabe mit einer Audio-Datei verbunden ist, kann auch eingestellt werden, dass die nächste Aufgabe erst nach dessen Anhören zu sehen ist.
+
+Im Folgenden wird erläutert, welche Einstellungen vorgenommen werden müssen, um dies zu ermöglichen.
+
+## Schritt 1: Stimulus und Aufgaben hinzufügen
+
+Zunächst ist es sinnvoll den Stimulus (Abbildung 1) und die Aufgaben (Abbildung 2) hinzuzufügen. Dabei wird je eine Aufgabe auf eine Seite gesetzt.
+
+::: {layout-ncol=2 layout-valign="bottom"}
+
+![Abbildung 1: beispielhafter Audiostimulus](Grafiken/Sichtbarkeiten_ST.png)
+
+![Abbildung 2: beispielhafte Aufgabe](Grafiken/Sichtbarkeiten_Aufgabe.png)
+
+:::
+
+## Schritt 2: Sichtbarkeiten im Stimulus einstellen
+
+Um die Sichtbarkeiten einzustellen, wird auf den Knopf ![](Grafiken/Sichtbarkeit_Button_Grafik.png) des zu bearbeiteten Abschnitts gedrückt.
+
+In diesem Fall wäre es der Abschnitt mit der Instruktion und der Grafik.
+
+Hier wird mit dem + eine neue Sichtbarkeitseinstellung hinzugefügt und die Audio-Datei unter dem Punkt „Variablen/Element-ID” ausgewählt.
+
+![](Grafiken/Sichtbarkeiten_Main_Grafik.png)
+
+Mit dem Operator „>” und dem Wert „0” wird angegeben, dass der bearbeitete Abschnitt gezeigt wird, sobald die Audio-Datei größer als 0 ist – also angefangen hat.
+
+## Schritt 3: Sichtbarkeiten in den Aufgaben
+
+Jenachdem ob eine normale Aufgabe oder eine Aufgabe mit Vertonung folgt, werden nun Sichtbarkeiten eingestellt.
+
+### Normale Aufgabe
+
+![](Grafiken/Sichtbarkeiten_MC_Grafik.png)
+
+Wenn eine einfache Aufgabe wie im Beispiel folgt, wird der Abschnitt mit der Aufgabe wie folgt eingestellt:
+
+![](Grafiken/Sichtbarkeiten_Normal_Grafik.png)
+
+Es wird die Audio-Datei der vorlaufenden Seite ausgewählt (hier der Audio-Stimulus), dann der Operator „≥” und der Wert „1” ausgewählt. Das bedeutet das dieser Abschnitt angezeigt wird, sobald der Audio-Stimulus fertig abgespielt wurde.
+
+### Aufgabe 1 mit Vertonung
+
+![](Grafiken/Sichtbarkeiten_Aufgabe.png)
+
+Wenn eine Aufgabe mit Vertonung folgt, wird der erste Abschnitt, also der mit den Instruktionen, so eingestellt, wie oben im Abschnitt „Normale Aufgabe”.
+
+Der Abschnitt mit der eigentlichen Aufgabe wird nun wie folgt eingstellt:
+
+![](Grafiken/Sichtbarkeitseinstellung_AUfgabe.png)
+
+Als „Variablen/Element-ID” wird die Audio-Datei der Instruktion ausgewählt. Mit dem Operator „>” und dem Wert „0” wird dann angegeben, dass der bearbeitete Abschnitt gezeigt wird, sobald die Audio-Datei größer als 0 ist – also angefangen hat.
+
+### Aufgabe 2-x mit Vertonung
+
+Die nachfolgenden Aufgaben beziehen sich nun statt auf die Datei des Audio-Stimulus auf die Audio-Datei der Instruktion der vorherigen Aufgabe. 
+
+In dem verwendteten Beispiel, wäre dies folgend:
+
+![](Grafiken/Sichtbarkeit_Aufgabe_zwei_Grafik.png)
