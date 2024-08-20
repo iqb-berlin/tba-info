@@ -1,0 +1,66 @@
+---
+lang: de
+title: "Markieren mit mehreren Stimuli"
+---
+
+Wenn eine Aufgabe ein Markieritem mit einem Stimulus beinhaltet, kann es sinnvoll sein, je einen Stimulus mit dem Markieritem und einen mit den restlichen Aufgaben zu verknüpfen. Dies bietet die Möglichkeit, dass auch bei den restlichen Aufgaben das Markieren als Hilfestellung genutzt werden kann und bei dem Markieritem die Markierung gewertet werden kann.
+
+Gelbe Markierungen werden gewertet, blaue und orangene hingegen dienen als Hilfestellung für die Schüler*innen.
+
+Im Folgenden wird zur Verdeutlichung eine Beispielaufgabe vorgestellt:
+
+![](Grafiken/Markieren_Aufgabe_eins.png)
+
+![](Grafiken/Markieren_Aufgabe_zwei.png)
+
+![](Grafiken/Markieren_Aufgabe_drei.png)
+
+## Schritt 1: Aufgabenanlegen
+
+Um eine Aufgabe wie im Beispiel anzulegen, werden zunächst der Stimulus und die Aufgaben auf verschiedenen Seiten angelegt.
+
+## Schritt 2: Markieren
+
+Für jedes Markieritem wird nun ein Stimulus angelegt (durch Dublizieren des Abschnitts), bei welchem das Gelbmarkieren erlaubt ist. Zudem wird ein Stimulus mit blauen und orangenen Markierungen angelegt. 
+
+Auf der Stimulusseite sind nun verschiedene Abschnitte mit den verschiedenen Stimuli.
+
+## Schritt 3: Zustandsvariabel
+
+Nun wird eine Zustandsvariabel vergeben. Sie wird „Seite” genannt und erhält den Wert „1”.
+
+![](Grafiken/Markieren_Zustandsvariabel.png){width=300}
+
+## Schritt 4: Sichtbarkeitseinstellung
+
+Nun erhält jeder Stimulus eine Sichtbarkeitseinstellung. Dafür wird im gewünschten Abschnitt die Sichtbarkeitseinstellung ![](Grafiken/Sichtbarkeit_Button_Grafik.png) geöffnet. Fortlaufend erhalten die Abschnitte die Werte „1”, „2”, „3” ... sowie die „Variablen/Element-ID” der Zustandsvariabel – also „Seite”.
+
+Zudem muss „Erneutes Ausblenden erlauben, wenn die Bedingungen nicht mehr erfüllt sind” ausgewählt werden.
+
+![Stimulus 1](Grafiken/Markieren_Sichtbarkeitseinstellung.png)
+
+Dies geschieht nun bei jedem der Stimuli:
+
+::: {layout-ncol=2 layout-valign="bottom"}
+
+![Stimulus 2](Grafiken/Markieren_Sichtbarkeitseinstellung_zwei.png)
+
+![Stimulus 3](Grafiken/Markieren_Sichtbarkeitseinstellung_drei.png)
+
+:::
+
+## Schritt 5: Aufgaben mit Stimuli verknüpfen
+
+Die erste Aufgabe sowie jede Aufgabe, die sich auf diesen ersten Stimulus bezieht, müssen nicht extra mit einem Stimulus verknüpft werden, da sie automatisch zur gleichen Zeit wie der Stimulus der „Seite 1” angezeigt werden.
+
+Die anderen Aufgaben hingegen müssen mit dem jeweils passenden Stimulus verknüpft werden, indem sie mit einem Trigger versehen werden.
+
+In den Abschnitt mit der Aufgabe wird ein „Auslöser” gelegt. Dieser befindet sich in den Elementen im Abschnitt „Sonstige”.
+
+![](Grafiken/Hervorhebung_Ausloser.png)
+
+Bei diesem wird nun als Aktion „Zustandsvariable ändern”, als ID „Seite” und als Wert der jeweilige Wert des dazugehörigen Stimulus ausgewählt.
+
+Die folgende Aufgabe soll zum Beispiel mit dem Stimulus mit dem Wert „2” verknüpft werden: 
+
+![](Grafiken/Markieren_Trigger.png){width=300}
