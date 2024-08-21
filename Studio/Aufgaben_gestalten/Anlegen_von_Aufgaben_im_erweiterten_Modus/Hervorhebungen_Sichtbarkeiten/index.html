@@ -640,9 +640,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#hervorhebungen" id="toc-hervorhebungen" class="nav-link active" data-scroll-target="#hervorhebungen">Hervorhebungen</a></li>
-  <li><a href="#sichtbarkeiten" id="toc-sichtbarkeiten" class="nav-link" data-scroll-target="#sichtbarkeiten">Sichtbarkeiten</a></li>
+  <li><a href="#sichtbarkeiten" id="toc-sichtbarkeiten" class="nav-link" data-scroll-target="#sichtbarkeiten">Sichtbarkeiten</a>
+  <ul class="collapse">
+  <li><a href="#logische-verknüpfung" id="toc-logische-verknüpfung" class="nav-link" data-scroll-target="#logische-verknüpfung">Logische Verknüpfung</a></li>
+  <li><a href="#ein--und-ausblenden" id="toc-ein--und-ausblenden" class="nav-link" data-scroll-target="#ein--und-ausblenden">Ein- und Ausblenden</a></li>
+  <li><a href="#bedingungen" id="toc-bedingungen" class="nav-link" data-scroll-target="#bedingungen">Bedingungen</a></li>
+  </ul></li>
   <li><a href="#zustandsvariablen" id="toc-zustandsvariablen" class="nav-link" data-scroll-target="#zustandsvariablen">Zustandsvariablen</a></li>
-  <li><a href="#trigger" id="toc-trigger" class="nav-link" data-scroll-target="#trigger">Trigger</a></li>
+  <li><a href="#auslöser-trigger" id="toc-auslöser-trigger" class="nav-link" data-scroll-target="#auslöser-trigger">Auslöser (Trigger)</a></li>
+  <li><a href="#knopf" id="toc-knopf" class="nav-link" data-scroll-target="#knopf">Knopf</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -668,19 +674,93 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Es ist möglich verschiedene Abschnitte oder Hervorhebungen automatisch anzuzeigen, sobald bestimmte Paramter erfüllt sind. Diese Parameter können beispielsweise das Erreichen einer bestimmten Seite, das Beenden einer Audio-Datei oder das Auslösen eines Knopfes sein.</p>
+<p>Beispielanwendungen für unten vorgstellte Elemente sind in den Unterkapiteln dieses Abschnittes vorgestellt. Es gibt ein zum Beispiel die Möglichkeit <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden.html">Sichtbarkeitskaden</a>, <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Hervorhebungen_Sichtbarkeiten/Markieren.html">mit Aufgaben gekoppelte Stimuli</a>, <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Hervorhebungen_Sichtbarkeiten/Hervorhebungen.html">mit Aufgaben gekoppelte Hervorhebungen</a> oder <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung.html">Knopfverlinkungen</a> anzulegen.</p>
 <section id="hervorhebungen" class="level2">
 <h2 class="anchored" data-anchor-id="hervorhebungen">Hervorhebungen</h2>
+<p>Hervorhebungen sind Markierungen im Text, die voreingstellt sind. Sie können auch durch Auslöser/Trigger oder Knöpfe automatisch angezeigt werden.</p>
+<p><img src="Grafiken/Hervorhebung_anlegen.png" class="img-fluid"></p>
+<p>Hervorhebungen werden standardmäßig violett angezeigt.</p>
+<p><img src="Grafiken/Hervorhebung_Beispiel.png" class="img-fluid"></p>
 </section>
 <section id="sichtbarkeiten" class="level2">
 <h2 class="anchored" data-anchor-id="sichtbarkeiten">Sichtbarkeiten</h2>
-<p>Mit Sichtbarkeitseinstellungen können Abschnitte im Studio zu verschiedenen Zeiten sichtbar gemacht werden. Es ist zum Beispiel möglich einen Abschnitt erst nach 10 Sekunden zu zeigen oder auch erst wenn eine bestimmte Audio-Datei angehört wurde</p>
-<p><img src="Grafiken/Sichtbarkeiten_Main_Grafik.png" class="img-fluid"></p>
+<p>Mit Sichtbarkeitseinstellungen <img src="grafiken/Sichtbarkeit_Button_Grafik.png" class="img-fluid"> können Abschnitte im Studio zu verschiedenen Zeiten sichtbar gemacht werden. Es ist zum Beispiel möglich einen Abschnitt erst nach 10 Sekunden einzublenden oder auch erst wenn eine bestimmte Audio-Datei angehört wurde.</p>
+<p><img src="Grafiken/Sichtbarkeiten_Main.png" class="img-fluid"></p>
+<section id="logische-verknüpfung" class="level3">
+<h3 class="anchored" data-anchor-id="logische-verknüpfung">Logische Verknüpfung</h3>
+<p>Mit dieser Option kann ausgewählt werden, ob die unten eingstellten Bedingungen beide angwendet werden oder nur eines..</p>
+</section>
+<section id="ein--und-ausblenden" class="level3">
+<h3 class="anchored" data-anchor-id="ein--und-ausblenden">Ein- und Ausblenden</h3>
+<p>Mit der Funktion <em>Erneutes Ausblenden erlauben, wenn die Bedingungen nicht mehr erfüllt sind</em> können Abschnitte auch wieder ausgeblendet werden, sobald die angegebenen Bedingungen nicht mehr erfüllt sind. Anderfalls würden sie weiterhin angezeigt werden, auch wenn ein Abschnitt nicht mehr relevant ist.</p>
+<p>Zudem kann mit der Funktion <em>Einblenden mit Scroll-Animation</em> bestimmt werden, dass an den Anfang der gesamten Seite gescrollt wird, sobald eine neue Bedingung angewandt wird. Dies kann den Nachbau einer Website im Studio realistischer erscheinen lassen.</p>
+<p>Außerdem kann angegeben werden, ob der behandelte Abschnitt erst verspätet eingeblendet wird, wenn die angegebene Bedingung erfüllt ist.</p>
+</section>
+<section id="bedingungen" class="level3">
+<h3 class="anchored" data-anchor-id="bedingungen">Bedingungen</h3>
+<p>Mit dem grauen <img src="Grafiken/Sichtbarkeiten_Plus.png" class="img-fluid"> kann eine neue Bedingung hinzugefügt werden.</p>
+<p>Hier kann angegeben werden, welche Sichtbarkeitseinstellungen der Abschnitt erhalten soll.</p>
+<section id="variablenelement-id" class="level4">
+<h4 class="anchored" data-anchor-id="variablenelement-id">Variablen/Element-ID</h4>
+<p>Bei „Variablen/Element-ID“ wird das Element angegeben, mit welchem der behandelte Abschnitt verknüpft werden soll. Das kann zum Beispiel eine Zustandsvariabel oder auch eine Audio-Datei sein.</p>
+</section>
+<section id="operator" class="level4">
+<h4 class="anchored" data-anchor-id="operator">Operator</h4>
+<p>Der Operator gibt an in welcher Beziehung das angegebene Element zu dem behandelten Abschnitt stehen soll.</p>
+<ul>
+<li>= gleich</li>
+<li>≠ ungleich</li>
+<li>&lt; kleiner</li>
+<li>≤ kleinergleich</li>
+<li><em>&gt;</em> größer</li>
+<li>≥ gößergleich</li>
+<li>Enthält (z.B. in einem EGF (Variabele) ist das Wort „nichts“ enthalten. „nichts“ ist dabei der Wert)</li>
+<li>Muster (z.B. in einem EGF (Variabele) steht ausschließlich das Wort „nichts“. „nichts“ ist dabei der Wert)</li>
+<li>Minimale Länge (z.B. an Zeichen in einem EGF) *Maximale Länge (z.B. an Zeichen in einem EGF)</li>
+</ul>
+</section>
+<section id="wert" class="level4">
+<h4 class="anchored" data-anchor-id="wert">Wert</h4>
+<p>Der Wert gibt an, wann die Beziehung erfüllt werden soll.</p>
+<p><img src="Grafiken/Sichtbarkeiten_Beispiel_Grafik.jpg" class="img-fluid"></p>
+<p>In dem angegebenen Beispiel (_audio00&gt;0) soll der behandelte Abschnitt erscheienen, sobald die angegebene Audio-Datei größer als 0 ist – das Audio also angefangen hat. Stünde hier hingegen 1, würde der Abschnitt eingeblendet, sobald die Audio-Datei größer als 1 ist – also beendet ist.</p>
+<p>Zudem wäre es möglich als Wert „Blume“ und als Operator „Enthält“ einzutragen und dies mit einem Eingabefeld zu verknüpfen. Sobald dann in das Eingabefeld „Blume“ eingetragen wird, würde dann der behandelte Abschnitt erscheinen.</p>
+</section>
+</section>
 </section>
 <section id="zustandsvariablen" class="level2">
 <h2 class="anchored" data-anchor-id="zustandsvariablen">Zustandsvariablen</h2>
+<p><img src="Grafiken/Zustandsvariabel.png" class="img-fluid"></p>
+<p>In der Elementeliste ganz unten befindet sich die Schaltfläche <em>Zustandsvariable</em>. Eine Zustandsvariable gibt eine Eigenschaft für die ganze Seite wieder. Einem Abschnitt kann eine bedingte Sichtbarkeit für eine bestimmte Zustandsvariable zugewiesen werden. Das ermöglicht einen Webseiten-ähnlichen Aufbau des Stimulus, wo mittels Buttons eine Veränderung der Variable und damit des angezeigten ST einhergehen kann. Zustandsvariabeln stellen somit die Grundlage für Verknüpfungen zwischen verschiedenen Seiten einer Aufgabe dar.</p>
+<p>Beim Klick auf die Schaltfläche erscheint ein Popup. Hier kann eine neue Variable eingefügt werden.</p>
+<p><img src="Grafiken/Zustandsvariabel_erstellen.png" class="img-fluid"></p>
+<p>Die Seite die in einer Zustandsvariabel angegeben ist, ist die Seite die standardmäßig angezeigt wird.</p>
 </section>
-<section id="trigger" class="level2">
-<h2 class="anchored" data-anchor-id="trigger">Trigger</h2>
+<section id="auslöser-trigger" class="level2">
+<h2 class="anchored" data-anchor-id="auslöser-trigger">Auslöser (Trigger)</h2>
+<p><img src="Grafiken/Hervorhebung_Ausloser.png" class="img-fluid"></p>
+<p>Auslöser können in Abschnitte gelegt werden, um diese mit Aktionen zu verbinden. Diese Aktionen werden ausgelöst, sobald der Abschnitt angezeigt wird.</p>
+<p>Es kann zwischen verschiedenen Aktionen gewählt werden:</p>
+<ul>
+<li>Textabschnitt hervorheben: Die zur Hervorhebung festgelegten Textabschnitte (Aktionsparameter) erscheinen.</li>
+<li>Hervorhebungen ausblenden: Die Hervorhebung wird ausgeblendet sobald der Trigger ausgelöst wird.</li>
+<li>Zustandsvariable ändern: Hier kann man eine Zustandsvariable wählen und welchen Wert sie bei Knopfdruck annehmen soll.</li>
+</ul>
+</section>
+<section id="knopf" class="level2">
+<h2 class="anchored" data-anchor-id="knopf">Knopf</h2>
+<p><img src="Grafiken/Buttonverlinkung_Knopf.png" class="img-fluid"></p>
+<p>Das Knopfelement wird benutzt um Teile der Aufgabe oder des Tests zu steuern, etwa um zur nächsten Seite zu springen.</p>
+<p>Knöpfe können dargestellt werden als Knopf, Bild (muss hochgeladen werden) oder Hyperlink. Die Beschriftung kann hochgestellt oder tiefgestellt werden.</p>
+<p>Unter “Tooltip” kann ein Tooltip hinzugefügt werden, also ein Text der angezeigt wird, wenn man mit dem Mauszeiger über das Knopfelement fährt. Der Tooltip kann über oder unter dem Knopf angezeigt werden.</p>
+<p>Unter “Aktion” wird festgelegt, was passiert, wenn man den Knopf anklickt. Dies sind die Optionen:</p>
+<ul>
+<li>Unitnavigation: Verschiedene Optionen zu anderen Units, also Aufgaben im Test, zu springen.</li>
+<li>Seitennavigation: Als Optionen erscheinen die Seiten der Aufgabe, bei Knopfdruck gelangt man dorthin.</li>
+<li>Textabschnitt hervorheben: Als Option erscheinen die zur Hervorhebung festgelegten Textabschnitte.</li>
+<li>Zustandsvariable ändern: Hier kann man eine Zustandsvariable wählen und welchen Wert sie bei Knopfdruck annehmen soll.</li>
+</ul>
 
 
 </section>
