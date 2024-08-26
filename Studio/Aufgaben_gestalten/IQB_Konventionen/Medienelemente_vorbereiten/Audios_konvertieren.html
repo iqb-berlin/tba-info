@@ -634,8 +634,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#einbetten-von-audio-elementen-ins-studio" id="toc-einbetten-von-audio-elementen-ins-studio" class="nav-link active" data-scroll-target="#einbetten-von-audio-elementen-ins-studio">Einbetten von Audio-Elementen ins Studio</a></li>
+  <li><a href="#medienoptionen-anpassen" id="toc-medienoptionen-anpassen" class="nav-link" data-scroll-target="#medienoptionen-anpassen">Medienoptionen anpassen</a>
+  <ul class="collapse">
+  <li><a href="#audio-button" id="toc-audio-button" class="nav-link" data-scroll-target="#audio-button">Audio-Button</a></li>
+  </ul></li>
+  <li><a href="#erstellen-einer-audio-mit-freetts" id="toc-erstellen-einer-audio-mit-freetts" class="nav-link" data-scroll-target="#erstellen-einer-audio-mit-freetts">Erstellen einer Audio mit FreeTTS</a></li>
+  <li><a href="#bearbeiten-des-audios-in-audacity" id="toc-bearbeiten-des-audios-in-audacity" class="nav-link" data-scroll-target="#bearbeiten-des-audios-in-audacity">Bearbeiten des Audios in Audacity</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -659,8 +671,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="einbetten-von-audio-elementen-ins-studio" class="level2">
+<h2 class="anchored" data-anchor-id="einbetten-von-audio-elementen-ins-studio">Einbetten von Audio-Elementen ins Studio</h2>
+<p><img src="Grafiken/Audio_Main.png" class="img-fluid"></p>
+<p>Wenn eine Audio-Datei über den <em>Audio</em>-Button hinzugefügt wird, muss direkt die Audio-Datei ausgewählt werden, welche dann hochgeladen wird.</p>
+<p>Die Audio-Datei kann entweder eine vorhandene Datei sein oder eine Audio sein, die mit KI (FreeTTS) generiert wurde (siehe unten).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Datei sollte eine MP3 sein, da es bei anderen Dateiformaten zu verlängertem Laden kommen kann. Dies kann mit Audacity angepasst werden (siehe unten).</p>
+</div>
+</div>
+</section>
+<section id="medienoptionen-anpassen" class="level2">
+<h2 class="anchored" data-anchor-id="medienoptionen-anpassen">Medienoptionen anpassen</h2>
+<p><img src="Grafiken/Medienoption_anpassen.png" class="img-fluid"></p>
+<p>Bei dem Einfügen von Audio-Datein sind gewisse Einstellungen voreingestellt. Diese sind an den Einstellungen eines Stimulus-Audio orientiert:</p>
+<p>So z.B. * Voreingestellte Lautstärke: 0,8 / Minimale Lautstärke 0,2 * Ggf. Anzahl der min./ max. Durchläufe anpassen * Als Aufforderungstext zum Starten erscheint „Bitte starten” mit einer Verzögerung von 5000 sms</p>
+<p>Diese können im erweiterten Modus wunschgemäß angepasst werden, um z.B. nur einen Audiobutton anzuzeigen:</p>
+<section id="audio-button" class="level3">
+<h3 class="anchored" data-anchor-id="audio-button">Audio-Button</h3>
+<p><img src="Grafiken/Audio_Button.png" class="img-fluid"></p>
+<p>Um ein Audio-Element so einzustellen, dass nur der Button zu sehen ist, müssen folgende Einstellungen im erweiterten Modus vorgenommen werden:</p>
+<ul>
+<li>Häckchen nur bei Wiedergabeknopf anzeigen setzen</li>
+<li>Voreingestellte Lautstärke: 0,8 / Minimale Lautstärke 0,2</li>
+<li>Ggf. Min./ max. Durchläufe einstellen</li>
+<li>Nach unten einen Abstand von 15px einstellen</li>
+<li>Audioelement im Layout in eine eigene Spalte stellen mit einer Breite von 42px</li>
+</ul>
+</section>
+</section>
+<section id="erstellen-einer-audio-mit-freetts" class="level2">
+<h2 class="anchored" data-anchor-id="erstellen-einer-audio-mit-freetts">Erstellen einer Audio mit FreeTTS</h2>
+<p><a href="https://freetts.com/de">FreeTTS</a> ist ein Text to Speech Programm: Das bedeutet es kann zum Beispiel der Text einer Instruktion eingegeben werden und dieser wird dann durch eine KI vorgelesen. Die Datei kann dann heruntergeladen und ins Studio eingefügt werden.</p>
+<p>Folgende Einstellungen sollen gewählt werden:</p>
+<ul>
+<li>Output format: mp3</li>
+<li>High Quality</li>
+<li>Voice Speed nach Bedarf auf -10%</li>
+</ul>
+<p>Nun kann der Text eingegeben werden und die Datei heruntergeladen via Microsoft Edge o.ä. (nicht Firefox) heruntergeladen werden.</p>
+</section>
+<section id="bearbeiten-des-audios-in-audacity" class="level2">
+<h2 class="anchored" data-anchor-id="bearbeiten-des-audios-in-audacity">Bearbeiten des Audios in Audacity</h2>
+<p><a href="https://www.audacity.de/">Audacity</a> ist ein kostenloses Programm zum Aufnehmen und Editieren von Audio-Datein.</p>
+<p>Gegebenfalls kann die Datei hier noch geschnitten werden und dann gespeichert werden. Dazu muss es exportiert werden:</p>
+<p><img src="Grafiken/Audacity_exportieren.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Beim Exportieren muss die Audiooption von Mono auf Stereo umgestellt werden.</p>
+</div>
+</div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1110,7 +1190,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
