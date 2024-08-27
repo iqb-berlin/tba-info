@@ -1,0 +1,92 @@
+---
+lang: de
+title: "Erstellung Testinhalte"
+---
+
+Da das Testcenter nur das Hochladen der fertigen Testinhalte unterstützt und komplett auf Dialoge für Parameter verzichtet, muss es andere Wege geben, mit vertretbarem Aufwand zu den Dateien zu kommen.
+
+## Units
+
+Da die Units vom Player abhängig sind, muss man danach unterscheiden, was der Player benötigt. Das IQB stellt bereits eigene Player zur Verfügung.
+
+**IQB-Player**
+
+* [Aspect](https://github.com/iqb-berlin/verona-modules-aspect/releases): Dies ist der Standard-Player für komplexe Testaufgaben oder Seiten des IQB. Die Units für die Monitoringinstrumente [VERA](https://www.iqb.hu-berlin.de/vera/ueberblick/) und [Bildungstrend](https://www.iqb.hu-berlin.de/bt/) werden damit erstellt. Zu diesem Player steht ein Editor für die Webanwendung [IQB-Studio](../../Studio/) bereit, welche darauf spezialisiert ist, diese Aufgaben interaktiv zu erstellen. Dort gibt es auch einen Menüpunkt, mit dem man Aufgaben und auch den zugehörigen Player exportiert. Diesen Export kann man unverändert in das Testcenter hochladen.
+* [Abi](https://github.com/iqb-berlin/verona-player-abi/releases): Player für eine einfache Scriptsprache mit dynamischen Unterformularen. Dieser Player ist für Befragungen von Erwachsenen sehr gut geeignet. Pro Zeile wird ein Frageitem definiert. Dadurch kann eine große Anzahl von Frageitems automatisiert erstellt werden (Excel), was eine komplexe Rotation der Fragen in Abhängigkeit vom Profil der Befragten ermöglicht.
+* [Speed Test - multi](https://github.com/iqb-berlin/verona-player-speedtest/releases): Player für einen Lesegeschwindigkeitstests (mehrere Items pro Unit; Text und Bild). Für die Erstellung passender Aufgaben gibt es auch hierfür einen passenden Editor für IQB-Studio, der die Unit-Defintionen einfach exportiert.
+* [Speed Test Player - mono](https://github.com/iqb-berlin/verona-player-speedtest/releases): Player für einen Lesegeschwindigkeitstests (ein Item pro Unit; nur Text). Dieser Player benötigt nur eine Zeile Text pro Unit und ist daher auch gut mit kleineren Hilfsmitteln zu erzeugen.
+* [Simple Player](https://github.com/iqb-berlin/verona-player-simple/releases): Universeller Player für Html. Hier können übliche Hilfsmittel zur Erstellung von Html-Seiten genutzt werden.
+
+## Booklets
+
+Die Vielfalt von Testszenarien ist sehr hoch, so dass es hierfür kaum passende Angebote geben kann. Es wird meist dabei bleiben, dass die Testentwickler\*innen manuell die Booklet-XML in einem auf XML spezialisierten Editor bearbeiten. Folgende Unterstützungen gibt es:
+
+* Beim Export von Units aus dem IQB-Studio kann man angeben, dass für die ausgewählten Units ein Booklet erzeugt und mit exportiert wird. Dieses Booklet fügt die Units in alphabetischer Reihenfolge ein, was sicher danach geändert werden muss. Aber als Startpunkt mag das helfen.
+* Das Windows-Programm [itc-ToolBox/Booklet](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-booklet.md) liest ein Test-Design aus einer Excel-Datei ein und erzeugt daraus für alle gefundenen Booklets die Booklet-XML. Nach etwas Übung sollte diese Hilfe gut klappen für einen Großteil der Testungen.
+
+## Testtaker
+
+Durch die vielen Szenarien, die in einer Testtaker-XML abgebildet werden können, ist auch an dieser Stelle bisher keine dialoggesteuerte universelle Hilfe verfügbar. In den Studien des IQB haben sich auf den jeweiligen Anwendungsfall spezialisierte Excel-Dateien bewährt. Diese Excel-Tabellen dienen dann auch gleich der Erzeugung von Massen-E-Mails, d. h. an die richtigen Empfänger\*innen kommen die richtigen Zugangsdaten. Folgende Hilfen gibt es:
+
+* Das Windows-Programm [itc-ToolBox/Codes](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-codes.md) erzeugt eine große Anzahl eindeutiger Codes, die dann als Grundlage für die Logins genutzt werden können.
+* Das Windows-Programm [itc-ToolBox/QR](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-logins-docx.md) erzeugt nach Einlesen einer Testtaker-Datei Docx-Dateien, die einen QR-Code enthalten können. Diese Funktion wurde programmiert zur Erstellung von Zetteln, die den Testpersonen in die Hand gegeben werden, mit denen sie sich direkt im Testcenter als Teilnehmer einloggen können.
+* Beim Export von Units aus dem IQB-Studio kann man angeben, dass das erzeugte Booklet um eine Testtaker-XML ergänzt wird. Für eine definierbare Anzahl Testpersonen werden Logins erzeugt und das Booklet zugewiesen.
+
+# Hochladen / Upload
+
+Man benötigt einen [Schreibzugriff](../workspaces.qmd) auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können.
+
+```{mermaid}
+flowchart LR
+  A[Basis-Pakete für Player] --> B[Player]
+  B --> C[Units]
+  C --> D[Booklets]
+  D --> E[Testtakers]
+```
+
+Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.
+
+Der Name einer Datei spielt keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:
+
+* Unit-, Booklet- und Testtaker-Dateien müssen die Endung `xml` haben.
+* Ein Player muss die Endung `html` haben.
+* Basis-Pakete müssen die Endung `.itcr.zip` haben.
+* Dateien mit der Endung `zip` werden beim Hochladen ausgepackt und die darin enthaltenen Dateien separat im Arbeitsbereich gespeichert (Ausnahme Basis-Pakete).
+* Eine Unit-XML kann weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen `xml`, `html` und `zip` nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.
+
+Das IQB-Studio erzeugt den Test-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!
+
+::: {.callout-important}
+Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer\*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.
+:::
+
+## Warnungen
+
+**File has no link to XSD-Schema**
+
+Eventuell wird nach dem Hochladen in das Testcenter eine Warnung "File has no link to XSD-Schema..." für eine der XML-Dateien angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: **Unit-XML, Booklet-XML, Testtakers-XML, System-Check-XML** sind auf unserer [IQB-GitHub-Startseite/Spezifikationen](https://iqb-berlin.github.io/specs.html) zu finden.
+
+Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der Testtakers-XML wie folgt eingebunden:
+
+```{.xml}
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd">
+
+```
+**Outdated or wrong version of XSD-schema**
+
+Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.
+
+## Fehlermeldungen
+
+**Ressource not found**
+
+Soll eine Datei geladen werden, in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Die definierten Ressourcen sind vorher zu laden.
+
+**Duplicate Login**
+
+In der Testtakers-XML werden die Zugangsdaten der Teilnehmer\*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen (unabhängig des Arbeitsbeneiches), prüft das Testcenter beim Laden einer Testtakers-XML, ob die darin enthaltenen Zugänge (`<name>`) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer\*innen geändert werden oder die bereits vorhandene Testtakers-XML ist zuvor aus dem Testcenter zu entfernen.
+
+**Duplicate group**
+
+In der Testtakers-XML werden die Zugangsdaten der Teilnehmer\*innen Gruppen (`group`) zugeordnet. Diese Gruppen erhalten eine ID. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-ID nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene Testtakers-XML ist zuvor aus dem Testcenter zu entfernen.

@@ -11,7 +11,7 @@ execute:
 
 ## Ziel
 
-Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wieviele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation ggf. verteilt über Tage oder Wochen den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.
+Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wie viele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation, ggf. verteilt über Tage oder Wochen, den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.
 
 Unter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.
 
@@ -27,7 +27,7 @@ Die Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestel
 
 Die Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: **Anzahl Testpersonen** und **Ladezeit**. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.
 
-Ein Lasttest weist üblicherweise außerdem die **Fehlerrate** aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 x, retry mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn die 5 Ladeversuche gescheitert sind und also die Testperson eine Fehlermeldung bekommt.
+Ein Lasttest weist üblicherweise außerdem die **Fehlerrate** aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 Wiederholungen mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn alle 5 Ladeversuche gescheitert sind und die Testperson eine Fehlermeldung bekommt.
 
 Nach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.
 
@@ -37,21 +37,21 @@ Nach der Ermittlung der Werte für viele Testpersonen werden diese dann über de
 
 Man könnte annehmen, dass es sich beim IQB-Testcenter um eine Webseite handelt und einen üblichen Lasttest beauftragen. Auch hier wird berichtet, wieviele Personen gleichzeitig Zugriff haben können. Aus folgenden Gründen sind Standard-Tests jedoch problematisch:
 
-* Das Besucherverhalten wird als lose, teilweise zufällige Abfolge von Navigationsentscheidungen simuliert. Seiten werden oft vollständig geladen, manchmal wird aber auch das Laden abgebrochen durch eine andere Navigation. Das ist beim Testcenter nicht der Fall.
-* Es wird pro Besucher zugelassen, dass mehrere Ladevorgänge parallel angestoßen werden (eine Webseite hat üblicherweise mehrere Elemente wie z. B. Bilder). Wenn dies passiert, belastet ein Besucher den Server mehrfach. Das ist beim Testcenter nicht der Fall, so dass die Kapazität des Testcenters systematisch unterschätzt wird.
-* Es wird ein praktisch unendlich aktiver Besucher simuliert. Dadurch kann nicht ermittelt werden, wann ein Testheft geladen wurde und eine einmal gestartete Testperson behindert weiterhin die anderen - es gibt keine Entlastung nach der Ladephase zugunsten anderer Testpersonen. Dadurch wird die Kapazität des Testcenters systematisch unterschätzt und es fehlt die wichtige Information über die Ladezeit.
+* Das Besucherverhalten wird als lose, teilweise zufällige Abfolge von Navigationsentscheidungen simuliert. Seiten werden oft vollständig geladen, manchmal wird aber auch das Laden abgebrochen durch eine andere Navigation. Das ist beim Testcenter eigenen Lasttest nicht der Fall.
+* Es wird pro Besucher zugelassen, dass mehrere Ladevorgänge parallel angestoßen werden (eine Webseite hat üblicherweise mehrere Elemente wie z. B. Bilder). Wenn dies passiert, belastet ein Besucher den Server mehrfach. Das dieses Verhalten beim Testcenter nicht vorgesehen ist, wird durch dieses Testverhalten die Kapazität des Testcenters systematisch unterschätzt.
+* Es wird ein praktisch unendlich aktiver Besucher simuliert. Dadurch kann nicht ermittelt werden, wann ein Testheft geladen wurde. Weiterhin behindert eine einmal gestartete Testperson folgende Teilnehmer - es gibt keine Entlastung nach der Ladephase zugunsten anderer Testpersonen. Dadurch wird die Kapazität des Testcenters systematisch unterschätzt und es fehlt die wichtige Information über die Ladezeit.
 
 ## Eigenprogrammierung
 
 Leider sind die verfügbaren Open Source-Systeme zum Bauen eines Lasttests (z. B. Locust, Tsung) stets auf den oben beschriebenen Standardfall ausgerichtet. Es sind viele Zufallsfaktoren eingebaut, so dass sich ein streng serielles Laden kaum realisieren lässt. Das IQB verwendet daher eine eigene Programmierung für Lasttests, die die Aufrufe in der Startphase korrekt nachstellt:
 
-* Anmeldung am Testsystem; für alle folgenden Requests wird das bei der Anmeldung erhaltene Auth-Token verwendet
-* Nach erfolgreicher Anmeldung Abruf der Daten: Testheft (also Liste der erforderlichen Dateien)
-* Abruf der Dateien
+1. Anmeldung am Testsystem; für alle folgenden Requests wird das bei der Anmeldung erhaltene Auth-Token verwendet
+2. Nach erfolgreicher Anmeldung Abruf der Daten: Testheft (also Liste der erforderlichen Dateien)
+3. Abruf der Dateien
 
-Der Server, der geprüft wird, hat eine definierte Ausgangssituation. Das bedeutet, dass stets dieselben Testinhalte bereit stehen und sich noch niemand vorher angemeldet hat. Für jede Testperson wird ein separates Login bereitgestellt. Wenn also eine Last von 10.000 Testpersonen erzeugt werden soll, hält der Server 10.000 Logins bereit, die der angreifende Server dann benutzt.
+Der Server, der geprüft wird, hat eine definierte Ausgangssituation. Das bedeutet, dass stets dieselben Testinhalte bereit stehen und sich noch niemand vorher angemeldet hat. Für jede Testperson wird ein separates Login bereitgestellt. Wenn also eine Last von 10.000 Testpersonen erzeugt werden soll, hält der Server 10.000 Logins bereit, die die ausführende Testsuite benutzt.
 
-Der Server, der die Last erzeugt, muss hierfür sehr viele Prozesse gleichzeitig managen können. Diese Bedingung konnte nur die Computersprache Go hinreichend erfüllen. Die Programmierung für den IQB-Lasttest ist also in Go implementiert.
+Der Server, der die Last erzeugt, muss hierfür sehr viele Prozesse gleichzeitig managen können. Diese Bedingung erfüllt die genutzte Computersprache Go hinreichend. 
 
 Im Moment ist die Programmierung auf die Anforderungen des IQB ausgerichtet. Nach der Diskussion mit Fachleuten auf dem Gebiet des Lasttests und weiterer Erprobung würden wir die Software so ausbauen, dass sie einfach durch Dritte installiert und genutzt werden kann (MIT-Lizenz). Auf der Liste der gewünschten Features stehen noch Einbeziehung von Daten aus dem Monitoring des angegriffenen Systems (Docker stats bzw. Informationen über CPU-Auslastung, RAM usw.), Automatisierung des Uploads des Testcenter-Content und einfache Parametrisierung der Testläufe.
 
@@ -62,7 +62,7 @@ Es werden zwei Parameter der Testung variiert:
 * gleichzeitige Anzahl der Testpersonen: 100, 1.000, 2.000, 5.000, 10.000, 20.000; hierbei erfolgt real eine Streckung der Login-Anfragen: maximal 100 Anmeldungen pro Sekunde (sonst wird ein DoS-Angriffszenario simuliert)
 * Gesamtgröße des Content: klein (70 kB), mittel (20 MB), groß (38 MB)
 
-Das IQB betreibt zwei konstante Server, damit die Lasttests vergleichbar sind. Hier ist das Ziel nicht, eine spezifische Lernstandserhebung vorzubereiten, sondern Versionen des Testcenters auf Veränderungen des Lastverhaltens zu prüfen. Die Serverausstattung wird bewusst nicht variiert.
+Das IQB betreibt zwei konstante Server, damit die Ergebnisse der Lasttests vergleichbar sind. Hier ist das Ziel nicht, eine spezifische Lernstandserhebung vorzubereiten, sondern Versionen des Testcenters auf Veränderungen des Lastverhaltens zu prüfen. Die Serverausstattung wird bewusst nicht variiert.
 
 ## Strategien bei unbefriedigenden Lasttest-Ergebnissen
 

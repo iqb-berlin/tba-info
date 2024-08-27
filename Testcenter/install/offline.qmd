@@ -9,43 +9,46 @@ date: 2024-05-02
 
 Das IQB-Testcenter ist eine Webanwendung, d. h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.
 
+::: {.callout-note}
 Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.
+:::
+
 
 # Vorbereitung
 
-- Installation von [Docker](https://docs.docker.com/engine/install/ubuntu/#installation-methods) und [Docker-Compose](https://docs.docker.com/compose/install/standalone/#on-linux) sowie _make_
+- Installation von [Docker](https://docs.docker.com/engine/install/ubuntu/#installation-methods) und [Docker-Compose](https://docs.docker.com/compose/install/standalone/#on-linux) sowie [make](https://www.gnu.org/software/make/)
 - Router im Access Point Modus
 - (Optional) Installation von _dnsmasq_ für lokalen DNS Server
 
 Wenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen {{< fa chevron-right >}} Netzwerk.
 
-Um die Wiederverwendbarkeit zu erleichtern empfehle ich ein neues Profil für diese Verbindung anzulegen.
+Um die Wiederverwendbarkeit zu erleichtern empfehlen wir ein neues Profil für diese Verbindung anzulegen.
 
-Das wichtige ist, dass **Make available to other users** unter Details und **Shared to other computers** unter IPv4 aktiviert sind.
+Das wichtige ist, dass Details {{< fa chevron-right >}} **Make available to other users** und IPv4 {{< fa chevron-right >}} **Shared to other computers** aktiviert sind.
 
 Nach Erstellung des Profils sollte es so aussehen:
 
-![](offline1.png)
+![Beispiel für Details Einstellungen](offline1.png){#fig-details}
 
-![](offline2.png)
+![Beispiel für IPv4 Einstellungen](offline2.png){#fig-ipv4}
 
 # Installation Testcenter
 
 Dem [Guide](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) für die Installation des Testcenters folgen.
-Während man das Installationsskript (`install.sh`) ausführt gibt es einige Schritte die zu beachten sind.
+Während man das Installationsskript (`install.sh`) ausführt, gibt es einige Schritte zu beachten.
 
-Unter **HOSTNAME** muss entweder die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel **10.42.0.1**) oder eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan), allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines lokalen DNS Servers.
+Unter **HOSTNAME** muss die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel **10.42.0.1**, s. @fig-details). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines [lokalen DNS Servers](#lokaler-dns-server).
 
 Außerdem sollte die Setup-Frage "**Use TLS?**" mit **N** (No) beantwortet werden. 
 
-Man sollte den weiteren Hinweisen des [Guides](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden können und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet.
+Man sollte den weiteren Hinweisen des [Guides](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet sein.
 
 # Lokaler DNS Server
 
-Um einen lokalen DNS Server zu starten können Tools wie [dnsmasq](https://wiki.ubuntuusers.de/Dnsmasq/) oder [bind](https://wiki.ubuntuusers.de/DNS-Server_Bind/) verwendet werden.
+Um einen lokalen DNS Server zu starten, können Tools wie [dnsmasq](https://wiki.ubuntuusers.de/Dnsmasq/) oder [bind](https://wiki.ubuntuusers.de/DNS-Server_Bind/) verwendet werden.
 Dieser Guide verwendet dnsmasq.
 
-Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse hinzugefügt werden. Dies kann man z.B. mit nano erledigen:
+Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier `/etc/dnsmasq.confh`) inzugefügt werden. Dies kann man z.B. mit nano erledigen:
 
 ```bash
 sudo nano /etc/dnsmasq.conf
@@ -57,7 +60,7 @@ Dort diese Regel hinzufügen:
 address=/#/x.x.x.x
 ```
 
-Für x muss der vorher ausgewählte Hostname eingesetzt werden und für `x.x.x.x` die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:
+Für `#` muss der vorher ausgewählte Hostname eingesetzt werden und für `x.x.x.x` die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:
 
 ```bash
 address=/iqb-testcenter.lan/10.42.0.1
@@ -71,29 +74,34 @@ sudo systemctl restart dnsmasq.service
 
 Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.
 
-Dieser lokaler DNS Server wurde in einer Umgebung getestet in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.
+::: {.callout-note}
+Dieser lokaler DNS Server wurde in einer Umgebung getestet, in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.
+:::
 
 # Bereinigung des Testcenters
 
 Möchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:
 
 ```bash {code-line-numbers="true"}
-make down 
-docker rm -f $(docker ps -a -q)
-docker volume rm $(docker volume ls -q)
-docker rmi $(docker images -a -q)
+make down #<1>
+docker rm -f $(docker ps -a -q) #<2>
+docker volume rm $(docker volume ls -q) #<3>
+docker rmi $(docker images -a -q) #<4>
 ```
 
-1. beendet die Anwendung.
-2. entfernt alle Container.
-3. entfernt alle Volumes.
-4. entfernt dann alle Images.
+1. Beendet die Anwendung.
+2. Entfernt alle Docker Container.
+3. Entfernt alle Docker Volumes.
+4. Entfernt dann alle Docker Images.
 
 Danach kann das bisherige Installationsverzeichnis gelöscht werden.
 
 # Umgebungsvariable: TLS_ENABLED
 
+:::{.callout-warning}
 Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.
+:::
+
 Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:
 
 ```bash

@@ -18,14 +18,14 @@ flowchart LR
   style E fill:#a0e3f3
 ```
 
-# Login-Dateien
+# Handhabung der Logins
 
 Die Handhabung der Testtaker-XML zur Steuerung der Logins ist ein kritischer Punkt der Testdurchführung. Bitte beachten Sie folgende Hinweise:
 
 * Sie können mehrere Testtaker-XML hochladen. Die Logins werden trotzdem in einer gemeinsamen Liste geführt. Die Aufteilung der Logins in verschiedene Dateien ist also aus Sicht des Testcenter ohne Bedeutung. Sie folgt nur praktischen Erwägungen der Testorganisation.
 * Sofort nach dem Hochladen einer Testtaker-Datei sind die darin enthaltenen Logins freigeschaltet[^1].
 * Das Löschen einer Testtaker-Datei verhindert sofort, dass die darin enthaltenen Logins benutzt werden können. Die Antwortdaten sind davon nicht betroffen, d. h. diese werden nicht gelöscht.
-* Die Benutzernamen der Logins müssen eindeutig sein für die gesamte Testcenter-Installation. Es kann also passieren, dass das Hochladen einer Testtaker-XML abgewiesen wird, weil in einem anderen Arbeitsbereich derselbe Benutzername definiert wurde. Nehmen Sie daher nicht zu kurze Benutzernamen oder stimmen Sie sich mit anderen Studien ab.
+* Die Benutzernamen der Logins müssen eindeutig sein für die gesamte Testcenter-Installation. Es kann also passieren, dass das Hochladen einer Testtaker-XML abgewiesen wird, weil in einem anderen Arbeitsbereich derselbe Benutzername definiert wurde. Nehmen Sie daher nicht zu kurze Benutzernamen oder stimmen Sie sich mit anderen Studien auf derselben Testcenter-Installation ab.
 * Wenn Sie Logins erneut hochladen, die Sie vorher gelöscht hatten und die bereits benutzt wurden, dann sind die alten Antworten ggf. wieder verfügbar[^2]. Sollten Sie für diese Logins den Testmodus geändert haben, riskieren Sie den Verlust von Antwortdaten.
 
 # Grundstruktur
@@ -47,15 +47,15 @@ Das Beispiel zeigt eine einfache Version einer Testtaker-XML.
   </Group>
 </Testtakers>
 ```
-1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
-2. Das `Metadata`-Element ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein `Description`-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet -- sind also nur zur Verbesserung des Lesens dieser XML gedacht.
-3. Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die `id` muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Das `label` wird z. B. in der Anzeige des Studienfortschritts verwendet.
-4. Über das Attribut `mode` wird eine Vielzahl von Funktionen des Testcenters gesteuert ([s. unten](#login-modus)). Benutzername `name` und Kennwort `pw` stehen für die gängigste Anmeldemethode ([s. unten](#anmeldemethoden)).
-5. Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.
+1. `<Testtakers>`: Verweis auf XML-Schema, das eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei ist. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2. `<Metadata>`: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein `Description`-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet -- sind also nur zur Verbesserung des Lesens dieser XML gedacht.
+3. `<Group>`: Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die `id` muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Das `label` wird z. B. in der Anzeige des Studienfortschritts verwendet.
+4. `<Login>`: Über das Attribut `mode` wird eine Vielzahl von Funktionen des Testcenters gesteuert ([s. unten](#login-modus)). Benutzername `name` und Kennwort `pw` stehen für die gängigste Anmeldemethode ([s. unten](#varianten-des-anmeldeverfahrens)).
+5. `<Booklet>`: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.
 
 # Login-Modus
 
-Über das Attribut `mode` im Login wird die **Rolle der angemeldeten Person** innerhalb einer Testung festgelegt. Es stehen hier sehr unterschiedliche Rollen zur Verfügung. Diese gehen aber nie über den Arbeitsbereich hinaus.
+Über das Attribut `mode` im `<Login>` wird die **Rolle der angemeldeten Person** innerhalb einer Testung festgelegt. Es stehen hier sehr unterschiedliche Rollen zur Verfügung. Diese gehen aber nie über den Arbeitsbereich hinaus.
 
 ::: {.callout-caution}
 Die folgende Dokumentation über den Login-Modus könnte veraltet sein. Eine verlässliche und genaue Darstellung [finden Sie stets hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html).
@@ -63,14 +63,14 @@ Die folgende Dokumentation über den Login-Modus könnte veraltet sein. Eine ver
 
 ## Testperson: `run-hot-return`, `run-hot-restart`
 
-Das ist die übliche Rolle einer Person, die an einem Test oder einer Befragung teilnehmen soll. Man bekommt nach dem Ladevorgang nacheinander die vorbereiteten Seiten präsentiert, antwortet über Texteingaben, Ankreuzen, Verschieben usw., und die Antworten werden auf dem Server gesammelt für die Auswertung. Restriktionen der Testdurchführung -- z. B. Zeitbeschränkungen -- sind genau so wirksam, wie im Booklet-XML definiert.
+Dies sind die üblichen Rollen einer Person, die an einem Test oder einer Befragung teilnehmen soll. Man bekommt nach dem Ladevorgang nacheinander die vorbereiteten Seiten präsentiert, antwortet über Texteingaben, Ankreuzen, Verschieben usw., und die Antworten werden auf dem Server gesammelt für die Auswertung. Restriktionen der Testdurchführung -- z. B. Zeitbeschränkungen -- sind genau so wirksam, wie im Booklet-XML definiert.
 
 * `run-hot-return`: Wenn sich die Testperson zu einem späteren Zeitpunkt erneut anmeldet, sind alle Antworten wiederhergestellt und die Person setzt den Test dort fort, wo sie ihn verlassen hat. Zeitbeschränkungen haben pausiert, d. h. man kann verbliebene Bearbeitungszeit nutzen. Dieser Modus erlaubt es also z. B., bei Problemen die Testdurchführung abzubrechen und mit einem anderen Browser oder Computer fortzusetzen.
-* `run-hot-restart`: Eine erneute Anmeldung erzeugt auf dem Server eine neue Testperson ohne Antworten. Dieser Modus ist gedacht für Befragungen, wenn der Kreis der Befragten vorher nicht bekannt ist. Man kann eine Einladung zur Befragung an einen großen Personenkreis verschicken und bereitet dafür nur ein Login vor. Die Personen sehen nicht die Antworten der anderen, kehren aber nach einer erneuten Anmeldung zum Ausgangszustand zurück.
+* `run-hot-restart`: Eine erneute Anmeldung erzeugt auf dem Server eine komplett neue Testperson. Antworten können demnach nicht fortgesetzt werden nach einmaligen Verlassen der Testung. Dieser Modus ist gedacht für Befragungen, wenn der Kreis der Befragten vorher nicht bekannt ist. Man kann eine Einladung zur Befragung an einen großen Personenkreis verschicken und bereitet dafür nur ein Login vor. Die Personen sehen nicht die Antworten der anderen, fangen aber nach einer erneuten Anmeldung wieder beim Ausgangszustand an.
 
 ## Testfortschritt beobachten und steuern: `monitor-group`, `monitor-study`
 
-Das Testcenter bietet die Möglichkeit, alle Logins eines Group-Elementes -- also einer Testgruppen, z. B. Klasse -- im Fortschritt zu beobachten und teilweise zu steuern. Hierfür ist ein Gruppenmonitor mit zahlreichen Funktionen verfügbar. Eine ausführliche Dokumentation [finden Sie hier](../Gruppenmonitor/index.qmd).
+Das Testcenter bietet die Möglichkeit, alle Logins eines Group-Elementes -- also einer Testgruppen, z. B. Klasse -- im Fortschritt zu beobachten und zu steuern. Hierfür ist die Rolle eines Monitors mit zahlreichen Funktionen verfügbar. Eine ausführliche Dokumentation [finden Sie hier](../Gruppenmonitor/index.qmd).
 
 * `monitor-group`: Diese Anmeldung ist für Lehrkräfte oder Testleitungen vor Ort gedacht. Man kann sich alle Testhefte, die den Personen der Gruppe zugewiesen sind, anschauen, und kann direkt einen Schüler ansprechen, bei dem man ein auffälliges Verhalten sieht (z. B. Verlassen des Browserfensters der Testung).
 * `monitor-study`: Diese Anmeldung ist zwar aus technischen Gründen ebenfalls innerhalb einer Gruppe definiert, bezieht sich aber auf alle Login-Gruppen eines Arbeitsbereiches. Die Rolle dahinter könnte man mit "Hotline" benennen: Während einer Testung mit vielen Klassen ruft jemand an, und im Support möchte man schnell nach dem Bearbeitungsstand der Gruppe schauen und ggf. eingreifen. Nach der Anmeldung erhält man zunächst alle Gruppen zur Auswahl und kann dann gezielt helfen[^3].
@@ -91,11 +91,9 @@ Für diese Art der Nutzung des Testcenters steht der Modus `run-demo` zur Verfü
 
 # Varianten des Anmeldeverfahrens
 
-Grundsätzlich gilt: Ein Anmeldename darf nicht mehrfach vorkommen auf einer Testcenter-Installation. Sollte ein Anmeldename bereits in einem anderen Arbeitsbereich vergeben worden sein, scheitert das Hochladen in das Testcenter.
-
 ## Richtlinien
 
-Für die nachfolgenden Login-Parameter Name, Kennwort und Code müssen geeignete Kombinationen aus Buchstaben und Ziffern gefunden werden. Beachten Sie für Testdurchführungen folgende Hinweise:
+Für die nachfolgenden `<Login>`-Parameter Name (`name`), Kennwort (`pw`) und Code (`code`) müssen geeignete Kombinationen aus Buchstaben und Ziffern gefunden werden. Beachten Sie für Testdurchführungen folgende Hinweise:
 
 * Die Zeichen müssen gut merkbar sein, damit bei der Übertragung vom Zettel in den Computer kein Fehler passiert.
 * Die Tasten sollen auf der Computer-Tastatur gut findbar sein.
@@ -120,6 +118,10 @@ Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox/blo
 
 Diese Anmeldeform wird üblicherweise erwartet. Im Eingabeformular der Startseite einer Testcenter-Installation wird der Anmeldename im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d. h. man kann nicht mitlesen. Ein Klick auf das Auge-Symbol macht auch das Kennwort lesbar, was bei der Testdurchführung für die Fehlersuche hilfreich ist.
 
+::: {.callout-important}
+Ein Anmeldename darf nicht mehrfach vorkommen auf einer Testcenter-Installation. Sollte ein Anmeldename bereits in einem anderen Arbeitsbereich vergeben worden sein, scheitert das Hochladen der Testtakers-XML in das Testcenter.
+:::
+
 ## Nur Anmeldename (URL)
 
 Das Kennwort kann weggelassen werden. Diese Anmeldeform eignet sich besonders für folgende Szenarien:
@@ -141,7 +143,7 @@ Es kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen un
 </Login>
 ``` 
 
-Personencodes gelten spezifisch für Testhefte. Mehrere Codes können in einem Booklet-Element im Attribut `code` zusammengefasst werden mit einem Leerzeichen dazwischen. Im obigen Beispiel wurden also Logins für fünf Personen definiert. Für den [Gruppenmonitor](../Gruppenmonitor/index.qmd) ist dies nicht relevant, d. h. es werden normale Testsitzungen erzeugt.
+Personencodes gelten spezifisch für Booklets. Mehrere Codes können in einem Booklet-Element im Attribut `code` zusammengefasst werden mit einem Leerzeichen dazwischen. Im obigen Beispiel wurden also Logins für fünf Personen definiert. Für den [Gruppenmonitor](../Gruppenmonitor/index.qmd) ist dies nicht relevant, d. h. es werden normale Testsitzungen erzeugt.
 
 ## Zeitbeschränkung einer Anmeldung
 

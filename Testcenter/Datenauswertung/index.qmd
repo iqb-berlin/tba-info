@@ -19,13 +19,13 @@ Bei großen Datenmengen kann ein manueller Download recht mühsam sein. Besser i
 
 ## Antworten
 
-Die gegebenen Antworten werden mit einem Zeitstempel versehen in der Datenbank gespeichert. Das Testcenter speichert nicht bei jedem Tastendruck, aber nach einer kleinen Verzögerung zum Sammeln von Änderungen wird gespeichert. Sollte eine Unit erneut betreten werden (Neustart des Tests oder Zurückblättern), werden die Antworten wiederhergestellt.
+Die gegebenen Antworten werden mit einem Zeitstempel versehen in der Datenbank gespeichert. Das Testcenter speichert nicht bei jedem Tastendruck, sondern gesammelt in regelmäßigen Abständen. Sollte eine Unit erneut betreten werden (Neustart des Tests oder Zurückblättern), werden die Antworten wiederhergestellt.
 
 Das Speichern und die Wiederherstellung betreffen auch allgemeine Zustände wie "Fortschritt Beantwortung" oder "Fortschritt Präsentation". Auch der Stand des Abspielens einer Audiosequenz wird als Status gespeichert.
 
 Das Format der Antworten ist nicht spezifiziert. Im Rahmen der Verona-Spezifikationen ist festgelegt, dass die Antwort auf mehrere Daten-Chunks verteilt sein kann, aber die Antworten selbst sind als String gespeichert. Datenstrukturen sind also dem Testcenter nicht bekannt[^1] und die nachfolgenden Verarbeitungsschritte müssen eine sinnvolle Interpretation der Antwortdaten übernehmen. Durch diese Offenheit wird die Datenverarbeitung erschwert, aber sie ist auch sehr flexibel.
 
-| Spaltenname | Inhalt (Beispiel) |
+| Spaltenname | Inhalt |
 |--------|---------------------------------------------|
 | groupname | TestakerGroup1 |
 | loginname | pankow |
@@ -37,9 +37,11 @@ Das Format der Antworten ist nicht spezifiziert. Im Rahmen der Verona-Spezifikat
 | response-ts | 1,64155E+12 |
 | laststate	| {\"PLAYER\":\"RUNNING\",\"RESPONSE_PROGRESS\":\"complete\",\"PRESENTATION_PROGRESS\":\"complete\"} |
 
+: Beispiel einer Antwort
+
 ## Logdaten
 
-Logdaten sind zeitpunktbezogene Zustände. Sie dienen in wissenschaftlichen Erhebungen als wichtige Datenquelle. Darüber können Erkenntnisse erlangt werden, zu denen vorher kein Konzept, keine Hypothese existierte. Aus diesem explorativen Ansatz können neue Ideen für hypothesengeleitete Forschungsprojekte entstehen. Außerdem spielen Logdaten eine wichtige Rolle bei Reanalysen: Nachdem die Fragestellungen der durchgeführten Studie beantwortet sind, können später neue methodische Fortschritte eine erneute Analyse interessant machen. Der "Beifang" -- also Daten ohne direkten Bezug zur ursprünglichen Studie -- wird dann wichtig.
+Logdaten sind zeitpunktbezogene Zustände. Sie dienen in wissenschaftlichen Erhebungen als wichtige Datenquelle. Darüber können Erkenntnisse erlangt werden, zu denen vorher kein Konzept, keine Hypothese existierte. Aus diesem explorativen Ansatz können neue Ideen für hypothesengeleitete Forschungsprojekte entstehen. Außerdem spielen Logdaten eine wichtige Rolle bei Reanalysen: Nachdem die Fragestellungen der durchgeführten Studie beantwortet sind, können später neue methodische Fortschritte eine erneute Analyse interessant machen. Logs als "Beifang" -- also Daten ohne direkten Bezug zur ursprünglichen Studie -- werden dann wichtig.
 
 Aktuell gibt es in Deutschland in den großen Studien des Bildungsmonitorings keinen Bedarf für Logdaten. Als Datenquellen für die Kompetenzschätzungen dienen die Antworten, also der jeweils letzte Stand der Beantwortung der Items durch die Testperson. In Befragungen spielen Logdaten ebenfalls keine Rolle. Eine Auswertung der Logdaten erfolgt am IQB in folgenden Zusammenhängen:
 
@@ -53,7 +55,7 @@ Das Testcenter bietet zwei Möglichkeiten, Logdaten zu erzeugen:
 
 In einem Arbeitsbereich kann man die Logdaten herunterladen. Es handelt sich um eine CSV-Datei mit folgendem Inhalt:
 
-| Spaltenname | Inhalt (Beispiel) |
+| Spaltenname | Inhalt |
 |--------|---------------------------------------------|
 | groupname | IQB |
 | loginname | ID94 |
@@ -62,6 +64,8 @@ In einem Arbeitsbereich kann man die Logdaten herunterladen. Es handelt sich um 
 | unitname | M02360 |
 | timestamp | 1620629925532 |
 | logentry | PLAYER = LOADING<br/>PRESENTATION_PROGRESS = complete<br/>RESPONSE_PROGRESS = none |
+
+: Beispiel eines Logs
 
 # Weiterverarbeitung
 
@@ -73,7 +77,7 @@ Das IQB hat für die Antworten ein [Standardformat](https://iqb-berlin.github.io
 
 ![Windows-Programm itc-ToolBox](itc-ToolBox.png)
 
-Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-output.md) liest die Antwort- und Logdaten entweder als CSV oder im direkten Zugriff auf eine IQB-Testcenter-Installation und erstellt eine Excel-Datei. Hier sind alle Antworten tabellarisch geordnet. Außerdem finden sich Daten zu time-on-page und zu den Systemparametern (Betriebssystem, Browser usw.) der Testsitzungen. Wenn die Daten über den Direktzugriff auf eine Testcenter-Installation eingelesen werden, greift die itc-ToolBox auch die Größenangaben der Testinhalte ab und liefert einen Indikator für die Download-Geschwindigkeit in kBytes/sec.
+Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-output.md) liest die Antwort- und Logdaten entweder als CSV oder im direkten Zugriff auf eine IQB-Testcenter-Installation und erstellt eine Excel-Datei. Hier sind alle Antworten tabellarisch geordnet. Außerdem finden sich Daten zu time-on-page und zu den Systemparametern (Betriebssystem, Browser usw.) der Testsitzungen in Formen von Logs. Wenn die Daten über den Direktzugriff auf eine Testcenter-Installation eingelesen werden, greift die itc-ToolBox auch die Größenangaben der Testinhalte ab und liefert einen Indikator für die Download-Geschwindigkeit in kBytes/sec.
 
 Voraussetzung für die Nutzung der itc-ToolBox ist, dass der Player das [IQB-Standardformat](https://iqb-berlin.github.io/coding-info/data-structures/response.html) für die Speicherung der Antworten benutzt.
 

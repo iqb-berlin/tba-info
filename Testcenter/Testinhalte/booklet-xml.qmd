@@ -43,7 +43,7 @@ Das Beispiel zeigt eine minimale Version einer Booklet-XML.
 
 # Booklet-Einstellungen
 
-Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.
+Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in `<BookletConfig>`. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.
 
 ```{.xml filename="booklet2.xml"}
 <?xml version="1.0"?>
@@ -72,9 +72,9 @@ Die vollständige Liste der Booklet-Einstellungen [finden Sie hier](https://page
 
 # Strukturierung über Blöcke
 
-Die Units in Blöcke (engl. testlets) aufzuteilen dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d. h. es entspricht der Tradition.
+Die Units in Blöcke (engl. testlets) aufzuteilen, dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d. h. es entspricht der Tradition.
 
-Im Testcenter können aber für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:
+Im Testcenter können für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:
 
 ```{.xml filename="booklet3.xml"}
 <?xml version="1.0"?>
@@ -102,8 +102,8 @@ Im Testcenter können aber für Units in Blöcken bestimmte Restriktionen gesetz
   </Units>
 </Booklet>
 ```
-1. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet sein. Das `label` kann z. B. auf einer erweiterten Navigationsseite verwendet werden.
-2. Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber -- sofern vorhanden -- in genau dieser Reihenfolge vorkommen.
+1. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen. Das `label` kann z. B. auf einer erweiterten Navigationsseite angezeigt werden.
+2. Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber -- sofern vorhanden -- in genau dieser Reihenfolge vorkommen: CodeToEnter --> TimeMax --> DenyNavigationOnIncomplete.
 3. Die Restriktion CodeToEnter legt fest, dass eine Dialogbox gezeigt wird beim Versuch, den Block zu betreten. Erst nach Eingabe des Codes, der im Attribute `code` übergeben wird, kann man den Block betreten. Groß- und Kleinschreibung spielt keine Rolle. Der Text innerhalb des Elementes wird in der Dialogbox als Aufforderung angezeigt. Diese Restriktion dient der Synchronisation des Testablaufes innerhalb einer Testgruppe (Klasse), um Gelegenheit für weitere Ansagen zu haben.
 4. TimeMax: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert. Die Testperson kann das nicht verhindern. Es gibt für den Versuch des vorzeitigen Verlassens des Blockes ein optionales Attribut `leave`, das festlegt, ob eine Warnung ausgegeben wird (Wert `confirm`; Standardverhalten) oder ein Verlassen generell nicht erlaubt wird (Wert `forbidden`).
 5. Mit der Restriktion DenyNavigationOnIncomplete wird das Verlassen einer Unit verhindert, wenn die Präsentation (Attribut `presentation`) und/oder die Antworten (Attribut `response`) unvollständig sind. Die möglichen Werte sind `OFF`-Keine Beschränkung, `ON`-Vorwärtsgehen wird verhindert und `ALWAYS`-Vor- und Rückwärtsgehen wird verhindert. Damit überschreibt man für diesen Block eine ggf. als Booklet-Konfiguration gesetzte Regel (`force_presentation_complete` bzw. `force_response_complete`; beide haben `OFF` als Standard).
