@@ -16,9 +16,9 @@ Ein System-Check wird angelegt, indem eine XML-Datei mit einem spezifischen Inha
 
 # System-Check anlegen
 
-Man muss zugriffsberechtigt sein zu einem Arbeitsbereich einer IQB-Testcenter-Installation. Dann lädt man eine XML-Datei hoch. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).
+Zunächst wird ein Arbeitsbereichs-Admin mit Schreibrechten zu einem Arbeitsbereich einer IQB-Testcenter-Installation benötigt. Dieser kann eine SystemCheck-XML Datei hochladen. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).
 
-## Grundfunktionen
+## Grundstruktur
 
 Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt.
 
@@ -69,7 +69,9 @@ Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich �
 
 ![System-Check mit angepasstem Text](syscheck3.png){group="input"}
 
+::: {.callout-note}
 Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html). Suchen Sie nach dem Präfix `syscheck_`!
+:::
 
 ## Netzwerkanbindung
 
@@ -106,13 +108,14 @@ Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](http
 	</Config>
 </SysCheck>
 ```
-1. Das Hochladen betrifft vor allem das Speichern der Antworten im Test. Parameter s. u.
-2. Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung. Parameter s. u.
+1. Das Hochladen betrifft vor allem das Speichern der Antworten im Test, Parameter s. @tbl-network
+2. Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung. Parameter s. @tbl-network
 
 Für die Nutzer\*innen sieht das z. B. so aus:
 
 ![Test der Netzwerkanbindung](syscheck4.png){group="input"}
 
+::: {#tbl-network}
 | Parameter | Bedeutung im Test |
 |-----|--------------------------------------|
 | `min` | Mindestwert für die ermittelte Geschwindigkeit |
@@ -120,34 +123,34 @@ Für die Nutzer\*innen sieht das z. B. so aus:
 | `maxDevianceBytesPerSecond` | Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von `maxSequenceRepetitions` wiederholt. |
 | `maxErrorsPerSequence` | Anzahl zulässiger Übertragungsfehler |
 | `maxSequenceRepetitions` | Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in `maxDevianceBytesPerSecond` überschritten wurde. |
+| `100000`, `200000`, `400000`, `800000` | Die Zahlen gebet die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern. |
 
 : Parameter des Netzwerk-Tests {.striped}
-
-Die Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.
+:::
 
 ## Speichern der Ergebnisse auf dem Server
 
 ```{.xml}
-	<Config savekey="eckensteher" skipnetwork="false">
+<Config savekey="eckensteher" skipnetwork="false">
 ```
 
-Wenn wie im obigen Beispiel ein `savekey` definiert wurde, kann die Person, die den System-Check durchführt, die Ergebnisse speichern. Ein entsprechender Button wird eingeblendet und das Kennwort wird abgefragt.
+Wenn wie im obigen Beispiel ein `savekey` definiert wurde, kann die Person, die den System-Check durchführt, die Ergebnisse auf dem Server speichern. Ein entsprechender Button wird eingeblendet und das Kennwort wird abgefragt.
 
 ## Einbinden einer Unit
 
 Das IQB-Testcenter ist die Anwendung, mit der Testaufgaben bzw. Frageitems präsentiert werden und Antworten gespeichert werden. Der Programmcode für Präsentation und Interaktion ist über das [Verona-Prinzip](https://verona-interfaces.github.io/player-docs/) ausgelagert. Welche Player bzw. spezifischen Interaktionsmodelle verwendet werden, ist dem Testcenter und also auch dem System-Check nicht bekannt. Daher kann bei der Konfiguration eines System-Check ein Player und eine Unit eingebunden werden.
 
-Die Antworten werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog (s. u.) Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.
-
 ```{.xml}
-	<Config unit="bsp_unit" savekey="saveme" skipnetwork="false">
+<Config unit="bsp_unit" savekey="saveme" skipnetwork="false">
 ```
 
 Die Unit muss natürlich mit all ihren Dateien (xml, voud usw.) im Arbeitsbereich hochgeladen werden, auch der Player. Ansonsten wird der System-Check sofort mit einer Fehlermeldung abgebrochen.
 
+Die Antworten der Units werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.
+
 ## Fragenkatalog
 
-Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter `savekey` kann man so die Antworten erhalten.
+Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter `savekey` kann man so die Antworten der Units erhalten.
 
 ```{.xml filename="syscheck4.xml"}
 <?xml version="1.0" encoding="utf-8"?>
@@ -169,12 +172,14 @@ Der System-Check verfügt über einen einfachen Formulargenerator, über den ein
 	</Config>
 </SysCheck>
 ```
-1. `header` erzeugt eine Überschrift
-2. `radio` erzeugt eine Auswahl. Die OPtionen sind mit `#` zu trennen
+1. `type` vom Wert "header" erzeugt eine Überschrift
+2. `type` vom Wert "radio" erzeugt eine Auswahl. Die Optionen sind mit `#` zu trennen
 
 Diese Konfiguration führt zu folgendem Ergebnis:
 
 ![System-Check mit Fragenkatalog](syscheck5.png){group="input"}
+
+Weitere Inputfelder im Fragekatalog sehen so aus:
 
 | Parameter | Bedeutung im Fragenkatalog |
 |-----|--------------------------------------|
@@ -185,7 +190,7 @@ Diese Konfiguration führt zu folgendem Ergebnis:
 | `select` | Auswahl, als Klappbox dargestellt; die Optionen sind als Inhalt des `<Q>`-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel) |
 | `radio` | Auswahl - jede Option wird in einer neuen Zeile dargestellt; die Optionen sind als Inhalt des `<Q>`-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel) |
 
-: Formulartypen als Parameter `type` {.striped}
+: Werte für `type` innerhalb von `<Q>` {.striped}
 
 # Auswertung
 
@@ -288,7 +293,7 @@ Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe 
 Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.
 
 ::: {.callout-tip}
-Im System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
+Im System-Check kann immer nur eine Unit zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
 :::
 
 ## Hinweise zur Durchführung

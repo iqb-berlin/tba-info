@@ -24,22 +24,22 @@ Die CSP wird ausschließlich mit der index.html ausgelifert, denn sie lädt alle
 
 ## Administratoren
 
-Zur Verwaltung der Inhalte und dem Download der Antwortdaten sind personenbezogene Accounts eingerichtet. Nur ein besonders privilegierter Admin darf diese Accounts anlegen und die Kennworte ändern bzw. vergeben. Nach einer entsprechenden Einweisung stellt diese Person die erforderliche Mindestlänge usw. sicher. Technisch ist eine Mindestlänge von 7 eingestellt.
+Zur Verwaltung der Inhalte und dem Download der Antwortdaten sind personenbezogene Accounts eingerichtet. Nur ein besonders privilegierter Admin darf diese Accounts anlegen und die Kennworte ändern bzw. vergeben. Nach einer entsprechenden Einweisung stellt diese Person die erforderliche Mindestlänge usw. sicher. Technisch ist eine Mindestlänge von 7 Zeichen eingestellt.
 
 ::: {.callout-note}
 ## Geplante Weiterentwicklung
 Das IQB-Testcenter wird perspektivisch an eine Identitätsverwaltung über OpenID Connect angeschlossen. Damit wird die Vergabe der Kennworte ausgelagert und kann dann bis zur Zweifaktor-Authentifizierung gehen.
 :::
 
-Seit der Version 15.1 ist eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.
+Seit der Version 15.1 ist als Sicherheitsmaßnahme gegen unerlaubte Loginversuche eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.
 
 ## Testpersonen
 
 Die Anmeldung einer Person, die einen Test oder eine Befragung ausführen soll, gilt nicht als Login. Dies ist vielmehr zu sehen wie das Füllen eines Warenkorbes ohne Account. Folgende Use Cases verhindern die übliche Sichtweise 'Login':
 
-1. Es muss durch das Testcenter auch abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer\*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus `RUN-HOT-RESTART`).
+1. Es muss durch das Testcenter abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer\*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus `RUN-HOT-RESTART`).
 2. Ein Test soll nur durch die Eingabe eines Link/einer Url gestartet werden können. Dann wird KEIN Kennwort vergeben.
 
 Diese Szenarien bedeuten aus der Sicht der Datensicherheit, dass eine Anmeldung einer Testperson keiner Kennwortrichtlinie unterliegen muss. Der potenzielle Datenverlust besteht auch nur in einer unbeabsichtigten Veröffentlichung von Testitems, die ggf. vertraulich bleiben sollen. Es ist kein Zugriff auf Daten anderer möglich.
 
-Aus diesem Grund ist es auch unbedenklich, dass die Testtaker-Xml nicht verschlüsselt hochgeladen werden. Eine Anmeldeverzögerung ist ebenfalls nicht erforderlich, sondern würde nur die mögliche Anzahl an Testpersonen, die sich zeitgleich anmelden können, künstlich begrenzen.
+Aus diesem Grund ist es auch unbedenklich, dass die Testtaker-Xml nicht verschlüsselt hochgeladen werden. Eine Anmeldeverzögerung für Testpersonen ist ebenfalls nicht erforderlich, sondern würde nur die mögliche Anzahl an Testpersonen, die sich zeitgleich anmelden können, künstlich begrenzen.
