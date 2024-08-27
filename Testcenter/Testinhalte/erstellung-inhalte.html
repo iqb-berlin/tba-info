@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Stimulus Audio-Assistent – TBA-Verstehen und Anwenden</title>
+<title>Erstellung Testinhalte – TBA-Verstehen und Anwenden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +20,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../">
-<link href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/MC_Text_Assistent/index.html" rel="next">
-<link href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Text_ST_Assistent/index.html" rel="prev">
-<link href="../../../../favicon.ico" rel="icon">
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Testcenter/Testinhalte/unit-xml.html" rel="next">
+<link href="../../Testcenter/Testinhalte/index.html" rel="prev">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +104,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -82,10 +119,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../IQB-klein.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../IQB-klein.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">TBA-Verstehen und Anwenden</span>
     </a>
   </div>
@@ -99,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../Studio/index.html">Studio</a></li><li class="breadcrumb-item"><a href="../../../../Studio/Aufgaben_gestalten/index.html">Aufgaben gestalten</a></li><li class="breadcrumb-item"><a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/index.html">Anlegen von Aufgaben im Standardmodus</a></li><li class="breadcrumb-item"><a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Audio_ST_Assistent/index.html">Stimulus Audio-Assistent</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Testinhalte/index.html">Testinhalte</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Testinhalte/erstellung-inhalte.html">Erstellung Testinhalte</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -113,28 +150,28 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Start</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Einfuehrung" class="sidebar-item-text sidebar-link">
+  <a href="../../Einfuehrung" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testcenter</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Testcenter/install/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/install/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -143,31 +180,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Konfiguration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lastverhalten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/install/security.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/install/security.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datensicherheit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/install/offline.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/install/offline.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Offline-Szenario</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/install/Softwarequalität.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/install/Softwarequalität.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Softwarequalität</span></a>
   </div>
 </li>
@@ -175,40 +212,40 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/workspaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/workspaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arbeitsbereiche</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Testcenter/Testinhalte/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/Testinhalte/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testinhalte</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Erstellung Testinhalte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Testinhalte/booklet-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Testinhalte/booklet-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Booklet-XML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Testinhalte/testtaker-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Testinhalte/testtaker-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testtaker-XML</span></a>
   </div>
 </li>
@@ -216,25 +253,25 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Datenauswertung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Datenauswertung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datenauswertung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/System_Check/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/System_Check/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">System-Check</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Testcenter/Ratgeber/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/Ratgeber/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ratgeber Praxis</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -243,19 +280,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Vorbetrachtungen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Vorbetrachtungen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorbetrachtungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Studienverhalten_konfigurieren.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Studienverhalten_konfigurieren.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studien Konfiguration</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Testcenter/Ratgeber/Beispielstudie/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Testcenter/Ratgeber/Beispielstudie/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Beispielstudie</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -264,25 +301,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Beispielstudie/Schritt1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Beispielstudie/Schritt1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Beispielstudie/Schritt2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Beispielstudie/Schritt2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Beispielstudie/Schritt3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Beispielstudie/Schritt3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Beispielstudie/Schritt4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Beispielstudie/Schritt4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 4</span></a>
   </div>
 </li>
@@ -290,13 +327,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/faq/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/faq/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Häufig gestellte Fragen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Testcenter/Ratgeber/Mehr_zu_Xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Testcenter/Ratgeber/Mehr_zu_Xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mehr zu XML</span></a>
   </div>
 </li>
@@ -306,28 +343,28 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Studio/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Studio/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studio</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Installation/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Installation/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zugriffsrechte</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Studio/Arbeitsbereiche/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Studio/Arbeitsbereiche/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arbeitsbereiche</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -336,19 +373,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Arbeitsbereiche/Aufgabenverwaltung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Arbeitsbereiche/Aufgabenverwaltung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgabenverwaltung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Arbeitsbereiche/Aufgabenentwurf/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Arbeitsbereiche/Aufgabenentwurf/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgabenentwurf</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Arbeitsbereiche/Bereichsgruppen/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Arbeitsbereiche/Bereichsgruppen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bereichsgruppen</span></a>
   </div>
 </li>
@@ -356,61 +393,61 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Studio/Aufgaben_gestalten/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Studio/Aufgaben_gestalten/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben gestalten</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anlegen von Aufgaben im Standardmodus</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allgemeine Anleitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stimulus: Text-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stimulus Audio-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MC mit Text-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MC mit Bild-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CMC Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Antwortfelder Assistent</span></a>
   </div>
 </li>
@@ -425,19 +462,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/DaD/DaD_Assistent_ZO_Einseitig_Elemente_uber_Ziel/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/DaD/DaD_Assistent_ZO_Einseitig_Elemente_uber_Ziel/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Drag &amp; Drop einseitig - Zuordnung – Elementliste über Ziellisten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/DaD/DaD_Assistent_ZO_Einseitig_Elemente_neben_Ziel/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/DaD/DaD_Assistent_ZO_Einseitig_Elemente_neben_Ziel/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Drag &amp; Drop einseitig - Zuordnung – Elementliste neben Ziellisten (nur für kurze Elemente oder einseitige Aufgaben)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Drag &amp; Drop einseitig – Sortieren</span></a>
   </div>
 </li>
@@ -445,19 +482,19 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Markieren Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rechenkästchen Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GeoGebra Assistent</span></a>
   </div>
 </li>
@@ -472,25 +509,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Text/Text_Medium.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Text/Text_Medium.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Text</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Bild/Bild_Medium.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Bild/Bild_Medium.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bild</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Audio/Audio_Medium.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Audio/Audio_Medium.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Audio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Video/Video_Medium.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Medienelemente/Video/Video_Medium.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Video</span></a>
   </div>
 </li>
@@ -498,19 +535,19 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verbundelement Lückentext</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Tabellen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Tabellen_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verbundelement Tabelle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Glossar/Glossar.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Glossar/Glossar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossar</span></a>
   </div>
 </li>
@@ -518,7 +555,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anlegen von Aufgaben im erweiterten Modus</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -527,7 +564,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Elementeinstellungen/elementeinstellungen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Elementeinstellungen/elementeinstellungen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Elementeinstellungen</span></a>
   </div>
 </li>
@@ -544,7 +581,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/GeoGebra.html" class="sidebar-item-text sidebar-link">
+            <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/GeoGebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GeoGebra</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -553,43 +590,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/GGB_Allgemein/ggb_allgemein.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/GGB_Allgemein/ggb_allgemein.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allgemeine Anleitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/BalkenSaulen/balkensaulen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/BalkenSaulen/balkensaulen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Balken- und Säulendiagramm</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Tortendiagramm/tortendiagramm.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Tortendiagramm/tortendiagramm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tortendiagramme zum Einfärben</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Messen/messen.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Messen/messen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Messen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Geobrett/geobrett.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Geobrett/geobrett.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Geobrett</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Koordinatensystem/koordinatensystem.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Koordinatensystem/koordinatensystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Koordinatensystem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Zahlenstrahl/zahlenstrahl.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/GeoGebra/Zahlenstrahl/zahlenstrahl.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zahlenstrahl</span></a>
   </div>
 </li>
@@ -597,7 +634,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Externe_Anwendungen/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to: Bilder skalieren in Gimp</span></a>
   </div>
 </li>
@@ -605,13 +642,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/IQB_Konventionen/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/IQB_Konventionen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IQB Konventionen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Aufgaben_gestalten/Andere_Editoren/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Aufgaben_gestalten/Andere_Editoren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Andere Editoren</span></a>
   </div>
 </li>
@@ -619,13 +656,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/Kodierschema/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/Kodierschema/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kodierschema</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Studio/faq/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Studio/faq/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Häufig gestellte Fragen</span></a>
   </div>
 </li>
@@ -633,7 +670,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Schulungsmaterial/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Schulungsmaterial/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schulungsmaterial</span></a>
   </div>
 </li>
@@ -647,30 +684,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#instruktion-und-hörtext-in-einem-audio" id="toc-instruktion-und-hörtext-in-einem-audio" class="nav-link active" data-scroll-target="#instruktion-und-hörtext-in-einem-audio">Instruktion und Hörtext in einem Audio</a>
+  <li><a href="#units" id="toc-units" class="nav-link active" data-scroll-target="#units">Units</a></li>
+  <li><a href="#booklets" id="toc-booklets" class="nav-link" data-scroll-target="#booklets">Booklets</a></li>
+  <li><a href="#testtaker" id="toc-testtaker" class="nav-link" data-scroll-target="#testtaker">Testtaker</a></li>
+  <li><a href="#hochladen-upload" id="toc-hochladen-upload" class="nav-link" data-scroll-target="#hochladen-upload">Hochladen / Upload</a>
   <ul class="collapse">
-  <li><a href="#audio" id="toc-audio" class="nav-link" data-scroll-target="#audio">Audio</a></li>
-  <li><a href="#bestätigenabbrechen" id="toc-bestätigenabbrechen" class="nav-link" data-scroll-target="#bestätigenabbrechen">Bestätigen/Abbrechen</a></li>
+  <li><a href="#warnungen" id="toc-warnungen" class="nav-link" data-scroll-target="#warnungen">Warnungen</a></li>
+  <li><a href="#fehlermeldungen" id="toc-fehlermeldungen" class="nav-link" data-scroll-target="#fehlermeldungen">Fehlermeldungen</a></li>
   </ul></li>
-  <li><a href="#instruktion-und-hörtext-in-zwei-audio-dateien" id="toc-instruktion-und-hörtext-in-zwei-audio-dateien" class="nav-link" data-scroll-target="#instruktion-und-hörtext-in-zwei-audio-dateien">Instruktion und Hörtext in zwei Audio-Dateien</a>
-  <ul class="collapse">
-  <li><a href="#instruktionsaudio" id="toc-instruktionsaudio" class="nav-link" data-scroll-target="#instruktionsaudio">Instruktionsaudio</a></li>
-  <li><a href="#stimulusaudio" id="toc-stimulusaudio" class="nav-link" data-scroll-target="#stimulusaudio">Stimulusaudio</a></li>
-  <li><a href="#sprache" id="toc-sprache" class="nav-link" data-scroll-target="#sprache">Sprache</a></li>
-  <li><a href="#situierung-frage-operator-hinweise-o.-ä." id="toc-situierung-frage-operator-hinweise-o.-ä." class="nav-link" data-scroll-target="#situierung-frage-operator-hinweise-o.-ä.">Situierung, Frage, Operator, Hinweise, o. Ä.</a></li>
-  <li><a href="#bestätigenabbrechen-1" id="toc-bestätigenabbrechen-1" class="nav-link" data-scroll-target="#bestätigenabbrechen-1">Bestätigen/Abbrechen</a></li>
-  </ul></li>
-  <li><a href="#editieren-eines-audioelements" id="toc-editieren-eines-audioelements" class="nav-link" data-scroll-target="#editieren-eines-audioelements">Editieren eines Audioelements</a></li>
-  <li><a href="#editieren-eines-textelements" id="toc-editieren-eines-textelements" class="nav-link" data-scroll-target="#editieren-eines-textelements">Editieren eines Textelements</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../Studio/index.html">Studio</a></li><li class="breadcrumb-item"><a href="../../../../Studio/Aufgaben_gestalten/index.html">Aufgaben gestalten</a></li><li class="breadcrumb-item"><a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/index.html">Anlegen von Aufgaben im Standardmodus</a></li><li class="breadcrumb-item"><a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Audio_ST_Assistent/index.html">Stimulus Audio-Assistent</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Testinhalte/index.html">Testinhalte</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Testinhalte/erstellung-inhalte.html">Erstellung Testinhalte</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Stimulus Audio-Assistent</h1>
+<h1 class="title">Erstellung Testinhalte</h1>
 </div>
 
 
@@ -687,249 +717,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="instruktion-und-hörtext-in-einem-audio" class="level1">
-<h1>Instruktion und Hörtext in einem Audio</h1>
-<p><img src="InstruktionText_zsm_Main_Grafik.png" class="img-fluid" width="600"></p>
-<p>Der Assistent für einen Stimulus mit Audio, bei dem sich die <strong>Instruktion und der Hörtext zusammen</strong> in einer Datei befinden, wird mithilfe eines Klicks auf das entsprechende Aufklapp-Menü geöffnet:</p>
-<p><img src="InstruktionText_zsm_Auswahl_Grafik.png" class="img-fluid"></p>
-<section id="audio" class="level2">
-<h2 class="anchored" data-anchor-id="audio">Audio</h2>
-<p>Mit einem Klick auf den „Medienquelle ändern“-Knopf, öffnet sich ein Fenster, in dem die gewünschte Datei ausgewählt und mit „Öffnen“ ins IQB-Studio geladen werden kann.</p>
-<p><img src="InstruktionText_zsm_Audio_Grafik.png" class="img-fluid"></p>
-<p>Wenn gewünscht, kann die maximale Abspielhäufigkeit für dieses Audio eingestellt werden.</p>
-<p><img src="InstruktionText_zsm_Audio_zwei_Grafik.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Sollte die Einstellung mehr als 1 betragen, wird innerhalb des Audioelements eine Anzeige mit der bisherigen Anzahl der Audiostarts im Verhältnis zu den maximal verfügbaren Audiostarts generiert.</p>
-</div>
-</div>
+<p>Da das Testcenter nur das Hochladen der fertigen Testinhalte unterstützt und komplett auf Dialoge für Parameter verzichtet, muss es andere Wege geben, mit vertretbarem Aufwand zu den Dateien zu kommen.</p>
+<section id="units" class="level2">
+<h2 class="anchored" data-anchor-id="units">Units</h2>
+<p>Da die Units vom Player abhängig sind, muss man danach unterscheiden, was der Player benötigt. Das IQB stellt bereits eigene Player zur Verfügung.</p>
+<p><strong>IQB-Player</strong></p>
+<ul>
+<li><a href="https://github.com/iqb-berlin/verona-modules-aspect/releases">Aspect</a>: Dies ist der Standard-Player für komplexe Testaufgaben oder Seiten des IQB. Die Units für die Monitoringinstrumente <a href="https://www.iqb.hu-berlin.de/vera/ueberblick/">VERA</a> und <a href="https://www.iqb.hu-berlin.de/bt/">Bildungstrend</a> werden damit erstellt. Zu diesem Player steht ein Editor für die Webanwendung <a href="../../Studio/">IQB-Studio</a> bereit, welche darauf spezialisiert ist, diese Aufgaben interaktiv zu erstellen. Dort gibt es auch einen Menüpunkt, mit dem man Aufgaben und auch den zugehörigen Player exportiert. Diesen Export kann man unverändert in das Testcenter hochladen.</li>
+<li><a href="https://github.com/iqb-berlin/verona-player-abi/releases">Abi</a>: Player für eine einfache Scriptsprache mit dynamischen Unterformularen. Dieser Player ist für Befragungen von Erwachsenen sehr gut geeignet. Pro Zeile wird ein Frageitem definiert. Dadurch kann eine große Anzahl von Frageitems automatisiert erstellt werden (Excel), was eine komplexe Rotation der Fragen in Abhängigkeit vom Profil der Befragten ermöglicht.</li>
+<li><a href="https://github.com/iqb-berlin/verona-player-speedtest/releases">Speed Test - multi</a>: Player für einen Lesegeschwindigkeitstests (mehrere Items pro Unit; Text und Bild). Für die Erstellung passender Aufgaben gibt es auch hierfür einen passenden Editor für IQB-Studio, der die Unit-Defintionen einfach exportiert.</li>
+<li><a href="https://github.com/iqb-berlin/verona-player-speedtest/releases">Speed Test Player - mono</a>: Player für einen Lesegeschwindigkeitstests (ein Item pro Unit; nur Text). Dieser Player benötigt nur eine Zeile Text pro Unit und ist daher auch gut mit kleineren Hilfsmitteln zu erzeugen.</li>
+<li><a href="https://github.com/iqb-berlin/verona-player-simple/releases">Simple Player</a>: Universeller Player für Html. Hier können übliche Hilfsmittel zur Erstellung von Html-Seiten genutzt werden.</li>
+</ul>
 </section>
-<section id="bestätigenabbrechen" class="level2">
-<h2 class="anchored" data-anchor-id="bestätigenabbrechen">Bestätigen/Abbrechen</h2>
-<p><img src="InstruktionText_zsm_BestatigenAbbrechen_Grafik.png" class="img-fluid"></p>
-<p>Nach allen gewünschten Einstellungen wird ein Abschnitt mit Audio durch einen Klick auf „Bestätigen“ generiert (dazu muss ein Audio hochgeladen sein), der Assistent wird automatisch geschlossen (siehe Bild oben). Durch einen Klick auf „Abbrechen“ werden alle in diesem Assistenten getätigten Eintragungen verworfen.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Der bei der Itemerstellung automatisch generierte Text „Drücke zuerst auf das Dreieck, dann startet das Audio.“ kann nachträglich angepasst werden.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Der Aufforderungstext „Bitte starten.“ inkl. roter Umrahmung des jeweiligen Audios erscheint automatisch, sofern das Audio fünf Sekunden nach Betreten der Seite nicht gestartet wurde. Diese Einstellung kann nicht im Standardmodus angepasst werden.</p>
-</div>
-</div>
+<section id="booklets" class="level2">
+<h2 class="anchored" data-anchor-id="booklets">Booklets</h2>
+<p>Die Vielfalt von Testszenarien ist sehr hoch, so dass es hierfür kaum passende Angebote geben kann. Es wird meist dabei bleiben, dass die Testentwickler*innen manuell die Booklet-XML in einem auf XML spezialisierten Editor bearbeiten. Folgende Unterstützungen gibt es:</p>
+<ul>
+<li>Beim Export von Units aus dem IQB-Studio kann man angeben, dass für die ausgewählten Units ein Booklet erzeugt und mit exportiert wird. Dieses Booklet fügt die Units in alphabetischer Reihenfolge ein, was sicher danach geändert werden muss. Aber als Startpunkt mag das helfen.</li>
+<li>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-booklet.md">itc-ToolBox/Booklet</a> liest ein Test-Design aus einer Excel-Datei ein und erzeugt daraus für alle gefundenen Booklets die Booklet-XML. Nach etwas Übung sollte diese Hilfe gut klappen für einen Großteil der Testungen.</li>
+</ul>
 </section>
+<section id="testtaker" class="level2">
+<h2 class="anchored" data-anchor-id="testtaker">Testtaker</h2>
+<p>Durch die vielen Szenarien, die in einer Testtaker-XML abgebildet werden können, ist auch an dieser Stelle bisher keine dialoggesteuerte universelle Hilfe verfügbar. In den Studien des IQB haben sich auf den jeweiligen Anwendungsfall spezialisierte Excel-Dateien bewährt. Diese Excel-Tabellen dienen dann auch gleich der Erzeugung von Massen-E-Mails, d.&nbsp;h. an die richtigen Empfänger*innen kommen die richtigen Zugangsdaten. Folgende Hilfen gibt es:</p>
+<ul>
+<li>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-codes.md">itc-ToolBox/Codes</a> erzeugt eine große Anzahl eindeutiger Codes, die dann als Grundlage für die Logins genutzt werden können.</li>
+<li>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-logins-docx.md">itc-ToolBox/QR</a> erzeugt nach Einlesen einer Testtaker-Datei Docx-Dateien, die einen QR-Code enthalten können. Diese Funktion wurde programmiert zur Erstellung von Zetteln, die den Testpersonen in die Hand gegeben werden, mit denen sie sich direkt im Testcenter als Teilnehmer einloggen können.</li>
+<li>Beim Export von Units aus dem IQB-Studio kann man angeben, dass das erzeugte Booklet um eine Testtaker-XML ergänzt wird. Für eine definierbare Anzahl Testpersonen werden Logins erzeugt und das Booklet zugewiesen.</li>
+</ul>
 </section>
-<section id="instruktion-und-hörtext-in-zwei-audio-dateien" class="level1">
-<h1>Instruktion und Hörtext in zwei Audio-Dateien</h1>
-<p><img src="AudioST_getrennt_Main_Rahmen.jpg" class="img-fluid"></p>
-<p>Der Assistent für einen Stimulus mit Audio, bei dem sich die Instruktion und der Hörtext in zwei unterschiedlichen Dateien befinden, wird mithilfe eines Klicks auf das entsprechende Aufklapp-Menü geöffnet:</p>
-<p><img src="Instruktion_Text_getrennt_Auswahl_Grafik.png" class="img-fluid"></p>
-<section id="instruktionsaudio" class="level2">
-<h2 class="anchored" data-anchor-id="instruktionsaudio">Instruktionsaudio</h2>
-<p>Mit einem Klick auf den „Medienquelle ändern“-Knopf, öffnet sich ein Fenster, in dem die gewünschte Datei ausgewählt und mit „Öffnen“ ins IQB-Studio geladen werden kann.</p>
-<p><img src="Instruktion_Text_getrennt_Instruktion_Grafik.png" class="img-fluid" width="600"></p>
-<p>Wenn gewünscht, kann die maximale Abspielhäufigkeit für dieses Audio eingestellt werden.</p>
-<p><img src="Instruktion_Text_getrennt_Instruktion_zwei_Grafik.png" class="img-fluid" width="600"></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Sollte die Einstellung mehr als 1 betragen, wird innerhalb des Audioelements eine Anzeige mit der bisherigen Anzahl der Audiostarts im Verhältnis zu den maximal verfügbaren Audiostarts generiert.</p>
-</div>
-</div>
-</section>
-<section id="stimulusaudio" class="level2">
-<h2 class="anchored" data-anchor-id="stimulusaudio">Stimulusaudio</h2>
-<p>Die Einstellungen können genauso wie oben bereits beschrieben getätigt werden.</p>
-</section>
-<section id="sprache" class="level2">
-<h2 class="anchored" data-anchor-id="sprache">Sprache</h2>
-<p>Im Aufklapp-Menü lässt sich die Sprache der Beschriftung der Audios auswählen.</p>
-<p><img src="Instruktion_Text_getrennt_Sprache_Grafik.png" class="img-fluid" width="200"></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Auswahl</th>
-<th>Beschriftung der Audios</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>deutsch</td>
-<td>Instruktion, Hörtext</td>
-</tr>
-<tr class="even">
-<td>englisch</td>
-<td>instruction, audio recording</td>
-</tr>
-<tr class="odd">
-<td>französisch</td>
-<td>l’instruction, texte audio</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="situierung-frage-operator-hinweise-o.-ä." class="level2">
-<h2 class="anchored" data-anchor-id="situierung-frage-operator-hinweise-o.-ä.">Situierung, Frage, Operator, Hinweise, o. Ä.</h2>
-<p>Der eingetragene Text im Textelement kann im Assistenten editiert werden. Absatzabstände sind bereits voreingestellt, der Text muss nur inhaltlich angepasst werden.</p>
-<p><img src="Instruktion_Text_getrennt_Situierung_Grafik.png" class="img-fluid" width="600"></p>
-</section>
-<section id="bestätigenabbrechen-1" class="level2">
-<h2 class="anchored" data-anchor-id="bestätigenabbrechen-1">Bestätigen/Abbrechen</h2>
-<p><img src="Instruktion_Text_getrennt_BestatigenAbbrechen_Grafik.png" class="img-fluid" width="600"></p>
-<p>Nach allen gewünschten Einstellungen wird ein Abschnitt mit beiden Audios und Situierungstext durch einen Klick auf „Bestätigen“ generiert, der Assistent wird automatisch geschlossen (siehe Bild oben). Ist der „Bestätigen“-Knopf noch ausgegraut, muss jeweils noch ein Audio hochgeladen und die Sprache ausgewählt werden.</p>
-<p>Durch einen Klick auf „Abbrechen“ werden alle in diesem Assistenten getätigten Eintragungen verworfen.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Der Aufforderungstext „Bitte starten.“ inkl. roter Umrahmung des jeweiligen Audios erscheint automatisch, sofern das Audio fünf Sekunden nach Betreten der Seite bzw. nach dem Abspielen des vorherigen Audios nicht gestartet wurde. Diese Einstellung kann nicht im Standardmodus angepasst werden.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="editieren-eines-audioelements" class="level1">
-<h1>Editieren eines Audioelements</h1>
-<p>Im rechten Reiter „Eigenschaften“ lassen sich nach einem Klick auf das Audio die Einstellungen des Audioelements tätigen.</p>
-<p>Hier kann die ID („audio_1“) angepasst werden. Ebenso kann mit einem Klick auf den „Medienquelle ändern“-Knopf die gewünschte Datei im sich öffnenden Fenster ausgewählt und mit „Öffnen“ ins IQB-Studio geladen werden.</p>
-<p><img src="Audio_Fragment_eins.png" class="img-fluid" width="300"></p>
-<p>Mit der Maximalbreite lässt sich einstellen, wie breit (in Pixeln) das Audio maximal sein soll. Die voreingestellten 500 Pixel aus den Assistenten sind IQB-Standard und sollten nur in begründeten Ausnahmefällen angepasst werden. Sollte keine Maximalbreite erwünscht sein, kann das Häkchen bei „Maximalbreite setzen“ entfernt werden.</p>
-<p><img src="Audio_Fragment_zwei.png" class="img-fluid" width="300"></p>
-</section>
-<section id="editieren-eines-textelements" class="level1">
-<h1>Editieren eines Textelements</h1>
-<p>Im rechten Reiter „Eigenschaften“ lässt sich das Textelement editieren.</p>
-<p>Im ersten Teil lassen sich die ID (hier „text_1“) und mit einem Klick auf das Stift-Symbol auch der Text editieren.</p>
-<p><img src="../Glossar/Markieren_Editieren_eins.png" class="img-fluid" width="300"></p>
-<p>Im zweiten Teil lässt sich die Anzahl der Spalten einstellen.</p>
-<p><img src="../Glossar/Markieren_Editieren_zwei.png" class="img-fluid" width="300"></p>
-<p>In manchen Fällen (z.B. bei Gedichten oder Zeitungsartikeln) kann es sinnvoll sein, die Anzahl der Spalten anzupassen:</p>
+<section id="hochladen-upload" class="level1">
+<h1>Hochladen / Upload</h1>
+<p>Man benötigt einen <a href="../../Testcenter/workspaces.html">Schreibzugriff</a> auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
 <div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_Spalten_eins.png" class="img-fluid figure-img"></p>
-<figcaption>Anzahl der Spalten: 1</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_Spalten_zwei.png" class="img-fluid figure-img"></p>
-<figcaption>Anzahl der Spalten: 2</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_Spalten_drei.png" class="img-fluid figure-img"></p>
-<figcaption>Anzahl der Spalten: 3</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>Ebenso lassen sich im Textelement Markierfarben einstellen. Dies ist nur bei Stimulustexten sinnvoll. In der Sekundarstufe I werden Markierfarben vor allem als Werkzeug zur Texterschließung eingesetzt. In der Grundschule findet diese Einstellung hauptsächlich im Rahmen eines (Markier-)Items, in der Regel mit der gelben Markierfarbe, Anwendung:</p>
+<p></p><figure class="figure"><p></p>
 <div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Basis-Pakete für Player] --&gt; B[Player]
+  B --&gt; C[Units]
+  C --&gt; D[Booklets]
+  D --&gt; E[Testtakers]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.</p>
+<p>Der Name einer Datei spielt keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:</p>
+<ul>
+<li>Unit-, Booklet- und Testtaker-Dateien müssen die Endung <code>xml</code> haben.</li>
+<li>Ein Player muss die Endung <code>html</code> haben.</li>
+<li>Basis-Pakete müssen die Endung <code>.itcr.zip</code> haben.</li>
+<li>Dateien mit der Endung <code>zip</code> werden beim Hochladen ausgepackt und die darin enthaltenen Dateien separat im Arbeitsbereich gespeichert (Ausnahme Basis-Pakete).</li>
+<li>Eine Unit-XML kann weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen <code>xml</code>, <code>html</code> und <code>zip</code> nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.</li>
+</ul>
+<p>Das IQB-Studio erzeugt den Test-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.</p>
+</div>
+</div>
+<section id="warnungen" class="level2">
+<h2 class="anchored" data-anchor-id="warnungen">Warnungen</h2>
+<p><strong>File has no link to XSD-Schema</strong></p>
+<p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” für eine der XML-Dateien angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: <strong>Unit-XML, Booklet-XML, Testtakers-XML, System-Check-XML</strong> sind auf unserer <a href="https://iqb-berlin.github.io/specs.html">IQB-GitHub-Startseite/Spezifikationen</a> zu finden.</p>
+<p>Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der Testtakers-XML wie folgt eingebunden:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Outdated or wrong version of XSD-schema</strong></p>
+<p>Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.</p>
+</section>
+<section id="fehlermeldungen" class="level2">
+<h2 class="anchored" data-anchor-id="fehlermeldungen">Fehlermeldungen</h2>
+<p><strong>Ressource not found</strong></p>
+<p>Soll eine Datei geladen werden, in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Die definierten Ressourcen sind vorher zu laden.</p>
+<p><strong>Duplicate Login</strong></p>
+<p>In der Testtakers-XML werden die Zugangsdaten der Teilnehmer*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen (unabhängig des Arbeitsbeneiches), prüft das Testcenter beim Laden einer Testtakers-XML, ob die darin enthaltenen Zugänge (<code>&lt;name&gt;</code>) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer*innen geändert werden oder die bereits vorhandene Testtakers-XML ist zuvor aus dem Testcenter zu entfernen.</p>
+<p><strong>Duplicate group</strong></p>
+<p>In der Testtakers-XML werden die Zugangsdaten der Teilnehmer*innen Gruppen (<code>group</code>) zugeordnet. Diese Gruppen erhalten eine ID. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-ID nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene Testtakers-XML ist zuvor aus dem Testcenter zu entfernen.</p>
 
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_erlauben.png" class="img-fluid figure-img" width="100"></p>
-<figcaption>Einstellung im Textelement des Stimulus</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_Vorschau_ST.png" class="img-fluid figure-img"></p>
-<figcaption>Vorschau (Stimulustext)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>Der Radiergummiknopf <img src="../Glossar/Markieren_Radiergummiknopf.png" class="img-fluid" width="20"> wird mit dem Einstellen von mindestens einer Markierfarbe automatisch hinzugefügt und kann nicht entfernt werden.</p>
-<p>Mit der Maximalbreite lässt sich einstellen, wie breit (in Pixeln) der Text maximal sein soll. Die Breite ist automatisch bereits durch die Breite der Seite begrenzt.</p>
-<p>Eine Maximalbreite lässt sich einstellen, indem ein Häkchen bei „Maximalbreite setzen“ gesetzt und anschließend die Maximalbreite eingetragen wird.</p>
-<p><img src="../Glossar/Markieren_Maximalbreite.png" class="img-fluid" width="300"></p>
-<p>Beispiel Maximalbreite Textelement:</p>
-<div>
 
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_Maximalbreite_eins.png" class="img-fluid figure-img"></p>
-<figcaption>ohne Einstellen einer Maximalbreite</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Glossar/Markieren_Maximalbreite_zwei.png" class="img-fluid figure-img"></p>
-<figcaption>Maximalbreite 400</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-
-
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
@@ -1362,13 +1242,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/Text_ST_Assistent/index.html" class="pagination-link" aria-label="Stimulus: Text-Assistent">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Stimulus: Text-Assistent</span>
+      <a href="../../Testcenter/Testinhalte/index.html" class="pagination-link" aria-label="Testinhalte">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Testinhalte</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../../Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_Standardmodus/MC_Text_Assistent/index.html" class="pagination-link" aria-label="MC mit Text-Assistent">
-        <span class="nav-page-text">MC mit Text-Assistent</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Testcenter/Testinhalte/unit-xml.html" class="pagination-link" aria-label="Unit-XML">
+        <span class="nav-page-text">Unit-XML</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1378,7 +1258,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link active" href="../../../../index.html" aria-current="page">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
 <p><i class="fa-solid fa-house" aria-label="house"></i></p>
 </a>
   </li>  

@@ -224,6 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -678,20 +684,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#server-admin-konfigurationsoptionen-in-der-.env" id="toc-server-admin-konfigurationsoptionen-in-der-.env" class="nav-link active" data-scroll-target="#server-admin-konfigurationsoptionen-in-der-.env">Server-Admin: Konfigurationsoptionen in der .env</a>
   <ul class="collapse">
   <li><a href="#version" id="toc-version" class="nav-link" data-scroll-target="#version">Version</a></li>
-  <li><a href="#basic-network" id="toc-basic-network" class="nav-link" data-scroll-target="#basic-network">Basic Network</a></li>
-  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a></li>
+  <li><a href="#grundsätzliche-netzwerkeinstellungen." id="toc-grundsätzliche-netzwerkeinstellungen." class="nav-link" data-scroll-target="#grundsätzliche-netzwerkeinstellungen.">Grundsätzliche Netzwerkeinstellungen.</a></li>
+  <li><a href="#sicherheit" id="toc-sicherheit" class="nav-link" data-scroll-target="#sicherheit">Sicherheit</a></li>
   <li><a href="#services" id="toc-services" class="nav-link" data-scroll-target="#services">Services</a>
   <ul class="collapse">
-  <li><a href="#database-connection" id="toc-database-connection" class="nav-link" data-scroll-target="#database-connection">Database connection</a></li>
+  <li><a href="#datenbank-connection" id="toc-datenbank-connection" class="nav-link" data-scroll-target="#datenbank-connection">Datenbank Connection</a></li>
   <li><a href="#broadcasting-service" id="toc-broadcasting-service" class="nav-link" data-scroll-target="#broadcasting-service">Broadcasting Service</a></li>
   <li><a href="#file-service" id="toc-file-service" class="nav-link" data-scroll-target="#file-service">File Service</a></li>
   <li><a href="#cache-service" id="toc-cache-service" class="nav-link" data-scroll-target="#cache-service">Cache Service</a></li>
   </ul></li>
-  <li><a href="#advanced-network" id="toc-advanced-network" class="nav-link" data-scroll-target="#advanced-network">Advanced Network</a></li>
-  <li><a href="#backend-init-parameters" id="toc-backend-init-parameters" class="nav-link" data-scroll-target="#backend-init-parameters">Backend Init Parameters</a></li>
+  <li><a href="#weitere-netzwerkeinstellungen" id="toc-weitere-netzwerkeinstellungen" class="nav-link" data-scroll-target="#weitere-netzwerkeinstellungen">Weitere Netzwerkeinstellungen</a></li>
+  <li><a href="#development-parameters" id="toc-development-parameters" class="nav-link" data-scroll-target="#development-parameters">Development Parameters</a></li>
   </ul></li>
   <li><a href="#server-admin-tls-einrichten" id="toc-server-admin-tls-einrichten" class="nav-link" data-scroll-target="#server-admin-tls-einrichten">Server-Admin: TLS einrichten</a></li>
-  <li><a href="#super-admin-konfigurationsoptionen-in-der-ui" id="toc-super-admin-konfigurationsoptionen-in-der-ui" class="nav-link" data-scroll-target="#super-admin-konfigurationsoptionen-in-der-ui">Super-Admin: Konfigurationsoptionen in der UI</a>
+  <li><a href="#super-admin-konfigurationsoptionen-in-der-ui" id="toc-super-admin-konfigurationsoptionen-in-der-ui" class="nav-link" data-scroll-target="#super-admin-konfigurationsoptionen-in-der-ui">“Super-Admin”: Konfigurationsoptionen in der UI</a>
   <ul class="collapse">
   <li><a href="#ändern-der-standard-texte" id="toc-ändern-der-standard-texte" class="nav-link" data-scroll-target="#ändern-der-standard-texte">Ändern der Standard-Texte</a></li>
   <li><a href="#eine-warnung-auf-die-startseite-schalten" id="toc-eine-warnung-auf-die-startseite-schalten" class="nav-link" data-scroll-target="#eine-warnung-auf-die-startseite-schalten">Eine Warnung auf die Startseite schalten</a></li>
@@ -723,35 +729,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Eine Testcenter-Instanz kann auf unterschiedliche Weise konfiguriert werden</p>
+<p>Eine Testcenter-Instanz wird nicht aus einer zentralen Stelle heraus konfiguriert, sondern bietet an verschiedenen Stellen die Möglichkeit unterschiedliche Konfigurationen vorzunehmen.</p>
 <section id="server-admin-konfigurationsoptionen-in-der-.env" class="level1">
 <h1>Server-Admin: Konfigurationsoptionen in der .env</h1>
-<p>Betreiber einer Testcenter-Instanz können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste aller aktuell vorhandenen Konfigurationsparameter befinden sich <a href="https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env">hier</a>. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
+<p>Betreiber einer Testcenter-Instanz (Server-Admins) können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste aller aktuell vorhandenen Konfigurationsparameter befinden sich <a href="https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env">hier</a>. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
 <section id="version" class="level2">
 <h2 class="anchored" data-anchor-id="version">Version</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">VERSION</span><span class="ot">=</span><span class="st">15.1.8</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings <strong>niemals</strong> von Hand erfolgen, sondern mittels der <code>update.sh</code>, da diese auch die compose-files usw. aktualisiert. Downgrades sollten grundsätzlich vermieden werden.</p>
+<p>Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version eingetragen, so werden beim nächsten Start entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings <strong>niemals</strong> von Hand erfolgen, sondern mittels der <code>update.sh</code>, da diese auch die compose-files usw. aktualisiert. Downgrades auf eine vergangene Version sollten grundsätzlich vermieden werden.</p>
 </section>
-<section id="basic-network" class="level2">
-<h2 class="anchored" data-anchor-id="basic-network">Basic Network</h2>
-<p>Grundsätzliche Netzwerkeinstellungen.</p>
+<section id="grundsätzliche-netzwerkeinstellungen." class="level2">
+<h2 class="anchored" data-anchor-id="grundsätzliche-netzwerkeinstellungen.">Grundsätzliche Netzwerkeinstellungen.</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">HOSTNAME</span><span class="ot">=</span><span class="kw">localhost</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Servername, z. B. <code>ìqb-testcenter4.de</code>. Wenn sie eine www-subdomain als Alternativen Namen verwenden wollen, geben Sie das <code>www</code> <em>nicht</em> mit an - es wird eine automatische Weiterleitung eingerichtet.</p>
+<p>Servername, z. B. <code>ìqb-testcenter4.de</code>. Wenn Sie eine www-subdomain als Alternativen Namen verwenden wollen, geben Sie das <code>www</code> <em>nicht</em> mit an - es wird eine automatische Weiterleitung eingerichtet.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">TLS_ENABLED</span><span class="ot">=</span><span class="kw">no</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Soll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen (siehe TODO). Der default ist hier natürlich <code>yes</code>.</p>
+<p>Soll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen (siehe <a href="#server-admin-tls-einrichten">hier</a>). Der default ist hier <code>yes</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">PORT</span><span class="ot">=</span><span class="dv">80</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">TLS_PORT</span><span class="ot">=</span><span class="dv">443</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Der Post auf dem das Testcenter laufen soll. Nur eines davon wird verwendet, je nachdem ob TLS_ENABLED gesetzt wird.</p>
+<p>Der Port auf dem das Testcenter laufen soll. Ist <code>TLS_ENABLED</code> gesetzt wird der <code>TLS_PORT</code> genutzt, ansonsten wird der <code>PORT</code> genutzt.</p>
 </section>
-<section id="security" class="level2">
-<h2 class="anchored" data-anchor-id="security">Security</h2>
+<section id="sicherheit" class="level2">
+<h2 class="anchored" data-anchor-id="sicherheit">Sicherheit</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">PASSWORD_SALT</span><span class="ot">=</span><span class="st">t</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Salt für verwendeten admin-passwörter. Achtung: Ändern Sie das nie, sonst können Sie sicht nicht mehr einloggen.</p>
+<p>Salt für verwendete admin-passwörter. Achtung: Ändern Sie diese Enstellung nicht mehr, nachdem Sie die Applikation bereits einmal gestartet haben, sonst können Sie sicht nicht mehr einloggen.</p>
 </section>
 <section id="services" class="level2">
 <h2 class="anchored" data-anchor-id="services">Services</h2>
-<section id="database-connection" class="level3">
-<h3 class="anchored" data-anchor-id="database-connection">Database connection</h3>
+<section id="datenbank-connection" class="level3">
+<h3 class="anchored" data-anchor-id="datenbank-connection">Datenbank Connection</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">MYSQL_ROOT_PASSWORD</span><span class="ot">=</span><span class="st">secret_root_pw</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">MYSQL_DATABASE</span><span class="ot">=</span><span class="st">iqb_tba_testcenter</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">MYSQL_USER</span><span class="ot">=</span><span class="st">iqb_tba_db_user</span></span>
@@ -776,8 +781,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Er kann aber auch verwendet werden, um die Testinhalte selbst im Arbeitsspeicher des Servers zu cachen. Dazu ist dieser parameter auf <code>yes</code> zu setzen und eine entsprechende Menge dafür freigegebenen Arbeitsspeicher (in Byte) anzugeben. Es liegen bisher wenig Erkenntnisse über Performance-Gewinn, Fehleranfälligkeit usw. dieser Option vor, daher ist sie Standardmäßig ausgeschaltet.</p>
 </section>
 </section>
-<section id="advanced-network" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-network">Advanced Network</h2>
+<section id="weitere-netzwerkeinstellungen" class="level2">
+<h2 class="anchored" data-anchor-id="weitere-netzwerkeinstellungen">Weitere Netzwerkeinstellungen</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">DOCKER_DAEMON_MTU</span><span class="ot">=</span><span class="dv">1500</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>MTU wert des Netzwerks. Außer in bestimmten Server-Umgebungen ist er 1500.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">DOCKERHUB_PROXY</span><span class="ot">=</span><span class="st">''</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -785,11 +790,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">RESTART_POLICY</span><span class="ot">=</span><span class="kw">no</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Restart-Policy der Docker-Container: no, always, on-failure, unless-stopped</p>
 </section>
-<section id="backend-init-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="backend-init-parameters">Backend Init Parameters</h2>
+<section id="development-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="development-parameters">Development Parameters</h2>
 <p>Die folgenden Parameter können für Experimente, in Debug-Situationen usw. eingesetzt werden. Sie sollten im Normalbetrieb aber nie im .env File auftauchen:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">OVERWRITE_INSTALLATION</span><span class="ot">=</span><span class="st">"no"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bei Neustart wird die Installation neu aufgesetzt. <em>Alle Daten, User, Testinhalte und Konfigurationen gehen verloren</em>.</p>
+<p>Bei Neustart wird die Installation neu aufgesetzt. <em>Alle Daten, User, Testinhalte und Konfigurationen gehen mit Neustart verloren</em>.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">SKIP_READ_FILES</span><span class="ot">=</span><span class="st">"no"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Das (Neu-)Einlesen der Dateien beim Start wird übersprungen. Damit kann der Systemstart deutlich beschleunigt werden, die Datenintegrität ist jedoch nicht mehr gewahrt. <strong>Ab Testcenter 15.2.0 werden ohnehin nur noch Workspaces neu eingelesen, die sich verändert haben. Die Einstellung ist damit beinahe obsolet.</strong></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">SKIP_DB_INTEGRITY</span><span class="ot">=</span><span class="st">"no"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -804,8 +809,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ist TLS nicht eingerichtet, so wird ein self-signed-Certificate verwendet - mit der Folge, dass Nutzer des Testcenters eine Sicherheitswarnung von ihrem Browser bekommen.</p>
 </section>
 <section id="super-admin-konfigurationsoptionen-in-der-ui" class="level1">
-<h1>Super-Admin: Konfigurationsoptionen in der UI</h1>
-<p>Der Super-Admin kann, wenn er sich im Testcenter einloggt unter <code>Systemverwaltung</code> und dem Reiter <code>Einstellungen</code> verschiedene weitere Konfigurationen vornehmen.</p>
+<h1>“Super-Admin”: Konfigurationsoptionen in der UI</h1>
+<p>Innerhalb der Testcenter Applikation gibt es die Rolle des “Super-Admin”, der sich im Testcenter einloggt unter <code>Systemverwaltung</code> und dem Reiter <code>Einstellungen</code> verschiedene weitere Konfigurationen vornehmen kann.</p>
 <section id="ändern-der-standard-texte" class="level2">
 <h2 class="anchored" data-anchor-id="ändern-der-standard-texte">Ändern der Standard-Texte</h2>
 <p>Die meisten Texte, die ein Testteilnehmer zu Gesicht bekommen, lassen sich hier für die gesamte Instanz ändern. Diese lassen sich dann wiederum [für einzelne Studien oder Booklets ändern] (https://iqb-berlin.github.io/tba-info/Testcenter/Studiendurchfuehrung/Studienverhalten_konfigurieren.html).</p>

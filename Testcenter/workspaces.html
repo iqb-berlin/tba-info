@@ -190,6 +190,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -643,7 +649,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#grundfunktionen" id="toc-grundfunktionen" class="nav-link active" data-scroll-target="#grundfunktionen">Grundfunktionen</a></li>
   <li><a href="#anmeldung-als-arbeitsbereichs-admin" id="toc-anmeldung-als-arbeitsbereichs-admin" class="nav-link" data-scroll-target="#anmeldung-als-arbeitsbereichs-admin">Anmeldung als Arbeitsbereichs-Admin</a></li>
-  <li><a href="#verwalten-von-arbeitsbereichen-und-zugriffsrechten" id="toc-verwalten-von-arbeitsbereichen-und-zugriffsrechten" class="nav-link" data-scroll-target="#verwalten-von-arbeitsbereichen-und-zugriffsrechten">Verwalten von Arbeitsbereichen und Zugriffsrechten</a></li>
+  <li><a href="#super-admin-verwalten-von-arbeitsbereichen-und-zugriffsrechten-anderer-admins" id="toc-super-admin-verwalten-von-arbeitsbereichen-und-zugriffsrechten-anderer-admins" class="nav-link" data-scroll-target="#super-admin-verwalten-von-arbeitsbereichen-und-zugriffsrechten-anderer-admins">Super-Admin: Verwalten von Arbeitsbereichen und Zugriffsrechten anderer Admins</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -671,8 +677,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="grundfunktionen" class="level1">
 <h1>Grundfunktionen</h1>
-<p>Zur Organisation von Tests, Befragungen und System-Checks stehen Arbeitsbereiche zur Verfügung. Diese legen die Super-Admins (s. u.) an und vergeben die entsprechenden Berechtigungen. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.</p>
-<p>Nach der Anmeldung präsentiert das System eine Liste aller Arbeitsbereiche, die für eine Person freigegeben sind. Mit einem Klick auf den jeweiligen Arbeitsbereich wird dieser geöffnet. Zur Liste der Arbeitsbereiche kehrt man zurück, indem man auf das IQB-Logo links oben in der Ecke klickt.</p>
+<p>Zur Organisation von Tests, Befragungen und System-Checks stehen Arbeitsbereiche zur Verfügung. Diese legen die <a href="#super-admin-verwalten-von-arbeitsbereichen-und-zugriffsrechten-anderer-admins">Super-Admins</a> an und vergeben die entsprechenden Berechtigungen. Die Benennung dieser Bereiche richtet sich günstigerweise nach dem Zweck der Studie.</p>
+<p>Nach der Anmeldung als Super-Admin präsentiert das System eine Liste aller Arbeitsbereiche, die für eine Person freigegeben sind. Mit einem Klick auf den jeweiligen Arbeitsbereich wird dieser geöffnet. Zur Liste der Arbeitsbereiche kehrt man zurück, indem man auf das IQB-Logo links oben in der Ecke klickt.</p>
 <p>Nutzer*innen, die mit einem solchen Zugang arbeiten, können Daten in Arbeitsbereiche laden und Daten aus einem Bereich herunterladen. Sie haben keinen Zugriff auf andere Stelle des Testcenters.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -684,7 +690,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Als Arbeitsbereichs-Admin werden alle eingerichteten Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.</p>
+<p>Als Arbeitsbereichs-Admin werden alle eingerichteten Admin-Zugänge zum Testcenter bezeichnet, die nicht mit Super-Admin-Rechten ausgestattet sind.</p>
 </div>
 </div>
 <p>Anschließend sehen Workspace-Admins alle für sie freigegebenen Arbeitsbereiche. Durch ein Klick auf einen Arbeitsbereich, können Daten in den Arbeitsbereich geladen werden. Falls Antwortdaten vorhanden sind, können diese heruntergeladen werden.</p>
@@ -697,18 +703,31 @@ Hinweis
 </section>
 <section id="anmeldung-als-arbeitsbereichs-admin" class="level1">
 <h1>Anmeldung als Arbeitsbereichs-Admin</h1>
-<p>Die Startseite des Testcenters bietet ein Eingabeformular zum Login. Für alle Zugriffsrechte im System muss nach der Eingabe von Benutzername und Kennwort der Button <strong>Weiter als Admin</strong> geklickt werden. Ein einfaches Betätigen der Enter-Taste führt zu einem Fehler, da eine Anmeldung als Testperson angenommen wird.</p>
+<p>Die Startseite des Testcenters bietet ein Eingabeformular zum Login.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Für alle Zugriffsrechte im System muss nach der Eingabe von Benutzername und Kennwort der Button <strong>Weiter als Admin</strong> geklickt werden. Ein einfaches Betätigen der Enter-Taste führt zu einem Fehler, da eine Anmeldung als Testperson angenommen wird.</p>
+</div>
+</div>
 <p>Nach erfolgreicher Anmeldung stehen die Funktionen zur Verfügung, die in den nachfolgenden Kapiteln beschrieben sind.</p>
 </section>
-<section id="verwalten-von-arbeitsbereichen-und-zugriffsrechten" class="level1">
-<h1>Verwalten von Arbeitsbereichen und Zugriffsrechten</h1>
-<p>Die Anmeldung am Testcenter erfolgt wie beim Arbeitsbereichs-Admin: Nach Eingabe von Benutzername und Kennwort den Button <strong>Weiter als Admin</strong> klicken. Dann erscheint zusätzlich ein Button “Systemverwaltung” im unteren Bereich:</p>
+<section id="super-admin-verwalten-von-arbeitsbereichen-und-zugriffsrechten-anderer-admins" class="level1">
+<h1>Super-Admin: Verwalten von Arbeitsbereichen und Zugriffsrechten anderer Admins</h1>
+<p>Die Anmeldung am Testcenter erfolgt wie beim regulären Arbeitsbereichs-Admin: Nach Eingabe von Benutzername und Kennwort den Button <strong>Weiter als Admin</strong> klicken. Dann erscheint zusätzlich ein Button “Systemverwaltung” im unteren Bereich:</p>
 <p><img src="systemverwaltung-button.png" class="img-fluid"></p>
 <p>Darüber ruft man die Verwaltung wichtiger Eigenschaften der Testcenter-Installation auf:</p>
 <ul>
-<li><p><strong>Users:</strong><br> Hier können bestehende Nutzer*innen (Workspace-Admins) verwaltet werden. Es können mittels Plus-Schaltfläche neue Nutzer*innen hinzugefügt werden oder mit der Löschen-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderung von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem Stift-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in “read only” (RO) und “read and write” (RW).</p></li>
-<li><p><strong>Arbeitsbereiche:</strong><br> Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend das Speicher-Symbol oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.</p></li>
-<li><p><strong>Einstellungen:</strong><br> Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich das Logo auszutauschen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die Speichern-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.</p></li>
+<li><p><strong>Users:</strong><br> Hier können bestehende Nutzer*innen (Workspace-Admins) verwaltet werden. Es können mittels <i class="fa-solid fa-plus" aria-label="plus"></i>-Schaltfläche neue Nutzer*innen hinzugefügt werden oder mit der <i class="fa-solid fa-trash" aria-label="trash"></i>-Schaltfläche gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderung von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem <i class="fa-solid fa-pen" aria-label="pen"></i>-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in “read only” (RO) und “read and write” (RW).</p></li>
+<li><p><strong>Arbeitsbereiche:</strong><br> Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob die Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend die <i class="fa-solid fa-floppy-disk" aria-label="floppy-disk"></i>-Schaltfläche oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.</p></li>
+<li><p><strong>Einstellungen:</strong><br> Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich das Logo auszutauschen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die <i class="fa-solid fa-floppy-disk" aria-label="floppy-disk"></i>-Schaltfläche zu betätigen, um die Änderungen zu übernehmen.</p></li>
 </ul>
 
 

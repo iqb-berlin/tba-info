@@ -227,6 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -763,7 +769,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="booklet-einstellungen" class="level1">
 <h1>Booklet-Einstellungen</h1>
-<p>Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.</p>
+<p>Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in <code>&lt;BookletConfig&gt;</code>. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>booklet2.xml</strong></pre>
@@ -801,8 +807,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="strukturierung-über-blöcke" class="level1">
 <h1>Strukturierung über Blöcke</h1>
-<p>Die Units in Blöcke (engl. testlets) aufzuteilen dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d.&nbsp;h. es entspricht der Tradition.</p>
-<p>Im Testcenter können aber für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:</p>
+<p>Die Units in Blöcke (engl. testlets) aufzuteilen, dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d.&nbsp;h. es entspricht der Tradition.</p>
+<p>Im Testcenter können für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>booklet3.xml</strong></pre>
@@ -835,11 +841,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="10" data-code-annotation="1">Die <code>id</code> ist für interne Zwecke notwendig und muss einmalig im Booklet sein. Das <code>label</code> kann z. B. auf einer erweiterten Navigationsseite verwendet werden.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="10" data-code-annotation="1">Die <code>id</code> ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen. Das <code>label</code> kann z. B. auf einer erweiterten Navigationsseite angezeigt werden.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="2">Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber – sofern vorhanden – in genau dieser Reihenfolge vorkommen.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="2">Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber – sofern vorhanden – in genau dieser Reihenfolge vorkommen: CodeToEnter –&gt; TimeMax –&gt; DenyNavigationOnIncomplete.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>

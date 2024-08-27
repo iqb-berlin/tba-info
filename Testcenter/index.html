@@ -190,6 +190,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -679,8 +685,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="testdurchführung">Testdurchführung</h2>
 <p>Das IQB-Testcenter ist eine Webanwendung für die <strong>Durchführung von Kompetenztests oder Befragungen</strong>. Folgende Anforderungen sind maßgebend für Entscheidungen bei der Entwicklung und Pflege dieser Software:</p>
 <ul>
-<li>Die Konzentration auf die Funktion “Durchführung” ist wichtig, da die Tests und Befragungen des IQB und der Länder sehr große Zahlen an Testpersonen bewältigen müssen. Die Entwicklung der Testinhalte übernimmt eine andere Software IQB-Studio, und auch die Kodierung und Datenanalyse sind separat gelöst.</li>
-<li>Die Daten, die die Durchführung eines Tests oder einer Befragung steuern, sollen in Dateiform vorliegen. Das IQB-Testcenter verfügt nicht über Konfigurationsdialoge und aufwändige Assistenten, um z. B. Zeitbegrenzungen für Aufgabenblöcke zu definieren. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats in das IQB-Testcenter hochgeladen. Nur über diesen Weg ist es möglich, die Parameter eines Tests festzulegen.</li>
+<li>Die Konzentration auf die Funktion “Durchführung” ist wichtig, da die Tests und Befragungen des IQB und der Länder sehr große Zahlen an Testpersonen bewältigen müssen. Die Entwicklung der Testinhalte übernimmt eine andere Software <a href="../Studio/index.html">IQB-Studio</a>, und auch die Kodierung und Datenanalyse sind separat gelöst.</li>
+<li>Die Einstellungen, die die Durchführung eines Tests oder einer Befragung steuern, sollen in Dateiform vorliegen. Das IQB-Testcenter verfügt nicht über visuelle Konfigurationsdialoge und aufwändige Assistenten, um z. B. Zeitbegrenzungen für Aufgabenblöcke zu definieren. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats in das IQB-Testcenter hochgeladen. Nur über diesen Weg ist es möglich, die Parameter eines Tests festzulegen.</li>
 <li>Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldung der Ergebnisse soll oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen, und über das API können gut die Antworten und Logdaten heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -693,10 +699,10 @@ Verona-Architektur
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ein Testcenter bestimmt in keiner Weise die Präsentation und Interaktion der einzelnen Testaufgaben. Es gibt einen rechteckigen Bildschirmbereich, in dem die Aufgaben bzw. Frageitems dargestellt werden, jedoch ist die Programmierung dafür in einen sog. Player ausgelagert. Siehe hierzu <a href="https://verona-interfaces.github.io/">Verona-Interfaces</a>!</p>
+<p>Das Testcenter bestimmt in keiner Weise die Präsentation und Interaktion der einzelnen Testaufgaben. Vielmehr stellt es den rahmengebenden Bildschirmbereich, in dem die Aufgaben bzw. Frageitems dargestellt werden, jedoch ist die Programmierung dafür in einen sog. Player ausgelagert. Siehe hierzu <a href="https://verona-interfaces.github.io/">Verona-Interfaces</a>!</p>
 </div>
 </div>
-<p><strong>Funktionen der Testdurchführung</strong>:</p>
+<p><strong>Ausgewählte Funktionen der Testdurchführung</strong>:</p>
 <ul>
 <li>Anmeldung der Testperson: Über Link (z. B. QR-Code), Name und Kennwort oder zweistufig mit einem zusätzlichen Code</li>
 <li>Anmeldung ohne Personenbezug, z. B. für Befragungen</li>

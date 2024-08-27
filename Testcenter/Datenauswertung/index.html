@@ -190,6 +190,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -702,10 +708,11 @@ Download über API
 </div>
 <section id="antworten" class="level2">
 <h2 class="anchored" data-anchor-id="antworten">Antworten</h2>
-<p>Die gegebenen Antworten werden mit einem Zeitstempel versehen in der Datenbank gespeichert. Das Testcenter speichert nicht bei jedem Tastendruck, aber nach einer kleinen Verzögerung zum Sammeln von Änderungen wird gespeichert. Sollte eine Unit erneut betreten werden (Neustart des Tests oder Zurückblättern), werden die Antworten wiederhergestellt.</p>
+<p>Die gegebenen Antworten werden mit einem Zeitstempel versehen in der Datenbank gespeichert. Das Testcenter speichert nicht bei jedem Tastendruck, sondern gesammelt in regelmäßigen Abständen. Sollte eine Unit erneut betreten werden (Neustart des Tests oder Zurückblättern), werden die Antworten wiederhergestellt.</p>
 <p>Das Speichern und die Wiederherstellung betreffen auch allgemeine Zustände wie “Fortschritt Beantwortung” oder “Fortschritt Präsentation”. Auch der Stand des Abspielens einer Audiosequenz wird als Status gespeichert.</p>
 <p>Das Format der Antworten ist nicht spezifiziert. Im Rahmen der Verona-Spezifikationen ist festgelegt, dass die Antwort auf mehrere Daten-Chunks verteilt sein kann, aber die Antworten selbst sind als String gespeichert. Datenstrukturen sind also dem Testcenter nicht bekannt<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> und die nachfolgenden Verarbeitungsschritte müssen eine sinnvolle Interpretation der Antwortdaten übernehmen. Durch diese Offenheit wird die Datenverarbeitung erschwert, aber sie ist auch sehr flexibel.</p>
 <table class="caption-top table">
+<caption>Beispiel einer Antwort</caption>
 <colgroup>
 <col style="width: 15%">
 <col style="width: 84%">
@@ -713,7 +720,7 @@ Download über API
 <thead>
 <tr class="header">
 <th>Spaltenname</th>
-<th>Inhalt (Beispiel)</th>
+<th>Inhalt</th>
 </tr>
 </thead>
 <tbody>
@@ -758,7 +765,7 @@ Download über API
 </section>
 <section id="logdaten" class="level2">
 <h2 class="anchored" data-anchor-id="logdaten">Logdaten</h2>
-<p>Logdaten sind zeitpunktbezogene Zustände. Sie dienen in wissenschaftlichen Erhebungen als wichtige Datenquelle. Darüber können Erkenntnisse erlangt werden, zu denen vorher kein Konzept, keine Hypothese existierte. Aus diesem explorativen Ansatz können neue Ideen für hypothesengeleitete Forschungsprojekte entstehen. Außerdem spielen Logdaten eine wichtige Rolle bei Reanalysen: Nachdem die Fragestellungen der durchgeführten Studie beantwortet sind, können später neue methodische Fortschritte eine erneute Analyse interessant machen. Der “Beifang” – also Daten ohne direkten Bezug zur ursprünglichen Studie – wird dann wichtig.</p>
+<p>Logdaten sind zeitpunktbezogene Zustände. Sie dienen in wissenschaftlichen Erhebungen als wichtige Datenquelle. Darüber können Erkenntnisse erlangt werden, zu denen vorher kein Konzept, keine Hypothese existierte. Aus diesem explorativen Ansatz können neue Ideen für hypothesengeleitete Forschungsprojekte entstehen. Außerdem spielen Logdaten eine wichtige Rolle bei Reanalysen: Nachdem die Fragestellungen der durchgeführten Studie beantwortet sind, können später neue methodische Fortschritte eine erneute Analyse interessant machen. Logs als “Beifang” – also Daten ohne direkten Bezug zur ursprünglichen Studie – werden dann wichtig.</p>
 <p>Aktuell gibt es in Deutschland in den großen Studien des Bildungsmonitorings keinen Bedarf für Logdaten. Als Datenquellen für die Kompetenzschätzungen dienen die Antworten, also der jeweils letzte Stand der Beantwortung der Items durch die Testperson. In Befragungen spielen Logdaten ebenfalls keine Rolle. Eine Auswertung der Logdaten erfolgt am IQB in folgenden Zusammenhängen:</p>
 <ul>
 <li>Time-on-page: Psychometrisch ist die Verweildauer einer Testperson auf einer Seite interessant. Ein sehr kurzes Verweilen und Beantworten könnte auf eine geringe Testteilnahmemotivation schließen lassen. Es gibt zahlreiche Studien hierzu und das IQB wertet derartige Daten aus, jedoch hat noch kein methodischer Ansatz Eingang in nationale Large Scale Assessments gefunden.</li>
@@ -771,6 +778,7 @@ Download über API
 </ul>
 <p>In einem Arbeitsbereich kann man die Logdaten herunterladen. Es handelt sich um eine CSV-Datei mit folgendem Inhalt:</p>
 <table class="caption-top table">
+<caption>Beispiel eines Logs</caption>
 <colgroup>
 <col style="width: 15%">
 <col style="width: 84%">
@@ -778,7 +786,7 @@ Download über API
 <thead>
 <tr class="header">
 <th>Spaltenname</th>
-<th>Inhalt (Beispiel)</th>
+<th>Inhalt</th>
 </tr>
 </thead>
 <tbody>
@@ -826,7 +834,7 @@ Download über API
 <figcaption>Windows-Programm itc-ToolBox</figcaption>
 </figure>
 </div>
-<p>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-output.md">itc-ToolBox</a> liest die Antwort- und Logdaten entweder als CSV oder im direkten Zugriff auf eine IQB-Testcenter-Installation und erstellt eine Excel-Datei. Hier sind alle Antworten tabellarisch geordnet. Außerdem finden sich Daten zu time-on-page und zu den Systemparametern (Betriebssystem, Browser usw.) der Testsitzungen. Wenn die Daten über den Direktzugriff auf eine Testcenter-Installation eingelesen werden, greift die itc-ToolBox auch die Größenangaben der Testinhalte ab und liefert einen Indikator für die Download-Geschwindigkeit in kBytes/sec.</p>
+<p>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-output.md">itc-ToolBox</a> liest die Antwort- und Logdaten entweder als CSV oder im direkten Zugriff auf eine IQB-Testcenter-Installation und erstellt eine Excel-Datei. Hier sind alle Antworten tabellarisch geordnet. Außerdem finden sich Daten zu time-on-page und zu den Systemparametern (Betriebssystem, Browser usw.) der Testsitzungen in Formen von Logs. Wenn die Daten über den Direktzugriff auf eine Testcenter-Installation eingelesen werden, greift die itc-ToolBox auch die Größenangaben der Testinhalte ab und liefert einen Indikator für die Download-Geschwindigkeit in kBytes/sec.</p>
 <p>Voraussetzung für die Nutzung der itc-ToolBox ist, dass der Player das <a href="https://iqb-berlin.github.io/coding-info/data-structures/response.html">IQB-Standardformat</a> für die Speicherung der Antworten benutzt.</p>
 </section>
 <section id="kodierung" class="level2">

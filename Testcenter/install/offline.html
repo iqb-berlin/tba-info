@@ -225,6 +225,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -720,71 +726,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Das IQB-Testcenter ist eine Webanwendung, d.&nbsp;h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.</p>
+</div>
+</div>
 <section id="vorbereitung" class="level1">
 <h1>Vorbereitung</h1>
 <ul>
-<li>Installation von <a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Docker</a> und <a href="https://docs.docker.com/compose/install/standalone/#on-linux">Docker-Compose</a> sowie <em>make</em></li>
+<li>Installation von <a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Docker</a> und <a href="https://docs.docker.com/compose/install/standalone/#on-linux">Docker-Compose</a> sowie <a href="https://www.gnu.org/software/make/">make</a></li>
 <li>Router im Access Point Modus</li>
 <li>(Optional) Installation von <em>dnsmasq</em> für lokalen DNS Server</li>
 </ul>
 <p>Wenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> Netzwerk.</p>
-<p>Um die Wiederverwendbarkeit zu erleichtern empfehle ich ein neues Profil für diese Verbindung anzulegen.</p>
-<p>Das wichtige ist, dass <strong>Make available to other users</strong> unter Details und <strong>Shared to other computers</strong> unter IPv4 aktiviert sind.</p>
+<p>Um die Wiederverwendbarkeit zu erleichtern empfehlen wir ein neues Profil für diese Verbindung anzulegen.</p>
+<p>Das wichtige ist, dass Details <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> <strong>Make available to other users</strong> und IPv4 <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> <strong>Shared to other computers</strong> aktiviert sind.</p>
 <p>Nach Erstellung des Profils sollte es so aussehen:</p>
-<p><img src="offline1.png" class="img-fluid"></p>
-<p><img src="offline2.png" class="img-fluid"></p>
+<div id="fig-details" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-details-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="offline1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-details-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Beispiel für Details Einstellungen
+</figcaption>
+</figure>
+</div>
+<div id="fig-ipv4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ipv4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="offline2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ipv4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: Beispiel für IPv4 Einstellungen
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="installation-testcenter" class="level1">
 <h1>Installation Testcenter</h1>
-<p>Dem <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guide</a> für die Installation des Testcenters folgen. Während man das Installationsskript (<code>install.sh</code>) ausführt gibt es einige Schritte die zu beachten sind.</p>
-<p>Unter <strong>HOSTNAME</strong> muss entweder die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel <strong>10.42.0.1</strong>) oder eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan), allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines lokalen DNS Servers.</p>
+<p>Dem <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guide</a> für die Installation des Testcenters folgen. Während man das Installationsskript (<code>install.sh</code>) ausführt, gibt es einige Schritte zu beachten.</p>
+<p>Unter <strong>HOSTNAME</strong> muss die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel <strong>10.42.0.1</strong>, s. <a href="#fig-details" class="quarto-xref">Abbildung&nbsp;1</a>). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines <a href="#lokaler-dns-server">lokalen DNS Servers</a>.</p>
 <p>Außerdem sollte die Setup-Frage “<strong>Use TLS?</strong>” mit <strong>N</strong> (No) beantwortet werden.</p>
-<p>Man sollte den weiteren Hinweisen des <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guides</a> ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden können und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet.</p>
+<p>Man sollte den weiteren Hinweisen des <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guides</a> ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet sein.</p>
 </section>
 <section id="lokaler-dns-server" class="level1">
 <h1>Lokaler DNS Server</h1>
-<p>Um einen lokalen DNS Server zu starten können Tools wie <a href="https://wiki.ubuntuusers.de/Dnsmasq/">dnsmasq</a> oder <a href="https://wiki.ubuntuusers.de/DNS-Server_Bind/">bind</a> verwendet werden. Dieser Guide verwendet dnsmasq.</p>
-<p>Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse hinzugefügt werden. Dies kann man z.B. mit nano erledigen:</p>
+<p>Um einen lokalen DNS Server zu starten, können Tools wie <a href="https://wiki.ubuntuusers.de/Dnsmasq/">dnsmasq</a> oder <a href="https://wiki.ubuntuusers.de/DNS-Server_Bind/">bind</a> verwendet werden. Dieser Guide verwendet dnsmasq.</p>
+<p>Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier <code>/etc/dnsmasq.confh</code>) inzugefügt werden. Dies kann man z.B. mit nano erledigen:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/dnsmasq.conf</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dort diese Regel hinzufügen:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/#/x.x.x.x</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Für x muss der vorher ausgewählte Hostname eingesetzt werden und für <code>x.x.x.x</code> die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:</p>
+<p>Für <code>#</code> muss der vorher ausgewählte Hostname eingesetzt werden und für <code>x.x.x.x</code> die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/iqb-testcenter.lan/10.42.0.1</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dnsmasq.service</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.</p>
-<p>Dieser lokaler DNS Server wurde in einer Umgebung getestet in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dieser lokaler DNS Server wurde in einer Umgebung getestet, in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.</p>
+</div>
+</div>
 </section>
 <section id="bereinigung-des-testcenters" class="level1">
 <h1>Bereinigung des Testcenters</h1>
 <p>Möchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">make</span> down </span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">docker</span> rm <span class="at">-f</span> <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">docker</span> volume rm <span class="va">$(</span><span class="ex">docker</span> volume ls <span class="at">-q</span><span class="va">)</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">docker</span> rmi <span class="va">$(</span><span class="ex">docker</span> images <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol type="1">
-<li>beendet die Anwendung.</li>
-<li>entfernt alle Container.</li>
-<li>entfernt alle Volumes.</li>
-<li>entfernt dann alle Images.</li>
-</ol>
+<div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1"></a><span class="fu">make</span> down</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2"></a><span class="ex">docker</span> rm <span class="at">-f</span> <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3"></a><span class="ex">docker</span> volume rm <span class="va">$(</span><span class="ex">docker</span> volume ls <span class="at">-q</span><span class="va">)</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-4" class="code-annotation-target"><a href="#annotated-cell-5-4"></a><span class="ex">docker</span> rmi <span class="va">$(</span><span class="ex">docker</span> images <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="1" data-code-annotation="1">Beendet die Anwendung.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="2">Entfernt alle Docker Container.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="3">Entfernt alle Docker Volumes.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="4" data-code-annotation="4">Entfernt dann alle Docker Images.</span>
+</dd>
+</dl>
 <p>Danach kann das bisherige Installationsverzeichnis gelöscht werden.</p>
 </section>
 <section id="umgebungsvariable-tls_enabled" class="level1">
 <h1>Umgebungsvariable: TLS_ENABLED</h1>
-<p>Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen. Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .env</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.</p>
+</div>
+</div>
+<p>Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .env</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Und dann den Wert der Umgebungsvariable <code>TLS_ENABLED</code> wie folgt setzen:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">TLS_ENABLED</span><span class="op">=</span>no</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">TLS_ENABLED</span><span class="op">=</span>no</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="lange-startzeiten-des-testcenters-umgehen" class="level1">
 <h1>Lange Startzeiten des Testcenters umgehen</h1>
 <p>Das Testcenter validiert standardmäßig beim Starten alle Dateien zur Aufgaben-Definition, alle Dateien zur Testheft-Definitionen und zur Studien-Definition. Dies kann bei einer hohen Anzahl von Testheften und Zugängen für die Testpersonen zur einer sehr hohen Startzeit führen.</p>
 <p>Dies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Installationsordner des Testcenters durchführen:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In der zweiten Konsole dann diesen Befehl ausführen:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “<strong>make stop</strong>” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.</p>
 
 

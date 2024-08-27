@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,7 +29,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Testcenter/Testinhalte/unit-xml.html" rel="next">
+<link href="../../Testcenter/Testinhalte/erstellung-inhalte.html" rel="next">
 <link href="../../Testcenter/workspaces.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -225,6 +191,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
@@ -686,17 +658,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#booklets" id="toc-booklets" class="nav-link" data-scroll-target="#booklets">Booklets</a></li>
   <li><a href="#testtakers" id="toc-testtakers" class="nav-link" data-scroll-target="#testtakers">Testtakers</a></li>
   </ul></li>
-  <li><a href="#erstellung-der-testinhalte" id="toc-erstellung-der-testinhalte" class="nav-link" data-scroll-target="#erstellung-der-testinhalte">Erstellung der Testinhalte</a>
-  <ul class="collapse">
-  <li><a href="#units-des-iqb" id="toc-units-des-iqb" class="nav-link" data-scroll-target="#units-des-iqb">Units des IQB</a></li>
-  <li><a href="#booklets-1" id="toc-booklets-1" class="nav-link" data-scroll-target="#booklets-1">Booklets</a></li>
-  <li><a href="#testtaker" id="toc-testtaker" class="nav-link" data-scroll-target="#testtaker">Testtaker</a></li>
-  </ul></li>
-  <li><a href="#hochladen-upload" id="toc-hochladen-upload" class="nav-link" data-scroll-target="#hochladen-upload">Hochladen / Upload</a>
-  <ul class="collapse">
-  <li><a href="#warnungen" id="toc-warnungen" class="nav-link" data-scroll-target="#warnungen">Warnungen</a></li>
-  <li><a href="#fehlermeldungen" id="toc-fehlermeldungen" class="nav-link" data-scroll-target="#fehlermeldungen">Fehlermeldungen</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -724,8 +685,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="begriff-testinhalte" class="level1">
 <h1>Begriff “Testinhalte”</h1>
+<p>Ein Test im Kontext des IQB-Testcenters ist die Gesamtheit aller ihrer Testinhalte, also eine konfigurierbare, strukturierte Sammlung von Aufgaben oder Fragen, die einer Testperson in einer bestimmten Reihenfolge präsentiert werden, um spezifische Informationen oder Leistungen zu erheben.</p>
 <p>Unter Testinhalte werden alle Dateien verstanden, die im Vorfeld eines Tests oder einer Befragung hochgeladen werden müssen. Sie bestimmen die Testitems, den Testablauf und die Personen, die diese Tests durchführen dürfen. Das Testcenter greift nie auf Inhalts-Ressourcen außerhalb der jeweiligen Testcenter-Installation zu.</p>
-<p>Es sind für die Testvorbereitung mindestens 4 Arten von Datendateien erforderlich. Die folgende Darstellung zeigt auch die Abhängigkeit der Inhaltsdateien voneinander. Da das Testcenter diese Abhängigkeiten auf Gültigkeit prüft, müssen die Inhaltsdateien in der dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.</p>
+<p>Es sind für die Testvorbereitung mindestens 4 Arten von Datendateien erforderlich. Die folgende Darstellung zeigt auch die Abhängigkeit der Inhaltsdateien voneinander. Da das Testcenter diese Abhängigkeiten auf Gültigkeit prüft, müssen die Inhaltsdateien in der dargestellten Reihenfolge in das Testcenter hochgeladen werden (<strong>von links nach rechts</strong>). Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.</p>
+<div id="fig-dep" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -742,6 +707,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Player sind abhängig von Basis-Pakete für Player, Units sind abhängig von Player etc.
+</figcaption>
+</figure>
+</div>
 <section id="basis-pakete-für-player" class="level2">
 <h2 class="anchored" data-anchor-id="basis-pakete-für-player">Basis-Pakete für Player</h2>
 <p>Die Verona-Architektur sieht vor, dass ein Player während der Laufzeit Code nachladen darf. Es handelt sich also nicht um Testinhalte, die zu Beginn geladen werden, sondern nach Bedarf. Dieses Vorgehen ist erforderlich z. B. im Zusammenhang mit GeoGebra: Erst wenn die Testperson an eine Stelle kommt innerhalb der Unit, wo eine GeoGebra-Darstellung nötig ist, lädt der Player das Paket. Ob ein Player, der in der Studie verwendet wird, eine solche Abhängigkeit hat, muss der Player-Dokumentation entnommen werden. Ein Basis-Paket ist eine ZIP-Datei und muss die Dateiendung <strong>.itcr.zip</strong> haben.</p>
@@ -749,105 +720,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="player" class="level2">
 <h2 class="anchored" data-anchor-id="player">Player</h2>
-<p>Nicht das Testcenter stellt die Testaufgaben bzw. die Frageitems dar, sondern eine separate Programmierung “Player” ist dafür verantwortlich. Das Testcenter stellt einen Bildschirmbereich dafür bereit und sorgt für das Speichern der Antworten. Dadurch kann flexibel die Art der Darstellung geändert werden. Es kann auch eine neue, nur für diesen Test bestimmte Darstellung erreicht werden, ohne andere Tests zu stören.</p>
-<p>Für eine Testdurchführung ist mindestens ein Player notwendig. Es kann vorkommen, dass ein Player ein oder mehrere Basis-Pakete benötigt (s. o.). Ein Player ist eine Html-Datei und folgt der Verona-Spezifikation. Die Player des IQB <a href="#units-des-iqb">finden Sie unten</a>.</p>
+<p>Nicht das Testcenter stellt die Testaufgaben bzw. die Frageitems dar, sondern eine separate Programmierung “Player” ist dafür verantwortlich. Das Testcenter stellt lediglich den umgebenden Bildschirmbereich bereit und sorgt für das Speichern der Antworten. Dadurch kann flexibel die Art der Darstellung geändert werden, indem pro Test ein anderer Player eingesetzt wird. Es kann damit eine neue, nur für einen Test bestimmte Darstellung erreicht werden, ohne die Darstellung anderer Tests zu stören.</p>
+<p>Für eine Testdurchführung ist mindestens ein Player notwendig. Es kann vorkommen, dass ein Player ein oder mehrere <a href="#basis-pakete-für-player">Basis-Pakete</a> benötigt. Ein Player ist eine Html-Datei und folgt der Verona-Spezifikation. Die bereitgestellten Player des IQB <a href="#units-des-iqb">finden Sie unten</a>.</p>
 </section>
 <section id="units" class="level2">
 <h2 class="anchored" data-anchor-id="units">Units</h2>
-<p>Eine Unit entspricht einer Seite mit Frageitems im Testauflauf. Es kann sich auch um eine simple Begrüßungsseite handeln völlig ohne Items. Wie genau Items zu Units gebündelt werden, hängt von vielen Faktoren ab und ändert sich vielleicht auch mal. Aus der Sicht des Testcenters ist ein Test eine Folge von Units, und welche Funktion die Unit konkret hat, ist unerheblich. Units sollen unabhängig gedacht werden - unabhängig voneinander und von konkreten Tests. Die Platzierung in einem spezifischen Test an einer bestimmten Position soll die Unit-Entwicklung nicht beeinflussen.</p>
+<p>Eine Unit entspricht einer Seite, meist mit Frageitems, im Testauflauf. Es kann sich auch um eine simple Begrüßungsseite handeln völlig ohne Items. Wie genau Items zu Units gebündelt werden, hängt von vielen Faktoren ab und ändert sich vielleicht auch mal. Aus der Sicht des Testcenters ist ein Test eine Folge von Units, und welche Funktion die Unit konkret hat, ist unerheblich. Units sollen unabhängig gedacht werden - unabhängig voneinander und von konkreten Tests. Die Platzierung einer Unit in einem spezifischen Test an einer bestimmten Position soll dessen Entwicklung nicht beeinflussen.</p>
 <p>Es ist mindestens eine XML-Datei pro Unit erforderlich. Bei großen oder komplexen Units sind Teile der Unit-Daten ausgelagert in separate Dateien, z. B. im JSON-Format. Die XML-Datei ist strikt spezifiziert und enthält z. B. eine ID. Außerdem muss ein Verweis auf einen Player enthalten sein.</p>
 <p>Weiter: <a href="../../Testcenter/Testinhalte/unit-xml.html">Unit-XML im Detail</a></p>
 </section>
 <section id="booklets" class="level2">
 <h2 class="anchored" data-anchor-id="booklets">Booklets</h2>
-<p>Ein Booklet definiert die Abfolge von Units, die eine Testperson nacheinander angezeigt bekommt und bearbeiten soll. Es gibt eine Vielzahl von Parametern zur Steuerung, und es ist auch ab Ende 2024 möglich, alternative Unit-Blöcke zu definieren. Die Entscheidung, welche Units der Testperson vorgelegt werden, ergibt sich dann aus den Antworten der ersten Units.</p>
-<p>Eine Booklet-Datei ist stets eine strikt spezifizierte XML-Datei. Für einen Test muss mindestens ein Booklet definiert werden. Die Units sind im Booklet über ihre ID referenziert und müssen ebenfalls im Arbeitsbereich vorhanden sein.</p>
-<p>Weiter: <a href="../../Testcenter/Testinhalte/booklet-xml.html">Booklet-XML im Detail</a></p>
-</section>
-<section id="testtakers" class="level2">
-<h2 class="anchored" data-anchor-id="testtakers">Testtakers</h2>
-<p>Eine Testtaker-Datei ist ebenfalls eine strikt spezifizierte XML-Datei. Es werden Login-Daten definiert und die Booklets über ihre ID aufgeführt. Nach dem Login kann die Testperson das Booklet wählen. Es muss mindestens eine Testtaker-Datei im Arbeitsbereich hochgeladen werden, um einen Test zu ermöglichen.</p>
-<p>Für die Gestaltung eines Logins gibt es mehrere Varianten, um eine gute Passung zur Testpopulation und zur Durchführungspraxis zu erreichen. Z. B. kann auf das Kennwort verzichtet werden, um mit einem Link sofort die Authentifikation zu erreichen.</p>
-<p>Außer für die “heiße” Durchführung eines Tests bzw. einer Befragung kann durch einen “Modus”-Parameter gesteuert werden, dass keine Antworten gespeichert werden (z. B. für die Demonstration von Units) oder dass Kommentare vergeben werden können (Review von Booklets bzw. Units).</p>
-<p>Weiter: <a href="../../Testcenter/Testinhalte/testtaker-xml.html">Testtaker-XML im Detail</a></p>
-</section>
-</section>
-<section id="erstellung-der-testinhalte" class="level1">
-<h1>Erstellung der Testinhalte</h1>
-<p>Da das Testcenter nur das Hochladen der fertigen Testinhalte unterstützt und komplett auf Dialoge für Parameter verzichtet, muss es andere Wege geben, mit vertretbarem Aufwand zu den Dateien zu kommen.</p>
-<section id="units-des-iqb" class="level2">
-<h2 class="anchored" data-anchor-id="units-des-iqb">Units des IQB</h2>
-<p>Da die Units vom Player abhängig sind, muss man also danach unterscheiden, was der Player benötigt. Für die <strong>IQB-Player</strong> gibt es folgende Optionen:</p>
-<ul>
-<li><a href="https://github.com/iqb-berlin/verona-modules-aspect/releases">Aspect</a>: Dies ist der Standard-Player für komplexe Testaufgaben oder Seiten des IQB. Die Units für die Monitoringinstrumente <a href="https://www.iqb.hu-berlin.de/vera/ueberblick/">VERA</a> und <a href="https://www.iqb.hu-berlin.de/bt/">Bildungstrend</a> werden damit erstellt. Zu diesem Player steht ein Editor zur Verfügung, und die Webanwendung IQB-Studio ist darauf spezialisiert, diese Aufgaben interaktiv zu erstellen. Dort gibt es auch einen Menüpunkt, mit dem man Aufgaben und auch den zugehörigen Player exportiert. Diesen Export kann unverändert in das Testcenter hochladen.</li>
-<li><a href="https://github.com/iqb-berlin/verona-player-abi/releases">Abi</a>: Player für eine einfache Scriptsprache mit dynamischen Unterformularen. Dieser Player ist für Befragungen von Erwachsenen sehr gut geeignet. Pro Zeile wird ein Frageitem definiert. Dadurch kann eine große Anzahl von Frageitems automatisiert erstellt werden (Excel), was eine komplexe Rotation der Fragen in Abhängigkeit vom Profil der Befragten ermöglicht.</li>
-<li><a href="https://github.com/iqb-berlin/verona-player-speedtest/releases">Speed Test - multi</a>: Player für einen Lesegeschwindigkeitstests (mehrere Items pro Unit; Text und Bild). Auch hierfür gibt es einen Editor für IQB-Studio und die Unit-Defintionen werden einfach exportiert.</li>
-<li><a href="https://github.com/iqb-berlin/verona-player-speedtest/releases">Speed Test Player - mono</a>: Player für einen Lesegeschwindigkeitstests (ein Item pro Unit; nur Text). Dieser Player benötigt nur eine Zeile Text pro Unit und ist daher auch gut mit kleineren Hilfsmitteln erzeugt.</li>
-<li><a href="https://github.com/iqb-berlin/verona-player-simple/releases">Simple Player</a>: Universeller Player für Html. Hier müssen übliche Hilfsmittel zur Erstellung von Html-Seiten genutzt werden.</li>
-</ul>
-</section>
-<section id="booklets-1" class="level2">
-<h2 class="anchored" data-anchor-id="booklets-1">Booklets</h2>
-<p>Die Vielfalt von Testszenarien ist sehr hoch, so dass es hierfür kaum passende Angebote geben kann. Es wird meist dabei bleiben, dass die Testentwickler*innen manuell die Booklet-XML in einem auf XML spezialisierten Editor bearbeiten. Folgende Unterstützungen gibt es:</p>
-<ul>
-<li>Beim Export von Units aus dem IQB-Studio kann man angeben, dass für die ausgewählten Units ein Booklet erzeugt und mit exportiert wird. Dieses Booklet fügt die Units in alphabetischer Reihenfolge ein, was sicher danach geändert werden muss. Aber als Startpunkt mag das helfen.</li>
-<li>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-booklet.md">itc-ToolBox/Booklet</a> liest ein Test-Design aus einer Excel-Datei ein und erzeugt daraus für alle gefundenen Booklets die Booklet-XML. Nach etwas Übung sollte diese Hilfe gut klappen für einen Großteil der Testungen.</li>
-</ul>
-</section>
-<section id="testtaker" class="level2">
-<h2 class="anchored" data-anchor-id="testtaker">Testtaker</h2>
-<p>Durch die vielen Szenarien, die in einer Testtaker-XML abgebildet werden können, ist auch an dieser Stelle bisher keine dialoggesteuerte universelle Hilfe verfügbar. In den Studien des IQB haben sich auf den jeweiligen Anwendungsfall spezialisierte Excel-Dateien bewährt. Diese Excel-Tabellen dienen dann auch gleich der Erzeugung von Massen-E-Mails, d.&nbsp;h. an die richtigen Empfänger*innen kommen die richtigen Zugangsdaten. Folgende Hilfen gibt es:</p>
-<ul>
-<li>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-codes.md">itc-ToolBox/Codes</a> erzeugt eine große Anzahl eindeutiger Codes, die dann als Grundlage für die Logins genutzt werden können.</li>
-<li>Das Windows-Programm <a href="https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-logins-docx.md">itc-ToolBox/QR</a> erzeugt nach Einlesen einer Testtaker-Datei Docx-Dateien, die einen QR-Code enthalten können. Diese Funktion wurde programmiert zur Erstellung von Zetteln, die den Testpersonen in die Hand gegeben werden.</li>
-<li>Beim Export von Units aus dem IQB-Studio kann man angeben, dass das erzeugte Booklet um eine Testtaker-XML ergänzt wird. Für eine definierbare Anzahl Testpersonen werden Logins erzeugt und das Booklet zugewiesen.</li>
-</ul>
-</section>
-</section>
-<section id="hochladen-upload" class="level1">
-<h1>Hochladen / Upload</h1>
-<p>Man benötigt einen <a href="../../Testcenter/workspaces.html">Schreibzugriff</a> auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können.</p>
-<p>Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.</p>
-<p>Der Name einer Datei spielt allgemein keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:</p>
-<ul>
-<li>Unit-, Booklet- und Testtaker-Dateien müssen die Endung <code>xml</code> haben.</li>
-<li>Ein Player muss die Endung <code>html</code> haben.</li>
-<li>Basis-Pakete müssen die Endung <code>.itcr.zip</code> haben.</li>
-<li>Dateien mit der Endung <code>zip</code> werden beim Hochladen ausgepackt und die darin enthaltenen Dateien separat im Arbeitsbereich gespeichert (Ausnahme Basis-Pakete).</li>
-<li>Eine Unit kann in ihrer XML-Datei weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen <code>xml</code>, <code>html</code> und <code>zip</code> nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.</li>
-</ul>
-<p>Das IQB-Studio erzeugt den Aufgaben-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>Ein Booklet definiert die Abfolge von Units für einen bestimmten Test, die eine Testperson nacheinander angezeigt bekommt und bearbeiten soll. Es gibt eine Vielzahl von Parametern zur Steuerung.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Wichtig
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.</p>
+<p>Ab Ende 2024 wird es möglich sein, konditionale Unit-Blöcke zu definieren. Die Entscheidung, welche Units der Testperson vorgelegt werden, ergibt sich dann aus den Antworten vorangegangener Units.</p>
 </div>
 </div>
-<section id="warnungen" class="level2">
-<h2 class="anchored" data-anchor-id="warnungen">Warnungen</h2>
-<p><strong>File has no link to XSD-Schema</strong></p>
-<p>Eventuell wird nach dem Hochladen in das Testcenter eine Warnung “File has no link to XSD-Schema…” angezeigt. In diesem Fall enthält die zu ladende XML-Datei keinen expliziten Verweis auf eine XSD-Datei (Schema-Definition). Eine solche XSD-Datei definiert die möglichen Elemente und Attribute einer XML-Datei und kann daher zur Prüfung der XML-Datei verwendet werden. Auf diese Weise sollen Fehler in der Struktur einer XML bereits beim Laden erkannt werden und nicht erst zur Laufzeit. Die Schema-Definition zu den XML-Dateien: <strong>Testheft-Definition, Studien-Definition und Aufgaben-Definition</strong> sind auf unserer <a href="https://iqb-berlin.github.io/">IQB-GitHub-Startseite</a> unter dem Reiter: <strong>Spezifikationen</strong> im Abschnitt: <strong>IQB-Testcenter: Input Unit-Xml</strong> zu finden.</p>
-<p>Die Deklaration der XSD-Datei erfolgt im Haupt-Element einer XML-Datei. Bspw. wird die Schema-Definition in der XML zur Aufgaben-Definition wie folgt eingebunden:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Unit.xsd"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Outdated or wrong version of XSD-schema</strong></p>
-<p>Ist die verwendete Schema-Definition in einer XML nicht identisch mit der verwendeten Testcenter-Version, wird eine Warnung ausgegeben. Es kann sein, dass die Schema-Definition zu einer Testcenter-Version verändert wurde. Bspw. könnte in einer Version des Testcenters ein bestimmtes Element in einer XML erlaubt sein, in einer anderen Version hingegen nicht. Die Schema-Definition ist also in jedem Fall vor dem Laden an die verwendete Testcenter-Version anzupassen. Wie im obigen Code-Block zu sehen, ist dann einfach die Versionsnummer im Pfad zur XSD-Datei anzupassen.</p>
+<p>Eine Booklet-Datei ist stets eine strikt spezifizierte XML-Datei. Für einen Test muss mindestens ein Booklet definiert werden. Die Units sind im Booklet über ihre ID referenziert und müssen ebenfalls im Arbeitsbereich vorhanden sein.</p>
+<p>Weiter: <a href="../../Testcenter/Testinhalte/booklet-xml.html">Booklet-XML im Detail</a></p>
 </section>
-<section id="fehlermeldungen" class="level2">
-<h2 class="anchored" data-anchor-id="fehlermeldungen">Fehlermeldungen</h2>
-<p><strong>Ressource not found</strong></p>
-<p>Soll eine Datei geladen werden in der Ressourcen definiert werden, prüft das Testcenter beim Laden dieser Datei, ob die definierte Ressource bereits im Testcenter vorhanden ist. Ist dies nicht der Fall, wird das Laden nicht abgeschlossen und es erscheint diese Meldung. Es sind dann zuvor die definierten Ressourcen zu laden.</p>
-<p><strong>Duplicate Login</strong></p>
-<p>In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teilnehmer*innen hinterlegt. Da diese Zugänge nur einmal im gesamten Testcenter vorkommen dürfen, prüft das Testcenter beim Laden einer XMl zur Studien-Definition, ob die darin enthaltenen Zugänge (<code>name</code>) in irgendeinem Arbeitsbereich des Testcenters bereits vorhanden sind. Falls ja, wird dieser Fehler angezeigt. Um die Datei laden zu können, müssen entweder die Zugangsnamen der Teilnehmer*innen geändert werden oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.</p>
-<p><strong>Duplicate group</strong></p>
-<p>In der XML zur Studien-Definition (Studien-XML) werden die Zugangsdaten der Teilnehmer*innen Gruppen (<code>group</code>) zugeordnet. Diese Gruppen erhalten eine Id. Antworten einer Studien werden zugehörig zu einer Gruppe gespeichert. Daher darf eine Gruppen-Id nur einmal im gesamten Testcenter vorkommen. Vor dem Laden sind daher entweder die Gruppennamen anzupassen oder die bereits vorhandene XML zur Studien-Definition ist zuvor aus dem Testcenter zu entfernen.</p>
+<section id="testtakers" class="level2">
+<h2 class="anchored" data-anchor-id="testtakers">Testtakers</h2>
+<p>Eine Testtaker-Datei ist ebenfalls eine strikt spezifizierte XML-Datei. Es werden Login-Daten definiert und die jeweils zu nutzenden Booklets über ihre ID aufgeführt. Es muss mindestens eine Testtaker-Datei im Arbeitsbereich hochgeladen werden, um einen Test zu ermöglichen.</p>
+<p>Für die Gestaltung eines Logins gibt es mehrere Varianten, um eine gute Passung zur Testpopulation und zur Durchführungspraxis zu erreichen. Z. B. kann auf das Kennwort verzichtet werden, um mit einem Link sofort die Authentifikation zu erreichen.</p>
+<p>Neben der “heißen” Durchführung eines Tests bzw. einer Befragung, kann anhand weiterer “Modus”-Parameter gesteuert werden, dass keine Antworten gespeichert werden (z. B. für die Demonstration von Units) oder dass Kommentare vergeben werden können (für das Review von Booklets bzw. Units).</p>
+<p>Weiter: <a href="../../Testcenter/Testinhalte/testtaker-xml.html">Testtaker-XML im Detail</a></p>
 
 
 </section>
@@ -1288,8 +1194,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Testcenter/Testinhalte/unit-xml.html" class="pagination-link" aria-label="Unit-XML">
-        <span class="nav-page-text">Unit-XML</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="pagination-link" aria-label="Erstellung Testinhalte">
+        <span class="nav-page-text">Erstellung Testinhalte</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

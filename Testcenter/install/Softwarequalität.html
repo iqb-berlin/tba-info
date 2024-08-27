@@ -224,6 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -721,14 +727,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="einführung">Einführung</h2>
 <p>Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer*innen getestet werden. Diese Art der Testung nennt sich <strong>End-to-end-Testung</strong> oder auch <strong>Akzeptanztest</strong>. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden</p>
 <p>Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen <strong>E2E-Testungen</strong> und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.</p>
-<p>Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge geben, einfach weil das IQB sich sehr viel damit beschäftigt hat.</p>
+<p>Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge aus eigenen Erfahrungen geben.</p>
 </section>
 <section id="eigene-testszenarien-entwerfen" class="level2">
 <h2 class="anchored" data-anchor-id="eigene-testszenarien-entwerfen">Eigene Testszenarien entwerfen</h2>
-<p>Eine E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
-<p>Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist einmal bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.</p>
+<p>Eine eigen entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
+<p>Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch, alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.</p>
 <ul>
-<li>Können sich die in der Studien-XML angelegten Testpersonen am Testcenter anmelden?</li>
+<li>Können sich die in der Testtaker-XML angelegten Testpersonen am Testcenter anmelden?</li>
 <li>Können die angelegten Booklets gestartet werden?</li>
 <li>Werden die vorgesehenen Aufgaben in festgelegter Reihenfolge dargestellt?</li>
 <li>Funktioniert das Blättern zwischen den Aufgaben auf die gewünschte Weise?</li>
@@ -749,14 +755,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.</p>
 <section id="manuelles-vs-automatisiertes-testen" class="level3">
 <h3 class="anchored" data-anchor-id="manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</h3>
-<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die vielleicht hilft hinsichtlich dieser Frage eine Entscheidung zu treffen.</p>
+<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können.</p>
 <section id="manuelles-testen" class="level4">
 <h4 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h4>
+<p>Vorteile</p>
 <ul>
 <li>sinnvoll bei selten ausgeführten Testungen und kleineren Studien</li>
 <li>relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung</li>
 <li>Pflege und Aktualisierung sind relativ einfach, da nur Skripte angepasst werden müssen</li>
 <li>keine zusätzliche Software oder Programmierkenntnisse notwendig</li>
+</ul>
+<p>Nachteile</p>
+<ul>
 <li>Ausführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend</li>
 <li>Auswertung muss ebenfalls manuell erfolgen, das kostet Zeit</li>
 <li>Skripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)</li>
@@ -779,12 +789,16 @@ Tipp
 </section>
 <section id="automatisiertes-testen" class="level4">
 <h4 class="anchored" data-anchor-id="automatisiertes-testen">Automatisiertes Testen</h4>
+<p>Vorteile</p>
 <ul>
 <li>sinnvoll bei häufig ausgeführten Testungen und größeren Studien</li>
 <li>Ausführung ist schnell und homogen</li>
 <li>gute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden</li>
 <li>Verwaltung der Tests und zugehörige Auswertungen ist übersichtlich</li>
 <li>zu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden</li>
+</ul>
+<p>Nachteile</p>
+<ul>
 <li>Entwurfsphase benötigt Zeit</li>
 <li>Pflege und Aktualisierung können je nach eingesetzter Software aufwändig werden</li>
 <li>zusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig</li>
@@ -841,20 +855,32 @@ Hinweis
 <section id="cypress-starten" class="level3">
 <h3 class="anchored" data-anchor-id="cypress-starten">Cypress starten</h3>
 <ol type="1">
-<li>starten der IDE</li>
-<li>spiegeln (clonen) des Testcenter <a href="https://github.com/iqb-berlin/testcenter">GitHub-Repos</a></li>
-<li>öffnen des gespiegelten Ordners mit der IDE</li>
-<li>Terminal öffnen und den Befehl: <code>make test-system</code> eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt öffnet sich die Cypress Oberfläche</li>
+<li>Starten der IDE</li>
+<li>Spiegeln (clonen) des Testcenter <a href="https://github.com/iqb-berlin/testcenter">GitHub-Repos</a></li>
+<li>Öffnen des gespiegelten Ordners mit der IDE</li>
+<li>Terminal öffnen und den Befehl: <code>make test-system</code> eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche</li>
 <li>“E2E Testing” in der Cypress Oberfläche auswählen</li>
-<li>Browser mit dem getestet werden soll auswählen</li>
+<li>TestBrowser auswählen</li>
 </ol>
 </section>
 <section id="cypress-tests-ausführen" class="level3">
 <h3 class="anchored" data-anchor-id="cypress-tests-ausführen">Cypress Tests ausführen</h3>
 <p>Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer*innen für ihre Konfiguration der Testdateien genutzt werden könnten.</p>
-<p>Information: Einige Testfälle sind gruppiert in Ordner.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Einige Testfälle sind gruppiert in Ordner.</p>
+</div>
+</div>
 <p><strong>Session-Management/hot-restart-mode</strong> und <strong>Session-Management/hot-return-mode</strong></p>
-<p>Hier werden die Grundfunktionen der Modi: <code>hot-restart</code> und <code>hot-return</code> getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten wie vorgesehen:</p>
+<p>Hier werden die Grundfunktionen der Modi: <code>hot-restart</code> und <code>hot-return</code> getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten, wie vorgesehen:</p>
 <ul>
 <li>hot-restart: Bei erneuter Anmeldung wird eine neue Person angenommen und der Test wird neu gestartet</li>
 <li>hot-return: Bei erneuter Anmeldung wird die selbe Testperson angenommen und der Test wird fortgesetzt</li>

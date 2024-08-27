@@ -227,6 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -678,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#login-dateien" id="toc-login-dateien" class="nav-link active" data-scroll-target="#login-dateien">Login-Dateien</a></li>
+  <li><a href="#handhabung-der-logins" id="toc-handhabung-der-logins" class="nav-link active" data-scroll-target="#handhabung-der-logins">Handhabung der Logins</a></li>
   <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
   <li><a href="#login-modus" id="toc-login-modus" class="nav-link" data-scroll-target="#login-modus">Login-Modus</a>
   <ul class="collapse">
@@ -738,14 +744,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="login-dateien" class="level1">
-<h1>Login-Dateien</h1>
+<section id="handhabung-der-logins" class="level1">
+<h1>Handhabung der Logins</h1>
 <p>Die Handhabung der Testtaker-XML zur Steuerung der Logins ist ein kritischer Punkt der Testdurchführung. Bitte beachten Sie folgende Hinweise:</p>
 <ul>
 <li>Sie können mehrere Testtaker-XML hochladen. Die Logins werden trotzdem in einer gemeinsamen Liste geführt. Die Aufteilung der Logins in verschiedene Dateien ist also aus Sicht des Testcenter ohne Bedeutung. Sie folgt nur praktischen Erwägungen der Testorganisation.</li>
 <li>Sofort nach dem Hochladen einer Testtaker-Datei sind die darin enthaltenen Logins freigeschaltet<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
 <li>Das Löschen einer Testtaker-Datei verhindert sofort, dass die darin enthaltenen Logins benutzt werden können. Die Antwortdaten sind davon nicht betroffen, d.&nbsp;h. diese werden nicht gelöscht.</li>
-<li>Die Benutzernamen der Logins müssen eindeutig sein für die gesamte Testcenter-Installation. Es kann also passieren, dass das Hochladen einer Testtaker-XML abgewiesen wird, weil in einem anderen Arbeitsbereich derselbe Benutzername definiert wurde. Nehmen Sie daher nicht zu kurze Benutzernamen oder stimmen Sie sich mit anderen Studien ab.</li>
+<li>Die Benutzernamen der Logins müssen eindeutig sein für die gesamte Testcenter-Installation. Es kann also passieren, dass das Hochladen einer Testtaker-XML abgewiesen wird, weil in einem anderen Arbeitsbereich derselbe Benutzername definiert wurde. Nehmen Sie daher nicht zu kurze Benutzernamen oder stimmen Sie sich mit anderen Studien auf derselben Testcenter-Installation ab.</li>
 <li>Wenn Sie Logins erneut hochladen, die Sie vorher gelöscht hatten und die bereits benutzt wurden, dann sind die alten Antworten ggf. wieder verfügbar<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Sollten Sie für diese Logins den Testmodus geändert haben, riskieren Sie den Verlust von Antwortdaten.</li>
 </ul>
 </section>
@@ -773,29 +779,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="3" data-code-annotation="1">Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe <code>xsi:noNamespaceSchemaLocation</code> zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="3" data-code-annotation="1"><code>&lt;Testtakers&gt;</code>: Verweis auf XML-Schema, das eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei ist. Viele Text-Editoren benutzen die Angabe <code>xsi:noNamespaceSchemaLocation</code> zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="2">Das <code>Metadata</code>-Element ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein <code>Description</code>-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet – sind also nur zur Verbesserung des Lesens dieser XML gedacht.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="2"><code>&lt;Metadata&gt;</code>: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein <code>Description</code>-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet – sind also nur zur Verbesserung des Lesens dieser XML gedacht.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="3">Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die <code>id</code> muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Das <code>label</code> wird z. B. in der Anzeige des Studienfortschritts verwendet.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="3"><code>&lt;Group&gt;</code>: Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die <code>id</code> muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Das <code>label</code> wird z. B. in der Anzeige des Studienfortschritts verwendet.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="4">Über das Attribut <code>mode</code> wird eine Vielzahl von Funktionen des Testcenters gesteuert (<a href="#login-modus">s. unten</a>). Benutzername <code>name</code> und Kennwort <code>pw</code> stehen für die gängigste Anmeldemethode (<a href="#anmeldemethoden">s. unten</a>).</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="4"><code>&lt;Login&gt;</code>: Über das Attribut <code>mode</code> wird eine Vielzahl von Funktionen des Testcenters gesteuert (<a href="#login-modus">s. unten</a>). Benutzername <code>name</code> und Kennwort <code>pw</code> stehen für die gängigste Anmeldemethode (<a href="#varianten-des-anmeldeverfahrens">s. unten</a>).</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="7" data-code-annotation="5">Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="7" data-code-annotation="5"><code>&lt;Booklet&gt;</code>: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.</span>
 </dd>
 </dl>
 </section>
 <section id="login-modus" class="level1">
 <h1>Login-Modus</h1>
-<p>Über das Attribut <code>mode</code> im Login wird die <strong>Rolle der angemeldeten Person</strong> innerhalb einer Testung festgelegt. Es stehen hier sehr unterschiedliche Rollen zur Verfügung. Diese gehen aber nie über den Arbeitsbereich hinaus.</p>
+<p>Über das Attribut <code>mode</code> im <code>&lt;Login&gt;</code> wird die <strong>Rolle der angemeldeten Person</strong> innerhalb einer Testung festgelegt. Es stehen hier sehr unterschiedliche Rollen zur Verfügung. Diese gehen aber nie über den Arbeitsbereich hinaus.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -811,15 +817,15 @@ Vorsicht
 </div>
 <section id="testperson-run-hot-return-run-hot-restart" class="level2">
 <h2 class="anchored" data-anchor-id="testperson-run-hot-return-run-hot-restart">Testperson: <code>run-hot-return</code>, <code>run-hot-restart</code></h2>
-<p>Das ist die übliche Rolle einer Person, die an einem Test oder einer Befragung teilnehmen soll. Man bekommt nach dem Ladevorgang nacheinander die vorbereiteten Seiten präsentiert, antwortet über Texteingaben, Ankreuzen, Verschieben usw., und die Antworten werden auf dem Server gesammelt für die Auswertung. Restriktionen der Testdurchführung – z. B. Zeitbeschränkungen – sind genau so wirksam, wie im Booklet-XML definiert.</p>
+<p>Dies sind die üblichen Rollen einer Person, die an einem Test oder einer Befragung teilnehmen soll. Man bekommt nach dem Ladevorgang nacheinander die vorbereiteten Seiten präsentiert, antwortet über Texteingaben, Ankreuzen, Verschieben usw., und die Antworten werden auf dem Server gesammelt für die Auswertung. Restriktionen der Testdurchführung – z. B. Zeitbeschränkungen – sind genau so wirksam, wie im Booklet-XML definiert.</p>
 <ul>
 <li><code>run-hot-return</code>: Wenn sich die Testperson zu einem späteren Zeitpunkt erneut anmeldet, sind alle Antworten wiederhergestellt und die Person setzt den Test dort fort, wo sie ihn verlassen hat. Zeitbeschränkungen haben pausiert, d.&nbsp;h. man kann verbliebene Bearbeitungszeit nutzen. Dieser Modus erlaubt es also z. B., bei Problemen die Testdurchführung abzubrechen und mit einem anderen Browser oder Computer fortzusetzen.</li>
-<li><code>run-hot-restart</code>: Eine erneute Anmeldung erzeugt auf dem Server eine neue Testperson ohne Antworten. Dieser Modus ist gedacht für Befragungen, wenn der Kreis der Befragten vorher nicht bekannt ist. Man kann eine Einladung zur Befragung an einen großen Personenkreis verschicken und bereitet dafür nur ein Login vor. Die Personen sehen nicht die Antworten der anderen, kehren aber nach einer erneuten Anmeldung zum Ausgangszustand zurück.</li>
+<li><code>run-hot-restart</code>: Eine erneute Anmeldung erzeugt auf dem Server eine komplett neue Testperson. Antworten können demnach nicht fortgesetzt werden nach einmaligen Verlassen der Testung. Dieser Modus ist gedacht für Befragungen, wenn der Kreis der Befragten vorher nicht bekannt ist. Man kann eine Einladung zur Befragung an einen großen Personenkreis verschicken und bereitet dafür nur ein Login vor. Die Personen sehen nicht die Antworten der anderen, fangen aber nach einer erneuten Anmeldung wieder beim Ausgangszustand an.</li>
 </ul>
 </section>
 <section id="testfortschritt-beobachten-und-steuern-monitor-group-monitor-study" class="level2">
 <h2 class="anchored" data-anchor-id="testfortschritt-beobachten-und-steuern-monitor-group-monitor-study">Testfortschritt beobachten und steuern: <code>monitor-group</code>, <code>monitor-study</code></h2>
-<p>Das Testcenter bietet die Möglichkeit, alle Logins eines Group-Elementes – also einer Testgruppen, z. B. Klasse – im Fortschritt zu beobachten und teilweise zu steuern. Hierfür ist ein Gruppenmonitor mit zahlreichen Funktionen verfügbar. Eine ausführliche Dokumentation <a href="../../Testcenter/Gruppenmonitor/index.html">finden Sie hier</a>.</p>
+<p>Das Testcenter bietet die Möglichkeit, alle Logins eines Group-Elementes – also einer Testgruppen, z. B. Klasse – im Fortschritt zu beobachten und zu steuern. Hierfür ist die Rolle eines Monitors mit zahlreichen Funktionen verfügbar. Eine ausführliche Dokumentation <a href="../../Testcenter/Gruppenmonitor/index.html">finden Sie hier</a>.</p>
 <ul>
 <li><code>monitor-group</code>: Diese Anmeldung ist für Lehrkräfte oder Testleitungen vor Ort gedacht. Man kann sich alle Testhefte, die den Personen der Gruppe zugewiesen sind, anschauen, und kann direkt einen Schüler ansprechen, bei dem man ein auffälliges Verhalten sieht (z. B. Verlassen des Browserfensters der Testung).</li>
 <li><code>monitor-study</code>: Diese Anmeldung ist zwar aus technischen Gründen ebenfalls innerhalb einer Gruppe definiert, bezieht sich aber auf alle Login-Gruppen eines Arbeitsbereiches. Die Rolle dahinter könnte man mit “Hotline” benennen: Während einer Testung mit vielen Klassen ruft jemand an, und im Support möchte man schnell nach dem Bearbeitungsstand der Gruppe schauen und ggf. eingreifen. Nach der Anmeldung erhält man zunächst alle Gruppen zur Auswahl und kann dann gezielt helfen<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</li>
@@ -842,10 +848,9 @@ Vorsicht
 </section>
 <section id="varianten-des-anmeldeverfahrens" class="level1">
 <h1>Varianten des Anmeldeverfahrens</h1>
-<p>Grundsätzlich gilt: Ein Anmeldename darf nicht mehrfach vorkommen auf einer Testcenter-Installation. Sollte ein Anmeldename bereits in einem anderen Arbeitsbereich vergeben worden sein, scheitert das Hochladen in das Testcenter.</p>
 <section id="richtlinien" class="level2">
 <h2 class="anchored" data-anchor-id="richtlinien">Richtlinien</h2>
-<p>Für die nachfolgenden Login-Parameter Name, Kennwort und Code müssen geeignete Kombinationen aus Buchstaben und Ziffern gefunden werden. Beachten Sie für Testdurchführungen folgende Hinweise:</p>
+<p>Für die nachfolgenden <code>&lt;Login&gt;</code>-Parameter Name (<code>name</code>), Kennwort (<code>pw</code>) und Code (<code>code</code>) müssen geeignete Kombinationen aus Buchstaben und Ziffern gefunden werden. Beachten Sie für Testdurchführungen folgende Hinweise:</p>
 <ul>
 <li>Die Zeichen müssen gut merkbar sein, damit bei der Übertragung vom Zettel in den Computer kein Fehler passiert.</li>
 <li>Die Tasten sollen auf der Computer-Tastatur gut findbar sein.</li>
@@ -878,6 +883,19 @@ Tipp
 <section id="klassisch-anmeldename-und-kennwort" class="level2">
 <h2 class="anchored" data-anchor-id="klassisch-anmeldename-und-kennwort">Klassisch: Anmeldename und Kennwort</h2>
 <p>Diese Anmeldeform wird üblicherweise erwartet. Im Eingabeformular der Startseite einer Testcenter-Installation wird der Anmeldename im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d.&nbsp;h. man kann nicht mitlesen. Ein Klick auf das Auge-Symbol macht auch das Kennwort lesbar, was bei der Testdurchführung für die Fehlersuche hilfreich ist.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein Anmeldename darf nicht mehrfach vorkommen auf einer Testcenter-Installation. Sollte ein Anmeldename bereits in einem anderen Arbeitsbereich vergeben worden sein, scheitert das Hochladen der Testtakers-XML in das Testcenter.</p>
+</div>
+</div>
 </section>
 <section id="nur-anmeldename-url" class="level2">
 <h2 class="anchored" data-anchor-id="nur-anmeldename-url">Nur Anmeldename (URL)</h2>
@@ -899,7 +917,7 @@ Tipp
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"x4u t5a z9i"</span>&gt;Booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"r3c k6f"</span>&gt;Booklet2&lt;/<span class="kw">Booklet</span>&gt;</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Login</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Personencodes gelten spezifisch für Testhefte. Mehrere Codes können in einem Booklet-Element im Attribut <code>code</code> zusammengefasst werden mit einem Leerzeichen dazwischen. Im obigen Beispiel wurden also Logins für fünf Personen definiert. Für den <a href="../../Testcenter/Gruppenmonitor/index.html">Gruppenmonitor</a> ist dies nicht relevant, d.&nbsp;h. es werden normale Testsitzungen erzeugt.</p>
+<p>Personencodes gelten spezifisch für Booklets. Mehrere Codes können in einem Booklet-Element im Attribut <code>code</code> zusammengefasst werden mit einem Leerzeichen dazwischen. Im obigen Beispiel wurden also Logins für fünf Personen definiert. Für den <a href="../../Testcenter/Gruppenmonitor/index.html">Gruppenmonitor</a> ist dies nicht relevant, d.&nbsp;h. es werden normale Testsitzungen erzeugt.</p>
 </section>
 <section id="zeitbeschränkung-einer-anmeldung" class="level2">
 <h2 class="anchored" data-anchor-id="zeitbeschränkung-einer-anmeldung">Zeitbeschränkung einer Anmeldung</h2>

@@ -227,6 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -680,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#system-check-anlegen" id="toc-system-check-anlegen" class="nav-link active" data-scroll-target="#system-check-anlegen">System-Check anlegen</a>
   <ul class="collapse">
-  <li><a href="#grundfunktionen" id="toc-grundfunktionen" class="nav-link" data-scroll-target="#grundfunktionen">Grundfunktionen</a></li>
+  <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
   <li><a href="#fehler-beim-hochladen" id="toc-fehler-beim-hochladen" class="nav-link" data-scroll-target="#fehler-beim-hochladen">Fehler beim Hochladen</a></li>
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
   <li><a href="#netzwerkanbindung" id="toc-netzwerkanbindung" class="nav-link" data-scroll-target="#netzwerkanbindung">Netzwerkanbindung</a></li>
@@ -726,9 +732,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ein System-Check wird angelegt, indem eine XML-Datei mit einem spezifischen Inhalt in einen Arbeitsbereich hochgeladen wird. Das IQB-Testcenter erzeugt dann automatisch einen Link zu diesem System-Check auf der Startseite. Alle Besucher*innen der Webanwendung können dann ohne Anmeldung den System-Check ausführen. Wenn ein Kennwort eingegeben wird, kann man das Ergebnis des System-Checks auch auf dem Server speichern. Dann stehen über die Verwaltung des Arbeitsbereichs die Ergebnisse gebündelt als Tabelle zum Download bereit.</p>
 <section id="system-check-anlegen" class="level1">
 <h1>System-Check anlegen</h1>
-<p>Man muss zugriffsberechtigt sein zu einem Arbeitsbereich einer IQB-Testcenter-Installation. Dann lädt man eine XML-Datei hoch. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).</p>
-<section id="grundfunktionen" class="level2">
-<h2 class="anchored" data-anchor-id="grundfunktionen">Grundfunktionen</h2>
+<p>Zunächst wird ein Arbeitsbereichs-Admin mit Schreibrechten zu einem Arbeitsbereich einer IQB-Testcenter-Installation benötigt. Dieser kann eine SystemCheck-XML Datei hochladen. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).</p>
+<section id="grundstruktur" class="level2">
+<h2 class="anchored" data-anchor-id="grundstruktur">Grundstruktur</h2>
 <p>Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -812,7 +818,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>System-Check mit angepasstem Text</figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Eine vollständige Liste mit den verfügbaren CustomTexts <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">finden Sie hier</a>. Suchen Sie nach dem Präfix <code>syscheck_</code>!</p>
+</div>
+</div>
 </section>
 <section id="netzwerkanbindung" class="level2">
 <h2 class="anchored" data-anchor-id="netzwerkanbindung">Netzwerkanbindung</h2>
@@ -855,11 +873,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="1">Das Hochladen betrifft vor allem das Speichern der Antworten im Test. Parameter s. u.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="1">Das Hochladen betrifft vor allem das Speichern der Antworten im Test, Parameter s. <a href="#tbl-network" class="quarto-xref">Tabelle&nbsp;1</a></span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="19" data-code-annotation="2">Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung. Parameter s. u.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="19" data-code-annotation="2">Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung. Parameter s. <a href="#tbl-network" class="quarto-xref">Tabelle&nbsp;1</a></span>
 </dd>
 </dl>
 <p>Für die Nutzer*innen sieht das z. B. so aus:</p>
@@ -869,8 +887,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Test der Netzwerkanbindung</figcaption>
 </figure>
 </div>
+<div id="tbl-network" class="striped quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Parameter des Netzwerk-Tests
+</figcaption>
+<div aria-describedby="tbl-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-striped caption-top table">
-<caption>Parameter des Netzwerk-Tests</caption>
 <colgroup>
 <col style="width: 11%">
 <col style="width: 88%">
@@ -902,25 +925,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>maxSequenceRepetitions</code></td>
 <td>Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
 </tr>
+<tr class="even">
+<td><code>100000</code>, <code>200000</code>, <code>400000</code>, <code>800000</code></td>
+<td>Die Zahlen gebet die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.</td>
+</tr>
 </tbody>
 </table>
-<p>Die Daten: 100000, 200000, 400000, 800000 geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.</p>
+</div>
+</figure>
+</div>
 </section>
 <section id="speichern-der-ergebnisse-auf-dem-server" class="level2">
 <h2 class="anchored" data-anchor-id="speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> savekey=</span><span class="st">"eckensteher"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Wenn wie im obigen Beispiel ein <code>savekey</code> definiert wurde, kann die Person, die den System-Check durchführt, die Ergebnisse speichern. Ein entsprechender Button wird eingeblendet und das Kennwort wird abgefragt.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Config</span><span class="ot"> savekey=</span><span class="st">"eckensteher"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wenn wie im obigen Beispiel ein <code>savekey</code> definiert wurde, kann die Person, die den System-Check durchführt, die Ergebnisse auf dem Server speichern. Ein entsprechender Button wird eingeblendet und das Kennwort wird abgefragt.</p>
 </section>
 <section id="einbinden-einer-unit" class="level2">
 <h2 class="anchored" data-anchor-id="einbinden-einer-unit">Einbinden einer Unit</h2>
 <p>Das IQB-Testcenter ist die Anwendung, mit der Testaufgaben bzw. Frageitems präsentiert werden und Antworten gespeichert werden. Der Programmcode für Präsentation und Interaktion ist über das <a href="https://verona-interfaces.github.io/player-docs/">Verona-Prinzip</a> ausgelagert. Welche Player bzw. spezifischen Interaktionsmodelle verwendet werden, ist dem Testcenter und also auch dem System-Check nicht bekannt. Daher kann bei der Konfiguration eines System-Check ein Player und eine Unit eingebunden werden.</p>
-<p>Die Antworten werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog (s. u.) Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> unit=</span><span class="st">"bsp_unit"</span><span class="ot"> savekey=</span><span class="st">"saveme"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Config</span><span class="ot"> unit=</span><span class="st">"bsp_unit"</span><span class="ot"> savekey=</span><span class="st">"saveme"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Unit muss natürlich mit all ihren Dateien (xml, voud usw.) im Arbeitsbereich hochgeladen werden, auch der Player. Ansonsten wird der System-Check sofort mit einer Fehlermeldung abgebrochen.</p>
+<p>Die Antworten der Units werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.</p>
 </section>
 <section id="fragenkatalog" class="level2">
 <h2 class="anchored" data-anchor-id="fragenkatalog">Fragenkatalog</h2>
-<p>Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter <code>savekey</code> kann man so die Antworten erhalten.</p>
+<p>Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter <code>savekey</code> kann man so die Antworten der Units erhalten.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>syscheck4.xml</strong></pre>
@@ -947,11 +976,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="11" data-code-annotation="1"><code>header</code> erzeugt eine Überschrift</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="11" data-code-annotation="1"><code>type</code> vom Wert “header” erzeugt eine Überschrift</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="12" data-code-annotation="2"><code>radio</code> erzeugt eine Auswahl. Die OPtionen sind mit <code>#</code> zu trennen</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="12" data-code-annotation="2"><code>type</code> vom Wert “radio” erzeugt eine Auswahl. Die Optionen sind mit <code>#</code> zu trennen</span>
 </dd>
 </dl>
 <p>Diese Konfiguration führt zu folgendem Ergebnis:</p>
@@ -961,8 +990,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>System-Check mit Fragenkatalog</figcaption>
 </figure>
 </div>
+<p>Weitere Inputfelder im Fragekatalog sehen so aus:</p>
 <table class="table-striped caption-top table">
-<caption>Formulartypen als Parameter <code>type</code></caption>
+<caption>Werte für <code>type</code> innerhalb von <code>&lt;Q&gt;</code></caption>
 <colgroup>
 <col style="width: 11%">
 <col style="width: 88%">
@@ -1242,7 +1272,7 @@ Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Im System-Check kann immer nur eine Beispielaufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.</p>
+<p>Im System-Check kann immer nur eine Unit zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.</p>
 </div>
 </div>
 </section>
@@ -1765,7 +1795,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

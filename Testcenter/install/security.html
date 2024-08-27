@@ -190,6 +190,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -689,7 +695,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Üblicherweise schafft ein Login-Prozess Zugang zu sensiblen schützenswerten Daten. Sinnvollerweise sind daher Richtlinien einzuhalten, um ein Mindestmaß an Sicherheit zu erreichen.</p>
 <section id="administratoren" class="level2">
 <h2 class="anchored" data-anchor-id="administratoren">Administratoren</h2>
-<p>Zur Verwaltung der Inhalte und dem Download der Antwortdaten sind personenbezogene Accounts eingerichtet. Nur ein besonders privilegierter Admin darf diese Accounts anlegen und die Kennworte ändern bzw. vergeben. Nach einer entsprechenden Einweisung stellt diese Person die erforderliche Mindestlänge usw. sicher. Technisch ist eine Mindestlänge von 7 eingestellt.</p>
+<p>Zur Verwaltung der Inhalte und dem Download der Antwortdaten sind personenbezogene Accounts eingerichtet. Nur ein besonders privilegierter Admin darf diese Accounts anlegen und die Kennworte ändern bzw. vergeben. Nach einer entsprechenden Einweisung stellt diese Person die erforderliche Mindestlänge usw. sicher. Technisch ist eine Mindestlänge von 7 Zeichen eingestellt.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -703,17 +709,17 @@ Geplante Weiterentwicklung
 <p>Das IQB-Testcenter wird perspektivisch an eine Identitätsverwaltung über OpenID Connect angeschlossen. Damit wird die Vergabe der Kennworte ausgelagert und kann dann bis zur Zweifaktor-Authentifizierung gehen.</p>
 </div>
 </div>
-<p>Seit der Version 15.1 ist eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.</p>
+<p>Seit der Version 15.1 ist als Sicherheitsmaßnahme gegen unerlaubte Loginversuche eine 0.5s Verzögerung für aufeinanderfolgende Admin-Logins aktiviert.</p>
 </section>
 <section id="testpersonen" class="level2">
 <h2 class="anchored" data-anchor-id="testpersonen">Testpersonen</h2>
 <p>Die Anmeldung einer Person, die einen Test oder eine Befragung ausführen soll, gilt nicht als Login. Dies ist vielmehr zu sehen wie das Füllen eines Warenkorbes ohne Account. Folgende Use Cases verhindern die übliche Sichtweise ‘Login’:</p>
 <ol type="1">
-<li>Es muss durch das Testcenter auch abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus <code>RUN-HOT-RESTART</code>).</li>
+<li>Es muss durch das Testcenter abgebildet werden, dass die Personen, die sich anmelden sollen, vorher nicht bekannt sind. Dann werden dieselben Anmeldedaten an eine große Zahl von potenziellen Teilnehmer*innen geschickt (Mailingliste), und das System legt bei jeder Anmeldung eine neue Session/Person an (Modus <code>RUN-HOT-RESTART</code>).</li>
 <li>Ein Test soll nur durch die Eingabe eines Link/einer Url gestartet werden können. Dann wird KEIN Kennwort vergeben.</li>
 </ol>
 <p>Diese Szenarien bedeuten aus der Sicht der Datensicherheit, dass eine Anmeldung einer Testperson keiner Kennwortrichtlinie unterliegen muss. Der potenzielle Datenverlust besteht auch nur in einer unbeabsichtigten Veröffentlichung von Testitems, die ggf. vertraulich bleiben sollen. Es ist kein Zugriff auf Daten anderer möglich.</p>
-<p>Aus diesem Grund ist es auch unbedenklich, dass die Testtaker-Xml nicht verschlüsselt hochgeladen werden. Eine Anmeldeverzögerung ist ebenfalls nicht erforderlich, sondern würde nur die mögliche Anzahl an Testpersonen, die sich zeitgleich anmelden können, künstlich begrenzen.</p>
+<p>Aus diesem Grund ist es auch unbedenklich, dass die Testtaker-Xml nicht verschlüsselt hochgeladen werden. Eine Anmeldeverzögerung für Testpersonen ist ebenfalls nicht erforderlich, sondern würde nur die mögliche Anzahl an Testpersonen, die sich zeitgleich anmelden können, künstlich begrenzen.</p>
 
 
 </section>

@@ -190,6 +190,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
@@ -641,9 +647,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#servermonitoring" id="toc-servermonitoring" class="nav-link active" data-scroll-target="#servermonitoring">Servermonitoring</a></li>
+  <li><a href="#zurzeit-nicht-unterstützte-funktionen" id="toc-zurzeit-nicht-unterstützte-funktionen" class="nav-link active" data-scroll-target="#zurzeit-nicht-unterstützte-funktionen">Zurzeit nicht unterstützte Funktionen</a>
+  <ul class="collapse">
+  <li><a href="#servermonitoring" id="toc-servermonitoring" class="nav-link" data-scroll-target="#servermonitoring">Servermonitoring</a></li>
   <li><a href="#backup" id="toc-backup" class="nav-link" data-scroll-target="#backup">Backup</a></li>
   <li><a href="#ssh-zertifikate" id="toc-ssh-zertifikate" class="nav-link" data-scroll-target="#ssh-zertifikate">ssh / Zertifikate</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -669,7 +678,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloud-Server, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">hier</a> beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, ist dem Kapitel: “Installation/ Konfiguration” zu entnehmen.</p>
+<p>Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloud-Server, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">hier</a> beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, ist <a href="../../Testcenter/install/configuration.html">hier</a> zu entnehmen.</p>
 <p>Allerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. Ein Server ist vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese “SysOp” genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. “Systemhaus”) eingebunden werden. Sonst kann der Server schnell offline gehen – durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.</p>
 <p>Die Seiten in diesem Bereich decken schrittweise Themen ab, die für einen SysOp interessant sein könnten. Sie spiegeln zunächst die Erfahrungen des IQB wider, diskutieren aber auch Aspekte, die durch Partner vorgebracht wurden.</p>
 <ul>
@@ -677,15 +686,16 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="../../Testcenter/install/security.html">Datensicherheit</a></li>
 <li><a href="../../Testcenter/install/offline.html">Offline-Installation</a></li>
 </ul>
-<p>Nachfolgend sprechen wir einige Themen kurz an, nach denen wir zwar oft gefragt werden, zu denen wir aber aktuell keine Lösung anbieten – teils, weil andere Funktionen wichtiger waren, teils weil wir es nicht als unsere Aufgabe sehen.</p>
-<section id="servermonitoring" class="level2">
-<h2 class="anchored" data-anchor-id="servermonitoring">Servermonitoring</h2>
+<section id="zurzeit-nicht-unterstützte-funktionen" class="level2">
+<h2 class="anchored" data-anchor-id="zurzeit-nicht-unterstützte-funktionen">Zurzeit nicht unterstützte Funktionen</h2>
+<section id="servermonitoring" class="level3">
+<h3 class="anchored" data-anchor-id="servermonitoring">Servermonitoring</h3>
 <p>Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährdet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.</p>
 <p>Das IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als <a href="https://github.com/iqb-berlin/traefik">Infrastruktur</a>. Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloud-Anbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.</p>
 <p>Was wir uns allerdings vorgenommen haben, ist die Einrichtung von Server-Endpunkten für einen sog. Health-Check.</p>
 </section>
-<section id="backup" class="level2">
-<h2 class="anchored" data-anchor-id="backup">Backup</h2>
+<section id="backup" class="level3">
+<h3 class="anchored" data-anchor-id="backup">Backup</h3>
 <p>Die IQB-Webanwendungen verfügen nicht über einen eingebauten Backup-Mechanismus. Teilweise gibt es zwar Versionsmanagement oder Undo-/Redo-Funktion, aber serverseitig muss ein SysOp die Möglichkeit der Wiederherstellung verlorengegangener Daten organisieren.</p>
 <p>Das IQB praktiziert zwei Wege</p>
 <ol type="1">
@@ -693,11 +703,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Sichern der Laufwerke, die an die Docker-Container gebunden sind sowie Datenbank-Dump. Hier muss zeitweise ein Nutzerzugriff unterbunden werden (Aktivieren einer Wartungsseite).</li>
 </ol>
 </section>
-<section id="ssh-zertifikate" class="level2">
-<h2 class="anchored" data-anchor-id="ssh-zertifikate">ssh / Zertifikate</h2>
+<section id="ssh-zertifikate" class="level3">
+<h3 class="anchored" data-anchor-id="ssh-zertifikate">ssh / Zertifikate</h3>
 <p>Wir empfehlen dringend, den direkten Zugriff für Systemadmins auf ssh – schlüsselbasiert – zu beschränken (ssh-Key). Ein Verlust von Zugangsdaten kann dann keinen Schaden anrichten.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
