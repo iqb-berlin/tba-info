@@ -9,13 +9,13 @@ Der Gruppenmonitor wird auch manchmal als **Testleitungskonsole** bezeichnet.
 
 Die Zugangsdaten der Testpersonen sind Gruppen zugeordnet. Der Testleitung steht ein spezielles Instrument zur Verfügung, eine Gruppe während der Testdurchführung zu beobachten und die Teilnehmer ggf. im Test zu navigieren. Dieses Instrument trägt die Bezeichnung: **Gruppenmonitor**. Der Gruppenmonitor ist ein Teil des Testcenters, es handelt sich hier also nicht um eine separate Anwendung.
 
-Um den Gruppenmonitor nutzen zu können, muss dieser für die gewünschte Personengruppe angelegt werden. Zugangsdaten und die Zuweisung von Personen zu Gruppen werden in der XML zur Studien-Definition eingerichtet. Der Gruppenmonitor wird mit Hilfe eines speziellen Zugangs mit dem Modus: `monitor-group` in der zu steuernden Gruppe angelegt.
+Um den Gruppenmonitor nutzen zu können, muss dieser für die gewünschte Personengruppe angelegt werden. Zugangsdaten und die Zuweisung von Personen zu Gruppen werden in der Testtaker-XML eingerichtet. Der Gruppenmonitor wird mit Hilfe eines speziellen Zugangs mit dem Modus: `monitor-group` in der zu steuernden Gruppe angelegt.
 
 ```{.xml}
 <Testtakers>
 
   <Metadata>
-    <Description>Beispielhafte XML zur Studien-Definition</Description>
+    <Description>Beispielhafte Testtaker-XML</Description>
   </Metadata>
 
   <CustomTexts></CustomTexts>
@@ -43,7 +43,7 @@ Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden
 # Bedienung und Ansicht
 
 Der Gruppenmonitor ist in zwei Teile aufgeteilt, einen mittleren und einen linken Teil.
-Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Würde die oben gezeigte XML zur Studien-Definition verwendet werden, würden hier Informationen zu den 3 Personen: Testperson1, Testperson2 und Testperson3 zu finden sein. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.
+Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Würde die oben gezeigte Testtaker-XML verwendet werden, würden hier Informationen zu den 3 Personen: Testperson1, Testperson2 und Testperson3 zu finden sein. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.
 
 ::: {.callout-note}
 Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: **Spalten:** Teil und Abschnitt **Aktivität:** Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtsoptionen entsprechend.
@@ -108,7 +108,7 @@ Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie an
 
 #### Springe zu Block
 
-Besteht ein Booklet aus mehreren Blöcken, kann mittels Gruppenmonitor eine Testpersonen zu einem bestimmten Block navigiert werden. Hierfür wird die Person markiert und anschließend wird der Block des Booklets markiert zu dem gesprungen werden soll. Um einen Block zu markieren, klicken Sie einfach einmal auf diesen Block in der dargestellten Bookletstruktur. Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Booklets: **Teil1** markiert.
+Besteht ein Booklet aus mehreren Blöcken, kann mittels Gruppenmonitor eine Testpersonen zu einem bestimmten Block navigiert werden. Hierfür wird die Person markiert und anschließend wird der Block des Booklets markiert zu dem gesprungen werden soll. Um einen Block zu markieren, klicken Sie einfach einmal auf diesen Block in der dargestellten Testheftstruktur. Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Booklets: **Teil1** markiert.
 
 ![Block markieren](GM_Block_markieren.png)
 
