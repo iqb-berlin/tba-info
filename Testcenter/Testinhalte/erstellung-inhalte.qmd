@@ -34,7 +34,7 @@ Durch die vielen Szenarien, die in einer Testtaker-XML abgebildet werden können
 
 # Hochladen / Upload
 
-Man benötigt einen [Schreibzugriff](../workspaces.qmd) auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können.
+Man benötigt einen [Schreibzugriff](../workspaces.qmd) auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können. Unter dem Reiter: **Dateien** im jeweiligen Arbeitsbereich sind die entsprechenden Funktion zum Laden der Dateien zu finden.
 
 ```{mermaid}
 flowchart LR
@@ -44,7 +44,7 @@ flowchart LR
   D --> E[Testtakers]
 ```
 
-Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.
+Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. 
 
 Der Name einer Datei spielt keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:
 
@@ -56,8 +56,16 @@ Der Name einer Datei spielt keine Rolle. Jedoch wird die Nutzung einer Datei üb
 
 Das IQB-Studio erzeugt den Test-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!
 
+# Herunterladen / Download
+
+Es ist möglich bereits im Testcenter befindliche Dateien herunterzuladen. So können Dateien auch von Personen eingesehen oder nachträglich bearbeitet werden, ohne das diesen die original Datei zur Verfügung steht. Durch einen Klick auf eine Datei, wird diese heruntergeladen. Zur Zeit können die Dateien nur einzeln heruntergeladen werden.
+
+# Löschen
+
+Da Abhängigkeiten zwischen den Inhaltsdateien bestehen und diese vom Testcenter geprüft werden, muss das Löschen von Dateien in umgekehrter Reihenfolge wie das Hochladen erfolgen.
+
 ::: {.callout-important}
-Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer\*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.
+Das Löschen einer Testtaker-XML kann laufende Studien unterbrechen. Die darin definierten Teilnehmer*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.
 :::
 
 ## Warnungen
