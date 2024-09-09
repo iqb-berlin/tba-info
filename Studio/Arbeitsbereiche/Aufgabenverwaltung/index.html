@@ -829,7 +829,7 @@ Hinweis
 <blockquote class="blockquote">
 <p><strong>Berechtigung:</strong> Arbeitsbereich-Admin <img src="Symbol_Zugriff_Admin.png" class="img-fluid"></p>
 </blockquote>
-<p>Es können Aufgaben importiert werden, die sich bspw. lokal auf dem Computer befinden. Aufgaben werden über mehrere Dateien definiert. Eine Aufgabe besteht aus mindestens 2 Dateien zur Aufgaben-Definition. Eine Aufgaben-XML und eine Aufgaben-VOUD. Es kommen weitere Dateien hinzu, wenn Kodierregeln und Metadatenprofile eingerichtet sind. Beim Import müssen alle diese Dateien ausgewählt werden, damit die Aufgabe vollumfänglich importiert wird. Es können auch alle Dateien verpackt in einem ZIP-Format vorliegen, dann muss nur diese ZIP importiert werden.</p>
+<p>Es können Aufgaben importiert werden, die sich bspw. lokal auf dem Computer befinden. Aufgaben werden über mehrere Dateien definiert. Eine Aufgabe besteht aus mindestens 2 Dateien zur Aufgaben-Definition. Eine Unit-XML und eine Unit-VOUD. Es kommen weitere Dateien hinzu, wenn Kodierregeln und Metadatenprofile eingerichtet sind. Beim Import müssen alle diese Dateien ausgewählt werden, damit die Aufgabe vollumfänglich importiert wird. Es können auch alle Dateien verpackt in einem ZIP-Format vorliegen, dann muss nur diese ZIP importiert werden.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="Funktionen_Aufgabenhandhabung_Sandwich.png" class="img-fluid figure-img"></p>
@@ -895,7 +895,7 @@ Hinweis
 <li><p>Menu Review-Einstellungen</p>
 <p>Hier können Konfigurationen für die Vorschau vorgenommen werden. Bspw. kann hier festgelegt werden, ob zum Starten der Aufgabenfolge ein Kennwort benötigt wird oder ob Kommentare erlaubt sind.</p></li>
 <li><p>Menu Booklet-Einstellungen</p>
-<p>In der XML zur Testheft-Definition befindet sich ein Feld zur Konfiguration des Testheftes. Hier können fest vorgegebene Werte für bestimmte Konfigurationen hinterlegt werden. Für die Aufgabenfolge können an dieser Stelle einige dieser möglichen Werte ausgewählt werden. So können während einer Aufgabenfolge nicht nur Aufgaben bewertet werden, sondern auch das Verhalten und Aussehen des Testheftes, wie es bei der Studiendurchführung zum Einsatz kommen würde.</p></li>
+<p>In der Booklet-XML befindet sich ein Feld zur Konfiguration des Testheftes. Hier können fest vorgegebene Werte für bestimmte Konfigurationen hinterlegt werden. Für die Aufgabenfolge können an dieser Stelle einige dieser möglichen Werte ausgewählt werden. So können während einer Aufgabenfolge nicht nur Aufgaben bewertet werden, sondern auch das Verhalten und Aussehen des Testheftes, wie es bei der Studiendurchführung zum Einsatz kommen würde.</p></li>
 </ul>
 </section>
 <section id="nutzerinnen" class="level3">
@@ -924,9 +924,9 @@ Hinweis
 <p><strong>Rechts:</strong></p>
 <ul>
 <li><p>Testtaker-Einstellungen</p>
-<p>Es kann der zur Aufgabe angegebene Player ausgegeben werden. Außerdem kann eine XML zur Studien-Definition generiert werden. Hier werden unter anderem die Zugänge für die Testpersonen angelegt. Diese Datei wird immer dann erzeugt, sobald einer der möglichen angebotenen Logins größer Null ist. Bei der Auswahl eines Logins wird unterschieden in “Review” (Modus: run-review), “Monitor” (Modus: monitor-group) und in “Test” (Modus: run-hot-return). Wird einer dieser Logins größer Null gewählt, werden in der XML zur Studien-Definition Zugänge mit dem gewünschten Modus hinterlegt. Für jeden Zugang wird ein Benutzername generiert und auf Wunsch auch ein Passwort.</p></li>
+<p>Es kann der zur Aufgabe angegebene Player ausgegeben werden. Außerdem kann eine Testtaker-XML generiert werden. Hier werden unter anderem die Zugänge für die Testpersonen angelegt. Diese Datei wird immer dann erzeugt, sobald einer der möglichen angebotenen Logins größer Null ist. Bei der Auswahl eines Logins wird unterschieden in “Review” (Modus: run-review), “Monitor” (Modus: monitor-group) und in “Test” (Modus: run-hot-return). Wird einer dieser Logins größer Null gewählt, werden in der Testtaker-XML Zugänge mit dem gewünschten Modus hinterlegt. Für jeden Zugang wird ein Benutzername generiert und auf Wunsch auch ein Passwort.</p></li>
 <li><p>Booklet-Einstellungen</p>
-<p>Es kann die XML zur Testheft-Definition ausgegeben werden. Dies geschieht immer automatisch dann, wenn in den Testtaker-Einstellungen ein möglicher Login größer Null gewählt wird. Zusätzlich können in dieser XML bereits einige Konfigurationen vorgenommen werden. Hierfür stehen vordefinierte Werte zur Auswahl, die dann in ein Konfigurationsfeld innerhalb der XML übernommen werden.</p></li>
+<p>Es kann die Booklet-XML ausgegeben werden. Dies geschieht immer automatisch dann, wenn in den Testtaker-Einstellungen ein möglicher Login größer Null gewählt wird. Zusätzlich können in dieser XML bereits einige Konfigurationen vorgenommen werden. Hierfür stehen vordefinierte Werte zur Auswahl, die dann in ein Konfigurationsfeld innerhalb der XML übernommen werden.</p></li>
 </ul>
 </section>
 <section id="berichte" class="level3">
