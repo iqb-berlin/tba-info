@@ -789,8 +789,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="bereitstellen-der-testdateien" class="level1">
 <h1>Bereitstellen der Testdateien</h1>
-<p>Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Dateien zur Aufgaben-Definition und Dateien die die Studie bzgl. der genannten Anforderungen konfigurieren (XML zur Studien-Definition und XML zur Testheft-Definition).</p>
-<p>Nach finalem Aufgabenentwurf, können die Dateien zur Aufgaben-Definition (Aufgaben-XML, Aufgaben-VOUD, Player-HTML) aus dem IQB-Studio exportiert werden. Die XML zur Studien-Definition und zur Testheft-Definition kann im Studio hinsichtlich bestimmter Parameter vorkonfiguriert und ebenfalls ausgegeben werden. Bei Bedarf kann jederzeit eine manuelle Nachbearbeitung stattfinden.</p>
+<p>Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Dateien zur Aufgaben-Definition und Dateien die die Studie bzgl. der genannten Anforderungen konfigurieren (Testtaker-XMl und Booklet-XML).</p>
+<p>Nach finalem Aufgabenentwurf, können die Dateien zur Aufgaben-Definition (Unit-XML, Unit-VOUD, Player-HTML) aus dem IQB-Studio exportiert werden. Die Testtaker-XMl und Booklet-XML kann im Studio hinsichtlich bestimmter Parameter vorkonfiguriert und ebenfalls ausgegeben werden. Bei Bedarf kann jederzeit eine manuelle Nachbearbeitung stattfinden.</p>
 <p>Bzgl. der genannten Anforderungen, sollten die Testdateien dann wie folgt aussehen:</p>
 <section id="dateien-für-die-aufgaben-definitionen" class="level2">
 <h2 class="anchored" data-anchor-id="dateien-für-die-aufgaben-definitionen">Dateien für die Aufgaben-Definitionen</h2>
@@ -814,7 +814,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="datei-zur-testheft-definition" class="level2">
 <h2 class="anchored" data-anchor-id="datei-zur-testheft-definition">Datei zur Testheft-Definition</h2>
-<p>Nachfolgend ist die XML zur Testheft-Definition (Testheft-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
+<p>Nachfolgend ist die Booklet-XML dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -861,7 +861,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Welche Werte dem Attribut:<code>key</code>zugewiesen werden können, ist der folgenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html">Liste</a> zu entnehmen. Zu beachten sind hierbei die hervorgehobenen Werte. Diese werden als Standard verwendet, wenn sie nicht explizit in der XML zur Testheft-Definition überschrieben werden.</p>
+<p>Welche Werte dem Attribut:<code>key</code>zugewiesen werden können, ist der folgenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html">Liste</a> zu entnehmen. Zu beachten sind hierbei die hervorgehobenen Werte. Diese werden als Standard verwendet, wenn sie nicht explizit in der Booklet-XML überschrieben werden.</p>
 </div>
 </div>
 <p><strong><code>Unit</code></strong></p>
@@ -877,7 +877,7 @@ Hinweis
 </section>
 <section id="datei-zur-studien-definition" class="level2">
 <h2 class="anchored" data-anchor-id="datei-zur-studien-definition">Datei zur Studien-Definition</h2>
-<p>Nachfolgend ist die XML zur Studien-Definition (Studien-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
+<p>Nachfolgend ist die Testtaker-XML dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>/&gt;</span>

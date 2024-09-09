@@ -756,14 +756,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#xml-zur-studien-definition" id="toc-xml-zur-studien-definition" class="nav-link active" data-scroll-target="#xml-zur-studien-definition">XML zur Studien-Definition</a>
+  <li><a href="#testtaker-xml" id="toc-testtaker-xml" class="nav-link active" data-scroll-target="#testtaker-xml">Testtaker-XML</a>
   <ul class="collapse">
   <li><a href="#aufteilung-der-zugänge" id="toc-aufteilung-der-zugänge" class="nav-link" data-scroll-target="#aufteilung-der-zugänge">Aufteilung der Zugänge</a></li>
   <li><a href="#zeitlichen-beschränkungen-der-zugänge" id="toc-zeitlichen-beschränkungen-der-zugänge" class="nav-link" data-scroll-target="#zeitlichen-beschränkungen-der-zugänge">Zeitlichen Beschränkungen der Zugänge</a></li>
   <li><a href="#textersetzungen" id="toc-textersetzungen" class="nav-link" data-scroll-target="#textersetzungen">Textersetzungen</a></li>
   <li><a href="#gruppenmonitor" id="toc-gruppenmonitor" class="nav-link" data-scroll-target="#gruppenmonitor">Gruppenmonitor</a></li>
   </ul></li>
-  <li><a href="#xml-zur-testheft-definition" id="toc-xml-zur-testheft-definition" class="nav-link" data-scroll-target="#xml-zur-testheft-definition">XML zur Testheft-Definition</a>
+  <li><a href="#booklet-xml" id="toc-booklet-xml" class="nav-link" data-scroll-target="#booklet-xml">Booklet-XML</a>
   <ul class="collapse">
   <li><a href="#anzeige-aufgaben--testheftbezeichner" id="toc-anzeige-aufgaben--testheftbezeichner" class="nav-link" data-scroll-target="#anzeige-aufgaben--testheftbezeichner">Anzeige Aufgaben-, Testheftbezeichner</a></li>
   <li><a href="#aussehen-der-navigationselemente" id="toc-aussehen-der-navigationselemente" class="nav-link" data-scroll-target="#aussehen-der-navigationselemente">Aussehen der Navigationselemente</a></li>
@@ -775,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#test-beenden" id="toc-test-beenden" class="nav-link" data-scroll-target="#test-beenden">Test beenden</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div><div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html"><i class="bi bi-link-45deg"></i>Mögliche Textersetzungen</a></li><li><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters"><i class="bi bi-link-45deg"></i>Werte Booklet-Konfiguration</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -799,7 +799,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Mit Hilfe der beiden Testdateien <strong>XML zur Studien-Definition</strong> und <strong>XML zur Testheft-Definition</strong> kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen einer Konfigurationen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die alle Studienverantwortlichen im Vorfeld betrachten sollten.</p>
+<p>Mit Hilfe der beiden Testdateien <strong>Testtaker-XML</strong> und <strong>Booklet-XML</strong> kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen einer Konfigurationen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die alle Studienverantwortlichen im Vorfeld betrachten sollten.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -810,7 +810,7 @@ Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Detaillierte Informationen zu den beiden XML-Dateien: <strong>XML zur Studien-Definition</strong> und <strong>XML zur Testheft-Definition</strong> sind den Referenzen zu entnehmen.</p>
+<p>Detaillierte Informationen zu den beiden XML-Dateien sind dem Kapitel: <strong>Testinhalte</strong> zu entnehmen.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -826,15 +826,15 @@ Wichtig
 <p>Sind die Vorüberlegungen bzgl. der Studien-Konfiguration abgeschlossen und liegen die Testdateien für die Studie bereit, empfiehlt es sich die Konfigurationen zuvor hausinternen mit mehreren Teilnehmern zu testen (<code>RUN-SIMULATION</code>). So können ungünstige Konfigurationen schon im Vorfeld entdeckt werden.</p>
 </div>
 </div>
-<section id="xml-zur-studien-definition" class="level1">
-<h1>XML zur Studien-Definition</h1>
+<section id="testtaker-xml" class="level1">
+<h1>Testtaker-XML</h1>
 <section id="aufteilung-der-zugänge" class="level2">
 <h2 class="anchored" data-anchor-id="aufteilung-der-zugänge">Aufteilung der Zugänge</h2>
 <p>Die Zugangsdaten können Gruppen zugeordnet werden. Alle gegebenen Antworten werden dann abhängig von der Gruppe gespeichert, sprich der Datensatz wird mit dem Namen der jeweiligen Gruppe im Testcenter abgespeichert. Im Vorfeld sollten sich die Studienverantwortlichen gut überlegen, wie die Zugangsdaten gruppiert werden sollen. So wird eine schnelle Zuordnung der Testpersonen bei der Auswertung erreicht.</p>
 </section>
 <section id="zeitlichen-beschränkungen-der-zugänge" class="level2">
 <h2 class="anchored" data-anchor-id="zeitlichen-beschränkungen-der-zugänge">Zeitlichen Beschränkungen der Zugänge</h2>
-<p>Die angelegten Zugangsdaten in der XML zur Studien-Definition können zeitlichen Beschränkungen unterliegen. Folgende stehen zur Auswahl:</p>
+<p>Die angelegten Zugangsdaten in der Testtaker-XML können zeitlichen Beschränkungen unterliegen. Folgende stehen zur Auswahl:</p>
 <ul>
 <li><code>validFrom</code>: Eine Anmeldung mit den Zugangsdaten kann erst ab einer bestimmten Zeit erfolgen. Die Eingabe erfolgt im Format: dd/mm/yyyy hh:mm</li>
 <li><code>validTo</code>: Eine Anmeldung kann bis zu einer bestimmten Zeit erfolgen. Die Eingabe erfolgt im Format: dd/mm/yyyy hh:mm</li>
@@ -846,7 +846,7 @@ Wichtig
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      Beispielhafte XML zur Studien-Definition</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      Beispielhafte Testtaker-XML</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Description</span>&gt;</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -879,21 +879,21 @@ Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Texte werden mit Hilfe bestimmter Attribute und Daten in der XML zur Studien-Definition geändert. Hierfür gibt es eine spezielle <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Liste</a> mit möglichen Werten, die im Element: <code>&lt;CustomText&gt;</code> dem Attribut: <code>key</code> hinzugefügt werden können. Werden Texte nicht ersetzt, erhalten sie einen Standardtext. Welcher Text das ist, ist ebenfalls der Liste zu entnehmen.</p>
+<p>Texte werden mit Hilfe bestimmter Attribute und Daten in der Testtaker-XML geändert. Hierfür gibt es eine spezielle <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">Liste</a> mit möglichen Werten, die im Element: <code>&lt;CustomText&gt;</code> dem Attribut: <code>key</code> hinzugefügt werden können. Werden Texte nicht ersetzt, erhalten sie einen Standardtext. Welcher Text das ist, ist ebenfalls der Liste zu entnehmen.</p>
 </div>
 </div>
 <p><strong>Beispiel zum ändern eines Standardtextes:</strong></p>
-<p>Ist in der XML zur Studien-Definition ein Code zu einem Testheft angegeben, erscheint nach der Anmeldung ein Fenster zur Codeeingabe mit dem Standardtext: “Bitte gib den Schülercode ein….” (siehe Liste). Dieser Standardtext soll hier nun durch einen individuellen Text ersetzt werden.</p>
+<p>Ist in der Testtaker-XML ein Code zu einem Testheft angegeben, erscheint nach der Anmeldung ein Fenster zur Codeeingabe mit dem Standardtext: “Bitte gib den Schülercode ein….” (siehe Liste). Dieser Standardtext soll hier nun durch einen individuellen Text ersetzt werden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="TC_Bsp_Textersetzung1.png" class="img-fluid figure-img"></p>
 <figcaption>Bild 1: Anzeige Standardtext bei Code-Abfrage</figcaption>
 </figure>
 </div>
-<p>Dazu wird in der XML zur Studien-Definition im Element: <code>&lt;CustomText&gt;</code> dem Attribut: <code>key</code> der Listenwert: <code>login_codeInputPrompt</code> zugewiesen und mit dem individuellen Text versehen. Anschließend wird die so angepasste XML wieder in das Testcenter geladen.</p>
+<p>Dazu wird in der Testtaker-XML im Element: <code>&lt;CustomText&gt;</code> dem Attribut: <code>key</code> der Listenwert: <code>login_codeInputPrompt</code> zugewiesen und mit dem individuellen Text versehen. Anschließend wird die so angepasste XML wieder in das Testcenter geladen.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span>&gt;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Studien-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte Testtaker-XML&lt;/<span class="kw">Description</span>&gt;</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
@@ -923,8 +923,8 @@ Tipp
 <p>Mehr zum Gruppenmonitor ist dem gleichnamigen Kapitel zu entnehmen.</p>
 </section>
 </section>
-<section id="xml-zur-testheft-definition" class="level1">
-<h1>XML zur Testheft-Definition</h1>
+<section id="booklet-xml" class="level1">
+<h1>Booklet-XML</h1>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -940,20 +940,20 @@ Tipp
 </div>
 <section id="anzeige-aufgaben--testheftbezeichner" class="level2">
 <h2 class="anchored" data-anchor-id="anzeige-aufgaben--testheftbezeichner">Anzeige Aufgaben-, Testheftbezeichner</h2>
-<p>Das in der XML zur Testheft-Definition festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird mit Hilfe des Wertes: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe angezeigt.</p>
+<p>Das in der Booklet-XML festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird mit Hilfe des Wertes: <code>unit_screenheader</code>und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe angezeigt.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="TC_UnitTitle_NaviMenu.png" class="img-fluid figure-img"></p>
 <figcaption>Bild 3: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menü</figcaption>
 </figure>
 </div>
-<p>Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der XML zur Testheft-Definition trägt die 3. Aufgabe das Label: <strong>Aufgabe2</strong>. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert <code>unit_screenheader</code> mit dem Datum <strong>WITH_UNIT_TITLE</strong> in der <code>BookletConfig</code> beschrieben wird.</p>
+<p>Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der Booklet-XML trägt die 3. Aufgabe das Label: <strong>Aufgabe2</strong>. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert <code>unit_screenheader</code> mit dem Datum <strong>WITH_UNIT_TITLE</strong> in der <code>BookletConfig</code> beschrieben wird.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Booklet sample 1&lt;/<span class="kw">Label</span>&gt;</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Testheft-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte Booklet-XML&lt;/<span class="kw">Description</span>&gt;</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BookletConfig</span>&gt;</span>
@@ -980,13 +980,13 @@ Tipp
 </section>
 <section id="aussehen-der-navigationselemente" class="level2">
 <h2 class="anchored" data-anchor-id="aussehen-der-navigationselemente">Aussehen der Navigationselemente</h2>
-<p>Das Verhalten und Aussehen der Navigationsleiste kann in der XML zur Testheft-Definition im Teil der Testheft-Konfiguration (<code>Booklet-Config</code>) festgelegt werden. Hierfür wird als Wert: <code>unit_navibuttons</code> für das Attribut: <code>key</code> eingetragen und ein entsprechendes Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: <code>key</code> noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: <strong>FULL</strong>. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: <strong>ARROWS_ONLY</strong> reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen, es kann nun nur noch vorwärts und rückwärts navigiert werden.</p>
+<p>Das Verhalten und Aussehen der Navigationsleiste kann in der Booklet-XML im Teil der Testheft-Konfiguration (<code>Booklet-Config</code>) festgelegt werden. Hierfür wird als Wert: <code>unit_navibuttons</code> für das Attribut: <code>key</code> eingetragen und ein entsprechendes Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: <code>key</code> noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: <strong>FULL</strong>. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: <strong>ARROWS_ONLY</strong> reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen, es kann nun nur noch vorwärts und rückwärts navigiert werden.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Booklet sample 1&lt;/<span class="kw">Label</span>&gt;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Testheft-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte Booklet-XML&lt;/<span class="kw">Description</span>&gt;</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BookletConfig</span>&gt;</span>
@@ -1018,11 +1018,11 @@ Tipp
 <figcaption>Bild 6: Eingeschaltetes Aufgaben-Menu</figcaption>
 </figure>
 </div>
-<p>Das Ein-bzw. Ausschalten erfolgt in der XML zur Testheft-Definition mit der Zuweisung des Wertes: <code>unit_menu</code> zu dem Attribut: <code>key</code>und gewünschten Listendatum, in diesem Fall <strong>FULL</strong>.</p>
+<p>Das Ein-bzw. Ausschalten erfolgt in der Booklet-XML mit der Zuweisung des Wertes: <code>unit_menu</code> zu dem Attribut: <code>key</code>und gewünschten Listendatum, in diesem Fall <strong>FULL</strong>.</p>
 </section>
 <section id="seitennavigation" class="level2">
 <h2 class="anchored" data-anchor-id="seitennavigation">Seitennavigation</h2>
-<p>Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das Zu-/ und Abschalten der Navigation in der Anwendung, wird in der XML zur Testheft-Definition im Element: <code>&lt;Config&gt;</code> vorgenommen. Hierfür wird dem Attribut:<code>key</code>der Wert:<code>pagingMode</code> zugewiesen. Das mögliche Datum ist wieder der Liste zu entnehmen.</p>
+<p>Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das Zu-/ und Abschalten der Navigation in der Anwendung, wird in der Booklet-XML im Element: <code>&lt;Config&gt;</code> vorgenommen. Hierfür wird dem Attribut:<code>key</code>der Wert:<code>pagingMode</code> zugewiesen. Das mögliche Datum ist wieder der Liste zu entnehmen.</p>
 </section>
 <section id="navigationsbeschränkungen" class="level2">
 <h2 class="anchored" data-anchor-id="navigationsbeschränkungen">Navigationsbeschränkungen</h2>
@@ -1030,7 +1030,7 @@ Tipp
 </section>
 <section id="blockbeschränkungen" class="level2">
 <h2 class="anchored" data-anchor-id="blockbeschränkungen">Blockbeschränkungen</h2>
-<p>In der XML zur Testheft-Definition können Aufgaben so genannten Testlets (Block) zugewiesen werden. Für einen Block können Beschränkungen festgelegt werden. Wird im Testverlauf der Block erreicht, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.</p>
+<p>In der Booklet-XML können Aufgaben so genannten Testlets (Block) zugewiesen werden. Für einen Block können Beschränkungen festgelegt werden. Wird im Testverlauf der Block erreicht, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.</p>
 <p>Folgende Beschränkungen stehen zur Verfügung:</p>
 <ul>
 <li><p><strong>Freigabewort:</strong> Für den Zugriff auf den Block muss das richtige Freigabewort eingegeben werden.</p></li>
@@ -1043,7 +1043,7 @@ Tipp
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;runhotres&lt;/<span class="kw">Id</span>&gt;</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Controller Mode: run-hot-restart&lt;/<span class="kw">Label</span>&gt;</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte XML zur Testheft-Definition&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beispielhafte Booklet-XML&lt;/<span class="kw">Description</span>&gt;</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">BookletConfig</span>&gt;</span>
@@ -1083,7 +1083,7 @@ Tipp
 </section>
 <section id="test-beenden" class="level2">
 <h2 class="anchored" data-anchor-id="test-beenden">Test beenden</h2>
-<p>Es kann unter Umständen sinnvoll sein einen Test nach dem Beenden zu sperren. Dies kann mit Hilfe der Zuweisung des Wertes: <code>lock_test_on_termination</code> zum Attribut: <code>key</code> geschehen. Der Standardwert sorgt dafür, dass der Test nicht gesperrt wird. Das heißt, solange die Zugangsdaten (XML zur Studien-Definition) im Testcenter vorhanden sind, können sich die dort definierten Personen am Testcenter anmelden und den Test fortsetzen.</p>
+<p>Es kann unter Umständen sinnvoll sein einen Test nach dem Beenden zu sperren. Dies kann mit Hilfe der Zuweisung des Wertes: <code>lock_test_on_termination</code> zum Attribut: <code>key</code> geschehen. Der Standardwert sorgt dafür, dass der Test nicht gesperrt wird. Das heißt, solange die Zugangsdaten (Testtaker-XML) im Testcenter vorhanden sind, können sich die dort definierten Personen am Testcenter anmelden und den Test fortsetzen.</p>
 
 
 </section>

@@ -726,7 +726,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#arbeitsbereich-anlegen" id="toc-arbeitsbereich-anlegen" class="nav-link" data-scroll-target="#arbeitsbereich-anlegen">Arbeitsbereich anlegen</a></li>
   <li><a href="#aufgaben-und-testhefte-laden" id="toc-aufgaben-und-testhefte-laden" class="nav-link" data-scroll-target="#aufgaben-und-testhefte-laden">Aufgaben und Testhefte laden</a></li>
-  <li><a href="#xml-zur-studie-definition-laden" id="toc-xml-zur-studie-definition-laden" class="nav-link" data-scroll-target="#xml-zur-studie-definition-laden">XML zur Studie-Definition laden</a></li>
+  <li><a href="#testtaker-xml-laden" id="toc-testtaker-xml-laden" class="nav-link" data-scroll-target="#testtaker-xml-laden">Testtaker-XML laden</a></li>
   </ul></li>
   <li><a href="#studienlauf" id="toc-studienlauf" class="nav-link" data-scroll-target="#studienlauf">Studienlauf</a></li>
   <li><a href="#studie-beenden" id="toc-studie-beenden" class="nav-link" data-scroll-target="#studie-beenden">Studie beenden</a></li>
@@ -778,21 +778,16 @@ Hinweis
 </section>
 <section id="aufgaben-und-testhefte-laden" class="level2">
 <h2 class="anchored" data-anchor-id="aufgaben-und-testhefte-laden">Aufgaben und Testhefte laden</h2>
-<p>Im nächsten Schritt werden die XML zur Testheft-Definition und die XML’s zur Aufgaben-Definition inkl. aller benötigten Ressourcen (Aufgaben-VOUD, Aufgaben-VOCS, GeoGebra-ITCR und Player-HTML) in den zuvor eingerichteten Arbeitsbereich des Testcenters geladen. Mehr dazu ist im Kapitel: <strong>Daten und Prozesse</strong> zu finden.</p>
+<p>Im nächsten Schritt werden die Booklet-XML und die Unit-XML’s inkl. aller benötigten Ressourcen (Unit-VOUD, Unit-VOCS, GeoGebra-ITCR und Player-HTML) in den zuvor eingerichteten Arbeitsbereich des Testcenters geladen. Mehr dazu ist im Kapitel: <strong>Erstellung Testinhalte</strong> zu finden.</p>
 </section>
-<section id="xml-zur-studie-definition-laden" class="level2">
-<h2 class="anchored" data-anchor-id="xml-zur-studie-definition-laden">XML zur Studie-Definition laden</h2>
-<ul>
-<li>Testmodus für finale Testung in der XML zur Studien-Definition festlegen (<code>run-hot-return</code> oder <code>run-hot-restart</code>)</li>
-<li>Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren</li>
-<li>XML zur Studiendefinition in den Arbeitsbereich laden</li>
-<li>Einen Probelauf der finalen Version starten und schauen, ob sich alles wie geplant verhält. Es sollte auch geprüft werden, ob entsprechende Daten im Arbeitsbereich erzeugt werden. Wenn alles soweit in Ordnung ist, sollten die erzeugten Daten im Arbeitsbereich gelöscht werden, bevor die finale Studiendurchführung startet. Sonst sind später die Daten des Probelaufs im Datensatz der Studie enthalten.</li>
-</ul>
+<section id="testtaker-xml-laden" class="level2">
+<h2 class="anchored" data-anchor-id="testtaker-xml-laden">Testtaker-XML laden</h2>
+<p>Ist die Testtaker-XML final konfiguriert (Festlegung Testmodus und Logins), kann sie in den Arbeitsbereich geladen werden. Anschließend sollte ein Probelauf der finalen Version gestartet werden. Hier kann vorab geprüft werden, ob sich alles wie geplant verhält und die Antwortdaten gespeichert werden. Wenn alles soweit in Ordnung ist, sollten die erzeugten Daten im Arbeitsbereich gelöscht werden, bevor die finale Studiendurchführung startet. Sonst sind später die Daten des Probelaufs im Datensatz der Studie enthalten.</p>
 </section>
 </section>
 <section id="studienlauf" class="level1">
 <h1>Studienlauf</h1>
-<p>Nun können sich die Testpersonen mit den in der XML zur Studien-Definition festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testpersonen erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: <strong>Weiter</strong>. Es folgt ein sehr reduziertes Startbild. Rechts ein paar allgemeine Informationen (Version, Datenschutz etc.), links nur Eingabefelder für Name und Kennwort. In der Mitte ein großer Schalter, der das Testheft symbolisiert.</p>
+<p>Nun können sich die Testpersonen mit den in der Testtaker-XML festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testpersonen erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: <strong>Weiter</strong>. Es folgt ein sehr reduziertes Startbild. Rechts ein paar allgemeine Informationen (Version, Datenschutz etc.), links nur Eingabefelder für Name und Kennwort. In der Mitte ein großer Schalter, der das Testheft symbolisiert.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -803,7 +798,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ist nur ein Testheft in der XML zur Studien-Definition aufgeführt, wird nach der Anmeldung der Test direkt gestartet und es wird keine Seite zur Testheftauswahl angezeigt.</p>
+<p>Ist nur ein Testheft in der Testtaker-XML aufgeführt, wird nach der Anmeldung der Test direkt gestartet und es wird keine Seite zur Testheftauswahl angezeigt.</p>
 </div>
 </div>
 <p>Mit Klick auf die Schaltfläche des Testheftes werden alle Testinhalte geladen. Sobald möglich wird auch die erste Seite schon gezeigt und das Laden wird im Hintergrund fortgesetzt.</p>
