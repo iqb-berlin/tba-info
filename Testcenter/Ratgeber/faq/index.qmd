@@ -59,7 +59,7 @@ Eingabe der Testcenter-Serveradresse in einen Browser. Die Anmeldung erfolgt dan
 
 **Anmeldung als Testperson:**
 
-Die Anmeldung erfolgt via festgelegter Zugangsdaten in der XML zur Studien-Definition und dem Schalter: "Weiter".
+Die Anmeldung erfolgt via festgelegter Zugangsdaten in der Testtaker-XML und dem Schalter: "Weiter".
 
 ### Warum sehe ich nach der Anmeldung als Administrator keine Inhalte im Testcenter?
 
@@ -93,23 +93,23 @@ Nach Speicherung der Änderungen, muss die geänderte Datei erneut in das Testce
 
 ### Wie starte ich einen Test und gibt es eine Art Voransicht?
 
-Die Zugangsdaten der Testpersonen werden in der XML zur Studien-Definition festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: "Weiter" anmelden. In der XML zur Studien-Definition wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mithilfe dieses Modus kann festgelegt werden, ob der Test "heiß" ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).
+Die Zugangsdaten der Testpersonen werden in der Testtaker-XML festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: "Weiter" anmelden. In der Testtaker-XML wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mithilfe dieses Modus kann festgelegt werden, ob der Test "heiß" ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).
 
 ### Warum ist nach erfolgreicher Anmeldung kein Startbild mit den Testheften zu sehen?
 
-Der Startbildschirm mit der Testheftauswahl ist nur zu sehen, wenn mehrere Testhefte in der XML zur Studien-Definition angelegt sind. Gibt es mehrere Testhefte und werden diese nicht zur Auswahl angeboten: Eventuell besteht keine Internetverbindung. Es sollten entsprechende Routinen zur Fehlerbehebung beginnen (lose Kabel etc.).
+Der Startbildschirm mit der Testheftauswahl ist nur zu sehen, wenn mehrere Testhefte in der Testtaker-XML angelegt sind. Gibt es mehrere Testhefte und werden diese nicht zur Auswahl angeboten: Eventuell besteht keine Internetverbindung. Es sollten entsprechende Routinen zur Fehlerbehebung beginnen (lose Kabel etc.).
 
 ### Warum wird für die Anmeldung kein Testheft gefunden?
 
-Zugangsdaten prüfen. In der XML zur Studien-Definition prüfen, ob dem Zugang ein entsprechendes Testheft zugewiesen ist und ob dieses Testheft im Arbeitsreich existiert.
+Zugangsdaten prüfen. In der Testtaker-XML prüfen, ob dem Zugang ein entsprechendes Testheft zugewiesen ist und ob dieses Testheft im Arbeitsreich existiert.
 
 ### Warum ist der Schalter Testheft inaktiv?
 
-Dies kann daraufhin deuten, dass das Testheft gesperrt ist. Je nach Konfiguration in der XML zur Testheft-Definition kann es sein, dass die Testhefte nach Beendigung der Testung gesperrt werden. Ein Testheft kann eventuell auch über einen eingesetzen Gruppenmonitor von der Testleitung gesperrt wurden sein. In diesem Fall kann die Sperrung mit dem Gruppenmonitor auch wieder aufgehoben werden.
+Dies kann daraufhin deuten, dass das Testheft gesperrt ist. Je nach Konfiguration in der Booklet-XML kann es sein, dass die Testhefte nach Beendigung der Testung gesperrt werden. Ein Testheft kann eventuell auch über einen eingesetzen Gruppenmonitor von der Testleitung gesperrt wurden sein. In diesem Fall kann die Sperrung mit dem Gruppenmonitor auch wieder aufgehoben werden.
 
 ### Das Booklet kann bei einer Testdurchführung nicht geöffnet werden, es erscheint die folgende Meldung: *root element to Booklet should be: booklet*
 
-Eventuell ist die verwendete Testheft-XML beschädigt oder beinhaltet ein sogenanntes BOM (byte order mark). Dieses BOM kann weitere Metadaten zu der Datei enthalten. Ist ein solches BOM in der Testheft-XML angelegt, erscheint diese Fehlermeldung im Testcenter, da das BOM nicht gelesen werden kann. Außerdem kann die Datei beschädigt sein, weil sie bspw. mit Word oder einem anderen nicht geeigneten Instrument verändert wurde. Verwenden Sie für die Bearbeitung der XML-Datei nur geeignete Editoren wie bspw. Notepad++. Arbeiten Sie bereits mit einem geeigneten Editor, achten Sie auf die Einstellungen zur Zeichenkodierung. Hier darf die Option: UTF-8-BOM nicht aktiv sein.
+Eventuell ist die verwendete Booklet-XML beschädigt oder beinhaltet ein sogenanntes BOM (byte order mark). Dieses BOM kann weitere Metadaten zu der Datei enthalten. Ist ein solches BOM in der Booklet-XML angelegt, erscheint diese Fehlermeldung im Testcenter, da das BOM nicht gelesen werden kann. Außerdem kann die Datei beschädigt sein, weil sie bspw. mit Word oder einem anderen nicht geeigneten Instrument verändert wurde. Verwenden Sie für die Bearbeitung der XML-Datei nur geeignete Editoren wie bspw. Notepad++. Arbeiten Sie bereits mit einem geeigneten Editor, achten Sie auf die Einstellungen zur Zeichenkodierung. Hier darf die Option: UTF-8-BOM nicht aktiv sein.
 
 ### Kann ich den Test überwachen oder steuern?
 
@@ -117,7 +117,7 @@ Das Testcenter stellt hierfür den **Gruppenmonitor** zur Verfügung. **Mehr daz
 
 ### Warum werden Aufgabeninhalte nicht präsentiert?
 
-Werden die Inhalte erst während der Durchführung geladen (Konfiguration zum Ladenverhalten sind in der XML zur Testheft-Definition festzulegen. Hier gibt es zwei Arten: LAZY und EAGER) kann es ein, dass Inhalte (Videos, Audios) noch geladen werden und die Testperson nicht sofort etwas sieht. Eventuell kann hier auch das Neuladen einer Seite hilfreich sein. Falls ein Gruppenmonitor zum Einsatz kommt, könnte dieser verwendet werden, um die Testperson noch einmal an den Anfang eines Block zu leiten und somit das Neuladen einer Aufgabe zu erzwingen.
+Werden die Inhalte erst während der Durchführung geladen (Konfiguration zum Ladenverhalten sind in der Booklet-XML festzulegen. Hier gibt es zwei Arten: LAZY und EAGER) kann es ein, dass Inhalte (Videos, Audios) noch geladen werden und die Testperson nicht sofort etwas sieht. Eventuell kann hier auch das Neuladen einer Seite hilfreich sein. Falls ein Gruppenmonitor zum Einsatz kommt, könnte dieser verwendet werden, um die Testperson noch einmal an den Anfang eines Block zu leiten und somit das Neuladen einer Aufgabe zu erzwingen.
 
 ### Warum werden GeoGebra-Elemente nicht angezeigt?
 
@@ -125,7 +125,7 @@ Eventuell wurde das für GeoGebra benötigte Paket noch nicht in den Arbeitsbere
 
 ### Warum stimmt die Reihenfolge meiner Aufgabe nicht?
 
-Die Reihenfolge der Aufgaben wird in der XMl zur Testheft-Definition festgelegt. Die Wiedergabe entspricht der hier angelegten Aufgaben von oben nach unten.
+Die Reihenfolge der Aufgaben wird in der Booklet-XML festgelegt. Die Wiedergabe entspricht der hier angelegten Aufgaben von oben nach unten.
 
 ### Audios können nicht gestartet werden. Der Play-Knopf ist inaktiv.
 

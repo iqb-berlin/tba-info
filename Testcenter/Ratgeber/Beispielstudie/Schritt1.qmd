@@ -5,9 +5,9 @@ title: "Schritt 1"
 
 # Bereitstellen der Testdateien
 
-Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Dateien zur Aufgaben-Definition und Dateien die die Studie bzgl. der genannten Anforderungen konfigurieren (XML zur Studien-Definition und XML zur Testheft-Definition).
+Im ersten Schritt müssen Testdateien zur Verfügung stehen. Zu den Testdateien gehören die Dateien zur Aufgaben-Definition und Dateien die die Studie bzgl. der genannten Anforderungen konfigurieren (Testtaker-XMl und Booklet-XML).
 
-Nach finalem Aufgabenentwurf, können die Dateien zur Aufgaben-Definition (Aufgaben-XML, Aufgaben-VOUD, Player-HTML) aus dem IQB-Studio exportiert werden. Die XML zur Studien-Definition und zur Testheft-Definition kann im Studio hinsichtlich bestimmter Parameter vorkonfiguriert und ebenfalls ausgegeben werden. Bei Bedarf kann jederzeit eine manuelle Nachbearbeitung stattfinden.
+Nach finalem Aufgabenentwurf, können die Dateien zur Aufgaben-Definition (Unit-XML, Unit-VOUD, Player-HTML) aus dem IQB-Studio exportiert werden. Die Testtaker-XMl und Booklet-XML kann im Studio hinsichtlich bestimmter Parameter vorkonfiguriert und ebenfalls ausgegeben werden. Bei Bedarf kann jederzeit eine manuelle Nachbearbeitung stattfinden.
 
 Bzgl. der genannten Anforderungen, sollten die Testdateien dann wie folgt aussehen:
 
@@ -25,7 +25,7 @@ Mit Hilfe des im IQB-Studio integrierten Editors werden die Aufgaben den Anforde
 
 ## Datei zur Testheft-Definition
 
-Nachfolgend ist die XML zur Testheft-Definition (Testheft-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung **XML** gespeichert werden. Der Name der Datei ist dabei frei wählbar.
+Nachfolgend ist die Booklet-XML dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung **XML** gespeichert werden. Der Name der Datei ist dabei frei wählbar.
 
 ```{.xml}
 <?xml version="1.0"?>
@@ -76,7 +76,7 @@ Es darf erst vorwärts geblättert werden, wenn alles gesehen und angehört wurd
 Sind Pflichtelemente enthalten, müssen diese erst bedient werden, bevor vorwärts geblättert werden kann.
 
 ::: {.callout-note}
-Welche Werte dem Attribut:`key`zugewiesen werden können, ist der folgenden [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Zu beachten sind hierbei die hervorgehobenen Werte. Diese werden als Standard verwendet, wenn sie nicht explizit in der XML zur Testheft-Definition überschrieben werden.
+Welche Werte dem Attribut:`key`zugewiesen werden können, ist der folgenden [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Zu beachten sind hierbei die hervorgehobenen Werte. Diese werden als Standard verwendet, wenn sie nicht explizit in der Booklet-XML überschrieben werden.
 :::
 
 **`Unit`**
@@ -94,7 +94,7 @@ Es wird ein Freigabewort für den Zugang zum Block angelegt (`CodeToEnter`). Au�
 
 ## Datei zur Studien-Definition
 
-Nachfolgend ist die XML zur Studien-Definition (Studien-XML) dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung **XML** gespeichert werden. Der Name der Datei ist dabei frei wählbar.
+Nachfolgend ist die Testtaker-XML dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung **XML** gespeichert werden. Der Name der Datei ist dabei frei wählbar.
 
 ```{.xml}
 <?xml version="1.0"?>

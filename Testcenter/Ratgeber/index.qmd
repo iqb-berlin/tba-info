@@ -15,21 +15,18 @@ Es muss ein Bereich für die Testdateien der Studie angelegt werden. Dieser soll
 
 ## Aufgaben und Testhefte laden
 
-Im nächsten Schritt werden die XML zur Testheft-Definition und die XML's zur Aufgaben-Definition inkl. aller benötigten Ressourcen (Aufgaben-VOUD, Aufgaben-VOCS, GeoGebra-ITCR und Player-HTML) in den zuvor eingerichteten Arbeitsbereich des Testcenters geladen. Mehr dazu ist im Kapitel: **Daten und Prozesse** zu finden. 
+Im nächsten Schritt werden die Booklet-XML und die Unit-XML's inkl. aller benötigten Ressourcen (Unit-VOUD, Unit-VOCS, GeoGebra-ITCR und Player-HTML) in den zuvor eingerichteten Arbeitsbereich des Testcenters geladen. Mehr dazu ist im Kapitel: **Erstellung Testinhalte** zu finden. 
 
-## XML zur Studie-Definition laden
+## Testtaker-XML laden
 
-* Testmodus für finale Testung in der XML zur Studien-Definition festlegen (`run-hot-return` oder `run-hot-restart`)
-* Zugangsdaten für die Testpersonen in der XML zur Studien-Definition festlegen und falls nötig zeitliche Limits festlegen, ggf. Zeitfenster gut dokumentieren
-* XML zur Studiendefinition in den Arbeitsbereich laden
-* Einen Probelauf der finalen Version starten und schauen, ob sich alles wie geplant verhält. Es sollte auch geprüft werden, ob entsprechende Daten im Arbeitsbereich erzeugt werden. Wenn alles soweit in Ordnung ist, sollten die erzeugten Daten im Arbeitsbereich gelöscht werden, bevor die finale Studiendurchführung startet. Sonst sind später die Daten des Probelaufs im Datensatz der Studie enthalten.
+Ist die Testtaker-XML final konfiguriert (Festlegung Testmodus und Logins), kann sie in den Arbeitsbereich geladen werden. Anschließend sollte ein Probelauf der finalen Version gestartet werden. Hier kann vorab geprüft werden, ob sich alles wie geplant verhält und die Antwortdaten gespeichert werden. Wenn alles soweit in Ordnung ist, sollten die erzeugten Daten im Arbeitsbereich gelöscht werden, bevor die finale Studiendurchführung startet. Sonst sind später die Daten des Probelaufs im Datensatz der Studie enthalten.
 
 # Studienlauf
 
-Nun können sich die Testpersonen mit den in der XML zur Studien-Definition festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testpersonen erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: **Weiter**. Es folgt ein sehr reduziertes Startbild. Rechts ein paar allgemeine Informationen (Version, Datenschutz etc.), links nur Eingabefelder für Name und Kennwort. In der Mitte ein großer Schalter, der das Testheft symbolisiert. 
+Nun können sich die Testpersonen mit den in der Testtaker-XML festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testpersonen erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: **Weiter**. Es folgt ein sehr reduziertes Startbild. Rechts ein paar allgemeine Informationen (Version, Datenschutz etc.), links nur Eingabefelder für Name und Kennwort. In der Mitte ein großer Schalter, der das Testheft symbolisiert. 
 
 ::: {.callout-note}
-Ist nur ein Testheft in der XML zur Studien-Definition aufgeführt, wird nach der Anmeldung der Test direkt gestartet und es wird keine Seite zur Testheftauswahl angezeigt.
+Ist nur ein Testheft in der Testtaker-XML aufgeführt, wird nach der Anmeldung der Test direkt gestartet und es wird keine Seite zur Testheftauswahl angezeigt.
 :::
 
 Mit Klick auf die Schaltfläche des Testheftes werden alle Testinhalte geladen. Sobald möglich wird auch die erste Seite schon gezeigt und das Laden wird im Hintergrund fortgesetzt.
