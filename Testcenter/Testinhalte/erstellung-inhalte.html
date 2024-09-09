@@ -762,7 +762,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#units" id="toc-units" class="nav-link active" data-scroll-target="#units">Units</a></li>
   <li><a href="#booklets" id="toc-booklets" class="nav-link" data-scroll-target="#booklets">Booklets</a></li>
   <li><a href="#testtaker" id="toc-testtaker" class="nav-link" data-scroll-target="#testtaker">Testtaker</a></li>
-  <li><a href="#hochladen-upload" id="toc-hochladen-upload" class="nav-link" data-scroll-target="#hochladen-upload">Hochladen / Upload</a>
+  <li><a href="#hochladen-upload" id="toc-hochladen-upload" class="nav-link" data-scroll-target="#hochladen-upload">Hochladen / Upload</a></li>
+  <li><a href="#herunterladen-download" id="toc-herunterladen-download" class="nav-link" data-scroll-target="#herunterladen-download">Herunterladen / Download</a></li>
+  <li><a href="#löschen" id="toc-löschen" class="nav-link" data-scroll-target="#löschen">Löschen</a>
   <ul class="collapse">
   <li><a href="#warnungen" id="toc-warnungen" class="nav-link" data-scroll-target="#warnungen">Warnungen</a></li>
   <li><a href="#fehlermeldungen" id="toc-fehlermeldungen" class="nav-link" data-scroll-target="#fehlermeldungen">Fehlermeldungen</a></li>
@@ -824,7 +826,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="hochladen-upload" class="level1">
 <h1>Hochladen / Upload</h1>
-<p>Man benötigt einen <a href="../../Testcenter/workspaces.html">Schreibzugriff</a> auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können.</p>
+<p>Man benötigt einen <a href="../../Testcenter/workspaces.html">Schreibzugriff</a> auf einen Arbeitsbereich, um Inhaltsdateien hochladen, aktualisieren und löschen zu können. Unter dem Reiter: <strong>Dateien</strong> im jeweiligen Arbeitsbereich sind die entsprechenden Funktion zum Laden der Dateien zu finden.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -841,7 +843,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden. Sie können auch nur in der entgegengesetzten Reihenfolge gelöscht werden, um keine Inkonsistenzen zu erzeugen.</p>
+<p>Da das Testcenter die Abhängigkeiten der Inhaltsdateien prüft, müssen sie in der oben dargestellten Reihenfolge in das Testcenter hochgeladen werden.</p>
 <p>Der Name einer Datei spielt keine Rolle. Jedoch wird die Nutzung einer Datei über die Datei-Endung gesteuert:</p>
 <ul>
 <li>Unit-, Booklet- und Testtaker-Dateien müssen die Endung <code>xml</code> haben.</li>
@@ -851,6 +853,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Eine Unit-XML kann weitere Ressourcen-Dateien referenzieren, die dann auch hochgeladen werden müssen. Deren Dateiendung ist ohne Bedeutung für die Testdurchführung. Es sollten dafür aber die Endungen <code>xml</code>, <code>html</code> und <code>zip</code> nicht genutzt werden, da das Testcenter sonst Fehler bzw. Warnungen erzeugt.</li>
 </ul>
 <p>Das IQB-Studio erzeugt den Test-Export als ZIP-Datei, der dann also direkt in den Testcenter-Arbeitsbereich geladen werden kann. Hier dauert die Prüfung der Validität eventuell länger, also bitte nicht ungeduldig werden!</p>
+</section>
+<section id="herunterladen-download" class="level1">
+<h1>Herunterladen / Download</h1>
+<p>Es ist möglich bereits im Testcenter befindliche Dateien herunterzuladen. So können Dateien auch von Personen eingesehen oder nachträglich bearbeitet werden, ohne das diesen die original Datei zur Verfügung steht. Durch einen Klick auf eine Datei, wird diese heruntergeladen. Zur Zeit können die Dateien nur einzeln heruntergeladen werden.</p>
+</section>
+<section id="löschen" class="level1">
+<h1>Löschen</h1>
+<p>Da Abhängigkeiten zwischen den Inhaltsdateien bestehen und diese vom Testcenter geprüft werden, muss das Löschen von Dateien in umgekehrter Reihenfolge wie das Hochladen erfolgen.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -861,7 +871,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Das Löschen von Dateien zur Studiendefinition kann laufende Studien unterbrechen. Die darin definierten Teilnehmer*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.</p>
+<p>Das Löschen einer Testtaker-XML kann laufende Studien unterbrechen. Die darin definierten Teilnehmer*innen können sich dann ggf. nicht mehr zur Studiendurchführung anmelden oder erhalten Fehlermeldungen.</p>
 </div>
 </div>
 <section id="warnungen" class="level2">
