@@ -1,9 +1,31 @@
 ---
 lang: de
-title: "Schritt 3"
+title: "Schritt 2"
 ---
 
 # Studiendurchführung
+
+## Laden der Testdateien
+
+Liegen die Testdateien in finaler Form bereit, können diese in das Testcenter geladen werden. Nach Anmeldung am Testcenter muss in den Arbeitsbereich der Studie gewechselt werden. Dort können unter dem Reiter: **Dateien** die Testdateien in einer festgelegten Reihenfolge geladen werden. 
+
+::: {.callout-note}
+Wird die Reihenfolge nicht eingehalten, werden einzelne Dateien nicht vollständig geladen und es erscheint eine Fehlermeldung.
+:::
+
+#### 1. Laden der Dateien zur Aufgaben-Definition
+
+Die in Schritt 1 zum Download angebotene ZIP-Datei enthält alle Dateien zur Aufgaben-Definition. Nach erfolgreichem Laden befinden sich alle Unit-XML, die zugehörigen Unit-VOUD und die Player-HTML im Testcenter. 
+
+![](TC_Lade_Dateien_Aufgaben_Definition.png)
+
+#### 2. Laden der Booklet-XMl.
+
+#### 3. Laden der Testtaker-XMl.
+
+::: {.callout-note}
+Eventuell wird die folgende Meldung mehrfach angezeigt: "Outdated or wrong version of XSD-schema". Diese Meldung kann an dieser Stelle ignoriert werden. In den XML-Testdateien wird die Version der XML-Schema-Definition angegeben. Diese orientiert sich an der Testcenter-Version. Wird diese Meldung angezeigt, stimmt die in den Testdateien angegebene Schema-Versionsnummer nicht mit der verwendeten Testcenter-Version überein.
+:::
 
 ## Starten des Gruppenmonitors
 
@@ -35,7 +57,7 @@ Nach erfolgreicher Anmeldung sieht diese Person die Seite zur Begrüßung, da di
 
 Der Gruppenmonitor wird nun an dieser Stelle nicht weiter beschrieben. Wer Lust hat, kann natürlich die Funktionen des Gruppenmonitors an dieser Stelle weiter testen. Parallel dazu kann das Kapitel: **Gruppenmonitor** betrachtet werden.
 
-### Seite zur Begrüßung
+### Unit1: Begrüßung
 
 ![](TC_Seite_zur_Begruessung.png)
 
@@ -45,7 +67,7 @@ Anhand der ersten Seite können nun einige der genannten Anforderungen geprüft 
 * Es sind Schaltflächen zur Aufgabennavigation oben rechts zu sehen. Grün markiert ist die aktive Aufgabe (Seite). In diesem Feld ist keine Nummer zu sehen, da in der Booklet-XML im Attribut `labelshort` kein Wert zu dieser Aufgabe hinterlegt wurde.
 * Es wird ein zusätzliches Aufgaben-Menu neben den Navigationsschaltflächen oben rechts angezeigt.
 
-### 1. Aufgabe
+### Unit2: Aufgabe 1
 
 Durch Klick auf den Pfeil nach rechts im Navigations-Menu, erscheint die Abfrage des Kennwortes zum Betreten des Blocks mit den Aufgaben 1 und 2. Hier muss das Kennwort aus der Booklet-XML **Hase** eingegeben werden. Anschließend wird Aufgabe 1 sichtbar. Hier können nun weitere Anforderungen überprüft werden.
 
@@ -55,13 +77,13 @@ Durch Klick auf den Pfeil nach rechts im Navigations-Menu, erscheint die Abfrage
 * Nach Abspielen des Audios werden Fragen dazu angezeigt. Beim Versuch zur Aufgabe 2 zu navigieren, erscheint eine Meldung, dass nicht alles beantwortet wurde (`response_complete`).
 * Beantworten wir nun die Frage mit "Ja". Anschließend wird das Weiterblättern zur Aufgabe 2 erlaubt.
 
-### 2. Aufgabe
+### Unit3: Aufgabe 2
 
 Es ist ein Video zu sehen und Fragen dazu. Weitere Anforderungen können nun geprüft werden.
 
 * Bei dem Versuch vor Zeitablauf und vor dem Abspielen des Videos vorwärts zu navigieren, erscheint eine Meldung, dass noch nicht alles betrachtet wurde. Spielen wir das Video einmal vollständig ab und beantworten die Frage darunter mit "Die Zeit ist beschleunigt". Bei dem erneuten Versuch, vorwärts zu navigieren, erscheint eine neue Meldung. Diese Meldung weist daraufhin, dass nach Bestätigung der Block mit den Aufgaben 1 und 2 verlassen wird und nicht mehr betreten werden kann. Wird die Meldung bestätigt, sind die Aufgaben 1 und 2 im Navigations-Menu inaktiv. Der Block ist nun gesperrt.
 
-### Seite zur Verabschiedung
+### Unit4: Verabschiedung
 
 Die Seite der Verabschiedung wird angezeigt. Es kann mit Hilfe des Navigations-Menus nun nur noch zwischen den Seiten der Begrüßung und der Verabschiedung navigiert werden.
 
