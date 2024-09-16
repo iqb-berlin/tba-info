@@ -758,19 +758,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Diese Seite ist in Bearbeitung und wird demnächst fertig gestellt.</p>
-</div>
-</div>
 <p>Der Aufgabenentwurf mit den entsprechenden Funktionen ist im blau markierten Bereich zu finden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -789,18 +776,40 @@ Hinweis
 <p>Diese Funktionen sind in Reiter oberhalb angeordnet.</p>
 <section id="eigenschaften" class="level1">
 <h1>Eigenschaften</h1>
+<ul>
+<li>Zuweisung Metadaten Profile (Es müssen zuvor in den Einstellung der Bereichsgruppe Metadaten Profile gesetzt werden, die zur Auswahl stehen sollen).</li>
+<li>Eingabe von Metadaten zur Aufgabe, wie bspw. Name und Beschreibung</li>
+<li>Auswahl eines Bearbeitungsstatus (Es muss zuvor in den Bereichsgruppen Einstellungen ein oder mehrere Status angelegt werden).</li>
+<li>Auswahl der Module für Editor, PLayer und Schemer (Die Module müssen zuvor in den Einstellungen des System-Administrator*in geladen werden).</li>
+</ul>
 </section>
 <section id="editor" class="level1">
 <h1>Editor</h1>
+<p>Hier ist die Oberfläche des Editors für den Aufgabenentwurf zu sehen. Mehr dazu ist dem Kapitel: <strong>Aufgaben gestalten</strong> zu entnehmen.</p>
 </section>
 <section id="vorschau" class="level1">
 <h1>Vorschau</h1>
+<p>Während des Aufgabenentwurfs ist es jederzeit möglich in einer Vorschau die Aufgabe zu betrachten. Das soll einen schnellen Überblick verschaffen, ob die Aufgabe aussieht wie geplant. Unten links sind mithilfe von Schaltflächen und Anzeigen weitere Funktionen der Vorschau zu finden:</p>
+<p><strong>Prüfen Player Meldungen:</strong></p>
+<p>In der Vorschau ist es möglich Meldungen des Players abzufragen. Hierzu gehören:</p>
+<ul>
+<li><strong>P:</strong> Präsentation komplett (presentation complete): Alle Pflichtfelder wurden bedient.</li>
+<li><strong>R:</strong> Antworten komplett (responses complete): Alle Aufgabenbestandteile (auch Audio/Video) wurde gesehen/gehört.</li>
+<li><strong>F:</strong> Maus im Playerfenster (focus): Mauszeiger befindet sich im Fenster des Players.</li>
+</ul>
+<p>Die Anzeigen sind im Vorschaufenster unten links zu sehen. Ist die Anzeige rot, ist die Meldung des Players: False. Ist die Anzeige grün, ist die Meldung des Players: True.</p>
+<p><strong>Validieren:</strong></p>
+<p>Aufgabenelemente können in der Entwurfsphase als “Pflichtelemente” deklariert werden. Wenn in der Booklet-XML festgelegt (<code>presentation complete = ON</code>), kann der Zustand dieser Pflichtelemente darüber entscheiden, ob zur nächsten Aufgabe navigiert werden darf. Darf bspw. wegen der fehlenden Beantwortung eines Pflichtfeldes nicht zur nächsten Aufgabe navigiert werden, muss das noch nicht beantwortete Pflichtfeld markiert werden, denn Pflichtfelder sind im Vorfeld für die Nutzer*innen nicht als solche erkennbar. Mit dem Schalter: <strong>Validierung</strong> kann geprüft werden, ob noch nicht beantwortete Pflichtfelder entsprechend markiert werden. Eine Markierung besteht aus einer farblichen Hervorhebung des Feldes und einem eindeutigen Text (“Eingabe erforderlich”).</p>
+<p><strong>Kodierung prüfen:</strong></p>
+<p>Ist eine Kodierregel unter dem Reiter: <strong>Kodierung</strong> hinterlegt, kann diese mithilfe dieses Schalters geprüft werden.</p>
 </section>
 <section id="kodierung" class="level1">
 <h1>Kodierung</h1>
+<p>Mehr dazu ist dem Kapitel: <strong>Kodierschema</strong> zu entnehmen.</p>
 </section>
 <section id="kommentare" class="level1">
 <h1>Kommentare</h1>
+<p>Bearbeiten mehrere Aufgabenentwickler*innen eine Aufgabe, bietet diese Funktion die Möglichkeit einen Austausch im Team zu gestalten. Wird ein Kommentar für eine Aufgabe in einem bestimmten Arbeitsbereich erzeugt, wird dieser neue Kommentar für alle Mitglieder des Arbeitsbereiches in der Liste der Aufgabe angezeigt. Die entsprechende Aufgabe ist dann mit einem roten Punkt markiert. Nach Beantwortung des neuen Kommentars von einem der Teammitglieder, wird die Markierung wieder aufgehoben. Jedes Teammitglied sieht den Verlauf der gegebenen Kommentare und kann Antworten auf einzelne Kommentare geben.</p>
 
 
 </section>

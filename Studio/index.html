@@ -723,8 +723,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#funktionen" id="toc-funktionen" class="nav-link active" data-scroll-target="#funktionen">Funktionen</a>
+  <ul class="collapse">
+  <li><a href="#aufgabenentwurf" id="toc-aufgabenentwurf" class="nav-link" data-scroll-target="#aufgabenentwurf">Aufgabenentwurf</a></li>
+  <li><a href="#kodierung" id="toc-kodierung" class="nav-link" data-scroll-target="#kodierung">Kodierung</a></li>
+  <li><a href="#organisation" id="toc-organisation" class="nav-link" data-scroll-target="#organisation">Organisation</a></li>
+  <li><a href="#aufgabenvorschau" id="toc-aufgabenvorschau" class="nav-link" data-scroll-target="#aufgabenvorschau">Aufgabenvorschau</a></li>
+  <li><a href="#metadaten-profile" id="toc-metadaten-profile" class="nav-link" data-scroll-target="#metadaten-profile">Metadaten-Profile</a></li>
+  <li><a href="#administration" id="toc-administration" class="nav-link" data-scroll-target="#administration">Administration</a></li>
+  </ul></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -748,21 +763,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Diese Seite ist noch in Bearbeitung.</p>
-</div>
-</div>
+<section id="funktionen" class="level1">
+<h1>Funktionen</h1>
+<section id="aufgabenentwurf" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabenentwurf">Aufgabenentwurf</h2>
+<p>Mit dem Studio können Aufgaben für Kompetenztests oder Befragungen entworfen werden. Der eigentliche Entwurf findet mit einem <strong>Editor</strong> statt. Dieser Editor stellt Werkzeuge und Elemente für den Aufgabenentwurf bereit. In der Entwurfsphase können die Aufgaben wiedergegeben werden. Zur Wiedergabe wird ein zum Editor passender <strong>Player</strong> verwendet. Sowohl Player als auch Editor werden als Module in das Studio geladen. Es handelt sich bei diesen Modulen um eigenständige Programmierungen, die von der Programmierung des Studios entkoppelt sind. Über eine geeignete Schnittstelle (Verona-Schnittstelle) findet die Kommunikation zwischen Studio und Modul statt. Dieses Plug-in-Modell ermöglicht den Einsatz unterschiedlicher Module, auch eigener Programmierungen, solange die Module sich an die Schnittstellenspezifikation halten.</p>
+</section>
+<section id="kodierung" class="level2">
+<h2 class="anchored" data-anchor-id="kodierung">Kodierung</h2>
+<p>Um am Ende einer Studie eine Auswertung vornehmen zu können, muss eine Aufgabenkodierung erfolgen. Hier können komplexe Regeln erforderlich sein, die festlegen was richtig und was falsch ist. Alle Werkzeuge zur Kodierung stehen im sogenannten <strong>Schemer</strong> zur Verfügung. Auch bei dem Schemer handelt sich um ein separat zu ladendes Modul.</p>
+</section>
+<section id="organisation" class="level2">
+<h2 class="anchored" data-anchor-id="organisation">Organisation</h2>
+<p>Aufgabenentwicklung ist Teamarbeit. Das Studio bietet daher neben dem Aufgabenentwurf umfangreiche Funktionen zur Organisation und Kommunikation innerhalb eines Teams wie bspw.:</p>
+<ul>
+<li>Gruppierung von Aufgaben</li>
+<li>Rechtevergabe für Aufgabenentwickler*innen</li>
+<li>definierte Statusmeldungen (Stand einer Aufgabe)</li>
+<li>umfangreiche Kommentarfunktionen zu den Aufgaben</li>
+</ul>
+</section>
+<section id="aufgabenvorschau" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabenvorschau">Aufgabenvorschau</h2>
+<p>Zur Aufgabenoptimierung sind Aufgabenentwickler*innen auf Rückmeldungen ausgewählter Personenkreise angewiesen. Das Studio bietet die Möglichkeit Aufgabenfolgen in einer Vorschau zu präsentieren. Diese Aufgabenfolgen können umfangreich konfiguriert werden.</p>
+<p>Außerdem steht eine Druckvorschau zur Verfügung.</p>
+</section>
+<section id="metadaten-profile" class="level2">
+<h2 class="anchored" data-anchor-id="metadaten-profile">Metadaten-Profile</h2>
+<p>Für jeden Arbeitsbereich können Metadaten-Profile festgelegt werden. Zu jeder Aufgabe, kann dann eines dieser Metadaten-Profile ausgewählt werden.</p>
+</section>
+<section id="administration" class="level2">
+<h2 class="anchored" data-anchor-id="administration">Administration</h2>
+<p>Auf administrativer Ebene können Arbeitsbereiche organisiert und Zugriffsrechte vergeben werden. Es stehen Funktionen zur Modul- und Paketverwaltung zur Verfügung. Es können individuelle Einstellung für die Anwendung vorgenommen werden, wie bspw. die Festlegung von Logo, Texten und Farben. Zur besseren Übersichtlichkeit ist die Ausgabe detaillierter Listen mit Informationen zur Anzahl von Arbeitsbereichen und den darin enthalten Aufgaben inkl. der verwendeten Module möglich.</p>
+</section>
+</section>
+<section id="installation" class="level1">
+<h1>Installation</h1>
+<p>Das IQB hat alle Programmierungen unter der Open Source-Lizenz <a href="https://iqb-berlin.github.io/license.html">MIT</a> veröffentlicht und erleichtert die <a href="../Studio/Installation/index.html">Installation</a> durch Containervirtualisierung (Docker). Der Quellcode der Anwendung ist auf GitHub im folgenden <a href="https://github.com/iqb-berlin/studio-lite">Repository</a>zu finden. Für die Installation muss man einen Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern, übernimmt aber im Schadensfall keine Haftung.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1224,7 +1264,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
