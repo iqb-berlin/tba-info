@@ -45,13 +45,20 @@ Es finden sich zwei weitere Schaltfläche. Diese können genutzt werden, um sepa
 
 ### Reiter: Module
 
-Es ist eine Liste aller Module für Editor, Schemer und PLayer zu sehen. Mit der {{< fa cloud >}} - Schaltfläche können neue Module geladen werden. Gelöscht können Module erst nachdem diese zuvor markiert wurden.
+Es ist eine Liste aller Module für Editor, Schemer und Player zu sehen. Mit der {{< fa cloud >}} - Schaltfläche können neue Module geladen werden. Gelöscht können Module erst nachdem diese zuvor markiert wurden.
 
 ### Reiter: Einstellungen
 
-Hier können Texte zu Wartungsarbeiten auf der Anmeldeseite und die Texte im Impressum verändert werden. Außerdem kann das Layout der Anwendung angepasst werden.
+Hier können Texte zu Wartungsarbeiten (Warnungen) auf der Anmeldeseite und Texte im Impressum verändert werden. Außerdem kann das Layout der Anwendung angepasst werden.
 
-Da das Studio die XML-Dateien zur Aufgaben-Definition, die Testtaker-XML und Booklet-XML ausgeben kann und vor der Ausgabe auch Konfigurationen an diesen Dateien vorgenommen werden können, muss das Studio wissen, nach welchen Vorgaben diese Dateien erstellt werden sollen. Die Vorgabe liefert die so genannte Schema-Definition. Diese ist wie eine Art Schablone und bestimmt, welche Elemente und Attribute in den XML-Dateien zulässig sind. Da die XML-Dateien zur Studiendurchführung in das Testcenter geladen werden, gibt das Testcenter die zu verwendende Schema-Definition vor. Mit jeder neuen Testcenter-Version kann sich auch die Schema-Definition ändern, weil bspw. erlaubte Elemente und Attribute für die XML-Dateien hinzugekommen sind. Aus diesem Grund kann in den Einstellungen festgelegt werden, welche Schema-Definition einer Testcenter-Version verwendet werden soll.
+Da das Studio neben der Unit-XML auch optional eine Booklet-XML und eine Testtaker-XML ausgeben kann, kann in den Einstellungen festgelegt werden, welche Schema-Definition (Xsd) zur Validierung dieser XML-Dateien verwendet werden soll.
+
+::: {.callout-note}
+Zu jeder Testcenter-Version gehört eine Schema-Definition (Xsd) mit gleicher Versionsnummer.
+:::
+
+Für die Kodierung können im JSON-Format Missing Profiles angelegt werden.
+
 
 ### Reiter: Pakete
 
