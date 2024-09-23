@@ -100,8 +100,55 @@ Audios mit höherem Anspruch an die Qualität (Musik enthalten):
 
 ## Endgeräte
 
+### Allgemein
+
 Hardware und Betriebssystem spielen eine ehr untergeordnete Rolle. Da es sich um eine Webanwendung handelt, müssen die Endgeräte über eine Internetanbindung verfügen. Durchaus interessant könnte die Frage sein, welche Bildschirmgrößen mit welchen Auflösungen zum Einsatz kommen werden. Die Aufgabeninhalte verhalten sich zwar dynamisch (responsive), dennoch kann es sinnvoll sein Aufgaben bzgl. der Darstellung zu optimieren. Kommen größtenteils kleinere Tablets zum Einsatz, sind bspw. Aufgaben bestehend aus zwei Seiten nur noch bedingt lesbar. Die Frage nach den verwendeten Endgeräten sollte also nicht erst kurz vor der eigentlichen Studiendurchführung gestellt werden, sondern wenn möglich bereits in der Aufgabenentwurfsphase.
 
 Es kann auch günstig sein in Erfahrung zu bringen, ob Tastaturen zum Einsatz kommen werden. Kommen keine Tastaturen zum Einsatz und muss während der Durchführung mit den systemeigene Tastaturen (bspw. iPad) gearbeitet werden, kann auch dies einen Einfluss auf die Aufgabengestaltung haben und sollte den Aufgabenentwickler\*innen wenn möglich bekannt sein.
 
 Werden in den Aufgaben Videos oder Audios verwendet, muss zuvor geklärt werden, ob Kopfhörer zur Verfügung stehen und wie diese an die verwendeten Endgeräte angeschlossen werden können. Je nach Studienumgebung kann es sinnvoll sein, Kopfhörer mit Geräuschunterdrückung zu verwenden.
+
+### iPad
+
+Auf dem iPad kann es zu Problemen bei Verwendung des Testcenters im Vollbildmodus geben. Außerdem kam es in vergangenen Studien mit kleineren Kindern hin und wieder zu einem versehentlichen Verlassen des Testcenters während einer Studien. Um dem entgegenzuwirken wird empfohlen, das Testcenter als Progressive Web App (PWA) auf dem iPad einzurichten. Auf diese Weise wird die Seite des Testcenters immer im Vollbild angezeigt und die Seite kann nicht versehentlich geschlossen werden. Folgende Einstellungen müssen hierfür erfolgen:
+
+**Testcenter dem Home-Bildschirm hinzufügen**
+
+1. Öffne der gewünschten Instanz des Testcenters in Safari
+2. Die Webseite dem Home Bildschirm hinzufügen
+![Seite dem Home-Bildschirm hinzufügen](iPad_PWA_Homebildschirm_1.jpg)
+3. Namen vergeben. Im Beispiel wird IQB-Testcenter verwendet. Die darunter angezeigte URL darf nicht geändert werden.
+![Seite dem Home-Bildschirm hinzufügen](iPad_PWA_Homebildschirm_2.jpg)
+4. Das Testcenter sollte nun unter dem gerade gespeicherten Namen auf dem Home-Bildschirm des iPads verfügbar sein.
+
+Wird das Testcenter über dieses Icon geöffnet, wird die Seite konstant im Vollbildmodus ohne andere Navigationselemente des Browsers angezeigt. Allerdings kann das Testcenter noch normal verlassen werden, wie bei jeder normalen App. Um dies zu unterbinden, muss beim iPad der "geführte Zugriff" aktiviert werden.
+
+**Geführte Zugriff (Kiosk Mode) auf iPad aktivieren**
+
+1. Wechsel in die Einstellungen des iPads.
+2. Im Suchfeld "Bedienungshilfen" eingeben oder in der Liste der Einstellungen danach suchen. Nach einem Klick darauf erscheinen rechts einige Optionen.
+3. Scrollen in den Optionen bis ganz nach unten zum Bereich "Allgemein". Hier wird "Geführter Modus" wahrscheinlich auf "Aus" sein. Wenn dem so ist, muss dieser aktiviert werden. Bei der Aktivierung können weitere Optionen vorgenommen werden. 
+    * Unter "Codeeinstellungen" muss nun ein Code festgelegt werden, um den geführten Modus zu starten bzw. zu beenden.
+    * Die Option "Kurzbefehl" sollte aktiviert werden und die Option "Display autom. sperren" auf "Nie" gesetzt werden. Damit wird verhindert, dass das iPad während des Kiosk Modes in den Ruhezustand wechselt.
+![Weitere Optionen setzen](iPad_GefuehrterModus_2.jpg)
+
+4. Nach einem Wechsel zurück zu den Bedienungshilfen (oben links auf "Bedienungshilfen" oder "Zurück" klicken), sollte "Geführter Zugriff" nun auf "Ein" sein und "Kurzbefehl" auf "Geführter Zugriff". Falls bei "Kurzbefehl" nicht "Geführter Zugriff" steht, kann darauf geklickt werden und die Einstellung gewählt werden.
+
+**Starten des Testcenters im Kiosk Mode**
+
+1. Öffnen des Testcenters durch das Icon auf dem Home-Bildschirm.
+2. Der "Geführte Modus" kann je nach iPad Variante unterschiedlich gestartet werden:
+    * **Bei iPad mit Hometaste:** Dreimal auf Hometaste drücken
+    * **Bei iPad ohne Hometaste** Dreimal auf die Entsperrtaste und dann auf den Bildschirm tippen
+Es kann evtl einige Sekunden dauern, bis das nachfolgende Menü erscheint. Unten ist ein Options-Schalter zu sehen.
+3. Nach einem Klick auf den Options-Schalter , sollten die angebotenen Optionen wie folgt gesetzt werden:
+    * **Ein/Ausschalter:**Sollte deaktiviert bleiben, damit das iPad nicht gesperrt werden kann.
+    * **Lautstärkeschalter:**_: Kann ebenfalls deaktiviert werden, falls die testende Personen diese nicht verändern dürfen.
+    * **Bewegung:** Dies legt fest ob die Orientierung des iPads geändert werden darf. Ist es deaktiviert, so bleibt die Anwendung immer in derselben Ausrichtung.
+    * **Software-Tastaturen:** Wenn keine Tastaturen angeschlossen sind, sollte diese Option aktiv sein.
+    * **Berührung:** Sollte aktiv bleiben, damit mit dem iPad interagiert werden kann.
+    * **Lexikonsuche:** Sollte deaktiviert sein, damit keine Vorschläge oder ähnliches beim Tippen erscheinen.
+    * **Zeitlimit:** Sollte ebenfalls deaktiviert sein, da sich das iPad konstant in diesem Modus befinden sollte.
+4. Die gesetzten Einstellungen bleiben erhalten. Anschließend kann oben rechts auf Starten geklickt werden. Im Anschluss beginnt der "Geführte Modus".
+
+Das Testcenter kann nun nicht mehr verlassen werden, es kann auch nicht in andere Apps gewechselt werden und das iPad kann nicht mehr gesperrt werden. Um den Modus zu verlassen geht man so vor wie beim Starten des "Geführten Zugriffs" (dreimal Hometaste oder dreimal Entsperrtaste und Bildschirm tippen) und dann oben links auf "Beenden" klicken.
