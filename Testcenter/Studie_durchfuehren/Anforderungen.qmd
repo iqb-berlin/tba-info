@@ -75,12 +75,16 @@ An dieser Stelle kann das IQB nur Empfehlung aus dem Praxisalltag geben und eini
 
 Um auch bei schlechter Internetanbindung eine Studie durchführen zu können, sollten die Testheftgrößen so klein wie möglich gehalten werden. Die Testheftgröße hängt maßgeblich vom Einsatz audiovisueller Medien ab. Wenn nicht zwingend und auch mit anderen Aufgabenelementen darstellbar, sollten audiovisuelle Medien nur wenig eingesetzt werden. Da wo sie zum Einsatz kommen, muss auf die richtige Komprimierung geachtet werden. Damit audiovisuelle Medien während der Studiendurchführung gesichert funktionieren, sind außerdem die nachfolgenden Einstellungen entscheidend.
 
+::: {.callout-note}
+Die nachfolgend genannten Audio-Einstellungen wurden mit dem Programm Audacity vorgenommen. Dieses wird am IQB hauptsächlich verwendet. Wenn andere Programme zum Einsatz kommen sollen, können sicherlich auch "modernere" Ausgabeformate, wie bspw. ACC erzeugt werden. Allerdings muss hier immer ein guter Weg zwischen Qualität und Größe gefunden werden. Bei der Wandlung in ACC können einzelne Programme bspw. eine Mindestbitbreite vorgeben, die wiederum zu größeren Dateien führt. Oder es kann keine feste Bitrate gewählt werden, sondern nur eine variable Bitrate. Variable Bitraten können aber zu Probleme bei der Wiedergabe im Testcenter führen. Das IQB würde aus diesen Gründen dazu raten, die unten genannten Einstellungen zu wählen, auch wenn diese nicht mehr ganz dem Stand der Technik entsprechen.
+:::
+
 #### Audio
 
 Audios mit geringem Anspruch an die Qualität (nur Sprache):
 
 * Kompression: MP3
-* Kanal: Stereo
+* Kanal: Joint Stereo
 * Abtastrate: 24000 Hz
 * Bitraten Modus: Konstant
 * Bitrate: 64kbps 
@@ -88,15 +92,19 @@ Audios mit geringem Anspruch an die Qualität (nur Sprache):
 Audios mit höherem Anspruch an die Qualität (Musik enthalten):
 
 * Kompression: MP3
-* Kanal: Stereo
+* Kanal: Joint Stereo
 * Abtastrate: 44100 Hz
 * Bitraten Modus: Konstant
 * Bitrate: 96kbps 
 
 #### Video
 
-* Kompression: h.264 (MPEG-4 AVC)
-* Kanal: Stereo
+* Video-Codec: H264
+* Auflösung: PAL (also 720 Pixel in der Breite; z. B. 720x576)
+* Qualität: RF30 (s. u.)
+* Encoder-Preset: VerySlow
+* Audio: AAC, 80 kbit/s
+* Container: mp4 
 
 ## Endgeräte
 
