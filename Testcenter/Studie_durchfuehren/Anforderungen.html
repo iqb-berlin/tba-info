@@ -883,12 +883,25 @@ Hinweis
 <section id="audiovisuelle-medien" class="level2">
 <h2 class="anchored" data-anchor-id="audiovisuelle-medien">Audiovisuelle Medien</h2>
 <p>Um auch bei schlechter Internetanbindung eine Studie durchführen zu können, sollten die Testheftgrößen so klein wie möglich gehalten werden. Die Testheftgröße hängt maßgeblich vom Einsatz audiovisueller Medien ab. Wenn nicht zwingend und auch mit anderen Aufgabenelementen darstellbar, sollten audiovisuelle Medien nur wenig eingesetzt werden. Da wo sie zum Einsatz kommen, muss auf die richtige Komprimierung geachtet werden. Damit audiovisuelle Medien während der Studiendurchführung gesichert funktionieren, sind außerdem die nachfolgenden Einstellungen entscheidend.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die nachfolgend genannten Audio-Einstellungen wurden mit dem Programm Audacity vorgenommen. Dieses wird am IQB hauptsächlich verwendet. Wenn andere Programme zum Einsatz kommen sollen, können sicherlich auch “modernere” Ausgabeformate, wie bspw. ACC erzeugt werden. Allerdings muss hier immer ein guter Weg zwischen Qualität und Größe gefunden werden. Bei der Wandlung in ACC können einzelne Programme bspw. eine Mindestbitbreite vorgeben, die wiederum zu größeren Dateien führt. Oder es kann keine feste Bitrate gewählt werden, sondern nur eine variable Bitrate. Variable Bitraten können aber zu Probleme bei der Wiedergabe im Testcenter führen. Das IQB würde aus diesen Gründen dazu raten, die unten genannten Einstellungen zu wählen, auch wenn diese nicht mehr ganz dem Stand der Technik entsprechen.</p>
+</div>
+</div>
 <section id="audio" class="level4">
 <h4 class="anchored" data-anchor-id="audio">Audio</h4>
 <p>Audios mit geringem Anspruch an die Qualität (nur Sprache):</p>
 <ul>
 <li>Kompression: MP3</li>
-<li>Kanal: Stereo</li>
+<li>Kanal: Joint Stereo</li>
 <li>Abtastrate: 24000 Hz</li>
 <li>Bitraten Modus: Konstant</li>
 <li>Bitrate: 64kbps</li>
@@ -896,7 +909,7 @@ Hinweis
 <p>Audios mit höherem Anspruch an die Qualität (Musik enthalten):</p>
 <ul>
 <li>Kompression: MP3</li>
-<li>Kanal: Stereo</li>
+<li>Kanal: Joint Stereo</li>
 <li>Abtastrate: 44100 Hz</li>
 <li>Bitraten Modus: Konstant</li>
 <li>Bitrate: 96kbps</li>
@@ -905,8 +918,12 @@ Hinweis
 <section id="video" class="level4">
 <h4 class="anchored" data-anchor-id="video">Video</h4>
 <ul>
-<li>Kompression: h.264 (MPEG-4 AVC)</li>
-<li>Kanal: Stereo</li>
+<li>Video-Codec: H264</li>
+<li>Auflösung: PAL (also 720 Pixel in der Breite; z. B. 720x576)</li>
+<li>Qualität: RF30 (s. u.)</li>
+<li>Encoder-Preset: VerySlow</li>
+<li>Audio: AAC, 80 kbit/s</li>
+<li>Container: mp4</li>
 </ul>
 </section>
 </section>
