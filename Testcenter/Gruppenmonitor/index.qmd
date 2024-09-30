@@ -61,8 +61,54 @@ Im linken Teil des Fensters sind Schalter für die Navigation zu finden. Diese h
 
 Oben rechts ist in Form eines kleinen Symbols der Verbindungsstatus des Gruppenmonitors zu sehen. Bei einer fehlerfreien Verbindung sollte das Symbol grün sein und es sollte "LIVE" darin stehen.
 
-Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht für das mittlere Fenster, das Aktivitätsfenster, angepasst werden.
+Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht für das mittlere Fenster, das Aktivitätsfenster, angepasst werden. Hier können bspw. Spalten hinzugefügt werden und Anzeigefilter gesetzt werden. Die Anzeigefilter sind unter: "Sitzungen ausblenden" zu finden. Hier gibt es 2 Standardfilter:
 
+* ausblenden von nicht gestarteten Tests
+* ausblenden von gesperrten Tests
+
+Es ist möglich an dieser Stelle mithilfe der {{< fa plus >}}-Schaltfläche weitere eigene Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Eigene Filter können aber auch direkt über die Testtaker-XML konfiguriert werden. Hierzu ein Beispiel:
+
+```{.xml}
+ <Group id="sample_group" label="Primary Sample Group">
+
+    <Login mode="run-hot-return" name="test" pw="user123">
+      <Booklet codes="xxx yyy">BOOKLET.SAMPLE-1</Booklet>
+      <Booklet codes="xxx yyy">BOOKLET.SAMPLE-3</Booklet>
+    </Login>
+
+    <Login mode="monitor-group" name="test-group-monitor" pw="user123">
+      
+      <Profile
+        label="KLein"
+        blockColumn="hide"
+        unitColumn="hide"
+        view="small"
+        groupColumn="hide"
+        bookletColumn="hide"
+        filterPending="yes"
+        filterLocked="yes"
+      />
+      <Profile
+        label="Groß"
+        blockColumn="show"
+        unitColumn="show"
+        view="full"
+        groupColumn="show"
+        bookletColumn="show"
+        filterPending="yes"
+        filterLocked="no"
+      >
+        <Filter
+          label="hideXXX"
+          field="personLabel"
+          type="regex"
+          value="xxx"
+          not="false"
+        />
+      </Profile>
+    </Login>
+  </Group>
+```
 #### Aktivitätsfenster (Mitte)
 
 Hier ist eine Liste aller Personen einer Gruppe zu sehen. Außerdem sind die Struktur der Booklets, der Fortschritt der Testung und weitere hilfreiche Informationen in Spalten sortiert zu sehen.
