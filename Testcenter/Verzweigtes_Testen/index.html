@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Testcenter/Studie_durchfuehren/index.html" rel="next">
+<link href="../../Testcenter/Gruppenmonitor/index.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -131,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Verzweigtes Testen</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Verzweigtes_Testen/index.html">Verzweigtes Testen</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -159,11 +161,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testcenter</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/install/index.html" class="sidebar-item-text sidebar-link">
@@ -262,6 +264,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gruppenmonitor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Verzweigtes_Testen/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Verzweigtes Testen</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -762,18 +770,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#konfiguration-in-der-booklet-xml" id="toc-konfiguration-in-der-booklet-xml" class="nav-link active" data-scroll-target="#konfiguration-in-der-booklet-xml">Konfiguration in der Booklet-XML</a>
   <ul class="collapse">
-  <li><a href="#festlegung-von-zuständen" id="toc-festlegung-von-zuständen" class="nav-link" data-scroll-target="#festlegung-von-zuständen">Festlegung von Zuständen</a></li>
-  <li><a href="#abfrage-von-zuständen" id="toc-abfrage-von-zuständen" class="nav-link" data-scroll-target="#abfrage-von-zuständen">Abfrage von Zuständen</a></li>
+  <li><a href="#optionen-anlegen" id="toc-optionen-anlegen" class="nav-link" data-scroll-target="#optionen-anlegen">Optionen anlegen</a></li>
+  <li><a href="#optionen-abfragen" id="toc-optionen-abfragen" class="nav-link" data-scroll-target="#optionen-abfragen">Optionen abfragen</a></li>
   <li><a href="#ein-komplettes-beispiel" id="toc-ein-komplettes-beispiel" class="nav-link" data-scroll-target="#ein-komplettes-beispiel">Ein Komplettes Beispiel</a></li>
   </ul></li>
-  <li><a href="#konfiguration-in-der-testtaker-xml" id="toc-konfiguration-in-der-testtaker-xml" class="nav-link" data-scroll-target="#konfiguration-in-der-testtaker-xml">Konfiguration in der Testtaker-XML</a></li>
+  <li><a href="#konfiguration-in-der-testtaker-xml" id="toc-konfiguration-in-der-testtaker-xml" class="nav-link" data-scroll-target="#konfiguration-in-der-testtaker-xml">Konfiguration in der Testtaker-XML</a>
+  <ul class="collapse">
+  <li><a href="#optionen-anlegen-1" id="toc-optionen-anlegen-1" class="nav-link" data-scroll-target="#optionen-anlegen-1">Optionen anlegen</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div><div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd"><i class="bi bi-link-45deg"></i>XML-Schema für Booklet</a></li><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd"><i class="bi bi-link-45deg"></i>XML-Schema für Testtaker</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Testcenter</a></li><li class="breadcrumb-item"><a href="../../Testcenter/Verzweigtes_Testen/index.html">Verzweigtes Testen</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Verzweigtes Testen</h1>
 </div>
@@ -783,6 +794,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">8. Oktober 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -792,113 +809,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Das Anzeigen von Testheften und Aufgaben kann abhängig von bestimmten Zuständen erfolgen. Die Festlegung von Zuständen und auch das Abfragen dieser erfolgt hauptsächlich in der <strong>Booklet-XML</strong> und stellenweise auch in der <strong>Testtaker-XML</strong>. Hierfür sind bestimmte Elemente und Attribute in den beiden XML vorgesehen.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>Aufgaben können während einer Studiendurchführung abhängig von bestimmten Bedingungen angezeigt werden. Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort werden sogenannte Options-Elemente verwendet, um die Bedingungen abbilden zu können. In Abhängigkeit vom Zustand dieses Options-Elementes (aktiv oder nicht aktiv) werden entsprechende Aufgaben angezeigt.</p>
+<p>Options-Elemente können alleine stehen und sind somit bedingungslos aktiv. Sie können aber auch IF-Anweisungen enthalten, die die Optionen in Abhängigkeit vom Ergebnis der IF-Anweisung aktiv schalten. Da die Aktivierung von Optionen nur abhängig sein kann von der Beantwortung ein oder mehrere Frageitems, können in einer IF-Anweisung nur Variablen der Antwort ausgewertet werden. Es muss also im Vorfeld verstanden werden, wie eine Antwort aufgebaut ist und wie sie ausgewertet werden kann.</p>
+<p>Wird ein Aufgabenelement, bspw. ein Optionsfeld, beantwortet, speichert der Player den eigentlichen Antwortwert plus weiterer Variablen in einem Datenobjekt. Die folgenden Variablen sind in diesem Objekt enthalten:</p>
+<ul>
+<li><code>id</code>: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört</li>
+<li><code>state</code>: Status des Datenobjektes</li>
+<li><code>value</code>: Gespeicherter Antwortwert, bspw. bei einem Optionselement true oder false</li>
+<li><code>code</code>: Kategorie des Antwortwertes nach dem Kodierungsprozess</li>
+<li><code>score</code>: Auswertung des Codes nach dem Kodierungsprozess</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tipp
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Elemente und Attribute sind nicht frei wählbar. Welche Elemente und Attribute verwendet werden können, ist in der Schema-Definition festgelegt.</p>
+<p>Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist <a href="https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3">hier</a> zu finden.</p>
 </div>
 </div>
+<p>Diese Variablen können nun in einer IF-Anweisung ausgewertet werden und in Abhängigkeit vom Ergebnis kann eine Option aktiviert werden.</p>
+<p>Das Options-Element steht nicht alleine, sondern ist Bestandteil von Eltern-Elementen. Sowohl die Elemente als auch deren Attribute sind nicht frei wählbar. Welche Elemente und Attribute verwendet werden können, ist in der Schema-Definition festgelegt. Im Anschluss wird beschrieben, wie die Konfiguration in den beiden Dateien vorzunehmen ist.</p>
 <section id="konfiguration-in-der-booklet-xml" class="level2">
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-booklet-xml">Konfiguration in der Booklet-XML</h2>
-<section id="festlegung-von-zuständen" class="level3">
-<h3 class="anchored" data-anchor-id="festlegung-von-zuständen">Festlegung von Zuständen</h3>
+<section id="optionen-anlegen" class="level3">
+<h3 class="anchored" data-anchor-id="optionen-anlegen">Optionen anlegen</h3>
+<p>Hier ein Beispiel:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus"</span><span class="ot"> label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span> /&gt;</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"a"</span> /&gt;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span> /&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="states" class="level4">
 <h4 class="anchored" data-anchor-id="states"><code>&lt;States&gt;</code></h4>
-<p>In diesem Element erfolgt die Festlegungen von Zuständen. Dieses Element darf nur einmal in der Booklet-XML angelegt sein.</p>
+<p>Elternelement für das State- Element. Dieses Element darf nur einmal in der XML vorhanden sein.</p>
 </section>
 <section id="state" class="level4">
 <h4 class="anchored" data-anchor-id="state"><code>&lt;State&gt;</code></h4>
-<p>Es können beliebig viele State-Elemente enthalten sein. Jedes State-Element erhält eine eindeutig <code>ìd</code> und ein optionales <code>label</code>. Über die ID kann ein State-Element selektiert werden.</p>
+<p>Elternelemente für das eigentliche Options-Element. Diese Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig <code>ìd</code> und ein <code>label</code>. State- und Optionselement werden später in Abhängigkeit ausgewertet. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.</p>
 </section>
 <section id="option" class="level4">
 <h4 class="anchored" data-anchor-id="option"><code>&lt;Option&gt;</code></h4>
-<p>Das Festlegen von Zuständen wird mithilfe dieses Elementes realisiert. In jedem State-Element können beliebige viele Options-Elemente enthalten sein. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Hierüber kann später der Zustand eines Options-Elements abgefragt werden. Ein Options-Element kann ohne eine IF-Bedingung angelegt werden. Dann gilt diese Option als gesetzt. In diesem Beispiel ist die Option mit der ID: “bonus1” gesetzt. Wird die Option mit einer IF-Bedingung versehen, wird die Option erst gesetzt, wenn die Bedingung erfüllt ist.</p>
+<p>Von diesem Options-Element hängt die Anzeige einzelner Aufgaben ab. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Ein Options-Element kann ohne eine IF-Bedingung angelegt werden. Dann gilt diese Option als aktiv. In diesem Beispiel ist die Option mit der ID: “bonus1” aktiv. Wird die Option um eine IF-Bedingung erweitert, wird sie erst aktiv, wenn die Bedingung erfüllt ist.</p>
 </section>
 <section id="if" class="level4">
 <h4 class="anchored" data-anchor-id="if"><code>&lt;If&gt;</code></h4>
-<p>Es können verschachtelte IF-Anweisungen erfolgen.</p>
+<p>Hiermit werden die Bedingungen für ein übergeordnetes Options-Element festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.</p>
 </section>
-<section id="value" class="level4">
-<h4 class="anchored" data-anchor-id="value"><code>&lt;Value&gt;</code></h4>
-<p>In diesem Beispiel wird der Wert eines Unit-Elements mit der ID: “var1” innerhalb einer Unit mit der ID: “unit0” abgefragt und es wird geprüft, ob dieser Wert mit dem Wert: “a” übereinstimmt (<code>equal</code>). Ist dies der Fall, wird die Option mit der ID: “bonus2” gesetzt.</p>
-<p>Unit-Elemente können außer einem Wert noch einen Status enthalten. Wurden zu einem Unit-Element eine Kodierung hinterlegt, ist außerdem noch ein Score oder ein Code für das Element abrufbar. Sollen diese statt dem Wert geprüft werden, müssen die folgenden Elemente verwendet werden:</p>
+<section id="sum" class="level4">
+<h4 class="anchored" data-anchor-id="sum"><code>&lt;Sum&gt;</code></h4>
+<p>In diesem Beispiel wird der Score von 3 Antworten mit den ID`s: <strong>radio1</strong>, <strong>radio2</strong> und <strong>radio3</strong> der Unit mit der ID: <strong>unit0</strong> addiert.</p>
+<p>Es gibt außer <code>sum</code> noch weitere Funktionen:</p>
 <ul>
-<li><p><code>&lt;Score&gt;</code>: Kann verwendet, wenn eine entsprechende Kodierregel für das Unit-Element angelegt wurde. Damit dieser Wert abgefragt werden kann, muss das Testcenter die hinterlegte Kodierregel kennen. Zu der Unit-XML muss dann auch die Unit-VOCS mit in das Testcenter geladen werden.</p></li>
-<li><p><code>&lt;Code&gt;</code>: Kann verwendet, wenn eine entsprechende Kodierregel für das Unit-Element angelegt wurde. Damit dieser Wert abgefragt werden kann, muss das Testcenter die hinterlegte Kodierregel kennen. Zu der Unit-XML muss dann auch die Unit-VOCS mit in das Testcenter geladen werden.</p></li>
-<li><p><code>&lt;Status&gt;</code>: THuste: Philipp fragen was das ist?</p></li>
-<li><p><code>&lt;Sum&gt;</code>: THuste: Unterschied Sum und Count? Wenn geklärt eventuell noch einmal Ergebnis Bsp. anpassen.</p>
-<p>Beispiel: Inhalt von 3 Eingabeelementen wird addiert.</p>
+<li><p><code>&lt;Count&gt;</code></p>
+<p>Hiermit können bspw. logische Verknüpfungen erstellt werden.</p>
+<p>Beispiel: Es darf nur eine der 3 IF-Bedingungen erfüllt sein (ODER-Verknüpfung)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Sum</span>&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Sum</span>&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span>/&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><code>&lt;Count&gt;</code>: Hiermit können logische Verknüpfungen erstellt werden.</p>
-<p>Beispiel: Nur eine der IF-Bedingungen darf erfüllt sein.</p>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Count</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"radio1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"radio2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"radio3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Count</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>&lt;Median&gt;</code></p>
+<p>Beispiel: Median des Score von 3 Antworten</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Count</span>&gt;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"a"</span> /&gt;</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"b"</span> /&gt;</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"c"</span> /&gt;</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Count</span>&gt;</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"1"</span> /&gt;</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><code>&lt;Median&gt;</code>:</p>
-<p>Beispiel: Median von 3 Werten</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Median</span>&gt;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Median</span>&gt;</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"2"</span>/&gt;</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><code>&lt;Mean&gt;</code>: THuste: Was ist das?</p></li>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Median</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Median</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"2"</span>/&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>&lt;Mean&gt;</code></p>
+<p>Beispiel: Mittelwert</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">If</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">Mean</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>     &lt;/<span class="kw">Mean</span>&gt;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"2"</span>/&gt;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">If</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
+</section>
+<section id="score" class="level4">
+<h4 class="anchored" data-anchor-id="score"><code>&lt;Score&gt;</code></h4>
+<p>Hier wird die Variable: <code>score</code> einer Antwort ausgelesen. Diese Element weist 2 Attribute auf: <code>of</code> und <code>from</code>. Der Wert für <code>of</code>entspricht der ID des Aufgabenelements, hier bspw. <strong>radio1</strong>. Der Wert für <code>from</code> entspricht der Unit-ID: <strong>unit0</strong>. Wie eingangs bereits erwähnt, können anstelle des Score auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:</p>
+<ul>
+<li><code>State</code></li>
+<li><code>Value</code></li>
+<li><code>Code</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die beiden Variablen <code>score</code> und <code>code</code> können nur sinnvoll zur Erstellung von Bedingungen eingesetzt werden, wenn zu den Aufgabenelementen, in diesem Beispiel: <strong>radio1 - radio3</strong>, auch eine Kodieranweisung vorhanden ist. Außerdem muss dem Testcenter diese Kodieranweisung bekannt gemacht werden. Zu der eigentlichen Unit-XML muss dann zwingend auch die Unit-VOCS in das Testcenter geladen werden. Die Unit-VOCS enthält die Kodieranweisungen.</p>
+</div>
+</div>
 </section>
 <section id="is" class="level4">
 <h4 class="anchored" data-anchor-id="is"><code>&lt;Is&gt;</code></h4>
-<p>In diesem Beispiel wird der zuvor selektierte Wert (Value) eines Unit-Elements auf Übereinstimmung mit dem Wert: “a” geprüft. Hierfür wird das Attribut: <code>equal</code>benutzt. Es können aber weitere Vergleichsoperatoren eingesetzt werden:</p>
+<p>In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: <code>equal</code> benutzt. Es können aber weitere Vergleichsoperatoren eingesetzt werden:</p>
 <ul>
-<li><code>&lt;lowerThan&gt;</code></li>
-<li><code>&lt;greaterThan&gt;</code></li>
-<li><code>&lt;notEqual&gt;</code></li>
+<li><code>lowerThan</code></li>
+<li><code>greaterThan</code></li>
+<li><code>notEqual</code></li>
 </ul>
 </section>
 </section>
-<section id="abfrage-von-zuständen" class="level3">
-<h3 class="anchored" data-anchor-id="abfrage-von-zuständen">Abfrage von Zuständen</h3>
-<p>In Abhängigkeit der gesetzten Zustände kann nun festgelegt werden, welche Units angezeigt werden sollen. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code>mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element mit einer bestimmten ID ein gesetztes Options-Element mit einer bestimmten ID enthält.</p>
+<section id="optionen-abfragen" class="level3">
+<h3 class="anchored" data-anchor-id="optionen-abfragen">Optionen abfragen</h3>
+<p>In Abhängigkeit der aktiven Optionen kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"unit0"</span><span class="ot"> label=</span><span class="st">"Startunit"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
@@ -914,22 +966,26 @@ Tipp
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Units</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel wird geprüft, ob das State-Element mit der ID:“bonus” ein Options-Element mit der ID: “bonus1” enthält, also ob diese Option gesetzt ist. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Zustände zuvor in Abhängigkeit von bestimmten Werten in der Unit0 gesetzt wurden, muss natürlich die Unit0 angezeigt werden. Deshalb wird diese an erster Stelle im Element: <code>&lt;Units&gt;</code>eingebunden.</p>
+<p>In diesem Beispiel wird geprüft, ob das State-Element mit der ID:<strong>bonus</strong> ein aktives Options-Element mit der ID: <strong>bonus1</strong> enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: <strong>bonus2</strong> in Abhängigkeit von den Antwortwerten in der <strong>unit0</strong> gesetzt werden soll, muss natürlich die <strong>unit0</strong> angezeigt werden. Deshalb wird diese an erster Stelle im Element: <code>&lt;Units&gt;</code> eingebunden.</p>
 </section>
 <section id="ein-komplettes-beispiel" class="level3">
 <h3 class="anchored" data-anchor-id="ein-komplettes-beispiel">Ein Komplettes Beispiel</h3>
-<p><strong>Setzen von Zuständen:</strong></p>
+<p><strong>Optionen anlegen</strong></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus"</span><span class="ot"> label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Value</span><span class="ot"> of=</span><span class="st">"var1"</span><span class="ot"> from=</span><span class="st">"unit0"</span> /&gt;</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"a"</span> /&gt;</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Abfrage der Zustände:</strong></p>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span> /&gt;</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Optionen abfragen:</strong></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"unit0"</span><span class="ot"> label=</span><span class="st">"Startunit"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
@@ -959,19 +1015,19 @@ Tipp
 </section>
 <section id="konfiguration-in-der-testtaker-xml" class="level2">
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-testtaker-xml">Konfiguration in der Testtaker-XML</h2>
-<p>Das Setzen bestimmter Optionen kann auch bereits in Testtaker-XML erfolgen.</p>
-<p>Beispiel: Es wird die Option:“yes” für ein Testheft gesetzt.</p>
+<section id="optionen-anlegen-1" class="level3">
+<h3 class="anchored" data-anchor-id="optionen-anlegen-1">Optionen anlegen</h3>
+<p>Das Setzen bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
+<p>Beispiel: Das Booklet: <strong>BOOKLET.SAMPLE-1</strong> wird nach Anmeldung 2-mal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"er3Cdx"</span><span class="ot"> pw=</span><span class="st">"123"</span>&gt;</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> state=</span><span class="st">"bonus1:yes;dummy:foo"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> state=</span><span class="st">"bonus1:yes"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>/&gt;</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel wird nach der Anmeldung (er3Cdx, 123) 3mal das selbe Testheft: “BOOKLET.SAMPLE-1” angezeigt. Einmal mit Bonusaufgaben und einmal ohne. Damit die Option mit der ID: “yes” bereits über die Testtaker-XML gesetzt werden kann, muss die Option natürlich auch in der Booklet-XML angelegt sein.</p>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> state=</span><span class="st">"bonus1:yes"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Damit die Option mit der ID: <strong>yes</strong> über die Testtaker-XML gesetzt werden kann, muss die Option auch in der <strong>Booklet-XML</strong> angelegt sein:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"Bonusmaterial"</span>&gt;</span>
@@ -980,10 +1036,9 @@ Tipp
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>THuste: Mit Philipp klären: Was ist dummy:foo?</p>
-<p>THuste: Wie ist das mit dem yes und no für bonus1 in der booklet-xml. Muss getestet werden.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
@@ -1414,6 +1469,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Testcenter/Gruppenmonitor/index.html" class="pagination-link" aria-label="Gruppenmonitor">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Gruppenmonitor</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Testcenter/Studie_durchfuehren/index.html" class="pagination-link" aria-label="Studie durchführen">
+        <span class="nav-page-text">Studie durchführen</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
