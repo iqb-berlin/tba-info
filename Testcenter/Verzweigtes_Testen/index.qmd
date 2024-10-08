@@ -1,0 +1,260 @@
+---
+lang: de
+title: "Verzweigtes Testen"
+format:
+  html:
+    other-links:
+      - text: XML-Schema für Booklet
+        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd
+      - text: XML-Schema für Testtaker
+        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd
+date: 2024-10-08
+---
+
+Aufgaben können während einer Studiendurchführung abhängig von bestimmten Bedingungen angezeigt werden. Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort werden sogenannte Options-Elemente verwendet, um die Bedingungen abbilden zu können. In Abhängigkeit vom Zustand dieses Options-Elementes (aktiv oder nicht aktiv) werden entsprechende Aufgaben angezeigt. 
+
+Options-Elemente können alleine stehen und sind somit bedingungslos aktiv. Sie können aber auch IF-Anweisungen enthalten, die die Optionen in Abhängigkeit vom Ergebnis der IF-Anweisung aktiv schalten. Da die Aktivierung von Optionen nur abhängig sein kann von der Beantwortung ein oder mehrere Frageitems, können in einer IF-Anweisung nur Variablen der Antwort ausgewertet werden. Es muss also im Vorfeld verstanden werden, wie eine Antwort aufgebaut ist und wie sie ausgewertet werden kann.
+
+Wird ein Aufgabenelement, bspw. ein Optionsfeld, beantwortet, speichert der Player den eigentlichen Antwortwert plus weiterer Variablen in einem Datenobjekt. Die folgenden Variablen sind in diesem Objekt enthalten:
+
+* `id`: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört
+* `state`: Status des Datenobjektes
+* `value`: Gespeicherter Antwortwert, bspw. bei einem Optionselement true oder false
+* `code`: Kategorie des Antwortwertes nach dem Kodierungsprozess
+* `score`: Auswertung des Codes nach dem Kodierungsprozess
+
+::: {.callout-note}
+Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist [hier](https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3) zu finden.
+:::
+
+Diese Variablen können nun in einer IF-Anweisung ausgewertet werden und in Abhängigkeit vom Ergebnis kann eine Option aktiviert werden.
+
+Das Options-Element steht nicht alleine, sondern ist Bestandteil von Eltern-Elementen. Sowohl die Elemente als auch deren Attribute sind nicht frei wählbar. Welche Elemente und Attribute verwendet werden können, ist in der Schema-Definition festgelegt. Im Anschluss wird beschrieben, wie die Konfiguration in den beiden Dateien vorzunehmen ist.
+
+## Konfiguration in der Booklet-XML
+
+### Optionen anlegen
+
+Hier ein Beispiel:
+
+```{.xml}
+<States>
+    <State id="bonus" label="Bonusaufgaben">
+      <Option id="bonus1" label="ja" />
+      <Option id="bonus2" label="ja" />
+        <If>
+          <Sum>
+            <Score of="radio_1" from="unit0"/>
+            <Score of="radio_2" from="unit0"/>
+            <Score of="radio_3" from="unit0"/>
+          </Sum>
+            <Is equal="3" />
+        </If>
+    </State>
+ </States>
+```
+
+#### `<States>`
+
+Elternelement für das State- Element. Dieses Element darf nur einmal in der XML vorhanden sein.
+
+#### `<State>`
+
+Elternelemente für das eigentliche Options-Element. Diese Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig `ìd` und ein `label`. State- und Optionselement werden später in Abhängigkeit ausgewertet. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.  
+
+#### `<Option>`
+
+Von diesem Options-Element hängt die Anzeige einzelner Aufgaben ab. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Ein Options-Element kann ohne eine IF-Bedingung angelegt werden. Dann gilt diese Option als aktiv. In diesem Beispiel ist die Option mit der ID: "bonus1" aktiv. Wird die Option um eine IF-Bedingung erweitert, wird sie erst aktiv, wenn die Bedingung erfüllt ist. 
+
+#### `<If>`
+
+Hiermit werden die Bedingungen für ein übergeordnetes Options-Element festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.
+
+#### `<Sum>`
+
+In diesem Beispiel wird der Score von 3 Antworten mit den ID`s: **radio1**, **radio2** und **radio3** der Unit mit der ID: **unit0** addiert. 
+
+Es gibt außer `sum` noch weitere Funktionen:
+
+* `<Count>`
+
+    Hiermit können bspw. logische Verknüpfungen erstellt werden.
+
+    Beispiel: Es darf nur eine der 3 IF-Bedingungen erfüllt sein (ODER-Verknüpfung)
+
+    ```{.xml}
+        <If>
+          <Count>
+            <If>
+                <Value of="radio1" from="unit0"/>
+                <Is equal="1" />
+            </If>
+            <If>
+                <Value of="radio2" from="unit0"/>
+                <Is equal="1" />
+            </If>
+            <If>
+                <Value of="radio3" from="unit0"/>
+                <Is equal="1" />
+            </If>
+          </Count>
+          <Is equal="1" />
+        </If>
+    ```
+* `<Median>`
+
+    Beispiel: Median des Score von 3 Antworten 
+    
+    ```{.xml}
+        <If>
+          <Median>
+            <Score of="radio1" from="unit0"/>
+            <Score of="radio2" from="unit0"/>
+            <Score of="radio3" from="unit0"/>
+          </Median>
+          <Is equal="2"/>
+        </If>
+    ```
+
+* `<Mean>` 
+
+    Beispiel: Mittelwert 
+
+     ```{.xml}
+        <If>
+          <Mean>
+            <Score of="radio1" from="unit0"/>
+            <Score of="radio2" from="unit0"/>
+            <Score of="radio3" from="unit0"/>
+          </Mean>
+          <Is equal="2"/>
+        </If>
+    ```
+
+#### `<Score>`
+
+Hier wird die Variable: `score` einer Antwort ausgelesen. Diese Element weist 2 Attribute auf: `of` und `from`. Der Wert für `of`entspricht der ID des Aufgabenelements, hier bspw. **radio1**. Der Wert für `from` entspricht der Unit-ID: **unit0**. Wie eingangs bereits erwähnt, können anstelle des Score auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:
+
+* `State`
+* `Value`
+* `Code`
+
+::: {.callout-note}
+Die beiden Variablen `score` und `code` können nur sinnvoll zur Erstellung von Bedingungen eingesetzt werden, wenn zu den Aufgabenelementen, in diesem Beispiel: **radio1 - radio3**, auch eine Kodieranweisung vorhanden ist. Außerdem muss dem Testcenter diese Kodieranweisung bekannt gemacht werden. Zu der eigentlichen Unit-XML muss dann zwingend auch die Unit-VOCS in das Testcenter geladen werden. Die Unit-VOCS enthält die Kodieranweisungen.
+:::
+
+#### `<Is>`
+
+In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: `equal` benutzt. Es können aber weitere Vergleichsoperatoren eingesetzt werden:
+
+* `lowerThan`
+* `greaterThan`
+* `notEqual`
+
+### Optionen abfragen
+
+In Abhängigkeit der aktiven Optionen kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: `<Restriction>` das Element: `<Show>` mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.
+
+```{.xml}
+<Units>
+
+    <Unit id="unit0" label="Startunit" labelshort="1"/>
+
+    <Testlet id="Bonus-Aufgaben-1">
+        <Restrictions>
+            <Show if="bonus" is="bonus1" />
+        </Restrictions>
+
+        <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
+        <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
+        <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+    </Testlet>
+
+</Units>
+```
+
+In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein aktives Options-Element mit der ID: **bonus1** enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: **bonus2** in Abhängigkeit von den Antwortwerten in der **unit0** gesetzt werden soll, muss natürlich die **unit0** angezeigt werden. Deshalb wird diese an erster Stelle im Element: `<Units>` eingebunden.
+
+### Ein Komplettes Beispiel
+
+**Optionen anlegen**
+
+```{.xml}
+<States>
+    <State id="bonus" label="Bonusaufgaben">
+      <Option id="bonus1" label="ja" />
+      <Option id="bonus2" label="ja" />
+        <If>
+          <Sum>
+            <Score of="radio_1" from="unit0"/>
+            <Score of="radio_2" from="unit0"/>
+            <Score of="radio_3" from="unit0"/>
+          </Sum>
+            <Is equal="3" />
+        </If>
+    </State>
+ </States>
+```
+
+**Optionen abfragen:**
+
+```{.xml}
+<Units>
+
+    <Unit id="unit0" label="Startunit" labelshort="1"/>
+
+    <Testlet id="Bonus-Aufgaben-1">
+        <Restrictions>
+            <Show if="bonus" is="bonus1" />
+        </Restrictions>
+
+        <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
+        <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
+        <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+    </Testlet>
+
+    <Testlet id="Bonus-Aufgaben-2">
+        <Restrictions>
+            <Show if="bonus" is="bonus2" />
+        </Restrictions>
+
+        <Unit id="BonusUnit4" label="Bonus Unit 4" labelshort="5" />
+        <Unit id="BonusUnit5" label="Bonus Unit 5" labelshort="6" />
+        <Unit id="BonusUnit6" label="Bonus Unit 6" labelshort="7" />
+    </Testlet>
+
+</Units>
+```
+
+## Konfiguration in der Testtaker-XML
+
+### Optionen anlegen
+
+Das Setzen bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
+
+Beispiel: Das Booklet: **BOOKLET.SAMPLE-1** wird nach Anmeldung 2-mal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.
+
+```{.xml}
+<Group id="sample_group" label="Primary Sample Group">
+
+    <Login mode="run-hot-return" name="er3Cdx" pw="123">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+      <Booklet state="bonus1:yes">BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+
+  </Group>
+```
+
+Damit die Option mit der ID: **yes** über die Testtaker-XML gesetzt werden kann, muss die Option auch in der **Booklet-XML** angelegt sein:
+
+```{.xml}
+<States>
+
+    <State id="bonus1" label="Bonusmaterial">
+        <Option id="no" label="nein" />
+        <Option id="yes" label="ja" />
+    </State>
+
+<States>
+```
+
