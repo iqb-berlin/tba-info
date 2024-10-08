@@ -1,6 +1,6 @@
 ---
 lang: de
-title: "Verzweigtes Testen"
+title: "Adaptives Testen"
 format:
   html:
     other-links:
@@ -15,12 +15,7 @@ date: 2024-10-08
 Diese Seite befindet sich noch in Bearbeitung.
 :::
 
-
-Aufgaben können während einer Studiendurchführung abhängig von bestimmten Bedingungen angezeigt werden. Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort werden sogenannte Options-Elemente verwendet, um die Bedingungen abbilden zu können. In Abhängigkeit vom Zustand dieses Options-Elementes (aktiv oder nicht aktiv) werden entsprechende Aufgaben angezeigt. 
-
-Options-Elemente können alleine stehen und sind somit bedingungslos aktiv. Sie können aber auch IF-Anweisungen enthalten, die die Optionen in Abhängigkeit vom Ergebnis der IF-Anweisung aktiv schalten. Da die Aktivierung von Optionen nur abhängig sein kann von der Beantwortung ein oder mehrere Frageitems, können in einer IF-Anweisung nur Variablen der Antwort ausgewertet werden. Es muss also im Vorfeld verstanden werden, wie eine Antwort aufgebaut ist und wie sie ausgewertet werden kann.
-
-Wird ein Aufgabenelement, bspw. ein Optionsfeld, beantwortet, speichert der Player den eigentlichen Antwortwert plus weiterer Variablen in einem Datenobjekt. Die folgenden Variablen sind in diesem Objekt enthalten:
+Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Eine Antwort besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:
 
 * `id`: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört
 * `state`: Status des Datenobjektes
@@ -32,13 +27,14 @@ Wird ein Aufgabenelement, bspw. ein Optionsfeld, beantwortet, speichert der Play
 Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist [hier](https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3) zu finden.
 :::
 
-Diese Variablen können nun in einer IF-Anweisung ausgewertet werden und in Abhängigkeit vom Ergebnis kann eine Option aktiviert werden.
+Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden. Das Ergebnis muss dann einem bestimmten Wert entsprechen, damit eine Aufgabe angezeigt wird.
 
-Das Options-Element steht nicht alleine, sondern ist Bestandteil von Eltern-Elementen. Sowohl die Elemente als auch deren Attribute sind nicht frei wählbar. Welche Elemente und Attribute verwendet werden können, ist in der Schema-Definition festgelegt. Im Anschluss wird beschrieben, wie die Konfiguration in den beiden Dateien vorzunehmen ist.
+Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (`<Option>`) und Zustands-Elementen (`<State>`) Verfügung, die in Kombination, die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.
+
 
 ## Konfiguration in der Booklet-XML
 
-### Optionen anlegen
+### Optionen und Status anlegen
 
 Hier ein Beispiel:
 
@@ -61,19 +57,19 @@ Hier ein Beispiel:
 
 #### `<States>`
 
-Elternelement für das State- Element. Dieses Element darf nur einmal in der XML vorhanden sein.
+Elternelement für das Status- Element. Dieses Element darf nur einmal in der XML vorhanden sein.
 
 #### `<State>`
 
-Elternelemente für das eigentliche Options-Element. Diese Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig `ìd` und ein `label`. State- und Optionselement werden später in Abhängigkeit ausgewertet. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.  
+Bildet den Testheft Status ab und ist Elternelement für die Optionen. Diese Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig `ìd` und ein `label`. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.  
 
 #### `<Option>`
 
-Von diesem Options-Element hängt die Anzeige einzelner Aufgaben ab. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Ein Options-Element kann ohne eine IF-Bedingung angelegt werden. Dann gilt diese Option als aktiv. In diesem Beispiel ist die Option mit der ID: "bonus1" aktiv. Wird die Option um eine IF-Bedingung erweitert, wird sie erst aktiv, wenn die Bedingung erfüllt ist. 
+Alleinstehende Optionen sind bedingungslos aktiv. Sie können auch um IF-Anweisungen erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel ist die Option mit der ID: **bonus1** aktiv. Die Option mit der ID: **bonus2** ist abhängig vom Ergebnis der IF-Anweisung aktiv. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt um eine Aufgabe anzuzeigen.
 
 #### `<If>`
 
-Hiermit werden die Bedingungen für ein übergeordnetes Options-Element festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.
+Hiermit werden die Bedingungen für ein übergeordnete Option festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.
 
 #### `<Sum>`
 
@@ -138,7 +134,13 @@ Es gibt außer `sum` noch weitere Funktionen:
 
 #### `<Score>`
 
-Hier wird die Variable: `score` einer Antwort ausgelesen. Diese Element weist 2 Attribute auf: `of` und `from`. Der Wert für `of`entspricht der ID des Aufgabenelements, hier bspw. **radio1**. Der Wert für `from` entspricht der Unit-ID: **unit0**. Wie eingangs bereits erwähnt, können anstelle des Score auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:
+Hier wird die Variable: `score` einer Antwort ausgelesen. Diese Element weist die folgenden Attribute auf: 
+
+* `of`: ID des Aufgabenelements, hier bspw. **radio1**
+* `from`: ID der Unit. In diesem Fall die Unit mit der ID: **unit0**
+* `or`: Fallback für den Fall das ein Wert nicht verfügbar ist. Bspw. wenn **radio1** keinen Score hat (Kodierfehler), wird -1 angenommen. Das ist bei Additionen und anderen Aggregationen mitunter relevant. Default ist 0.
+
+Wie eingangs bereits erwähnt, können anstelle des Score auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:
 
 * `State`
 * `Value`
@@ -158,7 +160,7 @@ In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten
 
 ### Optionen abfragen
 
-In Abhängigkeit der aktiven Optionen kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: `<Restriction>` das Element: `<Show>` mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.
+In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: `<Restriction>` das Element: `<Show>` mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.
 
 ```{.xml}
 <Units>
@@ -182,7 +184,7 @@ In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein 
 
 ### Ein Komplettes Beispiel
 
-**Optionen anlegen**
+**Optionen und Status anlegen**
 
 ```{.xml}
 <States>
@@ -201,7 +203,7 @@ In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein 
  </States>
 ```
 
-**Optionen abfragen:**
+**Optionen und Status abfragen:**
 
 ```{.xml}
 <Units>
@@ -233,7 +235,7 @@ In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein 
 
 ## Konfiguration in der Testtaker-XML
 
-### Optionen anlegen
+### Optionen und Status anlegen
 
 Das Setzen bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
 
@@ -263,6 +265,6 @@ Damit die Option mit der ID: **yes** über die Testtaker-XML gesetzt werden kann
 <States>
 ```
 ::: {.callout-note}
-Die Option die zuerst in der Booklet-XML gelistet ist, entscheidet ob die Option aktiv wird oder nicht.
+
 :::
 
