@@ -772,12 +772,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#optionen-und-status-anlegen" id="toc-optionen-und-status-anlegen" class="nav-link" data-scroll-target="#optionen-und-status-anlegen">Optionen und Status anlegen</a></li>
   <li><a href="#optionen-abfragen" id="toc-optionen-abfragen" class="nav-link" data-scroll-target="#optionen-abfragen">Optionen abfragen</a></li>
-  <li><a href="#ein-komplettes-beispiel" id="toc-ein-komplettes-beispiel" class="nav-link" data-scroll-target="#ein-komplettes-beispiel">Ein Komplettes Beispiel</a></li>
+  <li><a href="#das-komplette-beispiel" id="toc-das-komplette-beispiel" class="nav-link" data-scroll-target="#das-komplette-beispiel">Das komplette Beispiel</a></li>
   </ul></li>
   <li><a href="#konfiguration-in-der-testtaker-xml" id="toc-konfiguration-in-der-testtaker-xml" class="nav-link" data-scroll-target="#konfiguration-in-der-testtaker-xml">Konfiguration in der Testtaker-XML</a>
   <ul class="collapse">
   <li><a href="#optionen-und-status-anlegen-1" id="toc-optionen-und-status-anlegen-1" class="nav-link" data-scroll-target="#optionen-und-status-anlegen-1">Optionen und Status anlegen</a></li>
   </ul></li>
+  <li><a href="#prüfen-der-konfiguration-im-review-modus" id="toc-prüfen-der-konfiguration-im-review-modus" class="nav-link" data-scroll-target="#prüfen-der-konfiguration-im-review-modus">Prüfen der Konfiguration im Review-Modus</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-berlin/tba-info/issues/new" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div><div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd"><i class="bi bi-link-45deg"></i>XML-Schema für Booklet</a></li><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd"><i class="bi bi-link-45deg"></i>XML-Schema für Testtaker</a></li></ul></div></nav>
     </div>
@@ -797,7 +798,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">8. Oktober 2024</p>
+      <p class="date">9. Oktober 2024</p>
     </div>
   </div>
   
@@ -809,19 +810,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Diese Seite befindet sich noch in Bearbeitung.</p>
-</div>
-</div>
 <p>Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Eine Antwort besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:</p>
 <ul>
 <li><code>id</code>: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört</li>
@@ -843,7 +831,7 @@ Hinweis
 <p>Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist <a href="https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3">hier</a> zu finden.</p>
 </div>
 </div>
-<p>Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden. Das Ergebnis muss dann einem bestimmten Wert entsprechen, damit eine Aufgabe angezeigt wird.</p>
+<p>Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden.</p>
 <p>Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (<code>&lt;Option&gt;</code>) und Zustands-Elementen (<code>&lt;State&gt;</code>) Verfügung, die in Kombination, die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.</p>
 <section id="konfiguration-in-der-booklet-xml" class="level2">
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-booklet-xml">Konfiguration in der Booklet-XML</h2>
@@ -852,18 +840,19 @@ Hinweis
 <p>Hier ein Beispiel:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus"</span><span class="ot"> label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span> /&gt;</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"ja"</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span> /&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Option</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="states" class="level4">
 <h4 class="anchored" data-anchor-id="states"><code>&lt;States&gt;</code></h4>
 <p>Elternelement für das Status- Element. Dieses Element darf nur einmal in der XML vorhanden sein.</p>
@@ -874,11 +863,24 @@ Hinweis
 </section>
 <section id="option" class="level4">
 <h4 class="anchored" data-anchor-id="option"><code>&lt;Option&gt;</code></h4>
-<p>Alleinstehende Optionen sind bedingungslos aktiv. Sie können auch um IF-Anweisungen erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel ist die Option mit der ID: <strong>bonus1</strong> aktiv. Die Option mit der ID: <strong>bonus2</strong> ist abhängig vom Ergebnis der IF-Anweisung aktiv. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt um eine Aufgabe anzuzeigen.</p>
+<p>Alleinstehende Optionen sind bedingungslos aktiv. Sie können auch um IF-Anweisungen erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: <strong>bonus2</strong> aktiv, wenn die Option mit der ID: <strong>bonus1</strong> nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status festgelegt. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält.</p>
+</div>
+</div>
 </section>
 <section id="if" class="level4">
 <h4 class="anchored" data-anchor-id="if"><code>&lt;If&gt;</code></h4>
-<p>Hiermit werden die Bedingungen für ein übergeordnete Option festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.</p>
+<p>Hiermit werden die Bedingungen für eine Option festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.</p>
 </section>
 <section id="sum" class="level4">
 <h4 class="anchored" data-anchor-id="sum"><code>&lt;Sum&gt;</code></h4>
@@ -967,7 +969,7 @@ Hinweis
 </section>
 <section id="optionen-abfragen" class="level3">
 <h3 class="anchored" data-anchor-id="optionen-abfragen">Optionen abfragen</h3>
-<p>In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
+<p>In Abhängigkeit der gesetzten Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"unit0"</span><span class="ot"> label=</span><span class="st">"Startunit"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
@@ -983,25 +985,26 @@ Hinweis
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Units</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel wird geprüft, ob das State-Element mit der ID:<strong>bonus</strong> ein aktives Options-Element mit der ID: <strong>bonus1</strong> enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: <strong>bonus2</strong> in Abhängigkeit von den Antwortwerten in der <strong>unit0</strong> gesetzt werden soll, muss natürlich die <strong>unit0</strong> angezeigt werden. Deshalb wird diese an erster Stelle im Element: <code>&lt;Units&gt;</code> eingebunden.</p>
+<p>In diesem Beispiel wird geprüft, ob das State-Element mit der ID:<strong>bonus</strong> ein aktives Options-Element mit der ID: <strong>bonus1</strong> enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: <strong>bonus1</strong> in Abhängigkeit von den Antwortwerten in der <strong>unit0</strong> gesetzt werden soll, muss natürlich die <strong>unit0</strong> angezeigt werden. Deshalb wird diese an erster Stelle im Element: <code>&lt;Units&gt;</code> eingebunden.</p>
 </section>
-<section id="ein-komplettes-beispiel" class="level3">
-<h3 class="anchored" data-anchor-id="ein-komplettes-beispiel">Ein Komplettes Beispiel</h3>
+<section id="das-komplette-beispiel" class="level3">
+<h3 class="anchored" data-anchor-id="das-komplette-beispiel">Das komplette Beispiel</h3>
 <p><strong>Optionen und Status anlegen</strong></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus"</span><span class="ot"> label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span> /&gt;</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"ja"</span>&gt;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"3"</span> /&gt;</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Option</span>&gt;</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Optionen und Status abfragen:</strong></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1035,7 +1038,7 @@ Hinweis
 <section id="optionen-und-status-anlegen-1" class="level3">
 <h3 class="anchored" data-anchor-id="optionen-und-status-anlegen-1">Optionen und Status anlegen</h3>
 <p>Das Setzen bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
-<p>Beispiel: Das Booklet: <strong>BOOKLET.SAMPLE-1</strong> wird nach Anmeldung 2-mal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.</p>
+<p>Beispiel: Das Booklet: <strong>BOOKLET.SAMPLE-1</strong> wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"er3Cdx"</span><span class="ot"> pw=</span><span class="st">"123"</span>&gt;</span>
@@ -1053,22 +1056,14 @@ Hinweis
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-
-
+<p>Wird in diesem Fall das Booklet ohne Bonus ausgewählt, ist die erste Option im Status die Option mit der ID: <strong>no</strong>. Diese Option wird also für diesen Status festgelegt. In Abhängigkeit von der Konfiguration in der Booklet-XML werden die entsprechenden Bonusaufgaben nicht angezeigt. Wird das Booklet mit Bonus gewählt, wird eine der 2 Optionen bereits mit Hilfe der Testtaker-XML für den Status festgelegt. In diesem Fall die Option mit der ID: <strong>yes</strong>. Entsprechend der Konfiguration in der Booklet-XML werden die Bonusaufgaben angezeigt.</p>
 </section>
+</section>
+<section id="prüfen-der-konfiguration-im-review-modus" class="level2">
+<h2 class="anchored" data-anchor-id="prüfen-der-konfiguration-im-review-modus">Prüfen der Konfiguration im Review-Modus</h2>
+<p>Der Review-Modus kann zur Prüfung der Konfiguration genutzt werden. Im Unit-Menu (rechts) kann unten in einem Listenfeld eine der konfigurierten Optionen ausgewählt werden. Sobald eine Option gewählt ist, werden oberhalb die entsprechende Aufgaben angezeigt, die abhängig von dieser Option angezeigt werden sollen. In der Liste ist auch zu erkennen, welche Option gerade aufgrund des aktuellen Antwortstatus aktiv ist. Die Option ist dann mit einem grau hinterlegten Haken markiert. Werden Frageitems probeweise beantwortet, kann geprüft werden, ob die richtige Option aktiv angezeigt wird. So ist es zum einen möglich zu testen, ob die richtigen Aufgaben zur Option angezeigt werden und ob die jeweiligen Optionen bei entsprechenden Antworten auch aktiv werden.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
