@@ -39,6 +39,35 @@ Hier ist z.B. die ID „text_2“. Das ist eine ID, die automatisch generiert wu
 
 Für die Auswertung ist es wichtig, dass die Elemente, die von Schüler*innen bearbeitet werden, eindeutige und einzigartige IDs haben. Die ID-Vergabe folgt in der Regel einem bestimmten, vorher festgelegten Schema.
 
+#### Eine Aufgabe lässt sich nicht mehr bearbeiten und zeigt eine Fehlermeldung, dass eine ID mehrfach vergeben wurde.
+
+Dieser Fehler kann gelegentlich beim Kopieren von Abschnitten oder Elementen auftreten, insbesondere bei Verbundelementen wie Lückentexten. Dabei kann es vorkommen, dass doppelte IDs nicht automatisch erkannt und neu vergeben werden (s. den vorherigen Eintrag zu doppelten IDs). Falls Sie kurz zuvor gespeichert haben können Sie die Änderung noch verwerfen.
+
+Mit ein wenig Aufwand lässt sich dieser Fehler aber beheben. Notieren Sie sich die ID, die den Fehler hervorruft und befolgen Sie diese Schritte:
+
+Zunächst muss man die Aufgabe als Datei herunterladen. Wenn man im Arbeitsbereich mit der fehlerhaften Aufgabe ist klickt man unten links im Studio auf dieses Symbol:
+
+![](button-weitere-funktionen.png)
+
+Ein Menü klappt auf und man wählt "Export".
+
+![](button-export.png)
+
+Daraufhin öffnet sich ein Fenster mit einer Liste der Aufgaben im Arbeitsbereich links und einigen weiteren Optionen rechts.
+
+![](exportfenster.png)
+
+In der Liste wählt man die fehlerhafte Aufgabe aus, rechts muss man nichts machen. Danach klickt man auf "Herunterladen".
+
+![](button_herunterladen.png)
+
+Die Aufgabe wird als .zip Datei heruntergeladen. Nach dem Entpacken sieht man eine .voud und eine .xml Datei. Die .voud Datei muss man in einem Texteditor öffnen, mit Strg+F nach der fehlerhaften ID suchen und diese umbenennen. Am einfachsten ist es, eine beliebige Zahlenfolge, z.B. 123 an die ID anzuhängen. 
+
+Anschließend speichert man die .voud Datei, dabei sollte sich die Dateiendung nicht ändern, und fasst sie mit der .xml Datei zusammen wieder in ein .zip Archiv zusammen.
+
+Bei der Aufgabe im Studio muss der Kurzname geändert werden, im Anschluss kann man die neue Aufgabe hochladen. Dazu wählt man das ![](plus.png) und dann ![](button_import.png). Es öffnet sich ein Fenster wo man das neue Archiv auswählt. Die reparierte Aufgabe sollte jetzt im Studio erscheinen, ggf. muss man sie noch einer Gruppe zuweisen. Der Fehler sollte nun behoben sein. Sollten weitere IDs doppelt vergeben sein kann man den Prozess wiederholen.
+
+
 ### Sonstiges
 
 #### Wo sehe ich, in welchem Abschnitt ich mich gerade befinde?
