@@ -178,13 +178,13 @@ Testcenterinstanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopf
 Betreiber eines Testcenters können auf diese Weise auftretende Fehler geordnet tracken.
 
 Als Bugtracker kann derzeit nur GitHub angeschlossen werden. Dazu kann der Super-Admin entsprechend ein Token und ein
-Repository angeben. Das Testcenter selbst wird bewusst nicht als BugTracker verwendet, sonderne in Externer Service,
+Repository angeben. Das Testcenter selbst wird bewusst nicht als BugTracker verwendet, sondern ein externer Service,
 damit Fehlerberichte auch bei nicht erreichbarem Testcenter-Server gesendet werden können.
 
-### GitHub als BugTracker Konfigurieren
+### GitHub als BugTracker konfigurieren
 
-* Ein GitHub Projekt mit Aktivierten `issues` auf GitHub.com wird benötigt.
-* Es ist im Feld Ziel-Repository ist das repository in der üblichen Schreibweise `{Organisatiosname}/{Repositiryname}`
+* ein GitHub Projekt mit aktivierten `issues` auf GitHub.com wird benötigt
+* es ist im Feld Ziel-Repository das Repository in der üblichen Schreibweise `{Organisatiosname}/{Repositoryname}`
  anzugeben, z.B. `iqb-berlin/bugreports`
 * [Auf GitHub muss ein Token erzeugt werden](https://github.com/settings/tokens?type=beta) das auf dieses Repository 
-  Zugriff hat und folgendes Recht hat `Read and Write access to issues`. Dieses ist bei `GitHub-Token` einzutragen.
+  Zugriff hat und folgendes Recht hat: `Read and Write access to issues`. Dieses ist bei `GitHub-Token` einzutragen.
