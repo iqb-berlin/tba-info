@@ -791,7 +791,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#das-aussehen-der-anwendung-grundsätzlich-anpassen" id="toc-das-aussehen-der-anwendung-grundsätzlich-anpassen" class="nav-link" data-scroll-target="#das-aussehen-der-anwendung-grundsätzlich-anpassen">Das Aussehen der Anwendung grundsätzlich anpassen</a></li>
   <li><a href="#die-fehlerreport-funktion-konfigurieren" id="toc-die-fehlerreport-funktion-konfigurieren" class="nav-link" data-scroll-target="#die-fehlerreport-funktion-konfigurieren">Die Fehlerreport-Funktion konfigurieren</a>
   <ul class="collapse">
-  <li><a href="#github-als-bugtracker-konfigurieren" id="toc-github-als-bugtracker-konfigurieren" class="nav-link" data-scroll-target="#github-als-bugtracker-konfigurieren">GitHub als BugTracker Konfigurieren</a></li>
+  <li><a href="#github-als-bugtracker-konfigurieren" id="toc-github-als-bugtracker-konfigurieren" class="nav-link" data-scroll-target="#github-als-bugtracker-konfigurieren">GitHub als BugTracker konfigurieren</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -916,13 +916,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="die-fehlerreport-funktion-konfigurieren" class="level2">
 <h2 class="anchored" data-anchor-id="die-fehlerreport-funktion-konfigurieren">Die Fehlerreport-Funktion konfigurieren</h2>
 <p>Wenn immer im Testcenter eine Fehlermeldung auftaucht, gibt es die Möglichkeit, einen ausführlichen Report anzuzeigen, und herunterzuladen. Wird dieser an die Entwickler gesendet, haben diese eine Chance das Problem zu beheben. Eine Testcenterinstanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopfdruck direkt eingesendet werden können. Betreiber eines Testcenters können auf diese Weise auftretende Fehler geordnet tracken.</p>
-<p>Als Bugtracker kann derzeit nur GitHub angeschlossen werden. Dazu kann der Super-Admin entsprechend ein Token und ein Repository angeben. Das Testcenter selbst wird bewusst nicht als BugTracker verwendet, sonderne in Externer Service, damit Fehlerberichte auch bei nicht erreichbarem Testcenter-Server gesendet werden können.</p>
+<p>Als Bugtracker kann derzeit nur GitHub angeschlossen werden. Dazu kann der Super-Admin entsprechend ein Token und ein Repository angeben. Das Testcenter selbst wird bewusst nicht als BugTracker verwendet, sondern ein externer Service, damit Fehlerberichte auch bei nicht erreichbarem Testcenter-Server gesendet werden können.</p>
 <section id="github-als-bugtracker-konfigurieren" class="level3">
-<h3 class="anchored" data-anchor-id="github-als-bugtracker-konfigurieren">GitHub als BugTracker Konfigurieren</h3>
+<h3 class="anchored" data-anchor-id="github-als-bugtracker-konfigurieren">GitHub als BugTracker konfigurieren</h3>
 <ul>
-<li>Ein GitHub Projekt mit Aktivierten <code>issues</code> auf GitHub.com wird benötigt.</li>
-<li>Es ist im Feld Ziel-Repository ist das repository in der üblichen Schreibweise <code>{Organisatiosname}/{Repositiryname}</code> anzugeben, z.B. <code>iqb-berlin/bugreports</code></li>
-<li><a href="https://github.com/settings/tokens?type=beta">Auf GitHub muss ein Token erzeugt werden</a> das auf dieses Repository Zugriff hat und folgendes Recht hat <code>Read and Write access to issues</code>. Dieses ist bei <code>GitHub-Token</code> einzutragen.</li>
+<li>ein GitHub Projekt mit aktivierten <code>issues</code> auf GitHub.com wird benötigt</li>
+<li>es ist im Feld Ziel-Repository das Repository in der üblichen Schreibweise <code>{Organisatiosname}/{Repositoryname}</code> anzugeben, z.B. <code>iqb-berlin/bugreports</code></li>
+<li><a href="https://github.com/settings/tokens?type=beta">Auf GitHub muss ein Token erzeugt werden</a> das auf dieses Repository Zugriff hat und folgendes Recht hat: <code>Read and Write access to issues</code>. Dieses ist bei <code>GitHub-Token</code> einzutragen.</li>
 </ul>
 
 
