@@ -66,9 +66,44 @@ Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe
 * ausblenden von nicht gestarteten Tests
 * ausblenden von gesperrten Tests
 
-Es ist möglich an dieser Stelle mithilfe der {{< fa plus >}}-Schaltfläche weitere eigene Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Eigene Filter können aber auch direkt über die Testtaker-XML konfiguriert werden. Hierzu ein Beispiel:
+Es ist möglich an dieser Stelle mithilfe der {{< fa plus >}}-Schaltfläche weitere eigene Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Eigene Filter und Profile können aber auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
 
 ```{.xml}
+
+<Profiles>
+    <GroupMonitor>
+      <Profile
+        id="small"
+        label="Nicht alles zeigen"
+        blockColumn="hide"
+        unitColumn="hide"
+        view="small"
+        groupColumn="hide"
+        bookletColumn="hide"
+        bookletStatesColumns=""
+        filterPending="yes"
+        filterLocked="yes"
+      >
+        <Filter label="Reduced Booklet" field="personLabel" type="equal" value="test" not="false"/>
+      </Profile>
+
+      <Profile
+        id="all"
+        label="Alles zeigen"
+        blockColumn="show"
+        unitColumn="show"
+        view="full"
+        groupColumn="show"
+        bookletColumn="show"
+        bookletStatesColumns="level bonus"
+        filterPending="yes"
+        filterLocked="no"      
+      >
+      </Profile>
+    </GroupMonitor>
+  </Profiles>
+
+
  <Group id="sample_group" label="Primary Sample Group">
 
     <Login mode="run-hot-return" name="test" pw="user123">
@@ -77,35 +112,8 @@ Es ist möglich an dieser Stelle mithilfe der {{< fa plus >}}-Schaltfläche weit
     </Login>
 
     <Login mode="monitor-group" name="test-group-monitor" pw="user123">
-      
-      <Profile
-        label="KLein"
-        blockColumn="hide"
-        unitColumn="hide"
-        view="small"
-        groupColumn="hide"
-        bookletColumn="hide"
-        filterPending="yes"
-        filterLocked="yes"
-      />
-      <Profile
-        label="Groß"
-        blockColumn="show"
-        unitColumn="show"
-        view="full"
-        groupColumn="show"
-        bookletColumn="show"
-        filterPending="yes"
-        filterLocked="no"
-      >
-        <Filter
-          label="hideXXX"
-          field="personLabel"
-          type="regex"
-          value="xxx"
-          not="false"
-        />
-      </Profile>
+      <Profile id="all" />
+      <Profile id="small" />      
     </Login>
   </Group>
 ```
