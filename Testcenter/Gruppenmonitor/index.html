@@ -872,46 +872,54 @@ Hinweis
 <li>ausblenden von nicht gestarteten Tests</li>
 <li>ausblenden von gesperrten Tests</li>
 </ul>
-<p>Es ist möglich an dieser Stelle mithilfe der <i class="fa-solid fa-plus" aria-label="plus"></i>-Schaltfläche weitere eigene Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf “gleich” und “enthält” gefiltert werden. Eigene Filter können aber auch direkt über die Testtaker-XML konfiguriert werden. Hierzu ein Beispiel:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx yyy"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ot">        label=</span><span class="st">"KLein"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ot">        blockColumn=</span><span class="st">"hide"</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ot">        unitColumn=</span><span class="st">"hide"</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ot">        view=</span><span class="st">"small"</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ot">        groupColumn=</span><span class="st">"hide"</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ot">        bookletColumn=</span><span class="st">"hide"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterPending=</span><span class="st">"yes"</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterLocked=</span><span class="st">"yes"</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      /&gt;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ot">        label=</span><span class="st">"Groß"</span></span>
+<p>Es ist möglich an dieser Stelle mithilfe der <i class="fa-solid fa-plus" aria-label="plus"></i>-Schaltfläche weitere eigene Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf “gleich” und “enthält” gefiltert werden. Eigene Filter und Profile können aber auch direkt über die <strong>Testtaker-XML</strong> konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: <code>personLabel</code>aus, wenn diese gleich dem Wert “test” ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im <code>&lt;Login&gt;</code>-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Profiles</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">GroupMonitor</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ot">        id=</span><span class="st">"small"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ot">        label=</span><span class="st">"Nicht alles zeigen"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ot">        blockColumn=</span><span class="st">"hide"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ot">        unitColumn=</span><span class="st">"hide"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ot">        view=</span><span class="st">"small"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ot">        groupColumn=</span><span class="st">"hide"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ot">        bookletColumn=</span><span class="st">"hide"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ot">        bookletStatesColumns=</span><span class="st">""</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterPending=</span><span class="st">"yes"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterLocked=</span><span class="st">"yes"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      &gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Filter</span><span class="ot"> label=</span><span class="st">"Reduced Booklet"</span><span class="ot"> field=</span><span class="st">"personLabel"</span><span class="ot"> type=</span><span class="st">"equal"</span><span class="ot"> value=</span><span class="st">"test"</span><span class="ot"> not=</span><span class="st">"false"</span>/&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Profile</span>&gt;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ot">        id=</span><span class="st">"all"</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ot">        label=</span><span class="st">"Alles zeigen"</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ot">        blockColumn=</span><span class="st">"show"</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ot">        unitColumn=</span><span class="st">"show"</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ot">        view=</span><span class="st">"full"</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ot">        groupColumn=</span><span class="st">"show"</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ot">        bookletColumn=</span><span class="st">"show"</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterPending=</span><span class="st">"yes"</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterLocked=</span><span class="st">"no"</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      &gt;</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Filter</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ot">          label=</span><span class="st">"hideXXX"</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ot">          field=</span><span class="st">"personLabel"</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="ot">          type=</span><span class="st">"regex"</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="ot">          value=</span><span class="st">"xxx"</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ot">          not=</span><span class="st">"false"</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        /&gt;</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Profile</span>&gt;</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ot">        bookletStatesColumns=</span><span class="st">"level bonus"</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterPending=</span><span class="st">"yes"</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ot">        filterLocked=</span><span class="st">"no"</span>      </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      &gt;</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Profile</span>&gt;</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">GroupMonitor</span>&gt;</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Profiles</span>&gt;</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"test"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx yyy"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> codes=</span><span class="st">"xxx yyy"</span>&gt;BOOKLET.SAMPLE-3&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"test-group-monitor"</span><span class="ot"> pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span><span class="ot"> id=</span><span class="st">"all"</span> /&gt;</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span><span class="ot"> id=</span><span class="st">"small"</span> /&gt;      </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="aktivitätsfenster-mitte" class="level4">
 <h4 class="anchored" data-anchor-id="aktivitätsfenster-mitte">Aktivitätsfenster (Mitte)</h4>
