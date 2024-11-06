@@ -36,7 +36,7 @@ Hier ein Beispiel:
 ```{.xml}
 <States>
     <State id="bonus" label="Bonusaufgaben">
-      <Option id="bonus1" label="ja">
+      <Option id="bonus1" label="ja" > 
         <If>
           <Sum>
             <Score of="radio_1" from="unit0"/>
@@ -61,6 +61,7 @@ Bildet den Testheft Status ab und ist Elternelement für die Optionen. Diese Ele
 
 #### `<Option>`
 
+3. 
 Alleinstehende Optionen sind bedingungslos aktiv. Sie können auch um IF-Anweisungen erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: **bonus2** aktiv, wenn die Option mit der ID: **bonus1** nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.
 
 ::: {.callout-important}
