@@ -1,0 +1,59 @@
+---
+lang: de
+title: "Antwortdaten"
+---
+
+## Struktur der Antwortdaten
+
+### IQB Standardformat für Antworten
+
+Als Antworten bezeichnen wir die Daten, die durch die Interaktion der Testperson mit dem Testsystem entstehen und als Zustände zum Ende der Bearbeitung gespeichert werden. Die Schnittstellendefinition von Verona sieht vor, dass Antworten im `string`-Format gespeichert werden. Dies ermöglicht größte Flexibilität beim Entwickeln und beim Einsatz verschiedener Verona-Player. In Befragungen und Testungen möchte das IQB jedoch Zusatzinformationen in strukturierter Form speichern. Die Antwortdaten liegen also im Prinzip im `string`-Format vor, können aber durch einfache Transformation (z. B. JavaScript JSON.parse()/JSON.stringify() o. ä.) in JSON-Objekte der Struktur überführt werden, die hier anschließend beschrieben ist.
+
+Um nachfolgenden Auswertungsfunktionen mitzuteilen, dass es sich bei den Antwortdaten um JSON-Objekte im IQB-Standardformat handelt, schickt der Abi-Player die Information `unitStateDataType` mit: `iqb-standard@1.1`.
+
+#### Allgemeine Struktur
+
+```
+{
+    id: string,
+    status: string,
+    value: null | number | string | boolean | number[] | string[] | boolean[],
+    subform?: string,
+    code?: number,
+    score?: number
+}
+```
+#### id
+Mit dieser Kennung wird die Antwort einer Variablen zugeordnet. In der Syntax des Abi-Players steht diese Angabe üblicherweise an zweiter Stelle der Definition eines Elements.
+
+#### status
+
+Die Antworten des Abi-Players können für den Status folgende Werte enthalten:
+
+| Wert | Bedeutung | Beschreibung |
+| :------------- | :------------- | :------------- |
+| `NOT_REACHED` | Nicht erreicht | Die Testperson ist noch nicht zu der Stelle gelangt, an der eine Interaktion möglich ist. Wenn eine Variable mit diesem Status in den Ergebnisdaten erscheint bedeutet dies, dass zwar die Unit aufgerufen wurde, aber nicht so weit gescrollt wurde, dass das Element gesehen wurde. |
+| `DISPLAYED` | Gezeigt | Der Testperson ist eine Interaktion möglich. |
+| `VALUE_CHANGED` | Wert geändert | Die Testperson hat eine Antwort gegeben. Auch wenn eine Eingabe später wieder entfernt wird, bleibt dieser Status gesetzt. |
+
+#### value
+
+Hier ist der Antwortwert gespeichert. Das Datenformat ist beim Abi-Player ausschließlich `string`, auch wenn die Antwort eigentlich numerischer oder logischer Natur ist. Beim Auswerten muss hier also bei Bedarf entsprechend transformiert werden. Bei der Beschreibung der jeweiligen Elemente finden Sie die möglichen Werte für die Antwort.
+
+#### subform
+
+Eine wichtige Funktion des Abi-Players ist die Möglichkeit, Unterformulare zu definieren. Wenn eine Antwort aus einem Unterformular gespeichert wird, dann kann man die Zuordnung über diesen Wert erreichen. Das IQB-Standardformat legt nicht fest, wie diese Information strukturiert werden soll. Für den Abi-Player finden Sie unter **Praktische Hinweise/ Arbeiten mit Unterformularen** Erläuterungen dazu.
+
+#### code/score
+
+Diese Informationen sind zwar Teil der Spezifikation des IQB-Standardformates, werden aber erst bei der Datenanalyse gesetzt. Der Abi-Player setzt diese Werte nicht.
+
+## Pflichtfelder Bedeutung
+
+Bei vielen Eingabeelementen kann man angeben, ob die Eingabe Pflicht sein soll. Für freie Eingaben bedeutet das, dass sie nicht leer sein dürfen, eine Auswahl getroffen werden bzw. eine Checkbox angeklickt sein muss (also eine nicht angeklickte Checkbox wird dann als ungültig angesehen).
+
+Beim Aufruf einer Seite sind zunächst alle Formularfelder ohne Fehlermeldung. Wenn dann die Befragten in ein Pflicht-Eingabefeld klicken und ohne Eingabe verlassen, erscheint eine rote Fehlermeldung.
+
+Problematisch wird es, wenn die Befragten versuchen, eine Seite mit nicht ausgefüllten Pflichtfeldern zu verlassen, ohne vorher in diese Felder geklickt zu haben. Hier hängt es vom verwendeten Testsystem ab, ob dies erlaubt wird. Wenn das IQB-Testcenter über die Booklet-Parameter angewiesen wird, ein Weiterblättern bei unzureichend ausgefülltem Formular zu verhindern, dann wird nicht weitergeblättert. Alle Pflicht-Eingabefelder werden dann rot markiert, wenn sie leer sind.
+
+Dieses Verhalten funktioniert allerdings in einem Fall nicht: Wenn die Befragten Unterformulare definiert haben und diese Formulare noch nicht geöffnet haben, dann liegt die dafür nötige Information noch nicht vor.

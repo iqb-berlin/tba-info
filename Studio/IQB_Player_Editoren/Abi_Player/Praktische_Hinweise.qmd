@@ -1,0 +1,72 @@
+---
+lang: de
+title: "Praktische Hinweise"
+---
+
+## Arbeiten mit Unterformularen
+
+Mitunter ist es nötig, eine vorher nicht bekannte Anzahl von Unterformularen vorzusehen. Beispiele:
+
+* Es sollen Angaben zu eigenen Kindern erfasst werden. Für jedes Kind muss ein separates Unterformular (Name, Geschlecht, Geburtsort usw.) erzeugt werden.
+* Es sollen Angaben zu mehreren Schüler:innen einer Klasse erfasst werden.
+
+### Allgemeines Prinzip
+
+Unterformulare sind im Kern Kopien von einem vorgegebenen Formularblock. In der Definition legt man diesen Block an und hat damit festgelegt, welche Formularelemente dazu gehören. Zur Syntax bitte unter **Syntax im Detail/Unterformulare** weiterlesen. Während der Durchführung gibt die Testperson die Anzahl der Unterformulare an. Daraufhin wird der Formularblock entsprechend oft kopiert.
+
+Wenn während der Durchführung die Anzahl der Unterformulare eines Blockes geändert wird, passt der Player entsprechend an. Bei Verringerung der Zahl gehen bereits eingegebene Daten verloren.
+
+Ein Formularblock kann weitere Definitionen für Unterformulare enthalten, d. h. es ist ein Schachteln möglich.
+
+### Auswertung
+
+Wichtig ist die Frage, wie die Antworten aus Unterformularen in die Antwortdaten gelangen. Das gewählte Datenformat `iqb-standard` erlaubt das Hinterlegen eines Wertes für `subform` als Text, legt aber dafür keine Regeln fest. Für die Daten aus dem Abi-Player ist folgendes implementiert:
+
+* Jeder Block für Unterformulare hat eine ID. Diese wird im Kopf festgelegt (Syntax s. **Syntax im Detail/Unterformulare**). Im Datensatz steht sie zunächst für die Anzahl der Unterformulare, so wie die Testperson es eingegeben hatte.
+* Jedes Unterformular hat für `subform` die ID des Formularblockes plus `_` plus eine laufende Zahl, beginnend mit `0`. Wenn also eine Variable im dritten Unterformular eines Formularblockes mit der ID `Kinder` einen Wert berichtet, dann hat deren `subform` den Wert `Kinder_2`.
+* Sind Unterformulare in einem Unterformular möglich, dann werden die `subform`-Werte aneinandergehängt mit dem Trenner `##`. Wenn also eine Variable den `subform`-Wert `Kinder_2##Kuscheltiere_4` hat, dann handelt es sich um eine Information über das fünfte Kuscheltier des dritten Kindes.
+
+Die Antwortdaten bleiben trotz der Schachtelung ein einfaches Array. Nur über die `subform`-Information kann die Schachtelung rekonstruiert werden.
+
+Wer bei der Auswertung die IQB-Windowsanwendung [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox#readme) verwendet, erhält für jedes Unterformular eine neue Testperson, deren ID gebildet wird mit `<Testperson-ID>_<subform>`. Dadurch bleibt der Datensatz zweidimensional.
+
+### Besonderheiten bei erforderlichen Eingaben
+
+Der Player baut ein Unterformular erst, wenn die Testperson das Formular öffnet. Wurden z. B. durch die Testperson 4 Unterformulare festgelegt und noch keines davon geöffnet, ist dem Player nicht bekannt, ob es in diesem Unterformular Pflichtfelder gibt. Ein Weiterblättern ist also möglich, obwohl ggf. erforderliche Eingaben fehlen.
+
+## Ausprobieren von Definitionen
+
+Wenn Sie gerade kein Testsystem zur Verfügung haben oder das Einspielen von Daten für eine Befragung zu aufwändig scheint, können Sie Formular-Definitionen auch direkt ausprobieren:
+
+### Einzelne Formulare: Abi-Player stand-alone
+
+Ein Verona-Player ist stets eine einzelne Html-Datei, die Sie in Ihrem Browser öffnen können. Wenn der Player feststellt, dass er nicht durch eine Webanwendung aufgerufen wurde, dann blendet er rechts oben ein kleines Menü ein:
+
+![grafik](https://user-images.githubusercontent.com/35293259/210259641-3165b2d4-2caa-42cd-ae95-f72c49952590.png)
+
+* Der Menüpunkt "input script" öffnet eine Dialogbox, in der Sie ein Script eingeben bzw. aus der Zwischenablage hineinkopieren können. Nach dem Klick auf "Start" wird das Formular dargestellt.
+* Über den Menüpunkt "load script file" kann eine lokal gespeicherte Datei, die das Script enthält, geladen und als Formular dargestellt werden.
+
+#### Lokal herunterladen 
+
+Sie können sich die letzte Veröffentlichung des Players [über diesen Link](https://github.com/iqb-berlin/verona-player-abi/releases) herunterladen. Im Bereich "Assets" ist die fragliche Html-Datei aufgeführt.
+
+#### Online bei GitHub
+
+Es ist möglich den Player vorab zu testen. Eine entsprechende Testumgebung steht [hier](https://github.com/iqb-berlin/verona-player-testbed?tab=readme-ov-file) in einem GitHub-Repository zur Verfügung. In den Repository Beschreibungen ist dann ein Link zur entsprechenden Seite des Testbeds zu finden.
+
+### Player-Testbed
+
+Für das Testen von Playern und von Definitionen stellt das IQB eine Anwendung bereit, die ebenfalls nur aus einer Html-Datei besteht. Sie laden zuerst einen Player in das Testbed (muss vorher wie oben beschrieben lokal gespeichert werden), und danach eine oder mehrere Dateien mit der Formular-Definition. Es gibt hier zwei Vorteile gegenüber der oben beschriebenen Vorgehensweise:
+
+* Sie können mehrere Formulare-Definitionen gleichzeitig prüfen. Das Hin- und Zurückblättern zeigt Ihnen, dass die Antwortdaten korrekt gespeichert und wiederhergestellt werden.
+* Sie können über einen Schalter in der Fußleiste einen Versuch simulieren, bei ungenügend ausgefülltem Formular weiterzublättern. Pflichtfelder sollten dann rot markiert werden.
+* Sie können sich sofort die Antwortdaten anschauen, die durch das Formular erzeugt wurden.
+
+#### Lokal herunterladen 
+
+Sie können sich die letzte Veröffentlichung des Player-Testbeds [über diesen Link](https://github.com/iqb-berlin/verona-player-testbed/releases) herunterladen. Im Bereich "Assets" ist die fragliche Html-Datei aufgeführt.
+
+#### Online bei GitHub
+
+Über [diese Adresse bei GitHub](https://iqb-berlin.github.io/verona-player-testbed/) rufen Sie das Player-Testbed direkt in Ihrem Browser auf. Wir nutzen hier die Funktion "Pages" bei GitHub.

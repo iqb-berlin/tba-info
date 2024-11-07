@@ -75,7 +75,9 @@ Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](http
 
 ## Netzwerkanbindung
 
-```{.xml filename="syscheck3.xml"}
+Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, weil zumindest die Downloadrate stark abhängig von der verwendeten Testheftgröße ist. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Die Bewertung erfolgt auf Grundlage bestimmter Werte. Da die Testheftgrößen sehr individuell ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen. Hierfür stehen die XML-Elemente: `<UploadSpeed>`und `<DownloadSpeed>` in der System-Check-XML zur Verfügung.
+
+```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
 <SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
@@ -108,25 +110,68 @@ Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](http
 	</Config>
 </SysCheck>
 ```
-1. Das Hochladen betrifft vor allem das Speichern der Antworten im Test, Parameter s. @tbl-network
-2. Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung. Parameter s. @tbl-network
 
-Für die Nutzer\*innen sieht das z. B. so aus:
+1. Das Hochladen betrifft vor allem das Speichern der Antworten im Test. 
+2. Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung.
 
-![Test der Netzwerkanbindung](syscheck4.png){group="input"}
+Es folgt eine kurze Beschreibung der Werte:
 
-::: {#tbl-network}
 | Parameter | Bedeutung im Test |
 |-----|--------------------------------------|
-| `min` | Mindestwert für die ermittelte Geschwindigkeit |
-| `good` | Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben. |
+| `min` | Mindestwert für die ermittelte Geschwindigkeit in **Byte/s** |
+| `good` | Wird dieser Wert bei der Messung erreicht, wird die Bewertung "gut" vergeben. Einheit: **Byte/s**. |
 | `maxDevianceBytesPerSecond` | Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von `maxSequenceRepetitions` wiederholt. |
 | `maxErrorsPerSequence` | Anzahl zulässiger Übertragungsfehler |
 | `maxSequenceRepetitions` | Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in `maxDevianceBytesPerSecond` überschritten wurde. |
-| `100000`, `200000`, `400000`, `800000` | Die Zahlen gebet die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern. |
+| `100000`, `200000`, `400000`, `800000` | Die Zahlen geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern. |
 
-: Parameter des Netzwerk-Tests {.striped}
+Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:
+
+![Test der Netzwerkanbindung](syscheck4.png){group="input"}
+
+### Wie werden die Werte für den eigenen Test ermittelt?
+
+#### Werte für den Download
+
+**`min`:**
+
+Wie eingangs bereits erwähnt, hängt bei der Downloadrate alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
+
+Dazu ein kurzes Beispiel:
+
+[1 MByte = 1024 kByte; 1 kByte = 1024 Byte; 1 Byte = 8 Bit]
+
+10MByte = 10.240kByte = 10.485.760 Byte
+
+Als nächstes muss sich die Testleitung darauf einigen in welcher Zeit diese Testhefte geladen werden sollen. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine Ladezeit von 30 Sekunden an.
+
+`min`= 10.485.760 Byte / 30s = **349.525 Bytes/s**
+
+In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. In der Realität werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.
+
+**`good`:**
+
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 50Mbit/s sein.
+
+Die Umrechnung erfolgt dann wie folgt:
+
+50 Mbit / 8 = 6,25 MByte<br>
+6,25 MByte * 1024 = 6400 KByte<br>
+6400 kByte * 1024 = 6.553.600 Byte<br>
+
+`good`= **6.553.600 Byte/s**
+
+::: {.callout-note}
+Die restlichen Werte können den Standardwert erhalten.
 :::
+
+#### Werte für den Upload
+
+**`min`:**
+
+**`good`:**
+
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 10Mbit/s sein.
 
 ## Speichern der Ergebnisse auf dem Server
 
@@ -320,13 +365,7 @@ Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit eine
 
 Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.
 
-Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite kann man folgendermaßen vorgehen:
-
-1. Ermittlung der Größe des größten Testheftes: Im Testcenter wird unter dem Reiter: **Dateien** des Arbeitsbereiches eine Spalte "Größe" angezeigt. Diese Größe ist bei allen Dateien die tatsächliche Größe der Datei. Eine Ausnahme stellen die Testtaker-Dateien dar. Hier wird die Summe aller Dateien angezeigt, die für dieses Testheft geladen werden müssen (Booklet-XML, Unit-XML, Unit-VOUD, Player-HTML).
-2. Festlegung der maximalen Zeit in Sekunden, nach der dieses Booklet geladen sein soll.
-3. Die Formel **Testheft * 8 / Ladezeit** ergibt den Mindestwert für den Download in MBit/s.
-
-Dieses Verfahren ist einigermaßen verlässlich, weil die Ermittlung der Download-Geschwindigkeit das Ladeverhalten des Testcenters nachbildet. Die Pakete werden beispielsweise nacheinander geladen und nicht parallel.
+Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite, ist im Abschnitt **Netzwerkanbindung** aufgezeigt, wie Eckwerte ermittelt werden können.
 
 # Weiterentwicklung
 

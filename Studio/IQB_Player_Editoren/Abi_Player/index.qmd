@@ -1,0 +1,72 @@
+---
+lang: de
+title: "ABI-Player"
+---
+
+Auf diesen Seiten wird die Nutzung des Verona-Players "Abi" beschrieben.
+
+## Ziele
+
+Dieser Player ist für Befragungen im Rahmen der Evaluation eines IQB-Projektes entstanden. Zwei Anforderungen standen dabei im Vordergrund:
+
+* eine vorher nicht bekannte Anzahl von Unterformularen soll möglich sein
+* die Syntax soll so simpel sein, dass sie leicht automatisch erzeugt werden kann (z. B. über Excel-Funktionen; hohe Anzahl von Fragen und komplexe Rotation)
+
+## Aktuelle Verwendung
+
+Nach wie vor werden die Datenerhebungen zur [Evaluation des Einsatzes von Aufgaben der Pools](https://www.iqb.hu-berlin.de/abitur/evaluation/) über diesen Player umgesetzt. Eine Vielzahl von Fragen für Lehrkräfte kann schnell erstellt werden. Die ansprechende responsive Gestaltung genügt den Anforderungen.
+
+Darüber hinaus werden über diesen Player einfache Eingabeformulare umgesetzt, wenn nur Standardformate nötig sind und die Gestaltung eine untergeordnete Rolle spielt.
+
+## Showcase
+
+Das Team am IQB treibt besonderen Aufwand, den Code lesbar zu halten. Dadurch sollen Interessierte einen schnellen Einblick erhalten, wie ein Verona-Player mit Angular programmiert werden könnte. Die Komplexität der Programmierung ist vergleichsweise gering und eignet sich also gut für diesen Zweck. Dieses Wiki ist auch ausführlicher geführt, um typische Diskussionen über die Nutzung der Schnittstelle und über den Einsatz innerhalb einer Webanwendung zu fördern.
+
+## Versionen
+
+Die ersten Programmierungen datieren Mitte 2018. [Dan Bărbulescu](https://github.com/dan-barbulescu-dev) entwickelte auf Grundlage von JavaScript (Babel) die ersten Versionen. 2021 erfolgte ein Refacturing als Angular-Anwendung. Mit der Version 4.0 Ende 2022 wurde das bisherige proprietäre Antwortformat auf das IQB-Standardformat umgestellt.
+
+## Einführung
+
+![Beispiel Befragung](https://user-images.githubusercontent.com/35293259/210256614-5ea9c40c-1e5e-482a-9f00-7020f652007e.png)
+
+```
+iqb-scripted::1.0
+title::Deine Nutzung der eat-Pakete
+hr
+text::Durch das Methodenteam des IQB wird eine Reihe von R-Paketen entwickelt und in Stand gehalten, die häufige Arbeitsprozesse automatisieren und vereinfachen sollen. Diese Pakete tragen das Präfix eat („Educational Assessment Tools“).
+
+multiple-choice::nutzung_eat::1::Nutzt Du eat-Pakete in der Projektarbeit oder eigenen Forschungsarbeit?::Ja##Nein
+if-start::nutzung_eat::2
+  input-text::hindernis_nutzung::0::Gibt es etwas, das Dich an der Nutzung von (spezifischen) eat-Paketen hindert?::::6
+if-end
+if-start::nutzung_eat::1
+  hr
+  text::eatATA bietet Funktionen zur automatisierten Blockbesetzung bzw. zur automatisierten Erstellung von Testheften. 
+  multiple-choice::eatATA::1::Nutzt Du eatATA?::Brauche ich nicht##Könnte ich gebrauchen, aber nutze ich nicht##Nutze ich
+  if-start::eatATA::2
+    input-text::eatATA2::0::Was hindert Dich an der Nutzung von eatATA?::::6
+  if-end
+  if-start::eatATA::3
+    input-text::eatATA3_a::0::Wofür und wie häufig nutzt Du eatATA?::::6
+    input-text::eatATA3_b::0::Was würdest Du Dir bei eatATA noch wünschen (Funktionalität, Dokumentation/Vignetten, Workshops etc.)?::::6
+  if-end
+  hr
+  text::eatAnalysis bietet Hilfsfunktionen für beispielsweise das Speichern mehrerer Datenblätter in Excel-Tabellen oder das Weiterverarbeiten von lme4 Analyseergebnissen.
+  multiple-choice::eatAnalysis::1::Nutzt Du eatAnalysis?::Brauche ich nicht##Könnte ich gebrauchen, aber nutze ich nicht##Nutze ich
+  if-start::eatAnalysis::2
+    input-text::eatAnalysis2::0::Was hindert Dich an der Nutzung von eatAnalysis?::::6
+  if-end
+  if-start::eatAnalysis::3
+    input-text::eatAnalysis3_a::0::Wofür und wie häufig nutzt Du eatAnalysis?::::6
+    input-text::eatAnalysis3_b::0::Was würdest Du Dir bei eatAnalysis noch wünschen (Funktionalität, Dokumentation/Vignetten, Workshops etc.)?::::6
+  if-end
+  hr
+[...]
+```
+
+### Formulare über einfache Scripte
+
+Oben sehen Sie ein Beispiel für ein Formular und darunter ist das Script dargestellt, das zu diesem Formular geführt hat. Ziel bei der Entwicklung war es zunächst, pro Zeile ein Element zu definieren. Denn diese Definitionen wurden nicht manuell eingegeben, sondern über eine Excel-Tabelle erzeugt. Nur so ließ sich die hohe Anzahl von Fragen und deren Rotation für verschiedene Zielgruppen bewältigen.
+
+Mittlerweile sind weitere Formularelemente und Funktionen hinzugekommen: Unterformulare, Likert-Tabellen, Html, bedingtes Ein-/Ausblenden. Eine Liste der Elemente finden Sie rechts in dem Kasten. Das Prinzip ist stets, sehr komprimiert die Parameter zu übergeben.

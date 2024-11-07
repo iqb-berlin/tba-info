@@ -1,0 +1,19 @@
+---
+lang: de
+title: "Andere Player und Editoren des IQB"
+---
+
+Das IQB stellt Player und Editoren für unterschiedliche Einsatzzwecke zur Verfügung. Die Programmierungen dazu sind in entsprechenden GitHub-Repositories hinterlegt. Der Zugang zu diesen ist auf der Seite [IQB auf GitHub](https://iqb-berlin.github.io/) unter **Releases** zu finden. Sowohl Editor als auch Player sind separate Module mit einer spezifizierten Schnittstelle, der sogenannten Verona-Schnittstelle. Diese Module können in das IQB-Studio und in das IQB-Testcenter integriert werden. Sie können natürlich auch in andere Anwendungen integriert werden, insofern diese die Verona-Schnittstelle unterstützen. Mehr zur Verona-Schnittstelle ist ebenfalls auf der Seite [IQB auf GitHub](https://iqb-berlin.github.io/) unter **Verona-Spezifikationen** zu finden. 
+
+## Aufgaben des Editors
+
+Der Editor stellt Aufgabenelemente zur Verfügung. Diese können während Aufgabenentwicklung in Aufgaben angeordnet und mit spezifischen Eigenschaften versehen werden. Der Editor ist also essentiell für den Aufgabenentwurf. 
+
+## Aufgaben des Players
+
+Der Player ist zuständig für die Darstellung der Aufgabenelemente. Eingebettet in das Studio können so Aufgabenelemente in einer Vorschau betrachtet werden. Im Testcenter stellt der Player die Aufgabenelemente während der Studiendurchführung dar. Neben der reinen Darstellung übernimmt der Player weitere Aufgaben. Er registriert Aktivitäten im Fenster des Players und kommuniziert diese über die Schnittstelle an die übergeordnete Anwendungen. So wird bspw. erkannt, ob sich die Testperson noch aktiv in einer Aufgabe befindet, ob eine Aufgabe beantwortet wurde oder wie viel Zeit für eine Aufgabe benötigt wurde. Zu den Aktivitäten gehört natürlich auch die eigentliche Antwort auf ein Frageelement. Der Player übermittelt die Antwort an die Anwendung, die Anwendung speichert diese.
+
+::: {.callout-note}
+Der Player kann die Aufgabenelemente nur darstellen, wenn ihm diese bekannt sind. Bspw. kann der ABI-Player die mit dem Aspect-Editor erzeugten Aufgabeninhalte nicht darstellen, weil er diese nicht kennt. Player und Editoren müssen also immer zwingend zueinander passen. 
+:::
+
