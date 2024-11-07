@@ -144,8 +144,10 @@ System gestartet, hat diese Einstellung keine Auswirkungen.
 # Server-Admin: TLS einrichten
 
 Außer in [Offline-Szenarien](https://iqb-berlin.github.io/tba-info/Testcenter/install/offline.html) muss TLS verwendet
-werden. Dazu sind Zertifikate zu besorgen und im testcenter-Verzeichnis unter `config/certs` abzulegen. Die Namen der
-Zertifikatsdateien sind in der Datei `config/tls-config.yml` anzugeben.
+werden. 
+
+TLS Zertifikate können dabei eigenhändigt gepflegt werden oder mithilfe eines sog. ACME Anbieters (z.B. Let's Encrypt oder Sectigo) eingerichtet werden. Wird ein ACME Anbieter genutzt, so werden alle notwendigen Informationen im Installationsprozess abgefragt. 
+Werden die Zertifikate manuell gepflegt, so sind der Public Key als `certificate.pem` und der Private Key als `private_key.pem` im Ordner `secrets/traefik/certs` abzulegen.
 
 Ist TLS nicht eingerichtet, so wird ein self-signed-Certificate verwendet - mit der Folge, dass Nutzer des Testcenters
 eine Sicherheitswarnung von ihrem Browser bekommen.
