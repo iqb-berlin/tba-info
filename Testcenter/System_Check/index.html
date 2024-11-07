@@ -741,6 +741,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Kodierschema</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Studio/IQB_Player_Editoren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Andere Player und Editoren des IQB</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Studio/IQB_Player_Editoren/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ABI-Player</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Studio/IQB_Player_Editoren/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syntax im Detail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Studio/IQB_Player_Editoren/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Studio/IQB_Player_Editoren/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praktische Hinweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -764,7 +804,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
   <li><a href="#fehler-beim-hochladen" id="toc-fehler-beim-hochladen" class="nav-link" data-scroll-target="#fehler-beim-hochladen">Fehler beim Hochladen</a></li>
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
-  <li><a href="#netzwerkanbindung" id="toc-netzwerkanbindung" class="nav-link" data-scroll-target="#netzwerkanbindung">Netzwerkanbindung</a></li>
+  <li><a href="#netzwerkanbindung" id="toc-netzwerkanbindung" class="nav-link" data-scroll-target="#netzwerkanbindung">Netzwerkanbindung</a>
+  <ul class="collapse">
+  <li><a href="#wie-werden-die-werte-für-den-eigenen-test-ermittelt" id="toc-wie-werden-die-werte-für-den-eigenen-test-ermittelt" class="nav-link" data-scroll-target="#wie-werden-die-werte-für-den-eigenen-test-ermittelt">Wie werden die Werte für den eigenen Test ermittelt?</a></li>
+  </ul></li>
   <li><a href="#speichern-der-ergebnisse-auf-dem-server" id="toc-speichern-der-ergebnisse-auf-dem-server" class="nav-link" data-scroll-target="#speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</a></li>
   <li><a href="#einbinden-einer-unit" id="toc-einbinden-einer-unit" class="nav-link" data-scroll-target="#einbinden-einer-unit">Einbinden einer Unit</a></li>
   <li><a href="#fragenkatalog" id="toc-fragenkatalog" class="nav-link" data-scroll-target="#fragenkatalog">Fragenkatalog</a></li>
@@ -909,11 +952,8 @@ Hinweis
 </section>
 <section id="netzwerkanbindung" class="level2">
 <h2 class="anchored" data-anchor-id="netzwerkanbindung">Netzwerkanbindung</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>syscheck3.xml</strong></pre>
-</div>
-<div class="sourceCode" id="annotated-cell-3" data-filename="syscheck3.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<p>Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, weil zumindest die Downloadrate stark abhängig von der verwendeten Testheftgröße ist. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Die Bewertung erfolgt auf Grundlage bestimmter Werte. Da die Testheftgrößen sehr individuell ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen. Hierfür stehen die XML-Elemente: <code>&lt;UploadSpeed&gt;</code>und <code>&lt;DownloadSpeed&gt;</code> in der System-Check-XML zur Verfügung.</p>
+<div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
 <span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -944,31 +984,18 @@ Hinweis
 <span id="annotated-cell-3-29"><a href="#annotated-cell-3-29" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">CustomText</span>&gt;</span>
 <span id="annotated-cell-3-30"><a href="#annotated-cell-3-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Config</span>&gt;</span>
 <span id="annotated-cell-3-31"><a href="#annotated-cell-3-31" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="1">Das Hochladen betrifft vor allem das Speichern der Antworten im Test, Parameter s. <a href="#tbl-network" class="quarto-xref">Tabelle&nbsp;1</a></span>
+<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="1">Das Hochladen betrifft vor allem das Speichern der Antworten im Test.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="19" data-code-annotation="2">Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung. Parameter s. <a href="#tbl-network" class="quarto-xref">Tabelle&nbsp;1</a></span>
+<span data-code-cell="annotated-cell-3" data-code-lines="19" data-code-annotation="2">Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung.</span>
 </dd>
 </dl>
-<p>Für die Nutzer*innen sieht das z. B. so aus:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="syscheck4.png" class="lightbox" data-gallery="input" title="Test der Netzwerkanbindung"><img src="syscheck4.png" class="img-fluid figure-img" alt="Test der Netzwerkanbindung"></a></p>
-<figcaption>Test der Netzwerkanbindung</figcaption>
-</figure>
-</div>
-<div id="tbl-network" class="striped quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelle&nbsp;1: Parameter des Netzwerk-Tests
-</figcaption>
-<div aria-describedby="tbl-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped caption-top table">
+<p>Es folgt eine kurze Beschreibung der Werte:</p>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 88%">
@@ -982,11 +1009,11 @@ Tabelle&nbsp;1: Parameter des Netzwerk-Tests
 <tbody>
 <tr class="odd">
 <td><code>min</code></td>
-<td>Mindestwert für die ermittelte Geschwindigkeit</td>
+<td>Mindestwert für die ermittelte Geschwindigkeit in <strong>Byte/s</strong></td>
 </tr>
 <tr class="even">
 <td><code>good</code></td>
-<td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung “gut” vergeben.</td>
+<td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung “gut” vergeben. Einheit: <strong>Byte/s</strong>.</td>
 </tr>
 <tr class="odd">
 <td><code>maxDevianceBytesPerSecond</code></td>
@@ -1002,13 +1029,55 @@ Tabelle&nbsp;1: Parameter des Netzwerk-Tests
 </tr>
 <tr class="even">
 <td><code>100000</code>, <code>200000</code>, <code>400000</code>, <code>800000</code></td>
-<td>Die Zahlen gebet die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.</td>
+<td>Die Zahlen geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.</td>
 </tr>
 </tbody>
 </table>
-</div>
+<p>Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="syscheck4.png" class="lightbox" data-gallery="input" title="Test der Netzwerkanbindung"><img src="syscheck4.png" class="img-fluid figure-img" alt="Test der Netzwerkanbindung"></a></p>
+<figcaption>Test der Netzwerkanbindung</figcaption>
 </figure>
 </div>
+<section id="wie-werden-die-werte-für-den-eigenen-test-ermittelt" class="level3">
+<h3 class="anchored" data-anchor-id="wie-werden-die-werte-für-den-eigenen-test-ermittelt">Wie werden die Werte für den eigenen Test ermittelt?</h3>
+<section id="werte-für-den-download" class="level4">
+<h4 class="anchored" data-anchor-id="werte-für-den-download">Werte für den Download</h4>
+<p><strong><code>min</code>:</strong></p>
+<p>Wie eingangs bereits erwähnt, hängt bei der Downloadrate alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: <strong>Dateien</strong> eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Da die Werte für <code>min</code> in <strong>Byte/s</strong> angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind.</p>
+<p>Dazu ein kurzes Beispiel:</p>
+<p>[1 MByte = 1024 kByte; 1 kByte = 1024 Byte; 1 Byte = 8 Bit]</p>
+<p>10MByte = 10.240kByte = 10.485.760 Byte</p>
+<p>Als nächstes muss sich die Testleitung darauf einigen in welcher Zeit diese Testhefte geladen werden sollen. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine Ladezeit von 30 Sekunden an.</p>
+<p><code>min</code>= 10.485.760 Byte / 30s = <strong>349.525 Bytes/s</strong></p>
+<p>In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. In der Realität werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.</p>
+<p><strong><code>good</code>:</strong></p>
+<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 50Mbit/s sein.</p>
+<p>Die Umrechnung erfolgt dann wie folgt:</p>
+<p>50 Mbit / 8 = 6,25 MByte<br> 6,25 MByte * 1024 = 6400 KByte<br> 6400 kByte * 1024 = 6.553.600 Byte<br></p>
+<p><code>good</code>= <strong>6.553.600 Byte/s</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die restlichen Werte können den Standardwert erhalten.</p>
+</div>
+</div>
+</section>
+<section id="werte-für-den-upload" class="level4">
+<h4 class="anchored" data-anchor-id="werte-für-den-upload">Werte für den Upload</h4>
+<p><strong><code>min</code>:</strong></p>
+<p><strong><code>good</code>:</strong></p>
+<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 10Mbit/s sein.</p>
+</section>
+</section>
 </section>
 <section id="speichern-der-ergebnisse-auf-dem-server" class="level2">
 <h2 class="anchored" data-anchor-id="speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</h2>
@@ -1377,13 +1446,7 @@ Hinweis
 <p>Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.</p>
 <p><strong>Welche Internet-Bandbreite wird für die Testung mindestens benötigt?</strong></p>
 <p>Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.</p>
-<p>Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite kann man folgendermaßen vorgehen:</p>
-<ol type="1">
-<li>Ermittlung der Größe des größten Testheftes: Im Testcenter wird unter dem Reiter: <strong>Dateien</strong> des Arbeitsbereiches eine Spalte “Größe” angezeigt. Diese Größe ist bei allen Dateien die tatsächliche Größe der Datei. Eine Ausnahme stellen die Testtaker-Dateien dar. Hier wird die Summe aller Dateien angezeigt, die für dieses Testheft geladen werden müssen (Booklet-XML, Unit-XML, Unit-VOUD, Player-HTML).</li>
-<li>Festlegung der maximalen Zeit in Sekunden, nach der dieses Booklet geladen sein soll.</li>
-<li>Die Formel <strong>Testheft * 8 / Ladezeit</strong> ergibt den Mindestwert für den Download in MBit/s.</li>
-</ol>
-<p>Dieses Verfahren ist einigermaßen verlässlich, weil die Ermittlung der Download-Geschwindigkeit das Ladeverhalten des Testcenters nachbildet. Die Pakete werden beispielsweise nacheinander geladen und nicht parallel.</p>
+<p>Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite, ist im Abschnitt <strong>Netzwerkanbindung</strong> aufgezeigt, wie Eckwerte ermittelt werden können.</p>
 </section>
 </section>
 <section id="weiterentwicklung" class="level1">
@@ -1870,7 +1933,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
