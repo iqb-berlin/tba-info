@@ -25,7 +25,7 @@ Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist [hier](htt
 
 Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden. 
 
-Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (`<Option>`) und Zustands-Elementen (`<State>`) Verfügung, die in Kombination, die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.
+Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (`<Option>`) und Zustands-Elementen (`<State>`) zur Verfügung, die in Kombination die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.
 
 ## Konfiguration in der Booklet-XML
 
@@ -57,15 +57,14 @@ Elternelement für das Status- Element. Dieses Element darf nur einmal in der XM
 
 #### `<State>`
 
-Bildet den Testheft Status ab und ist Elternelement für die Optionen. Diese Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig `ìd` und ein `label`. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet. 
+Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig `ìd` und ein `label`. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet. 
 
 #### `<Option>`
 
-3. 
-Alleinstehende Optionen sind bedingungslos aktiv. Sie können auch um IF-Anweisungen erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: **bonus2** aktiv, wenn die Option mit der ID: **bonus1** nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.
+Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: **bonus2** aktiv, wenn die Option mit der ID: **bonus1** nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.
 
 ::: {.callout-important}
-Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status festgelegt. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält.
+Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status aktiv. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer nur eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält. Das garantiert min. eine aktive Option innerhalb eines Status.
 :::
 
 #### `<If>`
@@ -153,7 +152,7 @@ Die beiden Variablen `score` und `code` können nur sinnvoll zur Erstellung von 
 
 #### `<Is>`
 
-In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: `equal` benutzt. Es können aber weitere Vergleichsoperatoren eingesetzt werden:
+In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: `equal` benutzt. Es können auch andere Vergleichsoperatoren eingesetzt werden:
 
 * `lowerThan`
 * `greaterThan`
@@ -161,7 +160,7 @@ In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten
 
 ### Optionen abfragen
 
-In Abhängigkeit der gesetzten Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: `<Restriction>` das Element: `<Show>` mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.
+In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: `<Restriction>` das Element: `<Show>` mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.
 
 ```{.xml}
 <Units>
@@ -181,7 +180,7 @@ In Abhängigkeit der gesetzten Optionen und des Status kann nun festgelegt werde
 </Units>
 ```
 
-In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein aktives Options-Element mit der ID: **bonus1** enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: **bonus1** in Abhängigkeit von den Antwortwerten in der **unit0** gesetzt werden soll, muss natürlich die **unit0** angezeigt werden. Deshalb wird diese an erster Stelle im Element: `<Units>` eingebunden.
+In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein aktives Options-Element mit der ID: **bonus1** enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: **bonus1** in Abhängigkeit von den Antwortwerten in der **unit0** aktiv werden soll, muss natürlich auch die **unit0** angezeigt werden. Deshalb wird diese an erster Stelle im Element: `<Units>` eingebunden.
 
 ### Das komplette Beispiel
 
@@ -239,7 +238,7 @@ In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein 
 
 ### Optionen und Status anlegen
 
-Das Setzen bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
+DDie Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
 
 Beispiel: Das Booklet: **BOOKLET.SAMPLE-1** wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.
 
@@ -254,7 +253,7 @@ Beispiel: Das Booklet: **BOOKLET.SAMPLE-1** wird nach Anmeldung zweimal zur Ausw
   </Group>
 ```
 
-Damit die Option mit der ID: **yes** über die Testtaker-XML gesetzt werden kann, muss die Option auch in der **Booklet-XML** angelegt sein:
+Damit die Option mit der ID: **yes** über die Testtaker-XML aktiviert werden kann, muss die Option auch in der **Booklet-XML** angelegt sein:
 
 ```{.xml}
 <States>
@@ -266,7 +265,7 @@ Damit die Option mit der ID: **yes** über die Testtaker-XML gesetzt werden kann
 
 <States>
 ```
-Wird in diesem Fall das Booklet ohne Bonus ausgewählt, ist die erste Option im Status die Option mit der ID: **no**. Diese Option wird also für diesen Status festgelegt. In Abhängigkeit von der Konfiguration in der Booklet-XML werden die entsprechenden Bonusaufgaben nicht angezeigt. Wird das Booklet mit Bonus gewählt, wird eine der 2 Optionen bereits mit Hilfe der Testtaker-XML für den Status festgelegt. In diesem Fall die Option mit der ID: **yes**. Entsprechend der Konfiguration in der Booklet-XML werden die Bonusaufgaben angezeigt.
+Wird in diesem Fall das Booklet ohne Bonus ausgewählt, ist die erste Option im Status die Option mit der ID: **no**. Diese Option wird also für diesen Status aktiviert. In Abhängigkeit von der Konfiguration in der Booklet-XML werden die entsprechenden Bonusaufgaben nicht angezeigt. Wird das Booklet mit Bonus gewählt, wird eine der 2 Optionen bereits mit Hilfe der Testtaker-XML für den Status aktiviert. In diesem Fall die Option mit der ID: **yes**. Entsprechend der Konfiguration in der Booklet-XML werden die Bonusaufgaben angezeigt.
 
 ## Prüfen der Konfiguration im Review-Modus
 
