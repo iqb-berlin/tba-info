@@ -860,7 +860,7 @@ Hinweis
 </div>
 </div>
 <p>Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden.</p>
-<p>Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (<code>&lt;Option&gt;</code>) und Zustands-Elementen (<code>&lt;State&gt;</code>) Verfügung, die in Kombination, die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.</p>
+<p>Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (<code>&lt;Option&gt;</code>) und Zustands-Elementen (<code>&lt;State&gt;</code>) zur Verfügung, die in Kombination die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.</p>
 <section id="konfiguration-in-der-booklet-xml" class="level2">
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-booklet-xml">Konfiguration in der Booklet-XML</h2>
 <section id="optionen-und-status-anlegen" class="level3">
@@ -887,13 +887,11 @@ Hinweis
 </section>
 <section id="state" class="level4">
 <h4 class="anchored" data-anchor-id="state"><code>&lt;State&gt;</code></h4>
-<p>Bildet den Testheft Status ab und ist Elternelement für die Optionen. Diese Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig <code>ìd</code> und ein <code>label</code>. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.</p>
+<p>Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig <code>ìd</code> und ein <code>label</code>. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.</p>
 </section>
 <section id="option" class="level4">
 <h4 class="anchored" data-anchor-id="option"><code>&lt;Option&gt;</code></h4>
-<ol start="3" type="1">
-<li>Alleinstehende Optionen sind bedingungslos aktiv. Sie können auch um IF-Anweisungen erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: <strong>bonus2</strong> aktiv, wenn die Option mit der ID: <strong>bonus1</strong> nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.</li>
-</ol>
+<p>Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: <strong>bonus2</strong> aktiv, wenn die Option mit der ID: <strong>bonus1</strong> nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -904,7 +902,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status festgelegt. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält.</p>
+<p>Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status aktiv. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer nur eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält. Das garantiert min. eine aktive Option innerhalb eines Status.</p>
 </div>
 </div>
 </section>
@@ -989,7 +987,7 @@ Hinweis
 </section>
 <section id="is" class="level4">
 <h4 class="anchored" data-anchor-id="is"><code>&lt;Is&gt;</code></h4>
-<p>In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: <code>equal</code> benutzt. Es können aber weitere Vergleichsoperatoren eingesetzt werden:</p>
+<p>In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: <code>equal</code> benutzt. Es können auch andere Vergleichsoperatoren eingesetzt werden:</p>
 <ul>
 <li><code>lowerThan</code></li>
 <li><code>greaterThan</code></li>
@@ -999,7 +997,7 @@ Hinweis
 </section>
 <section id="optionen-abfragen" class="level3">
 <h3 class="anchored" data-anchor-id="optionen-abfragen">Optionen abfragen</h3>
-<p>In Abhängigkeit der gesetzten Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
+<p>In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"unit0"</span><span class="ot"> label=</span><span class="st">"Startunit"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
@@ -1015,7 +1013,7 @@ Hinweis
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Units</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In diesem Beispiel wird geprüft, ob das State-Element mit der ID:<strong>bonus</strong> ein aktives Options-Element mit der ID: <strong>bonus1</strong> enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: <strong>bonus1</strong> in Abhängigkeit von den Antwortwerten in der <strong>unit0</strong> gesetzt werden soll, muss natürlich die <strong>unit0</strong> angezeigt werden. Deshalb wird diese an erster Stelle im Element: <code>&lt;Units&gt;</code> eingebunden.</p>
+<p>In diesem Beispiel wird geprüft, ob das State-Element mit der ID:<strong>bonus</strong> ein aktives Options-Element mit der ID: <strong>bonus1</strong> enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: <strong>bonus1</strong> in Abhängigkeit von den Antwortwerten in der <strong>unit0</strong> aktiv werden soll, muss natürlich auch die <strong>unit0</strong> angezeigt werden. Deshalb wird diese an erster Stelle im Element: <code>&lt;Units&gt;</code> eingebunden.</p>
 </section>
 <section id="das-komplette-beispiel" class="level3">
 <h3 class="anchored" data-anchor-id="das-komplette-beispiel">Das komplette Beispiel</h3>
@@ -1067,7 +1065,7 @@ Hinweis
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-testtaker-xml">Konfiguration in der Testtaker-XML</h2>
 <section id="optionen-und-status-anlegen-1" class="level3">
 <h3 class="anchored" data-anchor-id="optionen-und-status-anlegen-1">Optionen und Status anlegen</h3>
-<p>Das Setzen bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
+<p>DDie Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
 <p>Beispiel: Das Booklet: <strong>BOOKLET.SAMPLE-1</strong> wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1077,7 +1075,7 @@ Hinweis
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Damit die Option mit der ID: <strong>yes</strong> über die Testtaker-XML gesetzt werden kann, muss die Option auch in der <strong>Booklet-XML</strong> angelegt sein:</p>
+<p>Damit die Option mit der ID: <strong>yes</strong> über die Testtaker-XML aktiviert werden kann, muss die Option auch in der <strong>Booklet-XML</strong> angelegt sein:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"Bonusmaterial"</span>&gt;</span>
@@ -1086,7 +1084,7 @@ Hinweis
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Wird in diesem Fall das Booklet ohne Bonus ausgewählt, ist die erste Option im Status die Option mit der ID: <strong>no</strong>. Diese Option wird also für diesen Status festgelegt. In Abhängigkeit von der Konfiguration in der Booklet-XML werden die entsprechenden Bonusaufgaben nicht angezeigt. Wird das Booklet mit Bonus gewählt, wird eine der 2 Optionen bereits mit Hilfe der Testtaker-XML für den Status festgelegt. In diesem Fall die Option mit der ID: <strong>yes</strong>. Entsprechend der Konfiguration in der Booklet-XML werden die Bonusaufgaben angezeigt.</p>
+<p>Wird in diesem Fall das Booklet ohne Bonus ausgewählt, ist die erste Option im Status die Option mit der ID: <strong>no</strong>. Diese Option wird also für diesen Status aktiviert. In Abhängigkeit von der Konfiguration in der Booklet-XML werden die entsprechenden Bonusaufgaben nicht angezeigt. Wird das Booklet mit Bonus gewählt, wird eine der 2 Optionen bereits mit Hilfe der Testtaker-XML für den Status aktiviert. In diesem Fall die Option mit der ID: <strong>yes</strong>. Entsprechend der Konfiguration in der Booklet-XML werden die Bonusaufgaben angezeigt.</p>
 </section>
 </section>
 <section id="prüfen-der-konfiguration-im-review-modus" class="level2">
