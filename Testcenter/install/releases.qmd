@@ -1,0 +1,69 @@
+---
+lang: de
+title: "Release Plan"
+---
+
+[direkt zu aktuellen Terminen](#aktuelle-termine)
+
+Unter einem **Release** ist hier die Veröffentlichung einer neuen Version des Testcenters zu verstehen. Beim Einsatz des Testcenters z. B. in aufwändigen Server-Umgebungen ist es wichtig zu wissen, zu welchen Zeitpunkten Releases mit welchen Eigenschaften erfolgen. Erst auf dieser Grundlage kann man ergänzende Maßnahmen wie Sicherheits-/Penetrationstests und Lasttests planen.
+
+::: {.callout-note}
+Die Ausführungen auf dieser Seite beziehen sich auf das IQB-Testcenter. Durch die Modularisierung nach dem [Verona-Prinzip](https://verona-interfaces.github.io/) kann es Programmierungen geben (Player), die ebenfalls für die Testdurchführung erforderlich sind. Deren Release-Planung wird hier nicht thematisiert.
+:::
+
+# Versionierung
+
+Für das Testcenter wird eine Versionierung nach dem Prinzip der [Semantischen Versionierung](https://semver.org/lang/de/) verwendet. Danach besteht die Versionsangabe aus drei Zahlen und einem optionalen Suffix. Beispiele: `12.0.4`, `15.4.0-beta`.
+
+* Die erste Zahl wird **Hauptversion** oder MAJOR genannt. Wenn diese Zahl hochgezählt wird, gibt es Änderungen an Schnittstellen und Datenformaten, die grundsätzlich die Installation, die Anbindung an andere Softwarelösungen sowie die Nutzung von Datenobjekten betreffen. Es könnte sein, dass die neue Hauptversion die alten Daten nicht mehr verarbeiten kann. Hinweise hierzu sowie ggf. Migrationsstrategien sind dann im Rahmen der Veröffentlichung dokumentiert.
+* Das Hochzählen der zweiten Zahl (sog. MINOR) nennt man **Funktions-Update**. Es handelt sich um eine Erweiterung der Funktionen ohne Beeinträchtigung der Kompatibilität zu früheren Versionen.
+* Die letzte Zahl nennt man **PATCH**, was soviel bedeutet wie Beheben eines Fehlers. Es gibt nur Änderungen, die dem mit MAJOR.MINOR erwartete Funktionieren des Systems sicherstellen. Dazu zählt auch der Austausch einer Komponente, die zwar nicht Teil der Programmierung ist, aber Teil der Auslieferung ist (z. B. treafik).
+* Wenn die Versionsangabe mit einem Suffix endet, handelt es sich nicht um eine reguläre Freigabe. Die Veröffentlichung ist dann eine **Vorabversion**, die Fehler bzw. nicht erwartetes Verhalten enthalten kann. Die Veröffentlichung wird vorgenommen, um in vielen technischen Umgebungen das System installieren und ausprobieren zu können. Am IQB werden folgende Suffixe verwendet:
+  - `alpha`: Der Kreis der Nutzerinnen und Nutzer soll die implementierten Funktionen prüfen. Manchmal zeigt sich dabei, dass die Anforderungen unklar waren oder es tauchen neue Ideen oder Sichtweisen auf. Nach der alpha gibt es also ggf. noch grundsätzliche Änderungen an den Funktionen.
+  - `beta`: Die Diskussion über die Funktionen ist abgeschlossen, das IQB hat aber die Software-Tests noch nicht abgeschlossen. Insbesondere erfolgen hier manuelle Tests. Prüfungen einer beta-Version können Fehler in der Implementierung aufzeigen.
+  - `rc`: Bei einem Release Candidate sind die Prüfungen am IQB abgeschlossen. Es folgen nun Prüfungen durch Partner bzw. in ungewöhnlichen Umgebungen. Hier sind auch Last- und Sicherheitstests anzusiedeln.
+
+# Grundsätze
+
+## Release-Pfade
+
+* Der Ort der Veröffentlichung ist [GitHub.com](https://github.com/iqb-berlin/testcenter/releases).
+* Es ist die Markierung `Latest` gesetzt für die letzte sog. stabile Version. Diese sollten alle installieren, die neu das IQB-Testcenter auf eigener Infrastruktur nutzen möchten. Auf diese Version beziehen sich Dokumentation und Handreichungen.
+* Jede Veröffentlichung einer neuen stabilen Version erhält einen ausführlichen Text, der die Änderungen gegenüber der Vorversion beschreibt.
+* Alle Versionen mit einem Suffix gelten als Vorabversion und erhalten die Markierung `Pre-release`.
+* Für die Prüfung des Installationsverfahrens kann es nötig sein, eine Vorabversion ohne Suffix zu veröffentlichen. Diese trägt dann nicht die Markierung `Pre-release`, aber auch nicht die Markierung `Latest`. Im Release-Text wird darauf hingewiesen, dass es sich nicht um eine stabile Version handelt.
+* Bei der Veröffentlichung einer Vorabversion wird nur kurz beschrieben, welchen Zweck sie hat.
+* Ältere Hauptversionen werden nicht weiterentwickelt und erhalten keine Patches. In besonderen Fällen und in Abstimmung mit dem IQB kann davon abgewichen werden.
+* Stabile Versionen können Funktionen enthalten, die noch in der Entwicklung sind. Diese sind als `Preview` in der Release-Dokumentation markiert und sind nach der Installation bzw. dem Update deaktiviert. Über ein dokumentiertes Verfahren werden sie aktiviert bzw. zugänglich. Diesen Weg geht das Entwicklerteam, wenn es frühzeitig Rückmeldungen aus dem Nutzerkreis für neue Funktionen erhalten möchte.
+
+## Termine und Planung
+
+* Einmal im Jahr am **1. März** wird eine Hauptversion veröffentlicht.
+* Der Veröffentlichung der Hauptversion geht mindestens eine Vorabversion am **1. Februar** voraus. Dies kann eine `beta`- oder `rc`-Version sein.
+* Hauptversionen werden mit den beabsichtigten Funktionen mindestens ein halbes Jahr vorab angekündigt (s. u.).
+* Funktions-Updates werden nach Bedarf und nach verfügbaren Ressourcen veröffentlicht.
+* Funktions-Updates werden mindestens 1 Monat vorab angekündigt (s. u.).
+
+# Aktuelle Termine
+
+## Nächste Hauptversion 16
+
+* Termin: 1.3.2025
+* Geplante Änderungen:
+  - Das Testcenter kann in einer [Kubernetes](https://kubernetes.io/de/docs/concepts/overview/what-is-kubernetes/)-Umgebung eingesetzt werden. Dies führt zu Änderungen in der Auslieferung. Aus dem Backend-Container werden die Programmierungen für den Startup-Prozess extrahiert und in einen neuen Container platziert.
+* Vorab-Version am 20.12.2024: Hier ist die Kubernetesfähigkeit grundsätzlich hergestellt (Gewährleistung der Ausfallsicherheit über mehrere Server hinweg), es können aber noch keine Container mehrfach gefahren werden
+* Vorab-Version am 1.2.2025: Gewünschte Funktionsfähigkeit hergestellt, Testungen beginnen
+* Anmerkung: Das IQB wird mit dieser Version ausführliche Lasttests durchführen und daraus Empfehlungen ableiten, ob und wie mit dem Einsatz von Kubernetes Nutzeffekte erreicht werden können.
+
+## Nächstes Funktionsupdate 15.4
+
+* Termin: 20.12.2024
+* Geplante Änderungen:
+  - Die Programmierungen zur adaptiven Testdurchführung sind komplett überarbeitet, um das Erstellen der Steuerskripte stark zu vereinfachen.
+* Vorab-Version am 1.12.2024: `beta` für die manuelle Erprobung
+
+## Ausblick
+
+* Für die nächste Hauptversion am 1.3.2026 sind folgende Änderungen geplant:
+  - Umstellung der Admin-Anmeldung auf OpenID Connect. Die Kommunikation mit Servern wird über ein JWT-Application-Token gewährleistet.
+  - Im Jahr 2025 wird ein neues UI/UX des Testcenters entwickelt und mit der Version 17 implementiert. Es ändern sich in diesem Zusammenhang einige Endpunkte der API.
