@@ -847,8 +847,8 @@ Hinweis
 <li>Sollte in besonderen Fällen Patches für eine frühere, nicht als <code>Latest</code> markierte Version veröffentlicht werden, ist diese Version weder als <code>Pre-release</code> noch als <code>Latest</code> markiert.</li>
 <li>Bei der Veröffentlichung einer Vorabversion wird nur kurz beschrieben, welchen Zweck sie hat.</li>
 <li>Ältere Hauptversionen werden nicht weiterentwickelt und erhalten keine Patches. In besonderen Fällen und in Abstimmung mit dem IQB kann davon abgewichen werden.</li>
-<li>Stabile Versionen können Funktionen enthalten, die noch in der Entwicklung sind. Diese sind als <code>Preview</code> in der Release-Dokumentation markiert und sind nach der Installation bzw. dem Update deaktiviert. Über ein dokumentiertes Verfahren werden sie aktiviert bzw. zugänglich. Diesen Weg geht das Entwicklerteam, wenn es frühzeitig Rückmeldungen aus dem Nutzerkreis für neue Funktionen erhalten möchte.</li>
-<li>Funktionen, die mit der nächsten Hauptversion entfallen oder grundlegend überarbeitet werden, können in einem stabilen Release als <code>deprecated</code> markiert werden (Test des Releases).</li>
+<li>Stabile Versionen können Funktionen enthalten, die noch in der Entwicklung sind. Diese sind als <code>Preview</code> in der Release-Dokumentation markiert und sind nach der Installation bzw. dem Update deaktiviert. Über ein dokumentiertes Verfahren werden sie aktiviert bzw. zugänglich. Diesen Weg geht das Entwicklerteam, wenn es frühzeitig Rückmeldungen aus dem Nutzerkreis für neue Funktionen erhalten möchte oder eine bestimmte Änderung, für die eine Hauptversion erforderlich wäre, früher verfügbar machen möchte.</li>
+<li>Funktionen, die mit der nächsten Hauptversion entfallen oder grundlegend überarbeitet werden, können in einem stabilen Release als <code>deprecated</code> markiert werden. Diese Markierung erfolgt im Text des Releases.</li>
 </ul>
 </section>
 <section id="termine-und-planung" class="level2">
@@ -871,8 +871,8 @@ Hinweis
 <ul>
 <li>Das Testcenter kann in einer <a href="https://kubernetes.io/de/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>-Umgebung eingesetzt werden. Dies führt zu Änderungen in der Auslieferung.</li>
 </ul></li>
-<li>Vorab-Version am 20.12.2024: Hier ist die Kubernetesfähigkeit grundsätzlich hergestellt (Gewährleistung der Ausfallsicherheit über mehrere Server hinweg), es können aber noch keine Container mehrfach gefahren werden</li>
-<li>Vorab-Version am 1.2.2025: Gewünschte Funktionsfähigkeit hergestellt, Testungen beginnen</li>
+<li>Vorabversion am 20.12.2024: Hier ist die Kubernetesfähigkeit grundsätzlich hergestellt (Gewährleistung der Ausfallsicherheit über mehrere Server hinweg), es können aber noch keine Container mehrfach gefahren werden</li>
+<li>Vorabversion am 1.2.2025: Gewünschte Funktionsfähigkeit hergestellt, Testungen beginnen</li>
 <li>Anmerkung: Das IQB wird mit dieser Version ausführliche Lasttests durchführen und daraus Empfehlungen ableiten, ob und wie mit dem Einsatz von Kubernetes Nutzeffekte erreicht werden können.</li>
 </ul>
 </section>
@@ -883,8 +883,9 @@ Hinweis
 <li>Geplante Änderungen:
 <ul>
 <li>Die Programmierungen zur adaptiven Testdurchführung sind komplett überarbeitet, um das Erstellen der Steuerskripte stark zu vereinfachen.</li>
+<li>In der Testleitungskonsole gibt es UX-Verbesserungen.</li>
 </ul></li>
-<li>Vorab-Version am 1.12.2024: <code>beta</code> für die manuelle Erprobung</li>
+<li>Vorabversion am 1.12.2024: <code>beta</code> für die manuelle Erprobung</li>
 </ul>
 </section>
 <section id="ausblick" class="level2">
