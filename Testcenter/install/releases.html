@@ -844,17 +844,17 @@ Hinweis
 <li>Es ist die Markierung <code>Latest</code> gesetzt für die letzte sog. stabile Version. Diese sollten alle installieren, die neu das IQB-Testcenter auf eigener Infrastruktur nutzen möchten. Auf diese Version beziehen sich Dokumentation und Handreichungen.</li>
 <li>Jede Veröffentlichung einer neuen stabilen Version erhält einen ausführlichen Text, der die Änderungen gegenüber der Vorversion beschreibt.</li>
 <li>Alle Versionen mit einem Suffix gelten als Vorabversion und erhalten die Markierung <code>Pre-release</code>.</li>
-<li>Für die Prüfung des Installationsverfahrens kann es nötig sein, eine Vorabversion ohne Suffix zu veröffentlichen. Diese trägt dann nicht die Markierung <code>Pre-release</code>, aber auch nicht die Markierung <code>Latest</code>. Im Release-Text wird darauf hingewiesen, dass es sich nicht um eine stabile Version handelt.</li>
+<li>Sollte in besonderen Fällen Patches für eine frühere, nicht als <code>Latest</code> markierte Version veröffentlicht werden, ist diese Version weder als <code>Pre-release</code> noch als <code>Latest</code> markiert.</li>
 <li>Bei der Veröffentlichung einer Vorabversion wird nur kurz beschrieben, welchen Zweck sie hat.</li>
 <li>Ältere Hauptversionen werden nicht weiterentwickelt und erhalten keine Patches. In besonderen Fällen und in Abstimmung mit dem IQB kann davon abgewichen werden.</li>
 <li>Stabile Versionen können Funktionen enthalten, die noch in der Entwicklung sind. Diese sind als <code>Preview</code> in der Release-Dokumentation markiert und sind nach der Installation bzw. dem Update deaktiviert. Über ein dokumentiertes Verfahren werden sie aktiviert bzw. zugänglich. Diesen Weg geht das Entwicklerteam, wenn es frühzeitig Rückmeldungen aus dem Nutzerkreis für neue Funktionen erhalten möchte.</li>
+<li>Funktionen, die mit der nächsten Hauptversion entfallen oder grundlegend überarbeitet werden, können in einem stabilen Release als <code>deprecated</code> markiert werden (Test des Releases).</li>
 </ul>
 </section>
 <section id="termine-und-planung" class="level2">
 <h2 class="anchored" data-anchor-id="termine-und-planung">Termine und Planung</h2>
 <ul>
-<li>Einmal im Jahr am <strong>1. März</strong> wird eine Hauptversion veröffentlicht.</li>
-<li>Der Veröffentlichung der Hauptversion geht mindestens eine Vorabversion am <strong>1. Februar</strong> voraus. Dies kann eine <code>beta</code>- oder <code>rc</code>-Version sein.</li>
+<li>Einmal im Jahr im <strong>März</strong> wird eine Hauptversion veröffentlicht.</li>
 <li>Hauptversionen werden mit den beabsichtigten Funktionen mindestens ein halbes Jahr vorab angekündigt (s. u.).</li>
 <li>Funktions-Updates werden nach Bedarf und nach verfügbaren Ressourcen veröffentlicht.</li>
 <li>Funktions-Updates werden mindestens 1 Monat vorab angekündigt (s. u.).</li>
@@ -869,7 +869,7 @@ Hinweis
 <li>Termin: 1.3.2025</li>
 <li>Geplante Änderungen:
 <ul>
-<li>Das Testcenter kann in einer <a href="https://kubernetes.io/de/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>-Umgebung eingesetzt werden. Dies führt zu Änderungen in der Auslieferung. Aus dem Backend-Container werden die Programmierungen für den Startup-Prozess extrahiert und in einen neuen Container platziert.</li>
+<li>Das Testcenter kann in einer <a href="https://kubernetes.io/de/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>-Umgebung eingesetzt werden. Dies führt zu Änderungen in der Auslieferung.</li>
 </ul></li>
 <li>Vorab-Version am 20.12.2024: Hier ist die Kubernetesfähigkeit grundsätzlich hergestellt (Gewährleistung der Ausfallsicherheit über mehrere Server hinweg), es können aber noch keine Container mehrfach gefahren werden</li>
 <li>Vorab-Version am 1.2.2025: Gewünschte Funktionsfähigkeit hergestellt, Testungen beginnen</li>
@@ -890,7 +890,7 @@ Hinweis
 <section id="ausblick" class="level2">
 <h2 class="anchored" data-anchor-id="ausblick">Ausblick</h2>
 <ul>
-<li>Für die nächste Hauptversion 17 am 1.3.2026 sind folgende Änderungen geplant:
+<li>Für die nächste Hauptversion 17 im März 2026 sind folgende Änderungen geplant:
 <ul>
 <li>Umstellung der Admin-Anmeldung auf OpenID Connect. Die Kommunikation mit Servern wird über ein JWT-Application-Token gewährleistet.</li>
 <li>Im Jahr 2025 wird ein neues UI/UX des Testcenters entwickelt und mit der Version 17 implementiert. Es ändern sich in diesem Zusammenhang einige Endpunkte der API.</li>
