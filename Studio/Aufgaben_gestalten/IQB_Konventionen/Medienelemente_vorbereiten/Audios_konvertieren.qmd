@@ -16,7 +16,7 @@ Wenn eine Audio-Datei über den *Audio*-Button hinzugefügt wird, muss direkt di
 Die Audio-Datei kann entweder eine vorhandene Datei sein oder eine, die mit KI (FreeTTS) generiert wurde (siehe unten).
 
 ::: {.callout-note}
-Die Datei sollte eine MP3 sein, da es bei anderen Dateiformaten zu verlängertem Laden kommen kann. Dies kann mit Audacity angepasst werden (siehe unten).
+Die Datei sollte eine MP3 sein, da es bei anderen Dateiformaten zu längeren Ladezeiten kommen kann. Dies kann mit Audacity angepasst werden (siehe unten).
 :::
 
 ::: {.callout-note}
@@ -69,6 +69,20 @@ Gegebenfalls kann die Datei hier noch geschnitten werden und dann gespeichert we
 
 ![](Grafiken/Audacity_exportieren.png)
 
-::: {.callout-important}
-Beim Exportieren muss die Audiooption von Mono auf Stereo umgestellt werden.
-:::
+Diese Einstellungen werden generell benutzt:
+
+Audios mit geringem Anspruch an die Qualität (nur Sprache):
+
+* Kompression: MP3
+* Kanal: Joint Stereo
+* Abtastrate: 24000 Hz
+* Bitraten Modus: Konstant
+* Bitrate: 64kbps 
+
+Audios mit höherem Anspruch an die Qualität (Musik enthalten):
+
+* Kompression: MP3
+* Kanal: Joint Stereo
+* Abtastrate: 44100 Hz
+* Bitraten Modus: Konstant
+* Bitrate: 96kbps 
