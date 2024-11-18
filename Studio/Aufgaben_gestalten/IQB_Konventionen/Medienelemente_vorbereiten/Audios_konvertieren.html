@@ -828,7 +828,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Datei sollte eine MP3 sein, da es bei anderen Dateiformaten zu verlängertem Laden kommen kann. Dies kann mit Audacity angepasst werden (siehe unten).</p>
+<p>Die Datei sollte eine MP3 sein, da es bei anderen Dateiformaten zu längeren Ladezeiten kommen kann. Dies kann mit Audacity angepasst werden (siehe unten).</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -880,19 +880,23 @@ Hinweis
 <p><a href="https://www.audacity.de/">Audacity</a> ist ein kostenloses Programm zum Aufnehmen und Editieren von Audio-Datein.</p>
 <p>Gegebenfalls kann die Datei hier noch geschnitten werden und dann gespeichert werden. Dazu muss sie exportiert werden:</p>
 <p><img src="Grafiken/Audacity_exportieren.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Wichtig
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Beim Exportieren muss die Audiooption von Mono auf Stereo umgestellt werden.</p>
-</div>
-</div>
+<p>Diese Einstellungen werden generell benutzt:</p>
+<p>Audios mit geringem Anspruch an die Qualität (nur Sprache):</p>
+<ul>
+<li>Kompression: MP3</li>
+<li>Kanal: Joint Stereo</li>
+<li>Abtastrate: 24000 Hz</li>
+<li>Bitraten Modus: Konstant</li>
+<li>Bitrate: 64kbps</li>
+</ul>
+<p>Audios mit höherem Anspruch an die Qualität (Musik enthalten):</p>
+<ul>
+<li>Kompression: MP3</li>
+<li>Kanal: Joint Stereo</li>
+<li>Abtastrate: 44100 Hz</li>
+<li>Bitraten Modus: Konstant</li>
+<li>Bitrate: 96kbps</li>
+</ul>
 
 
 </section>
