@@ -66,7 +66,9 @@ Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe
 * ausblenden von nicht gestarteten Tests
 * ausblenden von gesperrten Tests
 
-Es ist möglich an dieser Stelle mithilfe der {{< fa plus >}}-Schaltfläche weitere eigene Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Eigene Filter und Profile können aber auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
+**Eigene Filter einrichten**
+
+Es ist möglich mithilfe der {{< fa plus >}}-Schaltfläche weitere individuelle Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Wird ein adaptives Testheft verwendet, kann auf die dort hinterlegten State-Elemente und auf die zugehörigen Options-Elemente gefiltert werden. Eigene Filter und Profile können aber auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
 
 ```{.xml}
 
@@ -117,6 +119,13 @@ Es ist möglich an dieser Stelle mithilfe der {{< fa plus >}}-Schaltfläche weit
     </Login>
   </Group>
 ```
+
+Ein vorkonfigurierter Filter für ein adaptives Testheft, müsste dann so in einem Profil hinterlegt sein:
+
+```{.xml}
+<Filter label="Reduced Booklet" field="personLabel" type="equal" value="State-Id" subValue="Option-Id" not="false"/>
+```
+
 #### Aktivitätsfenster (Mitte)
 
 Hier ist eine Liste aller Personen einer Gruppe zu sehen. Außerdem sind die Struktur der Booklets, der Fortschritt der Testung und weitere hilfreiche Informationen in Spalten sortiert zu sehen.
