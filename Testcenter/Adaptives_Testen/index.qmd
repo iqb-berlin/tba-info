@@ -29,6 +29,26 @@ Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort steh
 
 ## Konfiguration in der Booklet-XML
 
+### Werte in der Booklet-Config
+
+Im Element **BookletConfig** stehen Werte zur Verfügung, die im Zusammenhang mit dem adaptiven Testen zum Einsatz kommen können. Dies betrifft die folgenden Werte:
+
+`unit_responses_buffer_time`:
+
+Sobald ein Browser gestartet wird, startet dieser in der hier hinterlegten Zeit in ms zyklisch einen Timer. Nach Ablauf des Timers werden die Eingaben aus Frageelementen ausgelesen und in Abhängigkeit der konfigurierten Bedingungen die optionalen Aufgaben eingeblendet. Ist diese Zeit groß eingestellt, kann es entsprechende Zeit dauern, bis die von den Bedingungen abhängigen Aufgaben in der Navigationsleiste angezeigt werden. Die Standardzeit ist 5000ms, wenn der Wert in der Booklet-Config nicht angegeben wird.
+
+::: {.callout-note}
+Der Timer startet nicht erst nach Eingabe eines Wertes in ein Frageelement. Der Wert des Timers ist abhängig vom Zeitpunkt des Browserstarts.
+:::
+
+`unit_state_buffer_time`:
+
+Der hier angegebene Wert in ms legt fest in welchen Abständen die Zustandswerte (response complete, presentation complete etc.) einer Unit gespeichert werden.
+
+`test_state_buffer_time`:
+
+Speicherfrequenz für Test-Zustände in ms.
+
 ### Optionen und Status anlegen
 
 Hier ein Beispiel:
@@ -36,17 +56,17 @@ Hier ein Beispiel:
 ```{.xml}
 <States>
     <State id="bonus" label="Bonusaufgaben">
-      <Option id="bonus1" label="ja" > 
+      <Option id="bonus1" label="Bonus 1" > 
         <If>
           <Sum>
             <Score of="radio_1" from="unit0"/>
             <Score of="radio_2" from="unit0"/>
             <Score of="radio_3" from="unit0"/>
           </Sum>
-            <Is equal="3" />
+            <Is equal="300" />
         </If>
       </Option>
-      <Option id="bonus2" label="ja" />
+      <Option id="bonus2" label="Bonus 2" />
     </State>
  </States>
 ```
@@ -87,16 +107,16 @@ Es gibt außer `sum` noch weitere Funktionen:
         <If>
           <Count>
             <If>
-                <Value of="radio1" from="unit0"/>
-                <Is equal="1" />
+                <Score of="radio1" from="unit0"/>
+                <Is equal="100" />
             </If>
             <If>
-                <Value of="radio2" from="unit0"/>
-                <Is equal="1" />
+                <Score of="radio2" from="unit0"/>
+                <Is equal="100" />
             </If>
             <If>
-                <Value of="radio3" from="unit0"/>
-                <Is equal="1" />
+                <Score of="radio3" from="unit0"/>
+                <Is equal="100" />
             </If>
           </Count>
           <Is equal="1" />
@@ -113,7 +133,7 @@ Es gibt außer `sum` noch weitere Funktionen:
             <Score of="radio2" from="unit0"/>
             <Score of="radio3" from="unit0"/>
           </Median>
-          <Is equal="2"/>
+          <Is equal="200"/>
         </If>
     ```
 
@@ -128,7 +148,7 @@ Es gibt außer `sum` noch weitere Funktionen:
             <Score of="radio2" from="unit0"/>
             <Score of="radio3" from="unit0"/>
           </Mean>
-          <Is equal="2"/>
+          <Is equal="100"/>
         </If>
     ```
 
@@ -165,22 +185,38 @@ In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden,
 ```{.xml}
 <Units>
 
-    <Unit id="unit0" label="Startunit" labelshort="1"/>
+    <Unit id="unit0" label="Startunit" labelshort="1"/> # <1>
+    
+    <Testlet id="Bonus-Aufgaben"> # <2>
+    
+        <Testlet id="Bonus-Aufgaben-1"> # <3>
+            <Restrictions>
+                <Show if="bonus" is="bonus1" />
+            </Restrictions>
 
-    <Testlet id="Bonus-Aufgaben-1">
-        <Restrictions>
-            <Show if="bonus" is="bonus1" />
-        </Restrictions>
+            <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
+            <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
+            <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+        </Testlet>
 
-        <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
-        <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
-        <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+        <Testlet id="Bonus-Aufgaben-2"> # <4>
+            <Restrictions>
+                <Show if="bonus" is="bonus2" />
+            </Restrictions>
+
+            <Unit id="BonusUnit4" label="Bonus Unit 4" labelshort="2" />
+            <Unit id="BonusUnit5" label="Bonus Unit 5" labelshort="3" />
+            <Unit id="BonusUnit6" label="Bonus Unit 6" labelshort="4" />
+        </Testlet>
+
     </Testlet>
 
 </Units>
 ```
-
-In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein aktives Options-Element mit der ID: **bonus1** enthält. Ist das der Fall, sollen die entsprechenden Bonusaufgaben angezeigt werden. Da die Option mit der ID: **bonus1** in Abhängigkeit von den Antwortwerten in der **unit0** aktiv werden soll, muss natürlich auch die **unit0** angezeigt werden. Deshalb wird diese an erster Stelle im Element: `<Units>` eingebunden.
+1. Da in Abhängigkeit von dem Score der Frageelemente in der **unit0** eine Anzeige von Bonusaufgaben erfolgt, muss die **unit0** bedingungslos sichtbar sein. Daher erfolgt gleich am Anfang der Aufruf dieser Unit.
+2. Übergeordnetes Testlet: Hier werden alle Testlets organisiert, die die Optionen des State-Elements: **bonus** abfragen. Hintergrund: Soll ein Gruppenmonitor zum Einsatz kommen, muss es möglich sein zu dem Block mit den Bonusaufgaben zu springen. Dies wäre nicht möglich, wenn die beiden Testlets:  **Bonus-Aufgaben-1** und **Bonus-Aufgaben-2** ohne übergeordnetes Testlet organisiert wären.
+3. Ist die Option: **bonus1** aktiv, wird dieses Testlet mit den entsprechenden Bonusaufgaben angezeigt.
+4. Ist die Option: **bonus2** aktiv, wird dieses Testlet mit den entsprechenden Bonusaufgaben angezeigt.
 
 ### Das komplette Beispiel
 
@@ -189,17 +225,17 @@ In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein 
 ```{.xml}
 <States>
     <State id="bonus" label="Bonusaufgaben">
-      <Option id="bonus1" label="ja">
+      <Option id="bonus1" label="Bonus 1">
         <If>
           <Sum>
             <Score of="radio_1" from="unit0"/>
             <Score of="radio_2" from="unit0"/>
             <Score of="radio_3" from="unit0"/>
           </Sum>
-            <Is equal="3" />
+            <Is equal="300" />
         </If>
       </Option>
-      <Option id="bonus2" label="ja" />
+      <Option id="bonus2" label="Bonus 2" />
     </State>
  </States>
 ```
@@ -211,24 +247,28 @@ In diesem Beispiel wird geprüft, ob das State-Element mit der ID:**bonus** ein 
 
     <Unit id="unit0" label="Startunit" labelshort="1"/>
 
-    <Testlet id="Bonus-Aufgaben-1">
-        <Restrictions>
-            <Show if="bonus" is="bonus1" />
-        </Restrictions>
+    <Testlet id="Bonus-Aufgaben"> # <2>
+    
+        <Testlet id="Bonus-Aufgaben-1"> # <3>
+            <Restrictions>
+                <Show if="bonus" is="bonus1" />
+            </Restrictions>
 
-        <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
-        <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
-        <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
-    </Testlet>
+            <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
+            <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
+            <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+        </Testlet>
 
-    <Testlet id="Bonus-Aufgaben-2">
-        <Restrictions>
-            <Show if="bonus" is="bonus2" />
-        </Restrictions>
+        <Testlet id="Bonus-Aufgaben-2"> # <4>
+            <Restrictions>
+                <Show if="bonus" is="bonus2" />
+            </Restrictions>
 
-        <Unit id="BonusUnit4" label="Bonus Unit 4" labelshort="5" />
-        <Unit id="BonusUnit5" label="Bonus Unit 5" labelshort="6" />
-        <Unit id="BonusUnit6" label="Bonus Unit 6" labelshort="7" />
+            <Unit id="BonusUnit4" label="Bonus Unit 4" labelshort="2" />
+            <Unit id="BonusUnit5" label="Bonus Unit 5" labelshort="3" />
+            <Unit id="BonusUnit6" label="Bonus Unit 6" labelshort="4" />
+        </Testlet>
+
     </Testlet>
 
 </Units>
