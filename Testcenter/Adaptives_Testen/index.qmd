@@ -11,7 +11,7 @@ format:
 date: 2024-10-09
 ---
 
-Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Eine Antwort besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:
+Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Der Antwortwert besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:
 
 * `id`: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört
 * `state`: Status des Datenobjektes
@@ -23,7 +23,7 @@ Aufgaben können während einer Studiendurchführung abhängig von den gegebenen
 Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist [hier](https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3) zu finden.
 :::
 
-Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden. 
+Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. Auf diese Weise können Antwortwerte auch logisch miteinander verknüpft werden. 
 
 Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (`<Option>`) und Zustands-Elementen (`<State>`) zur Verfügung, die in Kombination die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.
 
@@ -35,10 +35,10 @@ Im Element **BookletConfig** stehen Werte zur Verfügung, die im Zusammenhang mi
 
 `unit_responses_buffer_time`:
 
-Sobald ein Browser gestartet wird, startet dieser in der hier hinterlegten Zeit in ms zyklisch einen Timer. Nach Ablauf des Timers werden die Eingaben aus Frageelementen ausgelesen und in Abhängigkeit der konfigurierten Bedingungen die optionalen Aufgaben eingeblendet. Ist diese Zeit groß eingestellt, kann es entsprechende Zeit dauern, bis die von den Bedingungen abhängigen Aufgaben in der Navigationsleiste angezeigt werden. Die Standardzeit ist 5000ms, wenn der Wert in der Booklet-Config nicht angegeben wird.
+Sobald der Browser gestartet wird, startet dieser, in der hier hinterlegten Zeit in ms, zyklisch einen Timer. Nach Ablauf des Timers werden die Antwortwerte auf ein Frageelement ausgelesen und in Abhängigkeit der konfigurierten Bedingungen die optionalen Aufgaben eingeblendet. Ist diese Zeit groß eingestellt, kann es entsprechende Zeit dauern, bis die von den Bedingungen abhängigen Aufgaben in der Navigationsleiste angezeigt werden. Die Standardzeit ist 5000ms, wenn der Wert in der Booklet-Config nicht angegeben wird.
 
 ::: {.callout-note}
-Der Timer startet nicht erst nach Eingabe eines Wertes in ein Frageelement. Der Wert des Timers ist abhängig vom Zeitpunkt des Browserstarts.
+Der Timer startet nicht erst nach der Beantwortung eines Frageelements. Der Wert des Timers ist vielmehr abhängig vom Zeitpunkt des Browserstarts.
 :::
 
 `unit_state_buffer_time`:
