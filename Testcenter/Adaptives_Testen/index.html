@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-db4c4b48896e4c803b727a947ce76e30.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-08e08ba48b20add0a2a9b94a569f9767.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -845,7 +845,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Eine Antwort besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:</p>
+<p>Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Der Antwortwert besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:</p>
 <ul>
 <li><code>id</code>: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört</li>
 <li><code>state</code>: Status des Datenobjektes</li>
@@ -866,7 +866,7 @@ Hinweis
 <p>Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist <a href="https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3">hier</a> zu finden.</p>
 </div>
 </div>
-<p>Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. So können diese bspw. logisch verknüpft oder addiert werden.</p>
+<p>Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. Auf diese Weise können Antwortwerte auch logisch miteinander verknüpft werden.</p>
 <p>Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (<code>&lt;Option&gt;</code>) und Zustands-Elementen (<code>&lt;State&gt;</code>) zur Verfügung, die in Kombination die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.</p>
 <section id="konfiguration-in-der-booklet-xml" class="level2">
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-booklet-xml">Konfiguration in der Booklet-XML</h2>
@@ -874,7 +874,7 @@ Hinweis
 <h3 class="anchored" data-anchor-id="werte-in-der-booklet-config">Werte in der Booklet-Config</h3>
 <p>Im Element <strong>BookletConfig</strong> stehen Werte zur Verfügung, die im Zusammenhang mit dem adaptiven Testen zum Einsatz kommen können. Dies betrifft die folgenden Werte:</p>
 <p><code>unit_responses_buffer_time</code>:</p>
-<p>Sobald ein Browser gestartet wird, startet dieser in der hier hinterlegten Zeit in ms zyklisch einen Timer. Nach Ablauf des Timers werden die Eingaben aus Frageelementen ausgelesen und in Abhängigkeit der konfigurierten Bedingungen die optionalen Aufgaben eingeblendet. Ist diese Zeit groß eingestellt, kann es entsprechende Zeit dauern, bis die von den Bedingungen abhängigen Aufgaben in der Navigationsleiste angezeigt werden. Die Standardzeit ist 5000ms, wenn der Wert in der Booklet-Config nicht angegeben wird.</p>
+<p>Sobald der Browser gestartet wird, startet dieser, in der hier hinterlegten Zeit in ms, zyklisch einen Timer. Nach Ablauf des Timers werden die Antwortwerte auf ein Frageelement ausgelesen und in Abhängigkeit der konfigurierten Bedingungen die optionalen Aufgaben eingeblendet. Ist diese Zeit groß eingestellt, kann es entsprechende Zeit dauern, bis die von den Bedingungen abhängigen Aufgaben in der Navigationsleiste angezeigt werden. Die Standardzeit ist 5000ms, wenn der Wert in der Booklet-Config nicht angegeben wird.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -885,7 +885,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Der Timer startet nicht erst nach Eingabe eines Wertes in ein Frageelement. Der Wert des Timers ist abhängig vom Zeitpunkt des Browserstarts.</p>
+<p>Der Timer startet nicht erst nach der Beantwortung eines Frageelements. Der Wert des Timers ist vielmehr abhängig vom Zeitpunkt des Browserstarts.</p>
 </div>
 </div>
 <p><code>unit_state_buffer_time</code>:</p>
@@ -1242,8 +1242,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1361,7 +1359,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
