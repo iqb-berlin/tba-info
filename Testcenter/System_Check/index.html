@@ -812,7 +812,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
   <li><a href="#netzwerkanbindung" id="toc-netzwerkanbindung" class="nav-link" data-scroll-target="#netzwerkanbindung">Netzwerkanbindung</a>
   <ul class="collapse">
-  <li><a href="#wie-werden-die-werte-für-den-eigenen-test-ermittelt" id="toc-wie-werden-die-werte-für-den-eigenen-test-ermittelt" class="nav-link" data-scroll-target="#wie-werden-die-werte-für-den-eigenen-test-ermittelt">Wie werden die Werte für den eigenen Test ermittelt?</a></li>
+  <li><a href="#wie-werden-die-werte-für-das-eigene-testheft-ermittelt" id="toc-wie-werden-die-werte-für-das-eigene-testheft-ermittelt" class="nav-link" data-scroll-target="#wie-werden-die-werte-für-das-eigene-testheft-ermittelt">Wie werden die Werte für das eigene Testheft ermittelt?</a></li>
   </ul></li>
   <li><a href="#speichern-der-ergebnisse-auf-dem-server" id="toc-speichern-der-ergebnisse-auf-dem-server" class="nav-link" data-scroll-target="#speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</a></li>
   <li><a href="#einbinden-einer-unit" id="toc-einbinden-einer-unit" class="nav-link" data-scroll-target="#einbinden-einer-unit">Einbinden einer Unit</a></li>
@@ -958,7 +958,7 @@ Hinweis
 </section>
 <section id="netzwerkanbindung" class="level2">
 <h2 class="anchored" data-anchor-id="netzwerkanbindung">Netzwerkanbindung</h2>
-<p>Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, weil zumindest die Downloadrate stark abhängig von der verwendeten Testheftgröße ist. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Die Bewertung erfolgt auf Grundlage bestimmter Werte. Da die Testheftgrößen sehr individuell ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen. Hierfür stehen die XML-Elemente: <code>&lt;UploadSpeed&gt;</code>und <code>&lt;DownloadSpeed&gt;</code> in der System-Check-XML zur Verfügung.</p>
+<p>Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw., die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: <code>&lt;UploadSpeed&gt;</code>und <code>&lt;DownloadSpeed&gt;</code> zu finden.</p>
 <div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
@@ -1000,7 +1000,7 @@ Hinweis
 <span data-code-cell="annotated-cell-3" data-code-lines="19" data-code-annotation="2">Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung.</span>
 </dd>
 </dl>
-<p>Es folgt eine kurze Beschreibung der Werte:</p>
+<p>Es folgt eine kurze Beschreibung der Werte in den beiden Elementen:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
@@ -1046,20 +1046,20 @@ Hinweis
 <figcaption>Test der Netzwerkanbindung</figcaption>
 </figure>
 </div>
-<section id="wie-werden-die-werte-für-den-eigenen-test-ermittelt" class="level3">
-<h3 class="anchored" data-anchor-id="wie-werden-die-werte-für-den-eigenen-test-ermittelt">Wie werden die Werte für den eigenen Test ermittelt?</h3>
-<section id="werte-für-den-download" class="level4">
-<h4 class="anchored" data-anchor-id="werte-für-den-download">Werte für den Download</h4>
+<section id="wie-werden-die-werte-für-das-eigene-testheft-ermittelt" class="level3">
+<h3 class="anchored" data-anchor-id="wie-werden-die-werte-für-das-eigene-testheft-ermittelt">Wie werden die Werte für das eigene Testheft ermittelt?</h3>
+<section id="download" class="level4">
+<h4 class="anchored" data-anchor-id="download">Download</h4>
 <p><strong><code>min</code>:</strong></p>
-<p>Wie eingangs bereits erwähnt, hängt bei der Downloadrate alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: <strong>Dateien</strong> eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Da die Werte für <code>min</code> in <strong>Byte/s</strong> angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind.</p>
+<p>Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: <strong>Dateien</strong> eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Da die Werte für <code>min</code> in <strong>Byte/s</strong> angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind.</p>
 <p>Dazu ein kurzes Beispiel:</p>
 <p>[1 MByte = 1024 kByte; 1 kByte = 1024 Byte; 1 Byte = 8 Bit]</p>
 <p>10MByte = 10.240kByte = 10.485.760 Byte</p>
 <p>Als nächstes muss sich die Testleitung darauf einigen in welcher Zeit diese Testhefte geladen werden sollen. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine Ladezeit von 30 Sekunden an.</p>
 <p><code>min</code>= 10.485.760 Byte / 30s = <strong>349.525 Bytes/s</strong></p>
-<p>In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. In der Realität werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.</p>
+<p>In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. Während der Studiendurchführung werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.</p>
 <p><strong><code>good</code>:</strong></p>
-<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 50Mbit/s sein.</p>
+<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 50Mbit/s sein.</p>
 <p>Die Umrechnung erfolgt dann wie folgt:</p>
 <p>50 Mbit / 8 = 6,25 MByte<br> 6,25 MByte * 1024 = 6400 KByte<br> 6400 kByte * 1024 = 6.553.600 Byte<br></p>
 <p><code>good</code>= <strong>6.553.600 Byte/s</strong></p>
@@ -1077,11 +1077,11 @@ Hinweis
 </div>
 </div>
 </section>
-<section id="werte-für-den-upload" class="level4">
-<h4 class="anchored" data-anchor-id="werte-für-den-upload">Werte für den Upload</h4>
+<section id="upload" class="level4">
+<h4 class="anchored" data-anchor-id="upload">Upload</h4>
 <p><strong><code>min</code>:</strong></p>
 <p><strong><code>good</code>:</strong></p>
-<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 10Mbit/s sein.</p>
+<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 10Mbit/s sein.</p>
 </section>
 </section>
 </section>
