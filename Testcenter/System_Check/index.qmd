@@ -75,7 +75,7 @@ Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](http
 
 ## Netzwerkanbindung
 
-Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, weil zumindest die Downloadrate stark abhängig von der verwendeten Testheftgröße ist. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Die Bewertung erfolgt auf Grundlage bestimmter Werte. Da die Testheftgrößen sehr individuell ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen. Hierfür stehen die XML-Elemente: `<UploadSpeed>`und `<DownloadSpeed>` in der System-Check-XML zur Verfügung.
+Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw., die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: `<UploadSpeed>`und `<DownloadSpeed>` zu finden.
 
 ```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
@@ -114,7 +114,7 @@ Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, weil zumind
 1. Das Hochladen betrifft vor allem das Speichern der Antworten im Test. 
 2. Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung.
 
-Es folgt eine kurze Beschreibung der Werte:
+Es folgt eine kurze Beschreibung der Werte in den beiden Elementen:
 
 | Parameter | Bedeutung im Test |
 |-----|--------------------------------------|
@@ -129,13 +129,13 @@ Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC
 
 ![Test der Netzwerkanbindung](syscheck4.png){group="input"}
 
-### Wie werden die Werte für den eigenen Test ermittelt?
+### Wie werden die Werte für das eigene Testheft ermittelt?
 
-#### Werte für den Download
+#### Download
 
 **`min`:**
 
-Wie eingangs bereits erwähnt, hängt bei der Downloadrate alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
+Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
 
 Dazu ein kurzes Beispiel:
 
@@ -147,11 +147,11 @@ Als nächstes muss sich die Testleitung darauf einigen in welcher Zeit diese Tes
 
 `min`= 10.485.760 Byte / 30s = **349.525 Bytes/s**
 
-In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. In der Realität werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.
+In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. Während der Studiendurchführung werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.
 
 **`good`:**
 
-Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 50Mbit/s sein.
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 50Mbit/s sein.
 
 Die Umrechnung erfolgt dann wie folgt:
 
@@ -165,13 +165,13 @@ Die Umrechnung erfolgt dann wie folgt:
 Die restlichen Werte können den Standardwert erhalten.
 :::
 
-#### Werte für den Upload
+#### Upload
 
 **`min`:**
 
 **`good`:**
 
-Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier 10Mbit/s sein.
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 10Mbit/s sein.
 
 ## Speichern der Ergebnisse auf dem Server
 
