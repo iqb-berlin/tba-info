@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>tab_position</title>
+<title>eingabe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="_tab_position_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_tab_position_files/libs/quarto-html/quarto.js"></script>
-<script src="_tab_position_files/libs/quarto-html/popper.min.js"></script>
-<script src="_tab_position_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_tab_position_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_tab_position_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_tab_position_files/libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_tab_position_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_tab_position_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_tab_position_files/libs/bootstrap/bootstrap-933a14f46f0e4d1503cecf416b5e09b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="_eingabe_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_eingabe_files/libs/quarto-html/quarto.js"></script>
+<script src="_eingabe_files/libs/quarto-html/popper.min.js"></script>
+<script src="_eingabe_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_eingabe_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_eingabe_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_eingabe_files/libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_eingabe_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_eingabe_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_eingabe_files/libs/bootstrap/bootstrap-933a14f46f0e4d1503cecf416b5e09b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -46,45 +46,43 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="Grafiken/position_symbol.png" class="img-fluid"></p>
-<p>Dieser Tab wird genutzt um einzustellen, wo das Element angezeigt wird und wie groß es ist. Die Optionen sind im Allgemeinen für alle Elemente gleich.</p>
-<section id="raster" class="level3">
-<h3 class="anchored" data-anchor-id="raster">Raster</h3>
-<p><img src="Grafiken/position_raster.png" class="img-fluid" width="350"></p>
-<p>Alle Elemente werden auf einem unsichtbaren Raster angezeigt. Jeder Abschnitt hat sein eigenes Raster (s. <a href=".\Studio/Aufgaben_gestalten/Anlegen_von_Aufgaben_im_erweiterten_Modus/Abschnittseinstellungen/Abschnittseinstellungen.qmd">Abschnittlayout</a>) bestehend aus Spalten und Zeilen. Jedem Element sollte eine Spalte und eine Zeile zugeordnet werden. Wenn man ein neues Element erzeugt ist diesem noch keine Spalte oder Zeile zugeordnet, das sollte man schnellstmöglich ändern. Die Einstellung Zeilen- bzw. Spaltenspanne bestimmt, wie viele Zeilen bzw. Spalten das Element einnimmt. Wenn man z.B. eine Aufgabe anlegt bei denen mehrere Ablagelisten nebeneinander liegen und darüber eine Instruktion steht, dann weist man den Ablagelisten verschiedene Spalten zu und damit der Instruktionstext darüber steht setzt man die Spaltenspanne des Textelements entsprechend hoch.</p>
+<section id="eingabefeld" class="level3">
+<h3 class="anchored" data-anchor-id="eingabefeld">Eingabefeld</h3>
+<p><img src="Grafiken/eingabe_ef.png" class="img-fluid"></p>
+<p><img src="Grafiken/prototyp_EF.png" class="img-fluid" width="240"></p>
+<p>Eingabefelder sind Elemente für einzeilige Textantworten.</p>
+<p>Elementspezifische Einstellungen</p>
+<p>Ein Eingabeelement lässt sich mit einer Beschriftung versehen, die verschwindet, sobald etwas in dem Eingabeelement eingetragen wird.</p>
+<p>Eingabeelemente können als schreibgeschützt eingestellt werden, damit der Inhalt nicht verändert werden kann, z.B. wenn man ein Beispiel darstellen möche.</p>
+<p>Eingabeelemente können eine Vorbelegung erhalten. Das ist nützlich für Beispiele oder Aufgaben, bei denen Sätze korrigiert werden sollen.</p>
+<p>Meist sind die Eingabeelemte umrandet dargestellt, es gibt aber auch die Option “ausgefüllt”, die nur eine Unterstreichung bietet.</p>
+<p>Eingabefelder (nicht -bereiche) können eine Maximallänge erhalten. Wird diese überschritten erscheint eine Warnung. Alternativ kann man auch die Eingabe auf die Maximallänge begrenzen. Standardmäßig ist die Eingabe unbegrenzt.</p>
+<p>Eingabeelemente können mit einer Eingabehilfe versehen werden. Dazu muss zunächst die IQB-Tastatur aktiviert werden, indem man “Tastatur einblenden” auswählt, dann kann die Eingabehilfe eingestellt werden. Dazu gibt es eine Reihe von Voreinstellungen oder die Möglichkeit eine eigene Zeichenkette einzugeben indem man “Eigene Zeichen” auswählt. Anschließend kann man noch die Position der Eingabehilfe verändern, Pfeiltasten zum Navigieren innerhalb der Eingabe und eine Löschtaste hinzufügen (nützlich für Aufgaben an mobilen Geräten) und die Bearbeitung anderer Zeichen verhindern. Letzteres bedeutet, dass nur die Zeichen aus der Eingabehilfe hinzugefügt oder entfernt werden können und kann z.B. verwendet werden bei Aufgaben, bei denen Satzzeichen in einen Satz eingefügt werden sollen.</p>
 </section>
-<section id="abstand" class="level3">
-<h3 class="anchored" data-anchor-id="abstand">Abstand</h3>
-<p><img src="Grafiken/position_abstand.png" class="img-fluid"></p>
-<p>Hier kann man einstellen, welchen Abstand das Element auf allen Seiten hat. Ein Abstand ist ein Leerraum zwischen den Elementen im Raster. Es ist Konvention am IQB vorzugsweise die Abstände rechts und unten einzustellen und oben und links nur in Ausnahmefällen zu benutzen. Man kann auch negative Abstände einstellen, um das Element näher an ein anderes Element zu rücken. Das Ändern von Abständen kann Elemente auch visuell verändern, daher sollte man sparsam mit dieser Option umgehen.</p>
+<section id="eingabebereich" class="level3">
+<h3 class="anchored" data-anchor-id="eingabebereich">Eingabebereich</h3>
+<p><img src="Grafiken/eingabe_eb.png" class="img-fluid"></p>
+<p><img src="Grafiken/prototyp_EB.png" class="img-fluid" width="200"></p>
+<p>Eingabebereiche sind Elemente für mehrzeilige Textantworten.</p>
+<p>Eingabebereiche teilen sich die meisten elementspezifischen Einstellungen mit Eingabefeldern, aber sie haben keine Einstellung für eine Maximallänge. Stattdessen gibt es die Möglichkeit die Anzahl der Zeilen zu bestimmen. Entweder man setzt die Anzahl der Zeilen manuell oder man lässt es dynamisch einstellen, indem man die erwartete Zeichenzahl eingibt, also die Anzahl von Zeichen in der längsten zu erwartenden Antwort. Der Eingabebereich wird darauf basierend automatisch mit genug Zeilen angezeigt, dass man diese Anzahl Zeichen eingeben kann.</p>
 </section>
-<section id="stapelung" class="level3">
-<h3 class="anchored" data-anchor-id="stapelung">Stapelung</h3>
-<p><img src="Grafiken/position_stapelung.png" class="img-fluid"></p>
-<p>Die Stapelung bestimmt, welches Element angezeigt wird und womit man im Text interagieren kann. Liegen zwei Elemente übereinander so kann man nur mit dem Element interagieren, welches einen höheren Wert in der Stapelung hat, was also oben liegt. Darunterliegende Elemente sind nur sichtbar, wenn das oben liegende Element transparent ist. So kann man z.B. erreichen, dass Ablagelisten auf Bildern liegen.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Stapelung betrifft die Darstellung des Elements in der Vorschau und im Testcenter, aber nicht im Editor. Falls im Editor Elemente übereinanderliegen und dadurch schwierig zu bearbeiten sind kann man diese in der Elementliste des Abschnitts suchen.</p>
-</div>
-</div>
+<section id="wort-korrigieren" class="level3">
+<h3 class="anchored" data-anchor-id="wort-korrigieren">Wort Korrigieren</h3>
+<p><img src="Grafiken/eingabe_korrigieren.png" class="img-fluid"></p>
+<p>Das Korrekturelement zeigt einen Textabschnitt, der korrigiert werden kann. Wenn man ihn anklickt wird er durchgestrichen und man kann eine Korrektur eingeben. Üblicherweise wird für jedes Wort ein einzelnes Korrekturelement verwendet.</p>
+<p>Die Beschriftung des Elements ist der zu korrigierende Textabschnitt.</p>
+<p>Wie bei anderen Eingabeelemten kann man auch hier eine Eingabehilfe einstellen.</p>
 </section>
-<section id="dimensionen" class="level3">
-<h3 class="anchored" data-anchor-id="dimensionen">Dimensionen</h3>
-<p>Jedes Element nimmt eine bestimmte Anzahl Pixel auf dem Bildschirm ein. Für manche Elemente ist diese Größe dynamisch an den Bildschirm angepasst. Oft möchte man die Größe des Elements genauer kontrollieren. Dafür gibt es Möglichkeiten, die Größe des Elements fest zu setzen, eine Mindest- sowie Maximalgröße einzustellen. Dabei kann man jeweils Höhe und Breite einstellen.</p>
-<p><img src="Grafiken/position_dimension_fest.png" class="img-fluid"></p>
-<p>Ein Element mit fester Größe bleibt immer statisch. Dabei ist zu beachten, dass Aufgaben selbst eine feste Seitenbreite haben, meist 750px, die das Element nicht überschreiten sollte. Die feste Größe zu bearbeiten ist oft ungünstig, da die Anzeige der Aufgaben möglichst dynamisch sein soll. Bei manchen Elementen ändert sich auch die Ausrichtung des Elements, wenn man eine feste Größe einstellt. Dann kann man eine versteckte feste Größe einstellen: Man setzt erst die feste Größe, entfernt dann aber das Häkchen im Kasten. Die Größe wird beibehalten, aber die Ausrichtung des Elements bleibt linksbündig.</p>
-<p><img src="Grafiken/position_dimension_mindest.png" class="img-fluid"></p>
-<p>Die Mindestgröße ist nützlich, um zu verhindern, dass ein Element beliebig schrumpft. Die Mindestgröße gibt an, wie klein das Element höchstens werden darf.</p>
-<p><img src="Grafiken/position_dimension_maximal.png" class="img-fluid"></p>
-<p>Die Maximalgröße begrenzt wie groß ein Element angezeigt wird. Oft ist sie eine gute Alternative zur festen Größe.</p>
+<section id="formel" class="level3">
+<h3 class="anchored" data-anchor-id="formel">Formel</h3>
+<p><img src="Grafiken/eingabe_formel.png" class="img-fluid"></p>
+<p>Das Formelelement ist gedacht für Antworten, die mathematische Formeln enthalten sollen. Wenn man es in der Vorschau oder im Test auswählt und auf das Sigma klickt erscheint ein Menü zum Einfügen der Formel.</p>
+</section>
+<section id="rechenkästchen" class="level3">
+<h3 class="anchored" data-anchor-id="rechenkästchen">Rechenkästchen</h3>
+<p><img src="Grafiken/eingabe_rechenkasten.png" class="img-fluid"></p>
+<p><img src="Grafiken/prototyp_rechenkasten.png" class="img-fluid" width="200"></p>
+<p>Das Rechenkästchenelement erzeugt eine Tabelle, in deren Zellen je eine Zahl oder ein Rechenzeichen steht. Es gibt Voreinstellungen, sodass man übliche Rechenverfahren wie Addition, Subtraktion und Multiplikation schriftlich rechnen kann.</p>
 </section>
 
 </main>
