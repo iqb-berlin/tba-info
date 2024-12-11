@@ -908,6 +908,19 @@ Hinweis
 </ul>
 <p><strong>Eigene Filter einrichten</strong></p>
 <p>Es ist möglich mithilfe der <i class="fa-solid fa-plus" aria-label="plus"></i>-Schaltfläche weitere individuelle Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf “gleich” und “enthält” gefiltert werden. Wird ein adaptives Testheft verwendet, kann auf die dort hinterlegten State-Elemente und auf die zugehörigen Options-Elemente gefiltert werden. Eigene Filter und Profile können aber auch direkt über die <strong>Testtaker-XML</strong> konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: <code>personLabel</code>aus, wenn diese gleich dem Wert “test” ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im <code>&lt;Login&gt;</code>-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Welche Attribute zur Verfügung stehen ist der <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd">XML-Schemadefinition</a> für die Testtaker-XML zu entnehmen. Die Attribute sind im xs-Element: <strong>ProfileType</strong> zu finden.</p>
+</div>
+</div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Profiles</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">GroupMonitor</span>&gt;</span>
