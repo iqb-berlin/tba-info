@@ -70,6 +70,10 @@ Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe
 
 Es ist möglich mithilfe der {{< fa plus >}}-Schaltfläche weitere individuelle Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Wird ein adaptives Testheft verwendet, kann auf die dort hinterlegten State-Elemente und auf die zugehörigen Options-Elemente gefiltert werden. Eigene Filter und Profile können aber auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
 
+::: {.callout-note}
+Welche Attribute zur Verfügung stehen ist der [XML-Schemadefinition](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) für die Testtaker-XML zu entnehmen. Die Attribute sind im xs-Element: **ProfileType** zu finden.
+:::
+
 ```{.xml}
 
 <Profiles>
