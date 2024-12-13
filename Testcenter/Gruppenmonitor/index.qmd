@@ -43,7 +43,7 @@ Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden
 # Bedienung und Ansicht
 
 Der Gruppenmonitor ist in zwei Teile aufgeteilt, einen mittleren und einen linken Teil.
-Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Würde die oben gezeigte Testtaker-XML verwendet werden, würden hier Informationen zu den 3 Personen: Testperson1, Testperson2 und Testperson3 zu finden sein. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.
+Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Würde die oben gezeigte Testtaker-XML verwendet werden, sind hier Informationen zu den 3 Personen: Testperson1, Testperson2 und Testperson3 zu finden. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.
 
 ::: {.callout-note}
 Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: **Spalten:** Teil und Abschnitt **Aktivität:** Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtsoptionen entsprechend.
@@ -178,29 +178,44 @@ Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie an
 
 #### Springe zu Block
 
-Besteht ein Booklet aus mehreren Blöcken, kann mittels Gruppenmonitor eine Testpersonen zu einem bestimmten Block navigiert werden. Hierfür wird die Person markiert und anschließend wird der Block des Booklets markiert zu dem gesprungen werden soll. Um einen Block zu markieren, klicken Sie einfach einmal auf diesen Block in der dargestellten Testheftstruktur. Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Booklets: **Teil1** markiert.
+Besteht ein Testheft aus mehreren Blöcken (Abschnitten), kann mittels Gruppenmonitor eine Testpersonen zu einem bestimmten Block navigiert werden. Hierfür muss zuvor der Block zu dem gesprungen werden soll selektiert werden. Wie die Selektierung eines Blocks erfolgt, hängt davon ab, ob alle Personen gleichzeitig gesteuert werden oder nicht.
+
+**Schalter: "Alle Tests gleichzeitig steuern" ein:**
+
+Durch einen Maus-Linksklick auf einen Block innerhalb einer Personenzeile, werden automatisch alle Blöcke in der selben Spalte selektiert und die zugehörigen Personen werden aktiviert (Haken vor Person wird gesetzt). Ein Klick auf "Springe zu ..." bewirkt dann einen Wechsel aller Personen in den gewählten Block. Durch einen Maus-Rechtsklick auf einen der selektierten Blöcke, wird die Selektierung aller Blöcke wieder aufgehoben.
+
+**Schalter: "Alle Tests gleichzeitig steuern" aus:**
+
+Um Blöcke für einzelne Personen zu selektieren, ist es nicht notwendig den Haken vor einer Personen zu wählen. Es reicht mit einem Maus-Linksklick auf den zu selektierenden Block zu klicken. Dies bewirkt sowohl eine Selektierung des Blocks als auch der Personen der jeweiligen Zeile. Bei einem weiteren Maus-Linksklick werden automatisch alle Blöcke in der selben Spalte selektiert und die zugehörigen Personen werden aktiviert (Haken vor Person wird gesetzt). Durch einen Maus-Rechtsklick auf einen der selektierten Blöcke wird die Selektierung wieder aufgehoben.
+
+Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Booklets: **Teil1** markiert.
 
 ![Block markieren](GM_Block_markieren.png)
 
 Wie zu sehen ist, wird bei erfolgreicher Markierung der Block entsprechend gekennzeichnet. Nun wird der Schalter: **Springe zu** betätigt. Die gewählte Person wird nun in den zweiten Block navigiert.
 
 ::: {.callout-important}
-Navigiert die Testleitung eine Person aus einem zeitbeschränkten Block, wird dieser Block gesperrt und die Person kann nicht mehr darauf zugreifen, auch wenn die Bearbeitung noch nicht abgeschlossen war. Das Springen in andere Blöcke sollte also immer gut überlegt sein.
+Navigiert die Testleitung eine Person aus einem zeitbeschränkten Block, wird dieser Block gesperrt und die Person kann nicht mehr darauf zugreifen, auch wenn die Bearbeitung noch nicht abgeschlossen war. Durch ein erneutes "Springe zu" in einen bereits gesperrten Block, kann der Block im Gruppenmonitor wieder entsperrt werden (ab Version 15.4.0). Wurde der Block entsperrt, beginnt die festlegte Zeit wieder von vorne. Die Testleitung muss dann individuell entscheiden, ob die Testperson noch einmal die volle Zeit im Block verbringen darf oder ob die Testperson vor Ablauf der Zeit den Block wieder verlassen muss. Das Entsperren von Blöcken birgt durch den Neustart der Zeit das Risiko einer Testverfälschung und sollte mit Bedacht verwendet werden. Gibt es bspw. technische Probleme, die verhindern, dass eine Testperson einen Block vollständig bearbeiten kann, ist das Verlassen und Wiederbetreten des Blocks durchaus legitim.
+:::
+
+::: {.callout-note}
+Wird in einen Block gesprungen, der über ein Zugangskennwort verfügt, entfällt die Kennwortabfrage bei der Testperson. Das Kennwort wird nur abgefragt, wenn eine Testperson eigenständig in einen beschränkten Block navigiert. Auf diese Weise können Testpersonen besser zusammengehalten werden und alle befinden sich in etwa an der gleichen Stelle im Testverlauf.
 :::
 
 #### Test beenden
 
-Wird der Schalter: **Test beenden** betätigt, wird die Testung für alle Personen beendet. Der Test ist dann für alle Personen gesperrt. Es müssen zuvor keine Personen in der Liste markiert werden, damit der Schalter Funktion hat.
+Wird der Schalter: **Test beenden** betätigt, wird das Testheft für alle Personen beendet und gesperrt. Außerdem wird der Gruppenmonitor verlassen. Es müssen zuvor keine Personen in der Liste markiert werden, damit der Schalter Funktion hat.
 
-#### Test entsperren
+#### Testheft entsperren
 
-Wurde die Testung mit Hilfe des Schalters: **Test beenden** beendet, ist der Test für alle Personen gesperrt. Diese Sperrung kann wieder aufgehoben werden. Dazu muss die gewünschte Person wieder in der Liste markiert werden und anschließend muss der Schalter: **Test entsperren** betätigt werden. Es gibt noch andere Gründe warum ein Test gesperrt sein kann, außer durch vorherige Betätigung des Schalters: **Test beenden**. Wurde in der Konfiguration Booklet-XML festgelegt, dass der Test gesperrt werden soll wenn die Testperson den Test beendet hat, kann die Sperrung mit Hilfe dieses Schalters wieder aufgehoben werden.
+Ein Testheft kann mit Hilfe des Schalters: **Test entsperren** wieder entsperrt werden. Dazu wird die jeweilige Person selektiert und der Schalter: **Test entsperren** betätigt. Ein Testheft kann aus folgenden Gründen gesperrt sein:
 
-Folgende Ursachen für eine Sperrung können mit diesem Schalter nicht wieder aufgehoben werden:
+* Es wurde der Schalter: **Test beenden** betätigt. Das bewirkt eine Sperrung aller Testhefte und ein Verlassen des Gruppenmonitors. Nach erneuter Anmeldung am Gruppenmonitor können die Testhefte aber wieder entsperrt werden.
+* In der Testheftkonfiguration gibt es den Parameter: `lock_test_on_termination`. Dieser erhält standardmäßig den Wert **OFF**. Ist der Wert **ON** wird der Test nach Beendigung durch die Testperson gesperrt.
 
-* zeitliche Gültigkeit von Zugängen (gültig bis, gültig ab, gültig für)
-* Sperrung von Blöcken nach Zeitablauf
-* Sperrung von Blöcken nach verlassen eines Blocks
+::: {.callout-note}
+Für die Entsperrung eines Blocks kann dieser Schalter nicht verwendet werden.
+:::
 
 # Troubleshooting
 
