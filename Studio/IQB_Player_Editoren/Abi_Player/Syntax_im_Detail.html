@@ -768,7 +768,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#textgestaltung-ohne-eingabe" id="toc-textgestaltung-ohne-eingabe" class="nav-link active" data-scroll-target="#textgestaltung-ohne-eingabe">Textgestaltung ohne Eingabe</a></li>
+  <li><a href="#versionsangabe" id="toc-versionsangabe" class="nav-link active" data-scroll-target="#versionsangabe">Versionsangabe</a></li>
+  <li><a href="#textgestaltung-ohne-eingabe" id="toc-textgestaltung-ohne-eingabe" class="nav-link" data-scroll-target="#textgestaltung-ohne-eingabe">Textgestaltung ohne Eingabe</a></li>
   <li><a href="#eingabe-von-text-und-zahlen" id="toc-eingabe-von-text-und-zahlen" class="nav-link" data-scroll-target="#eingabe-von-text-und-zahlen">Eingabe von Text und Zahlen</a></li>
   <li><a href="#ankreuzen-und-auswählen" id="toc-ankreuzen-und-auswählen" class="nav-link" data-scroll-target="#ankreuzen-und-auswählen">Ankreuzen und Auswählen</a>
   <ul class="collapse">
@@ -804,6 +805,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">20. Dezember 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -813,52 +820,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="textgestaltung-ohne-eingabe" class="level2">
-<h2 class="anchored" data-anchor-id="textgestaltung-ohne-eingabe">Textgestaltung ohne Eingabe</h2>
-<p>Wird bei den Schlüsselworten title, header oder text der jeweilige Parameter weggelassen, wird ein Zeilenabstand in der jeweiligen Höhe eingefügt.</p>
+<section id="versionsangabe" class="level2">
+<h2 class="anchored" data-anchor-id="versionsangabe">Versionsangabe</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Bedeutung</th>
-<th style="text-align: left;">Parameter</th>
+<th>Schlüsselwort</th>
+<th>Bedeutung</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>title</code></td>
-<td style="text-align: left;">eine Zeile Text als oberste Gliederungsüberschrift</td>
-<td style="text-align: left;">Text des Titels (optional)</td>
+<td><code>iqb-scripted</code></td>
+<td>Angabe der genutzten Version</td>
+<td><code>1.2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Erste Zeile des Skripts muss die benutzte iqb-scripted Version enthalten.</p>
+<p><strong>Beispiele</strong></p>
+<pre><code>iqb-scripted::1.2</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In älteren Versionen stehen einzelne Parameter nicht zur Verfügung. Welche das sind, ist mit einer entsprechenden Fußnote gekennzeichnet.</p>
+</div>
+</div>
+</section>
+<section id="textgestaltung-ohne-eingabe" class="level2">
+<h2 class="anchored" data-anchor-id="textgestaltung-ohne-eingabe">Textgestaltung ohne Eingabe<a href="#textgestaltung-ohne-eingabe"></a></h2>
+<p>Wird bei den Schlüsselworten title, header oder text der jeweilige Parameter weggelassen, wird ein Zeilenabstand in der jeweiligen Höhe eingefügt.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 75%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Schlüsselwort</th>
+<th>Bedeutung</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>title</code></td>
+<td>eine Zeile Text als oberste Gliederungsüberschrift</td>
+<td>Text des Titels (optional)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>header</code></td>
-<td style="text-align: left;">eine Zeile Text als zweite Gliederungsüberschrift</td>
-<td style="text-align: left;">Text der Überschrift (optional)</td>
+<td><code>header</code></td>
+<td>eine Zeile Text als zweite Gliederungsüberschrift</td>
+<td>Text der Überschrift (optional)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>text</code></td>
-<td style="text-align: left;">Standard-Text</td>
-<td style="text-align: left;">Text (optional)</td>
+<td><code>text</code></td>
+<td>Standard-Text</td>
+<td>Text (optional)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>html</code></td>
-<td style="text-align: left;">wird genau so in das Formular übernommen; dient der Lösung besonderer Layout-Probleme; Achtung: unsichere Inhalte wie Links werden herausgefiltert</td>
-<td style="text-align: left;">Html-Text</td>
+<td><code>html</code></td>
+<td>wird genau so in das Formular übernommen; dient der Lösung besonderer Layout-Probleme; Achtung: unsichere Inhalte wie Links werden herausgefiltert</td>
+<td>Html-Text</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>hr</code></td>
-<td style="text-align: left;">stellt eine horizontale Linie dar</td>
-<td style="text-align: left;"><em>keine</em></td>
+<td><code>hr</code></td>
+<td>stellt eine horizontale Linie dar</td>
+<td><em>keine</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>rem</code></td>
-<td style="text-align: left;">leitet einen Kommentar ein, der bei der Verarbeitung ignoriert wird</td>
-<td style="text-align: left;"></td>
+<td><code>rem</code></td>
+<td>leitet einen Kommentar ein, der bei der Verarbeitung ignoriert wird</td>
+<td>Text des Kommentars (optional)</td>
 </tr>
 </tbody>
 </table>
@@ -871,80 +913,80 @@ rem::ab hier noch Nummern der Fragen prüfen!!!!!
 header::Abschnitt 223</code></pre>
 </section>
 <section id="eingabe-von-text-und-zahlen" class="level2">
-<h2 class="anchored" data-anchor-id="eingabe-von-text-und-zahlen">Eingabe von Text und Zahlen</h2>
+<h2 class="anchored" data-anchor-id="eingabe-von-text-und-zahlen">Eingabe von Text und Zahlen<a href="#eingabe-von-text-und-zahlen"></a></h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 14%">
+<col style="width: 61%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Standardwert</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
+<th>Standardwert</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>input-text</code></td>
-<td style="text-align: left;">1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td><code>input-text</code></td>
+<td>1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
-<td style="text-align: left;"><code>0</code></td>
+<td></td>
+<td>2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
+<td><code>0</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>3. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">4. Text nach dem Eingabefeld</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>4. Text nach dem Eingabefeld</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">5. Anzahl von Zeilen (&gt;1 bedeutet mehrzeiliges Eingabefeld)</td>
-<td style="text-align: left;">1</td>
+<td></td>
+<td>5. Anzahl von Zeilen (&gt;1 bedeutet mehrzeiliges Eingabefeld)</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">6. maximale Anzahl von Zeichen bei der Eingabe</td>
-<td style="text-align: left;"><em>unbegrenzt</em></td>
+<td></td>
+<td>6. maximale Anzahl von Zeichen bei der Eingabe</td>
+<td><em>unbegrenzt</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>input-number</code></td>
-<td style="text-align: left;">1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td><code>input-number</code></td>
+<td>1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
-<td style="text-align: left;"><code>0</code></td>
+<td></td>
+<td>2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
+<td><code>0</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>3. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">4. Text nach dem Eingabefeld</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>4. Text nach dem Eingabefeld</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">5. Minimalwert</td>
-<td style="text-align: left;"><em>kein</em></td>
+<td></td>
+<td>5. Minimalwert</td>
+<td><em>kein</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">6. Maximalwert</td>
-<td style="text-align: left;"><em>kein</em></td>
+<td></td>
+<td>6. Maximalwert</td>
+<td><em>kein</em></td>
 </tr>
 </tbody>
 </table>
@@ -953,122 +995,127 @@ header::Abschnitt 223</code></pre>
 input-text::note::0::Weitere Kommentare zu den Prüfungsaufgaben (optional)::::20??Abschließend haben Sie an dieser Stelle die Möglichkeit, zusätzliche Hinweise und Kommentare zu den Prüfungsaufgaben und Erwartungshorizonten festzuhalten.
 input-number::A155f::1::Wie viel wiegt ungefähr eine Kuh?::kg::1::1000</code></pre>
 <section id="weitere-erläuterungen" class="level4">
-<h4 class="anchored" data-anchor-id="weitere-erläuterungen">Weitere Erläuterungen</h4>
+<h4 class="anchored" data-anchor-id="weitere-erläuterungen">Weitere Erläuterungen<a href="#weitere-erläuterungen"></a></h4>
 <p>Mehrzeilige Eingabefelder sind mindestens zwei Zeilen hoch, auch wenn sie leer sind. Bei der Eingabe vergrößert sich dann das Eingabefeld nach Bedarf. Die angegebene Obergrenze gilt nur für die Darstellung, nicht für den Inhalt, d.&nbsp;h. sollte mehr eingegeben werden, als in die angegebenen Zeilen passt, wird ein Scrollbalken eingeblendet und die weitere Eingabe ist nicht blockiert.</p>
 <p>Ungültige Eingaben (z. B. Grenze des numerischen Feldes überschritten) erzeugen einen roten Hinweistext. Der eingegebene Wert wird nicht gespeichert.</p>
 <p>Bei numerischen Eingaben ist als Dezimaltrennzeichen sowohl ein Komma als auch ein Punkt erlaubt. Bei der Auswertung muss beides vorgesehen werden.</p>
 <p>Ein Pflichtfeld ist zunächst nicht hervorgehoben. Erst wenn das Eingabefeld besucht und ohne eine Eingabe verlassen wurde, ist ein roter Hinweistext eingeblendet.</p>
 </section>
 <section id="antwortdaten" class="level4">
-<h4 class="anchored" data-anchor-id="antwortdaten">Antwortdaten</h4>
+<h4 class="anchored" data-anchor-id="antwortdaten">Antwortdaten<a href="#antwortdaten"></a></h4>
 <p>Die Eingabe wird stets als <code>string</code> gespeichert, auch wenn es sich um eine Zahl handelt.</p>
 </section>
 </section>
 <section id="ankreuzen-und-auswählen" class="level2">
-<h2 class="anchored" data-anchor-id="ankreuzen-und-auswählen">Ankreuzen und Auswählen</h2>
+<h2 class="anchored" data-anchor-id="ankreuzen-und-auswählen">Ankreuzen und Auswählen<a href="#ankreuzen-und-auswählen"></a></h2>
 <p>Bei einer <code>checkbox</code> kreuzt man nur an. Bei <code>multiple-choice</code> werden die Optionen untereinander dargestellt und es kann nur eine Option ausgewählt werden. Bei <code>drop-down</code> werden die Optionen in eine Klappbox gepackt, was Platz spart.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 18%">
+<col style="width: 67%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Standardwert</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
+<th>Standardwert</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>checkbox</code></td>
-<td style="text-align: left;">1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td><code>checkbox</code></td>
+<td>1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
-<td style="text-align: left;"><code>0</code></td>
+<td></td>
+<td>2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
+<td><code>0</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Achtung: Pflichtfeld bedeutet hier, dass die Checkbox ausgewählt/angekreuzt sein muss (z. B. Zustimmung zu Datenschutzfragen).</td>
-<td style="text-align: left;"></td>
+<td></td>
+<td>Achtung: Pflichtfeld bedeutet hier, dass die Checkbox ausgewählt/angekreuzt sein muss (z. B. Zustimmung zu Datenschutzfragen).</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>3. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">4. Text nach dem Eingabefeld</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>4. Text nach dem Eingabefeld</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Achtung: Als Wert der Variablen wird ‘true’ oder ‘false’ gespeichert. Der Wert der Variable ist im Ausgangszustand immer ‘false’.</td>
-<td style="text-align: left;"></td>
+<td></td>
+<td>Achtung: Als Wert der Variablen wird ‘true’ oder ‘false’ gespeichert. Der Wert der Variable ist im Ausgangszustand immer ‘false’.</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>multiple-choice</code> oder <code>drop-down</code></td>
-<td style="text-align: left;">1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td><code>multiple-choice</code> oder <code>drop-down</code></td>
+<td>1. Name der Variablen, in die die Eingabe gespeichert werden soll</td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
-<td style="text-align: left;"><code>0</code></td>
+<td></td>
+<td>2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja</td>
+<td><code>0</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3. Text vor der Optionsliste (Eingabeaufforderung)</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>3. Text vor der Optionsliste (Eingabeaufforderung)</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">4. Liste der Optionen, jeweils getrennt durch <code>##</code></td>
-<td style="text-align: left;"><em>keine</em></td>
+<td></td>
+<td>4. ResetButton anzeigen: <code>0</code>=nein, <code>1</code>=ja <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td><code>0</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Achtung: Als Wert der Variablen wird die Position der gewählten Option gespeichert, beginnend mit <code>1</code>.</td>
-<td style="text-align: left;"></td>
+<td></td>
+<td>5. Liste der Optionen, jeweils getrennt durch <code>##</code></td>
+<td><em>keine</em></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Achtung: Als Wert der Variablen wird die Position der gewählten Option gespeichert, beginnend mit <code>1</code>.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <section id="gruppe-von-ankreuzkästchen" class="level3">
-<h3 class="anchored" data-anchor-id="gruppe-von-ankreuzkästchen">Gruppe von Ankreuzkästchen</h3>
+<h3 class="anchored" data-anchor-id="gruppe-von-ankreuzkästchen">Gruppe von Ankreuzkästchen<a href="#gruppe-von-ankreuzkästchen"></a></h3>
 <p>Manchmal möchte man mehrere Ankreuzkästchen mit einer gemeinsamen Instruktion zusammenfassen. Links wird dann diese Aufforderung bzw. Frage platziert, und rechts eine Liste von Ankreuzmöglichkeiten.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 17%">
+<col style="width: 69%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Standardwert</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
+<th>Standardwert</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>checkboxes-start</code></td>
-<td style="text-align: left;">1. Text links als Aufforderung oder Frage</td>
-<td style="text-align: left;"></td>
+<td><code>checkboxes-start</code></td>
+<td>1. Text links als Aufforderung oder Frage</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>checkbox</code></td>
-<td style="text-align: left;">Parameter identisch mit oben; es wird allerdings nur der erste Text verwendet</td>
-<td style="text-align: left;"></td>
+<td><code>checkbox</code></td>
+<td>Parameter identisch mit oben; es wird allerdings nur der erste Text verwendet</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>checkboxes-end</code></td>
-<td style="text-align: left;">beendet den Block; ohne Parameter</td>
-<td style="text-align: left;"></td>
+<td><code>checkboxes-end</code></td>
+<td>beendet den Block; ohne Parameter</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1084,47 +1131,57 @@ checkboxes-start::Wann schauen Sie besonders gern aus dem Fenster?
 checkboxes-end</code></pre>
 </section>
 <section id="antwortdaten-1" class="level3">
-<h3 class="anchored" data-anchor-id="antwortdaten-1">Antwortdaten</h3>
+<h3 class="anchored" data-anchor-id="antwortdaten-1">Antwortdaten<a href="#antwortdaten-1"></a></h3>
 <p>In den Daten sind bei Checkboxen <code>true</code> oder <code>false</code> gespeichert. Wenn eine Checkbox noch nicht gezeigt wurde, dann ist ihr Status <code>NOT_REACHED</code>, aber der Wert ist schon <code>false</code>. Erst wenn sie gezeigt wurde, sollte der Wert verwendet werden (Status <code>DISPLAYED</code>). Und wenn der Status <code>VALUE_CHANGED</code> berichtet wird, hat die Testperson bewusst einen Wert geändert.</p>
 <p>Bei der Klappbox und der Gruppe von Radio-Buttons wird stets die Position der gewählten Option in die Antwortdaten geschrieben, beginnend mit <code>1</code>. Wenn eine Klappbox nicht als Pflichtfeld markiert ist, wird automatisch eine leere Option hinzugefügt, die dann den Antwortwert <code>1</code> erhält.</p>
 </section>
 </section>
 <section id="mehrfachauswahl-in-tabellen" class="level2">
-<h2 class="anchored" data-anchor-id="mehrfachauswahl-in-tabellen">Mehrfachauswahl in Tabellen</h2>
+<h2 class="anchored" data-anchor-id="mehrfachauswahl-in-tabellen">Mehrfachauswahl in Tabellen<a href="#mehrfachauswahl-in-tabellen"></a></h2>
 <p>Mit dem <code>likert</code> Element kann eine Liste von Fragen mit einer einheitlichen Antwortskala definiert werden. Sie funktioniert ähnlich wie eine Liste von exklusiven Checkboxen mit dem Unterschied, dass Antworten-Optionen nur einmal im Tabellenkopf definiert werden müssen. Diese Form ist sehr platzsparend und kann schnell beantwortet werden.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 11%">
+<col style="width: 58%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Standardwert</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
+<th>Standardwert</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>likert-start</code></td>
-<td style="text-align: left;">1. Liste der Antwortoptionen jeweils getrennt durch <code>##</code></td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td><code>likert-start</code></td>
+<td>1. Liste der Antwortoptionen jeweils getrennt durch <code>##</code></td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">likert</td>
-<td style="text-align: left;">1. Name der Variablen, in die die Eingabe gespeichert werden soll 2. (Frage)Text</td>
-<td style="text-align: left;"><em>mindestens eine Angabe ist erforderlich</em></td>
+<td></td>
+<td>2. Pflichtfeld: <code>0</code>=nein, <code>1</code>=ja <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td><code>0</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>likert-end</code></td>
-<td style="text-align: left;">1. keine</td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td></td>
+<td>3. ResetButton anzeigen: <code>0</code>=nein, <code>1</code>=ja <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
+<td><code>0</code></td>
+</tr>
+<tr class="even">
+<td>likert</td>
+<td>1. Name der Variablen, in die die Eingabe gespeichert werden soll 2. (Frage)Text</td>
+<td><em>mindestens eine Angabe ist erforderlich</em></td>
+</tr>
+<tr class="odd">
+<td><code>likert-end</code></td>
+<td>1. keine</td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Beispiele</strong></p>
-<pre><code>likert-start::sehr hilfreich##eher hilfreich##teilweise hilfreich##eher nicht hilfreich##nicht hilfreich
+<pre><code>likert-start::1::0::sehr hilfreich##eher hilfreich##teilweise hilfreich##eher nicht hilfreich##nicht hilfreich
     likert::task2useA::Abschnitt 1: Einleitung
     likert::task2useB::Abschnitt 2: Starten der Computer
     likert::task2useC::Abschnitt 3: Anmeldung
@@ -1132,52 +1189,52 @@ checkboxes-end</code></pre>
     likert::task2useE::Abschnitt 5: Speichern/Beenden
 likert-end</code></pre>
 <section id="antwortdaten-2" class="level3">
-<h3 class="anchored" data-anchor-id="antwortdaten-2">Antwortdaten</h3>
+<h3 class="anchored" data-anchor-id="antwortdaten-2">Antwortdaten<a href="#antwortdaten-2"></a></h3>
 <p>Es wird für jede Zeile und damit Variable die Spalte der gewählten Option in die Antwortdaten geschrieben, beginnend mit <code>1</code>.</p>
 </section>
 </section>
 <section id="unterformulare" class="level2">
-<h2 class="anchored" data-anchor-id="unterformulare">Unterformulare</h2>
+<h2 class="anchored" data-anchor-id="unterformulare">Unterformulare<a href="#unterformulare"></a></h2>
 <p><code>repeat-start</code> und <code>repeat-end</code> markieren einen Block von Elementen, der während der Beantwortung dynamisch mehrfach erzeugt wird. Dazu muss die befragte Person eine Zahl eingeben, die die Anzahl der Wiederholungen steuert.</p>
 <p>Innerhalb des Blocks sind Ein- und Ausblendungen erlaubt. Die Variable, deren Wert das Ein- bzw. Ausblenden steuert, wird zuerst im selben Unterformular gesucht, dann eine Ebene höher usw. Man kann sich nicht auf Variablenwerte in anderen Unterformularen desselben Formularblockes beziehen.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 10%">
+<col style="width: 71%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Standardwert</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
+<th>Standardwert</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>repeat-start</code></td>
-<td style="text-align: left;">1. ID des Blockes mit Unterformularen</td>
-<td style="text-align: left;"><em>Angabe ist erforderlich</em></td>
+<td><code>repeat-start</code></td>
+<td>1. ID des Blockes mit Unterformularen</td>
+<td><em>Angabe ist erforderlich</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">2. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
-<td style="text-align: left;"><em>kein Text</em></td>
+<td></td>
+<td>2. Text vor dem Eingabefeld (Eingabeaufforderung)</td>
+<td><em>kein Text</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3. Text für die Überschrift zu Beginn jeden Blockes (Blocknummer wird jeweils dynamisch dahinter gesetzt)</td>
-<td style="text-align: left;">‘Block’</td>
+<td></td>
+<td>3. Text für die Überschrift zu Beginn jeden Blockes (Blocknummer wird jeweils dynamisch dahinter gesetzt)</td>
+<td>‘Block’</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">4. Maximalwert für die Anzahl der Blöcke</td>
-<td style="text-align: left;">10</td>
+<td></td>
+<td>4. Maximalwert für die Anzahl der Blöcke</td>
+<td>10</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>repeat-end</code></td>
-<td style="text-align: left;"><em>keine</em></td>
-<td style="text-align: left;"></td>
+<td><code>repeat-end</code></td>
+<td><em>keine</em></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1189,58 +1246,66 @@ repeat-start::examineecount::Wie viele Prüflinge gibt es?::Angaben zu Prüfling
     input-number::task3::1::Teilaufgabe 3::::0::10
 repeat-end</code></pre>
 <section id="antwortdaten-3" class="level3">
-<h3 class="anchored" data-anchor-id="antwortdaten-3">Antwortdaten</h3>
+<h3 class="anchored" data-anchor-id="antwortdaten-3">Antwortdaten<a href="#antwortdaten-3"></a></h3>
 <p>Für ein Unterformular gibt es eine Variable, die die von der Testperson eingegebene Anzahl der Unterformulare enthält. Die ID dieser Variable entspricht der ID des Blockes mit den Unterformularen. Weitere Erklärungen finden Sie unter <strong>Praktische Hinweise/ Arbeiten mit Unterformularen</strong>.</p>
 </section>
 </section>
 <section id="ein--und-ausblenden-von-formularteilen" class="level2">
-<h2 class="anchored" data-anchor-id="ein--und-ausblenden-von-formularteilen">Ein- und Ausblenden von Formularteilen</h2>
+<h2 class="anchored" data-anchor-id="ein--und-ausblenden-von-formularteilen">Ein- und Ausblenden von Formularteilen<a href="#ein--und-ausblenden-von-formularteilen"></a></h2>
 <p><code>if-start</code> und <code>if-end</code> markieren einen Block von Elementen, der in Abhängigkeit des Wertes einer Variablen gezeigt oder ausgeblendet wird. Dabei wird der eingegebene Wert mit einem Sollwert verglichen. Mit <code>if-else</code> können Elemente ein-/ausgeblendet werden, wenn der Wert <strong>nicht</strong> mit dem Sollwert übereinstimmt.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>if-start</code></td>
-<td style="text-align: left;">1. Name der Variablen, deren Wert geprüft werden soll</td>
+<td><code>if-start</code></td>
+<td>1. Name der Variablen, deren Wert geprüft werden soll</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">2. Wert</td>
+<td></td>
+<td>2. Wert</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>if-else</code></td>
-<td style="text-align: left;"><em>keine</em></td>
+<td><code>if-else</code></td>
+<td><em>keine</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>if-end</code></td>
-<td style="text-align: left;"><em>keine</em></td>
+<td><code>if-end</code></td>
+<td><em>keine</em></td>
 </tr>
 </tbody>
 </table>
 <section id="unterformulare-1" class="level3">
-<h3 class="anchored" data-anchor-id="unterformulare-1">Unterformulare</h3>
+<h3 class="anchored" data-anchor-id="unterformulare-1">Unterformulare<a href="#unterformulare-1"></a></h3>
 <p>Wenn sich der Block in einem Unterformular befindet, wird die Variable zur Prüfung der Bedingung zunächst in diesem Unterformular gesucht. Danach wird in dem darüber liegenden Unterformular gesucht usw. Es ist nicht möglich, auf Variablenwerte eines anderen Unterformulars derselben Ebene bzw. außerhalb des genannten Pfades zuzugreifen.</p>
 </section>
 </section>
 <section id="schalter-zur-navigation" class="level2">
-<h2 class="anchored" data-anchor-id="schalter-zur-navigation">Schalter zur Navigation</h2>
+<h2 class="anchored" data-anchor-id="schalter-zur-navigation">Schalter zur Navigation<a href="#schalter-zur-navigation"></a></h2>
 <p>nav-button-group ermöglicht das Einfügen von Navigationselementen. Art und Reihenfolge können gewählt werden. Mögliche Bedienelemente sind: <code>next</code>, <code>previous</code>, <code>first</code>, <code>last</code> und <code>end</code>.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Schlüsselwort</th>
-<th style="text-align: left;">Parameter</th>
+<th>Schlüsselwort</th>
+<th>Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>nav-button-group</code></td>
-<td style="text-align: left;">1. Liste der Optionen, jeweils getrennt durch ##</td>
+<td><code>nav-button-group</code></td>
+<td>1. Liste der Optionen, jeweils getrennt durch ##</td>
 </tr>
 </tbody>
 </table>
@@ -1251,7 +1316,15 @@ nav-button-group::next</code></pre>
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fußnoten</h2>
+
+<ol>
+<li id="fn1"><p>neu in Version 1.2<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>neu in Version 1.2<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>neu in Version 1.2<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
