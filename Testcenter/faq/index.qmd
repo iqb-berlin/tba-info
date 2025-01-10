@@ -91,6 +91,26 @@ Da es sich bei den Testdateien um XML-Dateien handelt, empfiehlt sich ein Editor
 
 Nach Speicherung der Änderungen, muss die geänderte Datei erneut in das Testcenter geladen werden.
 
+### Wie groß ist mein Testheft?
+
+In der Dateiansicht eines Arbeitsbereichs wird die Testheftgröße angezeigt. Um zu verstehen, wie sich diese Größe bildet, müssen die Bestandteile eines Testheftes verstanden werden. Hierfür werden alle Datei unterteilt in:
+
+**Ressourcen:**
+
+Hier werden alle Dateien, die als Ressource für die einzelnen Units benötigt werden, aufgelistet. Ressourcen sind bspw. Player, Pakete (GeoGebra etc.) und Kodierschemen. Die angezeigten Größen in KByte oder Byte entsprechen der tatsächlichen Dateigröße dieser Dateien.
+
+**Units:**
+
+Hier werden die geladenen Units aufgelistet. Die angezeigten Größen neben jeder Unit setzen sich zusammen aus den verwendeten Ressourcen abzgl. des verwendeten Players und der eigentlichen Dateigröße der Unit-XML. Der Player wird an dieser Stelle nicht mit eingerechnet, weil der Player nicht zwingend für die Funktionstüchtigkeit einer Unit erforderlich ist. Er stellt die Unit ja nur dar.
+
+**Testhefte:**
+
+Die angezeigte Größe setzt sich zusammen aus der angezeigten Größe der eingebundenen Units, der Dateigröße der Booklet-XML und dem oder der verwendeten Player. Wichtig zu verstehen ist hierbei, dass der Player immer nur einmal mit eingerechnet wird. Sprich: Befinden sich bspw. 10 Units in einem Testheft und alle Units verwenden den selben Player, wird der Player nicht 10-mal eingerechnet, sondern nur einmal. Verwenden bswp. 5 der 10 Units einen anderen Player, wird die Größe der beiden Player mit eingerechnet.
+
+**Testtaker:**
+
+Die angezeigte Größe ist die Dateigröße der Testtaker-XML.
+
 ### Wie starte ich einen Test und gibt es eine Art Voransicht?
 
 Die Zugangsdaten der Testpersonen werden in der Testtaker-XML festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: "Weiter" anmelden. In der Testtaker-XML wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mithilfe dieses Modus kann festgelegt werden, ob der Test "heiß" ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).
