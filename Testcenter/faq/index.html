@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-db4c4b48896e4c803b727a947ce76e30.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5c1e972a709ec2345b6d43d3c093db11.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-08e08ba48b20add0a2a9b94a569f9767.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -804,6 +804,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#warum-werden-beim-laden-manche-dateien-mit-einem-orangefarbenen-dreieck-versehen" id="toc-warum-werden-beim-laden-manche-dateien-mit-einem-orangefarbenen-dreieck-versehen">Warum werden beim Laden manche Dateien mit einem orangefarbenen Dreieck versehen?</a></li>
   <li><a href="#wie-bearbeite-ich-meine-testdateien" id="toc-wie-bearbeite-ich-meine-testdateien">Wie bearbeite ich meine Testdateien?</a></li>
   <li><a href="#wie-werden-meine-änderungen-an-einer-der-testdateien-wirksam" id="toc-wie-werden-meine-änderungen-an-einer-der-testdateien-wirksam">Wie werden meine Änderungen an einer der Testdateien wirksam?</a></li>
+  <li><a href="#wie-groß-ist-mein-testheft" id="toc-wie-groß-ist-mein-testheft">Wie groß ist mein Testheft?</a></li>
   <li><a href="#wie-starte-ich-einen-test-und-gibt-es-eine-art-voransicht" id="toc-wie-starte-ich-einen-test-und-gibt-es-eine-art-voransicht">Wie starte ich einen Test und gibt es eine Art Voransicht?</a></li>
   <li><a href="#warum-ist-nach-erfolgreicher-anmeldung-kein-startbild-mit-den-testheften-zu-sehen" id="toc-warum-ist-nach-erfolgreicher-anmeldung-kein-startbild-mit-den-testheften-zu-sehen">Warum ist nach erfolgreicher Anmeldung kein Startbild mit den Testheften zu sehen?</a></li>
   <li><a href="#warum-wird-für-die-anmeldung-kein-testheft-gefunden" id="toc-warum-wird-für-die-anmeldung-kein-testheft-gefunden">Warum wird für die Anmeldung kein Testheft gefunden?</a></li>
@@ -902,6 +903,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="wie-werden-meine-änderungen-an-einer-der-testdateien-wirksam" class="level3">
 <h3 class="anchored" data-anchor-id="wie-werden-meine-änderungen-an-einer-der-testdateien-wirksam">Wie werden meine Änderungen an einer der Testdateien wirksam?</h3>
 <p>Nach Speicherung der Änderungen, muss die geänderte Datei erneut in das Testcenter geladen werden.</p>
+</section>
+<section id="wie-groß-ist-mein-testheft" class="level3">
+<h3 class="anchored" data-anchor-id="wie-groß-ist-mein-testheft">Wie groß ist mein Testheft?</h3>
+<p>In der Dateiansicht eines Arbeitsbereichs wird die Testheftgröße angezeigt. Um zu verstehen, wie sich diese Größe bildet, müssen die Bestandteile eines Testheftes verstanden werden. Hierfür werden alle Datei unterteilt in:</p>
+<p><strong>Ressourcen:</strong></p>
+<p>Hier werden alle Dateien, die als Ressource für die einzelnen Units benötigt werden, aufgelistet. Ressourcen sind bspw. Player, Pakete (GeoGebra etc.) und Kodierschemen. Die angezeigten Größen in KByte oder Byte entsprechen der tatsächlichen Dateigröße dieser Dateien.</p>
+<p><strong>Units:</strong></p>
+<p>Hier werden die geladenen Units aufgelistet. Die angezeigten Größen neben jeder Unit setzen sich zusammen aus den verwendeten Ressourcen abzgl. des verwendeten Players und der eigentlichen Dateigröße der Unit-XML. Der Player wird an dieser Stelle nicht mit eingerechnet, weil der Player nicht zwingend für die Funktionstüchtigkeit einer Unit erforderlich ist. Er stellt die Unit ja nur dar.</p>
+<p><strong>Testhefte:</strong></p>
+<p>Die angezeigte Größe setzt sich zusammen aus der angezeigten Größe der eingebundenen Units, der Dateigröße der Booklet-XML und dem oder der verwendeten Player. Wichtig zu verstehen ist hierbei, dass der Player immer nur einmal mit eingerechnet wird. Sprich: Befinden sich bspw. 10 Units in einem Testheft und alle Units verwenden den selben Player, wird der Player nicht 10-mal eingerechnet, sondern nur einmal. Verwenden bswp. 5 der 10 Units einen anderen Player, wird die Größe der beiden Player mit eingerechnet.</p>
+<p><strong>Testtaker:</strong></p>
+<p>Die angezeigte Größe ist die Dateigröße der Testtaker-XML.</p>
 </section>
 <section id="wie-starte-ich-einen-test-und-gibt-es-eine-art-voransicht" class="level3">
 <h3 class="anchored" data-anchor-id="wie-starte-ich-einen-test-und-gibt-es-eine-art-voransicht">Wie starte ich einen Test und gibt es eine Art Voransicht?</h3>
