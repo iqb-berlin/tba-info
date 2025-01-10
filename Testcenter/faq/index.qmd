@@ -111,6 +111,10 @@ Die angezeigte Größe setzt sich zusammen aus der angezeigten Größe der einge
 
 Die angezeigte Größe ist die Dateigröße der Testtaker-XML.
 
+::: {.callout-tip}
+Die Abhängigkeiten zur Größenberechnung können auch mit Hilfe der Browser Entwicklerkonsole detailliert betrachtet werden. Beim Wechsel zur Dateiansicht eines Arbeitsbereichs wird ein HTTP-POST abgesetzt. In der Antwort vom Server ist ein JSON-Objekt zu finden. Dieses listet alle Abhängigkeiten auf.
+:::
+
 ### Wie starte ich einen Test und gibt es eine Art Voransicht?
 
 Die Zugangsdaten der Testpersonen werden in der Testtaker-XML festgelegt. Diese XML muss mit allen anderen Testdateien in das Testcenter geladen werden. Nach Abmeldung kann sich dann eine Testperson mit den festgelegten Zugangsdaten und dem Schalter: "Weiter" anmelden. In der Testtaker-XML wird außer den Zugangsdaten noch der Modus der Testdurchführung festgelegt. Mithilfe dieses Modus kann festgelegt werden, ob der Test "heiß" ablaufen soll (run-hot-restart und run-hot-return) oder in einer Art Vorschau (run-review).
