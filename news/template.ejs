@@ -1,0 +1,36 @@
+
+```{=html}
+<div class="list">
+<% for (const [index, item] of items.entries()) { %>
+    <div class="quarto-post body"
+         data-categories="<%= item.categories %>"
+         data-index="<%= index %>"
+         style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; flex-direction: row">
+            <div style="margin: 4px 12px;flex: 3">
+                <h3 class="listing-title" style="margin-top: 0.2rem">
+                    <a class="no-external" href="<%= item.path %>">
+                        <%= item.title %>
+                    </a>
+                </h3>
+                <div class="listing-description">
+                    <a class="no-external" href="<%= item.path %>">
+                        <%= item.description %>
+                    </a>
+                </div>
+            </div>
+            <div style="margin: 4px 12px;flex: 1" class="metadata">
+                <div class="listing-date"><%= item.date %></div>
+                <div class="listing-categories">
+                    <% for (const category of item.categories) { %>
+                        <div class="listing-category" onclick="window.quartoListingCategory('<%= category %>'); return false;">
+                            <%= category %>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
+</div>
+```
