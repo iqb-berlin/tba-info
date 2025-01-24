@@ -13,7 +13,11 @@
                         <%= item.title %>
                     </a>
                 </h3>
-                <div class="listing-description"><%= item.description %></div>
+                <div class="listing-description">
+                    <a class="no-external" href="<%= item.path %>">
+                        <%= item.description %>
+                    </a>
+                </div>
             </div>
             <div style="margin: 4px 12px;flex: 1" class="metadata">
                 <div class="listing-date"><%= item.date %></div>
