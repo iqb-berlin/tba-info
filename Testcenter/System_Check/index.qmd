@@ -135,7 +135,7 @@ Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC
 
 **`min`:**
 
-Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von der Testheftgröße ab. Es muss also zuerst einmal ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Mehr zur Ermittlung der Testheftgrößen ist auch den FAQ's zu entnehmen. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
+Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von den Testheftgrößen ab. Es muss also zunächst ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Mehr zur Ermittlung der Testheftgrößen ist auch den FAQ's zu entnehmen. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
 
 Dazu ein kurzes Beispiel:
 
@@ -143,11 +143,27 @@ Dazu ein kurzes Beispiel:
 
 10MByte = 10.240kByte = 10.485.760 Byte
 
-Als nächstes muss sich die Testleitung darauf einigen in welcher Zeit diese Testhefte geladen werden sollen. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine Ladezeit von 30 Sekunden an.
+Als nächstes muss festgelegt werden, welche maximale Ladezeit als vertretbar angesehen wird. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine max. gewünschte Ladezeit von 30 Sekunden an.
 
 `min`= 10.485.760 Byte / 30s = **349.525 Bytes/s**
 
-In diesem Beispiel wird alles bezogen auf das Laden eines Testheftes. Während der Studiendurchführung werden aber wahrscheinlich mehrere Testhefte gleichzeitig geladen. Wie viele genau, kann im Vorfeld nur geschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann. Dies muss von den Verantwortlichen individuell abgeschätzt werden.
+In diesem Beispiel wird alles bezogen auf das Laden eines einzelnes Testheftes. Während der Studiendurchführung werden aber unter Umstände (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. 
+
+Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bswp. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:
+
+Es wird folgendes angenommen:
+
+* Testheftgröße: 10 MByte = 80 MBit
+* Anzahl Testpersonen: 30
+* Ermittelte minimale Downloadrate: 25MBit/s
+
+Es müssen also 80 MBit * 30 Personen = 2400 MBit geladen werden. Bei 25MBit/s würden dafür 96 Sekunden benötigt.
+
+**Fazit:** Im unwahrscheinlichen Fall, dass alle Testhefte gleichzeitig geladen werden, wäre diese Verbindung ausreichend, weil es zu keinem Timeout im Chrome Browser kommen würde.
+
+::: {.callout-note}
+Jeder Browser hat einen anderen voreingestellten Timeout. Nach der Feststellung, welche Browser vorwiegend zum Einsatz kommen, sollte geprüft werden, welchen Timeout dieser Browser aufweist.
+:::
 
 **`good`:**
 
