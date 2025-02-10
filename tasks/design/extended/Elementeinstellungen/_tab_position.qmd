@@ -1,0 +1,50 @@
+---
+lang: de
+---
+
+![](Grafiken/position_symbol.png)
+
+Dieser Tab wird genutzt um einzustellen, wo das Element angezeigt wird und wie groß es ist. Die Optionen sind im Allgemeinen für alle Elemente gleich.
+
+### Raster
+
+![](Grafiken/position_raster.png){width=350}
+
+Alle Elemente werden auf einem unsichtbaren Raster angezeigt. Jeder Abschnitt hat sein eigenes Raster (s. [Abschnittlayout](/tasks/design/extended/Abschnittseinstellungen/Abschnittseinstellungen.qmd)) bestehend aus Spalten und Zeilen. Jedem Element sollte eine Spalte und eine Zeile zugeordnet werden. Wenn ein neues Element erzeugt wird und dieses noch keiner Spalte und Zeile zugeordnet ist, sollte dies schnellstmöglich geändert werden.
+Die Einstellung Zeilen- bzw. Spaltenspanne bestimmt, wie viele Zeilen bzw. Spalten das Element einnimmt. Wenn z.B. eine Aufgabe anlegt wird in der mehrere Ablagelisten nebeneinander liegen und darüber eine Instruktion steht, dann werden den Ablagelisten verschiedene Spalten zugewiesen. Damit der Instruktionstext darüber steht wird die Spaltenspanne des Textelements entsprechend hoch gesetzt.
+
+
+### Abstand
+
+![](Grafiken/position_abstand.png)
+
+Hier wird eingestellt, welchen Abstand das Element auf allen Seiten hat. Ein Abstand ist ein Leerraum zwischen den Elementen im Raster. Es ist Konvention am IQB vorzugsweise die Abstände rechts und unten einzustellen und oben und links nur in Ausnahmefällen zu benutzen. Man kann auch negative Abstände einstellen, um das Element näher an ein anderes Element zu rücken. Das Ändern von Abständen kann Elemente auch visuell verändern, daher sollte sparsam mit dieser Option umgegangen werden.
+
+
+
+### Stapelung
+
+![](Grafiken/position_stapelung.png)
+
+Die Stapelung bestimmt, welches Element angezeigt wird und womit im Text interagiert werden kann. Liegen zwei Elemente übereinander so kann nur mit dem Element interagiert werden, welches einen höheren Wert in der Stapelung hat, was also oben liegt. Darunterliegende Elemente sind nur sichtbar, wenn das oben liegende Element transparent ist. So wird z.B. erreicht, dass Ablagelisten auf Bildern liegen.
+
+::: {.callout-note}
+Die Stapelung betrifft die Darstellung des Elements in der Vorschau und im Testcenter, aber nicht im Editor. Falls im Editor Elemente übereinanderliegen und dadurch schwierig zu bearbeiten sind können diese in der Elementliste des Abschnitts gesucht werden.
+:::
+
+
+### Dimensionen
+
+Jedes Element nimmt eine bestimmte Anzahl Pixel auf dem Bildschirm ein. Für manche Elemente ist diese Größe dynamisch an den Bildschirm angepasst. Oft ist es gewünscht, die Größe des Elements genauer zu kontrollieren. Dafür gibt es Möglichkeiten, die Größe des Elements fest zu setzen, eine Mindest- sowie Maximalgröße einzustellen. Dabei kann jeweils Höhe und Breite eingestellt werden.
+
+![](Grafiken/position_dimension_fest.png)
+
+Ein Element mit fester Größe bleibt immer statisch. Dabei ist zu beachten, dass Aufgaben selbst eine feste Seitenbreite haben, meist 750px, die das Element nicht überschreiten sollte. Eine feste Größe einzustellen ist oft ungünstig, da die Anzeige der Aufgaben möglichst dynamisch sein soll. Bei manchen Elementen ändert sich auch die Ausrichtung des Elements, wenn eine feste Größe eingestellt wird. Dann kann eine versteckte feste Größe eingestellt werden: Zunächst wird die feste Größe eingstellt, dann aber wird das Häkchen im Kasten wieder entfernt. Die Größe wird beibehalten, aber die Ausrichtung des Elements bleibt linksbündig.
+
+![](Grafiken/position_dimension_mindest.png)
+
+Die Mindestgröße ist nützlich, um zu verhindern, dass ein Element beliebig schrumpft. Die Mindestgröße gibt an, wie klein das Element höchstens werden darf.
+
+![](Grafiken/position_dimension_maximal.png)
+
+Die Maximalgröße begrenzt wie groß ein Element angezeigt wird. Oft ist sie eine gute Alternative zur festen Größe. 

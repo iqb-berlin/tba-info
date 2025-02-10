@@ -1,0 +1,60 @@
+---
+lang: de
+title: "Buttonverlinkungen – interaktive Stimuli"
+---
+
+Um zum Beispiel eine interaktive Karte oder den Nachbau einer Website zu ermöglichen, kann es sinnvoll sein Buttonverlinkungen zu verwenden. Mit diesen ist es möglich durch das Betätigen eines Knopfes auf eine andere Seite zu gelangen.
+
+Im Folgenden sehen sie ein Beispiel, das aus den prototypischen Aufgaben des IQB-Studios stammt:
+
+{{< video Grafiken/Erdferkel.mp4 >}}
+
+## Design
+
+Zunächst legen Sie die Website, Karte o.ä. so an, wie Sie es sich vorstellen. Pro Seite, die durch eine Knopfverlinkung erreicht werden soll, muss ein einzelner Abschnitt angelegt werden.
+
+![](Grafiken/Buttonverlinkung_Design.png)
+
+## Zustandsvariabel
+
+Nun wird eine Zustandsvariabel vergeben. Sie wird „Seite” genannt und erhält den Wert „1”.
+
+![](Grafiken/Markieren_Zustandsvariabel.png){width=300}
+
+## Knöpfe hinzufügen
+
+Nun werden die gewünschten Knöpfe hinzugefügt. Das Knopfelement liegt im Abschnitt „Sonstige” bei den Elementen:
+
+![](Grafiken/Buttonverlinkung_Knopf.png)
+
+Sie können wie gewünscht in den Einstellungen beschriftet und eingefärbt werden. In dem gezeigten Beispiel ist die Beschriftung zum Beispiel „❯” und die Hintergrundfarbe „#ff0000”. Die Knöpfe sind die roten Weiter-/Zurückpfeile.
+
+::: {layout-ncol=2 layout-valign="bottom"}
+
+![](Grafiken/Buttonverlinkung_Knopf_zwei.png){width=250}
+
+![](Grafiken/Buttonverlinkung_Knopf_zwei.png){width=250}
+
+:::
+
+Die Position der Knöpfe kann durch Spalten- und Zeilenposition, feste Breiten und Höhen sowie Abstände angepasst werden.
+
+## Sichtbarkeitseinstellungen
+
+Nun erhält jeder Abschnitt eine Sichtbarkeitseinstellung, wobei sich der Wert des jeweiligen Abschnitts verändert. Im gezeigten Beispiel sind es die Werte von 1 bis 5.
+
+![](Grafiken/Buttonverlinkung_Sichtbarkeit.png)
+
+Das erneute Ausblenden muss erlaubt sein, die „Variablen/Element-ID” wird „Seite” benannt und der Operator ist „=”.
+
+## Knopfverlinkung
+
+Nun erhält jeder Knopf die Verknüpfung zur passenden Seite, beziehungsweise zum richtigen Abschnitt. 
+
+Dafür wird der jeweilige Knopf angeklickt und eine Aktion bestimmt. Es wird „Zustandsvariabel ändern” ausgewählt, die ID ist „Seite” und der Wert ist der Wert des Abschnitts der gezeigt werden soll, wenn der Knopf betätigt wird.
+
+![](Grafiken/Buttonverlinkung_Aktion.png)
+
+Der hier gezeigte Knopf soll auf den Abschnitt mit der Sichtbarkeitseinstellung Seite=2 leiten.
+
+![](Grafiken/Buttonverlinkung_Knopfverlinkung.png)
