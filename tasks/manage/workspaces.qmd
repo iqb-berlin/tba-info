@@ -1,0 +1,48 @@
+---
+lang: de
+title: "Arbeitsbereiche im IQB-Studio"
+---
+
+Eine große Menge von Aufgaben lässt sich nur effizient verwalten, wenn diese gruppiert sind. Im IQB-Studio sind drei Ebenen von Gruppierungen möglich:
+
+* **Arbeitsbereich**: Dies ist die mittlere Ebene und die Hauptansicht während der Arbeit im IQB-Studio. Links sind die Aufgaben gelistet, und im rechten Bildschirmbereich sind zahlreiche Editiermöglichkeiten für die aktuelle gewählte Aufgabe.
+* **Aufgabengruppe**: Innerhalb des Arbeitsbereiches können Aufgaben in Gruppen einsortiert werden. Dann ist die linke Aufgabenliste danach strukturiert.
+* **Bereichsgruppe**: Mehrere Arbeitsbereiche sind zu einer Gruppe zusammengefasst. Auf dieser Ebene werden Zugriffsrechte vergeben.
+
+Die nachfolgende Abbildung zeigt ein Beispiel.
+
+```{mermaid}
+flowchart TD
+  Bereichsgruppe
+  style Bereichsgruppe fill:#ffd433
+  Arbeitsbereich
+  style Arbeitsbereich fill:#ffd433
+  Aufgabengruppe
+  style Aufgabengruppe fill:#ffd433
+  Aufgabe
+  style Aufgabe fill:#ffd433
+  Bereichsgruppe --> Arbeitsbereich --> Aufgabengruppe --> Aufgabe
+  A[Deutsch Sek1] --> B[Hörverstehen]
+  A[Deutsch Sek1] --> C[Leseverstehen]
+  B --> D[Abgegeben]
+  B --> E[Für Präsentation]
+  C --> F[Entwürfe Kevin]
+  C --> G[Entwürfe Janine]
+  D --> H[Aufg1]
+  D --> I[Aufg2]
+  E --> J[Aufg3]
+  E --> K[Aufg4]
+  F --> L[Aufg5]
+  F --> M[Aufg6]
+  G --> N[Aufg7]
+  G --> O[Aufg8]
+  
+```
+
+Die konkrete Nutzung dieser Strukturebenen hängt von den jeweiligen Vorlieben und Traditionen ab. Wichtig ist, dass die Struktur eine für alle Beteiligten intuitiv erwartete Ordnung abbildet.
+
+Nachfolgend einige Erfahrungen:
+
+* Die Aufgaben eines Arbeitsbereiches müssen dasselbe Metadatenprofil nutzen. Wenn also den Aufgaben Metadaten zugewiesen werden sollen, müssten Aufgaben mit größerer inhaltlicher Nähe in einem Arbeitsbereich liegen. Daher ist im obigen Beispiel die Testdomäne ein Ordnungskriterium auf dieser Ebene.
+* Man kann einer Aufgabe einen Status als Eigenschaft geben. Die Werte von "Status" kann man innerhalb einer Bereichsgruppe für alle Arbeitsbereiche festlegen und hierbei auch eine Farbe zuordnen. In der Aufgabenliste eines Arbeitsbereiches sind dann die Aufgaben farblich markiert in Abhängigkeit vom Status. Dies kann dann auch der Übersicht dienen und wie eine weitere Strukturebene funktionieren.
+* Durch die Funktionen "Arbeitsbereich umbenennen" und "Arbeitsbereich verschieben" im Portal des Bereichsgruppen-Admins sind spätere Umordnungen nicht schwierig, nachdem erste Erfahrungen gesammelt wurden.
