@@ -1,0 +1,94 @@
+---
+lang: de
+title: "Speedtest"
+lightbox: true
+---
+
+Der Haupteditor des IQB `Aspect` fokussiert auf frei gestaltete Aufgaben, die in ihrem Aufbau klassischen Formularen entsprechen. Die Testperson bearbeitet schrittweise die Frage-Items, und der letzte Zustand beim Verlassen wird als Antwort gespeichert. Manchmal möchte man jedoch einen Speedtest durchführen. Dies ist mit `Aspect` nicht gut möglich. Da das Verona-Prinzip innerhalb des Tests bzw. der Befragung den Einsatz anderer Player ermöglicht, hat das IQB einen spezialisierten Speedtest-Player entwickelt und dafür auch einen Editor.
+
+# Was ist ein Speedtest?
+
+Bei einem Speedtest sollen die Testpersonen Wissen spontan anwenden, ohne groß zu überlegen. Beispielsweise kann darüber ein Lesegeschwindigkeitstest gestaltet werden. Die Aussage "Der Esel ist ein Vogel." kann schnell beantwortet werden. Es ist also kein Nachdenken nötig, sondern man muss nur die Aussage lesen können. Die Auswertung fokussiert dann auf die Frage, wieviele Aussagen in einer vorgegebenen Zeit gelesen und richtig bewertet wurden.
+
+# Funktionen
+
+Folgende Anforderungen erfüllt der Speedtest-Player des IQB:
+
+* In einer Aufgabe ist eine Vielzahl sehr gleichwertiger kleiner Items definiert. Die Anzeige der Items erfolgt einzeln.
+* Eine Navigation zwischen den Items durch die Testperson ist nicht möglich. Man kann nur vorwärts gehen.
+* Eine Beantwortung löst sofort ein Weitergehen zum nächsten Item aus. Das wird darüber gelöst, dass die Antwortoptionen als Buttons/Schalter gestaltet sind. Ein Klick/Touch auf den Button "Richtig" löst z. B. eine Navigation aus.
+* In den Daten, die der Player zur Auswertung liefert, sind folgende Informationen zu finden:
+  - Gewählte Antwortoption,
+  - Kodierung der Antwort im Sinne von Richtig/Falsch,
+  - Zeit in Millisekunden von der Präsentation bis zur Antwort für jedes Item,
+  - Summe der richtigen und Summe der falschen Antworten
+
+Folgende Anforderungen erfüllt der Speedtest-Editor des IQB:
+
+* Als Frage-Stimulus kann Text und/oder ein Bild verwendet werden.
+* Die Texte der Optionen sind frei wählbar pro Item.
+* Die Ausrichtung sowie die Hintergrundfarbe der Buttons kann eingestellt werden.
+
+# Player und Editor im Studio verfügbar machen
+
+Die Installation des IQB-Studios muss den Speedtest-Player und -Editor als Modul hochgeladen haben. Nur der Systemadministrator hat dafür die Berechtigung. Die letzte Version kann man hier erhalten: [verona-modules-speedtest](https://github.com/iqb-berlin/verona-modules-speedtest/releases).
+
+Nachdem Player und Editor in das Studio geladen wurden, kann man in einem Arbeitsbereich eine neue Aufgabe anlegen und die Verona-Module zuweisen:
+
+![Verona-Module zuweisen (Beispiel)](speedtest1_verona.png){.lightbox .border}
+
+# Editieren und Vorschau
+
+Die Bedienung bzw. die Optionen erschließen sich schnell. Klicken Sie auf die folgenden Bilder zum Vergrößern.
+
+::: {layout-ncol=4 .border}
+![Startbildschirm](speedtest2.png){group="gallery1"}
+
+![Neue Frage](speedtest3.png){group="gallery1"}
+
+![Fragetext und Bewertung eingegeben](speedtest4.png){group="gallery1"}
+
+![Vorschau](speedtest5.png){group="gallery1"}
+:::
+
+# Auswerten
+
+Für die einzelnen Items werden keine separaten Variablen angelegt. Statt dessen werden pro Item zwei Variablen `value` (Index der Antwortoption) und `time` (Zeit in Millisekunden von der Präsentation bis zur Antwort) angelegt. Zu welchem Item jeweils der Wert gehört, ist im Datenfeld `subform` festgelegt. Hier wird der Index des Items als ganzzahliger numerischer Wert gespeichert (beginnend mit `0`). Achtung: In der Darstellung im Editor beginnt die Itemnummerierung mit `1`.
+
+Sofern für den `value` eines Items die Bewertung als Richtig/Falsch verfügbar ist, wird sofort bei der Beantwortung durch den Player kodiert. Das ist daran sichtbar, dass `status` auf den Wert `CODING_COMPLETE` gesetzt ist und Werte für `code` und `score` hinzugefügt sind.
+
+Eine Beantwortung führt z. B. zu folgenden Antwortdaten (IQB-Standardformat):
+
+```{.json}
+[
+  {
+    "id": "value",
+    "status": "CODING_COMPLETE",
+    "value": 1,
+    "subform": "0",
+    "code": 1,
+    "score": 1
+  },
+  {
+    "id": "time",
+    "status": "VALUE_CHANGED",
+    "value": 3467,
+    "subform": "0"
+  },
+  {
+    "id": "total_correct",
+    "status": "VALUE_CHANGED",
+    "value": 1
+  },
+  {
+    "id": "total_wrong",
+    "status": "VALUE_CHANGED",
+    "value": 0
+  },
+  {
+    "id": "activeQuestionIndex",
+    "status": "VALUE_CHANGED",
+    "value": 0
+  }
+]
+```
