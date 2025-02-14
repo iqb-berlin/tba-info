@@ -1,0 +1,48 @@
+---
+lang: de
+title: "Verschieben und Kopieren"
+---
+
+::: {.callout-note}
+## Hinweis Breechtigung
+Die folgenden Funktionen können nur mit der Berechtigung "Vollzugriff" in einem Arbeitsbereich genutzt werden.
+:::
+
+# Vorlagen benutzen
+
+Eine sinnvolle Arbeitsweise zu Beginn einer Aufgabenentwicklung kann es sein, bereits fertige Aufgaben zu kopieren. Das Konzept der "Vorlage" sieht eine Sammlung typischer Aufgabenformte vor, die nur Platzhalter als Bild oder Text enthalten (z. B. "Hier Option eintragen"). Für eine neue Aufgabe nimmt man dann eine passende Vorlage, kopiert sie in eine neue Aufgabe und ändert schrittweise die Platzhalter.
+
+Im IQB-Studio kann man einen Arbeitsbereich anlegen, in dem nur Vorlagen gespeichert sind. Die Aufgabenentwickler*innen haben in diesem Arbeitsbereich das Recht "Nur Kommentieren", können also die Vorlagen nicht versehentlich ändern. Über die Funktion "Neu von vorhandener Aufgabe" im Ziel-Arbeitsbereich kann man dann eine neue Aufgabe aus einer Vorlage heraus anlegen.
+
+![](../assets/Funktionen_Aufgabenhandhabung_Plus.png){fig-align="left"}
+
+# Aufgaben verschieben
+
+Um im Verlauf der Entwicklung den Überblick zu behalten ist es manchmal nützlich, Aufgaben in andere Arbeitsbereiche zu verschieben. Im IQB-Studio ist hierfür eine Funktion verfügbar, wozu der "Vollzugriff" auf beide Arbeitsbereiche notwendig ist - auf die Quelle und auf das Ziel.
+
+# Aufgaben abgeben und zurückgeben
+
+Diese Funktion entspricht einer weiteren üblichen Arbeitsweise: Getrennte Gruppen erarbeiten Entwürfe, geben diese in den Review, erhalten Kommentare und teilweise Überarbeitungen, und aus dem Review heraus werden die Aufgaben final abgegeben. Die Herausforderung hier ist, dass die Zugriffsrechte von Quell- und Ziel-Arbeitsbereichen nicht übereinstimmen. Die Aufgaben werden also in einen Bereich verschoben, auf den man eigentlich keinen Zugriff hat.
+```{dot}
+//| fig-width: 5
+digraph G {
+    A[fontname="Arial" label="Entwürfe Lesen"]
+    B[fontname="Arial" label="Entwürfe Hören"]
+    C[fontname="Arial" label="Review"]
+    D[fontname="Arial" label="Abgabe"]
+    { rank=same A B }
+
+    A -> C
+    C -> B
+    C -> A
+    B -> C
+    C -> D
+}
+```
+
+Die Zugriffsrechte sollen dann so gesetzt sein, dass z. B. die Arbeitsgruppe Hören keine Aufgaben der Arbeitsgruppe Lesen sehen kann.
+
+Im IQB-Studio ist dies implementiert:
+
+* **Abgeben**: Im Hauptmenü des Arbeitsbereiches ist diese Funktion zu finden. Um sie zu aktivieren, muss in der Bereichsgruppe dem Arbeitsbereich ein Ziel-Arbeitsbereich zugewiesen sein (s. Bereichsgruppen-Admin Reiter Arbeitsbereiche).
+* **Zurückgeben**: Wenn der aktuelle Arbeitsbereich Aufgaben enthält, die aus anderen Arbeitsbereichen abgegeben wurden, dann ist diese Funktion aktiviert. Das IQB-Studio kennt den Quell-Arbeitsbereich und gibt die Aufgabe korrekt zurück.
