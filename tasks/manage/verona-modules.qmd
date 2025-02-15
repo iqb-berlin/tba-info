@@ -1,0 +1,44 @@
+---
+lang: de
+title: "Verona-Module verwalten"
+format:
+  html:
+    other-links:
+      - text: "Architektur der Verona-Module"
+        href: https://verona-interfaces.github.io/intro/architecture.html
+---
+
+{{< include ../assets/_verona-modules.qmd >}}
+
+Die Module zuzuweisen ist eine Aufgabe, die ein gutes Verständnis des Modulsystems in IQB-Studio und IQB-Testcenter voraussetzt. In der Regel sollten Aufgabenentwickler\*innen keine Entscheidung dazu treffen. Statt dessen sollte die Team- bzw. Projektleitung für eine korrekte Zuweisung sorgen.
+
+# Versionierung
+
+Die Module tragen stets eine Versionsangabe nach dem Prinzip der [Semantischen Versionierung](https://semver.org/lang/de/): Drei Zahlen, getrennt durch einen Punkt, und ggf. ein Suffix. Beispiel: `2.13.0-beta`.
+
+Ein Hochzählen der ersten Zahl (Major) ist mit größeren Änderungen verbunden, und ggf. sind alte Daten nicht mehr verwendbar. Das Hochzählen der zweiten Zahl (Minor) wahrt die Kompatibilität, weil nur Funktionen hinzugefügt wurden. Die dritte Zahl (Patch) behebt Fehler. Wenn ein Suffix vorhanden ist, dann handelt es sich um eine Vorversion zu Testzwecken.
+
+Es ist ratsam, die Weiterentwicklung eines Moduls, das man verwendet, zu beobachten. Dann kann man frühzeitig die Aufgabenentwicklung darauf einrichten, weil z. B. zu einem bestimmten Zeitpunkt eine Version mit einer wichtigen Funktionserweiterung zu erwarten ist. Das IQB ist bemüht, jeweils einen sog. Release-Plan zu veröffentlichen.
+
+# Zentrale Festlegung
+
+Man kann dafür sorgen, dass beim Anlegen einer neuen Aufgabe automatisch Zuweisungen zu Modulen stattfinden. Es ist also keine manuelle Zuweisung nötig, bevor man eine Aufgabe gestalten kann. Diese automatische Zuweisung ist im Hauptmenü eines Arbeitsbereiches unter "Einstellungen" zu finden. Dafür sind das Recht "Vollzugriff" nötig.
+
+![](../assets/settings-workspace.png){.border}
+
+Bitte beachten Sie die Option "Nur Module zur Auswahl anzeigen, die als 'stabil' markiert sind". Dies entlastet die Liste der möglichen Module, wenn die Studio-Installation für Erprobungen von Modul-Vorversionen genutzt wird.
+
+# Spätere Änderungen in den Zuweisungen
+
+Eine Modulzuweisung kann jederzeit geändert werden. Meist ist sie dann erforderlich, wenn eine neue Version eines Moduls veröffentlicht wurde und man die neuen Funktionen nutzen möchte. Bitte beachten Sie folgende Punkte:
+
+* Die Module Player und Editor werden meist synchron veröffentlicht. Funktionen, die im Player hinzugefügt wurden, führen oft auch im korrespondierenden Editor zu neuen Parametern.
+* Ein neues Modul kann eventuell die Daten der Aufgabe nicht mehr lesen. Normalerweise sollte das Modul dann eine Meldung anzeigen, wie weiter zu verfahren ist. Beispielsweise kann es sein, dass man keinen zu großen Versionssprung machen soll, sondern eine Aktualisierung schrittweise durchzuführen ist.
+* Die Entwickler\*innen einer neuen Modulversion werden anstreben, dass die bisherige Funktionalität erhalten bleibt bzw. nur die dokumentierten Änderungen eintreten. Trotzdem sollte man Zeit für ausgiebige Tests einer jeden Aufgabe vorsehen, insbesondere bei wichtigen Testungen. Aus diesem Grund sieht das IQB-Studio auch keinen Menüpunkt "Alle Aufgaben umstellen" vor.
+* Beim Export von Aufgaben eines Arbeitsbereiches kann man wählen, dass das Player-Modul mit exportiert wird. Dies ist beim Export für das IQB-Testcenter wichtig. Möchte man jedoch die Aufgaben archivieren, sollte man auch das Editor-Modul sichern. Die Quelle dafür ist beim Systemadmin zu erfragen.
+
+# Pflege der Module durch System-Admin
+
+Im IQB-Studio ist ein Modul erst wählbar, wenn es mit der Rolle System-Admin hochgeladen wurde. Dafür gibt es einen separaten Reiter im entsprechenden Portal. Nur hier ist der Überblick über die Bedarfe aller Bereiche bekannt.
+
+Im Portal des System-Admin ist außerdem eine Tabelle abrufbar, die die Nutzung von Modulen in allen Arbeitsbereichen einer IQB-Studio-Installation auflistet. Dann kann man auch Module entfernen, ohne dass ein Arbeitsbereich behindert wird.
