@@ -1,0 +1,36 @@
+---
+lang: de
+title: Metadaten
+format:
+  html:
+    other-links:
+      - text: "Profile und Vokabulare des IQB"
+        href: https://iqb-vocabs.github.io/
+---
+
+Im Reiter "Eigenschaften" werden für Aufgaben und Items Metadaten hinterlegt.
+
+# Was sind Metadaten?
+
+Datenobjekten kann man vielfältige Informationen zuordnen. Dies reicht von einer einfachen Eigenschaft wie "Farbe" bis zu komplexen Datenstrukturen wie "Institution". Teilweise beeinflussen die Eigenschaften die Verarbeitung eines Objektes wesentlich (z. B. "Datum Ablauf Nutzungsrecht"), teilweise haben sie rein beschreibenden Charakter (z. B. "Geografischer Bezug"). Im Kern geht es jedoch stets darum, einem spezifischen Objekt (z. B. Testaufgabe) neben den notwendigen Daten wie Unit-Definition und Kodierschema weitere beschreibende Daten hinzuzufügen.
+
+# Standardisierung
+
+Für das übergreifende Management von Datenobjekten ist es notwendig, denselben Standard für das Speichern von Metadaten zu verwenden. Wenn beispielsweise Bildungsmedien die Information "Für Kinder zwischen 6-10 Jahren geeignet" enthalten, sollte man dies auf einfache Weise erkennen können. Dann kann man Materialsammlungen anlegen, die - unabhängig von der Art des Objektes - eine Klassifizierung des Gesamtbestandes nach Altersstufen erlauben.
+
+Die Zuordnung von Metadaten ist seit langem Gegenstand von Standardisierungsbemühungen. Einerseits möchte man eine hohe Flexibilität erreichen, damit neue Anforderungen schnell umgesetzt werden können. Andererseits muss man bei jeder Änderung beachten, dass viele Programmierungen auf eine verlässliche Datenstruktur angewiesen sind.
+
+::: {.callout-tip}
+Die technischen Grundlagen für das Metadaten-System des IQB sind [hier beschrieben](https://iqb-vocabs.github.io/).
+:::
+
+# Zuweisung von Profilen
+
+Im IQB-Studio sind für Aufgaben und Items Metadaten-Profile zugewiesen. Ein Metadaten-Profil ist eine Liste von möglichen Metadaten für ein Objekt. Erst nach der Zuweisung eines Profils ist es möglich, über den Eigenschaften-Reiter einer Aufgabe beschreibende Informationen hinzuzufügen. Bitte beachten Sie folgende Punkte:
+
+* Das Metadaten-Profil muss für alle Aufgaben eines Arbeitsbereiches einheitlich festgelegt werden. Dafür ist die Funktion "Eigenschaften" im Hauptmenü eines Arbetisbereiches vorgesehen. Es ist das Recht "Vollzugriff" erforderlich.
+* Da ein Metadaten-Profil von der Testdomäne einer Aufgabe abhängt ist es ratsam, nur Aufgaben derselben Testdomäne in einem Arbeitsbereich zu speichern.
+* Erst mit dem Eintrag in das [Profilregister des IQB](https://github.com/iqb-vocabs/profile-registry) wird ein Metadaten-Profil verfügbar [^1].
+* Die Liste der in einem Arbeitsbereich verfügbaren Profile kann über die Bereichsgruppe eingeschränkt werden.
+
+[^1]: Das IQB-Studio wird demnächst mehrere Profilregister unterstützen.
