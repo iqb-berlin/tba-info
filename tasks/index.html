@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Studio Überblick – TBA-Verstehen und Anwenden</title>
+<title>Aufgaben entwickeln mit dem IQB-Studio – TBA-Verstehen und Anwenden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -337,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rechte und Rollen</span></a>
+ <span class="menu-text">Rollen und Rechte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -746,10 +746,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Antworten kodieren</span></span>
-  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tasks/coding/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antworten kodieren</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -774,18 +776,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#funktionen" id="toc-funktionen" class="nav-link active" data-scroll-target="#funktionen">Funktionen</a>
+  <li><a href="#der-arbeitsbereich" id="toc-der-arbeitsbereich" class="nav-link active" data-scroll-target="#der-arbeitsbereich">Der Arbeitsbereich</a>
   <ul class="collapse">
-  <li><a href="#aufgabenentwurf" id="toc-aufgabenentwurf" class="nav-link" data-scroll-target="#aufgabenentwurf">Aufgabenentwurf</a></li>
-  <li><a href="#kodierung" id="toc-kodierung" class="nav-link" data-scroll-target="#kodierung">Kodierung</a></li>
-  <li><a href="#organisation" id="toc-organisation" class="nav-link" data-scroll-target="#organisation">Organisation</a></li>
-  <li><a href="#aufgabenvorschau" id="toc-aufgabenvorschau" class="nav-link" data-scroll-target="#aufgabenvorschau">Aufgabenvorschau</a></li>
-  <li><a href="#metadaten-profile" id="toc-metadaten-profile" class="nav-link" data-scroll-target="#metadaten-profile">Metadaten-Profile</a></li>
-  <li><a href="#administration" id="toc-administration" class="nav-link" data-scroll-target="#administration">Administration</a></li>
-  </ul></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
-  <ul class="collapse">
-  <li><a href="#aufgabenentwurf-1" id="toc-aufgabenentwurf-1" class="nav-link" data-scroll-target="#aufgabenentwurf-1">Aufgabenentwurf</a></li>
+  <li><a href="#links-rot-markiert" id="toc-links-rot-markiert" class="nav-link" data-scroll-target="#links-rot-markiert">Links rot markiert</a></li>
+  <li><a href="#rechts-blau-markiert" id="toc-rechts-blau-markiert" class="nav-link" data-scroll-target="#rechts-blau-markiert">Rechts blau markiert</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -795,7 +789,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Studio Überblick</h1>
+<h1 class="title">Aufgaben entwickeln mit dem IQB-Studio</h1>
 </div>
 
 
@@ -812,62 +806,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In der TBA-Welt werden Aufgaben überwiegend in der Webanwendung IQB-Studio erstellt. Entwicklerinnen und</p>
-<section id="funktionen" class="level1">
-<h1>Funktionen</h1>
-<section id="aufgabenentwurf" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabenentwurf">Aufgabenentwurf</h2>
-<p>Mit dem Studio können Aufgaben für Kompetenztests oder Befragungen entworfen werden. Der eigentliche Entwurf findet mit einem <strong>Editor</strong> statt. Dieser Editor stellt Werkzeuge und Elemente für den Aufgabenentwurf bereit. In der Entwurfsphase können die Aufgaben wiedergegeben werden. Zur Wiedergabe wird ein zum Editor passender <strong>Player</strong> verwendet. Sowohl Player als auch Editor werden als Module in das Studio geladen. Es handelt sich bei diesen Modulen um eigenständige Programmierungen, die von der Programmierung des Studios entkoppelt sind. Über eine geeignete Schnittstelle (Verona-Schnittstelle) findet die Kommunikation zwischen Studio und Modul statt. Dieses Plug-in-Modell ermöglicht den Einsatz unterschiedlicher Module, auch eigener Programmierungen, solange die Module sich an die Schnittstellenspezifikation halten.</p>
-</section>
-<section id="kodierung" class="level2">
-<h2 class="anchored" data-anchor-id="kodierung">Kodierung</h2>
-<p>Um am Ende einer Studie eine Auswertung vornehmen zu können, muss eine Aufgabenkodierung erfolgen. Hier können komplexe Regeln erforderlich sein, die festlegen was richtig und was falsch ist. Alle Werkzeuge zur Kodierung stehen im sogenannten <strong>Schemer</strong> zur Verfügung. Auch bei dem Schemer handelt sich um ein separat zu ladendes Modul.</p>
-</section>
-<section id="organisation" class="level2">
-<h2 class="anchored" data-anchor-id="organisation">Organisation</h2>
-<p>Aufgabenentwicklung ist Teamarbeit. Das Studio bietet daher neben dem Aufgabenentwurf umfangreiche Funktionen zur Organisation und Kommunikation innerhalb eines Teams wie bspw.:</p>
+<p>Dieser Abschnitt fokussiert auf die Entwicklung von Aufgaben.</p>
 <ul>
-<li>Gruppierung von Aufgaben</li>
-<li>Rechtevergabe für Aufgabenentwickler*innen</li>
-<li>definierte Statusmeldungen (Stand einer Aufgabe)</li>
-<li>umfangreiche Kommentarfunktionen zu den Aufgaben</li>
+<li><a href="../tasks/manage/index.html">Organisieren</a> ist vorrangig für die Rolle der Leitung eines Entwicklungsteams gedacht, die für eine effiziente Aufgabenentwicklung sorgen soll.</li>
+<li><a href="../tasks/design/index.html">Aufgaben gestalten</a> enthält Anleitungen für Aufgabenentwickler*innen, die den Umgang mit dem Editor lernen.</li>
+<li><a href="../tasks/coding/index.html">Antworten kodieren</a> (in Vorbereitung) zeigt, wie man Regeln und Instruktionen für das Kodieren der Antworten einer Testung verfasst.</li>
 </ul>
-</section>
-<section id="aufgabenvorschau" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabenvorschau">Aufgabenvorschau</h2>
-<p>Zur Aufgabenoptimierung sind Aufgabenentwickler*innen auf Rückmeldungen ausgewählter Personenkreise angewiesen. Das Studio bietet die Möglichkeit Aufgabenfolgen in einer Vorschau zu präsentieren. Diese Aufgabenfolgen können umfangreich konfiguriert werden.</p>
-<p>Außerdem steht eine Druckvorschau zur Verfügung.</p>
-</section>
-<section id="metadaten-profile" class="level2">
-<h2 class="anchored" data-anchor-id="metadaten-profile">Metadaten-Profile</h2>
-<p>Für jeden Arbeitsbereich können Metadaten-Profile festgelegt werden. Zu jeder Aufgabe, kann dann eines dieser Metadaten-Profile ausgewählt werden. Es ist auch möglich einem Item Metadaten zuzuweisen.</p>
-</section>
-<section id="administration" class="level2">
-<h2 class="anchored" data-anchor-id="administration">Administration</h2>
-<p>Auf administrativer Ebene können Arbeitsbereiche organisiert und Zugriffsrechte vergeben werden. Es stehen Funktionen zur Modul- und Paketverwaltung zur Verfügung. Es können individuelle Einstellung für die Anwendung vorgenommen werden, wie bspw. die Festlegung von Logo, Texten und Farben. Zur besseren Übersichtlichkeit ist die Ausgabe detaillierter Listen mit Informationen zur Anzahl von Arbeitsbereichen und den darin enthalten Aufgaben inkl. der verwendeten Module möglich.</p>
-</section>
-</section>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<p>Das IQB hat alle Programmierungen unter der Open Source-Lizenz <a href="https://iqb-berlin.github.io/license.html">MIT</a> veröffentlicht und erleichtert die <a href="Installation/index.qmd">Installation</a> durch Containervirtualisierung (Docker). Der Quellcode der Anwendung ist auf GitHub im folgenden <a href="https://github.com/iqb-berlin/studio-lite">Repository</a>zu finden. Für die Installation muss man einen Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern, übernimmt aber im Schadensfall keine Haftung. Mehr zu diesem Thema ist dem gleichnamigen Kapitel zu entnehmen.</p>
+<section id="der-arbeitsbereich" class="level1">
+<h1>Der Arbeitsbereich</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Ansicht_Arbeitsbereich.png" class="img-fluid figure-img"></p>
 <figcaption>Ansicht Arbeitsbereich</figcaption>
 </figure>
 </div>
-<p><strong>Links rot markiert:</strong></p>
-<p>Hier befindet sich die Aufgabenliste mit allen Aufgaben. Die Aufgaben können bei Bedarf gruppiert werden. Im Bild befinden sich bspw. alle Aufgaben in einer Gruppe mit dem Namen: „1. Gruppe“. Unterhalb der Liste ist ein Menü mit den Funktionen zur <a href="Aufgabenverwaltung/index.qmd">Aufgabenverwaltung</a> zu sehen. Mit diesen Funktionen können bspw. neue Aufgaben angelegt, Aufgaben kopiert oder gelöscht werden und vieles mehr.</p>
-<section id="aufgabenentwurf-1" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabenentwurf-1">Aufgabenentwurf</h2>
-<p><strong>Rechts blau markiert:</strong></p>
-<p>Hier befinden sich Reiter mit den Funktionen für den <a href="Aufgabenentwurf/index.qmd">Aufgabenentwurf</a>. Diese sind:</p>
+<section id="links-rot-markiert" class="level2">
+<h2 class="anchored" data-anchor-id="links-rot-markiert">Links rot markiert</h2>
+<p>Links befindet sich die Aufgabenliste mit allen Aufgaben.</p>
+<p>Die Aufgaben können bei Bedarf gruppiert werden. Im Bild befinden sich bspw. alle Aufgaben in einer Gruppe mit dem Namen: „1. Gruppe“. Unterhalb der Liste ist ein Menü mit den Funktionen zur <a href="Aufgabenverwaltung/index.qmd">Aufgabenverwaltung</a> zu sehen. Mit diesen Funktionen können bspw. neue Aufgaben angelegt, Aufgaben kopiert oder gelöscht werden und vieles mehr.</p>
+<p>Im linken unteren Bereich befinden sich Schalter:</p>
 <ul>
-<li>Ändern von Eigenschaften und Metadaten</li>
-<li>Entwurf mit einem Editor</li>
-<li>Entwurfsvorschau</li>
-<li>Einrichten von Kodierregeln</li>
-<li>Kommentarfunktionen für das Aufgaben Entwicklerteam</li>
+<li>Funktion “Aufgabe hinzufügen”</li>
+<li>Funktion “Aufgabe löschen”</li>
+<li>Hauptmenü des Arbeitsbereiches mit weiteren übergreifenden Funktionen</li>
+</ul>
+<p>Man muss links eine Aufgabe auswählen und kann diese dann im Rechten Bildschirmbereich detailliert anschauen und bearbeiten.</p>
+</section>
+<section id="rechts-blau-markiert" class="level2">
+<h2 class="anchored" data-anchor-id="rechts-blau-markiert">Rechts blau markiert</h2>
+<p>Rechts befinden sich Funktionen, die sich auf <strong>die gewählte Aufgabe</strong> beziehen. Die Funktionen sind über <strong>Reiter</strong> erreichbar:</p>
+<ul>
+<li><strong>Eigenschaften</strong>: Eigenschaften, Items und Metadaten</li>
+<li><strong>Editor</strong>: Bearbeitung der Elemente einer Aufgabe</li>
+<li><strong>Vorschau</strong>: Anzeige der Aufgabe so, wie sie die Testperson sehen würde</li>
+<li><strong>Kodierung</strong>: Eingabe von Regeln für das automatische Kodieren der Antworten und von Instruktionen für das manuelle Kodieren</li>
+<li><strong>Kommentare</strong>: Lesen und Hinzufügen von Kommentaren</li>
 </ul>
 
 
