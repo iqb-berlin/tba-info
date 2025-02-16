@@ -1,63 +1,38 @@
 ---
 lang: de
-title: "Studio Überblick"
+title: "Aufgaben entwickeln mit dem IQB-Studio"
 ---
 
+Dieser Abschnitt fokussiert auf die Entwicklung von Aufgaben.
 
-In der TBA-Welt werden Aufgaben überwiegend in der Webanwendung IQB-Studio erstellt. Entwicklerinnen und 
+* [Organisieren](manage/index.qmd) ist vorrangig für die Rolle der Leitung eines Entwicklungsteams gedacht, die für eine effiziente Aufgabenentwicklung sorgen soll.
+* [Aufgaben gestalten](design/index.qmd) enthält Anleitungen für Aufgabenentwickler\*innen, die den Umgang mit dem Editor lernen.
+* [Antworten kodieren](coding/index.qmd) (in Vorbereitung) zeigt, wie man Regeln und Instruktionen für das Kodieren der Antworten einer Testung verfasst.
 
-# Funktionen
-
-## Aufgabenentwurf
-
-Mit dem Studio können Aufgaben für Kompetenztests oder Befragungen entworfen werden. Der eigentliche Entwurf findet mit einem **Editor** statt. Dieser Editor stellt  Werkzeuge und Elemente für den Aufgabenentwurf bereit. In der Entwurfsphase können die Aufgaben wiedergegeben werden. Zur Wiedergabe wird ein zum Editor passender **Player** verwendet. Sowohl Player als auch Editor werden als Module in das Studio geladen. Es handelt sich bei diesen Modulen um eigenständige Programmierungen, die von der Programmierung des Studios entkoppelt sind. Über eine geeignete Schnittstelle (Verona-Schnittstelle) findet die Kommunikation zwischen Studio und Modul statt. Dieses Plug-in-Modell ermöglicht den Einsatz unterschiedlicher Module, auch eigener Programmierungen, solange die Module sich an die Schnittstellenspezifikation halten.
-
-## Kodierung
-
-Um am Ende einer Studie eine Auswertung vornehmen zu können, muss eine Aufgabenkodierung erfolgen. Hier können komplexe Regeln erforderlich sein, die festlegen was richtig und was falsch ist. Alle Werkzeuge zur Kodierung stehen im sogenannten **Schemer** zur Verfügung. Auch bei dem Schemer handelt sich um ein separat zu ladendes Modul.
-
-## Organisation
-
-Aufgabenentwicklung ist Teamarbeit. Das Studio bietet daher neben dem Aufgabenentwurf umfangreiche Funktionen zur Organisation und Kommunikation innerhalb eines Teams wie bspw.:
-
-* Gruppierung von Aufgaben
-* Rechtevergabe für Aufgabenentwickler\*innen 
-* definierte Statusmeldungen (Stand einer Aufgabe)
-* umfangreiche Kommentarfunktionen zu den Aufgaben
-
-## Aufgabenvorschau
-
-Zur Aufgabenoptimierung sind Aufgabenentwickler\*innen auf Rückmeldungen ausgewählter Personenkreise angewiesen. Das Studio bietet die Möglichkeit Aufgabenfolgen in einer Vorschau zu präsentieren. Diese Aufgabenfolgen können umfangreich konfiguriert werden.
-
-Außerdem steht eine Druckvorschau zur Verfügung.
-
-## Metadaten-Profile
-
-Für jeden Arbeitsbereich können Metadaten-Profile festgelegt werden. Zu jeder Aufgabe, kann dann eines dieser Metadaten-Profile ausgewählt werden. Es ist auch möglich einem Item Metadaten zuzuweisen.
-
-## Administration
-
-Auf administrativer Ebene können Arbeitsbereiche organisiert und Zugriffsrechte vergeben werden. Es stehen Funktionen zur Modul- und Paketverwaltung zur Verfügung. Es können individuelle Einstellung für die Anwendung vorgenommen werden, wie bspw. die Festlegung von Logo, Texten und Farben. Zur besseren Übersichtlichkeit ist die Ausgabe detaillierter Listen mit Informationen zur Anzahl von Arbeitsbereichen und den darin enthalten Aufgaben inkl. der verwendeten Module möglich.
-
-# Installation
-
-Das IQB hat alle Programmierungen unter der Open Source-Lizenz [MIT](https://iqb-berlin.github.io/license.html) veröffentlicht und erleichtert die [Installation](Installation/index.qmd) durch Containervirtualisierung (Docker). Der Quellcode der Anwendung ist auf GitHub im folgenden [Repository](https://github.com/iqb-berlin/studio-lite)zu finden. Für die Installation muss man einen Server bereitstellen und dieser Server muss dann über eine Internet-Adresse erreichbar sein. Die Installation sollte erfahrenes IT-Fachpersonal durchführen. Die Dokumentation hierzu setzt Wissen vor allem zur Virtualisierungssoftware Docker voraus. Es ist weiterhin Wissen zur Datensicherheit nötig, denn sobald ein Server öffentlich verfügbar ist, müssen Maßnahmen gegen Angriffe durch Schadsoftware ergriffen werden. Das IQB ist bemüht, die Installationspakete und die eigentlichen Anwendungen gut abzusichern, übernimmt aber im Schadensfall keine Haftung. Mehr zu diesem Thema ist dem gleichnamigen Kapitel zu entnehmen.
+# Der Arbeitsbereich
 
 ![Ansicht Arbeitsbereich](Ansicht_Arbeitsbereich.png)
 
-**Links rot markiert:**
+## Links rot markiert
 
-Hier befindet sich die Aufgabenliste mit allen Aufgaben. 
+Links befindet sich die Aufgabenliste mit allen Aufgaben.
+
 Die Aufgaben können bei Bedarf gruppiert werden. Im Bild befinden sich bspw. alle Aufgaben in einer Gruppe mit dem Namen: „1. Gruppe“. Unterhalb der Liste ist ein Menü mit den Funktionen zur [Aufgabenverwaltung](Aufgabenverwaltung/index.qmd) zu sehen. Mit diesen Funktionen können bspw. neue Aufgaben angelegt, Aufgaben kopiert oder gelöscht werden und vieles mehr.
 
-## Aufgabenentwurf
+Im linken unteren Bereich befinden sich Schalter:
 
-**Rechts blau markiert:**
+* Funktion "Aufgabe hinzufügen"
+* Funktion "Aufgabe löschen"
+* Hauptmenü des Arbeitsbereiches mit weiteren übergreifenden Funktionen
 
-Hier befinden sich Reiter mit den Funktionen für den [Aufgabenentwurf](Aufgabenentwurf/index.qmd). Diese sind:
+Man muss links eine Aufgabe auswählen und kann diese dann im Rechten Bildschirmbereich detailliert anschauen und bearbeiten.
 
-* Ändern von Eigenschaften und Metadaten
-* Entwurf mit einem Editor
-* Entwurfsvorschau
-* Einrichten von Kodierregeln
-* Kommentarfunktionen für das Aufgaben Entwicklerteam
+## Rechts blau markiert
+
+Rechts befinden sich Funktionen, die sich auf **die gewählte Aufgabe** beziehen. Die Funktionen sind über **Reiter** erreichbar:
+
+* **Eigenschaften**: Eigenschaften, Items und Metadaten
+* **Editor**: Bearbeitung der Elemente einer Aufgabe
+* **Vorschau**: Anzeige der Aufgabe so, wie sie die Testperson sehen würde
+* **Kodierung**: Eingabe von Regeln für das automatische Kodieren der Antworten und von Instruktionen für das manuelle Kodieren
+* **Kommentare**: Lesen und Hinzufügen von Kommentaren
