@@ -7,6 +7,16 @@
     "text": "Reiter: Nutzer*innen\nHier werden die Zugänge für das Studio eingerichtet. Auf der linken Seite ist eine Liste aller Zugänge zu sehen. Durch Betätigung der  - Schaltfläche wird ein neuer Zugang eingerichtet. Es erscheint ein Formular zur Eingabe von Metadaten zum Zugang. Hier wird unter anderem ein Passwort festgelegt und eine Mailadresse hinterlegt. Es wird außerdem festgelegt, ob der Zugang als System-Administrator*in fungieren soll. Nach dem Speichern des Formulars ist der Zugang angelegt.\n\n\n\n\n\n\nHinweis\n\n\n\nZugänge die als System-Administrator*in angelegt wurde, werden in der Liste der Zugänge mit einem Sternchen gekennzeichnet.\n\n\nZugänge können mit der  - Schaltfläche entfernt werden. Sollen Metadaten verändert werden, kann die -Schaltfläche verwendet werden. Bspw. könnte hier die Mailadresse nachträglich geändert werden oder eine vorherige Festlegung als System-Administrator*in wieder rückgängig gemacht werden.\n\n\n\n\n\n\nHinweis\n\n\n\nSoll ein Zugang entfernt oder Metadaten angepasst werden, ist der entsprechende Zugang zuvor zu markieren.\n\n\nGanz rechts ist die Liste aller Bereichsgruppen zu sehen. Ist ein Zugang markiert, kann dem Zugang eine Bereichsgruppe zugeordnet werden. Damit diese Änderungen nicht verloren gehen, muss mit der  - Schaltfläche oben rechts gespeichert werden.\n\n\n\n\n\n\nHinweis\n\n\n\nWird einem Zugang eine Bereichsgruppe zugeordnet, besitzt dieser Zugang die Berechtigung auf die Bereichsgruppen-Einstellungen zuzugreifen. Dieser Zugang ist dann Bereichsgruppen-Administrator*in.\n\n\n\n\nReiter: Bereichsgruppen\nLinks ist eine Liste aller Bereichsgruppen zu sehen. Mithilfe der  - Schaltfläche kann eine neue Bereichsgruppe angelegt werde. Der Name der Bereichsgruppe sollte sich dabei günstigerweise an dem Zweck der Studie orientieren. Durch Markierung kann eine Bereichsgruppe gelöscht werden oder umbenannt werden. Außerdem kann mit Hilfe der  - Schaltfläche das Metadaten-Profil der Bereichsgruppe angepasst werden.\nEs finden sich zwei weitere Schaltfläche. Diese können genutzt werden, um separate Dateien zur Übersicht der Module und der Arbeitsbereiche in den Bereichsgruppen zu generieren. Das verschafft System-Administrator*innen einen zusätzlichen Überblick über nicht mehr genutzte Arbeitsbereiche und Module. Auf diese Weise ist es möglich hin und wieder ältere Stände zu entfernen und somit die Datenlast für das Studio zu reduzieren.\n\n\nReiter: Module\nEs ist eine Liste aller Module für Editor, Schemer und Player zu sehen. Mit der  - Schaltfläche können neue Module geladen werden. Module können erst gelöscht werden, nachdem sie zuvor markiert wurden.\n\n\nReiter: Einstellungen\nHier können Texte zu Wartungsarbeiten (Warnungen) auf der Anmeldeseite und Texte im Impressum verändert werden. Außerdem kann das Layout der Anwendung angepasst werden.\nDa das Studio neben der Unit-XML auch optional eine Booklet-XML und eine Testtaker-XML ausgeben kann, kann in den Einstellungen festgelegt werden, welche Schema-Definition (Xsd) zur Validierung dieser XML-Dateien verwendet werden soll.\n\n\n\n\n\n\nHinweis\n\n\n\nZu jeder Testcenter-Version gehört eine Schema-Definition (Xsd) mit gleicher Versionsnummer.\n\n\nFür die Kodierung können im JSON-Format Missing Profiles angelegt werden.\n\n\nReiter: Pakete\nHier können Pakete bswp. für GeoGebra geladen werden. Damit GeoGebra-Elemente in der Vorschau des Editors sichtbar sind, muss das entsprechende Paket vorhanden sein.\n\n\n\n\n Zurück nach oben"
   },
   {
+    "objectID": "intro/index.html",
+    "href": "intro/index.html",
+    "title": "Einführung",
+    "section": "",
+    "text": "Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene.\nWeiter in diesem Abschnitt:\n\nBildungsstandards und Bildungstrend\nNutzung von TBA in den Ländern\n\n\n\n\n\n\n\n\n\nflowchart TD\n    R(Aufgabenentwicklung&lt;br/&gt;&lt;b&gt;IQB-Studio&lt;/b&gt;) --&gt; H[Testaufgaben]\n    style R fill:#cdf\n    style H fill:white\n    H --&gt; B\n    G[Testablauf] --&gt; B\n    style G fill:white\n    A[Testpersonen] --&gt; B(Testdurchführung&lt;br/&gt;&lt;b&gt;IQB-Testcenter&lt;/b&gt;)\n    style A fill:white\n    style B fill:#cdf\n    B --&gt; K[Antworten]\n    style K fill:white\n    B --&gt; J[Logdaten]\n    style J fill:white\n    H -.-&gt; C(Kodierung&lt;br/&gt;&lt;b&gt;IQB-Kodierbox&lt;/b&gt;)\n    style C fill:#cdf\n    K --&gt; C\n    J --&gt; C\n    C --&gt;D(Analyse)\n    L[Vergleichsdaten] --&gt; D\n    style L fill:white\n    D --&gt;E[Bericht/Rückmeldung]    \n\n\n\n\n\n\n\n\nAbbildung 1: Ablaufschema Lernstandserhebung, IQB-Webanwendungen\n\n\n\n\nDer Fokus der Webentwicklungen lag zunächst auf der Testdurchführung. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur.\nAnschließend war erforderlich, die gesamten Prozesse der Aufgabenentwicklung umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler*innen direkt bedienen. Für die dabei entstandene Webanwendung “IQB-Studio” ist ebenfalls viel Raum in dieser Dokumentation vorgesehen. Insbesondere Aufgabenentwickler*innen sollen hier eine erste Starthilfe bekommen.\nDie Verarbeitung der Ergebnisse (Kodierung, Datenprüfung) steht noch am Anfang. Die Webanwendungen dazu starten 2025 erst in die Erprobung. Daher gibt es in dieser Dokumentation nur kurze Funktionsbeschreibungen.\n\n\nTBA-Projekte der Länder\n\n\n\n\n\n\nBegriff TBA\n\n\n\nIn Deutschland werden verschiedene Bezeichnungen für computerbasiertes Testen verwendet - CBA, eAssessment, digitales Testen usw.. TBA steht für Technologiebasiertes Assessment und erweitert die Palette der technischen Instrumente zum Testen über den Computer hinaus (z. B. digitale Stifte).\n\n\nDie Umstellung der großen Studien des nationalen Bildungsmonitorings auf Online-Tests startete 2018 mit einem Projekt zur Feststellung der Machbarkeit einer Online-Testung. Vorarbeiten gab es seitens der universitären Projekte zepf (damals Universität Koblenz-Landau), und kompetenztest.de (Universität Jena) sowie des IQB. Auftrag an das IQB war 2021-2023, Webanwendungen zu entwickeln, die auch durch die Länder installiert und genutzt werden können.\n\n\n\n\n\n\n\n\ngantt\ndateFormat YYYY-MM-DD\naxisFormat %Y\ntickInterval 12month\n\nsection Machbarkeits-&lt;br/&gt;studie\n  Antrag  : 2017-07-01, 2017-12-31\n  Prototyp, Erprobung : 2018-01-01, 2019-12-31\n  Analyse : 2020-01-01, 2020-12-31\n\nsection TBA I Techn. Infrastruktur\n  Antrag : 2020-01-01, 2020-12-31\n  IQB-Testcenter : 2021-01-01, 2023-12-31\n  IQB-Studio : 2021-06-01, 2024-06-30\n  IQB-Kodierbox: active, 2024-01-01, 2025-12-31\n\nsection TBA II Adaptiv/Formativ\n  Antrag : 2022-07-01, 2023-06-30\n  Entwicklung, Erprobung : active, 2023-07-01, 2026-06-30\n\nsection TBA III Rückmeldungen\n  Antrag : 2022-07-01, 2022-12-31\n  Entwicklung, Erprobung : active, 2023-01-01, 2026-06-30\n\n\n\n\n\n\n\n\nAbbildung 2: TBA-Projekte der Länder\n\n\n\nDas TBA-Projekt III zu Rückmeldungen ist hier der Vollständigkeit halber erwähnt. Das IQB ist daran nur beratend beteiligt, weshalb es in diese Dokumentation nicht einbezogen ist. Eine kurze Erläuterung der Projektziele finden Sie hier.\nAlle TBA-Projekte werden durch Mittel des Digitalpakts Schule gefördert.\n\n\nZiel: Breite Nutzung\nDas IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüber hinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.\nDie Federführung der Aufgabenentwicklung liegt beim IQB. Abgeordnete Lehrkräfte liefern erste Entwürfe, die dann in enger Zusammenarbeit mit fachdidaktischen Expertinnen und Experten sowie den Wissenschaftler*innen des IQB bewertet, weiterentwickelt und intensiv erprobt werden. Zu einer Aufgabe werden nicht nur die visuelle Erscheinung und die Interaktion erarbeitet, sondern auch Vorschriften zur Auswertung (sog. Kodierung) und teilweise auch Material, das in den Schulen im Rahmen der Auswertung für die Unterrichtsentwicklung genutzt wird.\nAufgrund dieser Rolle im nationalen Bildungsmonitoring und bei der datengestützten Unterrichtsentwicklung hat das IQB einen großen Anteil an der Digitalisierung durch TBA. Um die Nutzung der TBA-Webanwendungen möglichst breit zu ermöglichen, bestimmen folgende Maßnahmen die Entwicklungsarbeiten:\n\nAlle Webanwendungen sind als Open Source mit einer freien Nutzungslizenz (MIT) veröffentlicht.\nNach Abschluss der Projekte sichern Planstellen am IQB die nachhaltige Wartung und moderate Weiterentwicklung.\nAlle Spezifikation von Daten und Schnittstellen werden veröffentlicht.\nDie Zusammenarbeit mit den Ländern wird durch diverse Foren gewährleistet.\n\n\n\n\n\n Zurück nach oben",
+    "crumbs": [
+      "Einführung"
+    ]
+  },
+  {
     "objectID": "Schulungsmaterial/index.html",
     "href": "Schulungsmaterial/index.html",
     "title": "Schulungsmaterial",
@@ -2061,7 +2071,7 @@
     "href": "tasks/index.html#links-rot-markiert",
     "title": "Aufgaben entwickeln mit dem IQB-Studio",
     "section": "Links rot markiert",
-    "text": "Links rot markiert\nLinks befindet sich die Aufgabenliste mit allen Aufgaben.\nDie Aufgaben können bei Bedarf gruppiert werden. Im Bild befinden sich bspw. alle Aufgaben in einer Gruppe mit dem Namen: „1. Gruppe“. Unterhalb der Liste ist ein Menü mit den Funktionen zur Aufgabenverwaltung zu sehen. Mit diesen Funktionen können bspw. neue Aufgaben angelegt, Aufgaben kopiert oder gelöscht werden und vieles mehr.\nIm linken unteren Bereich befinden sich Schalter:\n\nFunktion “Aufgabe hinzufügen”\nFunktion “Aufgabe löschen”\nHauptmenü des Arbeitsbereiches mit weiteren übergreifenden Funktionen\n\nMan muss links eine Aufgabe auswählen und kann diese dann im Rechten Bildschirmbereich detailliert anschauen und bearbeiten.",
+    "text": "Links rot markiert\nLinks befindet sich die Aufgabenliste mit allen Aufgaben.\nDie Aufgaben können bei Bedarf gruppiert werden. Im Bild befinden sich bspw. alle Aufgaben in einer Gruppe mit dem Namen: „1. Gruppe“. Im linken unteren Bereich befinden sich Schalter:\n\nFunktion “Aufgabe hinzufügen”\nFunktion “Aufgabe löschen”\nHauptmenü des Arbeitsbereiches mit weiteren übergreifenden Funktionen\n\nMan muss links eine Aufgabe in der Liste auswählen und kann diese dann im rechten Bildschirmbereich detailliert anschauen und bearbeiten.",
     "crumbs": [
       "Aufgaben entwickeln"
     ]
@@ -2071,7 +2081,7 @@
     "href": "tasks/index.html#rechts-blau-markiert",
     "title": "Aufgaben entwickeln mit dem IQB-Studio",
     "section": "Rechts blau markiert",
-    "text": "Rechts blau markiert\nRechts befinden sich Funktionen, die sich auf die gewählte Aufgabe beziehen. Die Funktionen sind über Reiter erreichbar:\n\nEigenschaften: Eigenschaften, Items und Metadaten\nEditor: Bearbeitung der Elemente einer Aufgabe\nVorschau: Anzeige der Aufgabe so, wie sie die Testperson sehen würde\nKodierung: Eingabe von Regeln für das automatische Kodieren der Antworten und von Instruktionen für das manuelle Kodieren\nKommentare: Lesen und Hinzufügen von Kommentaren",
+    "text": "Rechts blau markiert\nRechts befinden sich Funktionen, die sich auf die gewählte Aufgabe beziehen. Die Funktionen sind über Reiter erreichbar:\n\nEigenschaften: Eigenschaften, Items und Metadaten\nEditor: Bearbeitung der Elemente einer Aufgabe\nVorschau: Anzeige der Aufgabe so, wie sie die Testperson sehen würde\nKodierung: Eingabe von Regeln für das automatische Kodieren der Antworten und von Instruktionen für das manuelle Kodieren\nKommentare: Lesen und Hinzufügen von Kommentaren\n\nMit Klick auf das Pin-Symbol  fixiert man diesen Reiter. Dann können zwei Reiter gleichzeitig angezeigt werden.",
     "crumbs": [
       "Aufgaben entwickeln"
     ]
@@ -4855,43 +4865,47 @@
     ]
   },
   {
-    "objectID": "intro/index.html",
-    "href": "intro/index.html",
-    "title": "Einführung",
+    "objectID": "intro/bt.html",
+    "href": "intro/bt.html",
+    "title": "Bildungsstandards und Bildungstrend",
     "section": "",
-    "text": "Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation beschreibt die technischen und organisatorischen Aspekte der Durchführung.",
+    "text": "Die Beschlüsse der KMK zur Umstellung des nationalen Bildungsmonitorings auf TBA sind eng verbunden mit der Weiterentwicklung der nationalen Bildungsstandards.\n\nIQB: Informationen zu Bildungsstandards\nIQB: Informationen zum Bildungstrend\n\nDie folgende Darstellung zeigt die zeitliche Planung. Nachdem in einem ersten Schritte Aufgaben auf der Grundlage der weiterentwickelten Bildungsstandards entwickelt wurden, werden diese zunächst pilotiert. Dies führt zu einer Überarbeitung und ggf. Selektion. Danach werden über eine Normierungsstudie die Testinstrumente – Aufgaben in Testabläufen – psychometrisch analysiert. Auf dieser Grundlage werden die Kompetenzstufenmodelle entwickelt.\n\n\n\n\n\n\n\n\ngantt\ndateFormat YYYY-MM-DD\naxisFormat %Y\ntickInterval 12month\n\nsection Primar De Ma\n  Testentwicklung : 2022-09-01, 2024-03-01\n  Pilotierung : 2024-01-01, 2024-12-31\n  Normierung : 2026-01-01, 2026-12-31\n  Modell : milestone, 2026-09-01\n\nsection Sek I De Fr En\n  Testentwicklung : 2023-09-01, 2025-03-01\n  Pilotierung : 2025-01-01, 2025-12-31\n  Normierung : 2027-01-01, 2027-12-31\n  Modell : milestone, 2027-09-01\n\nsection Sek I Ma NaWi\n  Testentwicklung : 2025-09-01, 2028-03-01\n  Pilotierung : 2028-01-01, 2028-12-31\n  Normierung : 2029-01-01, 2029-12-31\n  Modell : milestone, 2029-09-01\n\n\n\n\n\n\n\n\nAbbildung 1: Testentwicklung und Bildungstrend\n\n\n\nMit der Veröffentlichung der Kompetenzstufenmodelle steht die neue Metrik zur Verfügung als Voraussetzung für die Bildungstrend-Studien im neuen Zyklus.\nDie gesamte Aufgabenentwicklung und auch sämtliche Studien werden mit den IQB-Webanwendungen durchgeführt. Hierbei übernimmt das IQB die Leitung und beauftragt ggf. Dienstleister. Sämtliche Online-Testungen laufen auf Servern des IQB.\n\n\n\n Zurück nach oben",
     "crumbs": [
-      "Einführung"
+      "Einführung",
+      "Bildungstrend"
     ]
   },
   {
-    "objectID": "intro/index.html#szenario-player",
-    "href": "intro/index.html#szenario-player",
-    "title": "Einführung",
-    "section": "Szenario “Player”",
-    "text": "Szenario “Player”\nDie folgende Darstellung zeigt vereinfacht die Funktionen, die üblicherweise ein System für Lernstandserhebungen erfüllen muss. Die Komponente, mit der der Test durchgeführt wird (hier “Testcenter”), ist eingebettet und eng verzahnt mit der Daten-Infrastruktur.\n\n\n\nArchitektur-Szenario “Player”\n\n\nHervorgehoben ist das Verona-Plugin “Player”. Für die IQB-Aufgaben steht ein spezieller Player zur Verfügung, der zu Beginn der Testung geladen wird und nachfolgend die Darstellung der Aufgaben übernimmt.",
+    "objectID": "intro/vera.html",
+    "href": "intro/vera.html",
+    "title": "Nutzung von TBA in den Ländern",
+    "section": "",
+    "text": "Damit die Länder beim Einsatz der IQB-Aufgaben die Interaktionselemente nicht nachprogrammieren müssen, sondern stets zeitnah Neuentwicklungen verwenden können, hat eine Arbeitsgruppe ein Plugin-System entwickelt. Die Spezifikationen dieser Schnittstellen sind als Verona-Interfaces veröffentlicht.\nEin Land oder eine Einrichtung, die im Auftrag eine Lernstandserhebung mit IQB-Aufgaben durchführen soll, verfügen i.d.R. bereits über ein Portalsystem zur Administration, Durchführung und Auswertung. Um direkt die IQB-Aufgaben nutzen zu können, stehen zwei Szenarien zur Verfügung.\n\n\nDie folgende Darstellung zeigt vereinfacht die Funktionen, die üblicherweise ein System für Lernstandserhebungen erfüllen muss. Die Komponente, mit der der Test durchgeführt wird (hier “Testcenter”), ist eingebettet und eng verzahnt mit der Daten-Infrastruktur.\n\n\n\n\n\n\nAbbildung 1: Architektur-Szenario “Player”\n\n\n\nHervorgehoben ist das Verona-Plugin “Player”. Für die IQB-Aufgaben steht ein spezieller Player zur Verfügung, der zu Beginn der Testung geladen wird und nachfolgend die Darstellung der Aufgaben übernimmt.\n\n\n\nAlternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden[^1]. Der Server eines IQB-Testcenters verfügt über eine ausführlich dokumentierte Schnittstelle, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.\n\n\n\n\n\n\nAbbildung 2: Architektur-Szenario “IQB-Testcenter”\n\n\n\nDer Einsatz des IQB-Testcenters kann vorteilhaft sein, wenn bestimmte Zusatzfunktionen wie Testleitungskonsole, System-Check oder adaptiver Testablauf im eigenen System nicht zur Verfügung stehen. Es kann nachteilig sein, wenn die Bedienung durch Lehrkräfte oder Schüler*innen einheitlich über alle digitalen Angebote eines Landes sein soll.",
     "crumbs": [
-      "Einführung"
+      "Einführung",
+      "Nutzung in den Ländern"
     ]
   },
   {
-    "objectID": "intro/index.html#szenario-iqb-testcenter",
-    "href": "intro/index.html#szenario-iqb-testcenter",
-    "title": "Einführung",
-    "section": "Szenario “IQB-Testcenter”",
-    "text": "Szenario “IQB-Testcenter”\nAlternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden1. Der Server eines IQB-Testcenters verfügt über eine ausführlich dokumentierte Schnittstelle, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.\n\n\n\nArchitektur-Szenario “IQB-Testcenter”\n\n\nDer Einsatz des IQB-Testcenters kann vorteilhaft sein, wenn bestimmte Zusatzfunktionen wie Testleitungskonsole, System-Check oder adaptiver Testablauf im eigenen System nicht zur Verfügung stehen. Es kann nachteilig sein, wenn die Bedienung durch Lehrkräfte oder Schüler*innen einheitlich über alle digitalen Angebote eines Landes sein soll. Das IQB-Testcenter kann zwar angepasst werden (Farben, Logo), aber es könnte trotzdem exotisch wirken.",
+    "objectID": "intro/vera.html#szenario-player",
+    "href": "intro/vera.html#szenario-player",
+    "title": "Nutzung von TBA in den Ländern",
+    "section": "",
+    "text": "Die folgende Darstellung zeigt vereinfacht die Funktionen, die üblicherweise ein System für Lernstandserhebungen erfüllen muss. Die Komponente, mit der der Test durchgeführt wird (hier “Testcenter”), ist eingebettet und eng verzahnt mit der Daten-Infrastruktur.\n\n\n\n\n\n\nAbbildung 1: Architektur-Szenario “Player”\n\n\n\nHervorgehoben ist das Verona-Plugin “Player”. Für die IQB-Aufgaben steht ein spezieller Player zur Verfügung, der zu Beginn der Testung geladen wird und nachfolgend die Darstellung der Aufgaben übernimmt.",
     "crumbs": [
-      "Einführung"
+      "Einführung",
+      "Nutzung in den Ländern"
     ]
   },
   {
-    "objectID": "intro/index.html#footnotes",
-    "href": "intro/index.html#footnotes",
-    "title": "Einführung",
-    "section": "Fußnoten",
-    "text": "Fußnoten\n\n\nDie IQB-Webanwendungen müssen jeweils auf Servern des Landes bzw. der durchführenden Einrichtung installiert und betrieben werden. Das IQB bietet keine Server hierfür an, tritt also nicht als Dienstleister für Serverhosting auf.↩︎",
+    "objectID": "intro/vera.html#szenario-iqb-testcenter",
+    "href": "intro/vera.html#szenario-iqb-testcenter",
+    "title": "Nutzung von TBA in den Ländern",
+    "section": "",
+    "text": "Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden[^1]. Der Server eines IQB-Testcenters verfügt über eine ausführlich dokumentierte Schnittstelle, mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.\n\n\n\n\n\n\nAbbildung 2: Architektur-Szenario “IQB-Testcenter”\n\n\n\nDer Einsatz des IQB-Testcenters kann vorteilhaft sein, wenn bestimmte Zusatzfunktionen wie Testleitungskonsole, System-Check oder adaptiver Testablauf im eigenen System nicht zur Verfügung stehen. Es kann nachteilig sein, wenn die Bedienung durch Lehrkräfte oder Schüler*innen einheitlich über alle digitalen Angebote eines Landes sein soll.",
     "crumbs": [
-      "Einführung"
+      "Einführung",
+      "Nutzung in den Ländern"
     ]
   },
   {
