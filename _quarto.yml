@@ -3,7 +3,7 @@ project:
 
 website:
   site-url: https://iqb-berlin.github.io/tba-info/
-  title: "TBA-Verstehen und Anwenden"
+  title: "TBA - Verstehen und Anwenden"
   description: "Dokumentation der IQB-Webanwendungen zum computerbasierten Testen - TBA"
   favicon: favicon.ico
   back-to-top-navigation: true
@@ -36,8 +36,13 @@ website:
     contents:
       - href: index.qmd
         text: Start
-      - href: intro/index.qmd
-        text: Einführung
+      - section: Einführung
+        href: intro/index.qmd
+        contents:
+          - href: intro/bt.qmd
+            text: Bildungstrend
+          - href: intro/vera.qmd
+            text: Nutzung in den Ländern
       - section: Studie durchführen
         href: Testcenter/index.qmd
         contents:
