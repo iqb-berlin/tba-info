@@ -1,0 +1,214 @@
+---
+lang: de
+title: Kodierschema
+format:
+  html:
+    toc-expand: 2
+---
+
+Auf dieser Seite sind in komprimierter Form alle Parameter und möglichen Werte eines Kodierschemas beschrieben. Andere Quellen:
+
+* Die Spezifikation in englischer Sprache finden Sie [hier](https://iqb-berlin.github.io/responses)
+* Ein JSON-Schema zur Validierung sowie Klassendefinitionen für TypeScript finden Sie [hier](https://github.com/iqb-berlin/responses#readme).
+* Komponenten für Frontends für die Arbeit mit dem Kodierschema finden Sie [hier](https://github.com/iqb-berlin/coding-components#readme)
+* Ausführliche Erläuterungen der Nutzung des Schemas (Kodierung) finden Sie demnächst [hier](../coding).
+
+# Liste von Kodierungen für Variablen
+
+Die [Spezifikation](https://iqb-berlin.github.io/responses) des Kodierschemas sieht die beiden Eigenschaften `version` und `variableCodings` vor. Ersteres ist mit zwei Zahlen im Schema `<major>.<minor>` beschrieben, letzteres ist eine Liste von Objekten, wobei jedes Objekt für die Kodierung einer einzelnen Variable steht. Diese Objekt wird in den TypeScript-Klassen `VariableCodingData` genannt und wird nachfolgend beschrieben. Es muss aber stets die gesamte Liste verfügbar sein, da sich oft die Definitionen aufeinander beziehen.
+
+Die Liste der Kodierungsvorschriften für Variablen ist **stets an eine Unit gebunden**. Daher finden sich in den Datenstrukturen keine Angaben zur Unit und alle IDs sind eindeutig nur innerhalb der Liste. Die Antworten werden auch stets pro Unit gespeichert, so dass im Kodierprozess jeweils ein Kodierschema auf alle Unit-Antworten angewendet wird.
+
+# Identifizierung
+
+## `id`
+
+Die möglichen Werte hier sind recht weit gefasst. Es sind zwar nur Buchstaben, Ziffern und '_' erlaubt, aber es gibt keine Mindestlänge und die ID kann nur aus Ziffern bestehen.
+
+Als Quelle der Variablen-ID fungieren zunächst die Basisvariablen -- also die Variablen, die als Interaktionselemente in der Unit-Definition angelegt sind. Darüber hinaus können abgeleitete Variablen Teil des Kodierschemas sein, deren ID lediglich eindeutig innerhalb der Liste sein muss.
+
+## `alias`
+
+Ein Alias ist eine alternative ID, die durch User vergeben werden kann. Dann kann die ID der Variable nicht mehr geändert werden und bleibt konstant über alle Verarbeitungsschritte und Versionen. Der Alias kann aber nach Bedarf geändert werden. Das IQB hat diese Trennung eingeführt, als sich Umbenennungen von Variablen häuften und jede Umbenennung Inkonsistenzen verursachte (Ableitungen schlugen fehl, Seitenzustände wurden falsch ermittelt).
+
+## `label`
+
+Diese Angabe ist meist unnötig, wird also leer gelassen. Erforderlich könnte sie werden, wenn der Ort der Variablen nicht eindeutig ist, weil es viele kleine Interaktionselemente gibt. Dann kann man hier 'Spalte 2 Zeile 5' eintragen, um bei der manuellen Kodierung oder der Datenauswertung die Fehlerrate zu senken.
+
+# Quelle des Wertes
+
+## `sourceType`
+
+Hier wird festgelegt, woher der Wert der Variablen kommt:
+
+* Basisvariablen
+  * `BASE`: Es handelt sich um eine Basisvariable. Der Wert stammt also aus der Interaktion der Testperson mit dem Testsystem.
+  * `BASE_NO_VALUE`: Es handelt sich um eine Variable im Datensatz der Testdurchführung, die aber nie einen Antwortwert hat oder deren Wert stets ignoriert werden soll.
+* Ableitung basierend auf dem Wert der Antwort
+  * `COPY_VALUE`: Der Wert dieser abgeleiteten Variable ist eine identische Kopie eines Wertes einer anderen Variable. Dies ist erforderlich, wenn ein Eingabewert nicht nur eine isolierte Information liefern soll, sondern mehrere Aspekte des Wertes getrennt analysiert und also kodiert werden sollen. Beispiel: Es soll getrennt bewertet werden, ob die Großschreibung eingehalten und das Dehnungs-H richtig gesetzt wurde (Orthografie-Items).
+  * `UNIQUE_VALUES`: Der Wert dieser abgeleiteten Variablen ist ein Boolscher Wert true/false mit dem festgestellt werden kann, ob die Werte der Quellvariablen eindeutig sind. Sowie einer der Werte mehrfach vorkommt, wird false gesetzt. Bei dieser Ableitung reicht es, wenn eine der Quellvariablen  den Status `VALUE_CHANGED` hat.
+  * `SOLVER`: Diese Ableitung setzt numerische Werte bei den Quellvariablen voraus und verknüpft diese mit einem mathematischen Ausdruck, der als separater Parameter übergeben werden muss (s. u.). Es entsteht wieder ein numerischer Wert.
+* Ableitung basierend auf dem Code oder Score der Antwort
+  * `CONCAT_CODE`: Der Wert dieser abgeleiteten Variable setzt sich aus den Codes anderer Variablen zusammen. Die Integer-Werte der Codes werden mit dem Trennzeichen '_' aneinander gekettet. Der neue Wert der Variablen ist also ein String.
+  * `SUM_CODE`: Der Wert dieser abgeleiteten Variable ist der Summenwert der Codes anderer Variablen. Durch geschicktes Festlegen der Codes lassen sich gut zusammenfassende Werte bilden. Der neue Wert der Variablen ist also ein Integer.
+  * `SUM_SCORE`: Der Wert dieser abgeleiteten Variable ist der Summenwert der Scores anderer Variablen. Damit wird meistens die Bewertung mehrerer Antworten für ein Item zusammengefasst. Ein Item gilt also dann als richtig beantwortet, wenn einige Teilleistungen richtig sind. Der neue Wert der Variablen ist ein Integer.
+* `MANUAL`: Diese Ableitung basiert zwar auf anderen Variablen, es werden aber weder Wert, Code noch Score verwendet. Statt dessen erfolgt eine manuelle Kodierung der abgeleiteten Variablen mit Blick auf die rekonstruierte Antwort der Variablen, die als Quelle angegeben sind.
+
+## `sourceParameters`
+
+Über diese Parameter wird die Ableitung gesteuert bzw. der Wert noch einmal verändert vor der Kodierung.
+
+* `solverExpression`: Nur für Ableitung `SOLVER`; hier ist der Ausdruck zu übergeben, mit dem die Werte bei der Ableitung verknüpft werden. Es müssen für alle Variablenwerte Platzhalter existieren in der Form `${var04}`. Diese Stelle wird ersetzt durch den Wert der Variablen var04, bevor der Ausdruck an die Bibliothek [math.js](https://mathjs.org) zur Auswertung übergeben wird. Alle referenzierten Variablen müssen in `deriveSources` (s. u.) gelistet sein. Der Funktionsumfang des Ausdruckes richtet sich nach [math.evaluate()](https://mathjs.org/docs/expressions/parsing.html#evaluate). Wenn der Wert für den Ausdruck leer ist oder wenn die referenzierten Variablen nicht gefunden werden, wird der Status `DERIVE_ERROR` gesetzt.
+* `processing`: Diese Schalter regeln spezielle Umformungen, die die anschließende Kodierung vorbereitet. Es handelt sich technisch um eine Liste von Schlüsselworten, deren Vorhandensein in der Liste den Schalter auf 'ON' setzt:
+  + `TAKE_DISPLAYED_AS_VALUE_CHANGED`: Nur für Basisvariablen; legt fest, dass der Wert der Variablen auch ausgewertet wird, wenn die Variable den Status `DISPLAYED` hat. Ansonsten werden nur Variablen berücksichtigt, deren Status auf `VALUE_CHANGED` gesetzt ist.
+  + `TAKE_EMPTY_AS_VALID`: Nur für Basisvariablen; legt fest, dass ein leerer Wert als gültig angesehen wird und in die Kodierung gegeben wird. Das Standardverhalten bei leerer Antwort ist das Setzen des Status' `INVALID`. "Leer" bedeutet hier ein leerer String oder ein leeres Array.
+  + `REMOVE_ALL_SPACES`, `REMOVE_DISPENSABLE_SPACES`, `TO_NUMBER`, `TO_LOWER_CASE`: Nur für Ableitung `UNIQUE_VALUES`; die Werte werden vor der Gleichheitsprüfung transformiert. So kann man verhindern, dass ein führendes Leerzeichen oder eine vorgesetzte '0' eine Verschiedenheit vortäuscht. Achtung: Wenn `TO_NUMBER` nicht erfolgreich war, also z. B. ein String nicht in eine Zahl überführt werden konnte, wird '0' gesetzt. Passiert dies zweimal, liefert die Ableitung `false`.
+  + `SORT`: Nur für Ableitung `CONCAT_CODE`; wenn es egal ist, welche Variable welchen Code liefert, erleichtert eine Sortierung die Kodierung.
+
+## `deriveSources`
+
+Dies ist eine Liste von IDs der Variablen, die als Quelle dienen. Die Reihenfolge ist verbindlich, was allerdings nur beim Ableitungstyp `CONCAT_CODE` eine Rolle spielt, sofern nicht als Parameter `SORT` gesetzt wurde.
+
+Wenn eine Variable angegeben wurde, die nicht im Kodierschema enthalten ist, wird der Status `DERIVE_ERROR` gesetzt.
+
+::: {.callout-caution}
+## ID -- nicht Alias!
+
+An dieser Stelle ist wichtig zu betonen, dass bei `deriveSources` stets die ID und nicht der Alias verwendet wird. Der Vorteil ist, dass eine Umbenennung (also eine Änderung des Alias) keine Auswirkung auf die Ableitung hat. Der Nachteil ist, dass beim Blick auf das Kodierschema Irritationen auftreten können, weil man in der UI nur den Alias sieht.
+:::
+
+
+# Allgemeine Festlegungen
+
+## `processing`
+
+Über diese Schalter kann man den generellen Umgang mit Werten und Vergleichswerten verändern. Es handelt sich technisch um eine Liste von Schlüsselworten, deren Vorhandensein in der Liste den Schalter auf 'ON' setzt:
+
+* `IGNORE_CASE`: Groß- und Kleinschreibung spielt keine Rolle. Sowohl der Antwort-Wert als auch der Vergleichswert einer Regel werden vor dem Vergleich in Großbuchstaben umgewandelt (s. [JavaScript toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)).
+* `IGNORE_ALL_SPACES`, `IGNORE_DISPENSABLE_SPACES`: Leerzeichen spielen keine Rolle. Sowohl im Antwortwert als auch im Vergleichswert einer Regel werden vor dem Vergleich alle Leerzeichen (ALL) oder Leerzeichen am Beginn und am Ende sowie doppelte Leerzeichen (DISPENSABLE) entfernt. Als Leerzeichen dient hier die Zeichenklasse `\\s`gemäß [JavaScript reguläre Ausdrücke](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes).
+* `SORT_ARRAY`: Sofern der Antwortwert aus einem Array besteht, wird dieses vor der Kodierung sortiert. Leere Antwortwerte im Array werden ans Ende geschoben. Dies kann die Kodierregeln erheblich vereinfachen.
+* `REPLAY_REQUIRED`: Mit dieser Information wird darüber informiert, dass eine Kodierung nicht abstrakt mit dem Antwortwert erfolgen kann, sondern über eine Ansicht der Unit mit den Antwortwerten. Diese Information kann hilfreich bei der Planung der Kodierungen sein.
+* `ATTACHMENT`: Der Antwortwert ist ein Verweis auf eine externe Datei. Diese muss dann für die Kodierung herangezogen werden. Beispielsweise könnte ein Foto einer Zeichnung oder eine Audio-Aufnahme auf diese Art als Antwort kodiert werden.
+
+Die Schalter `IGNORE_CASE`, `IGNORE_ALL_SPACES` und `IGNORE_DISPENSABLE_SPACES` gelten nur für die Regel `MATCH`. Bei `MATCH_REGEX` wird bei `IGNORE_CASE` das `i`-Flag gesetzt, die anderen Schalter werden ignoriert. Bei den numerischen Regeln werden alle Schalter ignoriert.
+
+## `fragmenting`
+
+Über einen [regulären Ausdruck](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) kann ein Antwortwert zerlegt werden. Interaktionselemente können komplexe Daten in einfache Strings mit definierten Trennzeichen konvertieren, und durch die Fragmentierung werden die Teildaten getrennt auswertbar. Eine Regel (s. u.) bezieht sich dann nicht auf den gesamten Antwortwert, sondern nur auf ein Fragment. Es werden keine geschachtelten Gruppen unterstützt.
+
+> Beispiel 1: Ein Textelement in einem Player speichert eine Textmarkierung durch die Testperson über einen Wert `23_92_yellow`, was der Startposition, der Endposition und der Farbe der Markierung entspricht. Der Wert kann über den regulären Ausdruck `^(\d+)_(\d+)_(\w+)$` fragmentiert werden, so dass man die einzelnen Informationen getrennt bewerten kann.
+
+> Beispiel 2: Eine Eingabe `2 kg` kann über `(\d+)\s*(\w+)` zerlegt werden.
+
+## `manualInstruction`
+
+Sollten für alle codespezifischen Instruktionen (s. u.) allgemeine übergreifende Festlegungen gewünscht sein, dann können diese hier hinterlegt werden. Beispielsweise kann man hier die Kodieranweisung eingeben, es möge die Rechtschreibung bei allen Codes beachtet werden.
+
+Dieser Text kann Html-Formatierungen enthalten. Dazu gehören auch Bilder, die dann über die Binärkodierung [base64](https://de.wikipedia.org/wiki/Base64) eingebettet sind.
+
+::: {.callout-caution}
+## Sicherheitshinweis
+
+Bei der Anzeige dieser Texte ist stets darauf zu achten, dass Code entfernt wird (über sog. HTML Sanitizer). Ein Verzicht darauf würde eine Sicherheitslücke bedeuten.
+:::
+
+Im Prozess der Erarbeitung der Kodiervorschriften kann es nützlich sein, diesen Text als allgemeinen Notizzettel zu verwenden. Erste Überlegungen oder Hinweise einer Aufgabenentwicklerin können hier gespeichert werden (z. B. 'dritte Option ist richtig'), und später könnte ein erfahrener Autor die genauen Code-Regeln definieren.
+
+## `codeModel`
+
+Über diesen Parameter wird festgelegt, ob während der Bearbeitung nur die Formularelemente für die Regeln, nur die für die manuelle Kodierung oder alles angezeigt wird. Die möglichen Werte lauten entsprechend `RULES_ONLY`, `MANUAL_ONLY` und `MANUAL_AND_RULES`.
+
+## `page`
+
+Sollte der Player die Unit auf verschiedene Seiten verteilen, dient dies normalerweise dem Verteilen eines umfangreichen Inhaltes auf u. U. nicht sichtbare Bereich. Es ist dann ein Blättern nötig, um alle Interaktionselemente zu erreichen. Bei der Kodierung ist es sehr hilfreich, wenn man beim Replay -- also der Anzeige des letzten Standes der Beantwortung -- gleich zur richtigen Seite der Variablen springt und nicht erst blättern muss. Ein leerer Eintrag `''`bedeutet, dass es entweder nur eine Seite gibt oder dass die Variable nicht verlässlich einer Seite zugeordnet werden kann (z. B. bei abgeleiteten Variablen).
+
+# Codes
+
+Die folgenden Regeln und Instruktionen beziehen sich stets auf einen Code. Wenn automatisch oder aus Sicht einer Person (manuell) eine formulierte Bedingungen zutrifft bzw. in Kombination mehrere Bedingungen zutreffen, dann wird der Code und der zugehörige Score als Kodierergebnis gespeichert. Weitere Codes der Liste `codes` bleiben unbeachtet, d. h. die Reihenfolge der Codes in dieser Liste ist relevant.
+
+## `id`
+
+Über diesen Wert wird entschieden ob
+
+a) dem **Code** der Antwort ein bestimmter numerischer Wert zugewiesen wird. Dann ist `id` numerisch ganzzahlig. In diesem Fall wird als **Status** `CODING_COMPLETE` gesetzt, und der **Score** ergibt sich aus dem Wert unten. Oder
+a) dem **Status** der Antwort ein bestimmter Wert zugewiesen wird. Hier sind zwei String-Werte zulässig `INVALID` und `INTENDED_INCOMPLETE`. In diesem Fall werden für **Code** und **Score** der Antwort der Wert `0` gesetzt.
+
+::: {.callout-caution}
+## Gefahr von Verschleiern eines Problems
+
+Wenn ein eigentlich unmöglicher Wert mit `INVALID` markiert wird, könnte ein ernstes Problem in der Datenverarbeitung oder im Player dahinter stecken. Derartige Fälle sollten stets genauer untersucht werden.
+:::
+
+## `type`
+
+Der Typ eines Code-Eintrags im Kodierschema hat nur Bedeutung für die UI (Schemer). Dann werden entsprechende Farben gesetzt oder Eingabeelemente ein-/ausgeblendet.
+
+| Typ | Erläuterung | Standard-Label | Standard-Id | Standard-Score |
+|---|----------|----|----|----|
+|`FULL_CREDIT`|Eine vollständig richtige Antwort.|richtig|1 bzw. 11, 12, usw.|1|
+|`PARTIAL_CREDIT`|Eine teilweise richtige Antwort.|teilweise richtig|2 bzw. 21, 22, usw.|0|
+|`TO_CHECK`|Diese Antwortkategorie ist noch nicht final beschlossen.|zu prüfen|3 bzw. 31, 32, usw.|0|
+|`NO_CREDIT`|Eine falsche Antwort.|falsch|4 bzw. 41, 42, usw.|0|
+|`UNSET`|Es soll kein Code-Typ angewendet werden| (manuell festzugelegen) |keine Konvention|0|
+|`INTENDED_INCOMPLETE`|Alle anderen Antworten - keine Regeln|Kodierung soll unvollständig sein.|0|0|
+|`RESIDUAL`|Alle anderen Antworten|falsch|0|0|
+|`RESIDUAL_AUTO`|Alle anderen Antworten - keine Regeln|falsch - AUTOMATISCH|0|0|
+
+Die Code-Typen `RESIDUAL`, `RESIDUAL_AUTO` und `INTENDED_INCOMPLETE` stehen stets am Ende einer Codeliste und schließen einander aus. Es kann also nur eine der drei Typen geben.
+
+## `label`
+
+Dieser Parameter kann eine Kurzfassung der Regeln und Instruktionen enthalten und soll darüber für den Code eine Orientierung geben in Listen.
+
+## `score`
+
+Wenn der Code zutrifft, wird auch stets der Parameter `score` der [Antwortdaten](responses) gesetzt. Es handelt sich um einen numerischen ganzahligen Wert.
+
+## `manualInstruction`
+
+Hier sind Instruktionen an eine reale Person gespeichert, die nach Sichtung der Antwort manuell einen Code vergeben soll. Dies kann auch ergänzend zu Regeln sein: Für Standardfälle werden Regeln definiert, die eine automatische Kodierung -- soweit möglich -- vornehmen, und erst wenn kein Code gefunden wurde, muss eine Person manuell evaluieren. Hierbei ist darauf zu achten, dass keine Regel 'Alle anderen Antworten' hinterlegt ist, da sonst dieser Code automatisch vergeben wird und nicht `CODING_INCOMPLETE`.
+
+Dieser Text kann Html-Formatierungen enthalten. Dazu gehören auch Bilder, die dann über die Binärkodierung [base64](https://de.wikipedia.org/wiki/Base64) eingebettet sind.
+
+::: {.callout-caution}
+## Sicherheitshinweis
+
+Bei der Anzeige dieser Texte ist stets darauf zu achten, dass Code entfernt wird (über sog. HTML Sanitizer). Ein Verzicht darauf würde eine Sicherheitslücke bedeuten.
+:::
+
+# Regeln für automatische Kodierung
+
+## `ruleSetOperatorAnd`
+
+Wenn dieser boolesche Wert `true` ist, dann werden die Ergebnisse der Regelsätze mit `UND` verknüpft. Alle Regelsätze müssen `true` liefern, damit der Code als zutreffend bewertet wird. Bei `false` reicht es, dass ein Regelsatz `true` ergibt (`ODER`-Verknüpfung).
+
+## `ruleSets`
+
+Regelsätze fassen mehrere Regeln zusammen in einer Gruppe. Ein Regelsatz hat folgende Parameter:
+
+* `valueArrayPos`: Sollte der Antwortwert eine Liste von Werten sein,
+  + stellt dieser Parameter einen Bezug zu einer bestimmten Position im Array her (Datentyp Integer 0..n-1), oder
+  + soll mindestens ein Wert im Array gefunden werden, der die Bedingungen erfüllt (Datentyp String `ANY` oder `ANY_OPEN`; letzteres legt fest, dass im Array auch andere Werte vorhanden sein dürfen außer denen, für die das Regelset zutrifft), oder
+  + sollen vor der Auswertung alle Array-Werte bzw. alle Fragmente als numerische Werte interpretiert und summiert werden (Datentyp String `SUM`), oder
+  + soll vor der Auswertung die Anzahl der Array-Werte ermittelt werden (Datentyp String `LENGTH`)
+* `ruleOperatorAnd`: Wenn dieser boolesche Wert `true` ist, dann werden die Ergebnisse der Regeln mit `UND` verknüpft. Alle Regeln müssen `true` liefern, damit der Code als zutreffend bewertet wird. Bei `false` reicht es, dass eine Regel `true` ergibt (`ODER`-Verknüpfung).
+
+## `rules`
+
+Regeln sind Vorschriften, die jeweils einen Wert analysieren nach einem vorgegebenen Muster. Die Anwendung einer Regel liefert stets ein 'Match', also ob ein Wert einer bestimmten Erwartung entspricht.
+
+* `fragment`: Das Kodierschema für eine Variable kann im Parameter `fragmenting` einen regulären Ausdruck enthalten, der einen Wert in mehrere Teile zerlegt (s. o.). Eine Regel kann sich über den Parameter `fragment` (Datentyp Integer) auf ein bestimmtes Fragment beziehen. Es wird eine ganze positive Zahl als Array-Position erwartet oder '-1' dafür, dass irgendein Fragment die Bedingung erfüllen muss.
+* `method`:
+  + `MATCH`: Es wird eine Übereinstimmung geprüft (String-Vergleich). Hierfür ist EIN Parameter nötig (s. u.). Ist der Parameterwert mehrzeilig, wird pro Zeile die Übereinstimmung geprüft.
+  + `MATCH_REGEX`: Es wird eine Übereinstimmung geprüft (String-Vergleich über regulären Ausdruck). Hierfür ist EIN Parameter nötig (s. u.). Ist der Parameterwert mehrzeilig, wird pro Zeile die Übereinstimmung geprüft. Es wird die JavaScript-Funktion [match()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) verwendet, wobei ein Ergebnis ungleich `null` als positiv gewertet wird.
+  + `NUMERIC_MATCH`: Es wird eine Übereinstimmung geprüft. Hierfür ist EIN Parameter nötig (s. u.). Ist der Parameterwert mehrzeilig, wird pro Zeile die Übereinstimmung geprüft. Wert und Vergleichswert werden vor der Prüfung in einen numerischen Wert transformiert. Eventuell vorhandene Leerzeichen werden vorher komplett entfernt, und ein Komma wird ggf. durch einen Dezimalpunkt ersetzt.
+  + `NUMERIC_RANGE`: Es wird geprüft, ob der Wert im Bereich "min < Wert <= max" liegt. Hierfür sind ZWEI Parameter nötig (s. u.). Die Aufbereitung der Werte siehe `NUMERIC_MATCH`.
+  + `NUMERIC_LESS_THAN`: Es wird geprüft, ob der Wert kleiner als der Parameterwert ist. Hierfür ist EIN Parameter nötig (s. u.). Die Aufbereitung der Werte siehe `NUMERIC_MATCH`.
+  + `NUMERIC_MORE_THAN`: Es wird geprüft, ob der Wert größer als der Parameterwert ist. Hierfür ist EIN Parameter nötig (s. u.). Die Aufbereitung der Werte siehe `NUMERIC_MATCH`.
+  + `NUMERIC_MAX`: Es wird geprüft, ob der Wert höchstens der Parameterwert ist. Hierfür ist EIN Parameter nötig (s. u.). Die Aufbereitung der Werte siehe `NUMERIC_MATCH`.
+  + `NUMERIC_MIN`: Es wird geprüft, ob der Wert mindestens der Parameterwert ist. Hierfür ist EIN Parameter nötig (s. u.). Die Aufbereitung der Werte siehe `NUMERIC_MATCH`.
+  + `IS_EMPTY`: Prüft, ob der Wert leer ist. Wenn es sich um eine Basisvariable handelt, die kein Array ist, muss bei `sourceParameter/processing` der Schalter `TAKE_EMPTY_AS_VALID` gesetzt sein, damit die leere Antwort ausgewertet wird. Diese Regel sollte im ersten Code platziert sein, da andere Regeln u. U. einen `CODING_ERROR` erzeugen, wenn der Antwortwert leer ist.
+  + `ELSE`: Diese Regel bezieht sich nicht auf einen bestimmten Wert, sondern trifft immer zu. Sie prüft nichts, sondern der Code, der diese Regel enthält, wird als zutreffend evaluiert. Sie sollte also im letzten Code definiert sein, wenn das Kodierschema geschlossen werden soll.
+  + `IS_NULL`: Prüft, ob der Wert `null` ist im Sinne der Datentypdefinition von [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null). Diese Regel sollte im ersten Code platziert sein, da andere Regeln u. U. einen `CODING_ERROR` erzeugen, wenn der Antwortwert null ist.
+  + `IS_TRUE`, `IS_FALSE`: Prüft, ob der Wert wahr bzw. falsch ist.
+* `parameters`: Einige Regeln benötigen einen Parameter, eine sogar zwei. Diese Parameter werden hier gespeichert. Der Datentyp ist eine Liste (Array) von Strings.
