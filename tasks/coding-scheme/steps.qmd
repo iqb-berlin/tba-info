@@ -1,0 +1,117 @@
+---
+lang: de
+title: "Schritte"
+lightbox: true
+---
+
+Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während einige Punkte vermutlich selbsterklärend sind und auch nur kurz beschrieben werden, werden andere Punkte hier nochmal ausführlicher erklärt. Außerdem wird die Kodierung üblicher Formate auch nochmal im Abschnitt [-@sec-kodierung-einzelner-Formate] erläutert.
+
+1.	Im Reiter **Eigenschaften**: Kodierung (Schemer) auf aktuellste Version bringen.
+2.	Im Reiter **Editor**: IDs umbenennen.
+3.	Im Reiter **Kodierung**:
+    i) Feld „Position/Zuordnung“ leeren.
+    ii) Kodierung generieren.
+    iii) Abgeleitete Variable anlegen (falls nötig) <br>
+        i)	Abgeleitete Variable hinzufügen <br>
+        ii)	Quellvariablen auswählen <br>
+        iii) Ableitungsmethode auswählen (meistens Bewertung summieren) <br>
+        iv)	Über Zauberstab die Kodierung generieren. <br>
+4.	Im Reiter Eigenschaften: Unter den Metadaten des jeweiligen Items die abgeleitete Variable (oder die Basisvariable) auswählen.
+
+```{mermaid}
+%%{init: {
+    "flowchart": {"htmlLabels": false}
+    } 
+}%%
+graph TD
+  A[["`**Reiter Eigenschaften**`"]] --- B(Kodierung auf aktuellste Version bringen) 
+  B --> C[["`**Reiter Editor**`"]]
+  C --- D(IDs umbenennen)
+  D --> E[["`**Reiter Kodierung**`"]]
+  E --> H(Feld Position/Zuordnung leeren.)
+  H --> I(Kodierung generieren.)
+  I --> J(Abgeleitete Variable anlegen, falls nötig)
+  E --- I
+  E --- J
+  J --- K(Abgeleitete Variable hinzufügen)
+  K --> L(Quellvariablen auswählen)
+  L --> M(Ableitungsmethode auswählen: meistens Bewertung summieren)
+  M --> N(Über Zauberstab die Kodierung generieren.)
+  J --> O[["`**Reiter Eigenschaften**`"]]
+  N --> O
+  O --- P(Unter den Metadaten des jeweiligen Items die abgeleitete Variable oder die Basisvariable auswählen.)
+```
+
+# IDs umbenennen
+
+## Kodierrelevante Elemente
+
+* Wenn der **Itemwert** direkt dem Wert **einer Basisvariable** entsprechen soll (z. B. bei MC), d. h., wenn nur eine Variable für die gesamte Kodierung eines Items benötigt wird und keine Ableitung (Aggregation) notwendig ist, bennen wir das für die Kodierung relevante Element nach der **Itemnummer** benannt. 
+    + **Beispiel:** Der erste Itemwert wird mit `01` benannt, der zweite Itemwert mit `02`, usw.
+
+![IDs umbenennen](assets/ID_umbenennen.png)
+
+* Wenn der **Itemwert** dem Wert einer **aus mehreren Basisvariablen abgeleiteten Variable** entsprechen soll (z. B. bei CMC), d. h., wenn mehrere Elemente für die Kodierung benötigt und aggregiert werden, werden Buchstaben an den Itemnummern der zusammengehörigen Elemente ergänzt.
+    + Beispiel: Für Item `01`, das aus drei Variablen abgeleitet wird, würden die Basisvariablen mit `01a`,`01b` und `01c` benannt.
+
+::: {.callout-warning appearance="simple"}
+
+## Ableitungen höherer Ordnung
+
+Sollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d. h. wird zweifach eine Ableitung gebildet, erhalten die Basisvariablen eine zusätzliche Modifikation. Wollen wir etwa ein Item `01` kodieren, das aus den Subitems `01a` und `01b` aggregiert werden soll, die aber wiederum auf je 2 Basisvariablen bestehen, werden die Basisvariablen für das Subitem `01a` mit `01a_1` und `01a_2` bezeichnet und die Basisvariablen das Subitem `01b` mit `01b_1` und `01b_2`.
+
+:::
+
+## Kodierirrelevante Elemente
+
+<!-- PF: Bitte noch ein Screenshot davon, wie man jetzt Elemente aus der Kodierliste aufnehmen kann. @Methoden: Wollen wir das aber wirklich für Audios oder wollen wir die in der Liste lassen? Ansonsten entfernt der Auto-Coder diese. -->
+* Wenn ein **Audio** oder ein **Video** in einer Aufgabe vorkommen, wird deren ID auch im Reiter **Kodierung** angezeigt. Oft sind diese Elemente für die Kodierung unerheblich und können so gelöscht werden. 
+    + Wenn es **ein Audio oder Video** als **Stimulus** gibt, welches sich auf mehrere Items innerhalb der Aufgabe bezieht, sollte dieses mit `_audio00` bzw. `_video00` benannt werden.
+    + Handelt es sich um **ein Audio oder Video**, das **spezifisch für ein Item** ist, wird der Name der Itemnummer angeglichen, z. B. werden die Audios und/oder Videos, die zu Item `01` korrespondieren, zu `_audio01` bzw. `_video01` umbenannt.
+    + Gibt es **mehrere Audios oder Videos** für den Stimulus oder ein Item, werden diese mit Buchstaben versehen, z. B. `_audio00a` und `_audio00b` oder `_video01a` und `_video01b`. Ein Audio, das den Itemtext beinhaltet, sollte aber trotzdem als `_audio01` benannt werden.
+* Alle weiteren IDs, die nicht in die Kodierung einbezogen werden sollen, aber trotzdem im Reiter Kodierung auflaufen, werden vorne mit einem Unterstrich `_` versehen, z. B. bei den Ausgangslisten der Drag und Drop Items.
+    + Beim Format Drag and Drop ist die Umbenennung der IDs etwas komplexer und wird daher bei der Besprechung von Drag und Drop Items in [-@sec-drag-and-drop] genau erklärt.
+* Ein Sonderfall sind **Beispiele**, d. h. Elemente, die wie kodierrelevante Elemente angelegt werden, aber deren Wert sich überhaupt nicht verändern kann, da sie nur zu Illustrationszwecken dienen.
+  + Diese Elemente sind aus der Variablenliste im Reiter **Kodierung** zu entfernen.
+<!-- PF: Spätestens hier braucht man den Hinweis zum Löschen -->
+
+# Kodierung generieren
+
+* **Manuelle Kodierung:** Besteht keine Möglichkeit, die Kodierung einer Aufgabe auch nur teilweise automatisch umzusetzen, kann man keine automatischen Codes mithilfe des Zauberstab-Symbols hinzufügen. In diesem Fall muss man die Codes per Hand hinzufügen und die entsprechenden Kodieranweisungen in die Codes eintragen. Das einzige Standard-Aufgabenformat, welches so kodiert werden muss, ist das Langantworten-Format, wie z.B. Begründen-Items. Das genauere Verfahren wird in Abschnitt [-@sec-begründung] erläutert. <!-- müsste aktualisiert werden -->
+* **Geschlossene und regelbasierte Kodierung:** Bei allen Aufgabenformaten die ganz oder teilweise automatisch kodiert werden können, klickt man auf das Zauberstab-Symbol, um die Kodierung automatisch zu generieren. Das genaue Vorgehen ist in die einzelnen Aufgabenformate aufgegliedert.
+
+![](assets/Zauberstab.png)
+
+::: {.callout-note appearance="simple"}
+
+## Hinweis
+
+ Die Nummerierung der Codes wird automatisch generiert, und soll im Regelfall nicht von Hand verändert werden. Dabei gibt es eine Ausnahme. Wenn ein Item mehrere gleichartige Codes (z.B. mehrere Richtig-Codes) enthält, muss man mit Strg+Linksklick auf den doppelten Pfeil neben "Codes" klicken, um die Codes nummerisch zu sortieren.
+
+:::
+
+# Abgeleitete Variable anlegen
+
+In der abgeleiteten Variable werden einzelne Basisvariablen aggregiert. 
+Zunächst muss die abgeleitete Variable mit dem "+"-Symbole hinzugefügt werden.
+
+![](assets/Plus_abgeleitete_Variable.png)
+
+Hier muss der abgeleiteten Variable zunächst einen Namen gegeben werden. Sie wird nach dem Item benannt. So wird beispielsweise die aus den Basis-Variablen 03a bis 03f abgeleitete Variable 03 genannt. Dann müssen die Quell-Variablen aus einer Drop-Down-Liste ausgewählt werden, d. h. alle Basis-Variablen, die für die Kodierung des jeweiligen Items relevant sind (also nicht diejenigen Variablen, deren ID vorne mit einem Unterstrich versehen sind). Dann muss auch noch die Ableitungsmethode "Bewertung summieren" ausgewählt werden. Es gibt auch noch andere Ableitungsmethoden, die aber für die üblichen Fälle nicht relevant sind.
+
+![](assets/Abgeleitete_Variable_Fenster.png)
+
+Wenn man nach dem Erstellen der abgeleiteten Variable nochmal die Einstellungen ändern möchte, kann man dies machen, indem man über der Auflistung der Basisvariablen auf das Stift-Symbol klickt.
+
+![](assets/Stift_abgeleitete_Variable.png)
+
+Wenn man die Kodierung der abgeleiteten Variable mit dem Zauberstab-Symbol generiert, muss man einen Wert in das Feld „Numerische Übereinstimmung“ eingeben. Dieser Wert entspricht im Normalfall der Anzahl der Basis-Variablen, die kodiert wurden. Hat man also 6 Elemente in einem Item, welche kodiert wurden, also z.B. die IDs 03a, 03b, 03c, 03d, 03e und 03f tragen, dann würde man in das Feld „Numerische Übereinstimmung“ die Zahl 6 eingeben.
+Eine abgeleitete Variable muss nur angelegt werden, wenn mehr als ein Element in dem Item zu kodieren ist, also, wenn es mehr als eine Basisvariable gibt.
+
+::: {.callout-note appearance="simple"}
+
+## Hinweis
+
+ In den einzelnen Kodierungen wird die richtige Antwort mit 1 bewertet und alle anderen mit 0. Die abgeleitete Variable summiert dann diese einzelnen Bewertungen auf, und wenn die maximale Bewertung erreicht wird, wird das Item als richtig bewertet, ansonsten als falsch. Hier ist es aber auch möglich, teilweise-richtig-Codes anzulegen, wenn man etwa auch das Erreichen von mindestens 2 Punkten schon honorieren möchte.
+
+:::
