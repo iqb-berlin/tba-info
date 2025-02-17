@@ -16,3 +16,35 @@ Dieser Abschnitt thematisiert die Definition eines Kodierschemas als Teil der Au
 Das Kodierschema ist grundsätzlich sehr offen und flexibel. Für eine effiziente Kodierung und Datenauswertung hat das IQB jedoch zahlreiche Konventionen und Vorgehensweisen eingeführt, die in diesem Abschnitt als notwendig beschrieben sind.
 :::
 
+Die folgende Darstellung zeigt die allgemeine Arbeitsweise bei der Definition eines Kodierschemas. Die einzelnen Punkte sind dann in separaten Texten dieses Abschnittes beschrieben.
+```{dot}
+digraph G {
+  rankdir="LR"
+  node [style=filled,color=white,shape=box,fontname="Arial"];
+  style=filled;
+  fontname="Arial";
+  color=lightblue;
+  subgraph cluster_0 {
+    m[label = "Prüfen\nSchemer-Zuweisung"];
+    i[label = "Zuweisen Item-Variable"];
+    label = "Eigenschaften";
+  }
+  subgraph cluster_1 {
+    p[label = "Prüfen/Anpassen\nElemente-ID"];
+    label = "Editor";
+  }
+  subgraph cluster_2 {
+    e[label = "Erstellen/Ändern\nKodierschema"];
+    label = "Kodierung";
+  }
+  subgraph cluster_3 {
+    k[label = "Prüfen\nKodierung"];
+    label = "Vorschau";
+  }
+
+  m -> p -> e
+  e -> k
+  e -> i
+  k -> e
+}
+```
