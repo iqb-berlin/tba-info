@@ -1,0 +1,65 @@
+---
+lang: de
+title: Missings
+---
+
+# Begriff
+
+Mit dem Begriff "Missings" werden Zustände in den Daten kodiert, die von einer normalen auswertbaren Antwort abweichen. Statt eines Wertes, der für die Antwort bzw. für den Code einer Antwort steht, wird in den Datensatz ein Wert eingetragen, der eine fehlerhafte bzw. von der erwarteten Beantwortung abweichende Situation beschreibt. Üblicherweise sind gültige, zulässige Antworten mit positiven Zahlen ausgedrückt, ein Missing jedoch mit einem negativen Wert.
+
+# Standard-Missings des IQB
+
+```{mermaid}
+flowchart TD
+    C{{"Antwort im System gespeichert?"}} --> |NEIN| B{{"Technisches Problem?"}}
+    B -->|JA| D["missing coding impossible"]
+    style D fill:#ff9
+    B -->|NEIN| E["missing by design"]
+    style E fill:#ff9
+
+    C -->|JA| A{{"Item wurde gesehen?"}}
+    A -->|JA| F{{"Item wurde bearbeitet?"}}
+    style G fill:#ff9
+    F -->|JA| H{{"Antwort ungültig, leer oder Spaßantwort?"}}
+    A -->|NEIN| I{{"nachfolgend bearbeitete oder gesehene Items?"}}
+    F -->|NEIN| J["missing by omission"]
+    I -->|JA| J
+    I -->|NEIN| G["missing not reached"]
+    style J fill:#ff9
+    H -->|JA| K["missing invalid response"]
+    style K fill:#ff9
+    H -->|NEIN| L["Gültige Antwort - Auswertung möglich"]
+    style L fill:#af8
+```
+
+| ID | Label | Beschreibung | Code-Value |
+|---|---|---------|--:|
+| mir | missing invalid response | (1) Item wurde bearbeitet und (2a) leere Antwort oder (2b) sonstwie ungültige (Spaß-)Antwort | -98 |
+| mbo | missing by omission | Item wurde nicht bearbeitet aber gesehen oder es wurde nicht gesehen, aber es gibt nachfolgend gesehene oder bearbeitete Items | -99 |
+| mnr | missing not reached | (1) Item wurde nicht gesehen und (2) es folgen nur nicht gesehene Items | -96 |
+| mci | missing coding impossible | (1) Item müsste/könnte bearbeitet worden sein und (2) Antwort ist aufgrund technischer Probleme nicht auswertbar | -97 |
+| mbd | missing by design | Antwort liegt nicht vor, weil das Item der Testperson planmäßig nicht präsentiert wurde | -94 |
+
+: IQB-Missings {.striped}
+
+# Mapping auf `response`-Status
+
+Die Datenstruktur [`response`](response.qmd), die durch die TBA-Webanwendung IQB-Testcenter erzeugt wird, sieht Missings nicht vor. Statt dessen wird neben dem Antwortwert ein Status geliefert. Erst zu einem späteren Zeitpunkt -- im Rahmen der Kodierung und Ableitung -- wird die Datenstruktur `response` in einen einzelnen numerischen ganzzahligen Code transformiert. Diese Transformation zu einer **Itemmatrix Person x Antwort-Code** bedeutet in der Regel Informationsverlust, ist aber Voraussetzung für die nachfolgenden Datenanalysen.
+
+## Fälle innerhalb einer Unit
+
+| Status | Neuer Code | Beschreibung |
+|-----|---:|------------|
+| `INVALID` | -98 | mir - missing invalid response |
+| `CODING_ERROR` | -97 | mci - missing coding impossible |
+| `UNSET`, `DISPLAYED` | -99 | mbo - missing by omission |
+| `NOT_REACHED` | -96 oder -99 | mnr - missing not reached oder mbo - missing by omission |
+
+
+## Missing not reached über Unit-Grenzen
+
+Die Ermittlung von `NOT_REACHED` bezog sich bisher nur auf die jeweilige Unit. Für die Analyse muss diese Sicht jedoch auf das Testinstrument (Testheft) erweitert werden. Items von Units, die nicht in den Antwortdaten zu finden sind, aber beantwortet werden sollten, müssen neu in die Itemmatrix aufgenommen werden. Hierzu muss die Abfolge der Units (Sequenz) für jedes Testinstrument bekannt sein sowie ggf. Blockgrenzen bekannt sein. Welcher Missing-Code vergeben wird, richtet sich dann nach der Position der Unit bzw. danach, ob bis zum Ende des Tests bzw. des Blocks noch Antworten vorliegen.
+
+## Missing by Design
+
+Anschließend werden üblicherweise Items hinzugefügt, die den Personen nicht vorgelegt wurden und die also planmäßig nicht beantwortet wurden. Dies dient der Vervollständigung der Matrix für die Datenverarbeitung. Den Items wird der Code -94 (mbd - missing by design) zugewiesen.

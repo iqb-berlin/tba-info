@@ -1,0 +1,124 @@
+---
+lang: de
+title: "Antwort-Status im Prozess"
+---
+
+Nachfolgend ist die Verarbeitung der Antworten in Abhängigkeit von ihrem Status dargestellt.
+
+In die Kodierung gehen nur Fälle ein, die den Status `VALUE_CHANGED` haben:
+
+```{mermaid}
+flowchart TD
+    subgraph Test
+        A[UNSET]
+        style A fill:white
+        B[NOT_REACHED]
+        style B fill:white
+        C[DISPLAYED]
+        style C fill:white
+        D[VALUE_CHANGED]
+        style D fill:white
+    end
+    style Test fill:#b3b3cc
+    A --> F["Fehler in Programmierung"]
+    style F fill:#f60
+    B --> G[NOT_REACHED]
+    style G fill:#fc6
+    C --> H{{TAKE_DISPLAYED_AS_VALUE_CHANGED ?}}
+    style H fill:white
+    H --> |NEIN| L[DISPLAYED]
+    style L fill:#fc6
+    D --> HX{{Empty ?}}
+    T[VALUE_CHANGED]
+    H --> |JA| T
+    T --> HX
+    style HX fill:white
+    HX --> |NEIN| K["Kodierung"]
+    X --> |JA| K["Kodierung"]
+    HX --> |JA| X{{TAKE_EMPTY_AS_VALID ?}}
+    X --> |NEIN| XY[INVALID]
+    style X fill:white
+    style XY fill:#fc6
+```
+
+Der Begriff **leer** bezeichnet einen leeren String `""` oder - wenn ein Array von Werten erwartet wird - ein Array mit 0 Elementen `"[]"`.
+
+`VALUE_CHANGED` meint an dieser Stelle den geprüften Status, d. h. es kann auch `DISPLAYED` einschließen, wenn `TAKE_DISPLAYED_AS_VALUE_CHANGED` gesetzt ist, und prüft, dass der Wert nicht leer ist bzw.  `TAKE_EMPTY_AS_VALID` gesetzt ist.
+
+```{mermaid}
+flowchart TD
+    classDef major fill:#009,color:white;
+    A[Antwort VALUE_CHANGED] --> K[[Automatische Kodierung und Ableitung]]
+    class K major
+
+    subgraph Kodierung_1
+        K1[CODING_COMPLETE]
+        style K1 fill:#6f9
+        K6[DERIVE_PENDING]
+        style K6 fill:white
+        K2[CODING_INCOMPLETE]
+        style K2 fill:white
+        K22[INTENDED_INCOMPLETE]
+        style K22 fill:white
+        K5[CODING_ERROR]
+        style K5 fill:#f60
+        K3[NO_CODING]
+        style K3 fill:#9cf
+        K4[INVALID]
+        style K4 fill:#fc6
+    end
+    style Kodierung_1 fill:#b3b3cc
+    style Kodierung_1 color:#b3b3cc
+    K --> K1
+    K --> K6
+    K --> K2
+    K --> K22
+    K --> K5
+    K --> K3
+    K --> K4
+
+    K1 --> KK
+    K6 --> KK
+
+    R["Externe/manuelle Kodierung"]
+    class R major
+    K22 --> R
+    K2 --> R
+    K5 --> R
+    K3 --> RE["Rating / Transcript"]
+    style RE fill:#9cf
+
+    subgraph Kodierung_2
+        K2_1[CODING_COMPLETE]
+        style K2_1 fill:#6f9
+        K2_4[INVALID]
+        style K2_4 fill:#fc6
+        K2_5[CODING_ERROR]
+        style K2_5 fill:#fc6
+    end
+    style Kodierung_2 fill:#b3b3cc
+    style Kodierung_2 color:#b3b3cc
+    R --> K2_1
+    R --> K2_4
+    R --> K2_5
+
+    KK["Automatische Kodierung und Ableitung"]
+    class KK major
+    K2_1 --> KK
+    K2_4 --> KK
+    K2_5 --> KK
+    subgraph Kodierung_3
+        K3_1[CODING_COMPLETE]
+        style K3_1 fill:#6f9
+        K3_4[INVALID]
+        style K3_4 fill:#fc6
+        K3_5[CODING_ERROR]
+        style K3_5 fill:#fc6
+    end
+    style Kodierung_3 fill:#b3b3cc
+    style Kodierung_3 color:#b3b3cc
+    KK --> K3_1
+    KK --> K3_4
+    KK --> K3_5
+
+```
