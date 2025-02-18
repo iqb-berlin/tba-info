@@ -2759,37 +2759,37 @@
   {
     "objectID": "tasks/coding-scheme/steps.html",
     "href": "tasks/coding-scheme/steps.html",
-    "title": "Schritte",
+    "title": "Elemente und Variablen",
     "section": "",
     "text": "Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während einige Punkte vermutlich selbsterklärend sind und auch nur kurz beschrieben werden, werden andere Punkte hier nochmal ausführlicher erklärt. Außerdem wird die Kodierung üblicher Formate auch nochmal im Abschnitt ?@sec-kodierung-einzelner-Formate erläutert.\n%%{init: {\n    \"flowchart\": {\"htmlLabels\": false}\n    } \n}%%\ngraph TD\n  A[[\"`**Reiter Eigenschaften**`\"]] --- B(Kodierung auf aktuellste Version bringen) \n  B --&gt; C[[\"`**Reiter Editor**`\"]]\n  C --- D(IDs umbenennen)\n  D --&gt; E[[\"`**Reiter Kodierung**`\"]]\n  E --&gt; H(Feld Position/Zuordnung leeren.)\n  H --&gt; I(Kodierung generieren.)\n  I --&gt; J(Abgeleitete Variable anlegen, falls nötig)\n  E --- I\n  E --- J\n  J --- K(Abgeleitete Variable hinzufügen)\n  K --&gt; L(Quellvariablen auswählen)\n  L --&gt; M(Ableitungsmethode auswählen: meistens Bewertung summieren)\n  M --&gt; N(Über Zauberstab die Kodierung generieren.)\n  J --&gt; O[[\"`**Reiter Eigenschaften**`\"]]\n  N --&gt; O\n  O --- P(Unter den Metadaten des jeweiligen Items die abgeleitete Variable oder die Basisvariable auswählen.)",
     "crumbs": [
       "Aufgaben entwickeln",
       "Kodierschema",
-      "Schritte"
+      "Elemente und Variablen"
     ]
   },
   {
     "objectID": "tasks/coding-scheme/steps.html#kodierrelevante-elemente",
     "href": "tasks/coding-scheme/steps.html#kodierrelevante-elemente",
-    "title": "Schritte",
+    "title": "Elemente und Variablen",
     "section": "Kodierrelevante Elemente",
     "text": "Kodierrelevante Elemente\n\nWenn der Itemwert direkt dem Wert einer Basisvariable entsprechen soll (z. B. bei MC), d. h., wenn nur eine Variable für die gesamte Kodierung eines Items benötigt wird und keine Ableitung (Aggregation) notwendig ist, bennen wir das für die Kodierung relevante Element nach der Itemnummer benannt.\n\nBeispiel: Der erste Itemwert wird mit 01 benannt, der zweite Itemwert mit 02, usw.\n\n\n\n\n\nIDs umbenennen\n\n\n\nWenn der Itemwert dem Wert einer aus mehreren Basisvariablen abgeleiteten Variable entsprechen soll (z. B. bei CMC), d. h., wenn mehrere Elemente für die Kodierung benötigt und aggregiert werden, werden Buchstaben an den Itemnummern der zusammengehörigen Elemente ergänzt.\n\nBeispiel: Für Item 01, das aus drei Variablen abgeleitet wird, würden die Basisvariablen mit 01a,01b und 01c benannt.\n\n\n\n\n\n\n\n\nAbleitungen höherer Ordnung\n\n\n\nSollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d. h. wird zweifach eine Ableitung gebildet, erhalten die Basisvariablen eine zusätzliche Modifikation. Wollen wir etwa ein Item 01 kodieren, das aus den Subitems 01a und 01b aggregiert werden soll, die aber wiederum auf je 2 Basisvariablen bestehen, werden die Basisvariablen für das Subitem 01a mit 01a_1 und 01a_2 bezeichnet und die Basisvariablen das Subitem 01b mit 01b_1 und 01b_2.",
     "crumbs": [
       "Aufgaben entwickeln",
       "Kodierschema",
-      "Schritte"
+      "Elemente und Variablen"
     ]
   },
   {
     "objectID": "tasks/coding-scheme/steps.html#kodierirrelevante-elemente",
     "href": "tasks/coding-scheme/steps.html#kodierirrelevante-elemente",
-    "title": "Schritte",
+    "title": "Elemente und Variablen",
     "section": "Kodierirrelevante Elemente",
     "text": "Kodierirrelevante Elemente\n\n\nWenn ein Audio oder ein Video in einer Aufgabe vorkommen, wird deren ID auch im Reiter Kodierung angezeigt. Oft sind diese Elemente für die Kodierung unerheblich und können so gelöscht werden.\n\nWenn es ein Audio oder Video als Stimulus gibt, welches sich auf mehrere Items innerhalb der Aufgabe bezieht, sollte dieses mit _audio00 bzw. _video00 benannt werden.\nHandelt es sich um ein Audio oder Video, das spezifisch für ein Item ist, wird der Name der Itemnummer angeglichen, z. B. werden die Audios und/oder Videos, die zu Item 01 korrespondieren, zu _audio01 bzw. _video01 umbenannt.\nGibt es mehrere Audios oder Videos für den Stimulus oder ein Item, werden diese mit Buchstaben versehen, z. B. _audio00a und _audio00b oder _video01a und _video01b. Ein Audio, das den Itemtext beinhaltet, sollte aber trotzdem als _audio01 benannt werden.\n\nAlle weiteren IDs, die nicht in die Kodierung einbezogen werden sollen, aber trotzdem im Reiter Kodierung auflaufen, werden vorne mit einem Unterstrich _ versehen, z. B. bei den Ausgangslisten der Drag und Drop Items.\n\nBeim Format Drag and Drop ist die Umbenennung der IDs etwas komplexer und wird daher bei der Besprechung von Drag und Drop Items in ?@sec-drag-and-drop genau erklärt.\n\nEin Sonderfall sind Beispiele, d. h. Elemente, die wie kodierrelevante Elemente angelegt werden, aber deren Wert sich überhaupt nicht verändern kann, da sie nur zu Illustrationszwecken dienen.\n\nDiese Elemente sind aus der Variablenliste im Reiter Kodierung zu entfernen.",
     "crumbs": [
       "Aufgaben entwickeln",
       "Kodierschema",
-      "Schritte"
+      "Elemente und Variablen"
     ]
   },
   {
@@ -2978,7 +2978,7 @@
     "href": "tasks/coding-scheme/index.html",
     "title": "Kodierschema",
     "section": "",
-    "text": "Bei der Aufgabenerstellung im Studio werden Frageelemente in einer Unit angeordnet. Die Beantwortung dieser Frageelemente erzeugt Antwortwerte. Um Schlussfolgerungen hinsichtlich der Bewertung einer Antwort zu ziehen, werden die Antwortwerte Kategorien zugeordnet. Im einfachsten Fall gibt es die Kategorien richtig und falsch, sowie Kategorien für fehlende Werte. Die Zuordnung erfolgt durch die Erstellung von Regeln und Instruktionen. Diese sagen dann ganz grob ausgedrückt, diese Antwort ist falsch, und diese Antwort ist richtig.\n\nDie Zuordnung einer Antwort zu einer Kategorie nennen wir Kodierung. Man vergibt für eine Antwort einen Code.\nWir unterscheiden Regeln für die automatische Kodierung und Instruktionen für die manuelle Kodierung.\nDie Gesamtheit der Regeln und Instruktionen zur Kodierung der Antworten einer Aufgabe nennen wir Kodierschema.\nDen Teil der Studioprogrammierung, mit dem wir das Kodierschema definieren, nennen wir Schemer. Es handelt sich um ein austauschbares Verona-Modul wie der Player und der Editor.\n\nDieser Abschnitt thematisiert die Definition eines Kodierschemas als Teil der Aufgabenentwicklung.\n\n\n\n\n\n\nHinweis\n\n\n\nDas Kodierschema ist grundsätzlich sehr offen und flexibel. Für eine effiziente Kodierung und Datenauswertung hat das IQB jedoch zahlreiche Konventionen und Vorgehensweisen eingeführt, die in diesem Abschnitt als notwendig beschrieben sind.\n\n\nDie folgende Darstellung zeigt die allgemeine Arbeitsweise bei der Definition eines Kodierschemas. Die einzelnen Punkte sind dann in separaten Texten dieses Abschnittes beschrieben.\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\nEigenschaften\n\n\ncluster_1\n\nEditor\n\n\ncluster_2\n\nKodierung\n\n\ncluster_3\n\nVorschau\n\n\n\nm\n\nPrüfen\nSchemer-Zuweisung\n\n\n\np\n\nPrüfen/Anpassen\nElemente-ID\n\n\n\nm-&gt;p\n\n\n\n\n\ni\n\nZuweisen Item-Variable\n\n\n\ne\n\nErstellen/Ändern\nKodierschema\n\n\n\np-&gt;e\n\n\n\n\n\ne-&gt;i\n\n\n\n\n\nk\n\nPrüfen\nKodierung\n\n\n\ne-&gt;k\n\n\n\n\n\nk-&gt;e\n\n\n\n\n\n\n\n\n\n\n\n\n\n Zurück nach oben",
+    "text": "Bei der Aufgabenerstellung im Studio werden Frageelemente in einer Unit angeordnet. Die Beantwortung dieser Frageelemente erzeugt Antwortwerte. Um Schlussfolgerungen hinsichtlich der Bewertung einer Antwort zu ziehen, werden die Antwortwerte Kategorien zugeordnet. Im einfachsten Fall gibt es die Kategorien richtig und falsch, sowie Kategorien für fehlende Werte. Die Zuordnung erfolgt durch die Erstellung von Regeln und Instruktionen. Diese sagen dann ganz grob ausgedrückt, diese Antwort ist falsch, und diese Antwort ist richtig.\n\nDie Zuordnung einer Antwort zu einer Kategorie nennen wir Kodierung. Man vergibt für eine Antwort einen Code.\nWir unterscheiden Regeln für die automatische Kodierung und Instruktionen für die manuelle Kodierung.\nDie Gesamtheit der Regeln und Instruktionen zur Kodierung der Antworten einer Aufgabe nennen wir Kodierschema.\nDen Teil der Studioprogrammierung, mit dem wir das Kodierschema definieren, nennen wir Schemer. Es handelt sich um ein austauschbares Verona-Modul wie der Player und der Editor.\n\nDieser Abschnitt thematisiert die Definition eines Kodierschemas als Teil der Aufgabenentwicklung.\n\n\n\n\n\n\nHinweis\n\n\n\nDas Kodierschema ist grundsätzlich sehr offen und flexibel. Für eine effiziente Kodierung und Datenauswertung hat das IQB jedoch zahlreiche Konventionen und Vorgehensweisen eingeführt, die in diesem Abschnitt als notwendig beschrieben sind.\n\n\n\n\n\nGesamtansicht Schemer\n\n\n\nIm linken Bildschirmbereich finden Sie eine Liste aller Variablen und Schalter für übergreifende Funktionen.\n\nOben in der Liste finden sich die Basisvariablen. Diese stehen für Datenquellen, die in der Aufgabendefinition angelegt wurden (z. B. Eingabefeld, Checkbox usw.).\nWeiter unten sind die abgeleiteten Variablen gelistet. Diese beziehen ihren Wert und dann ihre Kodierung aus einer oder mehreren anderen Variablen.\nÜber Schalter unten links können Variablen angelegt, gelöscht, umbenannt, kopiert oder geprüft werden.\n\nIm rechten Bildschirmbereich\n\nDie folgende Darstellung zeigt die allgemeine Arbeitsweise bei der Definition eines Kodierschemas. Die einzelnen Punkte sind dann in separaten Texten dieses Abschnittes beschrieben.\n\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\nEigenschaften\n\n\ncluster_1\n\nEditor\n\n\ncluster_2\n\nKodierung\n\n\ncluster_3\n\nVorschau\n\n\n\nm\n\nPrüfen\nSchemer-Zuweisung\n\n\n\np\n\nPrüfen/Anpassen\nElemente-ID\n\n\n\nm-&gt;p\n\n\n\n\n\ni\n\nZuweisen Item-Variable\n\n\n\ne\n\nErstellen/Ändern\nKodierschema\n\n\n\np-&gt;e\n\n\n\n\n\ne-&gt;i\n\n\n\n\n\nk\n\nPrüfen\nKodierung\n\n\n\ne-&gt;k\n\n\n\n\n\nk-&gt;e\n\n\n\n\n\n\n\n\n\n\nArbeitsablauf beim Bearbeiten des Kodierschemas\n\n\n\n\n Zurück nach oben",
     "crumbs": [
       "Aufgaben entwickeln",
       "Kodierschema"
