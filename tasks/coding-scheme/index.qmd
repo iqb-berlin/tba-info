@@ -16,11 +16,22 @@ Dieser Abschnitt thematisiert die Definition eines Kodierschemas als Teil der Au
 Das Kodierschema ist grundsätzlich sehr offen und flexibel. Für eine effiziente Kodierung und Datenauswertung hat das IQB jedoch zahlreiche Konventionen und Vorgehensweisen eingeführt, die in diesem Abschnitt als notwendig beschrieben sind.
 :::
 
+![Gesamtansicht Schemer](assets/Schemer_total.png)
+
+* Im **linken Bildschirmbereich** finden Sie eine Liste aller Variablen und Schalter für übergreifende Funktionen.
+  * Oben in der Liste finden sich die Basisvariablen. Diese stehen für Datenquellen, die in der Aufgabendefinition angelegt wurden (z. B. Eingabefeld, Checkbox usw.).
+  * Weiter unten sind die abgeleiteten Variablen gelistet. Diese beziehen ihren Wert und dann ihre Kodierung aus einer oder mehreren anderen Variablen.
+  * Über Schalter unten links können Variablen angelegt, gelöscht, umbenannt, kopiert oder geprüft werden.
+* Im **rechten Bildschirmbereich** 
+
+
 Die folgende Darstellung zeigt die allgemeine Arbeitsweise bei der Definition eines Kodierschemas. Die einzelnen Punkte sind dann in separaten Texten dieses Abschnittes beschrieben.
+
+::: {.border}
 ```{dot}
 digraph G {
   rankdir="LR"
-  node [style=filled,color=white,shape=box,fontname="Arial"];
+  node [style=filled,color=white,shape=rounded,fontname="Arial"];
   style=filled;
   fontname="Arial";
   color=lightblue;
@@ -48,3 +59,5 @@ digraph G {
   k -> e
 }
 ```
+Arbeitsablauf beim Bearbeiten des Kodierschemas
+:::
