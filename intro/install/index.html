@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Testcenter Installation – TBA - Verstehen und Anwenden</title>
+<title>IQB-Webanwendungen installieren – TBA - Verstehen und Anwenden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Testcenter/install/configuration.html" rel="next">
-<link href="../../Testcenter/index.html" rel="prev">
+<link href="../../intro/install/studio-super-admin/index.html" rel="next">
+<link href="../../intro/vera.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -70,12 +70,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -99,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../intro/index.html">Einführung</a></li><li class="breadcrumb-item"><a href="../../intro/install/index.html">Installation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -121,11 +124,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../intro/bt.html" class="sidebar-item-text sidebar-link">
@@ -135,67 +138,73 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../intro/vera.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Nutzung in den Ländern</span></a>
+ <span class="menu-text">VERA</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/install/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/studio-super-admin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Super-Admin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TC: Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/load-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lasttests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensicherheit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/offline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Offline-Szenario</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/e2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software-Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release-Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studie durchführen</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../Testcenter/install/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Konfiguration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lastverhalten</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/security.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datensicherheit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/offline.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Offline-Szenario</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/Softwarequalität.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Softwarequalität</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/releases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Release Plan</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Workspace/index.html" class="sidebar-item-text sidebar-link">
@@ -270,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/Studie_durchfuehren/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Studie durchführen</span></a>
+ <span class="menu-text">Schritt für Schritt</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -857,26 +866,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
-   
-  <ul>
-  <li><a href="#zurzeit-nicht-unterstützte-funktionen" id="toc-zurzeit-nicht-unterstützte-funktionen" class="nav-link active" data-scroll-target="#zurzeit-nicht-unterstützte-funktionen">Zurzeit nicht unterstützte Funktionen</a>
-  <ul class="collapse">
-  <li><a href="#servermonitoring" id="toc-servermonitoring" class="nav-link" data-scroll-target="#servermonitoring">Servermonitoring</a></li>
-  <li><a href="#backup" id="toc-backup" class="nav-link" data-scroll-target="#backup">Backup</a></li>
-  <li><a href="#ssh-zertifikate" id="toc-ssh-zertifikate" class="nav-link" data-scroll-target="#ssh-zertifikate">ssh / Zertifikate</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../intro/index.html">Einführung</a></li><li class="breadcrumb-item"><a href="../../intro/install/index.html">Installation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Testcenter Installation</h1>
+<h1 class="title">IQB-Webanwendungen installieren</h1>
 </div>
 
 
@@ -893,34 +889,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Eine Installation der Webanwendung IQB-Testcenter kann sehr einfach sein. Man kauft irgendwo einen Cloud-Server, einen Namen (DNS) und geht dann mit Grundkenntnissen in Linux direkt auf den Server. Zwei Standard-Anwendungen müssen hinzugefügt werden (docker, make), man lädt ein Script herunter und dann kann man schon die Installation starten. Am Ende geht ein System online, mit dem man eine Lernstandserhebung oder eine Befragung durchführen kann. Das ist alles <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">hier</a> beschrieben. Wie das neu aufgesetzte System konfiguriert werden kann, ist <a href="../../Testcenter/install/configuration.html">hier</a> zu entnehmen.</p>
-<p>Allerdings geht man mit diesem simplen Vorgehen eine Menge Risiken ein. Ein Server ist vielen automatisierten Attacken ausgesetzt. Je nach Preis kann hier der Cloud-Anbieter unterstützen, aber eine seriöse Lernstandserhebung erfordert gute Planung und viel technisches Wissen und Erfahrung im Bereich der Serveradministration. Diese “SysOp” genannte Qualifikation muss über angestelltes Fachpersonal, Kooperation oder eingekaufte Dienstleistung (sog. “Systemhaus”) eingebunden werden. Sonst kann der Server schnell offline gehen – durch Fehlfunktion oder gekapert für Cryptojacking, Versenden von Spam usw.</p>
-<p>Die Seiten in diesem Bereich decken schrittweise Themen ab, die für einen SysOp interessant sein könnten. Sie spiegeln zunächst die Erfahrungen des IQB wider, diskutieren aber auch Aspekte, die durch Partner vorgebracht wurden.</p>
+<p>Sämtliche Programmierungen des IQB sind Open Source und öffentlich online verfügbar. Es ist nicht nötig, das IQB zu kontaktieren, sondern man folgt den Anleitungen.</p>
+<p>Alle Webanwendungen des IQB sind serverbasiert, da sie online genutzt werden sollen. Man benötigt also einen Server und Basiskenntnisse dazu.</p>
+<p>Allgemeine Hinweise:</p>
 <ul>
-<li><a href="../../Testcenter/install/load-test.html">Lastverhalten, Abschätzung der Kapazität</a></li>
-<li><a href="../../Testcenter/install/security.html">Datensicherheit</a></li>
-<li><a href="../../Testcenter/install/offline.html">Offline-Installation</a></li>
+<li>Die Installationen basieren auf der Virtualisierungslösung Docker. Es muss daher kein Unix-System sein, da Docker auch auf Windows verfügbar ist.</li>
+<li>Die Installation legt alle erforderlichen Komponenten an. Man muss also keine Datenbank vorher anlegen o. ä..</li>
+<li>Die Passung zum verwendeten Serversystem ist nicht immer perfekt, weil die Vielfalt der Systeme enorm ist. Die meisten Parameter der Konfiguration sind flexibel in Umgebungsvariablen gespeichert.</li>
+<li>Sowohl die Installation als auch später das Update sind scriptgesteuert. Man ruft also eine Installationsroutine auf und beantwortet die wichtigsten Fragen.</li>
 </ul>
-<section id="zurzeit-nicht-unterstützte-funktionen" class="level2">
-<h2 class="anchored" data-anchor-id="zurzeit-nicht-unterstützte-funktionen">Zurzeit nicht unterstützte Funktionen</h2>
-<section id="servermonitoring" class="level3">
-<h3 class="anchored" data-anchor-id="servermonitoring">Servermonitoring</h3>
-<p>Man kann Software auf einen Server aufspielen, die dann detailliert über Systemzustände berichtet. Eine Komponente auf demselben Server oder irgendwo außerhalb fragt diese Daten ab und schickt eine E-Mail, wenn der Serverbetrieb gefährdet scheint. Über diese Daten lassen sich auch Schwachstellen in der Konfiguration aufdecken.</p>
-<p>Das IQB nutzt seit 2023 eine Sammlung von derartigen Tools und bündelt diese als <a href="https://github.com/iqb-berlin/traefik">Infrastruktur</a>. Allerdings sind die Erfahrungen hiermit nicht durchweg positiv. Wichtig ist hier eine systematische Datensammlung und ein klares Konzept, welche Schwellenwerte bedenklich sind und Aktivitäten auslösen. Sonst gerät man schnell in die Falle einer vorgetäuschten Sicherheit. Außerdem steht bei den meisten Cloud-Anbietern ein konsistentes System zur Verfügung, das sich gut konfigurieren lässt, und das man dann nehmen sollte. Eine zentrale Bereitstellung durch das IQB ist nicht sinnvoll.</p>
-<p>Was wir uns allerdings vorgenommen haben, ist die Einrichtung von Server-Endpunkten für einen sog. Health-Check.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A(Aufgabenentwicklung&lt;br/&gt;&lt;b&gt;IQB-Studio&lt;/b&gt;)
+    B(Testdurchführung&lt;br/&gt;&lt;b&gt;IQB-Testcenter&lt;/b&gt;)
+    C(Kodierung&lt;br/&gt;&lt;b&gt;IQB-Kodierbox&lt;/b&gt;)
+    style A fill:#adf, stroke:#037
+    style B fill:#adf, stroke:#037
+    style C fill:#adf, stroke:#037
+    A --&gt; B
+    B --&gt; C
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="weiterlesen" class="level1">
+<h1>Weiterlesen</h1>
+<section id="iqb-studio" class="level2">
+<h2 class="anchored" data-anchor-id="iqb-studio">IQB-Studio</h2>
+<ul>
+<li>Installationsanleitung auf <a href="https://github.com/iqb-berlin/studio-lite#readme-ov-file">GitHub</a></li>
+<li>Portalbeschreibung des <a href="../../intro/install/studio-super-admin/index.html">Super-Admin-Accounts</a></li>
+</ul>
 </section>
-<section id="backup" class="level3">
-<h3 class="anchored" data-anchor-id="backup">Backup</h3>
-<p>Die IQB-Webanwendungen verfügen nicht über einen eingebauten Backup-Mechanismus. Teilweise gibt es zwar Versionsmanagement oder Undo-/Redo-Funktion, aber serverseitig muss ein SysOp die Möglichkeit der Wiederherstellung verlorengegangener Daten organisieren.</p>
-<p>Das IQB praktiziert zwei Wege</p>
-<ol type="1">
-<li>Sichern eines kompletten Servers: Vor Updates oder einmal in der Woche wird der gesamte Server samt Betriebssystem als sog. Image gespeichert.</li>
-<li>Sichern der Laufwerke, die an die Docker-Container gebunden sind sowie Datenbank-Dump. Hier muss zeitweise ein Nutzerzugriff unterbunden werden (Aktivieren einer Wartungsseite).</li>
-</ol>
+<section id="iqb-testcenter" class="level2">
+<h2 class="anchored" data-anchor-id="iqb-testcenter">IQB-Testcenter</h2>
+<ul>
+<li>Installationsanleitung auf <a href="https://github.com/iqb-berlin/testcenter#readme-ov-file">GitHub</a></li>
+<li>Hinweise zur <a href="../../intro/install/configuration.html">Konfiguration</a> bei/nach der Installation</li>
+<li>Durchführung als <a href="../../intro/install/offline.html">Offline-Szenario</a></li>
+<li>Strategien zum <a href="../../intro/install/load-test.html">Lasttest</a></li>
+<li><a href="../../intro/install/releases.html">Release-Plan</a></li>
+<li>Diskussion zur <a href="../../intro/install/security.html">Datensicherheit</a></li>
+<li>Zu automatischen <a href="../../intro/install/e2e.html">Software-Tests</a></li>
+</ul>
 </section>
-<section id="ssh-zertifikate" class="level3">
-<h3 class="anchored" data-anchor-id="ssh-zertifikate">ssh / Zertifikate</h3>
-<p>Wir empfehlen dringend, den direkten Zugriff für Systemadmins auf ssh – schlüsselbasiert – zu beschränken (ssh-Key). Ein Verlust von Zugangsdaten kann dann keinen Schaden anrichten.</p>
+<section id="iqb-kodierbox" class="level2">
+<h2 class="anchored" data-anchor-id="iqb-kodierbox">IQB-Kodierbox</h2>
+<p>Die Webanwendung IQB-Kodierbox befindet sich in Entwicklung. Sobald die Erprobungen weiter fortgeschritten sind, finden Sie an dieser Stelle weitere Informationen.</p>
 
 
 </section>
@@ -1353,13 +1374,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Testcenter/index.html" class="pagination-link" aria-label="Studie durchführen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Studie durchführen</span>
+      <a href="../../intro/vera.html" class="pagination-link" aria-label="VERA">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">VERA</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Testcenter/install/configuration.html" class="pagination-link" aria-label="Konfiguration">
-        <span class="nav-page-text">Konfiguration</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../intro/install/studio-super-admin/index.html" class="pagination-link" aria-label="Studio: Super-Admin">
+        <span class="nav-page-text">Studio: Super-Admin</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

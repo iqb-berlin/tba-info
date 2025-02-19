@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Huaning Yang">
 
-<title>Offline-Szenario – TBA - Verstehen und Anwenden</title>
+<title>End-to-end-tests im IQB-Testcenter – TBA - Verstehen und Anwenden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Testcenter/install/Softwarequalität.html" rel="next">
-<link href="../../Testcenter/install/security.html" rel="prev">
+<link href="../../intro/install/releases.html" rel="next">
+<link href="../../intro/install/offline.html" rel="prev">
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -134,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/offline.html">Offline-Szenario</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../intro/index.html">Einführung</a></li><li class="breadcrumb-item"><a href="../../intro/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../intro/install/e2e.html">Software-Tests</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,11 +155,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../intro/bt.html" class="sidebar-item-text sidebar-link">
@@ -170,67 +169,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../intro/vera.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Nutzung in den Ländern</span></a>
+ <span class="menu-text">VERA</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/install/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/studio-super-admin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Super-Admin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TC: Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/load-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lasttests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensicherheit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/offline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Offline-Szenario</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/e2e.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Software-Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release-Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studie durchführen</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../Testcenter/install/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/configuration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Konfiguration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/load-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lastverhalten</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/security.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datensicherheit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/offline.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Offline-Szenario</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/Softwarequalität.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Softwarequalität</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Testcenter/install/releases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Release Plan</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Testcenter/Workspace/index.html" class="sidebar-item-text sidebar-link">
@@ -305,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Testcenter/Studie_durchfuehren/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Studie durchführen</span></a>
+ <span class="menu-text">Schritt für Schritt</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -897,40 +902,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link active" data-scroll-target="#vorbereitung">Vorbereitung</a></li>
-  <li><a href="#installation-testcenter" id="toc-installation-testcenter" class="nav-link" data-scroll-target="#installation-testcenter">Installation Testcenter</a></li>
-  <li><a href="#lokaler-dns-server" id="toc-lokaler-dns-server" class="nav-link" data-scroll-target="#lokaler-dns-server">Lokaler DNS Server</a></li>
-  <li><a href="#bereinigung-des-testcenters" id="toc-bereinigung-des-testcenters" class="nav-link" data-scroll-target="#bereinigung-des-testcenters">Bereinigung des Testcenters</a></li>
-  <li><a href="#umgebungsvariable-tls_enabled" id="toc-umgebungsvariable-tls_enabled" class="nav-link" data-scroll-target="#umgebungsvariable-tls_enabled">Umgebungsvariable: TLS_ENABLED</a></li>
-  <li><a href="#lange-startzeiten-des-testcenters-umgehen" id="toc-lange-startzeiten-des-testcenters-umgehen" class="nav-link" data-scroll-target="#lange-startzeiten-des-testcenters-umgehen">Lange Startzeiten des Testcenters umgehen</a></li>
+  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung">Einführung</a></li>
+  <li><a href="#eigene-testszenarien-entwerfen" id="toc-eigene-testszenarien-entwerfen" class="nav-link" data-scroll-target="#eigene-testszenarien-entwerfen">Eigene Testszenarien entwerfen</a></li>
+  <li><a href="#manuelles-vs-automatisiertes-testen" id="toc-manuelles-vs-automatisiertes-testen" class="nav-link" data-scroll-target="#manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</a>
+  <ul class="collapse">
+  <li><a href="#manuelles-testen" id="toc-manuelles-testen" class="nav-link" data-scroll-target="#manuelles-testen">Manuelles Testen</a></li>
+  <li><a href="#automatisiertes-testen" id="toc-automatisiertes-testen" class="nav-link" data-scroll-target="#automatisiertes-testen">Automatisiertes Testen</a></li>
+  </ul></li>
+  <li><a href="#e2e-tests-des-iqb-verwenden" id="toc-e2e-tests-des-iqb-verwenden" class="nav-link" data-scroll-target="#e2e-tests-des-iqb-verwenden">E2E-Tests des IQB verwenden</a>
+  <ul class="collapse">
+  <li><a href="#vorbereitungen" id="toc-vorbereitungen" class="nav-link" data-scroll-target="#vorbereitungen">Vorbereitungen</a></li>
+  <li><a href="#cypress-starten" id="toc-cypress-starten" class="nav-link" data-scroll-target="#cypress-starten">Cypress starten</a></li>
+  <li><a href="#cypress-tests-ausführen" id="toc-cypress-tests-ausführen" class="nav-link" data-scroll-target="#cypress-tests-ausführen">Cypress Tests ausführen</a></li>
+  <li><a href="#wo-ist-der-testcode-zu-finden" id="toc-wo-ist-der-testcode-zu-finden" class="nav-link" data-scroll-target="#wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../Testcenter/install/offline.html">Offline-Szenario</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../intro/index.html">Einführung</a></li><li class="breadcrumb-item"><a href="../../intro/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../intro/install/e2e.html">Software-Tests</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Offline-Szenario</h1>
+<h1 class="title">End-to-end-tests im IQB-Testcenter</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:in</div>
-    <div class="quarto-title-meta-contents">
-             <p>Huaning Yang <a href="mailto:huaning.yang@iqb.hu-berlin.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2. Mai 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -940,71 +941,113 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Das IQB-Testcenter ist eine Webanwendung, d.&nbsp;h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.</p>
-</div>
-</div>
-<section id="vorbereitung" class="level1">
-<h1>Vorbereitung</h1>
+<section id="einführung" class="level1">
+<h1>Einführung</h1>
+<p>Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer*innen getestet werden. Diese Art der Testung nennt sich <strong>End-to-end-Testung</strong> oder auch <strong>Akzeptanztest</strong>. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden</p>
+<p>Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen <strong>E2E-Testungen</strong> und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.</p>
+<p>Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge aus eigenen Erfahrungen geben.</p>
+</section>
+<section id="eigene-testszenarien-entwerfen" class="level1">
+<h1>Eigene Testszenarien entwerfen</h1>
+<p>Eine eigen entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
+<p>Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch, alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.</p>
 <ul>
-<li>Installation von <a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Docker</a> und <a href="https://docs.docker.com/compose/install/standalone/#on-linux">Docker-Compose</a> sowie <a href="https://www.gnu.org/software/make/">make</a></li>
-<li>Router im Access Point Modus</li>
-<li>(Optional) Installation von <em>dnsmasq</em> für lokalen DNS Server</li>
+<li>Können sich die in der Testtaker-XML angelegten Testpersonen am Testcenter anmelden?</li>
+<li>Können die angelegten Booklets gestartet werden?</li>
+<li>Werden die vorgesehenen Aufgaben in festgelegter Reihenfolge dargestellt?</li>
+<li>Funktioniert das Blättern zwischen den Aufgaben auf die gewünschte Weise?</li>
+<li>Sind vorgesehene Bezeichner und Schaltflächen vorhanden?</li>
+<li>Darf erst zur nächsten Aufgabe geblättert werden, wenn Pflichtfelder zuvor ausgefüllt wurden?</li>
+<li>Wenn Zeitbeschränkungen eingerichtet sind, sind diese während der Testung aktiv und funktional?</li>
+<li>Weisen Aufgabenelemente die gewünschten Funktionen auf, sprich können diese wie vorgesehen bedient werden?</li>
+<li>Werden die gegebenen Antworten auch korrekt gespeichert?</li>
 </ul>
-<p>Wenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> Netzwerk.</p>
-<p>Um die Wiederverwendbarkeit zu erleichtern empfehlen wir ein neues Profil für diese Verbindung anzulegen.</p>
-<p>Das wichtige ist, dass Details <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> <strong>Make available to other users</strong> und IPv4 <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> <strong>Shared to other computers</strong> aktiviert sind.</p>
-<p>Nach Erstellung des Profils sollte es so aussehen:</p>
-<div id="fig-details" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-details-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="offline1.png" class="img-fluid figure-img">
+<p>Sind Schwerpunkte definiert, können weitere Überlegungen angestellt werden:</p>
+<ul>
+<li>Welche Testdaten werden benötigt?</li>
+<li>Auf welchen Endgeräten und mit welchen Browsern soll die Studie durchgeführt werden?</li>
+<li>In welchem Stadium der Studienplanung können Testdaten repräsentativ eingesetzt werden?</li>
+<li>Mit welcher Version der Anwendung soll die Studie durchgeführt werden und steht diese zum Testzeitpunkt in der eigenen IT-Infrastruktur zur Verfügung?</li>
+<li>Wie soll getestet werden, manuell oder automatisiert?</li>
+</ul>
+<p>Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.</p>
+</section>
+<section id="manuelles-vs-automatisiertes-testen" class="level1">
+<h1>Manuelles vs automatisiertes Testen</h1>
+<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können.</p>
+<section id="manuelles-testen" class="level2">
+<h2 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h2>
+<p>Vorteile</p>
+<ul>
+<li>sinnvoll bei selten ausgeführten Testungen und kleineren Studien</li>
+<li>relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung</li>
+<li>Pflege und Aktualisierung sind relativ einfach, da nur Skripte angepasst werden müssen</li>
+<li>keine zusätzliche Software oder Programmierkenntnisse notwendig</li>
+</ul>
+<p>Nachteile</p>
+<ul>
+<li>Ausführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend</li>
+<li>Auswertung muss ebenfalls manuell erfolgen, das kostet Zeit</li>
+<li>Skripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)</li>
+<li>wenn oft ausgeführt, werden aus mangelnder Motivation gerne Abkürzungen genommen und damit eventuell entscheidende Stelle nicht wie im Skript vorgeschrieben geprüft</li>
+<li>alle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-details-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;1: Beispiel für Details Einstellungen
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Tipp
 </div>
-<div id="fig-ipv4" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ipv4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="offline2.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ipv4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2: Beispiel für IPv4 Einstellungen
-</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. <strong>Testomat.io</strong> und <strong>Testbench</strong> genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.</p>
+</div>
 </div>
 </section>
-<section id="installation-testcenter" class="level1">
-<h1>Installation Testcenter</h1>
-<p>Dem <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guide</a> für die Installation des Testcenters folgen. Während man das Installationsskript (<code>install.sh</code>) ausführt, gibt es einige Schritte zu beachten.</p>
-<p>Unter <strong>HOSTNAME</strong> muss die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel <strong>10.42.0.1</strong>, s. <a href="#fig-details" class="quarto-xref">Abbildung&nbsp;1</a>). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines <a href="#lokaler-dns-server">lokalen DNS Servers</a>.</p>
-<p>Außerdem sollte die Setup-Frage “<strong>Use TLS?</strong>” mit <strong>N</strong> (No) beantwortet werden.</p>
-<p>Man sollte den weiteren Hinweisen des <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guides</a> ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet sein.</p>
+<section id="automatisiertes-testen" class="level2">
+<h2 class="anchored" data-anchor-id="automatisiertes-testen">Automatisiertes Testen</h2>
+<p>Vorteile</p>
+<ul>
+<li>sinnvoll bei häufig ausgeführten Testungen und größeren Studien</li>
+<li>Ausführung ist schnell und homogen</li>
+<li>gute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden</li>
+<li>Verwaltung der Tests und zugehörige Auswertungen ist übersichtlich</li>
+<li>zu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden</li>
+</ul>
+<p>Nachteile</p>
+<ul>
+<li>Entwurfsphase benötigt Zeit</li>
+<li>Pflege und Aktualisierung können je nach eingesetzter Software aufwändig werden</li>
+<li>zusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig</li>
+</ul>
+<p>Ist eine Entscheidung für das automatisierte Testen gefallen, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug <strong>Cypress</strong> zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.</p>
+<p>Hier ein kleines Beispiel, wie ein sehr einfacher Test mit Cypress aussehen könnte:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ts code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Testfall Beispiel</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="st">'Check Google'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">//1.Testschritt: Prüfe ob Google geladen werden kann</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">it</span>(<span class="st">'Öffne Google'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Öffne Seite</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        cy<span class="op">.</span><span class="fu">visit</span>(<span class="vs">`www.google.com`</span>)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Erwartungsauswertung: Konnte Seite geladen werden, </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">//dann sollte sie "Google" enthalten</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        cy<span class="op">.</span><span class="fu">contains</span>(<span class="st">'Google'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">should</span>(<span class="st">'exist'</span>)<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">//2.Testschritt: Tue noch etwas auf der Google Seite</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">it</span>(<span class="st">'Öffne Google'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Tue etwas....</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lokaler-dns-server" class="level1">
-<h1>Lokaler DNS Server</h1>
-<p>Um einen lokalen DNS Server zu starten, können Tools wie <a href="https://wiki.ubuntuusers.de/Dnsmasq/">dnsmasq</a> oder <a href="https://wiki.ubuntuusers.de/DNS-Server_Bind/">bind</a> verwendet werden. Dieser Guide verwendet dnsmasq.</p>
-<p>Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier <code>/etc/dnsmasq.confh</code>) inzugefügt werden. Dies kann man z.B. mit nano erledigen:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/dnsmasq.conf</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dort diese Regel hinzufügen:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/#/x.x.x.x</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Für <code>#</code> muss der vorher ausgewählte Hostname eingesetzt werden und für <code>x.x.x.x</code> die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/iqb-testcenter.lan/10.42.0.1</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Nach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dnsmasq.service</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.</p>
+</section>
+<section id="e2e-tests-des-iqb-verwenden" class="level1">
+<h1>E2E-Tests des IQB verwenden</h1>
+<p>Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1015,67 +1058,75 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dieser lokaler DNS Server wurde in einer Umgebung getestet, in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.</p>
+<p>Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann hinsichtlich der Funktionalität der nachfolgend genannten Schritte keine Aussage getroffen werden.</p>
 </div>
 </div>
+<section id="vorbereitungen" class="level2">
+<h2 class="anchored" data-anchor-id="vorbereitungen">Vorbereitungen</h2>
+<ul>
+<li><strong>Entwicklungsumgebung (IDE):</strong> Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.</li>
+<li><strong>Node.js:</strong> Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.</li>
+<li><strong>Git:</strong> Wird zum Duplizieren des Testcenter Repositories benötigt.</li>
+<li><strong>Cypress in Version 13.3.3:</strong> Hinweise zur Installation sind <a href="https://docs.cypress.io/guides/getting-started/installing-cypress">hier</a> zu finden.</li>
+</ul>
 </section>
-<section id="bereinigung-des-testcenters" class="level1">
-<h1>Bereinigung des Testcenters</h1>
-<p>Möchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:</p>
-<div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1"></a><span class="fu">make</span> down</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2"></a><span class="ex">docker</span> rm <span class="at">-f</span> <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3"></a><span class="ex">docker</span> volume rm <span class="va">$(</span><span class="ex">docker</span> volume ls <span class="at">-q</span><span class="va">)</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-4" class="code-annotation-target"><a href="#annotated-cell-5-4"></a><span class="ex">docker</span> rmi <span class="va">$(</span><span class="ex">docker</span> images <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="1" data-code-annotation="1">Beendet die Anwendung.</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="2">Entfernt alle Docker Container.</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="3">Entfernt alle Docker Volumes.</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="4" data-code-annotation="4">Entfernt dann alle Docker Images.</span>
-</dd>
-</dl>
-<p>Danach kann das bisherige Installationsverzeichnis gelöscht werden.</p>
+<section id="cypress-starten" class="level2">
+<h2 class="anchored" data-anchor-id="cypress-starten">Cypress starten</h2>
+<ol type="1">
+<li>Starten der IDE</li>
+<li>Spiegeln (clonen) des Testcenter <a href="https://github.com/iqb-berlin/testcenter">GitHub-Repos</a></li>
+<li>Öffnen des gespiegelten Ordners mit der IDE</li>
+<li>Terminal öffnen und den Befehl: <code>make test-system</code> eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche</li>
+<li>“E2E Testing” in der Cypress Oberfläche auswählen</li>
+<li>TestBrowser auswählen</li>
+</ol>
 </section>
-<section id="umgebungsvariable-tls_enabled" class="level1">
-<h1>Umgebungsvariable: TLS_ENABLED</h1>
-<div class="callout callout-style-default callout-warning callout-titled">
+<section id="cypress-tests-ausführen" class="level2">
+<h2 class="anchored" data-anchor-id="cypress-tests-ausführen">Cypress Tests ausführen</h2>
+<p>Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer*innen für ihre Konfiguration der Testdateien genutzt werden könnten.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warnung
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.</p>
+<p>Einige Testfälle sind gruppiert in Ordner.</p>
 </div>
 </div>
-<p>Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .env</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Und dann den Wert der Umgebungsvariable <code>TLS_ENABLED</code> wie folgt setzen:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">TLS_ENABLED</span><span class="op">=</span>no</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Session-Management/hot-restart-mode</strong> und <strong>Session-Management/hot-return-mode</strong></p>
+<p>Hier werden die Grundfunktionen der Modi: <code>hot-restart</code> und <code>hot-return</code> getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten, wie vorgesehen:</p>
+<ul>
+<li>hot-restart: Bei erneuter Anmeldung wird eine neue Person angenommen und der Test wird neu gestartet</li>
+<li>hot-return: Bei erneuter Anmeldung wird die selbe Testperson angenommen und der Test wird fortgesetzt</li>
+</ul>
+<p><strong>Session-Management/time-restrictions</strong></p>
+<p>Es wird die Funktion zeitlicher Beschränkungen in Testheftblöcken getestet.</p>
+<p><strong>Test-Controller/RunHotRestart</strong> und <strong>Test-Controller/RunHotReturn</strong></p>
+<p>Es werden alle <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html">hier</a> gelisteten Funktionen der beide Modi getestet (ausgenommen der bereits im Session-Management getesteten Funktionen).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Testschritte sind so geschrieben, dass relativ einfach herauszulesen ist was diese Schritte tun, also was damit getestet wird.</p>
+</div>
+</div>
 </section>
-<section id="lange-startzeiten-des-testcenters-umgehen" class="level1">
-<h1>Lange Startzeiten des Testcenters umgehen</h1>
-<p>Das Testcenter validiert standardmäßig beim Starten alle Dateien zur Aufgaben-Definition (Unit-XML, Unit-VOUD usw.), die Testtaker-XML und Booklet-XML. Dies kann bei einer hohen Anzahl von Testheften und Zugängen für die Testpersonen zur einer sehr hohen Startzeit führen.</p>
-<p>Dies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Installationsordner des Testcenters durchführen:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In der zweiten Konsole dann diesen Befehl ausführen:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Nun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “<strong>make stop</strong>” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.</p>
+<section id="wo-ist-der-testcode-zu-finden" class="level2">
+<h2 class="anchored" data-anchor-id="wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</h2>
+<p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/cypress/e2e</strong> zu finden. Die Struktur der Testfälle ist dann genau so zu sehen wie in der Cypress-Oberfläche. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Beispielaufgaben eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden. Es empfiehlt sich daraufhin das laufende Test-System noch einmal zu stoppen und erneut zu starten mit <code>make test-system</code>. Hierbei werden die neuen Daten der Datenbank hinzugefügt.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
@@ -1505,13 +1556,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Testcenter/install/security.html" class="pagination-link" aria-label="Datensicherheit">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Datensicherheit</span>
+      <a href="../../intro/install/offline.html" class="pagination-link" aria-label="Offline-Szenario">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Offline-Szenario</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Testcenter/install/Softwarequalität.html" class="pagination-link" aria-label="Softwarequalität">
-        <span class="nav-page-text">Softwarequalität</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../intro/install/releases.html" class="pagination-link" aria-label="Release-Plan">
+        <span class="nav-page-text">Release-Plan</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
