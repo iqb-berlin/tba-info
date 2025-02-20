@@ -876,7 +876,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#szenario-player" id="toc-szenario-player" class="nav-link" data-scroll-target="#szenario-player">Szenario “Player”</a></li>
   <li><a href="#szenario-iqb-testcenter" id="toc-szenario-iqb-testcenter" class="nav-link" data-scroll-target="#szenario-iqb-testcenter">Szenario “IQB-Testcenter”</a></li>
   </ul></li>
-  <li><a href="#vera---vergleichsarbeiten" id="toc-vera---vergleichsarbeiten" class="nav-link" data-scroll-target="#vera---vergleichsarbeiten">VERA - Vergleichsarbeiten</a></li>
+  <li><a href="#vera---vergleichsarbeiten" id="toc-vera---vergleichsarbeiten" class="nav-link" data-scroll-target="#vera---vergleichsarbeiten">VERA - Vergleichsarbeiten</a>
+  <ul class="collapse">
+  <li><a href="#unterstützung-über-die-testdurchführung-hinaus" id="toc-unterstützung-über-die-testdurchführung-hinaus" class="nav-link" data-scroll-target="#unterstützung-über-die-testdurchführung-hinaus">Unterstützung über die Testdurchführung hinaus</a></li>
+  <li><a href="#umstellungszeitplan" id="toc-umstellungszeitplan" class="nav-link" data-scroll-target="#umstellungszeitplan">Umstellungszeitplan</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -939,7 +943,31 @@ Abbildung&nbsp;2: Architektur-Szenario “IQB-Testcenter”
 </section>
 <section id="vera---vergleichsarbeiten" class="level1">
 <h1>VERA - Vergleichsarbeiten</h1>
-<p><a href="https://www.iqb.hu-berlin.de/vera/">VERA</a> ist Teil des <a href="https://www.kmk.org/themen/qualitaetssicherung-in-schulen/bildungsmonitoring/">KMK - Bildungsmonitorings</a>. Das IQB entwickelt – wie in den Vorjahren auf der Basis von Papier – die Testaufgaben und Testsequenzen (Testhefte) zentral und stellt diese den Ländern für eigene landesweite Erhebungen zur Verfügung. Die Umstellung von VERA auf TBA ist daran gekoppelt, dass für die neuen Bildungsstandards und das neue Online-Format Kompetenzstufenmodelle zur Verfügung stehen. Diese werden im Rahmen des Bildungstrends ermittelt (s. <a href="../intro/bt.html#fig-bt-timeline">Zeitplan</a>).</p>
+<p><a href="https://www.iqb.hu-berlin.de/vera/">VERA</a> ist Teil des <a href="https://www.kmk.org/themen/qualitaetssicherung-in-schulen/bildungsmonitoring/">KMK - Bildungsmonitorings</a>. Das IQB entwickelt – wie in den Vorjahren auf der Basis von Papier – die Testaufgaben und Testsequenzen (Testhefte) zentral und stellt diese den Ländern für eigene landesweite Erhebungen zur Verfügung. Die Verantwortung der VERA-Durchführung liegt vollständig bei den Ländern.</p>
+<section id="unterstützung-über-die-testdurchführung-hinaus" class="level2">
+<h2 class="anchored" data-anchor-id="unterstützung-über-die-testdurchführung-hinaus">Unterstützung über die Testdurchführung hinaus</h2>
+<p>Anders als bei den Testungen, die das IQB durchführt (Bildungstrend), steht bei VERA nicht ein übergreifender Vergleich, sondern die Unterrichtsentwicklung einer konkreten Schulklasse im Vordergrund. Die Testdurchführung ist zunächst ein notwendiger Teil der Unternehmung, und die Rückmeldung der diagnostischen Befunde an die Lehrkraft führt dann anschließend zur beabsichtigten Wirkung.</p>
+<div id="fig-vera-data-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vera-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/data-flow-vera.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vera-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: Datenfluss bei einer VERA-Durchführung
+</figcaption>
+</figure>
+</div>
+<p>Das IQB deckt mit seinen Programmierungen nur den Teil “Durchführung Test” in der obigen Darstellung ab. Aufgaben/Items und die Testzusammenstellung werden geliefert, und für deren Nutzung ist eines der beiden oben diskutierten Szenarien erforderlich.</p>
+<p>Darüber hinaus liefert das IQB auch Komponenten und Daten, um VERA auch an anderen Stellen zu unterstützen. Teilweise ist dies bereits seit Jahren in der Papiervariante der Fall, teilweise kommen jetzt jedoch durch die Umstellung auf TBA weitere dazu. Die Abstimmungen dazu erfolgen schrittweise in dem Maße, wie in den Ländern die notwendigen Arbeiten zur Umstellung voranschreiten.</p>
+<ul>
+<li><strong>Kodierung</strong>: Das IQB liefert mit den TBA-Aufgaben maschinenlesbare Kodieranweisungen. Mit Hilfe eines solchen Kodierschemas kann eine automatische Kodierung erfolgen und Eingabemasken für die manuelle Kodierung erstellt werden. Außerdem wird das IQB Komponenten der IQB-Kodierbox so veröffentlichen, dass ein Einfügen in ein Länderportal gut möglich ist.</li>
+<li><strong>Datenanalyse</strong>: Die Kompetenzstufenmodelle mit ihren Schwellenwerten sowie die Transferparameter für einen konkreten Durchgang liefert das IQB digital. Das Datenformat muss noch entwickelt werden.</li>
+<li><strong>Didaktische Handreichungen</strong>: Das IQB liefert für die Rückmeldungen itembezogene und übergreifende Erläuterungen sowie Veweise zu ggf. nützlichem Material. Das Datenformat muss noch entwickelt werden.</li>
+</ul>
+</section>
+<section id="umstellungszeitplan" class="level2">
+<h2 class="anchored" data-anchor-id="umstellungszeitplan">Umstellungszeitplan</h2>
+<p>Die Umstellung von VERA auf TBA ist daran gekoppelt, dass für die neuen Bildungsstandards und das neue Online-Format Kompetenzstufenmodelle zur Verfügung stehen. Diese werden im Rahmen des Bildungstrends ermittelt (s. <a href="../intro/bt.html#fig-bt-timeline">Zeitplan</a>).</p>
 <div id="fig-vera-timeline" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vera-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -975,13 +1003,14 @@ section Sek I Ma
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vera-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3: VERA-Umstellung Zeitplan
+Abbildung&nbsp;4: VERA-Umstellung Zeitplan
 </figcaption>
 </figure>
 </div>
 <p>Um in einem Land eine Lernstandserhebung auf der Grundlage der vom IQB entwickelten Aufgaben durchführen zu können, müssen diese pilotiert sein. Entsprechend obiger Abbildung findet beispielsweise für die Primarstufe im Jahr 2026 das erste Mal eine VERA-Pilotierung im TBA-Format statt. Im selben Jahr kann durch die Normierung im Bildungstrend die Metrik der Bildungsstandards (Kompetenzstufenmodell) ermittelt werden. Daher kann im Jahr 2027 eine VERA-Durchführung für die Primarstufe auf hohem methodischen Qualitätsniveau stattfinden.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
