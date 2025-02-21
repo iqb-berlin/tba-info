@@ -5,7 +5,7 @@ website:
   site-url: https://iqb-berlin.github.io/tba-info/
   title: "TBA - Verstehen und Anwenden"
   description: "Dokumentation der IQB-Webanwendungen zum computerbasierten Testen - TBA"
-  favicon: favicon.ico
+  favicon: assets/favicon.ico
   back-to-top-navigation: true
   page-navigation: true
   repo-url: https://github.com/iqb-berlin/tba-info
@@ -13,7 +13,7 @@ website:
   navbar:
     pinned: true
     search: true
-    logo: IQB-klein.png
+    logo: assets/IQB-klein.png
     background: '#536171'
   page-footer:
     border: true
@@ -42,46 +42,25 @@ website:
           - href: intro/bt.qmd
             text: Bildungstrend
           - href: intro/vera.qmd
-            text: Nutzung in den Ländern
-      - section: Studie durchführen
-        href: Testcenter/index.qmd
-        contents:
+            text: VERA
           - section: Installation
-            href: Testcenter/install/index.qmd
+            href: intro/install/index.qmd
             contents:
-            - Testcenter/install/configuration.qmd
-            - Testcenter/install/load-test.qmd
-            - Testcenter/install/security.qmd
-            - Testcenter/install/offline.qmd
-            - Testcenter/install/Softwarequalität.qmd
-            - Testcenter/install/releases.qmd
-          - Testcenter/Workspace/index.qmd
-          - Testcenter/Zugriffsrechte/index.qmd
-          - section: Testinhalte
-            href: Testcenter/Testinhalte/index.qmd
-            contents:
-            - Testcenter/Testinhalte/erstellung-inhalte.qmd
-            - Testcenter/Testinhalte/unit-xml.qmd
-            - Testcenter/Testinhalte/booklet-xml.qmd
-            - Testcenter/Testinhalte/testtaker-xml.qmd
-          - Testcenter/Datenauswertung/index.qmd
-          - Testcenter/System_Check/index.qmd
-          - Testcenter/Gruppenmonitor/index.qmd
-          - Testcenter/Adaptives_Testen/index.qmd
-          - section: "Studie durchführen"
-            href: Testcenter/Studie_durchfuehren/index.qmd
-            contents:
-              - Testcenter/Studie_durchfuehren/Anforderungen.qmd
-              - Testcenter/Studie_durchfuehren/Studienkonfiguration.qmd
-              - Testcenter/Studie_durchfuehren/Durchfuehrung.qmd
-              - section: "Beispielstudie"
-                href: Testcenter/Studie_durchfuehren/Beispielstudie/index.qmd
-                contents: 
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.qmd
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.qmd
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.qmd
-          - href: Testcenter/faq/index.qmd
-            text: FAQ
+            - href: intro/install/studio-super-admin/index.qmd
+              text: "Studio: Super-Admin"
+            - href: intro/install/configuration.qmd
+              text: "TC: Konfiguration"
+            - href: intro/install/load-test.qmd
+              text: "Lasttests"
+            - href: intro/install/security.qmd
+              text: "Datensicherheit"
+            - href: intro/install/offline.qmd
+              text: "Offline-Szenario"
+            - href: intro/install/e2e.qmd
+              text: "Software-Tests"
+            - href: intro/install/releases.qmd
+              text: "Release-Plan"
+
       - section: "Aufgaben entwickeln"
         href: tasks/index.qmd
         contents:
@@ -189,6 +168,37 @@ website:
                 text: Basisfälle
               - href: tasks/coding-scheme/extended.qmd
                 text: Sonderfälle
+
+      - section: Studie durchführen
+        href: Testcenter/index.qmd
+        contents:
+          - Testcenter/Workspace/index.qmd
+          - Testcenter/Zugriffsrechte/index.qmd
+          - section: Testinhalte
+            href: Testcenter/Testinhalte/index.qmd
+            contents:
+            - Testcenter/Testinhalte/erstellung-inhalte.qmd
+            - Testcenter/Testinhalte/unit-xml.qmd
+            - Testcenter/Testinhalte/booklet-xml.qmd
+            - Testcenter/Testinhalte/testtaker-xml.qmd
+          - Testcenter/Datenauswertung/index.qmd
+          - Testcenter/System_Check/index.qmd
+          - Testcenter/Gruppenmonitor/index.qmd
+          - Testcenter/Adaptives_Testen/index.qmd
+          - section: "Schritt für Schritt"
+            href: Testcenter/Studie_durchfuehren/index.qmd
+            contents:
+              - Testcenter/Studie_durchfuehren/Anforderungen.qmd
+              - Testcenter/Studie_durchfuehren/Studienkonfiguration.qmd
+              - Testcenter/Studie_durchfuehren/Durchfuehrung.qmd
+              - section: "Beispielstudie"
+                href: Testcenter/Studie_durchfuehren/Beispielstudie/index.qmd
+                contents: 
+                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.qmd
+                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.qmd
+                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.qmd
+          - href: Testcenter/faq/index.qmd
+            text: FAQ
 
       - section: "Kodieren und Auswerten"
         href: coding/index.qmd

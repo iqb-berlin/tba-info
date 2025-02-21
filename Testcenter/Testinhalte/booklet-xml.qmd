@@ -78,11 +78,10 @@ Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine 
 
 Die vollständige Liste der Booklet-Einstellungen [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters). Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.
 
-# Strukturierung über Blöcke
+# Strukturierung in Blöcken (Testlet)
 
-Die Units in Blöcke (engl. testlets) aufzuteilen, dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d. h. es entspricht der Tradition.
+Units können blockweise aufgeteilt werden. Durch Blöcke wird die Übersichtlichkeit erhöht. Außerdem bieten Blöcke die Möglichkeit Zugangs- und Ablaufbeschränkungen zu vergeben. Soll ein Gruppenmonitor zum Einsatz kommen, sind Blöcke unabdingbar. Die Testleitung kann dann mit Hilfe des Monitors Testpersonen in einzelne Blöcke bewegen. Die eventuell vergebenen Beschränkungen, können die Testpersonen dann in einem Block halten. Dies ermöglicht eine bessere Synchronisierung des Testablaufs.
 
-Im Testcenter können für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:
 
 ```{.xml filename="booklet3.xml"}
 <?xml version="1.0"?>
@@ -99,7 +98,7 @@ Im Testcenter können für Units in Blöcken bestimmte Restriktionen gesetzt wer
         <CodeToEnter code="BUS">  # <3>
           Bitte warte, bis dir ein Freigabewort gesagt wird.  # <3>
         </CodeToEnter> # <3>
-        <TimeMax minutes="10" />  # <4>
+        <TimeMax minutes="10" leave="forbidden"/>  # <4>
         <DenyNavigationOnIncomplete presentation="ALWAYS" response="ALWAYS" /> # <5>
         <LockAfterLeaving confirm="true" scope="unit"/> # <6>
       </Restrictions>
@@ -114,7 +113,7 @@ Im Testcenter können für Units in Blöcken bestimmte Restriktionen gesetzt wer
 1. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen. Das `label` kann z. B. auf einer erweiterten Navigationsseite angezeigt werden.
 2. Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber -- sofern vorhanden -- in genau dieser Reihenfolge vorkommen: **CodeToEnter** --> **TimeMax** --> **DenyNavigationOnIncomplete** --> **LockAfterLeaving**.
 3. Die Restriktion **CodeToEnter** legt fest, dass eine Dialogbox gezeigt wird beim Versuch, den Block zu betreten. Erst nach Eingabe des Codes, der im Attribute `code` übergeben wird, kann man den Block betreten. Groß- und Kleinschreibung spielt keine Rolle. Der Text innerhalb des Elementes wird in der Dialogbox als Aufforderung angezeigt. Diese Restriktion dient der Synchronisation des Testablaufes innerhalb einer Testgruppe (Klasse), um Gelegenheit für weitere Ansagen zu haben.
-4. **TimeMax**: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert. Die Testperson kann das nicht verhindern. Es gibt für den Versuch des vorzeitigen Verlassens des Blockes ein optionales Attribut `leave`, das festlegt, ob eine Warnung ausgegeben wird (Wert `confirm`; Standardverhalten) oder ein Verlassen generell nicht erlaubt wird (Wert `forbidden`).
+4. **TimeMax**: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert und der Block wird gesperrt. Die Testperson kann das nicht verhindern. Die Testperson kann den Block auf Wunsch vor Ablauf der Zeit verlassen. Dazu navigiert die Person in eine Unit außerhalb des aktiven Blocks und erhält eine entsprechende Warnmeldung. Nach Bestätigung dieser, wird der Block frühzeitig verlassen und gesperrt. Soll es nicht möglich sein den Block auf diese Weise frühzeitig zu verlassen, kann das optionale Attribut `leave` verwendet werden. Mit der Zuweisung des Wertes: `forbidden` kann der Block vor Zeitablauf nicht mehr verlassen werden.
 5. Mit der Restriktion **DenyNavigationOnIncomplete** wird das Verlassen einer Unit verhindert, wenn die Präsentation (Attribut `presentation`) und/oder die Antworten (Attribut `response`) unvollständig sind. Die möglichen Werte sind `OFF`-Keine Beschränkung, `ON`-Vorwärtsgehen wird verhindert und `ALWAYS`-Vor- und Rückwärtsgehen wird verhindert. Damit überschreibt man für diesen Block eine ggf. als Booklet-Konfiguration gesetzte Regel (`force_presentation_complete` bzw. `force_response_complete`; beide haben `OFF` als Standard).
 6. Soll eine Aufgabe oder ein Testheft nach dem Verlassen (Navigation zur nächsten Aufgaben oder Testheft) nicht mehr zugänglich sein, kann die Restriktion **LockAfterLeaving** verwendet werden. Hier kann im Attribut `confirm`festgelegt werden, ob vor der Sperrung eine Warnung erscheint oder nicht (boolean). Mit Hilfe des Attributs `scope` kann festgelegt werden, ob beim Verlassen das Testheft gesperrt wird oder nur die verlassene Unit in einem Testheft (testlet, unit).
 
