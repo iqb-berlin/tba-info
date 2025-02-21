@@ -907,7 +907,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link active" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
   <li><a href="#booklet-einstellungen" id="toc-booklet-einstellungen" class="nav-link" data-scroll-target="#booklet-einstellungen">Booklet-Einstellungen</a></li>
-  <li><a href="#strukturierung-über-blöcke" id="toc-strukturierung-über-blöcke" class="nav-link" data-scroll-target="#strukturierung-über-blöcke">Strukturierung über Blöcke</a></li>
+  <li><a href="#strukturierung-in-blöcken-testlet" id="toc-strukturierung-in-blöcken-testlet" class="nav-link" data-scroll-target="#strukturierung-in-blöcken-testlet">Strukturierung in Blöcken (Testlet)</a></li>
   <li><a href="#unit-alias" id="toc-unit-alias" class="nav-link" data-scroll-target="#unit-alias">Unit-Alias</a></li>
   <li><a href="#adaptives-testen" id="toc-adaptives-testen" class="nav-link" data-scroll-target="#adaptives-testen">Adaptives Testen</a></li>
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
@@ -1040,10 +1040,9 @@ Tipp
 </dl>
 <p>Die vollständige Liste der Booklet-Einstellungen <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">finden Sie hier</a>. Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.</p>
 </section>
-<section id="strukturierung-über-blöcke" class="level1">
-<h1>Strukturierung über Blöcke</h1>
-<p>Die Units in Blöcke (engl. testlets) aufzuteilen, dient zunächst der Übersicht und auch ggf. der Navigation. Außerdem gibt es in vielen Testdesigns Blöcke entsprechend einer Testdomäne, d.&nbsp;h. es entspricht der Tradition.</p>
-<p>Im Testcenter können für Units in Blöcken bestimmte Restriktionen gesetzt werden, die sehr wichtig aus Sicht der Testadministration sind. Das folgende Beispiel enthält alle drei derzeit möglichen Restriktionen:</p>
+<section id="strukturierung-in-blöcken-testlet" class="level1">
+<h1>Strukturierung in Blöcken (Testlet)</h1>
+<p>Units können blockweise aufgeteilt werden. Durch Blöcke wird die Übersichtlichkeit erhöht. Außerdem bieten Blöcke die Möglichkeit Zugangs- und Ablaufbeschränkungen zu vergeben. Soll ein Gruppenmonitor zum Einsatz kommen, sind Blöcke unabdingbar. Die Testleitung kann dann mit Hilfe des Monitors Testpersonen in einzelne Blöcke bewegen. Die eventuell vergebenen Beschränkungen, können die Testpersonen dann in einem Block halten. Dies ermöglicht eine bessere Synchronisierung des Testablaufs.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>booklet3.xml</strong></pre>
@@ -1062,7 +1061,7 @@ Tipp
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-12" class="code-annotation-target"><a href="#annotated-cell-3-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">CodeToEnter</span><span class="ot"> code=</span><span class="st">"BUS"</span>&gt;</span>
 <span id="annotated-cell-3-13"><a href="#annotated-cell-3-13" aria-hidden="true" tabindex="-1"></a>          Bitte warte, bis dir ein Freigabewort gesagt wird.</span>
 <span id="annotated-cell-3-14"><a href="#annotated-cell-3-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">CodeToEnter</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-15" class="code-annotation-target"><a href="#annotated-cell-3-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">TimeMax</span><span class="ot"> minutes=</span><span class="st">"10"</span> /&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-15" class="code-annotation-target"><a href="#annotated-cell-3-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">TimeMax</span><span class="ot"> minutes=</span><span class="st">"10"</span><span class="ot"> leave=</span><span class="st">"forbidden"</span>/&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-3-16" class="code-annotation-target"><a href="#annotated-cell-3-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">DenyNavigationOnIncomplete</span><span class="ot"> presentation=</span><span class="st">"ALWAYS"</span><span class="ot"> response=</span><span class="st">"ALWAYS"</span> /&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-3-17" class="code-annotation-target"><a href="#annotated-cell-3-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">LockAfterLeaving</span><span class="ot"> confirm=</span><span class="st">"true"</span><span class="ot"> scope=</span><span class="st">"unit"</span>/&gt;</span>
 <span id="annotated-cell-3-18"><a href="#annotated-cell-3-18" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Restrictions</span>&gt;</span>
@@ -1089,7 +1088,7 @@ Tipp
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="15" data-code-annotation="4"><strong>TimeMax</strong>: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert. Die Testperson kann das nicht verhindern. Es gibt für den Versuch des vorzeitigen Verlassens des Blockes ein optionales Attribut <code>leave</code>, das festlegt, ob eine Warnung ausgegeben wird (Wert <code>confirm</code>; Standardverhalten) oder ein Verlassen generell nicht erlaubt wird (Wert <code>forbidden</code>).</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="15" data-code-annotation="4"><strong>TimeMax</strong>: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert und der Block wird gesperrt. Die Testperson kann das nicht verhindern. Die Testperson kann den Block auf Wunsch vor Ablauf der Zeit verlassen. Dazu navigiert die Person in eine Unit außerhalb des aktiven Blocks und erhält eine entsprechende Warnmeldung. Nach Bestätigung dieser, wird der Block frühzeitig verlassen und gesperrt. Soll es nicht möglich sein den Block auf diese Weise frühzeitig zu verlassen, kann das optionale Attribut <code>leave</code> verwendet werden. Mit der Zuweisung des Wertes: <code>forbidden</code> kann der Block vor Zeitablauf nicht mehr verlassen werden.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
 <dd>
