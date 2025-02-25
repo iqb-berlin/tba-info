@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-58d63cb96f37e1d514b33711e648645e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-008828e226b1dfc6d64cb96ab2a94829.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -874,14 +874,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#variablen-umbenennen" id="toc-variablen-umbenennen" class="nav-link active" data-scroll-target="#variablen-umbenennen">Variablen umbenennen</a>
+  <li><a href="#ids-umbenennen" id="toc-ids-umbenennen" class="nav-link active" data-scroll-target="#ids-umbenennen">IDs umbenennen</a>
   <ul class="collapse">
   <li><a href="#kodierrelevante-elemente" id="toc-kodierrelevante-elemente" class="nav-link" data-scroll-target="#kodierrelevante-elemente">Kodierrelevante Elemente</a></li>
-  </ul></li>
-  <li><a href="#kodierirrelevante-elemente" id="toc-kodierirrelevante-elemente" class="nav-link" data-scroll-target="#kodierirrelevante-elemente">Kodierirrelevante Elemente</a>
-  <ul class="collapse">
-  <li><a href="#übersicht-1" id="toc-übersicht-1" class="nav-link" data-scroll-target="#übersicht-1">Übersicht</a></li>
-  <li><a href="#erläuterung-1" id="toc-erläuterung-1" class="nav-link" data-scroll-target="#erläuterung-1">Erläuterung</a></li>
+  <li><a href="#kodierirrelevante-elemente" id="toc-kodierirrelevante-elemente" class="nav-link" data-scroll-target="#kodierirrelevante-elemente">Kodierirrelevante Elemente</a></li>
   </ul></li>
   <li><a href="#kodierung-generieren" id="toc-kodierung-generieren" class="nav-link" data-scroll-target="#kodierung-generieren">Kodierung generieren</a></li>
   <li><a href="#abgeleitete-variable-anlegen" id="toc-abgeleitete-variable-anlegen" class="nav-link" data-scroll-target="#abgeleitete-variable-anlegen">Abgeleitete Variable anlegen</a></li>
@@ -910,20 +906,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Achtung
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Seite befindet sich im Aufbau. Die Konventionen zur Benennung der Elemente müssen noch final abgestimmt werden.</p>
-</div>
-</div>
-<p>Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während einige Punkte vermutlich selbsterklärend sind und auch nur kurz beschrieben werden, werden andere Punkte hier nochmal ausführlicher erklärt. Außerdem wird die Kodierung üblicher Formate auch nochmal im Abschnitt <strong>?@sec-kodierung-einzelner-Formate</strong> erläutert.</p>
+<p>Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während einige Punkte vermutlich selbsterklärend sind und auch nur kurz beschrieben werden, werden andere Punkte hier nochmal ausführlicher erklärt. Außerdem wird die Kodierung üblicher Formate auch nochmal im Abschnitt <a href="../../tasks/coding-scheme/basic.html#kodierung-basis-fälle">Kodierung einzelner Formate</a> erläutert.</p>
 <ol type="1">
 <li>Im Reiter <strong>Eigenschaften</strong>: Kodierung (Schemer) auf aktuellste Version bringen.</li>
 <li>Im Reiter <strong>Editor</strong>: IDs umbenennen.</li>
@@ -947,7 +930,7 @@ Achtung
 graph TD
   A[["`**Reiter Eigenschaften**`"]] --- B(Kodierung auf aktuellste Version bringen) 
   B --&gt; C[["`**Reiter Editor**`"]]
-  C --- D(Variablen umbenennen)
+  C --- D(IDs umbenennen)
   D --&gt; E[["`**Reiter Kodierung**`"]]
   E --&gt; H(Feld Position/Zuordnung leeren.)
   H --&gt; I(Kodierung generieren.)
@@ -967,99 +950,26 @@ graph TD
 </div>
 </div>
 </div>
-<section id="variablen-umbenennen" class="level2">
-<h2 class="anchored" data-anchor-id="variablen-umbenennen">Variablen umbenennen</h2>
-<p>Damit jede Person, die später mit dem Datensatz arbeitet, weiß, um was für Elemente es sich handelt, halten wir uns an relativ strenge Vorgaben bei der Verabe von Variablenbezeichnungen. Zunächst beleuchten wir Elemente, die für die Kodierung relevant sind und dann Elemente, denen kein Kodierschema hinterlegt wird (oder werden kann).</p>
-<section id="kodierrelevante-elemente" class="level3">
-<h3 class="anchored" data-anchor-id="kodierrelevante-elemente">Kodierrelevante Elemente</h3>
-<p>Die in diesem Abschnitt genannten Elemente tauchen im Reiter <strong>Kodierung</strong> auf und erhalten auch ein Kodierschema.</p>
-<section id="übersicht" class="level4">
-<h4 class="anchored" data-anchor-id="übersicht">Übersicht</h4>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Verhältnis zu Item</th>
-<th style="text-align: left;">Konvention</th>
-<th style="text-align: left;">Beispiele</th>
-<th style="text-align: left;">Zielvariable im Beispiel</th>
-<th style="text-align: left;">Bei Stellenübertritt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Itemwert</td>
-<td style="text-align: left;">Benennung entsprechend der Chronologie der Aufgabe</td>
-<td style="text-align: left;"><code>01</code>, <code>02</code>, <code>03</code></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;"><code>100</code>, <code>101</code>, …, <code>200</code>, <code>201</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Level-1-Subitem für Itemwert</td>
-<td style="text-align: left;">Ableitungsziel mit Buchstaben</td>
-<td style="text-align: left;"><code>02a</code>, <code>02b</code>, <code>02c</code></td>
-<td style="text-align: left;"><code>02</code></td>
-<td style="text-align: left;"><code>02aa</code>, <code>02ab</code>, …, <code>02ba</code>, <code>02bb</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Level-2-Subitem für Level-1-Subitem</td>
-<td style="text-align: left;">Level-1-Ableitungsziel mit Zahl</td>
-<td style="text-align: left;"><code>03a_1</code>, <code>03a_2</code>, <code>03a_2</code></td>
-<td style="text-align: left;"><code>03a</code></td>
-<td style="text-align: left;"><code>03a_10</code>, <code>03a_11</code>, …, <code>03a_100</code>, <code>03a_101</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Level-3-Subitem für Level-2-Subitem</td>
-<td style="text-align: left;">Level-2-Ableitungsziel mit Buchstaben</td>
-<td style="text-align: left;"><code>03a_1a</code>, <code>03a_1b</code>, <code>03a_1c</code></td>
-<td style="text-align: left;"><code>03a_1</code></td>
-<td style="text-align: left;"><code>03a_1aa</code>, <code>03a_1ab</code>, …, <code>03a_1ba</code>, <code>03a_1ba</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Level-1-Einzigartigkeitscheck</td>
-<td style="text-align: left;">Ableitungsziel mit Suffix <code>_unique</code></td>
-<td style="text-align: left;"><code>01_unique</code></td>
-<td style="text-align: left;"><code>01</code></td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Level-2-Einzigartigkeitscheck</td>
-<td style="text-align: left;">Level-1-Ableitungsziel mit Suffix <code>_unique</code></td>
-<td style="text-align: left;"><code>02b_unique</code></td>
-<td style="text-align: left;"><code>02b</code></td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Level-3-Einzigartigkeitscheck</td>
-<td style="text-align: left;">Level-2-Ableitungsziel mit Suffix <code>_unique</code></td>
-<td style="text-align: left;"><code>03a_1_unique</code></td>
-<td style="text-align: left;"><code>03a_1</code></td>
-<td style="text-align: left;">-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="erläuterung" class="level4">
-<h4 class="anchored" data-anchor-id="erläuterung">Erläuterung</h4>
+<section id="ids-umbenennen" class="level1">
+<h1>IDs umbenennen</h1>
+<section id="kodierrelevante-elemente" class="level2">
+<h2 class="anchored" data-anchor-id="kodierrelevante-elemente">Kodierrelevante Elemente</h2>
 <ul>
-<li>Wenn der <strong>Itemwert</strong> direkt dem Wert <strong>einer Basisvariable</strong> entsprechen soll (z. B. bei MC), d.&nbsp;h., wenn nur eine Variable für die gesamte Kodierung eines Items benötigt wird und keine Ableitung (Aggregation) notwendig ist, benennen wir das für die Kodierung relevante Element im <strong>Editor</strong> nach einer fortlaufenden <strong>zweistelligen Nummer</strong> (Variablen-ID).
+<li>Wenn der <strong>Itemwert</strong> direkt dem Wert <strong>einer Basisvariable</strong> entsprechen soll (z. B. bei MC), d.&nbsp;h., wenn nur eine Variable für die gesamte Kodierung eines Items benötigt wird und keine Ableitung (Aggregation) notwendig ist, bennen wir das für die Kodierung relevante Element nach der <strong>Itemnummer</strong> benannt.
 <ul>
 <li><strong>Beispiel:</strong> Der erste Itemwert wird mit <code>01</code> benannt, der zweite Itemwert mit <code>02</code>, usw.</li>
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="assets/ID_umbenennen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Variablen-ID umbenennen im Editor"><img src="assets/ID_umbenennen.png" class="img-fluid figure-img" alt="Variablen-ID umbenennen im Editor"></a></p>
-<figcaption>Variablen-ID umbenennen im Editor</figcaption>
+<p><a href="assets/ID_umbenennen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="IDs umbenennen"><img src="assets/ID_umbenennen.png" class="img-fluid figure-img" alt="IDs umbenennen"></a></p>
+<figcaption>IDs umbenennen</figcaption>
 </figure>
 </div>
 <ul>
-<li>Wenn der <strong>Itemwert</strong> dem Wert einer <strong>aus mehreren Basisvariablen abgeleiteten Variable</strong> entsprechen soll (z. B. bei CMC), d.&nbsp;h., wenn wir mehrere Elemente für die Kodierung benötigen und aggregieren müssen, ergänzen wir Buchstaben an der zu einem Item gehörigen Elemente.
+<li>Wenn der <strong>Itemwert</strong> dem Wert einer <strong>aus mehreren Basisvariablen abgeleiteten Variable</strong> entsprechen soll (z. B. bei CMC), d.&nbsp;h., wenn mehrere Elemente für die Kodierung benötigt und aggregiert werden, werden Buchstaben an den Itemnummern der zusammengehörigen Elemente ergänzt.
 <ul>
-<li><strong>Beispiel:</strong> Für Item <code>01</code>, das aus drei Variablen abgeleitet wird, würden die Basisvariablen mit <code>01a</code>,<code>01b</code> und <code>01c</code> im <strong>Editor</strong> benannt.</li>
-</ul></li>
-<li>Dienen abgleitete Variablen als Prüfung der Einzigartigkeit von Eingaben in mindestens 2 Quellvariablen, werden sie mit der Zielvariablen-ID und dem Suffix <code>_unique</code> bezeichnet.
-<ul>
-<li><strong>Beispiel:</strong> Für Item <code>01</code>, das aus drei Variablen abgeleitet wird, deren Eingaben aber einzigartig sein müssen (das ist meist der Fall, wenn die Reihenfolge egal ist, aber der Lösungsraum eingeschränkt werden kann), würden die Basisvariablen mit <code>01a</code>,<code>01b</code> und <code>01c</code> im Reiter <strong>Kodierung</strong> vorher noch in der Variable <code>01_unique</code> auf Einzigartigkeit geprüft. Die Zielvariable 01 hat dann wiederum 4 Quellen (die Basisvariablen: <code>01a</code>,<code>01b</code> und <code>01c</code> und die Einzigartigkeitsvariable: <code>01_unique</code>).</li>
+<li>Beispiel: Für Item <code>01</code>, das aus drei Variablen abgeleitet wird, würden die Basisvariablen mit <code>01a</code>,<code>01b</code> und <code>01c</code> benannt.</li>
 </ul></li>
 </ul>
 <div class="callout callout-style-simple callout-warning callout-titled">
@@ -1072,115 +982,12 @@ Ableitungen höherer Ordnung
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Sollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d.&nbsp;h. wird zweifach eine Ableitung gebildet, erhalten die Basisvariablen eine zusätzliche Modifikation. Wollen wir etwa ein Item <code>01</code> kodieren, das aus den Subitems <code>01a</code> und <code>01b</code> aggregiert werden soll, die aber wiederum auf je 2 Basisvariablen bestehen, werden die Basisvariablen für das Subitem <code>01a</code> mit <code>01a_1</code> und <code>01a_2</code> bezeichnet und die Basisvariablen des Subitems <code>01b</code> mit <code>01b_1</code> und <code>01b_2</code>.</p>
-<p>Sollte es darüber hinaus notwendig werden, eine Ableitung in 3 oder mehr Schritten durchzuführen (kam uns bisher nicht unter), werden immer abwechselnd die Suffix-Konventionen angewandt (Buchstabe <code>a</code>, Ziffer <code>_1</code>): - Level-3-Ableitung: <code>01a_1a</code>, <code>01a_1b</code>, … - Level-4-Ableitung: <code>01a_1a_1</code>, <code>01a_1a_2</code>, … - Level-5-Ableitung: <code>01a_1a_1a</code>, <code>01a_1a_1b</code>, …</p>
+<p>Sollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d.&nbsp;h. wird zweifach eine Ableitung gebildet, erhalten die Basisvariablen eine zusätzliche Modifikation. Wollen wir etwa ein Item <code>01</code> kodieren, das aus den Subitems <code>01a</code> und <code>01b</code> aggregiert werden soll, die aber wiederum auf je 2 Basisvariablen bestehen, werden die Basisvariablen für das Subitem <code>01a</code> mit <code>01a_1</code> und <code>01a_2</code> bezeichnet und die Basisvariablen das Subitem <code>01b</code> mit <code>01b_1</code> und <code>01b_2</code>.</p>
 </div>
 </div>
-</section>
-</section>
 </section>
 <section id="kodierirrelevante-elemente" class="level2">
 <h2 class="anchored" data-anchor-id="kodierirrelevante-elemente">Kodierirrelevante Elemente</h2>
-<p>Die in diesem Abschnitt genannten Elemente tauchen auch im Reiter <strong>Kodierung</strong> auf, erhalten aber kein Kodierschema oder werden sogar später im Kodierschema deaktiviert.</p>
-<section id="übersicht-1" class="level3">
-<h3 class="anchored" data-anchor-id="übersicht-1">Übersicht</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Verhältnis zu Item</th>
-<th style="text-align: left;">Konvention</th>
-<th style="text-align: left;">Deaktivierung</th>
-<th style="text-align: left;">Beispiele</th>
-<th style="text-align: left;">Bei Stellenübertritt</th>
-<th style="text-align: left;">Deaktivierung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1 (itemübergreifendes) Element beim Stimulus</td>
-<td style="text-align: left;">Bezeichnung mit <code>00</code></td>
-<td style="text-align: left;"><code>_00</code></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">ja</td>
-<td style="text-align: left;">&gt; 1 (itemübergreifendes) Element beim Stimulus</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ergänzung <code>00</code> mit Suffix-Buchstaben</td>
-<td style="text-align: left;"><code>_00a</code>, <code>_00b</code>, <code>_00c</code></td>
-<td style="text-align: left;"><code>_00aa</code>, <code>_00ab</code></td>
-<td style="text-align: left;">ja</td>
-<td style="text-align: left;">1 Audio zum Stimulus</td>
-<td style="text-align: left;">Präfix <code>_audio</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bezeichnung mit <code>_audio00</code></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">&gt; 1 Audio beim Stimulus</td>
-<td style="text-align: left;">Ergänzung <code>_audio00</code> mit Suffix-Buchstaben</td>
-<td style="text-align: left;"><code>_audio00a</code>, <code>_audio00b</code>, <code>_audio00c</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>_audio00aa</code>, <code>_audio00ab</code></td>
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">1 Video zum Stimulus</td>
-<td style="text-align: left;">Präfix <code>_video</code></td>
-<td style="text-align: left;">Bezeichnung mit <code>_video00</code></td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">&gt; 1 Video beim Stimulus</td>
-<td style="text-align: left;">Ergänzung <code>_video00</code> mit Suffix-Buchstaben</td>
-<td style="text-align: left;"><code>_video00a</code>, <code>_video00b</code>, <code>_video00c</code></td>
-<td style="text-align: left;"><code>_video00aa</code>, <code>_video00ab</code></td>
-<td style="text-align: left;">nein</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1 Element beim Item</td>
-<td style="text-align: left;">an nächste kodierbare Variable angelehnt</td>
-<td style="text-align: left;"><code>_01</code>, <code>_02</code>, <code>_03</code></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">&gt; 1 Element beim Item</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ergänzung <code>00</code> mit Suffix-Buchstaben</td>
-<td style="text-align: left;"><code>_02a</code>, <code>_02b</code>, <code>_02c</code></td>
-<td style="text-align: left;"><code>_02aa</code>, <code>_02ab</code></td>
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">1 Audio zum Item</td>
-<td style="text-align: left;">Präfix <code>_audio</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bezeichnung mit <code>_audio03</code></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">&gt; 1 Audio beim Item</td>
-<td style="text-align: left;">Ergänzung <code>_audio00</code> mit Suffix-Buchstaben</td>
-<td style="text-align: left;"><code>_audio03a</code>, <code>_audio03b</code>, <code>_audio03c</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>_audio03aa</code>, <code>_audio03ab</code></td>
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">1 Video zum Item</td>
-<td style="text-align: left;">Präfix <code>_video</code></td>
-<td style="text-align: left;">Bezeichnung mit <code>_video02</code></td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nein</td>
-<td style="text-align: left;">&gt; 1 Video beim Item</td>
-<td style="text-align: left;">Ergänzung <code>_video00</code> mit Suffix-Buchstaben</td>
-<td style="text-align: left;"><code>_video02a</code>, <code>_video02b</code>, <code>_video02c</code></td>
-<td style="text-align: left;"><code>_video02aa</code>, <code>_video02ab</code></td>
-<td style="text-align: left;">nein</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="erläuterung-1" class="level3">
-<h3 class="anchored" data-anchor-id="erläuterung-1">Erläuterung</h3>
 <!-- PF: Bitte noch ein Screenshot davon, wie man jetzt Elemente aus der Kodierliste aufnehmen kann. @Methoden: Wollen wir das aber wirklich für Audios oder wollen wir die in der Liste lassen? Ansonsten entfernt der Auto-Coder diese. -->
 <ul>
 <li>Wenn ein <strong>Audio</strong> oder ein <strong>Video</strong> in einer Aufgabe vorkommen, wird deren ID auch im Reiter <strong>Kodierung</strong> angezeigt. Oft sind diese Elemente für die Kodierung unerheblich und können so gelöscht werden.
@@ -1195,33 +1002,16 @@ Ableitungen höherer Ordnung
 </ul></li>
 <li>Ein Sonderfall sind <strong>Beispiele</strong>, d.&nbsp;h. Elemente, die wie kodierrelevante Elemente angelegt werden, aber deren Wert sich überhaupt nicht verändern kann, da sie nur zu Illustrationszwecken dienen.
 <ul>
-<li>Diese Elemente sind aus der Variablenliste im Reiter <strong>Kodierung</strong> zu entfernen, indem sie deaktiviert werden. Dies betrifft etwa das rein texterschließendes Markieren (Sprachen Sekundarstufe I) oder ausgefüllte Beispiele. <!-- PF: Spätestens hier braucht man den Hinweis zum Löschen --></li>
+<li>Diese Elemente sind aus der Variablenliste im Reiter <strong>Kodierung</strong> zu entfernen. <!-- PF: Spätestens hier braucht man den Hinweis zum Löschen --></li>
 </ul></li>
 </ul>
-<div class="callout callout-style-simple callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Deaktivierte vs.&nbsp;nicht deaktivierte Elemente
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Deaktivierte Elemente werden nach dem Kodieren des Antwortdatensatzes gelöscht, während Elemente ohne Kodierschema mit dem Status <code>NO_CODING</code> im kodierten Datensatz auftauchen. Man könnte sich nun fragen, (1) warum wir nicht alle der kodierirrelevanten Elemente deaktivieren oder (2) warum wir sie gar nicht erst in die Kodierung einbeziehen, ihnen ein Kodierschema geben und sie in Ableitungsregeln einfließen lassen.</p>
-<p><strong>Audio</strong>- und <strong>Video-Elemente</strong> liefern jeweils einen Wert, der Auskunft darüber gibt, wie viel Prozent des Mediums abgespielt wurde. Ein Wert von 0.98 bei <code>_audio01</code> bedeutet, dass das Audio zu 98% abgespielt wurde. (1) Diese Fortschrittsinformation können wir nutzen, um ggf. problematische Testabläufe zu identifizieren – daher empfehlen wir, diese Elemente in der Variablenliste zu belassen. (2) Wenn es Gründe dafür gibt, dass ein Variablenwert nur als beurteilbar gilt, wenn ein damit verbundenes Audio- oder Video-Element angehört wurde, kann das Medium in die Kodierung einbezogen werden. Das haben wir bisher nicht gemacht, würden aber dann empfehlen, das Medium entsprechend anders zu benennen und die Elemente den Konventionen für kodierrelevante Variablen anzupassen. Angenommen, es gibt ein Audio-Element und eigentlich nur eine Basisvariable, dann würde das Audio mit <code>audio01a</code> und die Basisvariable mit <code>01b</code> bezeichnet werden, die Ableitung wäre <code>01</code>. Für das <code>audio01a</code> ist zu empfehlen, dass die Regel “Numerisch größer gleich” verwendet wird. Es sollte ein Wert knapp unter 1 verwendet werden, wenn man ein vollständiges Abspielen des Audios voraussetzt, da in einigen Browsern die Audios nicht ganz perfekt geloggt werden können (bei längeren Audios z. B. ≥ 0.98, bei kürzeren ggf. ≥ 0.70 – es gibt dafür aber bisher keine verlässlichen Erfahrungswerte!).</p>
-<p>Startlisten bei <strong>Drag-and-Drop-Elementen</strong> enthalten Elemente, die nicht bewegt wurden oder sind leer. (1) Der Status der Startliste kann Auskunft darüber geben, wie vollständig die Bearbeitung war und welche Attraktoren oder Distraktoren ggf. eher dort belassen wurden – daher können diese Informationen für die Datenauswertung hilfreich sein. (2) Auch hier kann es Gründe geben, den Zustand der Startliste in die Bewertung eines Items einfließen zu lassen. In eigentlich allen uns bekannten Fällen war es hinreichend, den Status der Ziellisten zu bewerten, da damit im Itemwert implizit der Status der Startliste enthalten ist (sie zusätzlich aufzunehmen, hat oft keinen zusätzlichen Wert und würde nichts an der finalen Kodierung verändern). Sollte sie aufgenommen werden, sollte die Benennung ggf. angepasst werden an die Konventionen für kodierrelevante Elemente.</p>
-<p>Die Elemente, über die man hier streiten könnte, wären allerdings die <strong>texterschließenden Markierungen</strong> – sie können ihren Wert ändern und enthalten potentiell diagnostische (wenn auch nicht kodierbare) Informationen. Je nach Erkenntniswunsch könnte man diese auch aktiviert lassen, wenn es absehbar ist, dass man sich diese Markierungen später ansehen möchte. Ansonsten würde man sie aber immer noch im Rohdatensatz auffinden. Für die Prüfung eines reibungslosen Testablaufs sind diese Elemente vermutlich weniger diagnostisch als Audio- und Videodateien.</p>
-<p>Dadurch, dass wir diese Elemente in der Variablenliste belassen, können wir schnell auf sie zugreifen.</p>
-</div>
-</div>
 </section>
 </section>
-<section id="kodierung-generieren" class="level2">
-<h2 class="anchored" data-anchor-id="kodierung-generieren">Kodierung generieren</h2>
+<section id="kodierung-generieren" class="level1">
+<h1>Kodierung generieren</h1>
 <ul>
-<li><strong>Manuelle Kodierung:</strong> Besteht gar keine Möglichkeit, die Kodierung einer Aufgabe auch nur ansatzweise automatisch umzusetzen, vergeben wir auch keine automatischen Codes mithilfe des Zauberstab-Symbols. In diesem Fall werden wir die Codes per Hand hinzufügen und die entsprechenden Kodieranweisungen in die manuellen Kodieranweisungen der Codes eintragen. Ein Format, welches eigentlich immer so kodiert werden muss, sind sogenannte Langantworten (z. B. Begründungs-)Items. Das genauere Verfahren wird in Abschnitt <strong>?@sec-begründung</strong> erläutert. <!-- müsste aktualisiert werden --></li>
-<li><strong>Geschlossene und regelbasierte Kodierung:</strong> Bei allen Aufgabenformaten die ganz oder teilweise automatisch kodiert werden können, können wir auf das Zauberstab-Symbol klicken, welches einen Dialog aufruft, der uns bei der Anlage einer automatischen Kodierung unterstützt. Das genaue Vorgehen für die verschiedenen Einzelfälle werden wir jeweils bei den einzelnen Aufgabenformaten beschreiben.</li>
+<li><strong>Manuelle Kodierung:</strong> Besteht keine Möglichkeit, die Kodierung einer Aufgabe auch nur teilweise automatisch umzusetzen, kann man keine automatischen Codes mithilfe des Zauberstab-Symbols hinzufügen. In diesem Fall muss man die Codes per Hand hinzufügen und die entsprechenden Kodieranweisungen in die Codes eintragen. Das einzige Standard-Aufgabenformat, welches so kodiert werden muss, ist das Langantworten-Format, wie z.B. Begründen-Items. Das genauere Verfahren wird in Abschnitt <a href="../../tasks/coding-scheme/basic.html#begründung">Begründing</a> erläutert. <!-- müsste aktualisiert werden --></li>
+<li><strong>Geschlossene und regelbasierte Kodierung:</strong> Bei allen Aufgabenformaten die ganz oder teilweise automatisch kodiert werden können, klickt man auf das Zauberstab-Symbol, um die Kodierung automatisch zu generieren. Das genaue Vorgehen ist in die einzelnen Aufgabenformate aufgegliedert.</li>
 </ul>
 <p><a href="assets/Zauberstab.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/Zauberstab.png" class="img-fluid"></a></p>
 <div class="callout callout-style-simple callout-note callout-titled">
@@ -1230,11 +1020,11 @@ Deaktivierte vs.&nbsp;nicht deaktivierte Elemente
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Vergabe von Codes
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Nummerierung der Codes wird automatisch generiert, und soll im Regelfall nicht von Hand verändert werden. Dabei gibt es eine Ausnahme. Wenn ein Item mehrere gleichartige Codes (z.B. mehrere Richtig-Codes) enthält, muss man mit Strg + Mausklick auf den doppelten Pfeil neben “Codes”, um die Codes nummerisch zu sortieren. <!-- Bitte ein Foto von "normalem" Mausklick vs. Strg + Mausklick --></p>
+<p>Die Nummerierung der Codes wird automatisch generiert, und soll im Regelfall nicht von Hand verändert werden. Dabei gibt es eine Ausnahme. Wenn ein Item mehrere gleichartige Codes (z.B. mehrere Richtig-Codes) enthält, muss man mit Strg+Linksklick auf den doppelten Pfeil neben “Codes” klicken, um die Codes nummerisch zu sortieren.</p>
 </div>
 </div>
 </section>
@@ -1253,12 +1043,11 @@ Vergabe von Codes
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Bewertung (Scoring)
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Gegenwärtig nutzen wir ein <strong>Full-</strong> vs.&nbsp;<strong>No-Credit-Scoring</strong> (und kein Partial-Credit-Scoring): Die Variablen, die den Itemwerten entsprechen, bewerten wir im Fall einer richtigen Antwort mit <code>1</code> Punkt und im Fall aller anderen Antworten mit <code>0</code> Punkten.</p>
-<p>Dasselbe Prinzip greift in der Regel auch für Subitems, die entweder durch Basisvariablen oder – bei mehrstufigen Ableitungen – durch abgeleitete Variablen repräsentiert sind. Bei Verwendung der Ableitungsmethode “Bewertung summieren” kann es also sein, dass in der Ableitung Punkte verrechnet werden und man am Ende z. B. bei 3 Quellvariablen maximal 3 Punkte bekommen kann. In der Regel vergeben wir für das Item nur dann 1 Punkt, wenn die Summe der Punkte in den Quellvariablen 3 beträgt. , und wenn die maximale Bewertung erreicht wird, wird das Item als richtig bewertet, ansonsten als falsch. Hier ist es aber auch möglich, teilweise-richtig-Codes anzulegen, wenn man etwa auch das Erreichen von mindestens 2 Punkten schon honorieren möchte.</p>
+<p>In den einzelnen Kodierungen wird die richtige Antwort mit 1 bewertet und alle anderen mit 0. Die abgeleitete Variable summiert dann diese einzelnen Bewertungen auf, und wenn die maximale Bewertung erreicht wird, wird das Item als richtig bewertet, ansonsten als falsch. Hier ist es aber auch möglich, teilweise-richtig-Codes anzulegen, wenn man etwa auch das Erreichen von mindestens 2 Punkten schon honorieren möchte.</p>
 </div>
 </div>
 

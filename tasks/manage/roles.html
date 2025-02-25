@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-58d63cb96f37e1d514b33711e648645e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-008828e226b1dfc6d64cb96ab2a94829.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/material-icons-0.14.2/mi.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -929,11 +930,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="zugriff-auf-arbeitsbereiche" class="level1">
 <h1>Zugriff auf Arbeitsbereiche</h1>
 <p>Ein Account mit der Rolle Arbeitsbereichs-Admin kann für vorhandene Accounts drei verschiedene Rollen für einen Arbeitsbereich innerhalb der Bereichsgruppe vergeben:</p>
-<ul>
-<li><img src="../../tasks/assets/Symbol_Zugriff_Kommentierer.png" class="img-fluid"> <strong>Nur Kommentieren</strong>: Alle Informationen innerhalb eines Arbeitsbereiches stehen zur Verfügung, aber es können mit einer Ausnahme keinerlei Änderungen gespeichert werden. Die Ausnahme bezieht sich auf den letzten Reiter in einem Arbeitsbereich: Kommentieren.</li>
-<li><img src="../../tasks/assets/Symbol_Zugriff_Dev.png" class="img-fluid"> <strong>Standard</strong>: Mit dieser Berechtigung kann man Aufgaben anlegen, kopieren, exportieren, abgeben und zurückgeben sowie Berichte und Druckansichten erstellen.</li>
-<li><img src="../../tasks/assets/Symbol_Zugriff_Admin.png" class="img-fluid"> <strong>Vollzugriff</strong>: Mit dieser Berechtigung kann man zusätzlich Aufgaben verschieben, löschen, importieren, eine Aufgabe aus vorhandener Aufgabe erstellen, Aufgabenfolgen anlegen und löschen sowie Aufgabengruppen verwalten.</li>
-</ul>
+<p><span class="material-icons " style="color: #006064;">forum</span></p>
+<p><strong>Nur Kommentieren</strong>: Alle Informationen innerhalb eines Arbeitsbereiches stehen zur Verfügung, aber es können mit einer Ausnahme keinerlei Änderungen gespeichert werden. Die Ausnahme bezieht sich auf den letzten Reiter in einem Arbeitsbereich: Kommentieren.</p>
+<p><span class="material-icons " style="color: #006064;">edit</span></p>
+<p><strong>Standard</strong>: Mit dieser Berechtigung kann man Aufgaben anlegen, kopieren, exportieren, abgeben und zurückgeben sowie Berichte und Druckansichten erstellen.</p>
+<p><span class="material-icons " style="color: #006064;">supervisor_account</span></p>
+<p><strong>Vollzugriff</strong>: Mit dieser Berechtigung kann man zusätzlich Aufgaben verschieben, löschen, importieren, eine Aufgabe aus vorhandener Aufgabe erstellen, Aufgabenfolgen anlegen und löschen sowie Aufgabengruppen verwalten.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 64%">
@@ -944,83 +946,83 @@ ul.task-list li input[type="checkbox"] {
 <thead>
 <tr class="header">
 <th style="text-align: left;">Funktionalität</th>
-<th style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_Kommentierer.png" class="img-fluid"></th>
-<th style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_Dev.png" class="img-fluid"></th>
-<th style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_Admin.png" class="img-fluid"></th>
+<th style="text-align: center;"><p><span class="material-icons " style="color: #006064;">forum</span></p></th>
+<th style="text-align: center;"><p><span class="material-icons " style="color: #006064;">edit</span></p></th>
+<th style="text-align: center;"><p><span class="material-icons " style="color: #006064;">supervisor_account</span></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Aufgaben anlegen</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Aufgaben in andere Arbeitsbereiche kopieren</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Aufgaben verschieben</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Aufgaben löschen</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Aufgaben exportieren</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Aufgaben importieren</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Aufgabenfolgen anlegen</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Aufgabenfolgen löschen</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Aufgabengruppen verwalten</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_kein_Zugriff.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons md-dark md-inactive" style="">unpublished</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Kommentare schreiben</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Berichte erstellen</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Druckansichten erstellen</td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
-<td style="text-align: center;"><img src="../../tasks/assets/Symbol_Zugriff_erlaubt.png" class="img-fluid"></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
+<td style="text-align: center;"><p><span class="material-icons " style="color: #006064;">check_circle</span></p></td>
 </tr>
 </tbody>
 </table>
