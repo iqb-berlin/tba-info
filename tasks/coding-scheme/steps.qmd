@@ -4,7 +4,14 @@ title: "Elemente und Variablen"
 lightbox: true
 ---
 
-Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während einige Punkte vermutlich selbsterklärend sind und auch nur kurz beschrieben werden, werden andere Punkte hier nochmal ausführlicher erklärt. Außerdem wird die Kodierung üblicher Formate auch nochmal im Abschnitt [Kodierung einzelner Formate](basic.qmd#kodierung-basis-fälle) erläutert.
+::: {.callout-caution}
+### Achtung
+
+Die Seite befindet sich im Aufbau. Die Konventionen zur Benennung der Elemente müssen noch final abgestimmt werden.
+:::
+
+Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während einige Punkte vermutlich selbsterklärend sind und auch nur kurz beschrieben werden, werden andere Punkte hier nochmal ausführlicher erklärt. Außerdem wird die Kodierung üblicher Formate auch nochmal im Abschnitt [-@sec-kodierung-einzelner-Formate] erläutert.
+
 
 1.	Im Reiter **Eigenschaften**: Kodierung (Schemer) auf aktuellste Version bringen.
 2.	Im Reiter **Editor**: IDs umbenennen.
@@ -26,7 +33,7 @@ Die folgende Auflistung soll als Art Checkliste zur Kodierung dienen. Während e
 graph TD
   A[["`**Reiter Eigenschaften**`"]] --- B(Kodierung auf aktuellste Version bringen) 
   B --> C[["`**Reiter Editor**`"]]
-  C --- D(IDs umbenennen)
+  C --- D(Variablen umbenennen)
   D --> E[["`**Reiter Kodierung**`"]]
   E --> H(Feld Position/Zuordnung leeren.)
   H --> I(Kodierung generieren.)
@@ -42,27 +49,70 @@ graph TD
   O --- P(Unter den Metadaten des jeweiligen Items die abgeleitete Variable oder die Basisvariable auswählen.)
 ```
 
-# IDs umbenennen
+## Variablen umbenennen
 
-## Kodierrelevante Elemente
+Damit jede Person, die später mit dem Datensatz arbeitet, weiß, um was für Elemente es sich handelt, halten wir uns an relativ strenge Vorgaben bei der Verabe von Variablenbezeichnungen. Zunächst beleuchten wir Elemente, die für die Kodierung relevant sind und dann Elemente, denen kein Kodierschema hinterlegt wird (oder werden kann).
 
-* Wenn der **Itemwert** direkt dem Wert **einer Basisvariable** entsprechen soll (z. B. bei MC), d. h., wenn nur eine Variable für die gesamte Kodierung eines Items benötigt wird und keine Ableitung (Aggregation) notwendig ist, bennen wir das für die Kodierung relevante Element nach der **Itemnummer** benannt. 
+### Kodierrelevante Elemente
+
+Die in diesem Abschnitt genannten Elemente tauchen im Reiter **Kodierung** auf und erhalten auch ein Kodierschema.
+
+#### Übersicht
+
+Verhältnis zu Item                    Konvention                                           Beispiele                      Zielvariable im Beispiel   Bei Stellenübertritt                            
+------------------------------------  ---------------------------------------------------  -----------------------------  -------------------------  ------------------------------------------------
+Itemwert                              Benennung entsprechend der Chronologie der Aufgabe   `01`, `02`, `03`               -                          `100`, `101`, ..., `200`, `201`                 
+Level-1-Subitem für Itemwert          Ableitungsziel mit Buchstaben                        `02a`, `02b`, `02c`            `02`                       `02aa`, `02ab`, ..., `02ba`, `02bb`             
+Level-2-Subitem für Level-1-Subitem   Level-1-Ableitungsziel mit Zahl                      `03a_1`, `03a_2`, `03a_2`      `03a`                      `03a_10`, `03a_11`, ..., `03a_100`, `03a_101`   
+Level-3-Subitem für Level-2-Subitem   Level-2-Ableitungsziel mit Buchstaben                `03a_1a`, `03a_1b`, `03a_1c`   `03a_1`                    `03a_1aa`, `03a_1ab`, ..., `03a_1ba`, `03a_1ba` 
+Level-1-Einzigartigkeitscheck         Ableitungsziel mit Suffix `_unique`                  `01_unique`                    `01`                       -                                               
+Level-2-Einzigartigkeitscheck         Level-1-Ableitungsziel mit Suffix `_unique`          `02b_unique`                   `02b`                      -                                               
+Level-3-Einzigartigkeitscheck         Level-2-Ableitungsziel mit Suffix `_unique`          `03a_1_unique`                 `03a_1`                    -                                               
+
+#### Erläuterung
+
+* Wenn der **Itemwert** direkt dem Wert **einer Basisvariable** entsprechen soll (z. B. bei MC), d. h., wenn nur eine Variable für die gesamte Kodierung eines Items benötigt wird und keine Ableitung (Aggregation) notwendig ist, benennen wir das für die Kodierung relevante Element im **Editor** nach einer fortlaufenden **zweistelligen Nummer** (Variablen-ID). 
     + **Beispiel:** Der erste Itemwert wird mit `01` benannt, der zweite Itemwert mit `02`, usw.
 
-![IDs umbenennen](assets/ID_umbenennen.png)
+![Variablen-ID umbenennen im Editor](assets/ID_umbenennen.png)
 
-* Wenn der **Itemwert** dem Wert einer **aus mehreren Basisvariablen abgeleiteten Variable** entsprechen soll (z. B. bei CMC), d. h., wenn mehrere Elemente für die Kodierung benötigt und aggregiert werden, werden Buchstaben an den Itemnummern der zusammengehörigen Elemente ergänzt.
-    + Beispiel: Für Item `01`, das aus drei Variablen abgeleitet wird, würden die Basisvariablen mit `01a`,`01b` und `01c` benannt.
+* Wenn der **Itemwert** dem Wert einer **aus mehreren Basisvariablen abgeleiteten Variable** entsprechen soll (z. B. bei CMC), d. h., wenn wir mehrere Elemente für die Kodierung benötigen und aggregieren müssen, ergänzen wir Buchstaben an der zu einem Item gehörigen Elemente.
+    + **Beispiel:** Für Item `01`, das aus drei Variablen abgeleitet wird, würden die Basisvariablen mit `01a`,`01b` und `01c` im **Editor** benannt.
+* Dienen abgleitete Variablen als Prüfung der Einzigartigkeit von Eingaben in mindestens 2 Quellvariablen, werden sie mit der Zielvariablen-ID und dem Suffix `_unique` bezeichnet.
+    + **Beispiel:** Für Item `01`, das aus drei Variablen abgeleitet wird, deren Eingaben aber einzigartig sein müssen (das ist meist der Fall, wenn die Reihenfolge egal ist, aber der Lösungsraum eingeschränkt werden kann), würden die Basisvariablen mit `01a`,`01b` und `01c` im Reiter **Kodierung** vorher noch in der Variable `01_unique` auf Einzigartigkeit geprüft. Die Zielvariable 01 hat dann wiederum 4 Quellen (die Basisvariablen: `01a`,`01b` und `01c` und die Einzigartigkeitsvariable: `01_unique`).
 
 ::: {.callout-warning appearance="simple"}
 
-## Ableitungen höherer Ordnung
+### Ableitungen höherer Ordnung
 
-Sollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d. h. wird zweifach eine Ableitung gebildet, erhalten die Basisvariablen eine zusätzliche Modifikation. Wollen wir etwa ein Item `01` kodieren, das aus den Subitems `01a` und `01b` aggregiert werden soll, die aber wiederum auf je 2 Basisvariablen bestehen, werden die Basisvariablen für das Subitem `01a` mit `01a_1` und `01a_2` bezeichnet und die Basisvariablen das Subitem `01b` mit `01b_1` und `01b_2`.
+Sollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d. h. wird zweifach eine Ableitung gebildet, erhalten die Basisvariablen eine zusätzliche Modifikation. Wollen wir etwa ein Item `01` kodieren, das aus den Subitems `01a` und `01b` aggregiert werden soll, die aber wiederum auf je 2 Basisvariablen bestehen, werden die Basisvariablen für das Subitem `01a` mit `01a_1` und `01a_2` bezeichnet und die Basisvariablen des Subitems `01b` mit `01b_1` und `01b_2`.
 
+Sollte es darüber hinaus notwendig werden, eine Ableitung in 3 oder mehr Schritten durchzuführen (kam uns bisher nicht unter), werden immer abwechselnd die Suffix-Konventionen angewandt (Buchstabe `a`, Ziffer `_1`): 
+- Level-3-Ableitung: `01a_1a`, `01a_1b`, ...
+- Level-4-Ableitung: `01a_1a_1`, `01a_1a_2`, ...
+- Level-5-Ableitung: `01a_1a_1a`, `01a_1a_1b`, ...
 :::
 
 ## Kodierirrelevante Elemente
+
+Die in diesem Abschnitt genannten Elemente tauchen auch im Reiter **Kodierung** auf, erhalten aber kein Kodierschema oder werden sogar später im Kodierschema deaktiviert.
+
+### Übersicht
+
+Verhältnis zu Item                             Konvention                                 Deaktivierung                                Beispiele                               Bei Stellenübertritt                         Deaktivierung                                  
+---------------------------------------------  -----------------------------------------  -------------------------------------------  --------------------------------------  -------------------------------------------  -----------------------------------------------
+1 (itemübergreifendes) Element beim Stimulus   Bezeichnung mit `00`                       `_00`                                        -                                       ja                                           > 1 (itemübergreifendes) Element beim Stimulus 
+Ergänzung `00` mit Suffix-Buchstaben           `_00a`, `_00b`, `_00c`                     `_00aa`, `_00ab`                             ja                                      1 Audio zum Stimulus                         Präfix `_audio`                                
+Bezeichnung mit `_audio00`                     -                                          nein                                         > 1 Audio beim Stimulus                 Ergänzung `_audio00` mit Suffix-Buchstaben   `_audio00a`, `_audio00b`, `_audio00c`          
+`_audio00aa`, `_audio00ab`                     nein                                       1 Video zum Stimulus                         Präfix `_video`                         Bezeichnung mit `_video00`                   -                                              
+nein                                           > 1 Video beim Stimulus                    Ergänzung `_video00` mit Suffix-Buchstaben   `_video00a`, `_video00b`, `_video00c`   `_video00aa`, `_video00ab`                   nein                                           
+1 Element beim Item                            an nächste kodierbare Variable angelehnt   `_01`, `_02`, `_03`                          -                                       nein                                         > 1 Element beim Item                          
+Ergänzung `00` mit Suffix-Buchstaben           `_02a`, `_02b`, `_02c`                     `_02aa`, `_02ab`                             nein                                    1 Audio zum Item                             Präfix `_audio`                                
+Bezeichnung mit `_audio03`                     -                                          nein                                         > 1 Audio beim Item                     Ergänzung `_audio00` mit Suffix-Buchstaben   `_audio03a`, `_audio03b`, `_audio03c`          
+`_audio03aa`, `_audio03ab`                     nein                                       1 Video zum Item                             Präfix `_video`                         Bezeichnung mit `_video02`                   -                                              
+nein                                           > 1 Video beim Item                        Ergänzung `_video00` mit Suffix-Buchstaben   `_video02a`, `_video02b`, `_video02c`   `_video02aa`, `_video02ab`                   nein                                           
+
+### Erläuterung
 
 <!-- PF: Bitte noch ein Screenshot davon, wie man jetzt Elemente aus der Kodierliste aufnehmen kann. @Methoden: Wollen wir das aber wirklich für Audios oder wollen wir die in der Liste lassen? Ansonsten entfernt der Auto-Coder diese. -->
 * Wenn ein **Audio** oder ein **Video** in einer Aufgabe vorkommen, wird deren ID auch im Reiter **Kodierung** angezeigt. Oft sind diese Elemente für die Kodierung unerheblich und können so gelöscht werden. 
@@ -72,21 +122,37 @@ Sollte es notwendig sein, eine Ableitung in 2 Schritten durchzuführen, d. h. wi
 * Alle weiteren IDs, die nicht in die Kodierung einbezogen werden sollen, aber trotzdem im Reiter Kodierung auflaufen, werden vorne mit einem Unterstrich `_` versehen, z. B. bei den Ausgangslisten der Drag und Drop Items.
     + Beim Format Drag and Drop ist die Umbenennung der IDs etwas komplexer und wird daher bei der Besprechung von Drag und Drop Items im Abschnitt [Drag and Drop](basic.qmd#drag-und-drop) genau erklärt.
 * Ein Sonderfall sind **Beispiele**, d. h. Elemente, die wie kodierrelevante Elemente angelegt werden, aber deren Wert sich überhaupt nicht verändern kann, da sie nur zu Illustrationszwecken dienen.
-  + Diese Elemente sind aus der Variablenliste im Reiter **Kodierung** zu entfernen.
+  + Diese Elemente sind aus der Variablenliste im Reiter **Kodierung** zu entfernen, indem sie deaktiviert werden. Dies betrifft etwa das rein texterschließendes Markieren (Sprachen Sekundarstufe I) oder ausgefüllte Beispiele.
 <!-- PF: Spätestens hier braucht man den Hinweis zum Löschen -->
 
-# Kodierung generieren
+::: {.callout-warning appearance="simple"}
 
-* **Manuelle Kodierung:** Besteht keine Möglichkeit, die Kodierung einer Aufgabe auch nur teilweise automatisch umzusetzen, kann man keine automatischen Codes mithilfe des Zauberstab-Symbols hinzufügen. In diesem Fall muss man die Codes per Hand hinzufügen und die entsprechenden Kodieranweisungen in die Codes eintragen. Das einzige Standard-Aufgabenformat, welches so kodiert werden muss, ist das Langantworten-Format, wie z.B. Begründen-Items. Das genauere Verfahren wird in Abschnitt [Begründing](basic.qmd#begründung) erläutert. <!-- müsste aktualisiert werden -->
-* **Geschlossene und regelbasierte Kodierung:** Bei allen Aufgabenformaten die ganz oder teilweise automatisch kodiert werden können, klickt man auf das Zauberstab-Symbol, um die Kodierung automatisch zu generieren. Das genaue Vorgehen ist in die einzelnen Aufgabenformate aufgegliedert.
+### Deaktivierte vs. nicht deaktivierte Elemente
+
+Deaktivierte Elemente werden nach dem Kodieren des Antwortdatensatzes gelöscht, während Elemente ohne Kodierschema mit dem Status `NO_CODING` im kodierten Datensatz auftauchen. Man könnte sich nun fragen, (1) warum wir nicht alle der kodierirrelevanten Elemente deaktivieren oder (2) warum wir sie gar nicht erst in die Kodierung einbeziehen, ihnen ein Kodierschema geben und sie in Ableitungsregeln einfließen lassen.
+
+**Audio**- und **Video-Elemente** liefern jeweils einen Wert, der Auskunft darüber gibt, wie viel Prozent des Mediums abgespielt wurde. Ein Wert von 0.98 bei `_audio01` bedeutet, dass das Audio zu 98% abgespielt wurde. (1) Diese Fortschrittsinformation können wir nutzen, um ggf. problematische Testabläufe zu identifizieren -- daher empfehlen wir, diese Elemente in der Variablenliste zu belassen. (2) Wenn es Gründe dafür gibt, dass ein Variablenwert nur als beurteilbar gilt, wenn ein damit verbundenes Audio- oder Video-Element angehört wurde, kann das Medium in die Kodierung einbezogen werden. Das haben wir bisher nicht gemacht, würden aber dann empfehlen, das Medium entsprechend anders zu benennen und die Elemente den Konventionen für kodierrelevante Variablen anzupassen. Angenommen, es gibt ein Audio-Element und eigentlich nur eine Basisvariable, dann würde das Audio mit `audio01a` und die Basisvariable mit `01b` bezeichnet werden, die Ableitung wäre `01`. Für das `audio01a` ist zu empfehlen, dass die Regel "Numerisch größer gleich" verwendet wird. Es sollte ein Wert knapp unter 1 verwendet werden, wenn man ein vollständiges Abspielen des Audios voraussetzt, da in einigen Browsern die Audios nicht ganz perfekt geloggt werden können (bei längeren Audios z. B. &geq; 0.98, bei kürzeren ggf. &geq; 0.70 -- es gibt dafür aber bisher keine verlässlichen Erfahrungswerte!).
+
+Startlisten bei **Drag-and-Drop-Elementen** enthalten Elemente, die nicht bewegt wurden oder sind leer. (1) Der Status der Startliste kann Auskunft darüber geben, wie vollständig die Bearbeitung war und welche Attraktoren oder Distraktoren ggf. eher dort belassen wurden -- daher können diese Informationen für die Datenauswertung hilfreich sein. (2) Auch hier kann es Gründe geben, den Zustand der Startliste in die Bewertung eines Items einfließen zu lassen. In eigentlich allen uns bekannten Fällen war es hinreichend, den Status der Ziellisten zu bewerten, da damit im Itemwert implizit der Status der Startliste enthalten ist (sie zusätzlich aufzunehmen, hat oft keinen zusätzlichen Wert und würde nichts an der finalen Kodierung verändern). Sollte sie aufgenommen werden, sollte die Benennung ggf. angepasst werden an die Konventionen für kodierrelevante Elemente.
+
+Die Elemente, über die man hier streiten könnte, wären allerdings die **texterschließenden Markierungen** -- sie können ihren Wert ändern und enthalten potentiell diagnostische (wenn auch nicht kodierbare) Informationen. Je nach Erkenntniswunsch könnte man diese auch aktiviert lassen, wenn es absehbar ist, dass man sich diese Markierungen später ansehen möchte. Ansonsten würde man sie aber immer noch im Rohdatensatz auffinden. Für die Prüfung eines reibungslosen Testablaufs sind diese Elemente vermutlich weniger diagnostisch als Audio- und Videodateien.
+
+Dadurch, dass wir diese Elemente in der Variablenliste belassen, können wir schnell auf sie zugreifen.
+:::
+
+## Kodierung generieren
+
+* **Manuelle Kodierung:** Besteht gar keine Möglichkeit, die Kodierung einer Aufgabe auch nur ansatzweise automatisch umzusetzen, vergeben wir auch keine automatischen Codes mithilfe des Zauberstab-Symbols. In diesem Fall werden wir die Codes per Hand hinzufügen und die entsprechenden Kodieranweisungen in die manuellen Kodieranweisungen der Codes eintragen. Ein Format, welches eigentlich immer so kodiert werden muss, sind sogenannte Langantworten (z. B. Begründungs-)Items. Das genauere Verfahren wird in Abschnitt [-@sec-begründung] erläutert. <!-- müsste aktualisiert werden -->
+* **Geschlossene und regelbasierte Kodierung:** Bei allen Aufgabenformaten die ganz oder teilweise automatisch kodiert werden können, können wir auf das Zauberstab-Symbol klicken, welches einen Dialog aufruft, der uns bei der Anlage einer automatischen Kodierung unterstützt. Das genaue Vorgehen für die verschiedenen Einzelfälle werden wir jeweils bei den einzelnen Aufgabenformaten beschreiben.
 
 ![](assets/Zauberstab.png)
 
 ::: {.callout-note appearance="simple"}
 
-## Hinweis
+### Vergabe von Codes
 
- Die Nummerierung der Codes wird automatisch generiert, und soll im Regelfall nicht von Hand verändert werden. Dabei gibt es eine Ausnahme. Wenn ein Item mehrere gleichartige Codes (z.B. mehrere Richtig-Codes) enthält, muss man mit Strg+Linksklick auf den doppelten Pfeil neben "Codes" klicken, um die Codes nummerisch zu sortieren.
+ Die Nummerierung der Codes wird automatisch generiert, und soll im Regelfall nicht von Hand verändert werden. Dabei gibt es eine Ausnahme. Wenn ein Item mehrere gleichartige Codes (z.B. mehrere Richtig-Codes) enthält, muss man mit Strg + Mausklick auf den doppelten Pfeil neben "Codes", um die Codes nummerisch zu sortieren.
+ <!-- Bitte ein Foto von "normalem" Mausklick vs. Strg + Mausklick -->
 
 :::
 
@@ -109,9 +175,9 @@ Wenn man die Kodierung der abgeleiteten Variable mit dem Zauberstab-Symbol gener
 Eine abgeleitete Variable muss nur angelegt werden, wenn mehr als ein Element in dem Item zu kodieren ist, also, wenn es mehr als eine Basisvariable gibt.
 
 ::: {.callout-note appearance="simple"}
+### Bewertung (Scoring)
 
-## Hinweis
+Gegenwärtig nutzen wir ein **Full-** vs. **No-Credit-Scoring** (und kein Partial-Credit-Scoring): Die Variablen, die den Itemwerten entsprechen, bewerten wir im Fall einer richtigen Antwort mit `1` Punkt und im Fall aller anderen Antworten mit `0` Punkten. 
 
- In den einzelnen Kodierungen wird die richtige Antwort mit 1 bewertet und alle anderen mit 0. Die abgeleitete Variable summiert dann diese einzelnen Bewertungen auf, und wenn die maximale Bewertung erreicht wird, wird das Item als richtig bewertet, ansonsten als falsch. Hier ist es aber auch möglich, teilweise-richtig-Codes anzulegen, wenn man etwa auch das Erreichen von mindestens 2 Punkten schon honorieren möchte.
-
+Dasselbe Prinzip greift in der Regel auch für Subitems, die entweder durch Basisvariablen oder -- bei mehrstufigen Ableitungen -- durch abgeleitete Variablen repräsentiert sind. Bei Verwendung der Ableitungsmethode "Bewertung summieren" kann es also sein, dass in der Ableitung Punkte verrechnet werden und man am Ende z. B. bei 3 Quellvariablen maximal 3 Punkte bekommen kann. In der Regel vergeben wir für das Item nur dann 1 Punkt, wenn die Summe der Punkte in den Quellvariablen 3 beträgt. , und wenn die maximale Bewertung erreicht wird, wird das Item als richtig bewertet, ansonsten als falsch. Hier ist es aber auch möglich, teilweise-richtig-Codes anzulegen, wenn man etwa auch das Erreichen von mindestens 2 Punkten schon honorieren möchte.
 :::
