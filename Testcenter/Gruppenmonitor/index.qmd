@@ -194,6 +194,20 @@ Hier wird der Status der Testperson angezeigt. Folgende Status gibt es:
 
 ```
 
+| Symbolik | Beschreibung |
+|:-:|-------------------------|
+|![](assets/GM_Status_offline.png) | Test noch nicht gestartet. | 
+|![](assets/GM_Status_Connection_Websocket.png) |Test läuft, Verbindung ist live.|
+|![](assets/GM_Status_Connection_polling.png) |Test läuft. Testläufe und Teilnehmer sind im Polling-Modus verbunden. Dies ist ein Fallback für den Fall, dass der Live-Modus aufgrund des Browsers des Betreuers oder eines technischen Fehlers nicht möglich ist. Die Leistung des Monitors ist hierbei nicht so gleichmäßig.|
+|![](assets/GM_Status_ok.png) |Der Test scheint zu laufen, aber der Verbindungstyp ist unbekannt. Dies ist mehr oder weniger ein Fallback-Zustand, der anzeigt, dass außer seiner Existenz nichts über den Test bekannt ist. Dies kann bei verschiedenen Fehlerszenarien oder Fehlkonfigurationen der Fall sein, sollte aber im Allgemeinen nicht vorkommen. Es sollte untersucht werden, aber höchstwahrscheinlich kann der Test sicher fortgesetzt werden, da der Fehler eher auf der Seite des Monitors liegt.|
+|![](assets/GM_Status_Idle.png) |Test ist 5 Minuten oder länger inaktiv.|
+|![](assets/GM_Status_Pause.png) |Test ist pausiert.|
+|![](assets/GM_Status_Locked.png) |Test ist gesperrt.|
+|![](assets/GM_Status_Focus_lost.png) |Fokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browser-Tab.|
+|![](assets/GM_Status_Connection_lost.png) |Browserfenster wurde geschlossen oder Netzwerkverbindung ist gestört.|
+|![](assets/GM_Status_Controller_terminated.png) |Testausführung wurde beendet und kann wieder aufgenommen werden.|
+
+
 [Hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-session-super-states.html) ist auch eine automatisch generierte Liste in Englisch zu finden.
 
 **Spalte: Teilnehmer**
