@@ -253,6 +253,27 @@ Weitere Inputfelder im Fragekatalog sehen so aus:
 
 : Werte für `type` innerhalb von `<Q>` {.striped}
 
+# System-Check starten
+
+Um einen System-Check zu starten, stehen derzeitig zwei Varianten zur Auswahl.
+
+## System-Check Login in Testtaker-XML anlegen
+
+In der Testtaker-XML kann ein spezieller Login für den System-Check angelegt werden. Dieser sieht wie folgt aus:
+
+```{.xml filename="testtaker-xml"}
+
+<Login mode="sys-check-login" name="sys-check" pw="123"/>
+
+```
+Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name`unterscheiden. Ist ein solcher Login vorhanden, wird auf der Anmeldeseite kein globaler Schalter für den System-Check angezeigt. Um den System-Check zu starten müssen die angelegten Zugangsdaten verwendet werden. Der Bericht des System-Checks kann dann ohne weitere Passwortabfrage gespeichert werden. Im Bericht beginnt die jeweilige Zeile mit den ermittelten Daten mit dem Wert des Attributs `name`. Sind mehrere System-Check Logins in der Testtaker-XML hinterlegt, kann so eine Unterscheidung erfolgen.
+
+## System-Check global anlegen
+
+Ist kein System-Check Login in der Testtaker-XML angelegt und befindet sich eine System-Check-XML in einem Arbeitsbereich, wird ein Schalter für den System-Check auf der Anmeldeseite angezeigt. Befinden sich mehrere System-Check-XML's in Arbeitsbereichen, wird nach Klick auf diesen Schalter eine Auswahl der verfügbaren System-Checks angeboten.
+
+Nachteil dieser Variante: Der Schalter auf der Anmeldeseite wird allen Personen angezeigt, die im Testcenter registriert sind (Workspace-Admin und Super-Admin). Ist in der System-Check-XML kein Passwort für das Speichern des Berichtes konfiguriert, kann jeder einen System-Check Bericht speichern. Das kann das Ergebnis verfälschen und Geräte einbeziehen, die gar nicht an der eigentlichen Studie beteiligt sind.
+
 # Auswertung
 
 Alle Personen, die Zugriff auf den Arbeitsbereich im Testcenter haben, in dem der Systemcheck definiert wurde, können die Daten herunterladen. Es handelt sich jeweils um eine `CSV`-Datei mit folgender Struktur:
