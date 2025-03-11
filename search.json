@@ -2526,6 +2526,28 @@
     ]
   },
   {
+    "objectID": "Testcenter/System_Check/index.html#system-check-login-in-testtaker-xml-anlegen",
+    "href": "Testcenter/System_Check/index.html#system-check-login-in-testtaker-xml-anlegen",
+    "title": "System-Check",
+    "section": "System-Check Login in Testtaker-XML anlegen",
+    "text": "System-Check Login in Testtaker-XML anlegen\nIn der Testtaker-XML kann ein spezieller Login für den System-Check angelegt werden. Dieser sieht wie folgt aus:\n\n\ntesttaker-xml\n\n\n&lt;Login mode=\"sys-check-login\" name=\"sys-check\" pw=\"123\"/&gt;\n\nDer Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von nameunterscheiden. Ist ein solcher Login vorhanden, wird auf der Anmeldeseite kein globaler Schalter für den System-Check angezeigt. Um den System-Check zu starten müssen die angelegten Zugangsdaten verwendet werden. Der Bericht des System-Checks kann dann ohne weitere Passwortabfrage gespeichert werden. Im Bericht beginnt die jeweilige Zeile mit den ermittelten Daten mit dem Wert des Attributs name. Sind mehrere System-Check Logins in der Testtaker-XML hinterlegt, kann so eine Unterscheidung erfolgen.",
+    "crumbs": [
+      "Studie durchführen",
+      "System-Check"
+    ]
+  },
+  {
+    "objectID": "Testcenter/System_Check/index.html#system-check-global-anlegen",
+    "href": "Testcenter/System_Check/index.html#system-check-global-anlegen",
+    "title": "System-Check",
+    "section": "System-Check global anlegen",
+    "text": "System-Check global anlegen\nIst kein System-Check Login in der Testtaker-XML angelegt und befindet sich eine System-Check-XML in einem Arbeitsbereich, wird ein Schalter für den System-Check auf der Anmeldeseite angezeigt. Befinden sich mehrere System-Check-XML’s in Arbeitsbereichen, wird nach Klick auf diesen Schalter eine Auswahl der verfügbaren System-Checks angeboten.\nNachteil dieser Variante: Der Schalter auf der Anmeldeseite wird allen Personen angezeigt, die im Testcenter registriert sind (Workspace-Admin und Super-Admin). Ist in der System-Check-XML kein Passwort für das Speichern des Berichtes konfiguriert, kann jeder einen System-Check Bericht speichern. Das kann das Ergebnis verfälschen und Geräte einbeziehen, die gar nicht an der eigentlichen Studie beteiligt sind.",
+    "crumbs": [
+      "Studie durchführen",
+      "System-Check"
+    ]
+  },
+  {
     "objectID": "Testcenter/System_Check/index.html#was-kann-der-system-check-leisten",
     "href": "Testcenter/System_Check/index.html#was-kann-der-system-check-leisten",
     "title": "System-Check",
