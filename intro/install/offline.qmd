@@ -128,10 +128,11 @@ docker rmi $(docker images -a -q) #<4>
 
 Danach kann das bisherige Installationsverzeichnis gelöscht werden.
 
-# Umgebungsvariable: TLS_ENABLED
+# Umgebungsvariable: TLS_ENABLED 
 
 :::{.callout-warning}
-Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.
+Diese Warnung ist nur relevant für die Testcenter Version 15.
+Das Testcenter läuft in der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.
 :::
 
 Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:
@@ -143,7 +144,7 @@ nano .env
 Und dann den Wert der Umgebungsvariable `TLS_ENABLED` wie folgt setzen:
 
 ```bash
-TLS_ENABLED=no
+TLS_ENABLED=false
 ```
 
 # Lange Startzeiten des Testcenters umgehen
