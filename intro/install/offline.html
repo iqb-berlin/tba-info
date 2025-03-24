@@ -906,6 +906,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link active" data-scroll-target="#vorbereitung">Vorbereitung</a></li>
   <li><a href="#installation-testcenter" id="toc-installation-testcenter" class="nav-link" data-scroll-target="#installation-testcenter">Installation Testcenter</a></li>
   <li><a href="#lokaler-dns-server" id="toc-lokaler-dns-server" class="nav-link" data-scroll-target="#lokaler-dns-server">Lokaler DNS Server</a></li>
+  <li><a href="#lokal-dhcp" id="toc-lokal-dhcp" class="nav-link" data-scroll-target="#lokal-dhcp">Lokal DHCP</a></li>
   <li><a href="#bereinigung-des-testcenters" id="toc-bereinigung-des-testcenters" class="nav-link" data-scroll-target="#bereinigung-des-testcenters">Bereinigung des Testcenters</a></li>
   <li><a href="#umgebungsvariable-tls_enabled" id="toc-umgebungsvariable-tls_enabled" class="nav-link" data-scroll-target="#umgebungsvariable-tls_enabled">Umgebungsvariable: TLS_ENABLED</a></li>
   <li><a href="#lange-startzeiten-des-testcenters-umgehen" id="toc-lange-startzeiten-des-testcenters-umgehen" class="nav-link" data-scroll-target="#lange-startzeiten-des-testcenters-umgehen">Lange Startzeiten des Testcenters umgehen</a></li>
@@ -957,7 +958,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.</p>
+<p>Dieser Guide wurde unter Ubuntu 22.04 sowie 23.04 getestet als auch unter Debian 11 bullseye und Debian 12 Bookworm.</p>
 </div>
 </div>
 <section id="vorbereitung" class="level1">
@@ -965,19 +966,19 @@ Hinweis
 <ul>
 <li>Installation von <a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Docker</a> und <a href="https://docs.docker.com/compose/install/standalone/#on-linux">Docker-Compose</a> sowie <a href="https://www.gnu.org/software/make/">make</a></li>
 <li>Router im Access Point Modus</li>
-<li>(Optional) Installation von <em>dnsmasq</em> für lokalen DNS Server</li>
+<li>(Optional) Installation von <em>dnsmasq</em> für lokalen DNS Server sowie für lokalen DHCP Server</li>
 </ul>
 <p>Wenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> Netzwerk.</p>
 <p>Um die Wiederverwendbarkeit zu erleichtern empfehlen wir ein neues Profil für diese Verbindung anzulegen.</p>
 <p>Das wichtige ist, dass Details <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> <strong>Make available to other users</strong> und IPv4 <i class="fa-solid fa-chevron-right" aria-label="chevron-right"></i> <strong>Shared to other computers</strong> aktiviert sind.</p>
-<p>Nach Erstellung des Profils sollte es so aussehen:</p>
+<p>Wenn man als Hostnamen eine IP Adresse verwendet, dann sollte das Profil nach der Erstellung wie folgt aussehen:</p>
 <div id="fig-details" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-details-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="offline1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-details-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;1: Beispiel für Details Einstellungen
+Abbildung&nbsp;1: Beispiel 1 für Details Einstellungen
 </figcaption>
 </figure>
 </div>
@@ -987,7 +988,28 @@ Abbildung&nbsp;1: Beispiel für Details Einstellungen
 <img src="offline2.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ipv4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2: Beispiel für IPv4 Einstellungen
+Abbildung&nbsp;2: Beispiel 1 für IPv4 Einstellungen
+</figcaption>
+</figure>
+</div>
+<p>Wir empfehlen einen lokalen DNS Server einzurichten, um menschenlesbare Adressen verwenden zu können. Die Einstellungen sollten dann wie folgt aussehen:</p>
+<div id="fig-details2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-details2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="offline3.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-details2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3: Beispiel 2 für Details Einstellungen
+</figcaption>
+</figure>
+</div>
+<div id="fig-ipv42" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ipv42-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="offline4.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ipv42-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;4: Beispiel 2 für IPv4 Einstellungen
 </figcaption>
 </figure>
 </div>
@@ -995,22 +1017,22 @@ Abbildung&nbsp;2: Beispiel für IPv4 Einstellungen
 <section id="installation-testcenter" class="level1">
 <h1>Installation Testcenter</h1>
 <p>Dem <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guide</a> für die Installation des Testcenters folgen. Während man das Installationsskript (<code>install.sh</code>) ausführt, gibt es einige Schritte zu beachten.</p>
-<p>Unter <strong>HOSTNAME</strong> muss die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel <strong>10.42.0.1</strong>, s. <a href="#fig-details" class="quarto-xref">Abbildung&nbsp;1</a>). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines <a href="#lokaler-dns-server">lokalen DNS Servers</a>.</p>
-<p>Außerdem sollte die Setup-Frage “<strong>Use TLS?</strong>” mit <strong>N</strong> (No) beantwortet werden.</p>
+<p>Unter <strong>HOSTNAME</strong> muss die IP Adresse der Verbindung zum Router eingetragen werden (in Beispiel 1 <strong>10.42.0.1</strong> oder in Beispiel 2 <strong>192.168.0.150</strong>, s. <a href="#fig-details" class="quarto-xref">Abbildung&nbsp;1</a>). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines <a href="#lokaler-dns-server">lokalen DNS Servers</a>.</p>
+<p>Außerdem sollte die Setup-Frage “<strong>Use TLS?</strong>” mit <strong>n</strong> (No) beantwortet werden. Die darauffolgende Frage “<strong>Use an ACME-Provider for TLS, like ‘Let’s encrypr’ or ‘Sectigo?’</strong>” ebenfalls mit <strong>n</strong> (No) beantworten.</p>
 <p>Man sollte den weiteren Hinweisen des <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html">Guides</a> ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet sein.</p>
 </section>
 <section id="lokaler-dns-server" class="level1">
 <h1>Lokaler DNS Server</h1>
 <p>Um einen lokalen DNS Server zu starten, können Tools wie <a href="https://wiki.ubuntuusers.de/Dnsmasq/">dnsmasq</a> oder <a href="https://wiki.ubuntuusers.de/DNS-Server_Bind/">bind</a> verwendet werden. Dieser Guide verwendet dnsmasq.</p>
-<p>Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier <code>/etc/dnsmasq.confh</code>) inzugefügt werden. Dies kann man z.B. mit nano erledigen:</p>
+<p>Nach der erfolgreichen Installation von dnsmasq muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier <code>/etc/dnsmasq.conf</code>) hinzugefügt werden. Dies kann man z.B. mit nano erledigen:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/dnsmasq.conf</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dort diese Regel hinzufügen:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/#/x.x.x.x</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Für <code>#</code> muss der vorher ausgewählte Hostname eingesetzt werden und für <code>x.x.x.x</code> die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/iqb-testcenter.lan/10.42.0.1</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Für <code>#</code> muss der vorher ausgewählte Hostname eingesetzt werden und für <code>x.x.x.x</code> die IP Adresse des Servers. Für Beispiel 2 müsste die Regel wie folgt aussehen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">address</span><span class="op">=</span>/iqb-testcenter.lan/192.168.0.150</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dnsmasq.service</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.</p>
+<p>Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in Beispiel-2 192.168.0.150) ändern.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1025,29 +1047,40 @@ Hinweis
 </div>
 </div>
 </section>
+<section id="lokal-dhcp" class="level1">
+<h1>Lokal DHCP</h1>
+<p>Einige veraltete Access Points haben eventuell kein eigenes DHCP. Dies kann ebenfalls mit dnsmasq konfiguriert werden:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/dnsmasq.conf</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dort muss dann folgende Regel hinzugefügt werden:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dhcp-range=yyy,</span> zzz, xh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>yyy ist der Anfang der IP-Range, zzz ist das Ende der IP-Range und x steht für die Dauer. Für Beispiel 2 müsste dass dann wie folgt aussehen:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dhcp-range=192.168.0.50,</span> 192.168.0.150, 12h</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nachdem man das hinzugefügt hat, die Änderungen speichern und dann dnsmasq neustarten.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dnsmasq.service</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="bereinigung-des-testcenters" class="level1">
 <h1>Bereinigung des Testcenters</h1>
 <p>Möchte man die Testcenterinstallation bereinigen, so sollten folgende Befehle im Installationsverzeichnis des Testcenters ausgeführt werden:</p>
-<div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1"></a><span class="fu">make</span> down</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2"></a><span class="ex">docker</span> rm <span class="at">-f</span> <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3"></a><span class="ex">docker</span> volume rm <span class="va">$(</span><span class="ex">docker</span> volume ls <span class="at">-q</span><span class="va">)</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-4" class="code-annotation-target"><a href="#annotated-cell-5-4"></a><span class="ex">docker</span> rmi <span class="va">$(</span><span class="ex">docker</span> images <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="annotated-cell-9"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1"></a><span class="fu">make</span> down</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2"></a><span class="ex">docker</span> rm <span class="at">-f</span> <span class="va">$(</span><span class="ex">docker</span> ps <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-9-3" class="code-annotation-target"><a href="#annotated-cell-9-3"></a><span class="ex">docker</span> volume rm <span class="va">$(</span><span class="ex">docker</span> volume ls <span class="at">-q</span><span class="va">)</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-9-4" class="code-annotation-target"><a href="#annotated-cell-9-4"></a><span class="ex">docker</span> rmi <span class="va">$(</span><span class="ex">docker</span> images <span class="at">-a</span> <span class="at">-q</span><span class="va">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="1" data-code-annotation="1">Beendet die Anwendung.</span>
+<span data-code-cell="annotated-cell-9" data-code-lines="1" data-code-annotation="1">Beendet die Anwendung.</span>
 </dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="2">Entfernt alle Docker Container.</span>
+<span data-code-cell="annotated-cell-9" data-code-lines="2" data-code-annotation="2">Entfernt alle Docker Container.</span>
 </dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="3">Entfernt alle Docker Volumes.</span>
+<span data-code-cell="annotated-cell-9" data-code-lines="3" data-code-annotation="3">Entfernt alle Docker Volumes.</span>
 </dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="4" data-code-annotation="4">Entfernt dann alle Docker Images.</span>
+<span data-code-cell="annotated-cell-9" data-code-lines="4" data-code-annotation="4">Entfernt dann alle Docker Images.</span>
 </dd>
 </dl>
 <p>Danach kann das bisherige Installationsverzeichnis gelöscht werden.</p>
@@ -1064,21 +1097,21 @@ Warnung
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.</p>
+<p>Diese Warnung ist nur relevant für die Testcenter Version 15. Das Testcenter läuft in der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.</p>
 </div>
 </div>
 <p>Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .env</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .env</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Und dann den Wert der Umgebungsvariable <code>TLS_ENABLED</code> wie folgt setzen:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">TLS_ENABLED</span><span class="op">=</span>no</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="va">TLS_ENABLED</span><span class="op">=</span>false</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="lange-startzeiten-des-testcenters-umgehen" class="level1">
 <h1>Lange Startzeiten des Testcenters umgehen</h1>
 <p>Das Testcenter validiert standardmäßig beim Starten alle Dateien zur Aufgaben-Definition (Unit-XML, Unit-VOUD usw.), die Testtaker-XML und Booklet-XML. Dies kann bei einer hohen Anzahl von Testheften und Zugängen für die Testpersonen zur einer sehr hohen Startzeit führen.</p>
 <p>Dies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Installationsordner des Testcenters durchführen:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In der zweiten Konsole dann diesen Befehl ausführen:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “<strong>make stop</strong>” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.</p>
 
 
