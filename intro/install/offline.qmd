@@ -10,7 +10,7 @@ date: 2024-05-02
 Das IQB-Testcenter ist eine Webanwendung, d. h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.
 
 ::: {.callout-note}
-Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.
+Dieser Guide wurde unter Ubuntu 22.04 sowie 23.04 getestet als auch unter Debian 11 bullseye und Debian 12 Bookworm.
 :::
 
 
@@ -18,7 +18,7 @@ Dieser Guide wurde unter Ubuntu 23.04 und Debian 11 bullseye getestet.
 
 - Installation von [Docker](https://docs.docker.com/engine/install/ubuntu/#installation-methods) und [Docker-Compose](https://docs.docker.com/compose/install/standalone/#on-linux) sowie [make](https://www.gnu.org/software/make/)
 - Router im Access Point Modus
-- (Optional) Installation von _dnsmasq_ für lokalen DNS Server
+- (Optional) Installation von _dnsmasq_ für lokalen DNS Server sowie für lokalen DHCP Server
 
 Wenn der Router per Ethernet Kabel mit dem Server (Laptop auf dem die Testcenter Instanz laufen soll) verbunden ist, gehe auf dem Server zu Einstellungen {{< fa chevron-right >}} Netzwerk.
 
@@ -26,20 +26,27 @@ Um die Wiederverwendbarkeit zu erleichtern empfehlen wir ein neues Profil für d
 
 Das wichtige ist, dass Details {{< fa chevron-right >}} **Make available to other users** und IPv4 {{< fa chevron-right >}} **Shared to other computers** aktiviert sind.
 
-Nach Erstellung des Profils sollte es so aussehen:
+Wenn man als Hostnamen eine IP Adresse verwendet, dann sollte das Profil nach der Erstellung wie folgt aussehen:
 
-![Beispiel für Details Einstellungen](offline1.png){#fig-details}
+![Beispiel 1 für Details Einstellungen](offline1.png){#fig-details}
 
-![Beispiel für IPv4 Einstellungen](offline2.png){#fig-ipv4}
+![Beispiel 1 für IPv4 Einstellungen](offline2.png){#fig-ipv4}
+
+Wir empfehlen einen lokalen DNS Server einzurichten, um menschenlesbare Adressen verwenden zu können. Die Einstellungen sollten dann wie folgt aussehen:
+
+![Beispiel 2 für Details Einstellungen](offline3.png){#fig-details2}
+
+![Beispiel 2 für IPv4 Einstellungen](offline4.png){#fig-ipv42}
 
 # Installation Testcenter
 
 Dem [Guide](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) für die Installation des Testcenters folgen.
 Während man das Installationsskript (`install.sh`) ausführt, gibt es einige Schritte zu beachten.
 
-Unter **HOSTNAME** muss die IP Adresse der Verbindung zum Router eingetragen werden (in diesem Beispiel **10.42.0.1**, s. @fig-details). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines [lokalen DNS Servers](#lokaler-dns-server).
+Unter **HOSTNAME** muss die IP Adresse der Verbindung zum Router eingetragen werden (in Beispiel 1 **10.42.0.1** oder in Beispiel 2 **192.168.0.150**, s. @fig-details). Alternativ kann eine besser menschenlesbare Adresse (z.B. iqb-testcenter.lan) eingetragen werden, allerdings benötigt dieser Schritt die Auflösung der Adresse mit Hilfe eines [lokalen DNS Servers](#lokaler-dns-server).
 
-Außerdem sollte die Setup-Frage "**Use TLS?**" mit **N** (No) beantwortet werden. 
+Außerdem sollte die Setup-Frage "**Use TLS?**" mit **n** (No) beantwortet werden.
+Die darauffolgende Frage "**Use an ACME-Provider for TLS, like 'Let's encrypr' or 'Sectigo?'**" ebenfalls mit **n** (No) beantworten.
 
 Man sollte den weiteren Hinweisen des [Guides](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/installation-prod.html) ebenfalls folgen. Wenn man sich bei dem Hostname für die IP Adresse entschieden hat und das Testcenter erfolgreich hochgefahren ist, dann sollten sich Clienten jetzt mit dem vom Router aufgespannten WLAN verbinden und über die http://10.42.0.1 auf das Testcenter zugreifen können. Wenn man sich für eine andere Adresse entschieden hat, dann sollte ein lokaler DNS Server eingerichtet sein.
 
@@ -48,7 +55,7 @@ Man sollte den weiteren Hinweisen des [Guides](https://pages.cms.hu-berlin.de/iq
 Um einen lokalen DNS Server zu starten, können Tools wie [dnsmasq](https://wiki.ubuntuusers.de/Dnsmasq/) oder [bind](https://wiki.ubuntuusers.de/DNS-Server_Bind/) verwendet werden.
 Dieser Guide verwendet dnsmasq.
 
-Nach der erfolgreichen Installation muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier `/etc/dnsmasq.confh`) inzugefügt werden. Dies kann man z.B. mit nano erledigen:
+Nach der erfolgreichen Installation von dnsmasq muss eine Umleitungsregel für die zuvor gewählte Adresse in der Konfigurationsdatei (hier `/etc/dnsmasq.conf`) hinzugefügt werden. Dies kann man z.B. mit nano erledigen:
 
 ```bash
 sudo nano /etc/dnsmasq.conf
@@ -60,10 +67,10 @@ Dort diese Regel hinzufügen:
 address=/#/x.x.x.x
 ```
 
-Für `#` muss der vorher ausgewählte Hostname eingesetzt werden und für `x.x.x.x` die IP Adresse des Servers. Für dieses Beispiel müsste die Regel wie folgt aussehen:
+Für `#` muss der vorher ausgewählte Hostname eingesetzt werden und für `x.x.x.x` die IP Adresse des Servers. Für Beispiel 2 müsste die Regel wie folgt aussehen:
 
 ```bash
-address=/iqb-testcenter.lan/10.42.0.1
+address=/iqb-testcenter.lan/192.168.0.150
 ```
 
 Nach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem Befehl neugestartet werden.
@@ -72,11 +79,36 @@ Nach dem man die Änderungen gespeichert hat, muss der DNS Server mit folgendem 
 sudo systemctl restart dnsmasq.service
 ```
 
-Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in diesem Fall 10.42.0.1) ändern.
+Sofern möglich, sollte man in den Routereinstellungen selbst noch die IP Adresse des DNS Server für die Clienten auf die IP Adresse des Servers (in Beispiel-2 192.168.0.150) ändern.
 
 ::: {.callout-note}
 Dieser lokaler DNS Server wurde in einer Umgebung getestet, in der keine Verbindung zum Internet bestand, da dies dazu führen könnte, dass der lokale DNS Server von den DNS Server der aktiven Internetverbindung überschrieben wird.
 :::
+
+# Lokal DHCP
+Einige veraltete Access Points haben eventuell kein eigenes DHCP. Dies kann ebenfalls mit dnsmasq konfiguriert werden:
+
+```bash
+sudo nano /etc/dnsmasq.conf
+```
+
+Dort muss dann folgende Regel hinzugefügt werden:
+
+```bash
+dhcp-range=yyy, zzz, xh
+```
+yyy ist der Anfang der IP-Range, zzz ist das Ende der IP-Range und x steht für die Dauer.
+Für Beispiel 2 müsste dass dann wie folgt aussehen:
+
+```bash
+dhcp-range=192.168.0.50, 192.168.0.150, 12h
+```
+
+Nachdem man das hinzugefügt hat, die Änderungen speichern und dann dnsmasq neustarten.
+
+```bash
+sudo systemctl restart dnsmasq.service
+```
 
 # Bereinigung des Testcenters
 
@@ -96,10 +128,11 @@ docker rmi $(docker images -a -q) #<4>
 
 Danach kann das bisherige Installationsverzeichnis gelöscht werden.
 
-# Umgebungsvariable: TLS_ENABLED
+# Umgebungsvariable: TLS_ENABLED 
 
 :::{.callout-warning}
-Das Testcenter läuft ab der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.
+Diese Warnung ist nur relevant für die Testcenter Version 15.
+Das Testcenter läuft in der Version 15 auschließlich mit TLS. Mit der Version 15.1.0 wurde es wieder ermöglicht TLS zu deaktivieren. Allerdings gab es bei den Installationsskripten der Versionen 15.1.0 bis 15.1.5 einen Fehler, so dass beim Setup des Testcenters keine Abfrage bezüglich TLS kam. In diesen Versionen muss manuell die Umgebungsvariable angepasst werden um non-tls zu ermöglichen.
 :::
 
 Dazu im Installationsverzeichnis des Testcenters die .env Datei öffnen. Zum Beispiel mit:
@@ -111,7 +144,7 @@ nano .env
 Und dann den Wert der Umgebungsvariable `TLS_ENABLED` wie folgt setzen:
 
 ```bash
-TLS_ENABLED=no
+TLS_ENABLED=false
 ```
 
 # Lange Startzeiten des Testcenters umgehen
