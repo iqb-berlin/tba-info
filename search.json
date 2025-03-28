@@ -2669,6 +2669,30 @@
     ]
   },
   {
+    "objectID": "Testcenter/toolbox/codes.html",
+    "href": "Testcenter/toolbox/codes.html",
+    "title": "itc-ToolBox: Codes erzeugen",
+    "section": "",
+    "text": "Für die Erstellung von Logins sind Benutzernamen erforderlich. Außerdem können Kennworte und Codes als Teil des Login-Prozesses vorgesehen werden. Für die Vergabe dieser Codes stellt das IQB einige Anforderungen:\n\nDie Codes müssen eindeutig sein: Kein Login-Benutzername darf doppelt vorkommen.\nDie Zeichen müssen gut merkbar sein, damit bei der Übertragung vom Zettel in den Computer kein Fehler passiert.\nDie Tasten sollen auf der Computer-Tastatur gut findbar sein. Es sollte zur Eingabe nur eine Taste nötig sein. Großbuchstaben und die meisten Sonderzeichen sind also ungünstig.\nDie Zeichen müssen gut lesbar sein: Optisch sehr ähnliche Zeichen wie “n” und “m” oder “1” und “l” sind zu vermeiden.\nDie Codes müssen gut sprechbar und akustisch verständlich sein: Sollte z. B. die Testleiterin einem Schüler den Code ansagen, darf es keine Fehler geben.\nEs sollte keine Gefahr bestehen, dass durch nicht erkannte Zeichenkodierung von Dateien Probleme mit Sonderzeichen (Umlaute!) auftreten.\n\nDie Funktion Codes-Xlsx erzeugt eine Excel-Tabelle mit Codes, die diese Regeln einhalten: Zweistellige, dreistellige, vierstellige und fünfstellige Codes. Das IQB verwendet eine Auswahl aus Kleinbuchstaben und Ziffern - keine Sonderzeichen und Umlaute. Kleinbuchstaben wechseln sich dabei mit Ziffern ab. Jeder Code kommt in der Tabelle jeweils nur einmal vor.\nNach der Entnahme bzw. dem “Benutzen” eines Codes sollte man diesen Code in der Tabelle farblich markieren, damit nicht versehentlich Codes doppelt vergeben werden.\n\n\n\n\n\n\nAchtung Eindeutigkeit\n\n\n\nDas Testcenter erlaubt es nicht, dass auf einem Server ein Benutzername doppelt vorkommt. Bitte rechnen Sie daher damit, dass das Hochladen einer Testtaker-Xlm scheitert, weil ein Login-Code in einem anderen Arbeitsbereich vergeben wurde. Sie erhalten einen entsprechenden Hinweis und tauschen dann diesen Code aus.\n\n\n\n\n\n Zurück nach oben",
+    "crumbs": [
+      "Studie durchführen",
+      "Windows ToolBox",
+      "Codes erzeugen"
+    ]
+  },
+  {
+    "objectID": "Testcenter/toolbox/logins-docx.html",
+    "href": "Testcenter/toolbox/logins-docx.html",
+    "title": "itc-ToolBox: Handzettel für Logins Docx erzeugen",
+    "section": "",
+    "text": "Wenn Logins erzeugt wurden und in Form von Testtaker.Xml in das Testsystem hochgeladen wurden (siehe Funktion der itc-ToolBox Logins aus Vorlage erzeugen), muss man diese Logins den Testpersonen irgendwie mitteilen. Die Funktion “Logins in Docx” liest eine vorbereitete Excel-Tabelle und erzeugt Word-Docx-Dateien, die dann - ggf. nachdem sie manuell geändert wurden - ausgedruckt und zerschnitten oder als PDF-Datei verschickt werden können.\n\nSchritt 1: Excel-Datei mit Logins erzeugen\nDie Logins, für die die Handzettel erzeugt werden sollen, müssen vorher über die ToolBox-Funktion Logins aus Vorlage generiert worden sein. Ergebnis ist eine Excel-Datei, die Logins enthält.\n\n\nSchritt 2: Vorlage vorbereiten\n Beispiel-Vorlage 1 - ohne QR-Codes \n Beispiel-Vorlage 2 - mit QR-Codes \nFür die Erzeugung ist eine Vorlage-Datei erforderlich. Dies ist eine normale Docx-Datei. Hier ist für ein Login über Platzhalter festgelegt, was ein Login-Eintrag enthalten soll. Dieser Text in der Vorlage mit den Platzhaltern wird für jeden Login kopiert und die Platzhalter mit den entsprechenden Werten ersetzt.\n\n\nSchritt 3: Aufrufen Funktion “Logins in Docx”\n\nSie wählen die Excel-Datei mit den Logins aus, geben dann die Serveradresse ein und wählen die Vorlage. Nach dem Klick auf “Weiter” müssen Sie noch den Namen der Zieldatei wählen, in die die Logins ggf. mit QR-Code geschrieben werden sollen. Das Ergebnis sieht dann z. B. so aus:\n\n\n\nEigene Vorlage erstellen\nDie Vorlagen sind nur Beispiele. Sie können auch nach eigenen Vorstellungen die Handzettel gestalten.\nAls Platzhalter dienen Inhaltselemente vom Typ Nur-Text-Inhaltssteuerelement. Dieses Element kann man auswählen, wenn man sich im Menüband das Register Entwicklertools aktiviert. Das Hantieren mit diesen Elementen ist etwas fummelig und erfordert Übung. Man kann beispielsweise den Entwurfsmodus einschalten, was manchmal aber auch hinderlich ist.\nÜber den Schalter Eigenschaften kann man die Eigenschaft Tag für ein Element festlegen. Hier ist ein Schlüsselwort einzutragen (s. Liste unten). Beim Erzeugen der Logins-Docx wird dann diese Markierung erkannt und das gesamte Inhaltselement ersetzt durch den entsprechenden Text bzw. die Grafik.\n\n\n\n\n\n\n\nSchlüsselwort\nFunktion\n\n\n\n\nserver-url\nEs wird die Internet-Adresse des Servers eingefügt. Diese Adresse wird nicht aus der Logins-Xlsx genommen, sondern wird im Dialog des Erzeugens abgefragt\n\n\nlogin\nEs wird der Benutzername (Login) eingefügt\n\n\npassword\nEs wird das Kennwort / Password eingefügt\n\n\nlink\nEs wird ein direkter Link eingefügt. Es handelt sich um eine Erweiterung der Server-Adresse um den Benutzernamen. Wenn kein Kennwort vergeben wurde, gelangt die Testperson darüber direkt zur Auswahl des Testheftes und muss nicht das Anmeldeformular ausfüllen\n\n\nlink-qr\nEs wird eine Grafik eingefügt. Es handelt sich um einen QR-Code des Links. Wenn man bei der Testung z. B. Tablets verwendet, kann die Testperson den Code scannen und so die Seite schnell aufrufen.\n\n\ntestgroup-name\nDer Name der Testgruppe wird eingefügt.\n\n\ntestgroup-id\nDie ID der Testgruppe wird eingefügt.\n\n\nmode\nDer Modus ist ein Schlüsselwort, das in der Testtaker.Xml die Art der Anmeldung steuert. Es kann bei der Fehlersuche hilfreich sein, den Modus mit auszugeben.\n\n\n\n\n\n\n\n\n\nHerumprobieren\n\n\n\nDas hier vorgestellte Verfahren soll nicht alle erdenklichen Szenarien abdecken und ist gegenüber vielen Varianten der Gestaltung nicht robust. Die Ersetzungstechnik funktioniert in den beiden Vorlagen, aber ein Layout über Tabellen beispielsweise wird nicht unterstützt. Änderungen sollten also unbedingt getestet werden.\n\n\n\n\n\n\n Zurück nach oben",
+    "crumbs": [
+      "Studie durchführen",
+      "Windows ToolBox",
+      "Login-Handzettel erzeugen"
+    ]
+  },
+  {
     "objectID": "Testcenter/index.html",
     "href": "Testcenter/index.html",
     "title": "Eine Studie durchführen mit dem IQB-Testcenter",
@@ -2741,6 +2765,30 @@
     "crumbs": [
       "Studie durchführen",
       "Windows ToolBox"
+    ]
+  },
+  {
+    "objectID": "Testcenter/toolbox/logins-generate.html",
+    "href": "Testcenter/toolbox/logins-generate.html",
+    "title": "itc-ToolBox: Login-Xml erzeugen",
+    "section": "",
+    "text": "Schritt 1: Ausfüllen Excel-Tabelle\n\nLaden Sie die obige Vorlage herunter. Sie ist auf bestimmte Art strukturiert und mit Markierungen versehen, damit die folgenden Schritte die nötigen Informationen finden.\nFüllen Sie die erste Tabelle “Testgruppen” aus.\n\n\n\nBei Bedarf tragen Sie Textersetzungen in der Tabelle “Textersetzungen” ein. Siehe hier für Erläuterungen.\n\n\n\nSchritt 2: Aufrufen Funktion “Logins aus Vorlage”\nJetzt wird die Funktion “Logins aus Vorlage” der itc-ToolBox aufgerufen. Man muss die vorbereitete Excel-Datei auswählen und kann dann einige Optionen wählen.\nAls Ergebnisse erhalten Sie:\n\nDie Excel-Datei, die Sie vorbereitet hatten, enthält jetzt in der Tabelle “Logins” alle erzeugten Logins\nIm Verzeichnis der Excel-Datei wurden Xml-Dateien erzeugt. Diese enthalten alle in der Excel-Datei erzeugten Logins.\n\nSie können jetzt ggf. die erzeugten Logins bearbeiten und dann in das Testcenter hochladen.\n\n\n\n\n Zurück nach oben",
+    "crumbs": [
+      "Studie durchführen",
+      "Windows ToolBox",
+      "Logins erzeugen"
+    ]
+  },
+  {
+    "objectID": "Testcenter/toolbox/booklet.html",
+    "href": "Testcenter/toolbox/booklet.html",
+    "title": "itc-ToolBox: Booklet.Xml erzeugen",
+    "section": "",
+    "text": "Über den Admin-Bereich des Testcenters sind Xml-Dateien zu hinterlegen, die festlegen, welche Aufgaben den Testpersonen in welcher Reihenfolge vorgelegt werden sollen. Diese Dateien zu pflegen kann aufwändig sein. Sollte sich beispielsweise der Titel einer Aufgabe ändern, muss dies in allen Testheften geändert werden, in denen diese Aufgabe erscheint.\nDie Struktur eines Testheftes am IQB ist recht einheitlich: Aufgaben werden in Blöcke platziert, und Testhefte werden aus diesen Blöcken zusammengesetzt. Blöcke und damit Aufgaben können in mehreren Testheften vorkommen, um z. B. Positionseffekte während einer Pilotierung zu untersuchen. Zeitbeschränkungen sowie Ablaufsynchronisation werden auf Blockebene definiert.\nDie Funktion “Booklet-Xlsx” der itc-ToolBox liest zunächst eine vorbereitete Excel-Datei ein. Hier sind alle nötigen Informationen für die Testhefte in einer Art hinterlegt, die gut lesbar und kommunizierbar ist. Spezielle Markierungen innerhalb der Datei stellen sicher, dass die itc-ToolBox die Informationen findet. In einem zweiten Schritt erzeugt die itc-ToolBox Xml-Dateien für jedes gefundene Testheft.\n Testheft Xlsx \nBeachten Sie bitte: Änderungen an Tabellenkopfbezeichner und Spalten, können ein ordnungsgemäßes Einlesen der Excelinhalte durch itc-Toolbox verhindern! Betrachten Sie dazu das nachfolgende Bild. In diesem sind Spalten, Zellen und Blattbezeichner farblich gekennzeichnet. Die Farben haben die folgende Bedeutung:\n\nrot: Diese Spalten dürfen nicht gelöscht werden!\ngelb: Die textuellen Inhalte dürfen nicht verändert werden!\nblau: Die textuellen Inhalte können geändert werden. itc-Toolbox findet die entsprechenden für die XML-Dateien benötigten Inhalte. Um die Excel-Dateien einheitlich zu halten, wird jedoch von einer Unbenennung abgeraten.\n\n\n\n\nWichtiges zum Editieren der Excel-Vorlage\n\n\nErzeugen / Bearbeiten der Booklet.xml\nNach Auswahl des ersten Punktes: Booklet-XLSX muss der Speicherort der entsprechende Excel-Datei angegeben werden. itc-Toolbox überprüft anschließend die Struktur der Excel-Datei und versucht die dort angegebenen Zusatzinformationen auf den anderen Excel Blattseiten zu finden. Können Bezeichner nicht gefunden oder zugeordnet werden, werden entsprechende Fehlermeldung generiert. Wurden alle Bezeichner gefunden und konnten entsprechend zugeordnet werden, erscheint eine Meldung über die erfolgreiche Erzeugung einer Booklet.xml. Die Booklet.xml wird dann im selben Verzeichnis gespeichert in dem sich auch die Excel-Datei, die als Vorlage diente, befindet.\nUm die Inhalte und Strukturen dieser Vorlage besser zu verstehen, betrachten Sie bitte die nachfolgenden Abbildungen. Diese gehen näher auf die Strukturen der Excel-Inhalte und den Auswirkungen auf die so generierte Booklet.xml ein. Achten Sie auch die farbliche Hervorhebung in Bild und Code.\n\n\n\niqb online assessment applications with relations: testcenter\n\n\nAuf der Grundlage dieser im obigen Bild dargestellten Excel-Datei und deren Inhalten wird die folgende Booklet.xml erzeugt:\n\n\n\niqb online assessment applications with relations: testcenter\n\n\n\n\n\n Zurück nach oben",
+    "crumbs": [
+      "Studie durchführen",
+      "Windows ToolBox",
+      "Booklets erzeugen"
     ]
   },
   {
