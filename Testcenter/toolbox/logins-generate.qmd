@@ -1,0 +1,28 @@
+---
+lang: de
+title: "itc-ToolBox: Login-Xml erzeugen"
+description: "Erzeugen von Testtaker-Xml für die Verwendung im IQB-Testcenter"
+---
+
+# Schritt 1: Ausfüllen Excel-Tabelle
+
+{{< downloadthis assets/Logins-Vorlage.Xlsx label="Herunterladen Vorlage" dname="Excel-Tabelle: Vorlage für Login-Erzeugung" icon=filetype-xlsx >}}
+
+1. Laden Sie die obige Vorlage herunter. Sie ist auf bestimmte Art strukturiert und mit Markierungen versehen, damit die folgenden Schritte die nötigen Informationen finden.
+
+2. Füllen Sie die erste Tabelle "Testgruppen" aus.
+
+![](assets/generate-logins-1.jpg)
+
+3. Bei Bedarf tragen Sie Textersetzungen in der Tabelle "Textersetzungen" ein. Siehe [hier](/Testcenter/Testinhalte/testtaker-xml.html#angepasste-texte-customtexts) für Erläuterungen.
+
+# Schritt 2: Aufrufen Funktion "Logins aus Vorlage"
+
+Jetzt wird die Funktion "Logins aus Vorlage" der itc-ToolBox aufgerufen. Man muss die vorbereitete Excel-Datei auswählen und kann dann einige Optionen wählen.
+
+Als Ergebnisse erhalten Sie:
+
+* Die Excel-Datei, die Sie vorbereitet hatten, enthält jetzt in der Tabelle "Logins" alle erzeugten Logins
+* Im Verzeichnis der Excel-Datei wurden Xml-Dateien erzeugt. Diese enthalten alle in der Excel-Datei erzeugten Logins.
+
+Sie können jetzt ggf. die erzeugten Logins bearbeiten und dann in das Testcenter hochladen.
