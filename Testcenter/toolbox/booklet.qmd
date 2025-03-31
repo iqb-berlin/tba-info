@@ -15,9 +15,9 @@ Die Funktion "Booklet-Xlsx" der itc-ToolBox liest zunächst eine vorbereitete Ex
 
 * **rot:** Diese Spalten dürfen nicht gelöscht werden!
 * **gelb:** Die textuellen Inhalte dürfen nicht verändert werden!
-* **blau:** Die textuellen Inhalte können geändert werden. **itc-Toolbox** findet die entsprechenden für die XML-Dateien benötigten Inhalte. Um die Excel-Dateien einheitlich zu halten, wird jedoch von einer Unbenennung abgeraten. 
+* **blau:** Die textuellen Inhalte können geändert werden. **itc-Toolbox** findet die entsprechenden für die XML-Dateien benötigten Inhalte. Um die Excel-Dateien einheitlich zu halten, wird jedoch von einer Umbenennung abgeraten. 
 
-![Wichtiges zum Editieren der Excel-Vorlage](https://github.com/iqb-berlin/iqb-berlin.github.io/blob/master/assets/TC_FE_ToolBox_ExcelEdit_final.png)
+![Aufbau der Excel-Vorlage](assets/excel-structure.png)
 
 **Erzeugen / Bearbeiten der Booklet.xml**
 
@@ -28,12 +28,10 @@ Wurden alle Bezeichner gefunden und konnten entsprechend zugeordnet werden, ersc
 einer `Booklet.xml`. Die `Booklet.xml` wird dann im selben Verzeichnis gespeichert in dem sich auch die Excel-Datei, die als Vorlage diente, 
 befindet.
 
-Um die Inhalte und Strukturen dieser Vorlage besser zu verstehen, betrachten Sie bitte die nachfolgenden Abbildungen. Diese gehen näher 
-auf die Strukturen der Excel-Inhalte und den Auswirkungen auf die so generierte `Booklet.xml` ein. Achten Sie auch die farbliche Hervorhebung 
-in Bild und Code.
+Um Struktur und Aufbau der Excel-Datei besser zu verstehen, können nachfolgenden Abbildungen betrachtet werden. Hier wird aufgezeigt, welche Bezüge die Tabellenblätter zueinander haben. Achten Sie auch die farbliche Hervorhebung in Bild und Code.
 
-![iqb online assessment applications with relations: testcenter](https://github.com/iqb-berlin/iqb-berlin.github.io/blob/master/assets/TC_FE_ToolBox_Excel_final.png)
+![Bezüge der Tabellenblätter](assets/table-references.png)
 
-Auf der Grundlage dieser im obigen Bild dargestellten Excel-Datei und deren Inhalten wird die folgende `Booklet.xml` erzeugt:
+Auf der Grundlage der zuvor gezeigten Excel-Inhalte wird die folgende `Booklet.xml` erzeugt:
 
-![iqb online assessment applications with relations: testcenter](https://github.com/iqb-berlin/iqb-berlin.github.io/blob/master/assets/TC_FE_ToolBox_BookletXml_final.png)
+![Erzeugte Booklet-XML](assets/generated-booklet.png)
