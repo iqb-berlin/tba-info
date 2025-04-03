@@ -4,7 +4,7 @@ title: "Offline-Szenario"
 author:
   - name: Huaning Yang
     email: huaning.yang@iqb.hu-berlin.de
-date: 2025-03-24
+date: 2025-04-03
 ---
 
 Das IQB-Testcenter ist eine Webanwendung, d. h. sie muss auf einem Server installiert werden, der dann durch die Webbrowser der Testpersonen erreichbar ist. Sollte eine Schule keine oder eine zu schlechte Internet-Verbindung haben, kann man als Server auch einen mitgebrachten Laptop einrichten und an einen WLAN-Access-Point anschließen (Kabel). Das Einrichten des Servers und des Access-Points ist hier beschrieben.
@@ -153,10 +153,10 @@ Das Testcenter validiert standardmäßig beim Starten alle Dateien zur Aufgaben-
 
 Dies kann mit einer manuellen Einstellung vermieden werden.
 Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen.
-Folgenden Befehl im Installationsordner des Testcenters durchführen:
+Folgenden Befehl im Installationsordner des Testcenters durchführen, um dieses hochzufahren:
 
 ```bash
-make run
+make testcenter-up
 ```
 
 In der zweiten Konsole dann diesen Befehl ausführen:
@@ -165,5 +165,9 @@ In der zweiten Konsole dann diesen Befehl ausführen:
 docker exec -it testcenter-backend sed -i '6s/$/ --skip_read_workspace_files/' /entrypoint.sh
 ```
 
-Nun wird beim Starten das validieren der Dateien übersprungen.
-Es ist wichtig, dass das Testcenter nur noch mit "**make stop**" heruntergefahren wird, da "make down" den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.
+Nun wird beim Starten das Validieren der Dateien übersprungen.
+Es ist wichtig, dass das Testcenter nur noch mit "**make testcenter-stop**" gestoppt wird, da "make testcenter-down" den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.
+Wenn das Testcenter mit "**make testcenter-stop**" gestoppt wurde, dann kann das Testcenter mit folgendem Befehl wieder gestartet werden:
+```bash
+make testcenter-start
+```
