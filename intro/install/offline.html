@@ -970,7 +970,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">24. März 2025</p>
+      <p class="date">3. April 2025</p>
     </div>
   </div>
   
@@ -1143,11 +1143,12 @@ Warnung
 <section id="lange-startzeiten-des-testcenters-umgehen" class="level1">
 <h1>Lange Startzeiten des Testcenters umgehen</h1>
 <p>Das Testcenter validiert standardmäßig beim Starten alle Dateien zur Aufgaben-Definition (Unit-XML, Unit-VOUD usw.), die Testtaker-XML und Booklet-XML. Dies kann bei einer hohen Anzahl von Testheften und Zugängen für die Testpersonen zur einer sehr hohen Startzeit führen.</p>
-<p>Dies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Installationsordner des Testcenters durchführen:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> run</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dies kann mit einer manuellen Einstellung vermieden werden. Man benötigt dafür am besten zwei Konsolen für die Eingabe von Befehlen. Folgenden Befehl im Installationsordner des Testcenters durchführen, um dieses hochzufahren:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> testcenter-up</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In der zweiten Konsole dann diesen Befehl ausführen:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> testcenter-backend sed <span class="at">-i</span> <span class="st">'6s/$/ --skip_read_workspace_files/'</span> /entrypoint.sh</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Nun wird beim Starten das validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “<strong>make stop</strong>” heruntergefahren wird, da “make down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen.</p>
+<p>Nun wird beim Starten das Validieren der Dateien übersprungen. Es ist wichtig, dass das Testcenter nur noch mit “<strong>make testcenter-stop</strong>” gestoppt wird, da “make testcenter-down” den Fix ungültig machen würde. Dann müsste man die vorangegangen Schritte wiederholen. Wenn das Testcenter mit “<strong>make testcenter-stop</strong>” gestoppt wurde, dann kann das Testcenter mit folgendem Befehl wieder gestartet werden:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> testcenter-start</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
