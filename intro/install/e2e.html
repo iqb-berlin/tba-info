@@ -948,8 +948,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#vorbereitungen" id="toc-vorbereitungen" class="nav-link" data-scroll-target="#vorbereitungen">Vorbereitungen</a></li>
   <li><a href="#cypress-starten" id="toc-cypress-starten" class="nav-link" data-scroll-target="#cypress-starten">Cypress starten</a></li>
-  <li><a href="#cypress-tests-ausführen" id="toc-cypress-tests-ausführen" class="nav-link" data-scroll-target="#cypress-tests-ausführen">Cypress Tests ausführen</a></li>
-  <li><a href="#wo-ist-der-testcode-zu-finden" id="toc-wo-ist-der-testcode-zu-finden" class="nav-link" data-scroll-target="#wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</a></li>
+  <li><a href="#cypress-tests-ausführen" id="toc-cypress-tests-ausführen" class="nav-link" data-scroll-target="#cypress-tests-ausführen">Cypress Tests ausführen</a>
+  <ul class="collapse">
+  <li><a href="#booklet-config" id="toc-booklet-config" class="nav-link" data-scroll-target="#booklet-config">Booklet-Config</a></li>
+  <li><a href="#group-monitor" id="toc-group-monitor" class="nav-link" data-scroll-target="#group-monitor">Group-Monitor</a></li>
+  <li><a href="#session-management" id="toc-session-management" class="nav-link" data-scroll-target="#session-management">Session-Management</a></li>
+  <li><a href="#super-admin" id="toc-super-admin" class="nav-link" data-scroll-target="#super-admin">Super-Admin</a></li>
+  <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
+  <li><a href="#test-controller" id="toc-test-controller" class="nav-link" data-scroll-target="#test-controller">Test-Controller</a></li>
+  <li><a href="#workspace-admin" id="toc-workspace-admin" class="nav-link" data-scroll-target="#workspace-admin">Workspace-Admin</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -1113,35 +1121,178 @@ Hinweis
 <li>Öffnen des gespiegelten Ordners mit der IDE</li>
 <li>Terminal öffnen und den Befehl: <code>make test-system</code> eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche</li>
 <li>“E2E Testing” in der Cypress Oberfläche auswählen</li>
-<li>TestBrowser auswählen</li>
+<li>Browser auswählen</li>
 </ol>
 </section>
 <section id="cypress-tests-ausführen" class="level2">
 <h2 class="anchored" data-anchor-id="cypress-tests-ausführen">Cypress Tests ausführen</h2>
 <p>Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer*innen für ihre Konfiguration der Testdateien genutzt werden könnten.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p><strong>Wo sind die Tests zu finden?</strong></p>
+<p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/cypress/e2e</strong> zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Testdateien eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden.</p>
+<section id="booklet-config" class="level3">
+<h3 class="anchored" data-anchor-id="booklet-config">Booklet-Config</h3>
+<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft. Um die Tests übersichtlich zu halten, wurden die Parameter gruppiert. Eine Übersicht liefert die nachfolgende Tabelle. Die Gruppenbezeichner finden sich in den für den Test verwendeten Booklets wieder. Der Name der verwendeten Booklets, beinhaltet die zur Verfügung stehenden Werte.</p>
+<div style="overflow-x:auto;">
+<table>
+    <thead>
+        <tr>
+            <th>Gruppe</th>
+            <th>Parameter</th>
+            <th>Default</th>
+            <th>Wert-1</th>
+            <th>Wert-2</th>
+            <th>Wert-3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="tdColoredCell" rowspan="3">1</td>
+            <td align="left"><code>page_navibutton</code></td>
+            <td align="left"><code>SEPARATE_BOTTOM</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr><tr>
+            <td align="left"><code>unit_menu</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>FULL</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_navibuttons</code></td>
+            <td align="left"><code>FULL</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ARROWS_ONLY</code></td>
+            <td align="left"><code>FORWARD_ONLY</code></td>
+        </tr>
+        <tr>
+            <td class="tdColoredCell" rowspan="2">2</td>
+            <td align="left"><code>force_presentaion_complete</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"></td>
+        </tr><tr>
+            <td align="left"><code>force_response_complete</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td class="tdColoredCell" rowspan="2">3</td>
+            <td align="left"><code>unit_show_time_left</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr><tr>
+            <td align="left"><code>unit_time_left_warnings</code></td>
+            <td align="left"><code>10,5,1</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td class="tdColoredCell" rowspan="5">4</td>
+            <td align="left"><code>show_end_button_in_player</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"><code>ONLY_LAST_UNIT</code></td>
+            <td align="left"></td>
+        </tr><tr>
+            <td align="left"><code>restore_current_page_on_return</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>allow_player_to_terminate_test</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>LAST_UNIT</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>lock_test_on_termination</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+         <tr>
+            <td align="left"><code>loading_mode</code></td>
+            <td align="left"><code>LAZY</code></td>
+            <td align="left"><code>EAGER</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+
+        <tr>
+            <td class="tdColoredCell" rowspan="4">5</td>
+            <td align="left"><code>ask_for_fullscreen</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr><tr>
+            <td align="left"><code>show_fullscreen_button</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_screenheader</code></td>
+            <td align="left"><code>EMPTY</code></td>
+            <td align="left"><code>WITH_UNIT_TITLE</code></td>
+            <td align="left"><code>WITH_BOOKLET_TITLE</code></td>
+            <td align="left"><code>WITH_BLOCK_TITLE</code></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_title</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+    </tbody>
+</table>
 </div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Einige Testfälle sind gruppiert in Ordner.</p>
-</div>
-</div>
-<p><strong>Session-Management/hot-restart-mode</strong> und <strong>Session-Management/hot-return-mode</strong></p>
+</section>
+<section id="group-monitor" class="level3">
+<h3 class="anchored" data-anchor-id="group-monitor">Group-Monitor</h3>
+<p>Es werden grundsätzliche Funktionen des Gruppenmonitors getestet. Aktuell wird das Navigieren von Testpersonen durch den Gruppenmonitor noch nicht getestet, da hierfür ein entsprechender Client simuliert werden müsste.</p>
+</section>
+<section id="session-management" class="level3">
+<h3 class="anchored" data-anchor-id="session-management">Session-Management</h3>
+<p><strong>hot-modes:</strong></p>
 <p>Hier werden die Grundfunktionen der Modi: <code>hot-restart</code> und <code>hot-return</code> getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten, wie vorgesehen:</p>
 <ul>
 <li>hot-restart: Bei erneuter Anmeldung wird eine neue Person angenommen und der Test wird neu gestartet</li>
 <li>hot-return: Bei erneuter Anmeldung wird die selbe Testperson angenommen und der Test wird fortgesetzt</li>
 </ul>
-<p><strong>Session-Management/time-restrictions</strong></p>
-<p>Es wird die Funktion zeitlicher Beschränkungen in Testheftblöcken getestet.</p>
-<p><strong>Test-Controller/RunHotRestart</strong> und <strong>Test-Controller/RunHotReturn</strong></p>
-<p>Es werden alle <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html">hier</a> gelisteten Funktionen der beide Modi getestet (ausgenommen der bereits im Session-Management getesteten Funktionen).</p>
+<p><strong>login-possibilities:</strong></p>
+<p>Es werden die verschiedenen Anmeldevarianten getestet (Link, Code etc.).</p>
+<p><strong>testtakers-content:</strong></p>
+<p>Es wird getestet, dass nur eine gültige Testtaker-XML geladen werden kann. Bspw. dürfen keine gleichen Group-IDs oder Loginnamen in der Testtaker-XML angelegt sein.</p>
+<p><strong>time-limited access:</strong></p>
+<p>Es wird die zeitliche Gültigkeit von Zugängen geprüft.</p>
+</section>
+<section id="super-admin" class="level3">
+<h3 class="anchored" data-anchor-id="super-admin">Super-Admin</h3>
+<p>Es werden alle Funktionen des Super-Admins getestet.</p>
+</section>
+<section id="system-check" class="level3">
+<h3 class="anchored" data-anchor-id="system-check">System-Check</h3>
+<p>Es werden die Grundfunktionen eines System-Checks getestet und der erzeugte Bericht wird auf Richtigkeit geprüft.</p>
+</section>
+<section id="test-controller" class="level3">
+<h3 class="anchored" data-anchor-id="test-controller">Test-Controller</h3>
+<p>Es werden die <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html">folgenden</a> spezifischen Funktionen der Modi: <strong>demo</strong>, <strong>hot-restart</strong>, <strong>hot-return</strong> und <strong>review</strong> geprüft:</p>
+<p>Mit dem Test: <strong>time-restrictions</strong> werden zeitliche Beschränkungen getestet.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1152,15 +1303,16 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Testschritte sind so geschrieben, dass relativ einfach herauszulesen ist was diese Schritte tun, also was damit getestet wird.</p>
+<p>Dieser Test nimmt einige Minuten in Anspruch. Sollen einzelne Testschritte oder Testfällen aus zeitlichen Gründen nicht durchgeführt werden, können diese mit einem <code>skip</code> übersprungen werden.</p>
 </div>
 </div>
 </section>
-<section id="wo-ist-der-testcode-zu-finden" class="level2">
-<h2 class="anchored" data-anchor-id="wo-ist-der-testcode-zu-finden">Wo ist der Testcode zu finden?</h2>
-<p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/cypress/e2e</strong> zu finden. Die Struktur der Testfälle ist dann genau so zu sehen wie in der Cypress-Oberfläche. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Beispielaufgaben eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden. Es empfiehlt sich daraufhin das laufende Test-System noch einmal zu stoppen und erneut zu starten mit <code>make test-system</code>. Hierbei werden die neuen Daten der Datenbank hinzugefügt.</p>
+<section id="workspace-admin" class="level3">
+<h3 class="anchored" data-anchor-id="workspace-admin">Workspace-Admin</h3>
+<p>Es werden alle Funktionen eines Workspace-Admins getestet. Dazu gehört bspw. das Laden von Testdateien in einen Arbeitsbereich, das Herunterladen von Antworten und vieles mehr.</p>
 
 
+</section>
 </section>
 </section>
 
