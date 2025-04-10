@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-139f9198a071e9c0c5f7c12a0477efd5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-39d38f4e636f218740c8d7e7926a8403.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -1131,7 +1131,7 @@ Hinweis
 <p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/cypress/e2e</strong> zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Testdateien eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden.</p>
 <section id="booklet-config" class="level3">
 <h3 class="anchored" data-anchor-id="booklet-config">Booklet-Config</h3>
-<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft. Um die Tests übersichtlich zu halten, wurden die Parameter gruppiert. Eine Übersicht liefert die nachfolgende Tabelle. Die Gruppenbezeichner finden sich in den für den Test verwendeten Booklets wieder. Der Name der verwendeten Booklets, beinhaltet die zur Verfügung stehenden Werte.</p>
+<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft. Um die Tests übersichtlich zu halten, wurden die Parameter gruppiert. Eine Übersicht liefert die nachfolgende Tabelle. Die Gruppenbezeichner finden sich in den E2E-Tests wieder. Die Bezeichner der Werte (default, value-1 etc.)sind in den für die Tests verwendeten Booklets wiederzufinden.</p>
 <div style="overflow-x:auto;">
 <table>
     <thead>
@@ -1146,7 +1146,7 @@ Hinweis
     </thead>
     <tbody>
         <tr>
-            <td class="tdColoredCell" rowspan="3">1</td>
+            <td class="tdColoredCell" rowspan="3">navigation</td>
             <td align="left"><code>page_navibutton</code></td>
             <td align="left"><code>SEPARATE_BOTTOM</code></td>
             <td align="left"><code>OFF</code></td>
@@ -1167,7 +1167,7 @@ Hinweis
             <td align="left"><code>FORWARD_ONLY</code></td>
         </tr>
         <tr>
-            <td class="tdColoredCell" rowspan="2">2</td>
+            <td class="tdColoredCell" rowspan="2">navigation-restriction</td>
             <td align="left"><code>force_presentaion_complete</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
@@ -1181,7 +1181,7 @@ Hinweis
             <td align="left"></td>
         </tr>
         <tr>
-            <td class="tdColoredCell" rowspan="2">3</td>
+            <td class="tdColoredCell" rowspan="2">time-restriction</td>
             <td align="left"><code>unit_show_time_left</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
@@ -1195,7 +1195,7 @@ Hinweis
             <td align="left"></td>
         </tr>
         <tr>
-            <td class="tdColoredCell" rowspan="5">4</td>
+            <td class="tdColoredCell" rowspan="5">special-options</td>
             <td align="left"><code>show_end_button_in_player</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ALLWAYS</code></td>
@@ -1231,7 +1231,7 @@ Hinweis
         </tr>
 
         <tr>
-            <td class="tdColoredCell" rowspan="4">5</td>
+            <td class="tdColoredCell" rowspan="4">viewing</td>
             <td align="left"><code>ask_for_fullscreen</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
