@@ -39,34 +39,27 @@ Für das Testcenter wird eine Versionierung nach dem Prinzip der [Semantischen V
 
 ## Termine und Planung
 
+Im Jahr 2025 wird es noch eine Reihe von Releases geben, die nicht streng terminlich getaktet sind. Es sollen Verbesserungen -- auch größere Änderungen -- möglichst schnell verfügbar gemacht werden. Ab 2026 sollen zur besseren Planbarkeit die Releases zu bestimmten Zeitpunkten erfolgen:
+
 * Einmal im Jahr im **März** wird eine Hauptversion veröffentlicht.
 * Hauptversionen werden mit den beabsichtigten Funktionen mindestens ein halbes Jahr vorab angekündigt (s. u.).
 * Mit der neuen Hauptversion wird die jährliche VERA-Pilotierung durchgeführt (entspr. Umstellungsplan beginnend 2026 mit Primarstufe).
-* Funktions-Updates werden nach Bedarf und nach verfügbaren Ressourcen veröffentlicht.
-* Funktions-Updates werden mindestens 1 Monat vorab angekündigt (s. u.).
+
+Funktions-Updates werden nach Bedarf und nach verfügbaren Ressourcen veröffentlicht. Sie werden mindestens 1 Monat vorab angekündigt (s. u.).
 
 # Aktuelle Termine
 
-## Nächste Hauptversion 16
+## Nächste Hauptversion 17
 
-* Termin: 1.3.2025
+* Termin: vorauss. 1.7.2025
 * Geplante Änderungen:
-  - Das Testcenter kann in einer [Kubernetes](https://kubernetes.io/de/docs/concepts/overview/what-is-kubernetes/)-Umgebung eingesetzt werden. Dies führt zu Änderungen in der Auslieferung.
-* Vorabversion am 20.12.2024: Hier ist die Kubernetesfähigkeit grundsätzlich hergestellt (Gewährleistung der Ausfallsicherheit über mehrere Server hinweg), es können aber noch keine Container mehrfach gefahren werden
-* Vorabversion am 1.2.2025: Gewünschte Funktionsfähigkeit hergestellt, Testungen beginnen
-* Anmerkung: Das IQB wird mit dieser Version ausführliche Lasttests durchführen und daraus Empfehlungen ableiten, ob und wie mit dem Einsatz von Kubernetes Nutzeffekte erreicht werden können.
+  - Performance-Verbesserungen im Backend
+  - Refactoring der Auslieferung der Testinhalte (Files-Container)
+* Anmerkung: Grundlage dafür sind diverse Lasttests, die das IQB ausführlich dokumentieren wird.
 
-## Nächstes Funktions-Update
+## Nächste Hauptversion 18
 
-* bisher ohne Termin
+* Termin: vorauss. 1.10.2025
 * Geplante Änderungen:
-  - Die Flexibilität des System-Checks wird erhöht. Es können dann mehrere Units und damit Player abgetestet werden und die Ermittlung des Netzwerk-Speeds bildet den Download einer konkreten Erhebung nach.
-  - Die Erfassung einer analogen Leistung (Papier) durch die Testleitung (Foto mit Tablet) ist möglich.
-
-## Ausblick
-
-* Für die nächste Hauptversion 17 im März 2026 sind folgende Änderungen geplant:
-  - Umstellung der Admin-Anmeldung auf OpenID Connect. Die Kommunikation mit Servern wird über ein JWT-Application-Token gewährleistet.
-  - Im Jahr 2025 wird ein neues UI/UX des Testcenters entwickelt und mit der Version 17 implementiert. Es ändern sich in diesem Zusammenhang einige Endpunkte der API.
-  - Das IQB-Testcenter wird im einem weiteren Länderprojekt [StarS](https://www.kmk.org/aktuelles/artikelansicht/kultusministerkonferenz-beschliesst-innovatives-konzept-stars-stark-in-die-grundschule-starten-zu.html) als Teil der Architektur genutzt. Eventuell dafür erforderliche Anpassungen sind dann ebenfalls Teil der Version 17.
-
+  - Überarbeitung im Bereich UI/UX. Der Start-/Anmeldvorgang wird neu gestaltet. Die Flexibilität des Designs wird mit Einführung von Angular Material Theming verbessert.
+* Anmerkung: Die Anpassungen führen zur besseren Passung für die 4 Zielgruppen 1./2. Klasse, 3./4. Klasse, 8./9. Klasse sowie Erwachsene.

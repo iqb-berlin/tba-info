@@ -7,23 +7,29 @@ author:
 date: 2025-04-17
 ---
 
-# Kiosk Mode Windows
-Es gibt 2 verschiedene Optionen Kiosk Mode auf Windows zu erzeugen:  
-[Assigned Access](#assigned-access), ein Windows internes Tool.  
-[Safe Exam Browser](#safe-exam-browser), ein extra Tool was installiert und konfiguriert werden muss.
+::: {.callout-note}
+Die folgenden Ausführungen beziehen sich auf die Durchführung von Leistungstests (z. B. IQB-Testcenter) unter dem Betriebssystem Windows.
 
-## Assigned Access
-Der Administrator legt einen neuen Assigned Access Account an.  
-Beim anlegen des Accounts kann man festlegen, welche Applikation verwendet werden soll.  
-Aus der Liste wählt man dann Microsoft Edge (das ist der einzige Browser der mit Assigned Access funktioniert) aus, danach wird man gebeten die URL einzugeben mit der Edge gestartet werden soll. Hier müsste man dann die Adresse des Testcenters hinterlegen.  
-Wenn sich der User nun in den neu angelegten Kiosk Account einloggt, so wird nur das Testcenter im Vollbild geöffnet, ohne weitere Navigationselemente des Browsers.  
-Tastenkombinationen wie Alt + F4 zum Schließen des Fensters oder Alt + Tab zum Wechseln von Fenstern sind in diesem Modus nicht möglich. Die Taskleiste und das Startmenu von Windows sind nicht verfügbar.  
-Zum verlassen dieses Modus wird Ctrl + Alt + Delete verwendet.
+:::
 
-## Safe Exam Browser
-Der Safe Exam Browser ist ein externes Tool was auf jedem Gerät installiert werden muss.
-Danach muss eine Konfigurationsdatei für den Safe Exam Browser installiert werden und die Testumgebung ist dann hergestellt.
-Die Konfigurationsdatei würden wir bereit stellen. Diese würde unter anderem folgende Einstellungen beinhalten:  
+Mit dem Kiosk-Modus wird die Bedienung durch die Schülerinnen und Schüler stark eingeschränkt. Dies kann gewünscht sein, um
+
+* Ablenkung zu vermeiden: Die Testanwendung nimmt den gesamten Bildschirm ein und man kann nicht versehentlich andere Anwendungen aufrufen, und
+* die Aussagekraft der Ergebnisse zu erhöhen durch einheitliche Durchführung: Nur wenn die Schülerinnen und Schüler dieselben Hilfsmittel verwenden, sind die Ergebnisse im Sinne des Testkonstrukts vergleichbar. Wenn Testpersonen z. B. unkontrollierbar eine andere Webseite aufrufen können (Übersetzungsdienst, Kalkulationshilfen), werden andere Fähigkeiten gemessen (latente Variablen) als ursprünglich im Test vorgesehen.
+
+Es gibt 2 Optionen, den Kiosk Mode auf Windows zu erzeugen:
+
+# Assigned Access
+
+Der Administrator legt einen neuen Assigned Access Account an. Beim Anlegen des Accounts kann man festlegen, welche Applikation verwendet werden soll. Aus der Liste wählt man dann Microsoft Edge (das ist der einzige Browser, der mit Assigned Access funktioniert) aus, danach wird man gebeten, die URL einzugeben mit der Edge gestartet werden soll. Hier müsste man dann die Adresse des Testcenters hinterlegen.
+
+Wenn sich der User nun in den neu angelegten Kiosk Account einloggt, so wird nur das Testcenter im Vollbild geöffnet, ohne weitere Navigationselemente des Browsers. Tastenkombinationen wie Alt + F4 zum Schließen des Fensters oder Alt + Tab zum Wechseln von Fenstern sind in diesem Modus nicht möglich. Die Taskleiste und das Startmenu von Windows sind nicht verfügbar.
+
+Zum Verlassen dieses Modus wird Ctrl + Alt + Delete verwendet.
+
+# Safe Exam Browser
+
+Der [Safe Exam Browser](https://safeexambrowser.org/about_overview_de.html) ist ein externes Tool, das auf jedem Gerät installiert werden muss. Danach muss eine Konfigurationsdatei für den Safe Exam Browser installiert werden und die Testumgebung ist dann hergestellt. Das IQB kann eine Vorlage für die Konfigurationsdatei bereitstellen. Diese würde unter anderem folgende Einstellungen beinhalten:  
 
 * Start URL: Die Adresse des Testcenters
 * Browser View Mode: Fullscreen Mode 
@@ -35,7 +41,9 @@ Die Konfigurationsdatei würden wir bereit stellen. Diese würde unter anderem f
 * Disable copy/paste
 
 Windows Einstellungen, die über Ctrl + Alt + Delete erreichbar, können eingeschränkt bzw. deaktiviert werden:
+
 ![Optionen die deaktiviert werden können](seb_task.PNG){#fig-task}
 
-Außerdem können weitere Tastenkombinationen wie Alt + F4 oder Alt + Tab ebenfalls deaktiviert werden.  
+Außerdem können weitere Tastenkombinationen wie Alt + F4 oder Alt + Tab ebenfalls deaktiviert werden.
+
 ![Tasten und Kombinationen die deaktiviert werden können](seb_keys.PNG){#fig-keys}
