@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2d070b3ee4787950d5f3487d3fd1b94c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9dff8d7728712ed6b44b4cd042af56a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6e9017ed0af719f35f155cb76f1aac31.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -911,11 +911,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#kiosk-mode-windows" id="toc-kiosk-mode-windows" class="nav-link active" data-scroll-target="#kiosk-mode-windows">Kiosk Mode Windows</a>
-  <ul class="collapse">
-  <li><a href="#assigned-access" id="toc-assigned-access" class="nav-link" data-scroll-target="#assigned-access">Assigned Access</a></li>
+  <li><a href="#assigned-access" id="toc-assigned-access" class="nav-link active" data-scroll-target="#assigned-access">Assigned Access</a></li>
   <li><a href="#safe-exam-browser" id="toc-safe-exam-browser" class="nav-link" data-scroll-target="#safe-exam-browser">Safe Exam Browser</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -953,23 +950,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="kiosk-mode-windows" class="level1">
-<h1>Kiosk Mode Windows</h1>
-<p>Es gibt 2 verschiedene Optionen Kiosk Mode auf Windows zu erzeugen:<br>
-<a href="#assigned-access">Assigned Access</a>, ein Windows internes Tool.<br>
-<a href="#safe-exam-browser">Safe Exam Browser</a>, ein extra Tool was installiert und konfiguriert werden muss.</p>
-<section id="assigned-access" class="level2">
-<h2 class="anchored" data-anchor-id="assigned-access">Assigned Access</h2>
-<p>Der Administrator legt einen neuen Assigned Access Account an.<br>
-Beim anlegen des Accounts kann man festlegen, welche Applikation verwendet werden soll.<br>
-Aus der Liste wählt man dann Microsoft Edge (das ist der einzige Browser der mit Assigned Access funktioniert) aus, danach wird man gebeten die URL einzugeben mit der Edge gestartet werden soll. Hier müsste man dann die Adresse des Testcenters hinterlegen.<br>
-Wenn sich der User nun in den neu angelegten Kiosk Account einloggt, so wird nur das Testcenter im Vollbild geöffnet, ohne weitere Navigationselemente des Browsers.<br>
-Tastenkombinationen wie Alt + F4 zum Schließen des Fensters oder Alt + Tab zum Wechseln von Fenstern sind in diesem Modus nicht möglich. Die Taskleiste und das Startmenu von Windows sind nicht verfügbar.<br>
-Zum verlassen dieses Modus wird Ctrl + Alt + Delete verwendet.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die folgenden Ausführungen beziehen sich auf die Durchführung von Leistungstests (z. B. IQB-Testcenter) unter dem Betriebssystem Windows.</p>
+</div>
+</div>
+<p>Mit dem Kiosk-Modus wird die Bedienung durch die Schülerinnen und Schüler stark eingeschränkt. Dies kann gewünscht sein, um</p>
+<ul>
+<li>Ablenkung zu vermeiden: Die Testanwendung nimmt den gesamten Bildschirm ein und man kann nicht versehentlich andere Anwendungen aufrufen, und</li>
+<li>die Aussagekraft der Ergebnisse zu erhöhen durch einheitliche Durchführung: Nur wenn die Schülerinnen und Schüler dieselben Hilfsmittel verwenden, sind die Ergebnisse im Sinne des Testkonstrukts vergleichbar. Wenn Testpersonen z. B. unkontrollierbar eine andere Webseite aufrufen können (Übersetzungsdienst, Kalkulationshilfen), werden andere Fähigkeiten gemessen (latente Variablen) als ursprünglich im Test vorgesehen.</li>
+</ul>
+<p>Es gibt 2 Optionen, den Kiosk Mode auf Windows zu erzeugen:</p>
+<section id="assigned-access" class="level1">
+<h1>Assigned Access</h1>
+<p>Der Administrator legt einen neuen Assigned Access Account an. Beim Anlegen des Accounts kann man festlegen, welche Applikation verwendet werden soll. Aus der Liste wählt man dann Microsoft Edge (das ist der einzige Browser, der mit Assigned Access funktioniert) aus, danach wird man gebeten, die URL einzugeben mit der Edge gestartet werden soll. Hier müsste man dann die Adresse des Testcenters hinterlegen.</p>
+<p>Wenn sich der User nun in den neu angelegten Kiosk Account einloggt, so wird nur das Testcenter im Vollbild geöffnet, ohne weitere Navigationselemente des Browsers. Tastenkombinationen wie Alt + F4 zum Schließen des Fensters oder Alt + Tab zum Wechseln von Fenstern sind in diesem Modus nicht möglich. Die Taskleiste und das Startmenu von Windows sind nicht verfügbar.</p>
+<p>Zum Verlassen dieses Modus wird Ctrl + Alt + Delete verwendet.</p>
 </section>
-<section id="safe-exam-browser" class="level2">
-<h2 class="anchored" data-anchor-id="safe-exam-browser">Safe Exam Browser</h2>
-<p>Der Safe Exam Browser ist ein externes Tool was auf jedem Gerät installiert werden muss. Danach muss eine Konfigurationsdatei für den Safe Exam Browser installiert werden und die Testumgebung ist dann hergestellt. Die Konfigurationsdatei würden wir bereit stellen. Diese würde unter anderem folgende Einstellungen beinhalten:</p>
+<section id="safe-exam-browser" class="level1">
+<h1>Safe Exam Browser</h1>
+<p>Der <a href="https://safeexambrowser.org/about_overview_de.html">Safe Exam Browser</a> ist ein externes Tool, das auf jedem Gerät installiert werden muss. Danach muss eine Konfigurationsdatei für den Safe Exam Browser installiert werden und die Testumgebung ist dann hergestellt. Das IQB kann eine Vorlage für die Konfigurationsdatei bereitstellen. Diese würde unter anderem folgende Einstellungen beinhalten:</p>
 <ul>
 <li>Start URL: Die Adresse des Testcenters</li>
 <li>Browser View Mode: Fullscreen Mode</li>
@@ -980,12 +988,30 @@ Zum verlassen dieses Modus wird Ctrl + Alt + Delete verwendet.</p>
 <li>Enable reload button (expliziter Button zum Neuladen der Seite)</li>
 <li>Disable copy/paste</li>
 </ul>
-<p>Windows Einstellungen, die über Ctrl + Alt + Delete erreichbar, können eingeschränkt bzw. deaktiviert werden: <img src="seb_task.PNG" id="fig-task" class="img-fluid" alt="Optionen die deaktiviert werden können"></p>
-<p>Außerdem können weitere Tastenkombinationen wie Alt + F4 oder Alt + Tab ebenfalls deaktiviert werden.<br>
-<img src="seb_keys.PNG" id="fig-keys" class="img-fluid" alt="Tasten und Kombinationen die deaktiviert werden können"></p>
+<p>Windows Einstellungen, die über Ctrl + Alt + Delete erreichbar, können eingeschränkt bzw. deaktiviert werden:</p>
+<div id="fig-task" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seb_task.PNG" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Optionen die deaktiviert werden können
+</figcaption>
+</figure>
+</div>
+<p>Außerdem können weitere Tastenkombinationen wie Alt + F4 oder Alt + Tab ebenfalls deaktiviert werden.</p>
+<div id="fig-keys" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-keys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seb_keys.PNG" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-keys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: Tasten und Kombinationen die deaktiviert werden können
+</figcaption>
+</figure>
+</div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
