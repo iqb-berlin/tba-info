@@ -137,14 +137,14 @@ Der Testcode ist im Projektverzeichnis: **/e2e/src/e2e** zu finden. Der Testcode
 
 ### Booklet-Config
 
-Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Um die Tests übersichtlich zu halten, wurden die Parameter gruppiert. Eine Übersicht liefert die nachfolgende Tabelle. Die Gruppenbezeichner sind dabei Namensgeber der unter **e2e/src/e2e/Booklet-Config** zu findenden Tests. Die Bezeichner der Spalten **default** - **value3** sind in den für diese Test verwendeten Testheften wiederzufinden.
+Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (**default** - **value-3**) in der nachfolgenden Tabelle für jeden Parameter getestet.
+
 
 ```{=html}
 <div style="overflow-x:auto;">
 <table>
     <thead>
         <tr>
-            <th>group</th>
             <th>parameter</th>
             <th>default</th>
             <th>value-1</th>
@@ -154,7 +154,6 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
     </thead>
     <tbody>
         <tr>
-            <td class="tdColoredCell" rowspan=3>navigation</td>
             <td align="left"><code>page_navibutton</code></td>
             <td align="left"><code>SEPARATE_BOTTOM</code></td>
             <td align="left"><code>OFF</code></td>
@@ -175,7 +174,6 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
             <td align="left"><code>FORWARD_ONLY</code></td>
         </tr>
         <tr>
-            <td class="tdColoredCell" rowspan=2>navigation-restriction</td>
             <td align="left"><code>force_presentaion_complete</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
@@ -189,7 +187,6 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
             <td align="left"></td>
         </tr>
         <tr>
-            <td class="tdColoredCell" rowspan=2>time-restriction</td>
             <td align="left"><code>unit_show_time_left</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
@@ -203,7 +200,6 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
             <td align="left"></td>
         </tr>
         <tr>
-            <td class="tdColoredCell" rowspan=5>special-options</td>
             <td align="left"><code>show_end_button_in_player</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ALLWAYS</code></td>
@@ -239,7 +235,6 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
         </tr>
 
         <tr>
-            <td class="tdColoredCell" rowspan=4>viewing</td>
             <td align="left"><code>ask_for_fullscreen</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
@@ -270,7 +265,7 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
 </table>
 </div>
 ```
-
+Im Verzeichnis: **e2e/src/e2e** sind die dafür verwendeten Testdateien zu finden. Die Bezeichner entsprechen dabei den möglichen Werteoptionen (**default** - **value-3**). Zur Durchführung dieser Tests werden Booklets im Verzeichnis **sampledata/system-test** eingebunden. Der Bezeichner dieser Booklets enthält ebenfalls eine der möglichen Werteoptionen.
 
 
 ### Group-Monitor
