@@ -137,7 +137,7 @@ Der Testcode ist im Projektverzeichnis: **/e2e/src/e2e** zu finden. Der Testcode
 
 ### Booklet-Config
 
-Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (**default** - **value-3**) in der nachfolgenden Tabelle für jeden Parameter getestet.
+Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (**default** - **value 1-3**) in der nachfolgenden Tabelle für jeden Parameter getestet.
 
 
 ```{=html}
@@ -154,15 +154,30 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
     </thead>
     <tbody>
         <tr>
+            <td align="left"><code>ask_for_fullscreen</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_show_time_left</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_time_left_warnings</code></td>
+            <td align="left"><code>10,5,1</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
             <td align="left"><code>page_navibutton</code></td>
             <td align="left"><code>SEPARATE_BOTTOM</code></td>
             <td align="left"><code>OFF</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        <tr>
-            <td align="left"><code>unit_menu</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>FULL</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
@@ -174,76 +189,23 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
             <td align="left"><code>FORWARD_ONLY</code></td>
         </tr>
         <tr>
-            <td align="left"><code>force_presentaion_complete</code></td>
+            <td align="left"><code>unit_menu</code></td>
             <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALLWAYS</code></td>
-            <td align="left"></td>
-        <tr>
-            <td align="left"><code>force_response_complete</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALLWAYS</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_show_time_left</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        <tr>
-            <td align="left"><code>unit_time_left_warnings</code></td>
-            <td align="left"><code>10,5,1</code></td>
-            <td align="left"></td>
+            <td align="left"><code>FULL</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
-        <tr>
-            <td align="left"><code>show_end_button_in_player</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ALLWAYS</code></td>
-            <td align="left"><code>ONLY_LAST_UNIT</code></td>
-            <td align="left"></td>
-        <tr>
-            <td align="left"><code>restore_current_page_on_return</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
         </tr>
-        <tr>
-            <td align="left"><code>allow_player_to_terminate_test</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>LAST_UNIT</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>lock_test_on_termination</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-         <tr>
-            <td align="left"><code>loading_mode</code></td>
-            <td align="left"><code>LAZY</code></td>
-            <td align="left"><code>EAGER</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-
-        <tr>
-            <td align="left"><code>ask_for_fullscreen</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        <tr>
             <td align="left"><code>show_fullscreen_button</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+           <tr>
+            <td align="left"><code>unit_title</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>OFF</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
@@ -255,12 +217,40 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
             <td align="left"><code>WITH_BLOCK_TITLE</code></td>
         </tr>
         <tr>
-            <td align="left"><code>unit_title</code></td>
+            <td align="left"><code>force_presentaion_complete</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>force_response_complete</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>allow_player_to_terminate_test</code></td>
             <td align="left"><code>ON</code></td>
             <td align="left"><code>OFF</code></td>
+            <td align="left"><code>LAST_UNIT</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>restore_current_page_on_return</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
+        <tr>
+            <td align="left"><code>lock_test_on_termination</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>    
     </tbody>
 </table>
 </div>
