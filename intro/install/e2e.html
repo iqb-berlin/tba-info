@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b070aef8f0b02fa7fe5fa3f6432005d8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e5f5a85092b843a77af7720252dbb6f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3121bc5e0c65f0cb736b1ea8ecbfcb67.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1139,7 +1139,7 @@ Hinweis
 <p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/src/e2e</strong> zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Testdateien eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden.</p>
 <section id="booklet-config" class="level3">
 <h3 class="anchored" data-anchor-id="booklet-config">Booklet-Config</h3>
-<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (<strong>default</strong> - <strong>value-3</strong>) in der nachfolgenden Tabelle für jeden Parameter getestet.</p>
+<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (<strong>default</strong> - <strong>value 1-3</strong>) in der nachfolgenden Tabelle für jeden Parameter getestet.</p>
 <div style="overflow-x:auto;">
 <table>
     <thead>
@@ -1153,15 +1153,30 @@ Hinweis
     </thead>
     <tbody>
         <tr>
+            <td align="left"><code>ask_for_fullscreen</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_show_time_left</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>unit_time_left_warnings</code></td>
+            <td align="left"><code>10,5,1</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
             <td align="left"><code>page_navibutton</code></td>
             <td align="left"><code>SEPARATE_BOTTOM</code></td>
             <td align="left"><code>OFF</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr><tr>
-            <td align="left"><code>unit_menu</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>FULL</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
@@ -1173,76 +1188,23 @@ Hinweis
             <td align="left"><code>FORWARD_ONLY</code></td>
         </tr>
         <tr>
-            <td align="left"><code>force_presentaion_complete</code></td>
+            <td align="left"><code>unit_menu</code></td>
             <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALLWAYS</code></td>
-            <td align="left"></td>
-        </tr><tr>
-            <td align="left"><code>force_response_complete</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALLWAYS</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_show_time_left</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr><tr>
-            <td align="left"><code>unit_time_left_warnings</code></td>
-            <td align="left"><code>10,5,1</code></td>
-            <td align="left"></td>
+            <td align="left"><code>FULL</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
-        <tr>
-            <td align="left"><code>show_end_button_in_player</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ALLWAYS</code></td>
-            <td align="left"><code>ONLY_LAST_UNIT</code></td>
-            <td align="left"></td>
-        </tr><tr>
-            <td align="left"><code>restore_current_page_on_return</code></td>
+        
+            <tr><td align="left"><code>show_fullscreen_button</code></td>
             <td align="left"><code>OFF</code></td>
             <td align="left"><code>ON</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
-        <tr>
-            <td align="left"><code>allow_player_to_terminate_test</code></td>
+           <tr>
+            <td align="left"><code>unit_title</code></td>
             <td align="left"><code>ON</code></td>
             <td align="left"><code>OFF</code></td>
-            <td align="left"><code>LAST_UNIT</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>lock_test_on_termination</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-         <tr>
-            <td align="left"><code>loading_mode</code></td>
-            <td align="left"><code>LAZY</code></td>
-            <td align="left"><code>EAGER</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-
-        <tr>
-            <td align="left"><code>ask_for_fullscreen</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr><tr>
-            <td align="left"><code>show_fullscreen_button</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
@@ -1254,12 +1216,40 @@ Hinweis
             <td align="left"><code>WITH_BLOCK_TITLE</code></td>
         </tr>
         <tr>
-            <td align="left"><code>unit_title</code></td>
+            <td align="left"><code>force_presentaion_complete</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>force_response_complete</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"><code>ALLWAYS</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>allow_player_to_terminate_test</code></td>
             <td align="left"><code>ON</code></td>
             <td align="left"><code>OFF</code></td>
+            <td align="left"><code>LAST_UNIT</code></td>
+            <td align="left"></td>
+        </tr>
+        <tr>
+            <td align="left"><code>restore_current_page_on_return</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
             <td align="left"></td>
             <td align="left"></td>
         </tr>
+        <tr>
+            <td align="left"><code>lock_test_on_termination</code></td>
+            <td align="left"><code>OFF</code></td>
+            <td align="left"><code>ON</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+        </tr>    
     </tbody>
 </table>
 </div>
