@@ -137,7 +137,7 @@ Der Testcode ist im Projektverzeichnis: **/e2e/src/e2e** zu finden. Der Testcode
 
 ### Booklet-Config
 
-Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Die hier aufgeführten Parameter können innerhalb des Booklets im Feld: `<BookletConfig>` im Element `<Config>` angegeben werden. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (**default** - **value 1-3**) in der nachfolgenden Tabelle für jeden Parameter getestet.
+Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Die hier aufgeführten Parameter können innerhalb des Testheftes im Feld: `<BookletConfig>` im Element `<Config>` angegeben werden. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (**default** - **value 1-3**) in der nachfolgenden Tabelle für jeden Parameter getestet.
 
 
 ```{=html}
@@ -255,7 +255,7 @@ Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Par
 </table>
 </div>
 ```
-Im Verzeichnis: **e2e/src/e2e/Booklet-Config** sind die dafür verwendeten Testdateien zu finden. Die Bezeichner entsprechen dabei den möglichen Werteoptionen (**default** - **value-3**). Zur Durchführung dieser Tests werden Booklets im Verzeichnis **sampledata/system-test** eingebunden. Der Bezeichner dieser Booklets enthält ebenfalls eine der möglichen Werteoptionen.
+Im Verzeichnis: **e2e/src/e2e/Booklet-Config** sind die dafür verwendeten Testdateien zu finden. Die Bezeichner entsprechen dabei den möglichen Werteoptionen (**default** - **value-3**). Zur Durchführung dieser Tests werden Testhefte im Verzeichnis **sampledata/system-test** eingebunden. Der Bezeichner dieser Testhefte enthält ebenfalls eine der möglichen Werteoptionen.
 
 Es gibt weitere Konfigurationsmöglichkeiten in der Booklet-XML, die nicht im Feld `<BookletConfig>` angegeben sind, sondern Testlet spezifisch im Feld: `<Restrictions>` angegeben werden können. Hier können einzelne Parameter in den folgenden Elementen verwendet werden:
 
@@ -283,7 +283,7 @@ Es gibt weitere Konfigurationsmöglichkeiten in der Booklet-XML, die nicht im Fe
 </table>
 </div>
 ```
-Der hier angegebene Parameter wird im Test: **time-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 3 Booklets im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_TestletRestrictionParam_1** - **CY_BKL_TestletRestrictionParam_3**.
+Der hier angegebene Parameter wird im Test: **time-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 3 Testhefte im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_TestletRestrictionParam_1** - **CY_BKL_TestletRestrictionParam_3**.
 
 #### `<DenyNavigationOnIncomplete>`
 
@@ -315,7 +315,7 @@ Der hier angegebene Parameter wird im Test: **time-restrictions** im Verzeichnis
 </table>
 </div>
 ```
-Der hier angegebene Parameter wird im Test: **nav-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 3 Booklets im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_RestrictionNavValue1 - 3**.
+Der hier angegebene Parameter wird im Test: **nav-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 3 Testhefte im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_RestrNavValue1 - 3**.
 
 #### `<LockAfterLeaving>`
 
@@ -347,6 +347,8 @@ Der hier angegebene Parameter wird im Test: **nav-restrictions** im Verzeichnis 
 </table>
 </div>
 ```
+
+Der hier angegebene Parameter wird im Test: **leave-block-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 2 Testhefte im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_RestrLockAfterLeave1 - 2**.
 
 ### Group-Monitor
 
