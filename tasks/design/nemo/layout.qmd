@@ -1,0 +1,87 @@
+---
+lang: de
+title: "Nemo: Allgemeines Layout"
+---
+
+# Scrollen/Abschneiden
+
+Der Player nimmt den gesamten verfügbaren Platz ein. Nichts wird gescrollt, sondern die Inhalte werden abgeschnitten, falls sie größer sind als der verfügbare Platz. Der Player wird versuchen, ggf. große Bilder auf die verfügbare Größe anzupassen.
+
+Die Position von Elementen kann dann auch vertikal bestimmt werden. Das bedeutet, dass als Positionierung "unten" zur Verfügung steht. Das Layout im StarS-Bereich sieht meist vor, Elemente vertikal und horizontal zu zentrieren.
+
+# Kopf-Informationen
+
+Folgende Daten gehören zu den allgemeinen Angaben - überlicherweise zu Beginn der Unitdefinition:
+
+```json
+{
+    "id": "nemo-player-unit-definition", // <1>
+    "version": "0.5", // <2>
+    "backgroundColor": "#ff668a" // <3>
+}
+```
+1. `id` des Schemas mit dem konstanten Wert `nemo-player-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
+2. `version` des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen. Wird die Angabe weggelassen, wird die letzte angenommen.
+3. `backgroundColor` betrifft die gesamte Player-Fläche. An keiner anderen Stelle der Unitdefinition kann eine Farbe gewählt werden. Zulässig sind die üblichen hexadezimalen Farbwerte mit einem Hash-Zeichen davor.
+
+Die in StarS üblichen Farbwerte:
+
+[&nbsp;#FFE693&nbsp;]{style="background-color: #FFE693"}
+[&nbsp;#FFD4AC&nbsp;]{style="background-color: #FFD4AC"}
+[&nbsp;#FFC7B1&nbsp;]{style="background-color: #FFC7B1"}
+[&nbsp;#FFD8F3&nbsp;]{style="background-color: #FFD8F3"}
+[&nbsp;#E3D8FF&nbsp;]{style="background-color: #E3D8FF"}
+[&nbsp;#E1E9FF&nbsp;]{style="background-color: #E1E9FF"}
+[&nbsp;#B1DFFF&nbsp;]{style="background-color: #B1DFFF"}
+[&nbsp;#BEF5FB&nbsp;]{style="background-color: #BEF5FB"}
+[&nbsp;#DBFFAC&nbsp;]{style="background-color: #DBFFAC"}
+[&nbsp;#ACFFB6&nbsp;]{style="background-color: #ACFFB6"}
+
+Auf [dieser Seite](https://www.w3schools.com/colors/colors_picker.asp) finden Sie eine Online-Auswahl für Farben.
+
+# Haupt-Audio
+
+StarS-Aufgaben enthalten oft Audio-Sequenzen. Da die Kinder im unteren Primarbereich nur sehr wenig lesen können, werden sie über **Audio-Instruktionen** geleitet. Außerdem werden oft **Audio-Stimuli** präsentiert.
+
+Links oben wird hierfür ein Symbol platziert, das einem Ohr gleicht. Ein automatisches Abspielen eines Audios beim Start/Betreten der Unit ist technisch nicht verlässlich zu implementieren. Daher muss die Testperson einen Button nutzen.
+
+::: {layout-ncol=2}
+
+![inaktiv](assets/ear.png)
+
+![aktiv (Abspielen)](assets/ear2.png)
+
+:::
+
+Ein Button wird für das Haupt-Audio eingeblendet, wenn in der Unitdefintion eine Audiosequenz gefunden wurde:
+
+```json
+{
+    "id": "nemo-player-unit-definition",
+    "version": "0.5",
+    "mainAudio": {
+        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAwYA...", // <1>
+        "firstClickLayer": true, // <2>
+        "animateButton": false, // <3>
+        "maxPlay": 0 // <4>
+    },
+}
+```
+1. `audioSource` enthält die Audio-Sequenz in base64-Kodierung
+2. Wenn `firstClickLayer` auf `true` gesetzt ist, dann wird beim ersten Aufruf eine unsichtbare Fläche über den gesamten Player gelegt. Wenn die Testperson dann irgendwo klickt, wird das als ein Klicken des Audio-Buttons gewertet. Der Layer wird dann sofort entfernt. Standardwert ist `false`, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keinen Layer. 
+3. Wenn `animateButton` auf `true` gesetzt ist, wird der Button nach einiger Zeit animiert (Wackeln). Darüber soll die Testperson auf den Button hingewiesen werden und dazu veranlasst werden, zu klicken. Der Standardwert ist `false`, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keine Animation.
+4. Über `maxPlay` kann festgelegt werden, wie oft die Audio-Sequenz gehört werden darf. Für die Vergleichbarkeit der Testergebnisse kann es wichtig sein, diese Anzahl zu begrenzen. Bei Standardwert `0` gibt es keine Beschränkung.
+
+# Weiter-Button
+
+Rechts unten wird ein Button mit einem Pfeil eingeblendet, der zur nächsten Unit führt. Über den Parameter `continueButton` kann man diesen Button in der Anzeige steuern:
+
+* `NO`: Der Button wird nie angezeigt.
+* `ALWAYS`: Der Button wird unabhängig vom Status der Beantwortung angezeigt.
+* `ON_INTERACTION`: Der Button wird erst angezeigt, wenn eine Interaktion (z. B. Klick auf den Audio-Button) registriert wurde.
+* `ON_ANY_RESPONSE`: Der Button wird erst angezeigt, wenn irgendeine Interaktionsvariable einen gültigen Wert bekommen hat.
+* `ON_FULL_CREDIT`: Der Button wird erst angezeigt, wenn für alle erwarteten Variablen die richtige Lösung gewählt wurde (verwendet z. B. in Übungsaufgaben)
+
+::: {.callout-note}
+Das Verhalten und die Anzeige des Weiter-Buttons wird ggf. auch durch den Abschnitt [feedback](feedback.qmd) beeinflusst.
+:::
