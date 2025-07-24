@@ -51,26 +51,7 @@ Bei diesem Interationstyp werden ausschließlich Buttons gezeigt. Sie werden hor
 
 In der Unitdefinition des Nemo-Players werden an verschiedenen Stellen Button-Definitionen erwartet. Diese folgen stets einem einheitlichen Muster:
 
-```json
-{
-    "options": [
-        {
-            "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK..." // <1>
-        },
-        {
-            "text": "Schnee" // <2>
-        },
-        {
-            "icon": "CHECK_GREEN" // <3>
-        }
-    ],
-}
-```
-1. `imageSource` enthält ein Bild in base64-Kodierung
-2. `text` liefert einen Text für den Button
-3. `icon` erzeugt ein Bild aus einer Sammlung von vordefinierten Symbolen; zugelassen: `CHECK_GREEN` und `CLOSE_RED`
-
-Bei den Optionen handelt es sich technisch um eine Liste (Array), und jeder Eintrag kann einen von drei Parametern haben. Die Spezifikation verhindert nicht, dass man mehrere Varianten des Parameters gleichzeitig verwendet, das ist aber in der Regel ohne Wirkung: Der zweite Parameter wird ignoriert (Reihenfolge `imageSource` > `icon` > `text`).
+{{< include _options.qmd >}}
 
 # Größe und Anordnung
 
@@ -91,7 +72,7 @@ Drei Parameter steuern die Anzeige:
 
 # Auswahl und Antwortwert
 
-Die ausgewählte Antwort wird bei Bild und Symbol durch einen fetten blauen Rand visualisiert. Bei Text erfolgt eine komplette Farbänderung im Hintergrund (blau) und bei der Schrift (weiß). Beispiele siehe oben.
+Die ausgewählte Antwort wird bei Bild und Symbol durch einen fetten blauen Rand visualisiert. Bei Text erfolgt eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß). Beispiele siehe oben.
 
 ```json
 {
