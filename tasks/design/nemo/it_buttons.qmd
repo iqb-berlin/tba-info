@@ -1,0 +1,91 @@
+---
+lang: de
+title: "Nemo: Interaktionstyp `BUTTONS`"
+lightbox: true
+---
+
+Bei diesem Interationstyp werden ausschließlich Buttons gezeigt. Sie werden horizontal und vertikal zentriert.
+
+
+:::: {layout="[ 50, 50 ]"}
+
+::: {#first-column}
+
+![](assets/interaction-buttons.png){group="my-gallery"}
+
+:::
+
+::: {#second-column}
+
+![](assets/interaction-buttons5.png){group="my-gallery"}
+
+:::
+
+::: {#first-column}
+
+![](assets/interaction-buttons2.png){group="my-gallery"}
+
+:::
+
+::: {#second-column}
+
+![](assets/interaction-buttons3.png){group="my-gallery"}
+
+:::
+
+::: {#first-column}
+
+![](assets/interaction-buttons4.png){group="my-gallery"}
+
+:::
+
+::: {#second-column}
+
+![](assets/interaction-buttons7.png){group="my-gallery"}
+
+:::
+
+:::
+
+# `image`, `text`, `icon`
+
+In der Unitdefinition des Nemo-Players werden an verschiedenen Stellen Button-Definitionen erwartet. Diese folgen stets einem einheitlichen Muster:
+
+{{< include _options.qmd >}}
+
+# Größe und Anordnung
+
+Die Buttons sind quadratisch. Bild, Symbol oder Text werden mittig zentriert und in einer festen Größe dargestellt. Sollte der Text zu groß sein oder das Bild nicht quadratisch, wird abgeschnitten. Die Buttons werden horizontal und vertikal zentriert. Dabei wird bei wenig Platz nicht umgebrochen, sondern notfalls abgeschnitten.
+
+Drei Parameter steuern die Anzeige:
+
+```json
+{
+    "size": "SMALL", // <1>
+    "gap": "BIG", // <2>
+    "numberOfRows": 2 // <3>
+}
+```
+1. `size` erlaubt für alle Buttons die Änderung der Größe. Mögliche Parameterwerte: `SMALL`, `MEDIUM` (Standard) und `BIG`.
+2. `gap` erlaubt für alle Buttons die Änderung des Abstandes zueinander. Mögliche Parameterwerte: `SMALL`, `MEDIUM` (Standard) und `BIG`.
+3. `numberOfRows`: wenn > 1, erzwingt dieser Parameter mehrere Zeilen der Button-Darstellung. Der verfügbare Platz spielt dabei keine Rolle. Standardwert ist 1
+
+# Auswahl und Antwortwert
+
+Die ausgewählte Antwort wird bei Bild und Symbol durch einen fetten blauen Rand visualisiert. Bei Text erfolgt eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß). Beispiele siehe oben.
+
+```json
+{
+    "variableId": "MK02", // <1>
+    "multiSelect": true // <2>
+}
+```
+1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `BUTTONS`.
+2. `multiSelect`: Wenn `true`, dann ist das Markieren mehrerer Optionen möglich. Standardwert ist `false`, d. h. mit einer neuen Auswahl wird die vorherige Auswahl aufgehoben.
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `BUTTONS` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](responses.qmd)).
+
+Für `value` muss unterschieden werden, ob `multiSelect` gesetzt wurde:
+
+* `multiSelect` `true`: Der Antwortwert ist ein String. Jedes Zeichen ist `0` oder `1` und steht für einen Button, ob er gewählt wurde oder nicht.
+* `multiSelect` `false`: Der Antwortwert ist eine Zahl mit der Position des gewählten Buttons. `1` steht für den ersten Button.

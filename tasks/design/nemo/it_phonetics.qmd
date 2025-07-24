@@ -1,0 +1,32 @@
+---
+lang: de
+title: "Nemo: Interaktionstyp `PHONETICS`"
+lightbox: true
+---
+
+Bei diesem Interaktionstyp werden eine Anzahl von Kreisen nebeneinander dargestellt. Die Testperson kann die Kreise anklicken und damit markieren bzw. auswählen. Anwendung findet dieses Modell beispielsweise bei der Phonem-/Laut-Erkennung: Für ein Wort, das über das Haupt-Audio gegeben wurde, sollen Laute erkannt und mit ihrer Position markiert werden.
+
+![](assets/interaction-phonetics.png)
+
+# Parameter
+
+```json
+{
+    "variableId": "MK02", // <1>
+    "numberOfOptions": 8 // <2>
+}
+```
+1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `PHONETICS`.
+2. `numberOfOptions` gibt die Anzahl der Kreise an (Standard: `7`)
+
+::: {.callout-note}
+Dieser Interaktionstyp enthält nur optionale Parameter. Trotzdem muss zumindest eine öffnende und eine schließende geschweifte Klammer als `interactionParameters`-Objekt in der Unitdefinition übergeben werden.
+:::
+
+# Auswahl und Antwortwert
+
+Die ausgewählte Antwort wird durch eine Farbänderung visualisiert.
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `PHONETICS` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](responses.qmd)).
+
+Der Antwortwert ist ein String. Jedes Zeichen ist `0` oder `1` und steht für einen Kreis, ob er gewählt wurde oder nicht.

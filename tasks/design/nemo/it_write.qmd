@@ -1,0 +1,38 @@
+---
+lang: de
+title: "Nemo: Interaktionstyp `WRITE`"
+lightbox: true
+---
+
+Bei diesem Interaktionstyp soll die Testperson über eine Tastatur im unteren Player-Bereich schreiben. Als Stimulus kann oben ein Bild platziert werden.
+
+![](assets/interaction-write.png)
+
+# Parameter
+
+```json
+{
+    "variableId": "MK02", // <1>
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...", // <2>
+    "text": "Ameise", // <3>
+    "addBackspaceKey": false, // <4>
+    "addUmlautKeys": false, // <5>
+    "keysToAdd": [ // <6>
+        "eu", "au", "ei", "ch", "sch", "ng"
+    ],
+    "maxInputLength": 12, // <7>
+}
+```
+1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `WRITE`.
+2. `imageSource` enthält ein Bild in base64-Kodierung
+3. `text` liefert einen Text statt eines Bildes oder - wenn dieses gegeben ist - Text für das `<alt>`-Attribut (Unterstützung der Barrierefreiheit)
+4. `addBackspaceKey`: Wenn `true` (Standardwert), dann wird eine Taste für das Löschen hinzugefügt. Es wird stets das letzte Zeichen gelöscht.
+5. `addUmlautKeys`: Wenn `true` (Standardwert), dann werden Tasten für die deutschen Umlaute äöü hinzugefügt (kein 'ß').
+6. `keysToAdd`: Als Liste von Strings können hier weitere Tasten hinzugefügt werden, die auch aus mehreren Buchstaben bestehen können (Grapheme).
+7. `maxInputLength`: Dieser Parameter bestimmt die Länge des virtuellen Eingabefeldes und verhindert auch die Eingabe eines längeren Wortes.
+
+# Antwortwert
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `WRITE` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](responses.qmd)).
+
+Der Antwortwert ist ein String und entspricht genau der Eingabe.

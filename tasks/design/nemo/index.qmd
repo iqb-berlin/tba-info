@@ -1,0 +1,81 @@
+---
+lang: de
+title: "Aufgaben für untere Primarstufe - Nemo-Player"
+format:
+  html:
+    toc: false
+other-links:
+  - text: Download
+    href: https://github.com/iqb-berlin/verona-modules-nemo/releases/latest
+  - text: Technische Spezifikation
+    href: https://iqb-specifications.github.io/nemo-player-unit-definition/
+---
+
+Die Interaktionsgestaltung mit sehr kleinen Kindern unterliegt besonderen Herausforderungen:
+
+* Scrollen ist nicht zulässig. Die Kinder würden es schwerlich verstehen, wenn nur Teile der Aufgabe zu sehen sind.
+* Drag'n'Drop kann nicht verwendet werden. Das "Liegenlassen" des Fingers und dann Bewegen kann nicht erwartet werden.
+* Die Eingabe von Ziffern oder Zeichen kann nur unter besonderen Vorkehrungen erwartet werden. Beispielsweise muss es Tasten für Grapheme "sch", "au" usw. geben, da das Lautverständnis noch unterentwickelt ist.
+* Es muss vielfach auf Audio zurückgegriffen werden - Stimulus und Instruktionen sind auf diese Art besser präsentiert.
+* Ein Feedback auf eine Interaktion ist wichtiger, auch als Audio.
+
+Der Player **Nemo** wurde am IQB für diesen Zweck entwickelt. Folgende besondere Funktionen sind implementiert:
+
+* Vollbildschirm, kein Scrollen, Positionierung der Elemente mittig auch vertikal.
+* Die Möglichkeiten der Gestaltung sind weitgehend eingeschränkt. Statt dessen wurden Grundtypen der Units entwickelt, die einheitlich gestaltet sind und nur wenig Beeinflussung ermöglichen. Dadurch kann die Syntax (semantischer Ansatz) einfach gehalten werden und die Kinder erleben wenige Überraschungen.
+* Schriftart angepasst an das frühe Lesen
+* Durch sofortige Kodierung entfällt ein nachgelagerter Kodierprozess. Die Antworten werden von Beginn an mit Kodierung gespeichert.
+* Besondere Funktionen für ein Feedback (Audio) ermöglichen die Verwendung des Players auch in einem Übungs-/Trainingsszenario.
+
+# Unit-Datenformat
+
+Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht zur Verfügung. Auf den folgenden Seiten ist daher die Syntax beschrieben, mit der Definitionen für die Präsentation und Interaktion erstellt werden. Es handelt sich um ein JSON-Datenformat. Eine technische Spezifikation ist über den Link rechts verfügbar. Beispiel:
+
+```json
+{
+    "id": "nemo-player-unit-definition", // <1>
+    "version": "0.5", // <2>
+    "interactionType": "WORD_SELECT", // <3>
+    "interactionParameters": { // <4>
+        "variableId": "MK02",
+        "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...",
+        "options": [
+            {
+                "text": "Busch"
+            },
+            {
+                "text": "Fisch"
+            },
+            {
+                "text": "Tisch"
+            },
+            {
+                "text": "Fleck"
+            }
+        ]
+    }
+}
+```
+1. `id` des Schemas mit dem konstanten Wert `nemo-player-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
+2. `version` des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen.
+3. `interactionType` legt den Typ der Interaktion fest. Hier gibt es mehrere Modelle, die auf den folgenden Seiten beschrieben sind.
+4. `interactionParameters`: Für jeden Interaktionstyp sind spezifische Parameter zu übergeben. Im oberen Beispiel soll ein Bild als Stimulus dargestellt werden und einige Buttons mit Worten zur Auswahl.
+
+::: {.callout-warning}
+## Datenformat in Entwicklung
+
+Ein erstes Release für die produktive Verwendung des Nemo-Players ist Ende August 2025 verfügbar. Bis zu diesem Zeitpunkt kann es noch größere Änderungen am Datenformat geben.
+:::
+
+
+
+* [Allgemeines Layout](layout.qmd) (Ausrichten, Haupt-Audio, Weiter-Button)
+* Interaktionstypen
+  * [BUTTONS](it_buttons.qmd)
+  * [SYLLABIFY](it_syllabify.qmd)
+  * [PHONETICS](it_phonetics.qmd)
+  * [WORD_SELECT](it_word_select.qmd)
+  * [DROP](it_drop.qmd)
+  * [WRITE](it_write.qmd)
+* [Antworten und Kodierung](responses.qmd)
+* [Rückmeldung an die Testperson](feedback.qmd)
