@@ -1,4 +1,32 @@
 ---
 lang: de
 title: "Nemo: Interaktionstyp `SYLLABIFY`"
+lightbox: true
 ---
+
+Bei diesem Interaktionstyp wird links ein großes Bild oder ein Text gezeigt und rechts soll einer von mehreren Buttons geklickt werden. Die Buttons werden automatisch erzeugt und stellen eine ansteigende Anzahl klatschender Hände dar. Die Testperson soll zunächst ggf. ein Wort für das Bild finden und den Button auswählen, der die richtige Anzahl Silben darstellt. Dies stellt das **Silbenklatschen** nach, das die Kinder kennen.
+
+![](assets/interaction-syllabify.png)
+
+# Parameter
+
+```json
+{
+    "variableId": "MK02", // <1>
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...", // <2>
+    "text": "Waschmaschine", // <3>
+    "numberOfOptions": 4 // <4>
+}
+```
+1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `SYLLABIFY`.
+2. `imageSource` enthält ein Bild in base64-Kodierung
+3. `text` liefert einen Text statt eines Bildes oder - wenn dieses gegeben ist - Text für das `<alt>`-Attribut (Unterstützung der Barrierefreiheit)
+4. `numberOfOptions`: Anzahl der maximal wählbaren Silben; Standard ist `5`
+
+Es muss entweder ein Bild oder ein Text gegeben sein.
+
+# Auswahl und Antwortwert
+
+Die ausgewählte Antwort wird durch einen fetten blauen Rand visualisiert. Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `SYLLABIFY` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](reponses.qmd)).
+
+Der Antwortwert ist eine Zahl mit der Position des gewählten Buttons. `1` steht für den ersten Button und damit für "eine Silbe".
