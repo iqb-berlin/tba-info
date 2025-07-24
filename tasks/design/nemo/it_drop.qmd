@@ -1,4 +1,36 @@
 ---
 lang: de
 title: "Nemo: Interaktionstyp `DROP`"
+lightbox: true
 ---
+
+Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild.
+
+![](assets/interaction-drop.png)
+
+# Parameter
+
+```json
+{
+    "variableId": "MK02", // <1>
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...", // <2>
+    "text": "Koffer" // <3>
+}
+```
+1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `DROP`.
+2. `imageSource` enthält ein Bild in base64-Kodierung
+3. `text` liefert Text für das `<alt>`-Attribut (Unterstützung der Barrierefreiheit)
+
+# Optionen
+
+{{< include _options.qmd >}}
+
+Die ursprüngliche Intention für diesen Interaktionstyp war es, Objekte als Bild auszuwählen. Damit wäre nur der Parameter `imageSource` zulässig. Um die Verwendbarkeit dieses Modells zu erweitern, sind auch die Optionsparameter `text` und `icon` zulässig.
+
+# Auswahl und Antwortwert
+
+Die ausgewählte Antwort wird durch eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß) visualisiert (Parameter `text`) oder durch einen fetten blauen Rand. Außerdem "wandert" der Button auf das untere Bild. Sollte sich dort bereits ein Button befinden, "wandert" dieser wieder an seine vorherige Stelle. Ein Klick auf einen Button, der sich auf dem Bild befindet, lässt diesen ebenfalls an seine Ausgangsposition zurückwandern.
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `DROP` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](reponses.qmd)).
+
+Der Antwortwert ist eine Zahl mit der Position des gewählten Buttons. `1` steht für die erste Option.
