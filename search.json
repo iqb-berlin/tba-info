@@ -4196,7 +4196,59 @@
     "href": "tasks/design/nemo/responses.html",
     "title": "Nemo: Antwortspeicherung und Kodieren",
     "section": "",
-    "text": "Zurück nach oben",
+    "text": "Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für Nemo die Antwort im Standard-Datenformat des IQB gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von “Richtig”/“Falsch”) bekommen.\nGrundsätzlich ist die Kodierung in Nemo optional. Da die Architektur des StarS-Projektes jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.\nAlle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur coding außerhalb der Interaktionsparameter.\nDas obige Beispiel definiert für die Variable “MK02”, dass der Code 1 und der Score 1 vergeben werden soll, wenn die Summe des Antwortwertes genau 4 beträgt. Ansonsten wird Code 0 und Score 0 vergeben.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/nemo/responses.html#variableid",
+    "href": "tasks/design/nemo/responses.html#variableid",
+    "title": "Nemo: Antwortspeicherung und Kodieren",
+    "section": "variableId",
+    "text": "variableId\nDas Kodierschema erlaubt die Kodierung mehrerer Variablen. Allerdings enthält eine Unitdefinition für Nemo meist nur ein Item und damit eine Variable. Daher kann die Angabe der variableId auch wegfallen und Nemo wird die variableId aus dem Interaktionstyp bzw. den Interaktionsparametern ableiten. Erst wenn mehrere Variablen zu kodieren sind, muss die variableId angegeben werden.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/nemo/responses.html#source",
+    "href": "tasks/design/nemo/responses.html#source",
+    "title": "Nemo: Antwortspeicherung und Kodieren",
+    "section": "source",
+    "text": "source\nDer Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Zunächst muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:\n\nVALUE: Es wird direkt der Antwortwert genommen (Standard).\nVALUE_TO_UPPER: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.\nSUM: Der Antwortwert ist ein String in der Form “01101”, und es wird die Summe der “1”-Zeichen berechnet.\nLENGTH: Es handelt sich beim Antwortwert um einen String und es wird die Länge ermittelt.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/nemo/responses.html#codes",
+    "href": "tasks/design/nemo/responses.html#codes",
+    "title": "Nemo: Antwortspeicherung und Kodieren",
+    "section": "codes",
+    "text": "codes\nHier können mehrere Codes definiert werden. Wenn beispielsweise ein differenziertes Feedback gegeben werden soll (siehe Übungsaufgaben/Rückmeldung), kann die Unterscheidung von Falsch-Antworten wichtig sein.\nEs wird stets der erste Code genommen, dessen Regel zutrifft. Die anderen Regeln werden ignoriert. Daher spielt die Reihenfolge der Codes eine Rolle.\nWenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, sucht Nemo den nächsten freien Code-Wert.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/nemo/responses.html#rule-code-score",
+    "href": "tasks/design/nemo/responses.html#rule-code-score",
+    "title": "Nemo: Antwortspeicherung und Kodieren",
+    "section": "rule, code, score",
+    "text": "rule, code, score\nEine Regel besteht stets aus einer Vergleichsmethode und einem Vergleichswert. Als Vergleichsmethoden stehen equalsString, equalsNumber, greaterThan und lessThan zur Verfügung. equalsString erwartet als Vergleichswert einen String, die anderen eine Zahl.",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
