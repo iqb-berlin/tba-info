@@ -35,25 +35,27 @@ Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht
 ```json
 {
     "id": "nemo-player-unit-definition", // <1>
-    "version": "0.5", // <2>
-    "interactionType": "WORD_SELECT", // <3>
+    "version": "0.6", // <2>
+    "interactionType": "BUTTONS", // <3>
     "interactionParameters": { // <4>
         "variableId": "MK02",
         "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...",
-        "options": [
-            {
-                "text": "Busch"
-            },
-            {
-                "text": "Fisch"
-            },
-            {
-                "text": "Tisch"
-            },
-            {
-                "text": "Fleck"
-            }
-        ]
+        "options": {
+            "buttons": [
+                {
+                    "text": "Busch"
+                },
+                {
+                    "text": "Fisch"
+                },
+                {
+                    "text": "Tisch"
+                },
+                {
+                    "text": "Fleck"
+                }
+            ]
+        }
     }
 }
 ```
@@ -73,9 +75,6 @@ Ein erstes Release für die produktive Verwendung des Nemo-Players ist Ende Augu
 * [Rahmen/allgemeines Layout](layout.qmd) (Ausrichten, Haupt-Audio, Weiter-Button)
 * Interaktionstypen
   * [Buttons](it_buttons.qmd)
-  * [Silben](it_syllabify.qmd)
-  * [Wort auswählen](it_word_select.qmd)
-  * [Laute/Phoneme](it_phonetics.qmd)
   * [Auswahl fallen lassen](it_drop.qmd)
   * [Schreiben](it_write.qmd)
 * [Antworten kodieren](responses.qmd)
