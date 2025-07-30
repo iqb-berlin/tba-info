@@ -1,6 +1,6 @@
 ---
 lang: de
-title: "Untere Primarstufe: Nemo-Player"
+title: "Untere Primarstufe: StarS-Player"
 format:
   html:
     toc: false
@@ -8,7 +8,7 @@ other-links:
   - text: Download
     href: https://github.com/iqb-berlin/verona-modules-nemo/releases/latest
   - text: Technische Spezifikation
-    href: https://iqb-specifications.github.io/nemo-player-unit-definition/
+    href: https://iqb-specifications.github.io/stars-unit-definition/
 ---
 
 Die Interaktionsgestaltung mit sehr kleinen Kindern unterliegt besonderen Herausforderungen:
@@ -20,7 +20,7 @@ Die Interaktionsgestaltung mit sehr kleinen Kindern unterliegt besonderen Heraus
 * Es muss vielfach auf Audio zurückgegriffen werden - Stimulus und Instruktionen sind auf diese Art besser präsentiert.
 * Ein Feedback auf eine Interaktion ist wichtiger, auch als Audio.
 
-Der Player **Nemo** wird am IQB im Rahmen des [StarS-Projektes](https://www.iqb.hu-berlin.de/research/dm/StarS/) für diesen Zweck entwickelt. Folgende besondere Funktionen sind implementiert:
+Der Player **StarS** wird am IQB im Rahmen des [StarS-Projektes](https://www.iqb.hu-berlin.de/research/dm/StarS/) für diesen Zweck entwickelt. Folgende besondere Funktionen sind implementiert:
 
 * Vollbildschirm, kein Scrollen, Positionierung der Elemente mittig auch vertikal.
 * Die Möglichkeiten der Gestaltung sind weitgehend eingeschränkt. Statt dessen wurden Grundtypen der Units entwickelt, die einheitlich gestaltet sind und nur wenig Beeinflussung ermöglichen. Dadurch kann die Syntax (semantischer Ansatz) einfach gehalten werden und die Kinder erleben wenige Überraschungen.
@@ -34,7 +34,7 @@ Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht
 
 ```json
 {
-    "id": "nemo-player-unit-definition", // <1>
+    "id": "stars-unit-definition", // <1>
     "version": "0.6", // <2>
     "interactionType": "BUTTONS", // <3>
     "interactionParameters": { // <4>
@@ -59,7 +59,7 @@ Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht
     }
 }
 ```
-1. `id` des Schemas mit dem konstanten Wert `nemo-player-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
+1. `id` des Schemas mit dem konstanten Wert `stars-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
 2. `version` des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen.
 3. `interactionType` legt den Typ der Interaktion fest. Hier gibt es mehrere Modelle, die auf den folgenden Seiten beschrieben sind.
 4. `interactionParameters`: Für jeden Interaktionstyp sind spezifische Parameter zu übergeben. Im oberen Beispiel soll ein Bild als Stimulus dargestellt werden und einige Buttons mit Worten zur Auswahl.
@@ -67,7 +67,7 @@ Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht
 ::: {.callout-warning}
 ## Datenformat in Entwicklung
 
-Ein erstes Release für die produktive Verwendung des Nemo-Players ist Ende August 2025 verfügbar. Bis zu diesem Zeitpunkt kann es noch größere Änderungen am Datenformat geben.
+Ein erstes Release für die produktive Verwendung des StarS-Players ist Ende August 2025 verfügbar. Bis zu diesem Zeitpunkt kann es noch größere Änderungen am Datenformat geben.
 :::
 
 # Weiterlesen

@@ -1,12 +1,12 @@
 ---
 lang: de
-title: "Nemo: Antwortspeicherung und Kodieren"
+title: "StarS: Antwortspeicherung und Kodieren"
 toc-expand: true
 ---
 
-Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien "Richtig" und "Falsch", für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für Nemo die Antwort im [Standard-Datenformat des IQB](../../../coding/data-structures/response.qmd) gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von "Richtig"/"Falsch") bekommen.
+Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien "Richtig" und "Falsch", für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für den StarS-Player die Antwort im [Standard-Datenformat des IQB](../../../coding/data-structures/response.qmd) gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von "Richtig"/"Falsch") bekommen.
 
-Grundsätzlich ist die Kodierung in Nemo optional. Da die Architektur des [StarS-Projektes](https://www.iqb.hu-berlin.de/research/dm/StarS/) jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.
+Grundsätzlich ist die Kodierung im StarS-Pplayer optional. Da die Architektur des [StarS-Projektes](https://www.iqb.hu-berlin.de/research/dm/StarS/) jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.
 
 Alle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur `coding` außerhalb der Interaktionsparameter.
 
@@ -36,7 +36,7 @@ Das obige Beispiel definiert für die Variable "MK02", dass der Code 1 und der S
 
 ## `variableId`
 
-Das Kodierschema erlaubt die Kodierung mehrerer Variablen. Allerdings enthält eine Unitdefinition für Nemo meist nur ein Item und damit eine Variable. Daher kann die Angabe der variableId auch wegfallen und Nemo wird die variableId aus dem Interaktionstyp bzw. den Interaktionsparametern ableiten. Erst wenn mehrere Variablen zu kodieren sind, muss die variableId angegeben werden.
+Das Kodierschema erlaubt die Kodierung mehrerer Variablen. Allerdings enthält eine Unitdefinition für den StarS-Player meist nur ein Item und damit eine Variable. Daher kann die Angabe der variableId auch wegfallen und StarS wird die variableId aus dem Interaktionstyp bzw. den Interaktionsparametern ableiten. Erst wenn mehrere Variablen zu kodieren sind, muss die variableId angegeben werden.
 
 ## `source`
 
@@ -53,7 +53,7 @@ Hier können mehrere Codes definiert werden. Wenn beispielsweise ein differenzie
 
 Es wird stets der erste Code genommen, dessen Regel zutrifft. Die anderen Regeln werden ignoriert. Daher spielt die Reihenfolge der Codes eine Rolle.
 
-Wenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, sucht Nemo den nächsten freien Code-Wert.
+Wenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, sucht der StarS-Player den nächsten freien Code-Wert.
 
 ## `rule`, `code`, `score`
 
