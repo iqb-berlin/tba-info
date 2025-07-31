@@ -995,9 +995,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#parameter" id="toc-parameter" class="nav-link active" data-scroll-target="#parameter">Parameter</a>
   <ul class="collapse">
   <li><a href="#variableid" id="toc-variableid" class="nav-link" data-scroll-target="#variableid"><code>variableId</code></a></li>
-  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source"><code>source</code></a></li>
+  <li><a href="#responsecomplete" id="toc-responsecomplete" class="nav-link" data-scroll-target="#responsecomplete"><code>responseComplete</code></a></li>
+  <li><a href="#codingsource" id="toc-codingsource" class="nav-link" data-scroll-target="#codingsource"><code>codingSource</code></a></li>
   <li><a href="#codes" id="toc-codes" class="nav-link" data-scroll-target="#codes"><code>codes</code></a></li>
-  <li><a href="#rule-code-score" id="toc-rule-code-score" class="nav-link" data-scroll-target="#rule-code-score"><code>rule</code>, <code>code</code>, <code>score</code></a></li>
+  <li><a href="#kodierregel-method-und-parameter" id="toc-kodierregel-method-und-parameter" class="nav-link" data-scroll-target="#kodierregel-method-und-parameter">Kodierregel: <code>method</code> und <code>parameter</code></a></li>
   </ul></li>
   <li><a href="#antwort-status" id="toc-antwort-status" class="nav-link" data-scroll-target="#antwort-status">Antwort-Status</a></li>
   </ul>
@@ -1027,17 +1028,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für den StarS-Player die Antwort im <a href="../../../coding/data-structures/response.html">Standard-Datenformat des IQB</a> gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von “Richtig”/“Falsch”) bekommen.</p>
 <p>Grundsätzlich ist die Kodierung im StarS-Pplayer optional. Da die Architektur des <a href="https://www.iqb.hu-berlin.de/research/dm/StarS/">StarS-Projektes</a> jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.</p>
-<p>Alle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur <code>coding</code> außerhalb der Interaktionsparameter.</p>
+<p>Alle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur <code>variableInfo</code> außerhalb der Interaktionsparameter.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"coding"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"variableInfo"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"variableId"</span><span class="fu">:</span> <span class="st">"MK02"</span><span class="fu">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"SUM"</span><span class="fu">,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"codes"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">{</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">"rule"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"equalsNumber"</span><span class="fu">:</span> <span class="dv">4</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">},</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"responseComplete"</span><span class="fu">:</span> <span class="st">"ON_ANY_RESPONSE"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"codingSource"</span><span class="fu">:</span> <span class="st">"SUM"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"codes"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">"method"</span><span class="fu">:</span> <span class="st">"EQUALS"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"4"</span><span class="fu">,</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">"score"</span><span class="fu">:</span> <span class="dv">1</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">}</span></span>
@@ -1050,27 +1051,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Parameter</h1>
 <section id="variableid" class="level2">
 <h2 class="anchored" data-anchor-id="variableid"><code>variableId</code></h2>
-<p>Das Kodierschema erlaubt die Kodierung mehrerer Variablen. Allerdings enthält eine Unitdefinition für den StarS-Player meist nur ein Item und damit eine Variable. Daher kann die Angabe der variableId auch wegfallen und StarS wird die variableId aus dem Interaktionstyp bzw. den Interaktionsparametern ableiten. Erst wenn mehrere Variablen zu kodieren sind, muss die variableId angegeben werden.</p>
+<p>Das Kodierschema erlaubt die Kodierung mehrerer Variablen. Auch wenn es nur eine Variable im Player geben sollte oder die ID der Variablen automatisch über den Interaktionstyp vergeben wurde (z. B. <code>BUTTONS</code> oder <code>WRITE</code>), muss die ID der Variablen angegeben werden.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source"><code>source</code></h2>
+<section id="responsecomplete" class="level2">
+<h2 class="anchored" data-anchor-id="responsecomplete"><code>responseComplete</code></h2>
+<p>Über diesen Parameter wird angezeigt, wann diese Variable als “vollständig beantwortet” anzusehen ist. In üblichen Formularen wird dieser Zustand auch mit “erforderliche Eingabe/required” bezeichnet. Der Player prüft für alle Variablen diese Angabe und stellt die Information zur Verfügung:</p>
+<ul>
+<li>Die Information wird an das Testcenter während des Tests geschickt. Über separate Einstellungen kann man dann erreichen, dass beispielsweise ein Weitergehen zur nächsten Unit verhindert wird, solange nicht alle Antworten als gegeben gewertet sind.</li>
+<li>Die Information kann innerhalb des Players verwertet werden, um beispielsweise einen Weiter-Button erst dann einzublenden, wenn alle Antworten gegeben sind.</li>
+</ul>
+<p>In der entsprechenden <a href="https://verona-interfaces.github.io/player-docs/vopStateChangedNotification.html#responseprogress">Spezifikation der Verona-Schnittstelle</a> sind drei Zustände definiert, die eine ansteigende Anzahl der beantworteten Variablen ausdrücken: <code>none</code>, <code>some</code> und <code>complete</code>. Der letzte Zustand wird erst dann gemeldet, wenn für alle Variablen ein Mindestzustand für “beantwortet” erreicht wurde.</p>
+<p>Für jede Variable kann für den Parameter <code>responseComplete</code> folgendes festgelegt werden:</p>
+<ul>
+<li><code>ALWAYS</code>: Die Variable gilt stets als beantwortet, egal ob eine Interaktion erfolgte und irgendeine Antwort gegeben wurde. Damit wird die Beantwortung als optional gekennzeichnet, d.&nbsp;h. sie ist nicht erforderlich für das weitere Vorgehen. Dies ist die Standardeinstellung, d.&nbsp;h. ohne diesen Parameter wird dieses Verhalten gesetzt.</li>
+<li><code>ON_ANY_RESPONSE</code>: Es muss irgendeine Antwort gegeben werden. Für StarS bedeutet dies, dass für diese Variable eine Antwort und dann auch eine Kodierung vorliegt. Ob die Antwort richtig ist, spielt keine Rolle. Diese Einstellung ist für die meisten Fälle in StarS sinnvoll.</li>
+<li><code>ON_FULL_CREDIT</code>: Es muss die richtige Antwort gegeben werden. Dazu muss natürlich mindestens ein Code definiert werden, der einen Score &gt; 1 hat (s. unten). Für “Full Credit/Volle Punktzahl” nimmt dann der Player den höchsten Score an. Dieses Szenario eignet sich für Übungsaufgaben, bei denen die Testperson die Beantwortung eines bestimmten Frageformates lernen soll. Ein Weitergehen wird erst dann erlaubt, wenn man annehmen kann, dass die Testperson sinnvoll mit dem Computer interagiert.</li>
+</ul>
+</section>
+<section id="codingsource" class="level2">
+<h2 class="anchored" data-anchor-id="codingsource"><code>codingSource</code></h2>
 <p>Der Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Zunächst muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:</p>
 <ul>
 <li><code>VALUE</code>: Es wird direkt der Antwortwert genommen (Standard).</li>
 <li><code>VALUE_TO_UPPER</code>: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.</li>
 <li><code>SUM</code>: Der Antwortwert ist ein String in der Form “01101”, und es wird die Summe der “1”-Zeichen berechnet.</li>
-<li><code>LENGTH</code>: Es handelt sich beim Antwortwert um einen String und es wird die Länge ermittelt.</li>
 </ul>
 </section>
 <section id="codes" class="level2">
 <h2 class="anchored" data-anchor-id="codes"><code>codes</code></h2>
 <p>Hier können mehrere Codes definiert werden. Wenn beispielsweise ein differenziertes Feedback gegeben werden soll (siehe <a href="../../../tasks/design/stars/feedback.html">Übungsaufgaben/Rückmeldung</a>), kann die Unterscheidung von Falsch-Antworten wichtig sein.</p>
 <p>Es wird stets der erste Code genommen, dessen Regel zutrifft. Die anderen Regeln werden ignoriert. Daher spielt die Reihenfolge der Codes eine Rolle.</p>
-<p>Wenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, sucht der StarS-Player den nächsten freien Code-Wert.</p>
+<p>Wenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, nimmt der StarS-Player den höchsten Code-Wert + 1.</p>
 </section>
-<section id="rule-code-score" class="level2">
-<h2 class="anchored" data-anchor-id="rule-code-score"><code>rule</code>, <code>code</code>, <code>score</code></h2>
-<p>Eine Regel besteht stets aus einer Vergleichsmethode und einem Vergleichswert. Als Vergleichsmethoden stehen <code>equalsString</code>, <code>equalsNumber</code>, <code>greaterThan</code> und <code>lessThan</code> zur Verfügung. <code>equalsString</code> erwartet als Vergleichswert einen String, die anderen eine Zahl.</p>
+<section id="kodierregel-method-und-parameter" class="level2">
+<h2 class="anchored" data-anchor-id="kodierregel-method-und-parameter">Kodierregel: <code>method</code> und <code>parameter</code></h2>
+<p>Ein Code-Eintrag führt stets zum Setzen eines <code>code</code>- und eines <code>score</code>-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über <code>method</code> und <code>parameter</code>. Folgende Methoden stehen zur Verfügung:</p>
+<ul>
+<li><code>EQUALS</code>: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.</li>
+<li><code>GREATER_THAN</code>, <code>LESS_THAN</code>: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.</li>
+</ul>
 </section>
 </section>
 <section id="antwort-status" class="level1">
@@ -1080,7 +1099,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>DISPLAYED</code>: Es erfolgte noch keine Interaktion, sondern das Item wurde nur angezeigt.</li>
 <li><code>VALUE_CHANGED</code>: Nach einer Interaktion hat die Variable einen Wert erhalten. Dieser Status ist nur dann in den Daten zu finden, wenn keine Kodieranweisungen gefunden wurden.</li>
 <li><code>CODING_COMPLETE</code>: Der Antwortwert wurde erfolgreich kodiert.</li>
-<li><code>CODING_ERROR</code>: Während der Kodierung ist ein Fehler aufgetreten. Dies kann an durch eine fehlerhafte Regel eintreten (Antwortwert ist Zahl, aber Regel vergleicht Strings).</li>
+<li><code>CODING_ERROR</code>: Während der Kodierung ist ein Fehler aufgetreten. Dies kann durch eine fehlende oder fehlerhafte Regel eintreten.</li>
 </ul>
 
 
