@@ -3,11 +3,17 @@ lang: de
 title: "Format Base64"
 ---
 
-Bei dem Format [Base64](https://de.wikipedia.org/wiki/Base64) handelt es sich um Mediendateien (Audio, Video, Bilder), das von allen Betriebssystemen gleichermaßen verstanden wird. Es findet daher im Web-Bereich Anwendung. Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu speichern. Dadurch vermeidet man externe Bezüge und kann Unit-Definitionen kompakt schreiben.
+Bei dem Format [Base64](https://de.wikipedia.org/wiki/Base64) handelt es sich um Mediendateien (Audio, Video, Bilder). Es nutzt nur Zeichen, die in allen Betriebssystemen vorhanden sind (nur 7 Bit). Es kann daher wie Text behandelt werden (String-Datentyp) und lässt sich in einem Texteditor (z. B. [Notepad++](https://notepad-plus-plus.org/)) anschauen.
+
+Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu speichern. Dadurch vermeidet man externe Bezüge und kann Unit-Definitionen kompakt schreiben. Der Base64-String wird als Dateninhalt z. B. in eine JSON-Datenstruktur eingebettet.
 
 Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber -- z. B. in einer frühen Entwicklungsphase eines Players -- manuell diese Konvertierung erfolgen muss, dann kann folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.
 
 # iqb-base64-generator
+
+Das folgende Tool ist ein kleines Script, das mit PowerShell in einem Windows-Betriebssystem ausgeführt wird. Man speichert alle Dateien, zu denen man einen Base64-String benötigt, in ein Verzeichnis. Das Script generiert Base64-Strings und speichert sie in einer neuen JSON-Datei.
+
+## Download
 
 Als erster Schritt muss das Script heruntergeladen werden:
 
@@ -17,3 +23,53 @@ Als erster Schritt muss das Script heruntergeladen werden:
 Das Script kann [hier heruntergeladen](https://github.com/iqb-berlin/base64-generator/releases/latest) werden.
 :::
 
+Mit einem Klick auf den Link **base64-generator.ps1** startet der Download. Die Script-Datei befindet sich anschließend im Download-Ordner des Browsers.
+
+## Aufruf
+
+Aus dem Download-Ordner des Browsers sollte man die Script-Datei in ein Verzeichnis nahe den zu konvertierenden Dateien verschieben. Der einfachste Aufruf erfolgt, indem man die Script-Datei in den Ordner speichert, in dem die zu konvertierenden Dateien liegen. Dann genügt der Aufruf ohne Parameter: Mit der rechten Maustaste auf das Script das Kontext-Menü öffnen, "Mit PowerShell ausführen" auswählen und die Sicherheitsfragen beantworten.
+
+Anschließend findet sich im Ordner zusätzlich eine Datei `base64.json` z. B. mit folgendem Inhalt (base64-Strings gekürzt):
+
+```json
+{
+    "tool":  "iqb-base64-generator",
+    "version":  "1.1",
+    "created":  "08.08.2025 16:19:50",
+    "files":  [
+                  {
+                      "imageSource":  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAB5CAM......",
+                      "filename":  "emergency1.png"
+                  },
+                  {
+                      "imageSource":  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRX.....",
+                      "filename":  "emergency2.jpg"
+                  },
+                  {
+                      "imageSource":  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOoAAA....",
+                      "filename":  "emergency2.png"
+                  }
+              ]
+}
+```
+
+Wenn man nun diese Datei mit einem Texteditor öffnet, kann man die jeweilige Zeile mit dem Base64-String kopieren und in die Zieldatei übertragen. Bei dem Format JSON bitte folgendes beachten:
+
+* Als Name der Property nutzt das Script `audioSource` bzw. `imageSource`. Dies muss man ggf. an die jeweilige erforderliche Syntax anpassen.
+* Hinter dem Base64-String ist noch ein Komma platziert. Wenn jedoch in der Zieldatei dieser Eintrag der letzte ist, muss dieses Komma entfernt werden. Sonst könnte die JSON-datei ungültig werden, d. h. das Zielsystem lehnt die Datendatei ab. Die Editoren bieten mitunter eine Prüfung der Syntax an (z. B. in Notepad++ Menüpunkt "Plugins/JsonTools/check JSON syntax now").
+* Eine falsche Einrückung spielt in JSON technisch keine Rolle, d. h. man könnte es so lassen. In größeren Datendateien erhöht eine konsistente Einrückung jedoch die Lesbarkeit und vermeidet Fehler. Die Editoren bieten mitunter eine Reformatierung der Syntax an (z. B. in Notepad++ Menüpunkt "Plugins/JsonTools/Pretty-print current JSON file)".
+
+## Aufruf mit Parametern
+
+Bei der obigen Aufruf-Variante wird die Ausgabe des Scriptes nur sehr kurz eingeblendet und verschwindet wieder. Wenn man genauer hinschauen möchte, was das Script meldet, oder wenn man Parameter an das Script übergeben möchte, geht man folgendermaßen vor:
+
+1. Rechter Mausklick in dem Ordner, in dem sich die Mediendateien und das Script befinden.
+2. "In Terminal öffnen" wählen
+
+Es öffnet sich ein Kommando-Fenster. Hier gibt man ein `.\base64-generator.ps1` (siehe folgendes Bild).
+
+![](base64_1.png)
+
+Man kann auf dieser Basis auch Parameter an das Script übergeben. Als erster Parameter wird das Verzeichnis erwartet, in dem sich die Mediendateien befinden. Als zweiter Parameter kann der Name der Datei übergeben werden, in der dann die Base64-Strings gespeichert sind. Auf diese Art kann sich der Ort der Scriptdatei vom Ort der Mediendateien unterscheiden.
+
+![](base64_2.png)
