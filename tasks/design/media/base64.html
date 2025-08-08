@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -963,7 +998,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#iqb-base64-generator" id="toc-iqb-base64-generator" class="nav-link active" data-scroll-target="#iqb-base64-generator">iqb-base64-generator</a></li>
+  <li><a href="#iqb-base64-generator" id="toc-iqb-base64-generator" class="nav-link active" data-scroll-target="#iqb-base64-generator">iqb-base64-generator</a>
+  <ul class="collapse">
+  <li><a href="#download" id="toc-download" class="nav-link" data-scroll-target="#download">Download</a></li>
+  <li><a href="#aufruf" id="toc-aufruf" class="nav-link" data-scroll-target="#aufruf">Aufruf</a></li>
+  <li><a href="#aufruf-mit-parametern" id="toc-aufruf-mit-parametern" class="nav-link" data-scroll-target="#aufruf-mit-parametern">Aufruf mit Parametern</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -989,10 +1029,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Bei dem Format <a href="https://de.wikipedia.org/wiki/Base64">Base64</a> handelt es sich um Mediendateien (Audio, Video, Bilder), das von allen Betriebssystemen gleichermaßen verstanden wird. Es findet daher im Web-Bereich Anwendung. Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu speichern. Dadurch vermeidet man externe Bezüge und kann Unit-Definitionen kompakt schreiben.</p>
+<p>Bei dem Format <a href="https://de.wikipedia.org/wiki/Base64">Base64</a> handelt es sich um Mediendateien (Audio, Video, Bilder). Es nutzt nur Zeichen, die in allen Betriebssystemen vorhanden sind (nur 7 Bit). Es kann daher wie Text behandelt werden (String-Datentyp) und lässt sich in einem Texteditor (z. B. <a href="https://notepad-plus-plus.org/">Notepad++</a>) anschauen.</p>
+<p>Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu speichern. Dadurch vermeidet man externe Bezüge und kann Unit-Definitionen kompakt schreiben. Der Base64-String wird als Dateninhalt z. B. in eine JSON-Datenstruktur eingebettet.</p>
 <p>Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber – z. B. in einer frühen Entwicklungsphase eines Players – manuell diese Konvertierung erfolgen muss, dann kann folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.</p>
 <section id="iqb-base64-generator" class="level1">
 <h1>iqb-base64-generator</h1>
+<p>Das folgende Tool ist ein kleines Script, das mit PowerShell in einem Windows-Betriebssystem ausgeführt wird. Man speichert alle Dateien, zu denen man einen Base64-String benötigt, in ein Verzeichnis. Das Script generiert Base64-Strings und speichert sie in einer neuen JSON-Datei.</p>
+<section id="download" class="level2">
+<h2 class="anchored" data-anchor-id="download">Download</h2>
 <p>Als erster Schritt muss das Script heruntergeladen werden:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1007,8 +1051,52 @@ Download
 <p>Das Script kann <a href="https://github.com/iqb-berlin/base64-generator/releases/latest">hier heruntergeladen</a> werden.</p>
 </div>
 </div>
+<p>Mit einem Klick auf den Link <strong>base64-generator.ps1</strong> startet der Download. Die Script-Datei befindet sich anschließend im Download-Ordner des Browsers.</p>
+</section>
+<section id="aufruf" class="level2">
+<h2 class="anchored" data-anchor-id="aufruf">Aufruf</h2>
+<p>Aus dem Download-Ordner des Browsers sollte man die Script-Datei in ein Verzeichnis nahe den zu konvertierenden Dateien verschieben. Der einfachste Aufruf erfolgt, indem man die Script-Datei in den Ordner speichert, in dem die zu konvertierenden Dateien liegen. Dann genügt der Aufruf ohne Parameter: Mit der rechten Maustaste auf das Script das Kontext-Menü öffnen, “Mit PowerShell ausführen” auswählen und die Sicherheitsfragen beantworten.</p>
+<p>Anschließend findet sich im Ordner zusätzlich eine Datei <code>base64.json</code> z. B. mit folgendem Inhalt (base64-Strings gekürzt):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"tool"</span><span class="fu">:</span>  <span class="st">"iqb-base64-generator"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span>  <span class="st">"1.1"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"created"</span><span class="fu">:</span>  <span class="st">"08.08.2025 16:19:50"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"files"</span><span class="fu">:</span>  <span class="ot">[</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAB5CAM......"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency1.png"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRX....."</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency2.jpg"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOoAAA...."</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency2.png"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>              <span class="ot">]</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wenn man nun diese Datei mit einem Texteditor öffnet, kann man die jeweilige Zeile mit dem Base64-String kopieren und in die Zieldatei übertragen. Bei dem Format JSON bitte folgendes beachten:</p>
+<ul>
+<li>Als Name der Property nutzt das Script <code>audioSource</code> bzw. <code>imageSource</code>. Dies muss man ggf. an die jeweilige erforderliche Syntax anpassen.</li>
+<li>Hinter dem Base64-String ist noch ein Komma platziert. Wenn jedoch in der Zieldatei dieser Eintrag der letzte ist, muss dieses Komma entfernt werden. Sonst könnte die JSON-datei ungültig werden, d.&nbsp;h. das Zielsystem lehnt die Datendatei ab. Die Editoren bieten mitunter eine Prüfung der Syntax an (z. B. in Notepad++ Menüpunkt “Plugins/JsonTools/check JSON syntax now”).</li>
+<li>Eine falsche Einrückung spielt in JSON technisch keine Rolle, d.&nbsp;h. man könnte es so lassen. In größeren Datendateien erhöht eine konsistente Einrückung jedoch die Lesbarkeit und vermeidet Fehler. Die Editoren bieten mitunter eine Reformatierung der Syntax an (z. B. in Notepad++ Menüpunkt “Plugins/JsonTools/Pretty-print current JSON file)”.</li>
+</ul>
+</section>
+<section id="aufruf-mit-parametern" class="level2">
+<h2 class="anchored" data-anchor-id="aufruf-mit-parametern">Aufruf mit Parametern</h2>
+<p>Bei der obigen Aufruf-Variante wird die Ausgabe des Scriptes nur sehr kurz eingeblendet und verschwindet wieder. Wenn man genauer hinschauen möchte, was das Script meldet, oder wenn man Parameter an das Script übergeben möchte, geht man folgendermaßen vor:</p>
+<ol type="1">
+<li>Rechter Mausklick in dem Ordner, in dem sich die Mediendateien und das Script befinden.</li>
+<li>“In Terminal öffnen” wählen</li>
+</ol>
+<p>Es öffnet sich ein Kommando-Fenster. Hier gibt man ein <code>.\base64-generator.ps1</code> (siehe folgendes Bild).</p>
+<p><img src="base64_1.png" class="img-fluid"></p>
+<p>Man kann auf dieser Basis auch Parameter an das Script übergeben. Als erster Parameter wird das Verzeichnis erwartet, in dem sich die Mediendateien befinden. Als zweiter Parameter kann der Name der Datei übergeben werden, in der dann die Base64-Strings gespeichert sind. Auf diese Art kann sich der Ort der Scriptdatei vom Ort der Mediendateien unterscheiden.</p>
+<p><img src="base64_2.png" class="img-fluid"></p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
