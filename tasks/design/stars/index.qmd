@@ -34,48 +34,75 @@ Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht
 
 ```json
 {
-    "id": "stars-unit-definition", // <1>
-    "version": "0.6", // <2>
-    "interactionType": "BUTTONS", // <3>
-    "interactionParameters": { // <4>
-        "variableId": "MK02",
-        "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...",
-        "options": {
-            "buttons": [
-                {
-                    "text": "Busch"
-                },
-                {
-                    "text": "Fisch"
-                },
-                {
-                    "text": "Tisch"
-                },
-                {
-                    "text": "Fleck"
-                }
-            ]
+  "id": "stars-unit-definition",
+  "version": "1.3",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAXXXXXXXXXXXXX.......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "buttonType": "BIG_SQUARE",
+    "multiSelect": false,
+    "numberOfRows": 2,
+    "options": {
+      "buttons": [
+        {
+          "text": "A"
+        },
+        {
+          "text": "B"
+        },
+        {
+          "text": "C"
+        },
+        {
+          "text": "D"
         }
+      ]
     }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "2",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
 }
 ```
-1. `id` des Schemas mit dem konstanten Wert `stars-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
-2. `version` des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen.
-3. `interactionType` legt den Typ der Interaktion fest. Hier gibt es mehrere Modelle, die auf den folgenden Seiten beschrieben sind.
-4. `interactionParameters`: Für jeden Interaktionstyp sind spezifische Parameter zu übergeben. Im oberen Beispiel soll ein Bild als Stimulus dargestellt werden und einige Buttons mit Worten zur Auswahl.
 
-::: {.callout-warning}
-## Datenformat in Entwicklung
+## Diese Syntax führt zu folgender Darstellung
 
-Ein erstes Release für die produktive Verwendung des StarS-Players ist Ende August 2025 verfügbar. Bis zu diesem Zeitpunkt kann es noch größere Änderungen am Datenformat geben.
-:::
+![](assets/buttons1.png)
+
+## Erläuterung
+
+* Eine Hintergrundfarbe wurde eingestellt.
+* Links oben zeigt ein Play-Button, dass eine Audio-Sequenz abzuspielen ist.
+* Rechts unten soll ein Weiter-Button gezeigt werden.
+* Vier Optionen mit Buchstaben stehen zur Auswahl. Nur eine Option kann gewählt werden. Das Bild oben zeigt die Unit nach dem Markieren einer Option.
+* Es ist für die automatische Auswertung festgelegt, dass die zweite Option als "richtig" gewertet werden soll.
 
 # Weiterlesen
 
-* [Rahmen/allgemeines Layout](layout.qmd) (Ausrichten, Haupt-Audio, Weiter-Button)
-* Interaktionstypen
+* [Allgemeine Parameter](root-parameters.qmd) (Hintergrund, Haupt-Audio, Weiter-Button)
+* Interaktionstypen: Über den Parameter `interactionType` wird ein bestimmtes Unit-Modell festgelegt, das dann über weitere Parameter genauer spezifiziert wird
   * [Buttons](it_buttons.qmd)
   * [Auswahl fallen lassen](it_drop.qmd)
   * [Schreiben](it_write.qmd)
+  * [Video, Bild]
 * [Antworten kodieren](responses.qmd)
 * [Übungsaufgaben/Rückmeldung](feedback.qmd)

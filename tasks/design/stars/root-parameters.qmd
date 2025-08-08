@@ -1,6 +1,6 @@
 ---
 lang: de
-title: "StarS: Allgemeines Layout"
+title: "StarS: Allgemeine Parameter"
 ---
 
 # Scrollen/Abschneiden
@@ -16,7 +16,7 @@ Folgende Daten gehören zu den allgemeinen Angaben - überlicherweise zu Beginn 
 ```json
 {
     "id": "stars-unit-definition", // <1>
-    "version": "0.5", // <2>
+    "version": "1.5", // <2>
     "backgroundColor": "#ff668a" // <3>
 }
 ```
@@ -36,6 +36,7 @@ Die in StarS üblichen Farbwerte:
 [&nbsp;#BEF5FB&nbsp;]{style="background-color: #BEF5FB"}
 [&nbsp;#DBFFAC&nbsp;]{style="background-color: #DBFFAC"}
 [&nbsp;#ACFFB6&nbsp;]{style="background-color: #ACFFB6"}
+[&nbsp;#FFFFFF&nbsp;]{style="background-color: #FFFFFF; border: #AAAAAA 1px solid"}
 
 Auf [dieser Seite](https://www.w3schools.com/colors/colors_picker.asp) finden Sie eine Online-Auswahl für Farben.
 
@@ -85,3 +86,7 @@ Rechts unten wird ein Button mit einem Pfeil eingeblendet, der zur nächsten Uni
 ::: {.callout-note}
 Das Verhalten und die Anzeige des Weiter-Buttons wird ggf. auch durch den Abschnitt [Übungsaufgaben/Rückmeldung](feedback.qmd) beeinflusst.
 :::
+
+# Flatterband
+
+Ist der Parameter `ribbonBars` auf `true` gesetzt, werden oben und unten gestreifte Bänder dargestellt. Dies soll den Aufgabenmodus "Übungsaufgabe" signalisieren. Dann wissen die Kinder, dass diese Aufgabe der Instruktion bzw. dem Üben der Beantwortung dient und noch keine Bewertung der Antwwort erfolgt.
