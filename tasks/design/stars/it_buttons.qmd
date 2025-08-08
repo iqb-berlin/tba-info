@@ -7,37 +7,126 @@ lightbox: true
 Bei diesem Interationstyp werden Buttons gezeigt. Sie werden horizontal und vertikal zentriert.
 
 
-:::: {layout-ncol=3}
+# Bilder als Buttons
 
-![](assets/interaction-buttons.png){group="my-gallery"}
+![](assets/buttons3.png){group="my-gallery"}
 
-![](assets/interaction-buttons5.png){group="my-gallery"}
-
-![](assets/interaction-buttons2.png){group="my-gallery"}
-
-![](assets/interaction-buttons3.png){group="my-gallery"}
-
-![](assets/interaction-buttons4.png){group="my-gallery"}
-
-![](assets/interaction-buttons7.png){group="my-gallery"}
-
-![](assets/interaction-syllabify.png){group="my-gallery"}
-
-![](assets/interaction-syllabify2.png){group="my-gallery"}
-
-![](assets/interaction-word-select.png){group="my-gallery"}
-
-![](assets/interaction-phonetics.png){group="my-gallery"}
-
-:::
+```json
+{
+    // code-fold: true
+    // code-summary: "Show the code"
+  "id": "stars-unit-definition",
+  "version": "0.12",
+  "backgroundColor": "#E1E9FF",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAA.......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "buttonType": "MEDIUM_SQUARE",
+    "multiSelect": false,
+    "numberOfRows": 2,
+    "options": {
+      "buttons": [
+        {
+			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        },
+        {
+			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        },
+        {
+			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        },
+        {
+			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "2",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
 
 # Stimulus
+
+![](assets/interaction-word-select.png){group="my-gallery"}
 
 Zusätzlich oder alternativ zum Haupt-Audio kann Text oder ein Image übergeben werden.
 
 * `imageSource`: Image als base64-kodierter String
 * `imagePosition`: Man kann über die Konstanten `TOP` und `LEFT` (Standard) die Position des Images beeinflussen.
 * `text`: Normaler String, wird ggf. nach Bedarf umgebrochen.
+
+```json
+{
+  "id": "stars-unit-definition",
+  "version": "0.12",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAA..............",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4A......",
+    "imagePosition": "LEFT",
+    "buttonType": "TEXT",
+    "multiSelect": false,
+    "options": {
+      "buttons": [
+        {
+          "text": "Fisch"
+        },
+        {
+          "text": "Tisch"
+        },
+        {
+          "text": "Chaiselonge"
+        },
+        {
+          "text": "Stuhl"
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "2",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
 
 # Optionen/Buttons
 
