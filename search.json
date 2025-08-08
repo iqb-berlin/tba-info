@@ -802,94 +802,52 @@
     ]
   },
   {
-    "objectID": "tasks/design/stars/responses.html",
-    "href": "tasks/design/stars/responses.html",
-    "title": "StarS: Antwortspeicherung und Kodieren",
+    "objectID": "tasks/design/stars/index.html",
+    "href": "tasks/design/stars/index.html",
+    "title": "Untere Primarstufe: StarS-Player",
     "section": "",
-    "text": "Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für den StarS-Player die Antwort im Standard-Datenformat des IQB gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von “Richtig”/“Falsch”) bekommen.\nGrundsätzlich ist die Kodierung im StarS-Pplayer optional. Da die Architektur des StarS-Projektes jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.\nAlle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur variableInfo außerhalb der Interaktionsparameter.\nDas obige Beispiel definiert für die Variable “MK02”, dass der Code 1 und der Score 1 vergeben werden soll, wenn die Summe des Antwortwertes genau 4 beträgt. Ansonsten wird Code 0 und Score 0 vergeben.",
+    "text": "Die Interaktionsgestaltung mit sehr kleinen Kindern unterliegt besonderen Herausforderungen:\nDer Player StarS wird am IQB im Rahmen des StarS-Projektes für diesen Zweck entwickelt. Folgende besondere Funktionen sind implementiert:",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
-      "Primar",
-      "Antworten kodieren"
+      "Primar"
     ]
   },
   {
-    "objectID": "tasks/design/stars/responses.html#variableid",
-    "href": "tasks/design/stars/responses.html#variableid",
-    "title": "StarS: Antwortspeicherung und Kodieren",
-    "section": "variableId",
-    "text": "variableId\nDas Kodierschema erlaubt die Kodierung mehrerer Variablen. Auch wenn es nur eine Variable im Player geben sollte oder die ID der Variablen automatisch über den Interaktionstyp vergeben wurde (z. B. BUTTONS oder WRITE), muss die ID der Variablen angegeben werden.",
+    "objectID": "tasks/design/stars/index.html#diese-syntax-führt-zu-folgender-darstellung",
+    "href": "tasks/design/stars/index.html#diese-syntax-führt-zu-folgender-darstellung",
+    "title": "Untere Primarstufe: StarS-Player",
+    "section": "Diese Syntax führt zu folgender Darstellung",
+    "text": "Diese Syntax führt zu folgender Darstellung",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
-      "Primar",
-      "Antworten kodieren"
+      "Primar"
     ]
   },
   {
-    "objectID": "tasks/design/stars/responses.html#responsecomplete",
-    "href": "tasks/design/stars/responses.html#responsecomplete",
-    "title": "StarS: Antwortspeicherung und Kodieren",
-    "section": "responseComplete",
-    "text": "responseComplete\nÜber diesen Parameter wird angezeigt, wann diese Variable als “vollständig beantwortet” anzusehen ist. In üblichen Formularen wird dieser Zustand auch mit “erforderliche Eingabe/required” bezeichnet. Der Player prüft für alle Variablen diese Angabe und stellt die Information zur Verfügung:\n\nDie Information wird an das Testcenter während des Tests geschickt. Über separate Einstellungen kann man dann erreichen, dass beispielsweise ein Weitergehen zur nächsten Unit verhindert wird, solange nicht alle Antworten als gegeben gewertet sind.\nDie Information kann innerhalb des Players verwertet werden, um beispielsweise einen Weiter-Button erst dann einzublenden, wenn alle Antworten gegeben sind.\n\nIn der entsprechenden Spezifikation der Verona-Schnittstelle sind drei Zustände definiert, die eine ansteigende Anzahl der beantworteten Variablen ausdrücken: none, some und complete. Der letzte Zustand wird erst dann gemeldet, wenn für alle Variablen ein Mindestzustand für “beantwortet” erreicht wurde.\nFür jede Variable kann für den Parameter responseComplete folgendes festgelegt werden:\n\nALWAYS: Die Variable gilt stets als beantwortet, egal ob eine Interaktion erfolgte und irgendeine Antwort gegeben wurde. Damit wird die Beantwortung als optional gekennzeichnet, d. h. sie ist nicht erforderlich für das weitere Vorgehen. Dies ist die Standardeinstellung, d. h. ohne diesen Parameter wird dieses Verhalten gesetzt.\nON_ANY_RESPONSE: Es muss irgendeine Antwort gegeben werden. Für StarS bedeutet dies, dass für diese Variable eine Antwort und dann auch eine Kodierung vorliegt. Ob die Antwort richtig ist, spielt keine Rolle. Diese Einstellung ist für die meisten Fälle in StarS sinnvoll.\nON_FULL_CREDIT: Es muss die richtige Antwort gegeben werden. Dazu muss natürlich mindestens ein Code definiert werden, der einen Score &gt; 1 hat (s. unten). Für “Full Credit/Volle Punktzahl” nimmt dann der Player den höchsten Score an. Dieses Szenario eignet sich für Übungsaufgaben, bei denen die Testperson die Beantwortung eines bestimmten Frageformates lernen soll. Ein Weitergehen wird erst dann erlaubt, wenn man annehmen kann, dass die Testperson sinnvoll mit dem Computer interagiert.",
+    "objectID": "tasks/design/stars/index.html#erläuterung",
+    "href": "tasks/design/stars/index.html#erläuterung",
+    "title": "Untere Primarstufe: StarS-Player",
+    "section": "Erläuterung",
+    "text": "Erläuterung\n\nEine Hintergrundfarbe wurde eingestellt.\nLinks oben zeigt ein Play-Button, dass eine Audio-Sequenz abzuspielen ist.\nRechts unten soll ein Weiter-Button gezeigt werden.\nVier Optionen mit Buchstaben stehen zur Auswahl. Nur eine Option kann gewählt werden. Das Bild oben zeigt die Unit nach dem Markieren einer Option.\nEs ist für die automatische Auswertung festgelegt, dass die zweite Option als “richtig” gewertet werden soll.",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
-      "Primar",
-      "Antworten kodieren"
+      "Primar"
     ]
   },
   {
-    "objectID": "tasks/design/stars/responses.html#codingsource",
-    "href": "tasks/design/stars/responses.html#codingsource",
-    "title": "StarS: Antwortspeicherung und Kodieren",
-    "section": "codingSource",
-    "text": "codingSource\nDer Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Zunächst muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:\n\nVALUE: Es wird direkt der Antwortwert genommen (Standard).\nVALUE_TO_UPPER: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.\nSUM: Der Antwortwert ist ein String in der Form “01101”, und es wird die Summe der “1”-Zeichen berechnet.",
-    "crumbs": [
-      "Aufgaben entwickeln",
-      "Aufgaben gestalten",
-      "Primar",
-      "Antworten kodieren"
-    ]
-  },
-  {
-    "objectID": "tasks/design/stars/responses.html#codes",
-    "href": "tasks/design/stars/responses.html#codes",
-    "title": "StarS: Antwortspeicherung und Kodieren",
-    "section": "codes",
-    "text": "codes\nHier können mehrere Codes definiert werden. Wenn beispielsweise ein differenziertes Feedback gegeben werden soll (siehe Übungsaufgaben/Rückmeldung), kann die Unterscheidung von Falsch-Antworten wichtig sein.\nEs wird stets der erste Code genommen, dessen Regel zutrifft. Die anderen Regeln werden ignoriert. Daher spielt die Reihenfolge der Codes eine Rolle.\nWenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, nimmt der StarS-Player den höchsten Code-Wert + 1.",
-    "crumbs": [
-      "Aufgaben entwickeln",
-      "Aufgaben gestalten",
-      "Primar",
-      "Antworten kodieren"
-    ]
-  },
-  {
-    "objectID": "tasks/design/stars/responses.html#kodierregel-method-und-parameter",
-    "href": "tasks/design/stars/responses.html#kodierregel-method-und-parameter",
-    "title": "StarS: Antwortspeicherung und Kodieren",
-    "section": "Kodierregel: method und parameter",
-    "text": "Kodierregel: method und parameter\nEin Code-Eintrag führt stets zum Setzen eines code- und eines score-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über method und parameter. Folgende Methoden stehen zur Verfügung:\n\nEQUALS: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.\nGREATER_THAN, LESS_THAN: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.",
-    "crumbs": [
-      "Aufgaben entwickeln",
-      "Aufgaben gestalten",
-      "Primar",
-      "Antworten kodieren"
-    ]
-  },
-  {
-    "objectID": "tasks/design/stars/it_drop.html",
-    "href": "tasks/design/stars/it_drop.html",
-    "title": "StarS: Interaktionstyp DROP",
+    "objectID": "tasks/design/stars/feedback.html",
+    "href": "tasks/design/stars/feedback.html",
+    "title": "StarS: Rückmeldung an Testperson",
     "section": "",
-    "text": "Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild.\n\n\nParameter\n{\n1    \"variableId\": \"MK02\",\n2    \"imageSource\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...\",\n3    \"text\": \"Koffer\"\n}\n\n1\n\nvariableId setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist DROP.\n\n2\n\nimageSource enthält ein Bild in base64-Kodierung\n\n3\n\ntext liefert Text für das &lt;alt&gt;-Attribut (Unterstützung der Barrierefreiheit)\n\n\n\n\nOptionen\n{\n    \"options\": [\n        {\n1            \"imageSource\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...\"\n        },\n        {\n2            \"text\": \"Schnee\"\n        },\n        {\n3            \"icon\": \"CHECK_GREEN\"\n        }\n    ],\n}\n\n1\n\nimageSource enthält ein Bild in base64-Kodierung\n\n2\n\ntext liefert einen Text für den Button\n\n3\n\nicon erzeugt ein Bild aus einer Sammlung von vordefinierten Symbolen; zugelassen: CHECK_GREEN, CLOSE_RED und CLAP_HANDS\n\n\nBei den Optionen handelt es sich technisch um eine Liste (Array), und jeder Eintrag kann einen von drei Parametern haben. Die Spezifikation verhindert, dass man mehrere Varianten des Parameters gleichzeitig verwendet.\nDie ursprüngliche Intention für diesen Interaktionstyp war es, Objekte als Bild auszuwählen. Damit wäre nur der Parameter imageSource zulässig. Um die Verwendbarkeit dieses Modells zu erweitern, sind auch die Optionsparameter text und icon zulässig.\n\n\nAuswahl und Antwortwert\nDie ausgewählte Antwort wird durch eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß) visualisiert (Parameter text) oder durch einen fetten blauen Rand. Außerdem “wandert” der Button auf das untere Bild. Sollte sich dort bereits ein Button befinden, “wandert” dieser wieder an seine vorherige Stelle. Ein Klick auf einen Button, der sich auf dem Bild befindet, lässt diesen ebenfalls an seine Ausgangsposition zurückwandern.\nDie Antwortdaten folgen der Standardstruktur des IQB. Als id wird die gewählte variableId bzw. der Standard DROP gesetzt, und der Status wäre zunächst VALUE_CHANGED (zur Kodierung siehe hier).\nDer Antwortwert ist eine Zahl mit der Position des gewählten Buttons. 1 steht für die erste Option.\n\n\n\n\n Zurück nach oben",
+    "text": "Zurück nach oben",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
       "Primar",
-      "Auswahl fallen lassen"
+      "Übungsaufgaben"
     ]
   },
   {
@@ -4482,41 +4440,107 @@
     ]
   },
   {
-    "objectID": "tasks/design/stars/feedback.html",
-    "href": "tasks/design/stars/feedback.html",
-    "title": "StarS: Rückmeldung an Testperson",
+    "objectID": "tasks/design/stars/root-parameters.html",
+    "href": "tasks/design/stars/root-parameters.html",
+    "title": "StarS: Allgemeine Parameter",
     "section": "",
-    "text": "Zurück nach oben",
-    "crumbs": [
-      "Aufgaben entwickeln",
-      "Aufgaben gestalten",
-      "Primar",
-      "Übungsaufgaben"
-    ]
-  },
-  {
-    "objectID": "tasks/design/stars/index.html",
-    "href": "tasks/design/stars/index.html",
-    "title": "Untere Primarstufe: StarS-Player",
-    "section": "",
-    "text": "Die Interaktionsgestaltung mit sehr kleinen Kindern unterliegt besonderen Herausforderungen:\n\nDas Layout muss sehr reduziert und konstant sein.\nScrollen ist nicht zulässig. Die Kinder würden es schwerlich verstehen, wenn nur Teile der Aufgabe zu sehen sind.\nDrag’n’Drop kann nicht verwendet werden. Das “Liegenlassen” des Fingers und dann Bewegen kann nicht erwartet werden.\nDie Eingabe von Ziffern oder Zeichen kann nur unter besonderen Vorkehrungen erwartet werden. Beispielsweise muss es Tasten für Grapheme “sch”, “au” usw. geben, da das Lautverständnis noch unterentwickelt ist.\nEs muss vielfach auf Audio zurückgegriffen werden - Stimulus und Instruktionen sind auf diese Art besser präsentiert.\nEin Feedback auf eine Interaktion ist wichtiger, auch als Audio.\n\nDer Player StarS wird am IQB im Rahmen des StarS-Projektes für diesen Zweck entwickelt. Folgende besondere Funktionen sind implementiert:\n\nVollbildschirm, kein Scrollen, Positionierung der Elemente mittig auch vertikal.\nDie Möglichkeiten der Gestaltung sind weitgehend eingeschränkt. Statt dessen wurden Grundtypen der Units entwickelt, die einheitlich gestaltet sind und nur wenig Beeinflussung ermöglichen. Dadurch kann die Syntax (semantischer Ansatz) einfach gehalten werden und die Kinder erleben wenige Überraschungen.\nSchriftart angepasst an das frühe Lesen\nDurch sofortige Kodierung entfällt ein nachgelagerter Kodierprozess. Die Antworten werden von Beginn an mit Kodierung gespeichert.\nBesondere Funktionen für ein Feedback (Audio) ermöglichen die Verwendung des Players auch in einem Übungs-/Trainingsszenario.\n\n\nUnit-Datenformat\nEin Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht zur Verfügung. Auf den folgenden Seiten ist daher die Syntax beschrieben, mit der Definitionen für die Präsentation und Interaktion erstellt werden. Es handelt sich um ein JSON-Datenformat. Eine technische Spezifikation ist über den Link rechts verfügbar. Beispiel:\n{\n1    \"id\": \"stars-unit-definition\",\n2    \"version\": \"0.6\",\n3    \"interactionType\": \"BUTTONS\",\n4    \"interactionParameters\": {\n        \"variableId\": \"MK02\",\n        \"imageSource\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...\",\n        \"options\": {\n            \"buttons\": [\n                {\n                    \"text\": \"Busch\"\n                },\n                {\n                    \"text\": \"Fisch\"\n                },\n                {\n                    \"text\": \"Tisch\"\n                },\n                {\n                    \"text\": \"Fleck\"\n                }\n            ]\n        }\n    }\n}\n\n1\n\nid des Schemas mit dem konstanten Wert stars-unit-definition. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.\n\n2\n\nversion des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen.\n\n3\n\ninteractionType legt den Typ der Interaktion fest. Hier gibt es mehrere Modelle, die auf den folgenden Seiten beschrieben sind.\n\n4\n\ninteractionParameters: Für jeden Interaktionstyp sind spezifische Parameter zu übergeben. Im oberen Beispiel soll ein Bild als Stimulus dargestellt werden und einige Buttons mit Worten zur Auswahl.\n\n\n\n\n\n\n\n\nDatenformat in Entwicklung\n\n\n\nEin erstes Release für die produktive Verwendung des StarS-Players ist Ende August 2025 verfügbar. Bis zu diesem Zeitpunkt kann es noch größere Änderungen am Datenformat geben.\n\n\n\n\nWeiterlesen\n\nRahmen/allgemeines Layout (Ausrichten, Haupt-Audio, Weiter-Button)\nInteraktionstypen\n\nButtons\nAuswahl fallen lassen\nSchreiben\n\nAntworten kodieren\nÜbungsaufgaben/Rückmeldung\n\n\n\n\n\n Zurück nach oben",
-    "crumbs": [
-      "Aufgaben entwickeln",
-      "Aufgaben gestalten",
-      "Primar"
-    ]
-  },
-  {
-    "objectID": "tasks/design/stars/layout.html",
-    "href": "tasks/design/stars/layout.html",
-    "title": "StarS: Allgemeines Layout",
-    "section": "",
-    "text": "Scrollen/Abschneiden\nDer Player nimmt den gesamten verfügbaren Platz ein. Nichts wird gescrollt, sondern die Inhalte werden abgeschnitten, falls sie größer sind als der verfügbare Platz. Der Player wird versuchen, ggf. große Bilder auf die verfügbare Größe anzupassen.\nDie Position von Elementen kann deshalb auch vertikal bestimmt werden. Das bedeutet, dass als Positionierung “unten” zur Verfügung steht. Das Layout im StarS-Bereich sieht meist vor, Elemente vertikal und horizontal zu zentrieren.\n\n\nKopf-Informationen\nFolgende Daten gehören zu den allgemeinen Angaben - überlicherweise zu Beginn der Unitdefinition:\n{\n1    \"id\": \"stars-unit-definition\",\n2    \"version\": \"0.5\",\n3    \"backgroundColor\": \"#ff668a\"\n}\n\n1\n\nid des Schemas mit dem konstanten Wert stars-unit-definition. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.\n\n2\n\nversion des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen. Wird die Angabe weggelassen, wird die letzte angenommen.\n\n3\n\nbackgroundColor betrifft die gesamte Player-Fläche. An keiner anderen Stelle der Unitdefinition kann eine Farbe gewählt werden. Zulässig sind die üblichen hexadezimalen Farbwerte mit einem Hash-Zeichen davor.\n\n\nDie in StarS üblichen Farbwerte:\n #FFE693   #FFD4AC   #FFC7B1   #FFD8F3   #E3D8FF   #E1E9FF   #B1DFFF   #BEF5FB   #DBFFAC   #ACFFB6 \nAuf dieser Seite finden Sie eine Online-Auswahl für Farben.\n\n\nHaupt-Audio\nStarS-Aufgaben enthalten oft Audio-Sequenzen. Da die Kinder im unteren Primarbereich nur sehr wenig lesen können, werden sie über Audio-Instruktionen geleitet. Außerdem werden oft Audio-Stimuli präsentiert.\nLinks oben wird hierfür ein Symbol platziert, das einem Ohr gleicht. Ein automatisches Abspielen eines Audios beim Start/Betreten der Unit ist technisch nicht verlässlich zu implementieren. Daher muss die Testperson einen Button nutzen.\n\n\n\n\n\n\ninaktiv\n\n\n\n\n\n\n\naktiv (Abspielen)\n\n\n\n\n\nEin Button wird für das Haupt-Audio eingeblendet, wenn in der Unitdefintion eine Audiosequenz gefunden wurde:\n{\n    \"id\": \"stars-unit-definition\",\n    \"version\": \"0.7\",\n    \"mainAudio\": {\n1        \"audioSource\": \"data:audio/mpeg;base64,//OEZAAAAAAAAAwYA...\",\n2        \"firstClickLayer\": true,\n3        \"animateButton\": false,\n4        \"maxPlay\": 0\n    },\n}\n\n1\n\naudioSource enthält die Audio-Sequenz in base64-Kodierung\n\n2\n\nWenn firstClickLayer auf true gesetzt ist, dann wird beim ersten Aufruf eine unsichtbare Fläche über den gesamten Player gelegt. Wenn die Testperson dann irgendwo klickt, wird das als ein Klicken des Audio-Buttons gewertet. Der Layer wird dann sofort entfernt. Standardwert ist false, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keinen Layer.\n\n3\n\nWenn animateButton auf true gesetzt ist, wird der Button nach einiger Zeit animiert (Wackeln). Darüber soll die Testperson auf den Button hingewiesen werden und dazu veranlasst werden, zu klicken. Der Standardwert ist false, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keine Animation.\n\n4\n\nÜber maxPlay kann festgelegt werden, wie oft die Audio-Sequenz gehört werden darf. Für die Vergleichbarkeit der Testergebnisse kann es wichtig sein, diese Anzahl zu begrenzen. Bei Standardwert 0 gibt es keine Beschränkung.\n\n\n\n\nWeiter-Button\nRechts unten wird ein Button mit einem Pfeil eingeblendet, der zur nächsten Unit führt. Über den Parameter continueButton kann man diesen Button in der Anzeige steuern:\n\nNO: Der Button wird nie angezeigt.\nALWAYS: Der Button wird unabhängig vom Status der Beantwortung angezeigt.\nON_INTERACTION: Der Button wird erst angezeigt, wenn eine Interaktion (z. B. Klick auf den Audio-Button) registriert wurde.\nON_ANY_RESPONSE: Der Button wird erst angezeigt, wenn irgendeine Interaktionsvariable einen gültigen Wert bekommen hat.\nON_FULL_CREDIT: Der Button wird erst angezeigt, wenn für alle erwarteten Variablen die richtige Lösung gewählt wurde (verwendet z. B. in Übungsaufgaben)\n\n\n\n\n\n\n\nHinweis\n\n\n\nDas Verhalten und die Anzeige des Weiter-Buttons wird ggf. auch durch den Abschnitt Übungsaufgaben/Rückmeldung beeinflusst.\n\n\n\n\n\n\n Zurück nach oben",
+    "text": "Scrollen/Abschneiden\nDer Player nimmt den gesamten verfügbaren Platz ein. Nichts wird gescrollt, sondern die Inhalte werden abgeschnitten, falls sie größer sind als der verfügbare Platz. Der Player wird versuchen, ggf. große Bilder auf die verfügbare Größe anzupassen.\nDie Position von Elementen kann deshalb auch vertikal bestimmt werden. Das bedeutet, dass als Positionierung “unten” zur Verfügung steht. Das Layout im StarS-Bereich sieht meist vor, Elemente vertikal und horizontal zu zentrieren.\n\n\nKopf-Informationen\nFolgende Daten gehören zu den allgemeinen Angaben - überlicherweise zu Beginn der Unitdefinition:\n{\n1    \"id\": \"stars-unit-definition\",\n2    \"version\": \"1.5\",\n3    \"backgroundColor\": \"#ff668a\"\n}\n\n1\n\nid des Schemas mit dem konstanten Wert stars-unit-definition. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.\n\n2\n\nversion des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen. Wird die Angabe weggelassen, wird die letzte angenommen.\n\n3\n\nbackgroundColor betrifft die gesamte Player-Fläche. An keiner anderen Stelle der Unitdefinition kann eine Farbe gewählt werden. Zulässig sind die üblichen hexadezimalen Farbwerte mit einem Hash-Zeichen davor.\n\n\nDie in StarS üblichen Farbwerte:\n #FFE693   #FFD4AC   #FFC7B1   #FFD8F3   #E3D8FF   #E1E9FF   #B1DFFF   #BEF5FB   #DBFFAC   #ACFFB6   #FFFFFF \nAuf dieser Seite finden Sie eine Online-Auswahl für Farben.\n\n\nHaupt-Audio\nStarS-Aufgaben enthalten oft Audio-Sequenzen. Da die Kinder im unteren Primarbereich nur sehr wenig lesen können, werden sie über Audio-Instruktionen geleitet. Außerdem werden oft Audio-Stimuli präsentiert.\nLinks oben wird hierfür ein Symbol platziert, das einem Ohr gleicht. Ein automatisches Abspielen eines Audios beim Start/Betreten der Unit ist technisch nicht verlässlich zu implementieren. Daher muss die Testperson einen Button nutzen.\n\n\n\n\n\n\ninaktiv\n\n\n\n\n\n\n\naktiv (Abspielen)\n\n\n\n\n\nEin Button wird für das Haupt-Audio eingeblendet, wenn in der Unitdefintion eine Audiosequenz gefunden wurde:\n{\n    \"id\": \"stars-unit-definition\",\n    \"version\": \"0.7\",\n    \"mainAudio\": {\n1        \"audioSource\": \"data:audio/mpeg;base64,//OEZAAAAAAAAAwYA...\",\n2        \"firstClickLayer\": true,\n3        \"animateButton\": false,\n4        \"maxPlay\": 0\n    },\n}\n\n1\n\naudioSource enthält die Audio-Sequenz in base64-Kodierung\n\n2\n\nWenn firstClickLayer auf true gesetzt ist, dann wird beim ersten Aufruf eine unsichtbare Fläche über den gesamten Player gelegt. Wenn die Testperson dann irgendwo klickt, wird das als ein Klicken des Audio-Buttons gewertet. Der Layer wird dann sofort entfernt. Standardwert ist false, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keinen Layer.\n\n3\n\nWenn animateButton auf true gesetzt ist, wird der Button nach einiger Zeit animiert (Wackeln). Darüber soll die Testperson auf den Button hingewiesen werden und dazu veranlasst werden, zu klicken. Der Standardwert ist false, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keine Animation.\n\n4\n\nÜber maxPlay kann festgelegt werden, wie oft die Audio-Sequenz gehört werden darf. Für die Vergleichbarkeit der Testergebnisse kann es wichtig sein, diese Anzahl zu begrenzen. Bei Standardwert 0 gibt es keine Beschränkung.\n\n\n\n\nWeiter-Button\nRechts unten wird ein Button mit einem Pfeil eingeblendet, der zur nächsten Unit führt. Über den Parameter continueButton kann man diesen Button in der Anzeige steuern:\n\nNO: Der Button wird nie angezeigt.\nALWAYS: Der Button wird unabhängig vom Status der Beantwortung angezeigt.\nON_INTERACTION: Der Button wird erst angezeigt, wenn eine Interaktion (z. B. Klick auf den Audio-Button) registriert wurde.\nON_ANY_RESPONSE: Der Button wird erst angezeigt, wenn irgendeine Interaktionsvariable einen gültigen Wert bekommen hat.\nON_FULL_CREDIT: Der Button wird erst angezeigt, wenn für alle erwarteten Variablen die richtige Lösung gewählt wurde (verwendet z. B. in Übungsaufgaben)\n\n\n\n\n\n\n\nHinweis\n\n\n\nDas Verhalten und die Anzeige des Weiter-Buttons wird ggf. auch durch den Abschnitt Übungsaufgaben/Rückmeldung beeinflusst.\n\n\n\n\nFlatterband\nIst der Parameter ribbonBars auf true gesetzt, werden oben und unten gestreifte Bänder dargestellt. Dies soll den Aufgabenmodus “Übungsaufgabe” signalisieren. Dann wissen die Kinder, dass diese Aufgabe der Instruktion bzw. dem Üben der Beantwortung dient und noch keine Bewertung der Antwwort erfolgt.\n\n\n\n\n Zurück nach oben",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
       "Primar",
       "Rahmen"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/it_drop.html",
+    "href": "tasks/design/stars/it_drop.html",
+    "title": "StarS: Interaktionstyp DROP",
+    "section": "",
+    "text": "Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild.\n\n\nParameter\n{\n1    \"variableId\": \"MK02\",\n2    \"imageSource\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...\",\n3    \"text\": \"Koffer\"\n}\n\n1\n\nvariableId setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist DROP.\n\n2\n\nimageSource enthält ein Bild in base64-Kodierung\n\n3\n\ntext liefert Text für das &lt;alt&gt;-Attribut (Unterstützung der Barrierefreiheit)\n\n\n\n\nOptionen\n{\n    \"options\": [\n        {\n1            \"imageSource\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...\"\n        },\n        {\n2            \"text\": \"Schnee\"\n        },\n        {\n3            \"icon\": \"CHECK_GREEN\"\n        }\n    ],\n}\n\n1\n\nimageSource enthält ein Bild in base64-Kodierung\n\n2\n\ntext liefert einen Text für den Button\n\n3\n\nicon erzeugt ein Bild aus einer Sammlung von vordefinierten Symbolen; zugelassen: CHECK_GREEN, CLOSE_RED und CLAP_HANDS\n\n\nBei den Optionen handelt es sich technisch um eine Liste (Array), und jeder Eintrag kann einen von drei Parametern haben. Die Spezifikation verhindert, dass man mehrere Varianten des Parameters gleichzeitig verwendet.\nDie ursprüngliche Intention für diesen Interaktionstyp war es, Objekte als Bild auszuwählen. Damit wäre nur der Parameter imageSource zulässig. Um die Verwendbarkeit dieses Modells zu erweitern, sind auch die Optionsparameter text und icon zulässig.\n\n\nAuswahl und Antwortwert\nDie ausgewählte Antwort wird durch eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß) visualisiert (Parameter text) oder durch einen fetten blauen Rand. Außerdem “wandert” der Button auf das untere Bild. Sollte sich dort bereits ein Button befinden, “wandert” dieser wieder an seine vorherige Stelle. Ein Klick auf einen Button, der sich auf dem Bild befindet, lässt diesen ebenfalls an seine Ausgangsposition zurückwandern.\nDie Antwortdaten folgen der Standardstruktur des IQB. Als id wird die gewählte variableId bzw. der Standard DROP gesetzt, und der Status wäre zunächst VALUE_CHANGED (zur Kodierung siehe hier).\nDer Antwortwert ist eine Zahl mit der Position des gewählten Buttons. 1 steht für die erste Option.\n\n\n\n\n Zurück nach oben",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Auswahl fallen lassen"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/responses.html",
+    "href": "tasks/design/stars/responses.html",
+    "title": "StarS: Antwortspeicherung und Kodieren",
+    "section": "",
+    "text": "Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für den StarS-Player die Antwort im Standard-Datenformat des IQB gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von “Richtig”/“Falsch”) bekommen.\nGrundsätzlich ist die Kodierung im StarS-Pplayer optional. Da die Architektur des StarS-Projektes jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.\nAlle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur variableInfo außerhalb der Interaktionsparameter.\nDas obige Beispiel definiert für die Variable “MK02”, dass der Code 1 und der Score 1 vergeben werden soll, wenn die Summe des Antwortwertes genau 4 beträgt. Ansonsten wird Code 0 und Score 0 vergeben.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/responses.html#variableid",
+    "href": "tasks/design/stars/responses.html#variableid",
+    "title": "StarS: Antwortspeicherung und Kodieren",
+    "section": "variableId",
+    "text": "variableId\nDas Kodierschema erlaubt die Kodierung mehrerer Variablen. Auch wenn es nur eine Variable im Player geben sollte oder die ID der Variablen automatisch über den Interaktionstyp vergeben wurde (z. B. BUTTONS oder WRITE), muss die ID der Variablen angegeben werden.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/responses.html#responsecomplete",
+    "href": "tasks/design/stars/responses.html#responsecomplete",
+    "title": "StarS: Antwortspeicherung und Kodieren",
+    "section": "responseComplete",
+    "text": "responseComplete\nÜber diesen Parameter wird angezeigt, wann diese Variable als “vollständig beantwortet” anzusehen ist. In üblichen Formularen wird dieser Zustand auch mit “erforderliche Eingabe/required” bezeichnet. Der Player prüft für alle Variablen diese Angabe und stellt die Information zur Verfügung:\n\nDie Information wird an das Testcenter während des Tests geschickt. Über separate Einstellungen kann man dann erreichen, dass beispielsweise ein Weitergehen zur nächsten Unit verhindert wird, solange nicht alle Antworten als gegeben gewertet sind.\nDie Information kann innerhalb des Players verwertet werden, um beispielsweise einen Weiter-Button erst dann einzublenden, wenn alle Antworten gegeben sind.\n\nIn der entsprechenden Spezifikation der Verona-Schnittstelle sind drei Zustände definiert, die eine ansteigende Anzahl der beantworteten Variablen ausdrücken: none, some und complete. Der letzte Zustand wird erst dann gemeldet, wenn für alle Variablen ein Mindestzustand für “beantwortet” erreicht wurde.\nFür jede Variable kann für den Parameter responseComplete folgendes festgelegt werden:\n\nALWAYS: Die Variable gilt stets als beantwortet, egal ob eine Interaktion erfolgte und irgendeine Antwort gegeben wurde. Damit wird die Beantwortung als optional gekennzeichnet, d. h. sie ist nicht erforderlich für das weitere Vorgehen. Dies ist die Standardeinstellung, d. h. ohne diesen Parameter wird dieses Verhalten gesetzt.\nON_ANY_RESPONSE: Es muss irgendeine Antwort gegeben werden. Für StarS bedeutet dies, dass für diese Variable eine Antwort und dann auch eine Kodierung vorliegt. Ob die Antwort richtig ist, spielt keine Rolle. Diese Einstellung ist für die meisten Fälle in StarS sinnvoll.\nON_FULL_CREDIT: Es muss die richtige Antwort gegeben werden. Dazu muss natürlich mindestens ein Code definiert werden, der einen Score &gt; 1 hat (s. unten). Für “Full Credit/Volle Punktzahl” nimmt dann der Player den höchsten Score an. Dieses Szenario eignet sich für Übungsaufgaben, bei denen die Testperson die Beantwortung eines bestimmten Frageformates lernen soll. Ein Weitergehen wird erst dann erlaubt, wenn man annehmen kann, dass die Testperson sinnvoll mit dem Computer interagiert.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/responses.html#codingsource",
+    "href": "tasks/design/stars/responses.html#codingsource",
+    "title": "StarS: Antwortspeicherung und Kodieren",
+    "section": "codingSource",
+    "text": "codingSource\nDer Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Zunächst muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:\n\nVALUE: Es wird direkt der Antwortwert genommen (Standard).\nVALUE_TO_UPPER: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.\nSUM: Der Antwortwert ist ein String in der Form “01101”, und es wird die Summe der “1”-Zeichen berechnet.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/responses.html#codes",
+    "href": "tasks/design/stars/responses.html#codes",
+    "title": "StarS: Antwortspeicherung und Kodieren",
+    "section": "codes",
+    "text": "codes\nHier können mehrere Codes definiert werden. Wenn beispielsweise ein differenziertes Feedback gegeben werden soll (siehe Übungsaufgaben/Rückmeldung), kann die Unterscheidung von Falsch-Antworten wichtig sein.\nEs wird stets der erste Code genommen, dessen Regel zutrifft. Die anderen Regeln werden ignoriert. Daher spielt die Reihenfolge der Codes eine Rolle.\nWenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, nimmt der StarS-Player den höchsten Code-Wert + 1.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
+    ]
+  },
+  {
+    "objectID": "tasks/design/stars/responses.html#kodierregel-method-und-parameter",
+    "href": "tasks/design/stars/responses.html#kodierregel-method-und-parameter",
+    "title": "StarS: Antwortspeicherung und Kodieren",
+    "section": "Kodierregel: method und parameter",
+    "text": "Kodierregel: method und parameter\nEin Code-Eintrag führt stets zum Setzen eines code- und eines score-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über method und parameter. Folgende Methoden stehen zur Verfügung:\n\nEQUALS: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.\nGREATER_THAN, LESS_THAN: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.",
+    "crumbs": [
+      "Aufgaben entwickeln",
+      "Aufgaben gestalten",
+      "Primar",
+      "Antworten kodieren"
     ]
   },
   {
