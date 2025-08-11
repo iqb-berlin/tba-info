@@ -4,9 +4,64 @@ title: "StarS: Interaktionstyp `DROP`"
 lightbox: true
 ---
 
-Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild.
+Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild. Klicken Sie unter dem Bild auf **Unitdefintion JSON**, um den JSON-Code anzuzeigen!
 
-![](assets/interaction-drop.png)
+![](assets/drop.png)
+
+<details>
+<summary>Unitdefintion JSON</summary>
+
+```json
+{
+    "id": "stars-unit-definition",
+    "version": "0.13",
+    "backgroundColor": "#3cf",
+    "continueButtonShow": "ALWAYS",
+    "mainAudio": {
+        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAA......",
+        "firstClickLayer": false,
+        "animateButton": false,
+        "maxPlay": 0
+    },
+    "interactionType": "DROP",
+    "interactionParameters": {
+        "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAA....",
+        "options": {
+            "buttons": [
+                {
+                    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+                },
+                {
+                    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+                },
+                {
+                    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+                },
+                {
+                    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+                }
+            ]
+        }
+    },
+    "variableInfo": [
+        {
+            "variableId": "DROP",
+            "responseComplete": "ON_ANY_RESPONSE",
+            "codingSource": "VALUE",
+            "codes": [
+                {
+                    "method": "EQUALS",
+                    "parameter": "3",
+                    "code": 1,
+                    "score": 1
+                }
+            ]
+        }
+    ]
+}
+```
+
+</details>
 
 # Parameter
 
@@ -23,9 +78,7 @@ Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons 
 
 # Optionen
 
-{{< include _options.qmd >}}
-
-Die ursprüngliche Intention für diesen Interaktionstyp war es, Objekte als Bild auszuwählen. Damit wäre nur der Parameter `imageSource` zulässig. Um die Verwendbarkeit dieses Modells zu erweitern, sind auch die Optionsparameter `text` und `icon` zulässig.
+Hier ist die Liste von Bildern anzugeben, die oben in einer Zeile als Buttons angezeigt werden.
 
 # Auswahl und Antwortwert
 
