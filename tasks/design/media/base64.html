@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-82fe036cf06a270a72763b200ed27610.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-ed887371b67887a82b7d1b7fb8fb5381.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1031,7 +1031,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Bei dem Format <a href="https://de.wikipedia.org/wiki/Base64">Base64</a> handelt es sich um Mediendateien (Audio, Video, Bilder). Es nutzt nur Zeichen, die in allen Betriebssystemen vorhanden sind (nur 7 Bit). Es kann daher wie Text behandelt werden (String-Datentyp) und lässt sich in einem Texteditor (z. B. <a href="https://notepad-plus-plus.org/">Notepad++</a>) anschauen.</p>
 <p>Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu speichern. Dadurch vermeidet man externe Bezüge und kann Unit-Definitionen kompakt schreiben. Der Base64-String wird als Dateninhalt z. B. in eine JSON-Datenstruktur eingebettet.</p>
-<p>Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber – z. B. in einer frühen Entwicklungsphase eines Players – manuell diese Konvertierung erfolgen muss, dann kann folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.</p>
+<p>Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber – z. B. in einer frühen Entwicklungsphase eines Players – manuell diese Konvertierung erfolgen muss, dann kann man folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.</p>
 <section id="iqb-base64-generator" class="level1">
 <h1>iqb-base64-generator</h1>
 <p>Das folgende Tool ist ein kleines Script, das mit PowerShell in einem Windows-Betriebssystem ausgeführt wird. Man speichert alle Dateien, zu denen man einen Base64-String benötigt, in ein Verzeichnis. Das Script generiert Base64-Strings und speichert sie in einer neuen JSON-Datei.</p>
@@ -1090,9 +1090,14 @@ Download
 <li>Rechter Mausklick in dem Ordner, in dem sich die Mediendateien und das Script befinden.</li>
 <li>“In Terminal öffnen” wählen</li>
 </ol>
-<p>Es öffnet sich ein Kommando-Fenster. Hier gibt man ein <code>.\base64-generator.ps1</code> (siehe folgendes Bild).</p>
+<p>Es öffnet sich ein Kommando-Fenster. Hier gibt man folgenden Befehl ein: <code>.\base64-generator.ps1</code></p>
 <p><img src="base64_1.png" class="img-fluid"></p>
-<p>Man kann auf dieser Basis auch Parameter an das Script übergeben. Als erster Parameter wird das Verzeichnis erwartet, in dem sich die Mediendateien befinden. Als zweiter Parameter kann der Name der Datei übergeben werden, in der dann die Base64-Strings gespeichert sind. Auf diese Art kann sich der Ort der Scriptdatei vom Ort der Mediendateien unterscheiden.</p>
+<p>Man kann auf dieser Basis auch Parameter an das Script übergeben:</p>
+<ul>
+<li>Als erster Parameter wird das Verzeichnis erwartet, in dem sich die Mediendateien befinden.</li>
+<li>Als zweiter Parameter kann der Name der Datei übergeben werden, in der dann die Base64-Strings gespeichert sind.</li>
+</ul>
+<p>Auf diese Art kann sich der Ort der Scriptdatei vom Ort der Mediendateien unterscheiden.</p>
 <p><img src="base64_2.png" class="img-fluid"></p>
 
 
