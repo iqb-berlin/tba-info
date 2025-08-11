@@ -3,28 +3,30 @@ lang: de
 title: "StarS: Allgemeine Parameter"
 ---
 
-# Scrollen/Abschneiden
-
 Der Player nimmt den gesamten verfügbaren Platz ein. Nichts wird gescrollt, sondern die Inhalte werden abgeschnitten, falls sie größer sind als der verfügbare Platz. Der Player wird versuchen, ggf. große Bilder auf die verfügbare Größe anzupassen.
 
 Die Position von Elementen kann deshalb auch vertikal bestimmt werden. Das bedeutet, dass als Positionierung "unten" zur Verfügung steht. Das Layout im StarS-Bereich sieht meist vor, Elemente vertikal und horizontal zu zentrieren.
 
-# Kopf-Informationen
+# `id` und `version`
 
-Folgende Daten gehören zu den allgemeinen Angaben - überlicherweise zu Beginn der Unitdefinition:
+Zu Beginn der Unitdefinition ist es erforderlich zu definieren, dass es sich um eine bestimmte Syntax handelt.
+
+* `id` des Schemas mit dem konstanten Wert `stars-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
+* `version` des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen. Wird die Angabe weggelassen, wird die letzte veröffentlichte Version angenommen.
 
 ```json
 {
-    "id": "stars-unit-definition", // <1>
-    "version": "1.5", // <2>
-    "backgroundColor": "#ff668a" // <3>
+    "id": "stars-unit-definition",
+    "version": "1.5",
+    // ...
 }
 ```
-1. `id` des Schemas mit dem konstanten Wert `stars-unit-definition`. Diese Angabe ist zwingend und sichert die korrekte Verarbeitung im Player.
-2. `version` des Schemas. Durch eine korrekte Angabe kann die Anpassung an neuere Schema-Versionen besser gelingen. Wird die Angabe weggelassen, wird die letzte angenommen.
-3. `backgroundColor` betrifft die gesamte Player-Fläche. An keiner anderen Stelle der Unitdefinition kann eine Farbe gewählt werden. Zulässig sind die üblichen hexadezimalen Farbwerte mit einem Hash-Zeichen davor.
 
-Die in StarS üblichen Farbwerte:
+# Hintergrundfarbe
+
+Das Design des StarS-Players sieht eine Hintergrundfarbe vor. Alle anderen Farben sind darauf abgestimmt, dass eine relativ helle Farbe gesetzt wird. Ein weißer Hintergrund würde beispielsweise einen zu geringen Kontrast zu weißen Button-Flächen bedeuten. Daher ist als Standardfarbe ein helles Grau festgelegt. An keiner anderen Stelle der Unitdefinition kann eine Farbe gewählt werden. 
+
+Die Farbe wird über den Parameter `backgroundColor` festgelegt und betrifft die gesamte Player-Fläche. Zulässig sind die üblichen hexadezimalen Farbwerte mit einem Hash-Zeichen davor. Die in StarS üblichen Farbwerte:
 
 [&nbsp;#FFE693&nbsp;]{style="background-color: #FFE693"}
 [&nbsp;#FFD4AC&nbsp;]{style="background-color: #FFD4AC"}
@@ -36,7 +38,8 @@ Die in StarS üblichen Farbwerte:
 [&nbsp;#BEF5FB&nbsp;]{style="background-color: #BEF5FB"}
 [&nbsp;#DBFFAC&nbsp;]{style="background-color: #DBFFAC"}
 [&nbsp;#ACFFB6&nbsp;]{style="background-color: #ACFFB6"}
-[&nbsp;#FFFFFF&nbsp;]{style="background-color: #FFFFFF; border: #AAAAAA 1px solid"}
+
+[&nbsp;weiß #FFFFFF&nbsp;]{style="background-color: #FFFFFF; border: #AAAAAA 1px solid"} [&nbsp;hellgrau #EEEEEE&nbsp;]{style="background-color: #EEEEEE; border: #AAAAAA 1px solid"}
 
 Auf [dieser Seite](https://www.w3schools.com/colors/colors_picker.asp) finden Sie eine Online-Auswahl für Farben.
 
@@ -78,8 +81,8 @@ Ein Button wird für das Haupt-Audio eingeblendet, wenn in der Unitdefintion ein
 Rechts unten wird ein Button mit einem Pfeil eingeblendet, der zur nächsten Unit führt. Über den Parameter `continueButton` kann man diesen Button in der Anzeige steuern:
 
 * `NO`: Der Button wird nie angezeigt.
-* `ALWAYS`: Der Button wird unabhängig vom Status der Beantwortung angezeigt.
-* `ON_INTERACTION`: Der Button wird erst angezeigt, wenn eine Interaktion (z. B. Klick auf den Audio-Button) registriert wurde.
+* `ALWAYS`: Der Button wird unabhängig vom Status der Beantwortung angezeigt. Dies ist die Standardeinstellung, d. h. wenn man den Parameter `continueButton` weglässt, wird der Button stets angezeigt.
+* `ON_MAIN_AUDIO_COMPLETE`: Der Button wird erst angezeigt, wenn das Haupt-Audio vollständig abgespielt wurde. Sollte es kein Haupt-Audio geben, wird der Standardwert `ALWAYS` gesetzt.
 * `ON_ANY_RESPONSE`: Der Button wird erst angezeigt, wenn irgendeine Interaktionsvariable einen gültigen Wert bekommen hat.
 * `ON_FULL_CREDIT`: Der Button wird erst angezeigt, wenn für alle erwarteten Variablen die richtige Lösung gewählt wurde (verwendet z. B. in Übungsaufgaben)
 
@@ -90,3 +93,7 @@ Das Verhalten und die Anzeige des Weiter-Buttons wird ggf. auch durch den Abschn
 # Flatterband
 
 Ist der Parameter `ribbonBars` auf `true` gesetzt, werden oben und unten gestreifte Bänder dargestellt. Dies soll den Aufgabenmodus "Übungsaufgabe" signalisieren. Dann wissen die Kinder, dass diese Aufgabe der Instruktion bzw. dem Üben der Beantwortung dient und noch keine Bewertung der Antwwort erfolgt.
+
+# Interaktion
+
+Die eigentliche Beantwortung ist in der Unitdefinition über die Parameter `interactionType` und `interactionParameter` gesteuert. Diese werden auf den folgenden Seiten beschrieben.

@@ -2,19 +2,23 @@
 lang: de
 title: "StarS: Interaktionstyp `BUTTONS`"
 lightbox: true
+format:
+  html:
+    code-fold: true
+    code-summary: "JSON-Code anzeigen"
 ---
 
 Bei diesem Interationstyp werden Buttons gezeigt. Sie werden horizontal und vertikal zentriert.
 
-
-# Bilder als Buttons
+Es gibt mehrere Varianten dieses Interaktionstyps. Für eine schnelle Umsetzung werden zunächst die häufigsten als Bild gezeigt und darunter die jeweils dafür nötige Unitdefinition vollständig in einem Code-Fenster dargestellt. Dazu bitte auf **Unitdefintion JSON** klicken (ausklappen). Man kann über einen kleinen Button oben rechts im Code-Fenster die Syntax in die Zwischenablage kopieren und dann im Ziel einfügen. Es müssen dann anschließend Text sowie die Audio- und Bilddefinitionen ersetzt werden.
 
 ![](assets/buttons3.png){group="my-gallery"}
 
+<details>
+<summary>Unitdefintion JSON</summary>
+
 ```json
 {
-    // code-fold: true
-    // code-summary: "Show the code"
   "id": "stars-unit-definition",
   "version": "0.12",
   "backgroundColor": "#E1E9FF",
@@ -33,16 +37,16 @@ Bei diesem Interationstyp werden Buttons gezeigt. Sie werden horizontal und vert
     "options": {
       "buttons": [
         {
-			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+    			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
         },
         {
-			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+    			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
         },
         {
-			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+    			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
         },
         {
-			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+    			"imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
         }
       ]
     }
@@ -65,15 +69,77 @@ Bei diesem Interationstyp werden Buttons gezeigt. Sie werden horizontal und vert
 }
 ```
 
-# Stimulus
+</details>
 
-![](assets/interaction-word-select.png){group="my-gallery"}
+![](assets/buttons1.png){group="my-gallery"}
 
-Zusätzlich oder alternativ zum Haupt-Audio kann Text oder ein Image übergeben werden.
+Achtung: Im Beispiel oben kann man mehrere Optionen anklicken (`multiSelect": true`). Die Kodierung ist entsprechend angepasst.
 
-* `imageSource`: Image als base64-kodierter String
-* `imagePosition`: Man kann über die Konstanten `TOP` und `LEFT` (Standard) die Position des Images beeinflussen.
-* `text`: Normaler String, wird ggf. nach Bedarf umgebrochen.
+<details>
+<summary>Unitdefintion JSON</summary>
+
+```json
+{
+  "id": "stars-unit-definition",
+  "version": "0.12",
+  "backgroundColor": "#E1E9FF",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAAA.....",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "variableId": "BUTTONS",
+    "imageSource": "",
+    "imagePosition": "LEFT",
+    "text": "",
+    "buttonType": "BIG_SQUARE",
+    "multiSelect": true,
+    "numberOfRows": 2,
+    "options": {
+      "buttons": [
+        {
+          "text": "A"
+        },
+        {
+          "text": "B"
+        },
+        {
+          "text": "C"
+        },
+        {
+          "text": "D"
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "0101",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+</details>
+
+![](assets/buttons2.png){group="my-gallery"}
+
+<details>
+<summary>Unitdefintion JSON</summary>
 
 ```json
 {
@@ -128,11 +194,131 @@ Zusätzlich oder alternativ zum Haupt-Audio kann Text oder ein Image übergeben 
 }
 ```
 
-# Optionen/Buttons
+</details>
 
-## Parameter
 
-Die Auswahloptionen werden in Form von Buttons der Testperson präsentiert. Folgende Parameter sind möglich:
+![](assets/buttons4.png){group="my-gallery"}
+
+Achtung: Im Beispiel oben kann man mehrere Optionen anklicken (`multiSelect": true`). Die Kodierung zielt auf die Summe der angeklickten Buttons ab.
+
+<details>
+<summary>Unitdefintion JSON</summary>
+
+```json
+{
+  "id": "stars-unit-definition",
+  "version": "0.7",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAA......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA.....",
+    "imagePosition": "TOP",
+    "buttonType": "SMALL_SQUARE",
+    "multiSelect": true,
+    "options": {
+      "repeatButton": {
+        "option": {
+          "icon": "CLAP_HANDS"
+        },
+        "numberOfOptions": 6
+      }
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "SUM",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "3",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+</details>
+
+
+![](assets/buttons5.png){group="my-gallery"}
+
+Achtung: Im Beispiel oben kann man mehrere Optionen anklicken (`multiSelect": true`). Die Kodierung zielt auf die Summe der angeklickten Buttons ab.
+
+<details>
+<summary>Unitdefintion JSON</summary>
+
+```json
+{
+  "id": "stars-unit-definition",
+  "version": "0.7",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAA......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "buttonType": "CIRCLE",
+    "multiSelect": true,
+    "options": {
+      "repeatButton": {
+        "option": {
+          "text": ""
+        },
+        "numberOfOptions": 6
+      }
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "SUM",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "3",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+</details>
+
+# `variableId`
+
+Die Antwort wird stets mit einer `id` gespeichert. Dies nennt man "Variable". Der Standard-Wert ist `BUTTONS`. Diese Variablen-ID muss im Bereich Kodierung verwendet werden.
+
+Wenn man eine bestimmte Variablen-ID in den Antwortdaten haben möchte, kann man diesen Wert anpassen. In der Kodierung muss dann auch die Variablen-ID geändert werden.
+
+# Stimulus Image/Text
+
+Zusätzlich oder alternativ zum Haupt-Audio kann Text oder ein Image übergeben werden.
+
+* `imageSource`: Image als base64-kodierter String
+* `imagePosition`: Man kann über die Konstanten `TOP` und `LEFT` (Standard) die Position des Images beeinflussen.
+* `text`: Normaler String, wird ggf. nach Bedarf umgebrochen.
+
+# Darstellung der Buttons
 
 ```json
 {
@@ -175,18 +361,7 @@ Hier wird nur ein Button definiert, der dann aber vervielfältigt wird:
 }
 ```
 
-# Auswahl und Antwortwert
-
-Die ausgewählte Antwort wird bei Bild und Symbol durch einen fetten blauen Rand visualisiert. Bei Text erfolgt eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß). Beispiele siehe oben.
-
-```json
-{
-    "variableId": "MK02", // <1>
-    "multiSelect": true // <2>
-}
-```
-1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `BUTTONS`.
-2. `multiSelect`: Wenn `true`, dann ist das Markieren mehrerer Optionen möglich. Standardwert ist `false`, d. h. mit einer neuen Auswahl wird die vorherige Auswahl aufgehoben.
+# Antwortwert
 
 Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `BUTTONS` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](responses.qmd)).
 

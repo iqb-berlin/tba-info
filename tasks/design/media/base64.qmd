@@ -7,7 +7,7 @@ Bei dem Format [Base64](https://de.wikipedia.org/wiki/Base64) handelt es sich um
 
 Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu speichern. Dadurch vermeidet man externe Bezüge und kann Unit-Definitionen kompakt schreiben. Der Base64-String wird als Dateninhalt z. B. in eine JSON-Datenstruktur eingebettet.
 
-Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber -- z. B. in einer frühen Entwicklungsphase eines Players -- manuell diese Konvertierung erfolgen muss, dann kann folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.
+Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber -- z. B. in einer frühen Entwicklungsphase eines Players -- manuell diese Konvertierung erfolgen muss, dann kann man folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.
 
 # iqb-base64-generator
 
@@ -66,10 +66,15 @@ Bei der obigen Aufruf-Variante wird die Ausgabe des Scriptes nur sehr kurz einge
 1. Rechter Mausklick in dem Ordner, in dem sich die Mediendateien und das Script befinden.
 2. "In Terminal öffnen" wählen
 
-Es öffnet sich ein Kommando-Fenster. Hier gibt man ein `.\base64-generator.ps1` (siehe folgendes Bild).
+Es öffnet sich ein Kommando-Fenster. Hier gibt man folgenden Befehl ein: `.\base64-generator.ps1`
 
 ![](base64_1.png)
 
-Man kann auf dieser Basis auch Parameter an das Script übergeben. Als erster Parameter wird das Verzeichnis erwartet, in dem sich die Mediendateien befinden. Als zweiter Parameter kann der Name der Datei übergeben werden, in der dann die Base64-Strings gespeichert sind. Auf diese Art kann sich der Ort der Scriptdatei vom Ort der Mediendateien unterscheiden.
+Man kann auf dieser Basis auch Parameter an das Script übergeben:
+
+* Als erster Parameter wird das Verzeichnis erwartet, in dem sich die Mediendateien befinden.
+* Als zweiter Parameter kann der Name der Datei übergeben werden, in der dann die Base64-Strings gespeichert sind.
+
+Auf diese Art kann sich der Ort der Scriptdatei vom Ort der Mediendateien unterscheiden.
 
 ![](base64_2.png)
