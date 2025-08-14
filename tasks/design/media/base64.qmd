@@ -9,9 +9,15 @@ Die Player des IQB verwenden dieses Format, um binäre Daten in JSON-Dateien zu 
 
 Normalerweise übernehmen die Editoren des IQB die Transformation einer Medien-Datei über Dialog. Man wählt eine Datei auf dem Computer, und der Editor wandelt diese Datei in das Base64-Format um. Wenn aber -- z. B. in einer frühen Entwicklungsphase eines Players -- manuell diese Konvertierung erfolgen muss, dann kann man folgende Programmierung als Hilfe unter dem Windows-Betriebssystem benutzen.
 
+# Online-Konverter
+
+Unter der Adresse [https://base64.guru/converter/encode](https://base64.guru/converter/encode) ist ein Online-Konverter zu finden. Man kann diverse Quellformate hochladen und erhält einen Base64-String als Ergebnis. Hier muss man noch einen Präfix hinzufügen, der das Format beschreibt.
+
+Achtung: Diese Seite ist eine externe Seite, für die keine Haftung übernommen werden kann. Sie finanziert sich u. a. durch Werbung.
+
 # iqb-base64-generator
 
-Das folgende Tool ist ein kleines Script, das mit PowerShell in einem Windows-Betriebssystem ausgeführt wird. Man speichert alle Dateien, zu denen man einen Base64-String benötigt, in ein Verzeichnis. Das Script generiert Base64-Strings und speichert sie in einer neuen JSON-Datei.
+Das folgende Tool ist ein kleines IQB-Script, das mit PowerShell in einem Windows-Betriebssystem ausgeführt wird. Man speichert alle Dateien, zu denen man einen Base64-String benötigt, in ein Verzeichnis. Das Script generiert Base64-Strings und speichert sie in einer neuen JSON-Datei.
 
 ## Download
 
@@ -34,8 +40,8 @@ Anschließend findet sich im Ordner zusätzlich eine Datei `base64.json` z. B. m
 ```json
 {
     "tool":  "iqb-base64-generator",
-    "version":  "1.1",
-    "created":  "08.08.2025 16:19:50",
+    "version":  "1.3",
+    "created":  "15.08.2025 16:19:50",
     "files":  [
                   {
                       "imageSource":  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAB5CAM......",
@@ -55,7 +61,7 @@ Anschließend findet sich im Ordner zusätzlich eine Datei `base64.json` z. B. m
 
 Wenn man nun diese Datei mit einem Texteditor öffnet, kann man die jeweilige Zeile mit dem Base64-String kopieren und in die Zieldatei übertragen. Bei dem Format JSON bitte folgendes beachten:
 
-* Als Name der Property nutzt das Script `audioSource` bzw. `imageSource`. Dies muss man ggf. an die jeweilige erforderliche Syntax anpassen.
+* Als Name der Property nutzt das Script `audioSource`, `videoSource` bzw. `imageSource`. Dies muss man ggf. an die jeweilige erforderliche Syntax anpassen.
 * Hinter dem Base64-String ist noch ein Komma platziert. Wenn jedoch in der Zieldatei dieser Eintrag der letzte ist, muss dieses Komma entfernt werden. Sonst könnte die JSON-Datei ungültig werden, d. h. das Zielsystem lehnt die Datendatei ab. Die Editoren bieten mitunter eine Prüfung der Syntax an (z. B. in Notepad++ Menüpunkt "Plugins/JsonTools/check JSON syntax now").
 * Eine falsche Einrückung spielt in JSON technisch keine Rolle, d. h. man könnte es so lassen. In größeren Datendateien erhöht eine konsistente Einrückung jedoch die Lesbarkeit und vermeidet Fehler. Die Editoren bieten mitunter eine Reformatierung der Syntax an (z. B. in Notepad++ Menüpunkt "Plugins/JsonTools/Pretty-print current JSON file)".
 
