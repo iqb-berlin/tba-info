@@ -75,6 +75,7 @@ Ein Code-Eintrag führt stets zum Setzen eines `code`- und eines `score`-Wertes.
 
 * `EQUALS`: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.
 * `GREATER_THAN`, `LESS_THAN`: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.
+* `IN_POSITION_RANGE`: Der Interaktionstyp FIND_ON_IMAGE (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt hat im Format 'x,y' (jeweils ganze Zahlen 0..100, also z. B. '34,77'). Mit der Methode `IN_POSITION_RANGE` wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist 'x,y-x,y' (linke obere und rechte untere Ecke).
 
 # Antwort-Status
 
