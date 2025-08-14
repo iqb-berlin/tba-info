@@ -1095,6 +1095,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>EQUALS</code>: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.</li>
 <li><code>GREATER_THAN</code>, <code>LESS_THAN</code>: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.</li>
+<li><code>IN_POSITION_RANGE</code>: Der Interaktionstyp FIND_ON_IMAGE (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt hat im Format ‘x,y’ (jeweils ganze Zahlen 0..100, also z. B. ‘34,77’). Mit der Methode <code>IN_POSITION_RANGE</code> wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist ‘x,y-x,y’ (linke obere und rechte untere Ecke).</li>
 </ul>
 </section>
 </section>
