@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -969,7 +1004,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><i class="fa-solid fa-person-digging" aria-label="person-digging"></i></a></li>
+  <li><a href="#konzept" id="toc-konzept" class="nav-link active" data-scroll-target="#konzept">Konzept</a></li>
+  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
   </ul>
 </nav>
     </div>
@@ -995,8 +1031,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level1 alert alert-warning">
-<h1 class="alert alert-warning"><i class="fa-solid fa-person-digging" aria-label="person-digging"></i></h1>
+<p>Der StarS-Player sieht vor, dass der Testperson auf die gegebene Antwort eine Rückmeldung gegeben werden kann. Dies erfolgt ausschließlich über das Abspielen einer Audio-Sequenz.</p>
+<section id="konzept" class="level1">
+<h1>Konzept</h1>
+<p>Als Anwendungsfall wird eine Übungs- bzw. Trainingsphase angenommen: Bevor die eigentlichen Fragen gestellt werden, soll sich die Testperson mit einem bestimmten Antwortformat vertraut machen. Dazu soll eine gegebene Antwort zum Abspielen einer spezifischen Audio-Sequenz (“Rückmeldung”) führen.</p>
+<p>Als <strong>Auslöser</strong> fungiert der Weiter-Button. Die Testperson hat die Antwort gegeben, ist zufrieden damit und möchte zur nächsten Aufgabe weitergehen. Dies wird jedoch verhindert und es wird statt dessen die Rückmeldung abgespielt.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In der Spezifikation ist ein Parameter <code>trigger</code> vorgesehen. Dieser Parameter soll in einer späteren Entwicklungsphase andere Auslöser ermöglichen. Dies befindet sich in der Erprobung und wird ggf. wieder entfernt.</p>
+</div>
+</div>
+</section>
+<section id="syntax" class="level1">
+<h1>Syntax</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="er">"audioFeedback":</span> <span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"trigger"</span><span class="fu">:</span> <span class="st">"CONTINUE_BUTTON_CLICK"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"feedback"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"variableId"</span><span class="fu">:</span> <span class="st">"BUTTONS"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"audioSource"</span><span class="fu">:</span> <span class="st">"data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAAAA...."</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"CODE"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"method"</span><span class="fu">:</span> <span class="st">"GREATER_THAN"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"1"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Der Parameter <code>audioFeedback</code> ist ein separater Eintrag außerhalb der Interaktionsparameter und der Kodierung.</li>
+<li>Der Parameter <code>trigger</code> befindet sich in Erprobung. Aktuell ist nur der Wert <code>CONTINUE_BUTTON_CLICK</code> möglich, d.&nbsp;h. dieser Parameter kann auch weggelassen werden.</li>
+<li>Es muss eine <code>variableId</code> angegeben werden.</li>
+<li><code>audioSource</code> enthält die Rückmeldung in base64-Kodierung</li>
+<li><code>source</code>: Als Quelle für die Entscheidung, ob die Rückmeldung gespielt wird, kann der <code>VALUE</code>, der <code>CODE</code> oder der <code>SCORE</code> genutzt werden. Wenn <code>CODE</code> oder <code>SCORE</code> genutzt werden soll, muss eine entsprechende Kodierung definiert sein. Es wird stets erst die Kodierung vorgenommen und dann entschieden, ob eine Rückmeldung gegeben wird.</li>
+<li><code>method</code> (Werte <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>LESS_THAN</code>) und <code>parameter</code> funktionieren analog der Kodierung.</li>
+</ul>
 
 
 </section>
