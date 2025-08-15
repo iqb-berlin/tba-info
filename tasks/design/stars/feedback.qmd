@@ -3,4 +3,40 @@ lang: de
 title: "StarS: Rückmeldung an Testperson"
 ---
 
-# {{< fa person-digging >}}{.alert .alert-warning}
+Der StarS-Player sieht vor, dass der Testperson auf die gegebene Antwort eine Rückmeldung gegeben werden kann. Dies erfolgt ausschließlich über das Abspielen einer Audio-Sequenz.
+
+# Konzept
+
+Als Anwendungsfall wird eine Übungs- bzw. Trainingsphase angenommen: Bevor die eigentlichen Fragen gestellt werden, soll sich die Testperson mit einem bestimmten Antwortformat vertraut machen. Dazu soll eine gegebene Antwort zum Abspielen einer spezifischen Audio-Sequenz ("Rückmeldung") führen.
+
+Als **Auslöser** fungiert der Weiter-Button. Die Testperson hat die Antwort gegeben, ist zufrieden damit und möchte zur nächsten Aufgabe weitergehen. Dies wird jedoch verhindert und es wird statt dessen die Rückmeldung abgespielt.
+
+::: {.callout-note}
+
+In der Spezifikation ist ein Parameter `trigger` vorgesehen. Dieser Parameter soll in einer späteren Entwicklungsphase andere Auslöser ermöglichen. Dies befindet sich in der Erprobung und wird ggf. wieder entfernt.
+
+:::
+
+# Syntax
+
+```json
+  "audioFeedback": {
+    "trigger": "CONTINUE_BUTTON_CLICK",
+    "feedback": [
+      {
+        "variableId": "BUTTONS",
+        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAAAA....",
+        "source": "CODE",
+        "method": "GREATER_THAN",
+        "parameter": "1"
+      }
+    ]
+  }
+```
+
+* Der Parameter `audioFeedback` ist ein separater Eintrag außerhalb der Interaktionsparameter und der Kodierung.
+* Der Parameter `trigger` befindet sich in Erprobung. Aktuell ist nur der Wert `CONTINUE_BUTTON_CLICK` möglich, d. h. dieser Parameter kann auch weggelassen werden.
+* Es muss eine `variableId` angegeben werden.
+* `audioSource` enthält die Rückmeldung in base64-Kodierung
+* `source`: Als Quelle für die Entscheidung, ob die Rückmeldung gespielt wird, kann der `VALUE`, der `CODE` oder der `SCORE` genutzt werden. Wenn `CODE` oder `SCORE` genutzt werden soll, muss eine entsprechende Kodierung definiert sein. Es wird stets erst die Kodierung vorgenommen und dann entschieden, ob eine Rückmeldung gegeben wird.
+* `method` (Werte `EQUALS`, `GREATER_THAN`, `LESS_THAN`) und `parameter` funktionieren analog der Kodierung.
