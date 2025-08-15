@@ -3,4 +3,73 @@ lang: de
 title: "StarS: Interaktionstyp `FIND_ON_IMAGE`"
 ---
 
-# {{< fa person-digging >}}{.alert .alert-warning}
+Bei diesem Interaktionstyp wird ein großes Bild gezeigt, auf dem viele Details zu sehen sind. Die Testperson soll durch Tippen/Klicken auf das Bild eine Stelle markieren. Klicken Sie unter dem Bild auf **Unitdefintion JSON**, um den JSON-Code anzuzeigen!
+
+![](assets/find_on_image.png)
+
+:::{style="font-size: smaller; color: grey;"}
+*Bildrechte: Caro Wedekind - [http://foxitalic.de/2014/12/31c3](http://foxitalic.de/2014/12/31c3/), [CC BY 3.0](https://creativecommons.org/licenses/by/3.0); beschnitten*
+:::
+
+<details>
+<summary>Unitdefintion JSON</summary>
+
+```json
+{
+  "id": "stars-unit-definition",
+  "version": "0.16",
+  "backgroundColor": "#FFFFF",
+  "continueButtonShow": "ON_ANY_RESPONSE",
+  "interactionType": "FIND_ON_IMAGE",
+  "interactionParameters": {
+	"imageSource":  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAA.....",
+    "text": "Finde die Rakete!",
+    "size": "LARGE"
+  },
+  "variableInfo": [
+    {
+        "variableId": "FIND_ON_IMAGE",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "IN_POSITION_RANGE",
+                "parameter": "30,10-40,20",
+                "code": 1,
+                "score": 1
+            }
+            {
+                "method": "IN_POSITION_RANGE",
+                "parameter": "20,0-50,30",
+                "code": 2,
+                "score": 0
+            }
+        ]
+    }
+  ]
+}
+```
+
+</details>
+
+# Parameter
+
+* `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `FIND_ON_IMAGE`.
+* `imageSource` enthält ein Bild in base64-Kodierung
+* `text` gibt die Möglichkeit, unter dem Bild einen Text zu platzieren.
+* `size` bestimmt die Größe eines Kreises, der die gewählte Position markiert. Mögliche Werte sind `SMALL`, `MEDIUM` und `LARGE`
+* `showArea`: Über diesen Parameter kann man einen Bereich auf dem Bild hervorheben. Dies kann während der Entwicklungsphase sehr nützlich sein, um die Kodierung vorzubereiten (s. u.). Als Parameterwert wird ein String erwartet in derselben Notation wie bei der Kodierung: "x,y-x,y". Vor dem produktiven Einsatz muss dieser Parameter wieder entfernt werden.
+
+::: {.callout-note}
+
+In der Spezifikation ist ein Parameter `options` vorgesehen. Dieser Parameter befindet sich in der Erprobung und wird ggf. wieder entfernt.
+
+:::
+
+# Antwortwert
+
+Der Wert in der Antwort enthält die Koordinaten der Auswahl der Testperson (Tippen, Klicken) in der Form "x,y". Die linke obere Ecke ist stets "0,0" und die rechte untere Ecke ist stets "100,100". Es werden nur ganze Zahlen berichtet.
+
+Für die Kodierung steht eine spezielle Methode `IN_POSITION_RANGE` zur Verfügung. Als Parameter wird ein Bereich auf dem Bild angegeben in der Form "x,y-x,y". Wenn sich die Antwort in dem Bereich befindet, ist der jeweilige Code gewählt. Dabei gelten die Positionswerte als Teil des Bereiches, d. h. es wird auf >= bzw. <= verglichen.
+
+Die Definition der Interaktion sieht einen Parameter `showArea` vor, mit dem in der Entwicklungsphase ein Bereich hervorgehoben werden kann, um die Kodierung zu unterstützen (s. o.).
