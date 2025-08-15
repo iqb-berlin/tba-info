@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
+<link href="../../../tasks/design/stars/responses.html" rel="next">
+<link href="../../../tasks/design/stars/it_write.html" rel="prev">
 <link href="../../../assets/favicon.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -98,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">StarS: Interaktionstyp <code>FIND_ON_IMAGE</code></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../tasks/index.html">Aufgaben entwickeln</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/index.html">Aufgaben gestalten</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/stars/index.html">Primar</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/stars/it_find_on_image.html">Im Bild finden</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -202,11 +239,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../tasks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben entwickeln</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
@@ -258,11 +295,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben gestalten</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
@@ -630,11 +667,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primar</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
@@ -657,6 +694,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schreiben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Im Bild finden</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -961,14 +1004,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><i class="fa-solid fa-person-digging" aria-label="person-digging"></i></a></li>
+  <li><a href="#parameter" id="toc-parameter" class="nav-link active" data-scroll-target="#parameter">Parameter</a></li>
+  <li><a href="#antwortwert" id="toc-antwortwert" class="nav-link" data-scroll-target="#antwortwert">Antwortwert</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../tasks/index.html">Aufgaben entwickeln</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/index.html">Aufgaben gestalten</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/stars/index.html">Primar</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/stars/it_find_on_image.html">Im Bild finden</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">StarS: Interaktionstyp <code>FIND_ON_IMAGE</code></h1>
 </div>
@@ -987,8 +1031,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level1 alert alert-warning">
-<h1 class="alert alert-warning"><i class="fa-solid fa-person-digging" aria-label="person-digging"></i></h1>
+<p>Bei diesem Interaktionstyp wird ein großes Bild gezeigt, auf dem viele Details zu sehen sind. Die Testperson soll durch Tippen/Klicken auf das Bild eine Stelle markieren. Klicken Sie unter dem Bild auf <strong>Unitdefintion JSON</strong>, um den JSON-Code anzuzeigen!</p>
+<p><img src="assets/find_on_image.png" class="img-fluid"></p>
+<div style="font-size: smaller; color: grey;">
+<p><em>Bildrechte: Caro Wedekind - <a href="http://foxitalic.de/2014/12/31c3/">http://foxitalic.de/2014/12/31c3</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>; beschnitten</em></p>
+</div>
+<details>
+<summary>
+Unitdefintion JSON
+</summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"stars-unit-definition"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.16"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"backgroundColor"</span><span class="fu">:</span> <span class="st">"#FFFFF"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"continueButtonShow"</span><span class="fu">:</span> <span class="st">"ON_ANY_RESPONSE"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"interactionType"</span><span class="fu">:</span> <span class="st">"FIND_ON_IMAGE"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"interactionParameters"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAA....."</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Finde die Rakete!"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"size"</span><span class="fu">:</span> <span class="st">"LARGE"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"variableInfo"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"variableId"</span><span class="fu">:</span> <span class="st">"FIND_ON_IMAGE"</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"responseComplete"</span><span class="fu">:</span> <span class="st">"ON_ANY_RESPONSE"</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"codingSource"</span><span class="fu">:</span> <span class="st">"VALUE"</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"codes"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="fu">{</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"method"</span><span class="fu">:</span> <span class="st">"IN_POSITION_RANGE"</span><span class="fu">,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"30,10-40,20"</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"score"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="fu">{</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"method"</span><span class="fu">:</span> <span class="st">"IN_POSITION_RANGE"</span><span class="fu">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"20,0-50,30"</span><span class="fu">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"score"</span><span class="fu">:</span> <span class="dv">0</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<section id="parameter" class="level1">
+<h1>Parameter</h1>
+<ul>
+<li><code>variableId</code> setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist <code>FIND_ON_IMAGE</code>.</li>
+<li><code>imageSource</code> enthält ein Bild in base64-Kodierung</li>
+<li><code>text</code> gibt die Möglichkeit, unter dem Bild einen Text zu platzieren.</li>
+<li><code>size</code> bestimmt die Größe eines Kreises, der die gewählte Position markiert. Mögliche Werte sind <code>SMALL</code>, <code>MEDIUM</code> und <code>LARGE</code></li>
+<li><code>showArea</code>: Über diesen Parameter kann man einen Bereich auf dem Bild hervorheben. Dies kann während der Entwicklungsphase sehr nützlich sein, um die Kodierung vorzubereiten (s. u.). Als Parameterwert wird ein String erwartet in derselben Notation wie bei der Kodierung: “x,y-x,y”. Vor dem produktiven Einsatz muss dieser Parameter wieder entfernt werden.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In der Spezifikation ist ein Parameter <code>options</code> vorgesehen. Dieser Parameter befindet sich in der Erprobung und wird ggf. wieder entfernt.</p>
+</div>
+</div>
+</section>
+<section id="antwortwert" class="level1">
+<h1>Antwortwert</h1>
+<p>Der Wert in der Antwort enthält die Koordinaten der Auswahl der Testperson (Tippen, Klicken) in der Form “x,y”. Die linke obere Ecke ist stets “0,0” und die rechte untere Ecke ist stets “100,100”. Es werden nur ganze Zahlen berichtet.</p>
+<p>Für die Kodierung steht eine spezielle Methode <code>IN_POSITION_RANGE</code> zur Verfügung. Als Parameter wird ein Bereich auf dem Bild angegeben in der Form “x,y-x,y”. Wenn sich die Antwort in dem Bereich befindet, ist der jeweilige Code gewählt. Dabei gelten die Positionswerte als Teil des Bereiches, d.&nbsp;h. es wird auf &gt;= bzw. &lt;= verglichen.</p>
+<p>Die Definition der Interaktion sieht einen Parameter <code>showArea</code> vor, mit dem in der Entwicklungsphase ein Bereich hervorgehoben werden kann, um die Kodierung zu unterstützen (s. o.).</p>
 
 
 </section>
@@ -1400,6 +1513,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../tasks/design/stars/it_write.html" class="pagination-link" aria-label="Schreiben">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Schreiben</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../tasks/design/stars/responses.html" class="pagination-link" aria-label="Antworten kodieren">
+        <span class="nav-page-text">Antworten kodieren</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
