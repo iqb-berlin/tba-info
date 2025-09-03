@@ -3,15 +3,17 @@ lang: de
 title: "Release Plan"
 ---
 
+# IQB-Testcenter
+
 [direkt zu aktuellen Terminen](#aktuelle-termine)
 
-Unter einem **Release** ist hier die Veröffentlichung einer neuen Version des Testcenters zu verstehen. Beim Einsatz des Testcenters z. B. in aufwändigen Server-Umgebungen ist es wichtig zu wissen, zu welchen Zeitpunkten Releases mit welchen Eigenschaften erfolgen. Erst auf dieser Grundlage kann man ergänzende Maßnahmen wie Sicherheits-/Penetrationstests und Lasttests planen.
+Beim Einsatz des Testcenters z. B. in aufwändigen Server-Umgebungen ist es wichtig zu wissen, zu welchen Zeitpunkten Releases mit welchen Eigenschaften erfolgen. Erst auf dieser Grundlage kann man ergänzende Maßnahmen wie Sicherheits-/Penetrationstests und Lasttests planen.
 
 ::: {.callout-note}
 Die Ausführungen auf dieser Seite beziehen sich auf das IQB-Testcenter. Durch die Modularisierung nach dem [Verona-Prinzip](https://verona-interfaces.github.io/) kann es Programmierungen geben (Player), die ebenfalls für die Testdurchführung erforderlich sind. Deren Release-Planung wird hier nicht thematisiert.
 :::
 
-# Versionierung
+## Versionierung
 
 Für das Testcenter wird eine Versionierung nach dem Prinzip der [Semantischen Versionierung](https://semver.org/lang/de/) verwendet. Danach besteht die Versionsangabe aus drei Zahlen und einem optionalen Suffix. Beispiele: `12.0.4`, `15.4.0-beta`.
 
@@ -23,9 +25,9 @@ Für das Testcenter wird eine Versionierung nach dem Prinzip der [Semantischen V
   - `beta`: Die Diskussion über die Funktionen ist abgeschlossen, das IQB hat aber die Software-Tests noch nicht abgeschlossen. Insbesondere erfolgen hier manuelle Tests. Prüfungen einer beta-Version können Fehler in der Implementierung aufzeigen.
   - `rc`: Bei einem Release Candidate sind die Prüfungen am IQB abgeschlossen. Es folgen nun Prüfungen durch Partner bzw. in ungewöhnlichen Umgebungen. Hier sind auch Last- und Sicherheitstests anzusiedeln.
 
-# Grundsätze
+## Grundsätze
 
-## Release-Pfade
+### Release-Pfade
 
 * Der Ort der Veröffentlichung ist [GitHub.com](https://github.com/iqb-berlin/testcenter/releases).
 * Es ist die Markierung `Latest` gesetzt für die letzte sog. stabile Version. Diese sollten alle installieren, die neu das IQB-Testcenter auf eigener Infrastruktur nutzen möchten. Auf diese Version beziehen sich Dokumentation und Handreichungen.
@@ -37,7 +39,7 @@ Für das Testcenter wird eine Versionierung nach dem Prinzip der [Semantischen V
 * Stabile Versionen können Funktionen enthalten, die noch in der Entwicklung sind. Diese sind als `Preview` in der Release-Dokumentation markiert und sind nach der Installation bzw. dem Update deaktiviert. Über ein dokumentiertes Verfahren werden sie aktiviert bzw. zugänglich. Diesen Weg geht das Entwicklerteam, wenn es frühzeitig Rückmeldungen aus dem Nutzerkreis für neue Funktionen erhalten möchte oder eine bestimmte Änderung, für die eine Hauptversion erforderlich wäre, früher verfügbar machen möchte.
 * Funktionen, die mit der nächsten Hauptversion entfallen oder grundlegend überarbeitet werden, können in einem stabilen Release als `deprecated` markiert werden. Diese Markierung erfolgt im Text des Releases.
 
-## Termine und Planung
+### Termine und Planung
 
 Im Jahr 2025 wird es noch eine Reihe von Releases geben, die nicht streng terminlich getaktet sind. Es sollen Verbesserungen -- auch größere Änderungen -- möglichst schnell verfügbar gemacht werden. Ab 2026 sollen zur besseren Planbarkeit die Releases zu bestimmten Zeitpunkten erfolgen:
 
@@ -47,9 +49,9 @@ Im Jahr 2025 wird es noch eine Reihe von Releases geben, die nicht streng termin
 
 Funktions-Updates werden nach Bedarf und nach verfügbaren Ressourcen veröffentlicht. Sie werden mindestens 1 Monat vorab angekündigt (s. u.).
 
-# Aktuelle Termine
+## Aktuelle Termine
 
-## Nächste Hauptversion 17
+### Nächste Hauptversion 17
 
 * Termin: vorauss. 1.7.2025
 * Geplante Änderungen:
@@ -57,9 +59,15 @@ Funktions-Updates werden nach Bedarf und nach verfügbaren Ressourcen veröffent
   - Refactoring der Auslieferung der Testinhalte (Files-Container)
 * Anmerkung: Grundlage dafür sind diverse Lasttests, die das IQB ausführlich dokumentieren wird.
 
-## Nächste Hauptversion 18
+### Nächste Hauptversion 18
 
 * Termin: vorauss. 1.10.2025
 * Geplante Änderungen:
   - Überarbeitung im Bereich UI/UX. Der Start-/Anmeldvorgang wird neu gestaltet. Die Flexibilität des Designs wird mit Einführung von Angular Material Theming verbessert.
 * Anmerkung: Die Anpassungen führen zur besseren Passung für die 4 Zielgruppen 1./2. Klasse, 3./4. Klasse, 8./9. Klasse sowie Erwachsene.
+
+# IQB-Studio
+
+::: {.callout-note}
+In Bearbeitung.
+:::
