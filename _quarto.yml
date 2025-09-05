@@ -65,6 +65,12 @@ website:
             text: "Installation"
           - href: setup/offline/index.qmd
             text: "Offline-Nutzung"
+          - section: "Verfügbarkeit"
+            contents:
+              - href: setup/availability/e2e.qmd
+                text: "E2E-Tests"
+              - href: setup/availability/load-test.qmd
+                text: "Lasttest"
       - section: "Aufgaben entwickeln"
         href: tasks/index.qmd
         contents:
@@ -196,30 +202,39 @@ website:
         href: Testcenter/index.qmd
         contents:
           - Testcenter/Workspace/index.qmd
-          - Testcenter/Zugriffsrechte/index.qmd
+          - Testcenter/access-rights.qmd
           - section: Testinhalte
-            href: Testcenter/Testinhalte/index.qmd
+            href: Testcenter/test-files/index.qmd
             contents:
-            - Testcenter/Testinhalte/erstellung-inhalte.qmd
-            - Testcenter/Testinhalte/unit-xml.qmd
-            - Testcenter/Testinhalte/booklet-xml.qmd
-            - Testcenter/Testinhalte/testtaker-xml.qmd
-          - Testcenter/Datenauswertung/index.qmd
-          - Testcenter/System_Check/index.qmd
-          - Testcenter/Gruppenmonitor/index.qmd
-          - Testcenter/Adaptives_Testen/index.qmd
-          - section: "Schritt für Schritt"
-            href: Testcenter/Studie_durchfuehren/index.qmd
+            - Testcenter/test-files/create-files.qmd
+            - Testcenter/test-files/unit-xml.qmd
+            - Testcenter/test-files/booklet-xml.qmd
+            - Testcenter/test-files/testtaker-xml.qmd
+          - section: "Studien vorbereiten"
+            href: Testcenter/test-run/preparation/index.qmd
             contents:
-              - Testcenter/Studie_durchfuehren/Anforderungen.qmd
-              - Testcenter/Studie_durchfuehren/Studienkonfiguration.qmd
-              - Testcenter/Studie_durchfuehren/Durchfuehrung.qmd
-              - section: "Beispielstudie"
-                href: Testcenter/Studie_durchfuehren/Beispielstudie/index.qmd
-                contents: 
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.qmd
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.qmd
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.qmd
+              - Testcenter/test-run/preparation/require.qmd
+              - Testcenter/test-run/preparation/system-check/index.qmd
+              - section: "Endgeräte"
+                href:  Testcenter/test-run/preparation/devices/index.qmd
+                contents:
+                  - Testcenter/test-run/preparation/devices/ipad.qmd
+              - Testcenter/test-run/preparation/study-config.qmd
+              - section: "Kiosk-Mode"
+                href:  Testcenter/test-run/preparation/kiosk/index.qmd
+                contents:
+                  - Testcenter/test-run/preparation/kiosk/kiosk-ios.qmd
+                  - Testcenter/test-run/preparation/kiosk/kiosk-windows.qmd
+                  - Testcenter/test-run/preparation/kiosk/seb.qmd
+              - section: "Schritt für Schritt"
+                href: Testcenter/test-run/preparation/step-by-step/index.qmd
+                contents:
+                  - section: "Beispielstudie"
+                    href: Testcenter/test-run/preparation/step-by-step/study-run/Beispielstudie/index.qmd
+                    contents: 
+                      - Testcenter/test-run/preparation/step-by-step/study-run/Beispielstudie/Schritt1.qmd
+                      - Testcenter/test-run/preparation/step-by-step/study-run/Beispielstudie/Schritt2.qmd
+                      - Testcenter/test-run/preparation/step-by-step/study-run/Beispielstudie/Schritt3.qmd
           - section: "Windows ToolBox"
             href: Testcenter/toolbox/index.qmd
             contents:

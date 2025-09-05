@@ -271,3 +271,14 @@ Das soll an dieser Stelle erst einmal ausreichend sein. Es gebe hier unzählige 
 
 Es kann unter Umständen sinnvoll sein einen Test nach dem Beenden zu sperren. Dies kann mit Hilfe der Zuweisung des Wertes: `lock_test_on_termination` zum Attribut: `key` geschehen. Der Standardwert sorgt dafür, dass der Test nicht gesperrt wird. Das heißt, solange die Zugangsdaten (Testtaker-XML) im Testcenter vorhanden sind, können sich die dort definierten Personen am Testcenter anmelden und den Test fortsetzen.
 
+# Erprobung der Konfiguration
+
+Es ist unerlässlich die erstellte Konfiguration ausreichend zu testen. Hierfür können im Vorfeld spezielle Modi, wie bspw. der Modus: `run-simulation`, `run-demo` oder `run-review` in der Testtaker-XML zu einem Probelogin angelegt werden. Nach dem Login startet das Testcenter dann in einem dieser Probemodi.
+
+::: {.callout-tip}
+Mehr Informationen zur Verwendung eines Modus zur Erprobung sind dem Kapitel: **Testinhalte/ Testtaker-XML** zu entnehmen.
+:::
+
+::: {.callout-tip}
+Es sollte auch einmal mit einem "heißen" Modus (`run-hot-restart`, `run-hot-return`) geprüft werden, ob Antwortdaten im Testcenter erzeugt werden.
+:::
