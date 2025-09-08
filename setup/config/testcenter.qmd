@@ -1,11 +1,11 @@
 ---
 lang: de
-title: "Testcenter Konfiguration"
+title: "Konfiguration IQB-Testcenter"
 ---
 
 Eine Testcenter-Instanz wird nicht aus einer zentralen Stelle heraus konfiguriert, sondern bietet an verschiedenen Stellen die Möglichkeit unterschiedliche Konfigurationen vorzunehmen.
 
-# Server-Admin: Konfigurationsoptionen in der .env
+# Server-Administrator\*in: Konfigurationsoptionen in der .env
 
 Betreiber einer Testcenter-Instanz (Server-Admins) können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste
 aller aktuell vorhandenen Konfigurationsparameter befinden sich
@@ -21,7 +21,6 @@ Die verwendete Testcenter-Version. Wird hier eine höhere (verfügbare) Version 
 entsprechen images von DockerHub gezogen und in der Folge die Datenbank angepasst. Dies sollte allerdings **niemals** von Hand
 erfolgen, sondern mittels der `update.sh`, da diese auch die compose-files usw. aktualisiert.
 Downgrades auf eine vergangene Version sollten grundsätzlich vermieden werden.
-
 
 ## Grundsätzliche Netzwerkeinstellungen.
 
@@ -49,8 +48,7 @@ Der Port auf dem das Testcenter laufen soll. Ist `TLS_ENABLED` gesetzt wird der 
 PASSWORD_SALT=t
 ```
 Salt für verwendete admin-passwörter.
-Achtung: Ändern Sie diese Enstellung nicht mehr, nachdem Sie die Applikation bereits einmal gestartet haben, sonst können Sie sicht nicht mehr einloggen.
-
+Achtung: Ändern Sie diese Einstellung nicht mehr, nachdem Sie die Applikation bereits einmal gestartet haben, sonst können Sie sicht nicht mehr einloggen.
 
 ## Services
 
@@ -141,47 +139,48 @@ NO_SAMPLE_DATA="no"
 Das Anlegen des Beispiel-Arbeitsbereiches wird bei einer Neuinstallation übersprungen. Wird ein bereits vorhandenes
 System gestartet, hat diese Einstellung keine Auswirkungen.
 
-# Server-Admin: TLS einrichten
+# Server-Administrator\*in: TLS einrichten
 
-Außer in [Offline-Szenarien](https://iqb-berlin.github.io/tba-info/Testcenter/install/offline.html) muss TLS verwendet
+Außer in [Offline-Szenarien](/setup/offline/index.qmd) muss TLS verwendet
 werden. Dazu sind Zertifikate zu besorgen und im testcenter-Verzeichnis unter `config/certs` abzulegen. Die Namen der
 Zertifikatsdateien sind in der Datei `config/tls-config.yml` anzugeben.
 
 Ist TLS nicht eingerichtet, so wird ein self-signed-Certificate verwendet - mit der Folge, dass Nutzer des Testcenters
 eine Sicherheitswarnung von ihrem Browser bekommen.
 
-# "Super-Admin": Konfigurationsoptionen in der UI
+# Super-Administrator\*in: Systemeinstellungen in der UI
 
-Innerhalb der Testcenter Applikation gibt es die Rolle des "Super-Admin", der sich im Testcenter einloggt unter `Systemverwaltung` und dem Reiter `Einstellungen`
-verschiedene weitere Konfigurationen vornehmen kann.
+Super-Administrator\*innen haben Zugriff auf die Systemeinstellungen. Die Anmeldung am Testcenter erfolgt über den Schalter **Weiter als Admin**. Zur Liste der Arbeitsbereiche erscheint anschließend ein Schalter **Systemverwaltung**. Nach einem Klick auf diesen Schalter, stehen die folgenden Einstellungen über entsprechende Reiter zur Verfügung:
 
-## Ändern der Standard-Texte
+## User
 
-Die meisten Texte, die ein Testteilnehmer zu Gesicht bekommen, lassen sich hier für die gesamte Instanz ändern. Diese
-lassen sich dann wiederum [für einzelne Studien oder Booklets ändern]
-(https://iqb-berlin.github.io/tba-info/Testcenter/Studiendurchfuehrung/Studienverhalten_konfigurieren.html).
+Hier können bestehende Nutzer\*innen (Arbeitsbereichs-Admins) verwaltet werden. Die {{< fa plus >}}-Schaltfläche erzeugt neue Arbeitsbereichs-Admins. Mit der {{< fa trash >}}-Schaltfläche kann ein Bereich gelöscht werden. Weiterhin stehen zwei Schaltflächen zur Änderung von Kennwort und Zugriffsebene bereit. Diese beide Schaltflächen sind mit einem {{< fa pen >}}-Symbol gekennzeichnet. Ist eine Person als Super-Admin angelegt, wird diese mit einem Stern in der Liste der Nutzer\*innen geführt. Wird in der Liste eine Person markiert, werden auf der rechten Seite alle Arbeitsbereiche angezeigt auf die diese Person Zugriff hat. Die Berechtigung für einen Arbeitsbereich sind noch einmal unterteilt in "read only" (RO) und "read and write" (RW).
 
-## Eine Warnung auf die Startseite schalten
+## Arbeitsbereiche
 
-Es lässt sich für eine definierte Zeit eine Warnung auf die Startseite schalten.
+Hier werden alle angelegten Bereiche aufgelistet. Es können neue Bereiche angelegt, gelöscht oder nachträglich bearbeitet werden. Durch Markierung eines Bereichs werden rechts alle Personen aufgelistet, die auf diesen Bereich Zugriff haben. Dabei wird noch einmal unterschieden, ob eine Personen nur lesend (RO) oder lesend und schreibend (RW) auf den Bereich zugreifen darf. Sollen Personen einen Zugriff auf einen Bereich erhalten, ist der jeweilige Bereich zu markieren und die Person mit RO- oder RW-Zugriff auszuwählen. Anschließend muss zwingend die {{< fa floppy-disk >}}-Schaltfläche oben rechts aktiviert werden, ansonsten werden die Änderungen nicht gespeichert.
 
-## Das Aussehen der Anwendung grundsätzlich anpassen
+## Einstellungen
+
+Hier können einige Bereiche des Testcenters an individuelle Bedürfnisse angepasst werden. Es ist bspw. möglich das Logo auszutauschen, die Hintergrundfarbe und Texte der Anwendung zu verändern. Es können auch Textersetzungen für die Bereiche: Testheft, Gruppenmonitor, Login und System-Check erfolgen. Sollen Texte ersetzt werden, ist nach Änderungen zwingend die {{< fa floppy-disk >}}-Schaltfläche zu betätigen, um die Änderungen zu übernehmen. Außerdem kann zu Wartungszwecken eine entsprechende Warnmeldung auf der Anmeldeseite geschaltet werden.
+
+### Das Aussehen der Anwendung grundsätzlich anpassen
 
 Hintergrundfarbe, Name, Logo u. Ä. der Anwendung lässt sich verändern. Bei den Farben sind sämtliche
 [CSS-Farben](https://www.w3schools.com/cssref/css_colors.php) und sogar CSS-Farbverläufe usw. möglich.
 
-## Die Fehlerreport-Funktion konfigurieren
+### Die Fehlerreport-Funktion konfigurieren
 
 Wenn immer im Testcenter eine Fehlermeldung auftaucht, gibt es die Möglichkeit, einen ausführlichen Report anzuzeigen,
 und herunterzuladen. Wird dieser an die Entwickler gesendet, haben diese eine Chance das Problem zu beheben. Eine
-Testcenterinstanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopfdruck direkt eingesendet werden können.
+Testcenter-Instanz kann so konfiguriert werden, dass Fehlerreports auch auf Knopfdruck direkt eingesendet werden können.
 Betreiber eines Testcenters können auf diese Weise auftretende Fehler geordnet tracken.
 
 Als Bugtracker kann derzeit nur GitHub angeschlossen werden. Dazu kann der Super-Admin entsprechend ein Token und ein
 Repository angeben. Das Testcenter selbst wird bewusst nicht als BugTracker verwendet, sondern ein externer Service,
 damit Fehlerberichte auch bei nicht erreichbarem Testcenter-Server gesendet werden können.
 
-### GitHub als BugTracker konfigurieren
+#### GitHub als BugTracker konfigurieren
 
 * ein GitHub Projekt mit aktivierten `issues` auf GitHub.com wird benötigt
 * es ist im Feld Ziel-Repository das Repository in der üblichen Schreibweise `{Organisatiosname}/{Repositoryname}`

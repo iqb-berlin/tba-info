@@ -48,26 +48,32 @@ website:
             text: Bildungstrend
           - href: intro/vera.qmd
             text: VERA
-          - section: Installation
-            href: intro/install/index.qmd
+          - href: intro/security.qmd
+            text: "Datensicherheit"
+          - href: intro/releases.qmd
+            text: "Release-Plan"
+      - section: "System-Setup"
+        href: setup/index.qmd
+        contents:
+          - section: "Konfiguration"
             contents:
-            - href: intro/install/studio-super-admin/index.qmd
-              text: "Studio: Super-Admin"
-            - href: intro/install/configuration.qmd
-              text: "TC: Konfiguration"
-            - href: intro/install/load-test.qmd
-              text: "Lasttests"
-            - href: intro/install/security.qmd
-              text: "Datensicherheit"
-            - href: intro/install/offline.qmd
-              text: "Offline-Szenario"
-            - href: intro/install/e2e.qmd
-              text: "Software-Tests"
-            - href:  intro/install/kiosk.qmd
-              text: "Kiosk Mode"
-            - href: intro/install/releases.qmd
-              text: "Release-Plan"
-
+              - href: setup/config/studio.qmd
+                text: "IQB-Studio"
+              - href: setup/config/testcenter.qmd
+                text: "IQB-Testcenter"
+          - href: setup/install/index.qmd
+            text: "Installation"
+          - href: setup/offline/index.qmd
+            text: "Offline-Nutzung"
+          - section: "Verfügbarkeit"
+            href: setup/availability/index.qmd
+            contents:
+              - href: setup/availability/e2e.qmd
+                text: "E2E-Tests"
+              - href: setup/availability/load-test.qmd
+                text: "Lasttest"
+          - href: setup/kiosk.qmd
+            text: "Kiosk-Mode"
       - section: "Aufgaben entwickeln"
         href: tasks/index.qmd
         contents:
