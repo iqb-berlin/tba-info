@@ -1,0 +1,158 @@
+---
+lang: de
+title: "Booklet-XML"
+format:
+  html:
+    code-overflow: wrap
+    other-links:
+      - text: XML-Schema für Booklet
+        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd
+      - text: Mögliche Textersetzungen
+        href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html
+      - text: Werte Booklet-Konfiguration
+        href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters
+---
+
+::: {.callout-tip}
+Grundlagenwissen zum Aufbau einer XML ist [hier](basics-xml.qmd) zu finden.
+:::
+
+```{mermaid}
+flowchart LR
+  A[Basis-Pakete für Player] --> B[Player]
+  B --> C[Units]
+  C --> D[Booklets]
+  D --> E[Testtakers]
+  style D fill:#a0e3f3
+```
+
+# Grundstruktur
+
+Das Beispiel zeigt eine minimale Version einer Booklet-XML.
+
+```{.xml filename="booklet1.xml"}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"> # <1>
+  <Metadata> # <2>
+    <Id>booklet1</Id> # <2>
+    <Label>Testheft 1</Label> # <2>
+  </Metadata> # <2>
+  <Units>
+    <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/> # <3>
+    <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/> # <3>
+    <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/> # <3>
+  </Units>
+</Booklet>
+```
+1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.
+3. Units: Die Liste der Units, die präsentiert werden sollen. Die `id` verweist auf eine im Arbeitsbereich vorhandene Unit. Das `label` wird ggf. als Überschrift verwendet. Das `labelshort` wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.
+
+# Booklet-Einstellungen
+
+Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in `<BookletConfig>`. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.
+
+```{.xml filename="booklet2.xml"}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>booklet1</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <BookletConfig> # <1>
+    <Config key="pagingMode">buttons</Config> # <2>
+    <Config key="page_navibuttons">OFF</Config> # <2>
+    <Config key="controller_design">2018</Config> # <2>
+  </BookletConfig>
+  <Units>
+    <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/>
+    <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/>
+    <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/>
+  </Units>
+</Booklet>
+```
+1. Das BookletConfig-Element muss unmittelbar nach den Metadaten platziert werden.
+2. Jeder Konfigurationseintrag besteht aus einem `key` und dem inneren Teil des Elementes, dem Wert (`value`)
+
+Die vollständige Liste der Booklet-Einstellungen [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters). Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.
+
+# Strukturierung in Blöcken (Testlet)
+
+Units können blockweise aufgeteilt werden. Durch Blöcke wird die Übersichtlichkeit erhöht. Außerdem bieten Blöcke die Möglichkeit Zugangs- und Ablaufbeschränkungen zu vergeben. Soll ein Gruppenmonitor zum Einsatz kommen, sind Blöcke unabdingbar. Die Testleitung kann dann mit Hilfe des Monitors Testpersonen in einzelne Blöcke bewegen. Die eventuell vergebenen Beschränkungen, können die Testpersonen dann in einem Block halten. Dies ermöglicht eine bessere Synchronisierung des Testablaufs.
+
+
+```{.xml filename="booklet3.xml"}
+<?xml version="1.0"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>booklet1</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <Units>
+    <Unit id="Welcome" label="Willkommen zum Test" labelshort="-"/>
+    <Testlet id="Testlet1" label="Aufgaben"> # <1>
+      <Restrictions> # <2>
+        <CodeToEnter code="BUS">  # <3>
+          Bitte warte, bis dir ein Freigabewort gesagt wird.  # <3>
+        </CodeToEnter> # <3>
+        <TimeMax minutes="10" leave="forbidden"/>  # <4>
+        <DenyNavigationOnIncomplete presentation="ALWAYS" response="ALWAYS" /> # <5>
+        <LockAfterLeaving confirm="true" scope="unit"/> # <6>
+      </Restrictions>
+      <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/>
+      <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/>
+      <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/>
+    </Testlet>
+    <Unit id="Goodbye" label="Danke für Deine Teilnahme" labelshort="-"/>
+  </Units>
+</Booklet>
+```
+1. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen. Das `label` kann z. B. auf einer erweiterten Navigationsseite angezeigt werden.
+2. Das Restrictions-Element muss stets das erste innerhalb eines Blockes sein. Die Elemente darin sind optional, müssen aber -- sofern vorhanden -- in genau dieser Reihenfolge vorkommen: **CodeToEnter** --> **TimeMax** --> **DenyNavigationOnIncomplete** --> **LockAfterLeaving**.
+3. Die Restriktion **CodeToEnter** legt fest, dass eine Dialogbox gezeigt wird beim Versuch, den Block zu betreten. Erst nach Eingabe des Codes, der im Attribute `code` übergeben wird, kann man den Block betreten. Groß- und Kleinschreibung spielt keine Rolle. Der Text innerhalb des Elementes wird in der Dialogbox als Aufforderung angezeigt. Diese Restriktion dient der Synchronisation des Testablaufes innerhalb einer Testgruppe (Klasse), um Gelegenheit für weitere Ansagen zu haben.
+4. **TimeMax**: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert und der Block wird gesperrt. Die Testperson kann das nicht verhindern. Die Testperson kann den Block auf Wunsch vor Ablauf der Zeit verlassen. Dazu navigiert die Person in eine Unit außerhalb des aktiven Blocks und erhält eine entsprechende Warnmeldung. Nach Bestätigung dieser, wird der Block frühzeitig verlassen und gesperrt. Mit Hilfe des Attributs: `leave` kann festgelegt werden, ob eine Warnung erscheint oder ob der Block einfach verlassen werden kann ohne Warnung. Der Standardwert ist `forbidden`. Soll keine Warnung erscheinen muss der Wert: `allowed` zugewiesen werden.
+5. Mit der Restriktion **DenyNavigationOnIncomplete** wird das Verlassen einer Unit verhindert, wenn die Präsentation (Attribut `presentation`) und/oder die Antworten (Attribut `response`) unvollständig sind. Die möglichen Werte sind `OFF`-Keine Beschränkung, `ON`-Vorwärtsgehen wird verhindert und `ALWAYS`-Vor- und Rückwärtsgehen wird verhindert. Damit überschreibt man für diesen Block eine ggf. als Booklet-Konfiguration gesetzte Regel (`force_presentation_complete` bzw. `force_response_complete`; beide haben `OFF` als Standard).
+6. Soll eine Aufgabe oder ein Testheft nach dem Verlassen (Navigation zur nächsten Aufgaben oder Testheft) nicht mehr zugänglich sein, kann die Restriktion **LockAfterLeaving** verwendet werden. Hier kann im Attribut `confirm`festgelegt werden, ob vor der Sperrung eine Warnung erscheint oder nicht (boolean). Mit Hilfe des Attributs `scope` kann festgelegt werden, ob beim Verlassen das Testheft gesperrt wird oder nur die verlassene Unit in einem Testheft (testlet, unit).
+
+::: {.callout-tip}
+Sehen Sie stets alleinstehende Units jeweils vor und nach einem Block mit Restriktionen vor. Das können einfache Ankündigungen sein. Dadurch verhindern Sie, dass die Restriktionen von Blöcken sich gegenseitig behindern und die Testperson weder vor- noch zurückgehen kann.
+:::
+
+Blöcke können **geschachtelt** sein, d. h. Blöcke können wieder Blöcke enthalten usw. Damit können Sie Restriktionen feingranular setzen. Gehen Sie damit vorsichtig um, da Restriktionen sich auch gegenseitig behindern können.
+
+# Unit-Alias
+
+Es mag Units geben, die mehrfach von der Testperson beantwortet werden sollen. Dazu gehören z. B. Fragen zur Einstellung zum Test, da diese sich über den Verlauf des Tests ändern könnte. Auch Feedback-Items, die Kommentare der Testperson an die Macher des Tests abfragen, gehören dazu. Es ist dann kein Versehen, sondern gehört zum Testgegenstand dazu.
+
+Prinzipiell ist das ein Problem, denn die Antworten werden stets der Unit zugeordnet. Diese Zuordnung ist gefährdet, wenn eine Unit mehrfach vorkommt. Daher erzeugt das Testcenter in diesem Fall automatisch einen Alias: An die Unit-Definition wird ein numerischer Suffix angehängt, und die Zuordnung erfolgt korrekt. In den Antwortdaten finden sich dann beide Vorkommen der Unit mit unterschiedlichen Unit-Bezeichnungen.
+
+Dieses automatische Verhalten kann man steuern, indem im Unit-Element das Attribut `alias` gesetzt wird:
+
+```{.xml}
+  <Unit id="Motivation42" alias="Motivation42_Start"
+        label="Eine Frage zum Start" labelshort="1"/>
+  ...
+  <Unit id="Motivation42" alias="Motivation42_End"
+        label="Eine Frage zum Ende" labelshort="18"/>
+```
+
+::: {.callout-caution}
+Wenn eine Unit mehrfach vorkommt, aber in verschiedenen Booklets, kann das Testcenter diese mögliche Kollision der Antwortdaten nicht feststellen. Führen Sie also bei der Verarbeitung der Antwortdaten stets die Booklet-Id mit, um darüber die Eindeutigkeit zu gewährleisten.
+:::
+
+# Adaptives Testen
+
+In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier wird festgelegt unter welchen Bedingungen bestimmte Testhefte und Aufgaben angezeigt werden. Wie die Konfiguration vorzunehmen ist, ist dem Kapitel: **Adaptives Testen** zu entnehmen.
+
+# Angepasste Texte: CustomTexts
+
+Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Eingabeaufforderung oder Warnung usw. gezeigt werden, können -- **spezifisch für dieses Booklet** -- geändert werden.
+
+{{< include _custom-texts.qmd >}}
+
+::: {.callout-note}
+Textersetzungen die bereits in der Testtaker-XML definiert wurden, werden von den Textersetzungen in der Booklet-XML überschrieben.
+:::

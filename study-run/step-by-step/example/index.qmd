@@ -1,0 +1,48 @@
+---
+lang: de
+title: "Beispielstudie"
+---
+
+An dieser Stelle soll eine kleine exemplarische Studien durchgeführt werden. Anwender\*innen sollen so ein besseres Gefühl für das Testcenter und die Studiendurchführung bekommen. 
+
+::: {.callout-note}
+Die Beispielstudie umfasst die folgenden Themenschwerpunkte:
+
+* Studienkonfiguration
+* Studiendurchführung
+* Auswertung
+:::
+
+
+# Wie soll die Studie konfiguriert sein?
+
+Jede Studie kann mit Hilfe der Testdateien spezifisch konfiguriert werden. Nachfolgend sind beispielhafte Anforderungen an die Konfiguration zu finden. Diese werden im weiteren Verlauf dieser Anleitung umgesetzt.
+
+## Inhalte
+
+* Die Studie soll aus insgesamt 2 Aufgaben bestehen. 
+* Es soll eine Seite zur Begrüßung und eine weitere zur Verabschiedung geben. 
+* Aufgabe 1 enthält ein Audio. Dieses muss abgespielt werden, bevor ein weiterer Abschnitt mit Pflichtfragen zu diesem Audio erscheint. 
+* Aufgabe 2 enthält ein Video und Fragen dazu. Die Beantwortung dieser Frage ist nicht verpflichtend.
+
+## Navigation
+
+* Aufgabe 1: Vorwärts navigieren zu Aufgabe 2 ist nur erlaubt, wenn die Frage beantwortet wurde und alles betrachtet/ angehört wurde. Rückwärts kann Aufgabe 1 jederzeit verlassen werden. 
+* Aufgabe 2 enthält keine Pflichtelemente und kann daher ohne Beantwortung in beiden Richtungen verlassen werden. Um vorwärts navigieren zu können, muss jedoch das Video angesehen werden. 
+* Die Begrüßungs-/ Verabschiedungsseite kann jederzeit rückwärts verlassen werden. Soll vorwärts navigiert werden, muss zuvor alles betrachtet werden. Da diese Seiten nur einer Textzeile bestehen, ist letztere Bedingungen quasi sofort erfüllt.
+* Zur Navigation soll eine entsprechende Navigationsleiste mit den Nummern der Aufgaben angezeigt werden. Außerdem soll ein zusätzliches Aufgaben-Menu angezeigt werden.
+
+## Testheft Strukturierung
+
+* Aufgabe 1 und 2 sollen sich in einem Block (Testlet) befinden. Der Block kann erst betreten werden, wenn das richtige Freigabewort eingegeben wurde. Der Block soll weiterhin über eine Zeitbeschränkung von 3 Minuten verfügen. Die verbleibende Zeit wird angezeigt.
+* Im Kopf soll der Aufgabenname (`label`in Booklet-XML) angezeigt werden.
+
+## Studien-Konfiguration
+
+* Der Test soll im Modus: **run-hot-return** durchgeführt werden. 
+* Solange die Blockzeit noch nicht abgelaufen ist, kann der Test nach Beendigung jederzeit weiterbearbeitet werden.
+* Es sollen 3 Testpersonen Zugriff auf die Studie haben. Diese müssen sich mit Namen und Passwort am Testcenter anmelden. 
+
+## Studien Hilfsmittel
+
+* Es ist ein Gruppenmonitor vorzusehen mit dem der Bearbeitungsstand der 3 Testpersonen verfolgt werden kann.
