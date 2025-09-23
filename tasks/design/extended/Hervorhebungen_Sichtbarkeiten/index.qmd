@@ -21,6 +21,12 @@ Hervorhebungen werden standardmäßig violett angezeigt.
 
 Mit Sichtbarkeitseinstellungen können Abschnitte im Studio zu verschiedenen Zeiten sichtbar gemacht werden. Es ist zum Beispiel möglich einen Abschnitt erst nach 10 Sekunden einzublenden oder auch erst wenn eine bestimmte Audio-Datei angehört wurde.
 
+### Bedingungen
+
+Mit dem grauen Feld kann eine neue Bedingung hinzugefügt werden.
+
+Hier können Sie angeben, welche Sichtbarkeitseinstellungen der Abschnitt erhalten soll.
+
 ### Logische Verknüpfung
 
 Mit dieser Option kann ausgewählt werden, ob beide der die unten eingestellten Bedingungen angewendet werden oder nur eine.
@@ -31,13 +37,7 @@ Mit der Funktion *Erneutes Ausblenden erlauben, wenn die Bedingungen nicht mehr 
 
 Zudem kann mit der Funktion *Einblenden mit Scroll-Animation* bestimmt werden, dass an den Anfang der gesamten Seite gescrollt wird, sobald eine neue Bedingung angewandt wird. Dies kann den Nachbau einer Website im Studio realistischer erscheinen lassen.
 
-Außerdem kann angegeben werden, ob der behandelte Abschnitt erst verspätet eingeblendet wird, wenn die angegebene Bedingung erfüllt ist.
-
-### Bedingungen
-
-Mit dem grauen kann eine neue Bedingung hinzugefügt werden.
-
-Hier können Sie angeben, welche Sichtbarkeitseinstellungen der Abschnitt erhalten soll. 
+Außerdem können Sie angeben, ob der behandelte Abschnitt erst verspätet eingeblendet wird, wenn die angegebene Bedingung erfüllt ist.
 
 #### Variablen/Element-ID
 
@@ -62,13 +62,17 @@ Der Operator gibt an, in welcher Beziehung das angegebene Element zu dem behande
 
 Der Wert gibt an, wann die Beziehung erfüllt werden soll. 
 
-In dem angegebenen Beispiel (_audio00>0) soll der behandelte Abschnitt erscheinen, sobald die angegebene Audio-Datei größer als 0 ist – das Audio also angefangen hat. Stünde hier hingegen 1, würde der Abschnitt eingeblendet, sobald die Audio-Datei größer als 1 ist – also beendet ist.
+In dem angegebenen Beispiel (_audio00>0) soll der behandelte Abschnitt erscheinen, sobald die angegebene Audio-Datei größer als 0 ist – das Audio also angefangen hat. Stünde hier hingegen 0,99, würde der Abschnitt eingeblendet, sobald die Audio-Datei größer als 0,99 ist – also beendet ist. Der Wert gibt den Anteil an, der bereits abgespielt wurde, bei 0,99 also 99%.
+
+::: {.callout-note}
+Aus technischen Gründen sollte man vermeiden, den Wert "1" zu verwenden, da dieser Wert nicht immer erreicht wird. Zwar funktioniert dieser Wert oft, aber es ist sicherer, 0,99 einzutragen. 
+:::
 
 Zudem wäre es möglich als Wert „Blume“ und als Operator „Enthält“ einzutragen und dies mit einem Eingabefeld zu verknüpfen. Sobald dann in das Eingabefeld „Blume“ eingetragen wird, würde dann der behandelte Abschnitt erscheinen.
 
 ## Zustandsvariablen
 
-In der Elementeliste ganz unten befindet sich die Schaltfläche *Zustandsvariable*. Eine Zustandsvariable gibt eine Eigenschaft für die ganze Seite wieder. Einem Abschnitt kann eine bedingte Sichtbarkeit für eine bestimmte Zustandsvariable zugewiesen werden. Das ermöglicht einen Webseiten-ähnlichen Aufbau des Stimulus, bei dem mittels Buttons eine Veränderung der Variable und damit des angezeigten ST einhergehen kann. Zustandsvariablen stellen somit die Grundlage für Verknüpfungen zwischen verschiedenen Seiten einer Aufgabe dar.
+In der Elementeliste ganz unten befindet sich die Schaltfläche *Zustandsvariable*. Eine Zustandsvariable gibt eine Eigenschaft für die ganze Seite wieder. Einem Abschnitt kann eine bedingte Sichtbarkeit für eine bestimmte Zustandsvariable zugewiesen werden. Das ermöglicht einen Webseiten-ähnlichen Aufbau des Stimulus, bei dem mittels Buttons eine Veränderung der Variable und damit des angezeigten Stimulus einhergehen kann. Zustandsvariablen stellen somit die Grundlage für Verknüpfungen zwischen verschiedenen Seiten einer Aufgabe dar.
 
 Beim Klick auf die Schaltfläche erscheint ein Popup. Hier kann eine neue Variable eingefügt werden.
 
