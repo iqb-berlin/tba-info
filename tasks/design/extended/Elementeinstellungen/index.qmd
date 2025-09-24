@@ -3,15 +3,91 @@ lang: de
 title: Elementeinstellungen
 ---
 
-![](Grafiken/elementeinstellungen_gesamt.png){width=400}
+::: {.callout-caution}
+Diese Seite wird zurzeit überarbeitet. Weitere Inhalte und Grafiken folgen demnächst.
+:::
 
-Jedes Element hat eine Reihe von Eigenschaften bzw. Einstellungen, die man ändern kann. Hier wird auf die Einstellungen eingegangen, die die meisten Elemente teilen.
+Jedes Element hat eine Reihe von Eigenschaften bzw. Einstellungen, die Sie ändern können. Hier wird auf die Einstellungen eingegangen, die die meisten Elemente teilen.
 
 ## Elementspezifische Einstellungen
-{{< include _tab_einstellung.qmd >}}
+
+In diesem Tab gibt es diverse Einstellungen. Die meisten davon sind spezifisch zu den einzelnen Elementen. Die folgenden Einstellungen sind allen Elementen gemeinsam. Hier ist exemplarisch der Elementeinstellungstab eines Textelements abgebildet.
+
+### ID
+
+Die ID eines Elements ist eine eindeutige Kennzeichnung, mithilfe derer man sich auf das Element beziehen kann, z. B. wenn man Sichtbarkeitseinstellungen vornimmt oder Ablagelisten verknüpft.
+
+### Relevant für „Presentation Complete“
+
+Der Status „Presentation Complete“ repräsentiert, ob alle Elemente auf einer Seite vollständig wahrgenommen wurden. Bei den meisten Elementen heißt das, sie müssen auf dem Bildschirm angezeigt worden sein, bei Audios und Videos müssen diese bis zum Ende abgespielt worden sein. Dies ist nützlich, denn manchmal soll verhindert werden, dass Testteilnehmende im Text weitergehen, bevor sie eine Aufgabe vollständig bearbeitet haben.
+
+Standardmäßig ist der Haken bei „Relevant für „Presentation Complete““ gesetzt. Wenn Sie ihn entfernen, wird ein Element für den Status „Presentation Complete“ nicht gezählt. Sie können den Haken entfernen, wenn ein Element für das Abschließen einer Aufgabe optional ist, beispielsweise wenn mehrere unterschiedliche Items existieren, von denen aber nur eins bearbeitet werden muss und die anderen verborgen bleiben.
+
+### Elementinteraktion erlauben
+
+Wenn Sie den Haken bei „Elementinteraktion erlauben“ setzen, können Sie im Editor mit dem Element interagieren, also beispielsweise bei Optionsfeldern Optionen auswählen. Im Allgemeinen wird es aber empfohlen, die Aufgabe in der Vorschau anzusehen, da dies näher an der Darstellung im Testcenter ist.
+
+### Element duplizieren
+
+Mit diesem Knopf können Sie eine Kopie des ausgewählten Elements erstellen. Die Kopie des Elements erscheint im gleichen Abschnitt, aber ohne Spalte und Zeile. Daher liegt es zunächst unten links und Sie sollten dem Duplikat unbedingt eine Spalte und Zeile zuweisen.
+
+### Element löschen
+
+Mit diesem Knopf können Sie das ausgewählte Element löschen. Wenn Sie darauf klicken, müssen Sie in einem Dialogfenster bestätigen, dass Sie das Element wirklich löschen wollen.
+
+Weitere Informationen zu elementspezifischen Einstellungen finden Sie [hier](../Elemente/index.qmd)
 
 ## Position und Maße
-{{< include _tab_position.qmd >}}
+
+In diesem Tab können Sie einstellen, wo das Element angezeigt wird und wie groß es ist. Die Optionen sind im Allgemeinen für alle Elemente gleich.
+
+### Raster
+
+Alle Elemente werden auf einem unsichtbaren Raster angezeigt. Jeder Abschnitt hat sein eigenes Raster (s. [Abschnittlayout](/tasks/design/extended/Abschnittseinstellungen/index.qmd#layout)) bestehend aus Spalten und Zeilen. Jedem Element sollte eine Spalte und eine Zeile zugeordnet werden. Wenn ein neues Element erzeugt wird und dieses noch keiner Spalte und Zeile zugeordnet ist, sollten Sie dies schnellstmöglich ändern.
+Die Einstellung Zeilen- bzw. Spaltenspanne bestimmt, wie viele Zeilen bzw. Spalten das Element einnimmt. Wenn z. B. eine Aufgabe anlegt wird, in der mehrere Ablagelisten nebeneinander liegen und darüber eine Instruktion steht, dann werden den Ablagelisten verschiedene Spalten zugewiesen. Damit der Instruktionstext darüber steht, wird die Spaltenspanne des Textelements entsprechend hoch gesetzt.
+
+### Abstand
+
+Hier können Sie einstellen, welchen Abstand das Element auf allen Seiten hat. Ein Abstand ist ein Leerraum zwischen den Elementen im Raster. Vorzugsweise sollten Sie die Abstände rechts und unten einstellen, während die Abstände oben und links nur in Ausnahmefällen zu benutzen sind. Es können auch negative Abstände eingestellt werden, um das Element näher an ein anderes Element zu rücken. Das Ändern von Abständen kann Elemente auch visuell verändern, daher sollte sparsam mit dieser Option umgegangen werden.
+
+### Stapelung
+
+Die Stapelung bestimmt, welches Element angezeigt wird und womit im Text interagiert werden kann. Liegen zwei Elemente übereinander, so kann nur mit dem Element interagiert werden, welches einen höheren Wert in der Stapelung hat, welches also oben liegt. Darunterliegende Elemente sind nur sichtbar, wenn das oben liegende Element transparent ist. So können Sie z. B. erreichen, dass Ablagelisten auf Bildern liegen.
+
+::: {.callout-note}
+Die Stapelung betrifft die Darstellung des Elements in der Vorschau und im Testcenter, aber nicht im Editor. Falls im Editor Elemente übereinanderliegen und dadurch schwierig zu bearbeiten sind, können Sie diese in der Elementliste des Abschnitts suchen.
+:::
+
+### Dimensionen
+
+Jedes Element nimmt eine bestimmte Anzahl Pixel auf dem Bildschirm ein. Für manche Elemente ist diese Größe dynamisch an den Bildschirm angepasst. Oft ist es gewünscht, die Größe des Elements genauer zu kontrollieren. Dafür können Sie die Größe des Elements festsetzen, eine Mindest- sowie Maximalgröße einstellen. Dabei können jeweils Höhe und Breite eingestellt werden.
+
+Ein Element mit fester Größe bleibt immer statisch. Dabei ist zu beachten, dass Aufgaben selbst eine feste Seitenbreite haben, meist 750px, die das Element nicht überschreiten sollte. Eine feste Größe einzustellen ist oft ungünstig, da die Anzeige der Aufgaben möglichst dynamisch sein soll. Bei manchen Elementen ändert sich auch die Ausrichtung des Elements, wenn eine feste Größe eingestellt wird. Dann kann eine versteckte feste Größe eingestellt werden: Zunächst wird die feste Größe eingestellt, dann aber wird das Häkchen im Kasten wieder entfernt. Die Größe wird beibehalten, aber die Ausrichtung des Elements bleibt linksbündig.
+
+Die Mindestgröße ist nützlich, um zu verhindern, dass ein Element beliebig schrumpft. Die Mindestgröße gibt an, wie klein das Element höchstens werden darf.
+
+Die Maximalgröße begrenzt wie groß ein Element angezeigt wird. Oft ist sie eine gute Alternative zur festen Größe.
 
 ## Gestaltung
-{{< include _tab_gestaltung.qmd >}}
+
+In diesem Tab können Sie gestalterische Merkmale des Elements ändern, insbesondere was Schrift und Farbe betrifft. Die Optionen können von Element zu Element variieren, hier wird auf die üblichsten Optionen eingegangen.
+
+### Hintergrundfarbe
+
+Die Hintergrundfarbe des Elements wird als Hexcode angegeben. Auch möglich ist „transparent“ für einen durchsichtigen Hintergrund oder englische Namen für übliche Farben, z. B. blue, black, white. 
+
+### Schriftfarbe
+
+Die Schriftfarbe des Elements wird als Hexcode angegeben. Auch möglich sind „transparent“ oder englische Namen für übliche Farben, z. B. blue, black, white.
+
+### Schriftgröße
+
+Die Schriftgröße für das Element können Sie hier ändern. Bei Textelementen kann zusätzlich die Schriftgröße im Texteditor verändert werden, die angezeigte Schriftgröße ergibt sich aus beiden Einstellungen.
+
+### Zeilenhöhe
+
+Die Zeilenhöhe bestimmt den Abstand zwischen den einzelnen Textzeilen. Sie können damit z. B. einstellen, dass eine Beschriftung über mehrere Zeilen auf der gleichen Höhe wie eine dazugehörige Grafik liegt.
+
+### Formatierung
+
+Hier können Sie Einstellungen zur Formatierung des Textes im Element vornehmen. Meistens ist es allerdings besser, die Einstellungen im Texteditor vorzunehmen. 
