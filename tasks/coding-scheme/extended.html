@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Kodierung Sonderfälle – TBA - Verstehen und Anwenden</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Testcenter/index.html" rel="next">
+<link href="../../tasks/coding-scheme/basic.html" rel="prev">
+<link href="../../assets/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-78ab54daca3b71ef59b6cac54c9b6787.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">TBA - Verstehen und Anwenden</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Suchen"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tasks/index.html">Aufgaben entwickeln</a></li><li class="breadcrumb-item"><a href="../../tasks/coding-scheme/index.html">Kodierschema</a></li><li class="breadcrumb-item"><a href="../../tasks/coding-scheme/extended.html">Sonderfälle</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/bt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildungstrend</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/vera.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VERA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/install/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/studio-super-admin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Super-Admin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TC: Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/load-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lasttests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensicherheit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/offline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Offline-Szenario</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/e2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software-Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/kiosk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kiosk Mode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release-Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben entwickeln</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rollen und Rechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/workspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/move-and-copy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verschieben und Kopieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/task-sequence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgabenfolgen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/verona-modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verona-Module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metadaten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben gestalten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standardmodus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allgemeine Anleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/Stimulus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus-Text-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus-Email-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus Mobiltelefon-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus- Instruktion und Hörtext in einem Audio-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus Instruktion und Audio getrennt-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC mit Bild-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortfelder Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Kontrollkasten_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontrollkästchen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/DaD/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop-Zuordnen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung_zweiseitig/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zuordnung (2-Seitig) Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop- Sortieren-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rechenkästchen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Medienelemente</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Text/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Textelement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Bild/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildelemente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Audio/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Video/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Lückentext</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Tabellen_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Tabelle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erweiterter Modus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elementeinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elementeinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Abschnittseinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abschnittseinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Seiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elemente/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen &amp; Sichtbarkeiten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttonverlinkungen – interaktive Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren mit mehreren Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sichtbarkeitskaskaden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/geogebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/BalkenSaulen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Balken- und Säulendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Tortendiagramm/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tortendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Messen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messwerkzeug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Geobrett/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Geobrett</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Koordinatensystem/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koordinatensystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Zahlenstrahl/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zahlenstrahl</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/media/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bild/Audio/Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audio_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Video_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audios_konvertieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio bearbeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_vorbereiten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hinweise zu Bildern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder einfärben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder Größe ändern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/base64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Format Base64</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einfache Formulare</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ABI-Player</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syntax im Detail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praktische Hinweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Primar</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rahmen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_buttons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_drop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Auswahl fallen lassen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schreiben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Im Bild finden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/responses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antworten kodieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übungsaufgaben</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/speedtest/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speedtest</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/coding-scheme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elemente und Variablen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basisfälle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/extended.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Sonderfälle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Workspace/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zugriffsrechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Testinhalte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testinhalte</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/booklet-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklet-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/testtaker-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testtaker-XML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Datenauswertung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenauswertung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/System_Check/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System-Check</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gruppenmonitor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Adaptives_Testen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptives Testen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Anforderungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anforderungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Studienkonfiguration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studienkonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Durchfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Durchführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beispielstudie</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/toolbox/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows ToolBox</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/codes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codes erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-generate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logins erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-docx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login-Handzettel erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/booklet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklets erzeugen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/faq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodieren und Auswerten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/data-structures/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenstrukturen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/response.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/coding-scheme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/response-status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort-Status im Prozess</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Missings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Schulungsmaterial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schulungsmaterial</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../news/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aktuell</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#mehrere-antwortfelder" id="toc-mehrere-antwortfelder" class="nav-link active" data-scroll-target="#mehrere-antwortfelder">Mehrere Antwortfelder</a></li>
+  <li><a href="#sec-leeresFeld" id="toc-sec-leeresFeld" class="nav-link" data-scroll-target="#sec-leeresFeld">Drag und Drop mit leerem Feld</a></li>
+  <li><a href="#drag-und-drop-mögliche-reihenfolgen" id="toc-drag-und-drop-mögliche-reihenfolgen" class="nav-link" data-scroll-target="#drag-und-drop-mögliche-reihenfolgen">Drag und Drop: mögliche Reihenfolgen</a></li>
+  <li><a href="#mc-mit-mehrfachauswahl-kontrollkästchen" id="toc-mc-mit-mehrfachauswahl-kontrollkästchen" class="nav-link" data-scroll-target="#mc-mit-mehrfachauswahl-kontrollkästchen">MC mit Mehrfachauswahl (Kontrollkästchen)</a></li>
+  <li><a href="#drag-und-drop-mehrere-mögliche-kombinationen" id="toc-drag-und-drop-mehrere-mögliche-kombinationen" class="nav-link" data-scroll-target="#drag-und-drop-mehrere-mögliche-kombinationen">Drag und Drop: mehrere mögliche Kombinationen</a></li>
+  <li><a href="#sec-Markieren_optional" id="toc-sec-Markieren_optional" class="nav-link" data-scroll-target="#sec-Markieren_optional">Markieren mit optional richtigen Lösungen</a></li>
+  <li><a href="#einfärben" id="toc-einfärben" class="nav-link" data-scroll-target="#einfärben">Einfärben</a>
+  <ul class="collapse">
+  <li><a href="#variante-1-reihenfolge-ist-wichtig" id="toc-variante-1-reihenfolge-ist-wichtig" class="nav-link" data-scroll-target="#variante-1-reihenfolge-ist-wichtig">Variante 1: Reihenfolge ist wichtig</a></li>
+  <li><a href="#variante-2-reihenfolge-ist-nicht-wichtig" id="toc-variante-2-reihenfolge-ist-nicht-wichtig" class="nav-link" data-scroll-target="#variante-2-reihenfolge-ist-nicht-wichtig">Variante 2: Reihenfolge ist nicht wichtig</a></li>
+  </ul></li>
+  <li><a href="#kombination-drag-und-drop-und-kurzantwort" id="toc-kombination-drag-und-drop-und-kurzantwort" class="nav-link" data-scroll-target="#kombination-drag-und-drop-und-kurzantwort">Kombination Drag und Drop und Kurzantwort</a></li>
+  <li><a href="#ableitungsmethode-solver" id="toc-ableitungsmethode-solver" class="nav-link" data-scroll-target="#ableitungsmethode-solver">Ableitungsmethode: Solver</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tasks/index.html">Aufgaben entwickeln</a></li><li class="breadcrumb-item"><a href="../../tasks/coding-scheme/index.html">Kodierschema</a></li><li class="breadcrumb-item"><a href="../../tasks/coding-scheme/extended.html">Sonderfälle</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Kodierung Sonderfälle</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Die Kodierfälle auf dieser Seite beschreiben besondere Itemformate oder komplziertere Abhängigkeiten mehrerer Variablen voneinander. Für die Definition ist viel Erfahrung und ein tieferes Verständnis der Prozesse während der Kodierläufe erforderlich.</p>
+<section id="mehrere-antwortfelder" class="level1">
+<h1>Mehrere Antwortfelder</h1>
+<p>Hier handelt es sich um Items, indem Schüler*innen zwei oder mehr Antworten aus mehreren Antworten angeben müssen. Es werden also nicht alle richtigen Antworten abgefragt, sondern eine Auswahl.</p>
+<p><a href="assets/Mehrere_Antwortfelder_Format.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/Mehrere_Antwortfelder_Format.png" class="img-fluid"></a></p>
+<p>Die Kodierung dieser Formate wird wie folgt angelegt:</p>
+<ul>
+<li>Zunächst muss für jede Möglichkeit ein Richtig-Code angelegt werden. Dafür klinkt man auf den grünen Haken. Dann muss mit dem Plus-Symbol die Regel “Zeichen/Text: Übereinstimmung” hinzugefügt werden.</li>
+</ul>
+<p><a href="assets/Regel_Zeichen_Text_Übereinstimmung.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/Regel_Zeichen_Text_Übereinstimmung.png" class="img-fluid"></a></p>
+<ul>
+<li>Jetzt muss jede Möglichkeit in einen einzelnen Richtig-Code in das Feld eingetragen werden. Hierbei müssen die einzelnen Codes 11, 12, 13, usw. benannt werden.</li>
+<li>Zum Schluss muss ein “Falsch: Absichtlich unvollständig”-Code hinzugefügt werden.</li>
+</ul>
+<p><a href="assets/absichtlich_unvollständig_Code.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="assets/absichtlich_unvollständig_Code.png" class="img-fluid"></a></p>
+<ul>
+<li>Wenn das für eine ID gemacht wurde, kann ihre Kodierung auf die IDs der restlichen Textfelder kopiert werden.</li>
+<li>Nun muss eine abgeleitete Variable angelegt werden. Hierbei muss die Ableitungsmethode “Codes aneinanderhängen” ausgewählt werden. Außerdem muss ein Haken bei “Sortiere Werte” gesetzt werden.</li>
+</ul>
+<p><a href="assets/Codes_aneinanderhängen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="assets/Codes_aneinanderhängen.png" class="img-fluid"></a></p>
+<ul>
+<li>Jetzt ist ein Richtig-Code (Doppelter grüner Haken) anzulegen, wobei alle möglichen Kombinationen an Antworten in Form von einer Aneinanderreihung ihrer Codes, z.B. 11_12_13 bei drei Antwortfeldern, untereinander ausgelistet werden. Hierbei ist die Reihenfolge nicht zu beachten. Es gilt also z.B. 11_12_13 = 13_12_11.</li>
+<li>Als letztes muss ein Falsch-Code mit einem schwarzen Kreuz angelegt werden.</li>
+</ul>
+</section>
+<section id="sec-leeresFeld" class="level1">
+<h1>Drag und Drop mit leerem Feld</h1>
+<p>Hier sind Drag und Drop-Items gemeint, bei denen auch leere Zeilen akzeptiert werden.</p>
+<ul>
+<li>Diese Format wird zum Großteil wie eine normale DnD Aufgabe kodiert.</li>
+<li>Das Ablegefeld, wo kein Plätchen abgelegt werden soll, bekommt eine spezielle Kodierung. Es muss ein Richtig-Code mit dem grünen Haken angelegt werden. Jetzt kann man mit dem Plus-Symbol die Regel “Leere Eingabe” ausgewählt werden. Zum Schluss muss dann wie üblich ein Falsch-Code (rotes Kreuz) hinzugefügt werden.</li>
+<li>Die abgeleitete Variable wird wie bei üblichen DnD Aufgaben angelegt.</li>
+</ul>
+</section>
+<section id="drag-und-drop-mögliche-reihenfolgen" class="level1">
+<h1>Drag und Drop: mögliche Reihenfolgen</h1>
+<p>Hier handelt es sich um Drag und Drop Aufgaben, wobei ein Zeile an Ablegelisten als eine Lösung gewertet wird. Dabei ist aber die Reihenfolge der Zeilen nicht zu beachten.</p>
+<p><a href="assets/mögliche_Reihenfolgen_Format.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="assets/mögliche_Reihenfolgen_Format.png" class="img-fluid"></a></p>
+<ul>
+<li>Die IDs der Ablegelisten werden der Zeile entsprechend benannt. Im obigen Beispiel wird in der ersten Zeile das erste Ablegefeld mit <code>07a_1</code>, das Zweite mit <code>07a_2</code> usw. bezeichnet. In der zweiten Zeile wird das erste Ablegefeld mit <code>07b_1</code>, das Zweite mit <code>07b_2</code> usw. bezeichnet.</li>
+<li>Die Drag-Elemente werden entsprechend der normalen DnD Kodierung benannt.</li>
+<li>Bei jeder zu kodierenden ID muss jede mögliche Ablage in einem einzelnen Code mit der Regel “Zeichen/Text: Übereinstimmung” angegeben werden. Dabei ist es egal, welcher Code benutzt wird, solange kein Falsch-Code benutzt wird. Hier wurde der Zu-prüfen-Code (blaues Fragezeichen) verwendet.</li>
+</ul>
+<p><a href="assets/Kodierung_07a_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="assets/Kodierung_07a_1.png" class="img-fluid"></a></p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Achtung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Im Fall, dass hier leere Zeilen akzeptiert werden, muss für jede Variable noch die Möglichkeit “Leere Eingabe” hinzugefügt werden. Dies kann mit dem selben Verfahren wie in Abschnitt <a href="#sec-leeresFeld" class="quarto-xref">2</a> gemacht werden.</p>
+</div>
+</div>
+<ul>
+<li>Die Codes müssen mit 21, 22, 23, usw. benannt werden.</li>
+<li>Jetzt muss ein “Falsch: Absichtlich unvollständig”-Code (grauer Kasten mit Kreuz) hinzugefügt werden.</li>
+<li>Als nächstes müssen die Variablen <code>07a_1</code>, <code>07a_2</code>, … , <code>07b_1</code>, usw. zu Zeilenvariablen abgeleitet werden. Also die Variablen <code>07a_1</code>, <code>07a_2</code>, usw. der ersten Zeile werden zu <code>07a</code> abgeleitet, <code>07b_1</code>, <code>07b_1</code> usw. zu <code>07b</code> usw. Hierbei muss die Ableitungsmethode “Codes aneinanderhängen” ausgewählt werden. Es darf kein Haken bei “Sortiere Werte” gesetzt werden.</li>
+<li>Jetzt ist ein Richtig-Code mit der Regel “Zeichen/Text: Übereinstimmung” für jede Möglichkeit anzulegen, wobei alle möglichen Kombinationen an Antworten in Form von einer Aneinanderreihung ihrer Codes, z.B. 21_22_23 bei drei Ablagefeldern pro Zeile, angegeben werden. Hierbei ist die Reihenfolge, anders als bei den Antwortfeldern, zu beachten.</li>
+</ul>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Achtung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Im Fall, dass hier leere Zeilen akzeptiert werden, müssen diese auch als Möglichkeit angegeben werden. Wenn der Code zur leeren Eingabe z.B. 23 heißt, muss bei einer Zeile mit drei Ablagefeldern die Möglichkeit 23_23_23 angegeben werden.</p>
+</div>
+</div>
+<p><a href="assets/leere_Zeile.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="assets/leere_Zeile.png" class="img-fluid"></a></p>
+<ul>
+<li>Die Codes müssen mit 11, 12, 13, usw. benannt werden.</li>
+<li>Nun muss noch eine weitere abgeleitete Variable angelegt werden, die z.B. die Codes <code>07a</code>, <code>07b</code>, usw. in eine Variable <code>07</code> verknüpft. Hierbei muss die Ableitungsmethode “Codes aneinanderhängen” ausgewählt werden. Außerdem muss ein Haken bei “Sortiere Werte” gesetzt werden.</li>
+<li>Jetzt ist ein Richtig-Code anzulegen, wobei alle möglichen Kombinationen an Zeilen in Form von einer Aneinanderreihung ihrer Codes, z.B. 11_12_13 bei drei Antwortfeldern, untereinander ausgelistet werden. Hierbei ist die Reihenfolge nicht zu beachten. Es gilt also z.B. 11_12_13 = 13_12_11.</li>
+<li>Als letztes muss ein Falsch-Code mit einem roten Kreuz angelegt werden.</li>
+</ul>
+</section>
+<section id="mc-mit-mehrfachauswahl-kontrollkästchen" class="level1">
+<h1>MC mit Mehrfachauswahl (Kontrollkästchen)</h1>
+<p>Die Kontrollkästchen-Funktion kann auch als MC mit Mehrfachauswahl angewandt werden. Hier ist die Kodierung aber etwas anders im Vergleich zu den üblichen MC-Items.</p>
+<ul>
+<li>Jedes Kontrollkästchen bekommt eine einzelne ID, bei Item 8 z.B. <code>08a</code>, <code>08b</code>, usw.</li>
+<li>Im Reiter Kodierung muss jede ID dann mit einem Richtig-Code versehen werden, bei dem entweder die Regel “Logisch: Wahr” oder “Logisch: Falsch” ausgewählt werden muss.
+<ul>
+<li>Wenn das Kästchen ausgewählt werden soll, bekommt der Code die Regel “Logisch: Wahr”.</li>
+<li>Wenn das Kästchen nicht ausgewählt werden soll, bekommt der Code die Regel “Logisch: Falsch”.</li>
+</ul></li>
+</ul>
+<p><a href="assets/Regel_Logisch_Wahr_Falsch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="assets/Regel_Logisch_Wahr_Falsch.png" class="img-fluid"></a></p>
+<ul>
+<li>Zuletzt muss noch eine Abgeleitete Variable mit der Ableitungsmethode “Bewertung summieren” angelegt werden.
+<ul>
+<li>Hier muss man auf den Zauberstab klicken und die Anzahl der Basisvariablen in das Feld “Numerisch: Übereinstimmung” eintragen.</li>
+</ul></li>
+</ul>
+</section>
+<section id="drag-und-drop-mehrere-mögliche-kombinationen" class="level1">
+<h1>Drag und Drop: mehrere mögliche Kombinationen</h1>
+<p>Bei diesem Sonderfall handelt es sich um ein Aufgabenformat, welches den Schüler*innen ermöglicht, verschiedene Kombinationen an Elementen in jede Ablageliste zu verschieben, wobei mehrere Elemente in eine Ablageliste gezogen werden können. Dafür werden mehrere Regelsätze und sogenannte “Regular Expressions” verwendet.</p>
+<ul>
+<li><p>Pro Ablagefeld, muss jede mögliche Kombination an Elementen in jeweils einen Richtig-Code eingetragen werden.</p>
+<ul>
+<li>Dazu muss die ID von jedem Element der Kombination in das Feld der Regel “Zeichen/Text: Übereinstimmung” eines eigenen Regelsatz eintragen werden.</li>
+<li>Wenn eine mögliche Kombination in einem Ablagefeld die Elemente <code>09_1</code>, <code>09_2</code> und <code>09_4</code> wäre, dann bräuchte man in einem Richtig-Code drei Regelsätze mit der jeweiligen Regel “Zeichen/Text: Übereinstimmung”, wo im Feld des ersten Regelsatzes 09_1, im Feld des zweiten 09_2 und im Feld des dritten 09_4.</li>
+<li>Man kann auch mehrere Möglichkeiten in einem Regelsatz zusammenfassen. Wenn z.B. sowohl die Kobination <code>09_3</code>, <code>09_4</code> und <code>09_5</code> also auch <code>09_3</code>, <code>09_4</code> und <code>09_6</code> möglich ist, kann man <code>09_5</code> und <code>09_6</code> mit dem Ausdruck (oder “Regular Expression”) 09_[56] zusammenfassen. Für dieses Feld muss man statt der Regel “Zeichen/Text: Übereinstimmung” die Regel “Zeichen/Text: Übereinstimmung regulärer Ausdruck” anlegen.</li>
+</ul>
+<p><a href="assets/Regel_Zeichen_Text_Übereinstimmung_regulärer_Ausdruck.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="assets/Regel_Zeichen_Text_Übereinstimmung_regulärer_Ausdruck.png" class="img-fluid"></a></p>
+<ul>
+<li>Das heißt, im Feld des ersten Regelsatzes würde 09_3 stehen, im Feld des zweiten 09_4 und im Feld des dritten (also das Feld “Zeichen/Text: Übereinstimmung regulärer Ausdruck”) 09_[56]. Dies deckt beide der oben genannten Optionen ab.</li>
+</ul>
+<p><a href="assets/Aufgabe_9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="assets/Aufgabe_9.png" class="img-fluid"></a></p></li>
+<li><p>Nachdem alle mögliche Kombinationen für das Ablagefeld eingetragen wurden, muss noch ein Falsch-Code (rotes Kreuz) hinzgefügt werden.</p></li>
+<li><p>Wenn alle einzelnen Ablagefelder kodiert wurden, muss noch eine Abgeleitete Variable mit der Ableitungsmethode “Bewertung summieren” angelegt werden.</p>
+<ul>
+<li>Hier muss man auf den Zauberstab klicken und die Anzahl der Basisvariablen in das Feld “Numerisch: Übereinstimmung” eintragen.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-Markieren_optional" class="level1">
+<h1>Markieren mit optional richtigen Lösungen</h1>
+<p>Hier geht es um Markieraufgaben, bei denen Schüler*innen optional noch weitere Bereiche markieren dürfen, welche aber nicht zwangsweise Teil ihrer Lösung sein müssen. Diese können entweder am Anfang oder am Ende des zu markierenden Bereich sein.</p>
+<ul>
+<li>Auch hier ist die zu kodierende ID die des zu markierenden Textes.</li>
+<li>Im Reiter Kodierung muss bei der zu kodierenden ID auf das rechte Stift-Symbol geklickt werden und unter “Fragmente” folgender Text eingetragen werden: ^()-()-#. Dieser ist dazu da, dass die Eingaben, die später im Richtig-Code eingetragen werden, richtig erkannt werden.</li>
+</ul>
+<p><img src="assets/Fragmente_Stift.png" class="img-fluid"> <img src="assets/Fragmente.png" class="img-fluid"></p>
+<ul>
+<li>Jetzt muss ein Richtig-Code angelegt werden. In diesem müssen zwei Regel für die Kodierung hinzugefügt werden. Die Reihenfolge kommt darauf an, ob der optionale Bereich am Anfang oder am Ende des zu markierenden Bereich anknüpft. Folgende Reihenfolge beschreibt einen Bereich, bei dem der optionale Bereich am Anfang des zu markierenden Bereichs anknüpft.
+<ul>
+<li>Der erste ist “Numerischer Bereich: min &lt; Wert &lt;= max”.</li>
+<li>Der zweite ist “Numerisch: Übereinstimmung”.</li>
+</ul></li>
+<li>Im Falle, dass der optionale Bereich am Ende des zu markierenden Bereich anknüpft, ist die Reihenfolge umgekehrt.</li>
+<li>Die beiden Regeln müssen mit “UND” verknüpft werden. Dafür muss ganz unten am Richtig-Code “UND” ausgewählt werden. Es kann sein, dass “UND” schon automatisch ausgewählt ist.</li>
+</ul>
+<p><a href="assets/UND_unten.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="assets/UND_unten.png" class="img-fluid"></a></p>
+<ul>
+<li>Jetzt muss bei den Regeln jeweils neben dem Textfeld das “F” angeklickt werden, der Punkt “Spezielles” ausgewählt werden und bei der ersten Regel die Zahl 1 eingetragen werden. Bei der zweiten Regel muss die Zahl 2 eingetragen werden.</li>
+</ul>
+<p><a href="assets/Fragmente_ändern.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="assets/Fragmente_ändern.png" class="img-fluid"></a></p>
+<ul>
+<li>Im Fall, dass der optionale Bereich am Anfang des zu markierenden Bereich anknüpft, muss im ersten Textfeld die Zahl vor der des ersten optionalen Wortes eingetragen werden. Dabei beginnt die Nummerierung bei 0. Im zweiten Textfeld wird die Zahl des ersten notwendigen Wortes eingetragen. Im dritten Textfeld muss die Zahl des letzten notwendigen Wortes, also das Ende des Bereiches eingetragen werden.</li>
+</ul>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Wörter müssen hierfür nicht einzeln durchgezählt werden. Im Reiter Vorschau kann auch der Bereich markiert werden und “Kodierung prüfen” ausgewählt werden, so wie in Abschnitt <a href="../../tasks/coding-scheme/basic.html#markieren">Markieren</a> beschrieben. Die erste Zahl des angezeigten Code ist die Zahl des ersten Wortes des Bereiches und die zweite Zahl ist die Zahl des letzten Wortes. So kann man die einzutragenden Zahlen auch ablesen.</p>
+</div>
+</div>
+<ul>
+<li><strong>Beispiel:</strong> Nehmen wir als Beispiel den Text: “Berthas Nachbarin heißt Frau Gertrud Müller.” Hier muss der Name von Berthas Nachbarin markiert werden, wobei sowohl die Lösung “Gertrud Müller” als auch “Frau Gertrud Müller” akzeptiert werden. Dann müsste in dem ersten Feld 2, im zweiten Feld 4 und im dritten Feld 5 eingetragen werden.</li>
+</ul>
+<p><a href="assets/Kodierung_13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="assets/Kodierung_13.png" class="img-fluid"></a></p>
+<ul>
+<li>Im Fall, dass der optionale Bereich am Ende des zu markierenden Bereich anknüpft, muss im ersten Textfeld die Zahl von dem ersten Wort des Bereiches eingetragen werden. Dabei beginnt die Nummerierung wieder bei 0. Im zweiten Textfeld wird die Zahl vor der des letzten notwendigen Wortes eingetragen. Im dritten Textfeld muss die Zahl des letzten optionalen Wortes, also das Ende des optionalen Bereiches eingetragen werden.</li>
+<li>Der Rest der Kodierung kann so wie bei den “normalen” Markieraufgaben gemacht werden. Auch hier ist wichtig, dass am Ende noch ein Regelsatz angelegt wird, der die Anzahl der zu markierenden Bereiche festlegt.</li>
+</ul>
+</section>
+<section id="einfärben" class="level1">
+<h1>Einfärben</h1>
+<p>Dieses Aufgabenformat bezieht sich hauptsächlich auf das Einfärben von Bildbereichen. Hier wird auch mit Regelsätzen gearbeitet. Die Bildbereiche bekommen hier gemeinsam eine ID. Hier gibt es zwei Varianten: die Reihenfolge der Einfärbungen ist entweder in der Kodierung zu beachten oder nicht.</p>
+<section id="variante-1-reihenfolge-ist-wichtig" class="level2">
+<h2 class="anchored" data-anchor-id="variante-1-reihenfolge-ist-wichtig">Variante 1: Reihenfolge ist wichtig</h2>
+<ul>
+<li>Zunächst muss ein Richtig-Code hinzugefügt werden.</li>
+<li>Hier müssen so viele Regelsätze hinzugefügt werden, bis die Anzahl der der Bildbereiche entspricht. Bei 12 Bildbereichen werden also 12 Regelsätze gebraucht. Dabei entspricht der erste Regelsatz dem von links ersten Bildbereich, der zweite entspricht dem zweiten Bildbereich, usw.</li>
+<li>Bei jedem Regelsatz muss jetzt entweder die Regel “Logisch: Wahr” oder “Logisch: Falsch” ausgewählt werden.
+<ul>
+<li>Wenn der entsprechende Bildbereich eingefärbt werden soll, dann muss “Logisch: Wahr” ausgewählt werden.</li>
+<li>Wenn der entsprechende Bildbereich nicht eingefärbt werden soll, dann muss “Logisch: Falsch” ausgewählt werden.</li>
+</ul></li>
+<li>Die Regelsätze müssen auch noch durchnummeriert werden. Dazu muss jeweils auf das “A” links neben der Regel geklickt werden, “Spezielles” ausgewählt werden, und im Feld die Zahl des Regelsatzes eingetragen werden.</li>
+</ul>
+<p><a href="assets/Arrays_nummerieren.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="assets/Arrays_nummerieren.png" class="img-fluid"></a></p>
+<ul>
+<li>Zum Schluss muss noch ein Falsch-Code hinzugefügt werden.</li>
+</ul>
+</section>
+<section id="variante-2-reihenfolge-ist-nicht-wichtig" class="level2">
+<h2 class="anchored" data-anchor-id="variante-2-reihenfolge-ist-nicht-wichtig">Variante 2: Reihenfolge ist nicht wichtig</h2>
+<ul>
+<li><p>Die Kodierung dieser Variante ist fast identisch zu der Kodierung der erste Variante. Es müssen zusätzlich aber zwei Haken gesetzt werden.</p>
+<ul>
+<li>Man muss zunächst auf das Stift-Symbol unter dem Feld “Position/Zuordnung” klicken und den Haken bei “Angezeigt = Wert geändert” setzen.</li>
+</ul>
+<p><img src="assets/Wert_geändert_1.png" class="img-fluid"> <img src="assets/Wert_geändert_2.png" class="img-fluid"></p>
+<ul>
+<li>Dann man auf das Stift-Symbol ganz rechts geklickt werden und “Werte sortieren” ausgewählt werden.</li>
+</ul>
+<p><img src="assets/Werte_sortieren_1.png" class="img-fluid"> <img src="assets/Werte_sortieren_2.png" class="img-fluid"></p></li>
+<li><p>Es ist wichtig, das beim Anlegen der Regeln für die Regelsätze erst alle “Logisch: Falsch”-Regeln und dann alle “Logisch: Wahr”-Regeln angelegt werden. Dabei ist zu beachten, dass die Anzahl der Regelsätze mit “Logisch: Wahr” der Anzahl der einzufärbenden Bildbereiche entspricht. Analog ist es wichtig, dass die Anzahl der Regelsätze mit “Logisch: Falsch” der Anzahl der nicht einzufärbenden Bildbereiche entspricht.</p></li>
+<li><p>Auch hier müssen die Regelsätze durchnummeriert werden. Dazu muss jeweils auf das “A” links neben der Regel geklickt werden, “Spezielles” ausgewählt werden, und im Feld die Zahl des Regelsatzes eingetragen werden.</p></li>
+</ul>
+</section>
+</section>
+<section id="kombination-drag-und-drop-und-kurzantwort" class="level1">
+<h1>Kombination Drag und Drop und Kurzantwort</h1>
+<p>Hier geht es um Aufgaben, die die Aufgabenformate Drag und Drop und Kurzantwort kombinieren. Im speziellen wird hier die Kodierung von Aufgaben behandelt, wo die Schüler*innen Drag-Elemente einer Katergorie in ein Ablagefeld ziehen und diese Kategorie als Kurzantwort benennen sollen. Insbesondere wird hier der Fall beschrieben, in dem die Reihenfolge der Kategorien beliebig sein kann.</p>
+<ul>
+<li>Die Benennung der Item-IDs weicht von der Benennung in den üblichen Fällen ab. Die Ablegeliste und das zugehörende Eingabefeld werden einander zugeordnet. Bei Item 10 wird z.B, das erste Ablagefeld <code>10a_1</code> benannt und das erste Eingabefeld <code>10a_2</code>. Das zweite Ablagefeld wird <code>10b_1</code> benannt, das zweite Ablagefeld <code>10b_2</code> usw.</li>
+<li>Im Reiter Kodierung müssen dann bei der ID des ersten Ablagefeldes so viele Richtig-Codes hinzufügen werden, wie Kategorien erkannt werden sollen.</li>
+<li>In den Richtig-Codes müssen alle möglichen richtigen Kombinationen an Drag und Drop Elementen eingetragen werden, wobei pro Richtig-Code eine Möglichkeit eingtragen wird.</li>
+<li>Jedes Element einer möglichen Kombination muss in sein eigenes Regel-Feld mit der Regel “Zeichen/Text: Übereinstimmung” eingetragen werden. Wenn eine richtige Möglichkeit z.B. <code>10_1</code> und <code>10_4</code> ist, dann sieht die Kodierung für diese Möglichkeit wie folgt aus:</li>
+</ul>
+<p><a href="assets/Kodierung_10a_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="assets/Kodierung_10a_1.png" class="img-fluid"></a></p>
+<ul>
+<li>Wenn alle Möglichkeiten eingetragen wurden, dann muss ein “Falsch: Absichtlich unvollständig”-Code (grauer Kasten mit Kreuz) hinzugefügt werden. Danach kann die Kodierung auf die IDs der restlichen Ablagefeldern kopiert werden.</li>
+<li>Um die Eingabefelder zu kodieren, müssen bei der ID des ersten Eingabefeldes ebenfalls so viele Richtig-Codes hinzufügen werden, wie Kategorien erkannt werden sollen.</li>
+<li>In jedem Richtig-Code muss die Regel “Zeichen/Text: Übereinstimmung” hinzugefügt werden und in das jeweilige Feld eine der richtigen Kategorien eingetragen werden. Hierbei muss darauf geachtet werden, dass alle richtigen Lösungen abgefangen werden. Wie man das macht, kann in Abschnitt <a href="../../tasks/coding-scheme/basic.html#kurzantwort">Kurzantwort</a> nachgeschlagen werden.</li>
+<li>Wenn alle Kategorien eingetragen wurden, muss ein Falsch-Code (rotes Kreuz) gesetzt werden und die Kodierung kann auf die IDs der restlichen Eingabefeldern kopiert werden.</li>
+<li>Jetzt muss für jede Zeile (also jeweils ein Ablagefeld und das zugehörige Eingabefeld) eine abgeleitete Variable mit der Ableitungsmethode “Codes aneinanderhängen” angelegt werden. Hier müssen bei z.B. Item 10 die Basisvariblen <code>10a_1</code> und <code>10a_2</code> zu <code>10a</code> abgeleitet werden.</li>
+<li>Hier muss ein Richtig-Code angelegt werden, in dem die Regel “Zeichen/Text: Übereinstimmung” hinzugefügt wird.</li>
+<li>In dem Feld werden die zueinandergehörigen Codes von den Basisvarialen im Schema Code1_Code2 aneinandergehängt, und untereinander ausgelistet. Dies bedeutet, dass der Code einer Möglichkeit des Drag und Drop-Items an den Code der dazugehörigen Kategorie gehängt wird.
+<ul>
+<li>Wenn also Code 11 von der Kodierung der Ablageliste zu Code 11 von der Kodierung des Eingabefeldes gehört, dann muss hier 11_11 angegeben werden.</li>
+</ul></li>
+</ul>
+<p><a href="assets/Kodierung_10a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="assets/Kodierung_10a.png" class="img-fluid"></a></p>
+<ul>
+<li>Als Letztes müssen die vorher abgeleiteten Variblen zu einer weiteren abgeleiteten Variable mit der Ableitungsmethode “Bewertung summieren” zusammengefasst werden. Diese bekommt für Item 10 den Namen <code>10</code>.</li>
+<li>Jetzt muss über den Zauberstab die Anzahl der zuvor abgeleiteten Variablen eingetragen werden.</li>
+</ul>
+</section>
+<section id="ableitungsmethode-solver" class="level1">
+<h1>Ableitungsmethode: Solver</h1>
+<p>Mit der Ableitungsmethode <strong>Solver</strong> lassen sich vor allem <strong>Rechenaufgaben</strong> kodieren, bei denen die Eingaben der Testperson nicht unmittelbar automatisch kodiert werden können, sondern erst eine Verrechnung der Werte von Basis- und/oder abgeleiteten Variablen erfolgen muss, um die Richtigkeit beurteilen zu können.</p>
+<ul>
+<li>Dazu werden die IDs der Eingabefelder bei z. B. Item <code>17</code> wie folgt benannt: das erste Eingabefeld der ersten Rechnung wird <code>17a_1</code> genannt, das zweite <code>17a_2</code>, usw. Das erste Eingabefeld der zweiten Rechnung wird <code>17b_1</code>, das zweite <code>17b_2</code>, usw. Dieses Verfahren wird für alle Rechnungen wiederholt.</li>
+<li>Bei der Kodierung jeder Basisvariable muss nur ein “Falsch: Absichtlich unvollständig”-Code (grauer Kasten mit Kreuz) hinzugefügt werden.</li>
+</ul>
+<p><a href="assets/absichtlich_unvollständig_vorschau.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="assets/absichtlich_unvollständig_vorschau.png" class="img-fluid"></a></p>
+<ul>
+<li>Als nächstes wird jede Zeile zu je einer abgeleiteten Variable verknüpft, d.h. bei Item 17 werden zunächst <code>17a_1</code>, <code>17a_2</code>, usw. zu <code>17a</code> abgeleitet, dann <code>17b_1</code>, <code>17b_2</code> usw. zu <code>17b</code> usw.
+<ul>
+<li>Als Ableitungsmethode muss “Mathematischer Ausdruck (Solver)” ausgewählt werden. Unter “Ausdruck für Solver” wird für eine Multiplikation von zwei Werten der Ausdruck: <br> <strong>${Basisvariable1} * ${Basisvariable2}</strong> <br> eingetragen.
+<ul>
+<li>In unserem Beispiel wäre der Ausdruck für die erste Rechnung ${17a_1} * ${17a_2}, der Ausdruck für die zweite Rechnung ${17b_1} * ${17b_2}, usw.</li>
+<li>Das <code>*</code> kann durch eine beliebige andere Rechenoperation ausgetauscht werden, der Syntax der üblichen Operationen sind: <code>+</code> (Addition), <code>-</code> (Subtraction) und <code>/</code> (Division).</li>
+</ul></li>
+<li>Dann muss man auf den Zauberstab klicken und unter “Numerisch: Übereinstimmung” das erwünschte Resultat eingegeben werden. Wenn also z.B. Multiplikationen, die die Zahl 60 ergeben erwünscht sind, dann ist hier 60 einzutragen.</li>
+</ul></li>
+</ul>
+<p><a href="assets/Kodierung_17a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="assets/Kodierung_17a.png" class="img-fluid"></a></p>
+<ul>
+<li>Es müssen zusätzlich noch abgeleitete Variablen hinzugefügt werden, die sicher stellen, dass jede Rechnung nur einmal auftaucht. Dies macht man, indem man alle Basisvariablen einer Spalte zu einer abgeleiteten Variable zusammenfässt, also alle mit 1 am Ende zusammen, dann alle mit 2 usw. Bei Item 17 bekommt die Variable, die alle Basisvariablen der ersten Spalte zusammenfässt die ID <code>17_1</code>, die Variable, die die Basisvariablen der 2. Spalte zusammenfässt bekommt die ID <code>17_2</code> usw.
+<ul>
+<li>Hier wählt man jeweils die Ableitungsmethode “Auf Einzigartigkeit prüfen” und setzt einen Haken bei “In Zahl umwandeln”.</li>
+<li>Man fügt einen Richtig-Code hinzu, der die Regel “Logisch: Wahr” bekommt.</li>
+<li>Zum Schluss muss ein Falsch-Code (rotes Kreuz) angelegt werden.</li>
+</ul></li>
+<li>Zum Schluss müssen alle angelegten abgeleitete Variablen zu einer Variable abgeleitet werden. Diese wird nach dem Item benannt, also bei Item 17 bekommt sie den Namen <code>17</code>. Hier wird die Ableitungsmethode “Bewertung summieren” ausgewählt. Dann muss man auf den Zauberstab klicken und unter “Numerisch: Übereinstimmung” die Anzahl der Rechnungen + 2 eintragen (bei drei Rechnungen also 5).</li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gut zu wissen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Der Solver greift auf die JavaScript-Bibliothek <a href="https://mathjs.org/">mathjs</a> zurück – das Beispiel illustriert nur einen sehr einfachen Anwendungsfall. Unter der Haube passiert im Studio Folgendes:</p>
+<ul>
+<li>Zuerst werden die Variablenwerte für die Quellvariablen eingesetzt.
+<ul>
+<li><strong>Beispiel:</strong> Basisvariablen <code>01a</code> und <code>01b</code>, der Wert der abgeleiteten Variable <code>01</code> ergibt sich durch den Solver-Ausdruck <code>${01a} + ${01b}</code>
+<ul>
+<li>Angenommen, ein Kind hat für <code>01a</code> den Wert 1 und für <code>01b</code> den Wert 5 eingesetzt.</li>
+<li>Es wird dann zunächst eine Ersetzung vorgenommen (alle Elemente werden über eine sogenannte String-Interpolation an den richtigen Stellen eingesetzt: <code>${}</code>), sodass der Solver-Ausdruck nun zu <code>1 + 5</code> wird.</li>
+</ul></li>
+</ul></li>
+<li>Es wird nun der Solver-Ausdruck an mathjs übergeben und die darin enthaltene Funktion <code>math.evaluate()</code> komm zum Einsatz und bestimmt – falls möglich – den Wert des Ausdrucks.
+<ul>
+<li>In unserem Beispiel würden wir an dieser Stelle also einen Wert von <code>6</code> erhalten, der nun den Variablenwert für die abgeleite Variable <code>01</code> darstellt. Dieser kann nun vom Auto-Coder bewertet werden wie ein beliebiger numerischer Wert.</li>
+</ul></li>
+</ul>
+<p>Der Grund, weshalb wir darauf hinweisen, ist, dass mathjs ein wesentlich mächtigeres Werkzeug ist als dieses kleine Beispiel andeutet. Beispielsweise kann man auch eine Wurzel ziehen über <code>{sqrt(${01a})}</code>. Einen Überblick zur Syntax und zu den potentiellen Kodiermöglichkeiten findet sich <a href="https://mathjs.org/docs/expressions/syntax.html">hier</a>. In jedem Fall sind kompliziertere Operationen als die Grundrechenarten immer ausführlich durch “Kodierung prüfen” in der Vorschau auszuprobieren!</p>
+</div>
+</div>
+<!-- Ggf. Sondefall: Ableitung nur, um den Wert zu kopieren und zu solven (z. B. Wurzel eines singulären Wertes ziehen) -->
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqb-berlin\.github\.io\/tba-info\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../tasks/coding-scheme/basic.html" class="pagination-link" aria-label="Basisfälle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basisfälle</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Testcenter/index.html" class="pagination-link" aria-label="Studie durchführen">
+        <span class="nav-page-text">Studie durchführen</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
+<p><i class="fa-solid fa-house" aria-label="house"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/iqb-berlin/tba-info">
+      <i class="bi bi-github" role="img" aria-label="Source Code">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.iqb.hu-berlin.de">
+<p>IQB 2025</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../news/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
