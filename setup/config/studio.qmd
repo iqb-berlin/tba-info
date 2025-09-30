@@ -1,0 +1,60 @@
+---
+lang: de
+title: "Konfiguration des IQB-Studio"
+---
+
+# Server-Administrator\*in:
+
+::: {.callout-note}
+In Bearbeitung.
+:::
+
+# Super-Administrator\*in: Systemeinstellungen in der UI
+
+Systemeinstellungen für das Studio können mit Hilfe eines speziellen Zugangs, dem so genannten Super-Administrator vorgenommen werden. Aus sicherheitstechnischer Sicht, sollten einen solchen Zugang nur ausgewählte Administratoren erhalten. Dieser Zugang ermöglicht das Anlegen und Entfernen neuer Zugänge, Arbeitsbereiche und Bereichsgruppen, das Laden von Modulen, wie bspw. Player und Editor und weiterer Systemnaher Einstellungen. Alle Einstellungen werden gruppiert in Reitern. Diese werden nachfolgend beschrieben.
+
+### Nutzer\*innen
+
+Hier werden die Zugänge für das Studio eingerichtet. Auf der linken Seite ist eine Liste aller Zugänge zu sehen. Durch Betätigung der {{< fa plus >}} - Schaltfläche wird ein neuer Zugang eingerichtet. Es erscheint ein Formular zur Eingabe von Metadaten zum Zugang. Hier wird unter anderem ein Passwort festgelegt und eine Mailadresse hinterlegt. Es wird außerdem festgelegt, ob der Zugang als System-Administrator\*in fungieren soll. Nach dem Speichern des Formulars ist der Zugang angelegt. 
+
+::: {.callout-note}
+Zugänge die als System-Administrator\*in angelegt wurde, werden in der Liste der Zugänge mit einem Sternchen gekennzeichnet.
+:::
+
+Zugänge können mit der {{< fa trash >}} - Schaltfläche entfernt werden. Sollen Metadaten verändert werden, kann die {{< fa pen >}}-Schaltfläche verwendet werden. Bspw. könnte hier die Mailadresse nachträglich geändert werden oder eine vorherige Festlegung als System-Administrator\*in wieder rückgängig gemacht werden.
+
+::: {.callout-note}
+Soll ein Zugang entfernt oder Metadaten angepasst werden, ist der entsprechende Zugang zuvor zu markieren. 
+:::
+
+Ganz rechts ist die Liste aller Bereichsgruppen zu sehen. Ist ein Zugang markiert, kann dem Zugang eine Bereichsgruppe zugeordnet werden. Damit diese Änderungen nicht verloren gehen, muss mit der {{< fa save >}} - Schaltfläche oben rechts gespeichert werden.
+
+::: {.callout-note}
+Wird einem Zugang eine Bereichsgruppe zugeordnet, besitzt dieser Zugang die Berechtigung auf die Bereichsgruppen-Einstellungen zuzugreifen. Dieser Zugang ist dann Bereichsgruppen-Administrator\*in.
+:::
+
+### Bereichsgruppen
+
+Links ist eine Liste aller Bereichsgruppen zu sehen. Mithilfe der {{< fa plus >}} - Schaltfläche kann eine neue Bereichsgruppe angelegt werde. Der Name der Bereichsgruppe sollte sich dabei günstigerweise an dem Zweck der Studie orientieren. Durch Markierung kann eine Bereichsgruppe gelöscht werden oder umbenannt werden. Außerdem kann mit Hilfe der {{< fa gear >}} - Schaltfläche das Metadaten-Profil der Bereichsgruppe angepasst werden.
+
+Es finden sich zwei weitere Schaltfläche. Diese können genutzt werden, um separate Dateien zur Übersicht der Module und der Arbeitsbereiche in den Bereichsgruppen zu generieren. Das verschafft System-Administrator\*innen einen zusätzlichen Überblick über nicht mehr genutzte Arbeitsbereiche und Module. Auf diese Weise ist es möglich hin und wieder ältere Stände zu entfernen und somit die Datenlast für das Studio zu reduzieren.
+
+### Module
+
+Es ist eine Liste aller Module für Editor, Schemer und Player zu sehen. Mit der {{< fa cloud >}} - Schaltfläche können neue Module geladen werden. Module können erst gelöscht werden, nachdem sie zuvor markiert wurden.
+
+### Einstellungen
+
+Hier können Texte zu Wartungsarbeiten (Warnungen) auf der Anmeldeseite und Texte im Impressum verändert werden. Außerdem kann das Layout der Anwendung angepasst werden.
+
+Da das Studio neben der Unit-XML auch optional eine Booklet-XML und eine Testtaker-XML ausgeben kann, kann in den Einstellungen festgelegt werden, welche Schema-Definition (Xsd) zur Validierung dieser XML-Dateien verwendet werden soll.
+
+::: {.callout-note}
+Zu jeder Testcenter-Version gehört eine Schema-Definition (Xsd) mit gleicher Versionsnummer.
+:::
+
+Für die Kodierung können im JSON-Format Missing Profiles angelegt werden.
+
+### Pakete
+
+Hier können Pakete bswp. für GeoGebra geladen werden. Damit GeoGebra-Elemente in der Vorschau des Editors sichtbar sind, muss das entsprechende Paket vorhanden sein.
