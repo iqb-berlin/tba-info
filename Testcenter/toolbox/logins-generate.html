@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Erzeugen von Testtaker-Xml für die Verwendung im IQB-Testcenter">
+
+<title>itc-ToolBox: Login-Xml erzeugen – TBA - Verstehen und Anwenden</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Testcenter/toolbox/logins-docx.html" rel="next">
+<link href="../../Testcenter/toolbox/codes.html" rel="prev">
+<link href="../../assets/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-78ab54daca3b71ef59b6cac54c9b6787.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">TBA - Verstehen und Anwenden</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Suchen"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/toolbox/index.html">Windows ToolBox</a></li><li class="breadcrumb-item"><a href="../../Testcenter/toolbox/logins-generate.html">Logins erzeugen</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/bt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildungstrend</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/vera.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VERA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/install/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/studio-super-admin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Super-Admin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TC: Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/load-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lasttests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensicherheit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/offline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Offline-Szenario</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/e2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software-Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/kiosk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kiosk Mode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release-Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben entwickeln</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rollen und Rechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/workspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/move-and-copy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verschieben und Kopieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/task-sequence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgabenfolgen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/verona-modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verona-Module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metadaten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben gestalten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standardmodus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allgemeine Anleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/Stimulus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus-Text-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus-Email-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus Mobiltelefon-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus- Instruktion und Hörtext in einem Audio-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus Instruktion und Audio getrennt-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC mit Bild-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortfelder Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Kontrollkasten_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontrollkästchen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/DaD/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop-Zuordnen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung_zweiseitig/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zuordnung (2-Seitig) Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop- Sortieren-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rechenkästchen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Medienelemente</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Text/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Textelement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Bild/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildelemente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Audio/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Video/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Lückentext</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Tabellen_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Tabelle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erweiterter Modus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elementeinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elementeinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Abschnittseinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abschnittseinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Seiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elemente/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen &amp; Sichtbarkeiten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttonverlinkungen – interaktive Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren mit mehreren Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sichtbarkeitskaskaden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/geogebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/BalkenSaulen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Balken- und Säulendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Tortendiagramm/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tortendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Messen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messwerkzeug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Geobrett/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Geobrett</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Koordinatensystem/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koordinatensystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Zahlenstrahl/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zahlenstrahl</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/media/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bild/Audio/Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audio_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Video_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audios_konvertieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio bearbeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_vorbereiten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hinweise zu Bildern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder einfärben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder Größe ändern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/base64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Format Base64</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einfache Formulare</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ABI-Player</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syntax im Detail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praktische Hinweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Primar</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rahmen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_buttons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_drop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Auswahl fallen lassen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schreiben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Im Bild finden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/responses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antworten kodieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übungsaufgaben</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/speedtest/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speedtest</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/coding-scheme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elemente und Variablen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basisfälle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/extended.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sonderfälle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Workspace/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zugriffsrechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Testinhalte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testinhalte</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/booklet-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklet-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/testtaker-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testtaker-XML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Datenauswertung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenauswertung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/System_Check/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System-Check</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gruppenmonitor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Adaptives_Testen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptives Testen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Anforderungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anforderungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Studienkonfiguration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studienkonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Durchfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Durchführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beispielstudie</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/toolbox/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows ToolBox</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/codes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codes erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-generate.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Logins erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-docx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login-Handzettel erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/booklet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklets erzeugen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/faq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodieren und Auswerten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/data-structures/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenstrukturen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/response.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/coding-scheme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/response-status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort-Status im Prozess</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Missings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Schulungsmaterial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schulungsmaterial</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../news/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aktuell</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#schritt-1-ausfüllen-excel-tabelle" id="toc-schritt-1-ausfüllen-excel-tabelle" class="nav-link active" data-scroll-target="#schritt-1-ausfüllen-excel-tabelle">Schritt 1: Ausfüllen Excel-Tabelle</a></li>
+  <li><a href="#schritt-2-aufrufen-funktion-logins-aus-vorlage" id="toc-schritt-2-aufrufen-funktion-logins-aus-vorlage" class="nav-link" data-scroll-target="#schritt-2-aufrufen-funktion-logins-aus-vorlage">Schritt 2: Aufrufen Funktion “Logins aus Vorlage”</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/toolbox/index.html">Windows ToolBox</a></li><li class="breadcrumb-item"><a href="../../Testcenter/toolbox/logins-generate.html">Logins erzeugen</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">itc-ToolBox: Login-Xml erzeugen</h1>
+</div>
+
+<div>
+  <div class="description">
+    Erzeugen von Testtaker-Xml für die Verwendung im IQB-Testcenter
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="schritt-1-ausfüllen-excel-tabelle" class="level1">
+<h1>Schritt 1: Ausfüllen Excel-Tabelle</h1>
+<p><a href="#dnldts63604" onclick="fetch('data:application/vnd.ms-excel;base64,UEsDBBQABgAIAAAAIQCG2vR3hgEAAJQGAAATAAgCW0NvbnRlbnRfVHlwZXNdLnhtbCCiBAIooAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMVVtLwzAUfhf8DyWvsmYqiMg6H7w8quD8ATE5W8PSJOScze3fe5pdEJkbw4K+tLTJ+S4nPV8Ht4vGFXNIaIOvxHnZFwV4HYz1k0q8jR5716JAUt4oFzxUYgkoboenJ4PRMgIWXO2xEjVRvJESdQ2NwjJE8LwyDqlRxI9pIqPSUzUBedHvX0kdPIGnHrUYYji4h7GaOSoeFvx6peTdelHcrfa1VJVQMTqrFbFQOffmG0kvjMdWgwl61jB0iTGBMlgDUOPKmCwzplcgYmMo5E7OBA6PI127KrkyC8PaRjxj6z8wtCs/u1rXPfNxJGugeFGJnlTD3uXCyY+Qpu8hTMv9IMe2JreobJT1G917+PNmlPl23rGQ1l8GPlLHxT/RcflHOohnDmS+/v5IMsyBA0BaOsCuP8MMeoi5VgnMK/E0TzoX8BX7gA6tnL6reWQ6bsIWdx8/R9xLChE5RRMcL2ATWW11LzIQJLKwDa1dw79l5Aj+tWNoM96A2cEt8z9l+AkAAP//AwBQSwMEFAAGAAgAAAAhALVVMCP0AAAATAIAAAsACAJfcmVscy8ucmVscyCiBAIooAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACskk1PwzAMhu9I/IfI99XdkBBCS3dBSLshVH6ASdwPtY2jJBvdvyccEFQagwNHf71+/Mrb3TyN6sgh9uI0rIsSFDsjtnethpf6cXUHKiZylkZxrOHEEXbV9dX2mUdKeSh2vY8qq7iooUvJ3yNG0/FEsRDPLlcaCROlHIYWPZmBWsZNWd5i+K4B1UJT7a2GsLc3oOqTz5t/15am6Q0/iDlM7NKZFchzYmfZrnzIbCH1+RpVU2g5abBinnI6InlfZGzA80SbvxP9fC1OnMhSIjQS+DLPR8cloPV/WrQ08cudecQ3CcOryPDJgosfqN4BAAD//wMAUEsDBBQABgAIAAAAIQD09Qc7EwEAAFkEAAAaAAgBeGwvX3JlbHMvd29ya2Jvb2sueG1sLnJlbHMgogQBKKAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8lM9qwzAMxu+DvYPRfXGSbl0ZdXrYGPS6dQ9gbCUOTexgeX/y9jM5JAuU7BJ6MUjC3/dDsrw//LQN+0JPtbMCsiQFhlY5XdtKwMfp9W4HjIK0WjbOooAeCQ7F7c3+DRsZ4iUydUcsqlgSYELonjgnZbCVlLgObayUzrcyxNBXvJPqLCvkeZpuuf+rAcVMkx21AH/UG2CnvovO/2u7sqwVvjj12aINFyz4t/NnMoghikpfYRAwpogPlU0SiYFfhnlcE0bJRj0bWdsJZkwtQeRX7ki+BJNdGSZbgtmuCUNGetTvwcdVoGlEs/QSzMOqMKFv4uaNr5aGeMn+fk37EPcZJ/ch5MM5zoPPPoTiFwAA//8DAFBLAwQUAAYACAAAACEA1III6tsDAABKCwAADwAAAHhsL3dvcmtib29rLnhtbKRWbW/aOhT+Pun+hzSXr5A4UF4iYCpvG7rrhDrWfalUmcQQq46d2U5J77T/vuNACC+VCh1q8+b48fOc85wTdz9mMbOeiVRU8J6Naq5tER6IkPJVz/4+n1TbtqU05iFmgpOe/UKU/bH/z4fuWsinhRBPFgBw1bMjrRPfcVQQkRirmkgIh5GlkDHWcCtXjkokwaGKCNExczzXbToxptzeIPjyHAyxXNKAjESQxoTrDYgkDGugryKaqAItDs6Bi7F8SpNqIOIEIBaUUf2Sg9pWHPjTFRcSLxjIztC1lUn4a8I/cuHgFSvB0MlSMQ2kUGKpawDtbEif6Eeug9BBCLLTGJyH1HAkeaYmhztWsvlOVs0dVrMEQ+5foyGwVu4VH4L3TrTrHTfP7neXlJH7jXUtnCRfcWwyxWyLYaXHIdUk7NktuBVrUj64ti2ZJoOUMhj13Hq7aTv9nZ1n0grJEqdMz8HIBTxUhtfwvPxNMMYN00RyrMlQcA0+3Or6W8/1u4A9jAQ43LojP1MqCRQW+Au0whEHPl6oGdaRlUrWs4f+wy0JIk3YCKjwh+dFjRP9QHVQnQvBBiJ72PMoPi2IC1yKAxMkZ8dvc30cB6Ap/cKJMy0tuJ6OvkA2vuFnyA04INyW7hSCj+qPPJA+evw1GA3c1mB8Ux2PWs1q46berg7gSbXTGqHGGLXQ5HrwG8TIph8InOpom3YD3bPrxqjHQ7c4K0aQ66c0LGn8cre/qjkfHYqx30awaXD3lKxVaRBza2U/KA/FOlf0sne9zh//oKGOwFvttguKN88+E7qKgCtC7Q44UOPFnWlahmLHsPcMxZ59QG20oTaBX9UcDqg5e9zyngoc87PF8zqYg+VXYHTow9DBTdM1ITfm981Cchoio3B/yhexohw66O7txt7b3vHbc5JBFSii/0/56mARKLndIvXcNwVBKC3KSWgqFeju3W1JP2aMx7XHCTUFBq7GC6yIKeAAs2+FBohpRMOQmO+V3d/TeVW5qXh+ZVzxUNfZA39tpSBVWsRGQ+0/8mJgDtTkUJeA3GOWkldgBhXvTZiVFGmihoLVpqMjQZOLppu4vhKSCwgYBGitB0G9TMLXNF4QOWOpOoIZXSYlh7mDrxpZHwFBfi9RlAMZQUcwwzNgWF4RJjOfTI5MejZFclV5x/RtegoEMOubOo4IbNNTIJyTmRLhVoTg0GLuOc4q55qFy7nnpLKcO8NKwW4xLOefk0HYdEoNhf9Ug23jkmantfXv3Xhy9WYESxyVwubxTJz99gGdCtpPADsDc8o/XB3kep28sxXb4P4fAAAA//8DAFBLAwQUAAYACAAAACEA1MRHKEUHAAAXIgAAEwAAAHhsL3RoZW1lL3RoZW1lMS54bWzsWktvGzcQvhfofyD2nliyJccyIgeWLMVJ/IKtpMiRWlG7tLnLBUnZ0a1IjgUKFE2LXgr01kPRNkAC9JL+Grcp2hTIX+iQXElLi4qtxkVfdoB4H98M583ZoW/eepQwdEyEpDytB+XrpQCRNOQ9mkb14H6nfW0lQFLhtIcZT0k9GBIZ3Fp7/72beFXFJCEI6FO5iutBrFS2urAgQ3iM5XWekRTe9blIsIJbES30BD4BvglbWCyVlhcSTNMApTgBtrv9Pg1JsDZi22LAO1VSPwiZONBMyTS2d1TWCDmUTSbQMWb1AFbo8ZMOeaQCxLBU8KIelMxPsLB2cwGv5kRMzaAt0LXNT06XE/SOFs2aIuqOFy23K7UbG2P+BsDUNK7VajVb5TE/A8BhCJpaWYo8K+2VcmPEswCyl9O8m6VqqeLiC/yXpmSuNRqNai2XxTI1IHtZmcKvlJYr64sO3oAsvjqFrzTWm81lB29AFr88hW/fqC1XXLwBxYymR1No7dB2O+c+hvQ52/TCVwC+UsrhExREwzi69BJ9nqpZsZbgQy7aANBAhhVNkRpmpI9DiN8mTrqC4gBlOOUSHpQWS+3SEvyv/1XMVUUvj1cJLtDZR6GceqQlQTIUNFP14C5wDQqQNy+/ffPyOXrz8tnp4xenj384ffLk9PH3lpdDuInTqEj4+utPfv/yQ/Tb869eP/3Mj5dF/M/fffTTj5/6gZBfE/1fff7slxfPXn3x8a/fPPXA1wXuFuEdmhCJdsgJ2ucJ6GYM40pOumI+ik6MqUOBY+DtYd1SsQPcGWLmwzWIa7wHAkqLD3h7cOjIehCLgaKele/FiQPc5pw1uPAa4J5eq2DhziCN/IuLQRG3j/Gxb+0mTh3XtgYZ1FQI2WnbN2PiiLnHcKpwRFKikH7HjwjxkD2k1LHrNg0Fl7yv0EOKGph6TdKhXSeQJkSbNAG/DH0Cgqsd22w/QA3OfFpvkGMXCQmBmUf4DmGOGW/jgcKJj2UHJ6xo8C2sYp+QB0MRFnEtqcDTEWEctXpESh/NrgB9C06/h6Gaed2+zYaJixSKHvl4bmHOi8gNftSMcZJ5ZaZpXMTekUcQohjtceWDb3M3Q/Q9+AGnM939gBLH3ecXgvs0ckSaBIh+MxAeX94m3M3HIetj4qsy6yJxCus61HBfdDQGkRPaW4QwfIJ7hKD7dzwSNHjm2Hwi9N0Yqsom8QXWXezGqr5PiSTINDPTabpFpROyByTiM+TZHp4pPEOcJljM4rwDXndCF/Y2byndZeFREbhDoduDePEaZVcCj0Jwt2Zx3Yuxs2vpe+mP16Fw/HeRHIO8PJw3L4GGzE0Dhf3Ctulg5iwwCZgOpmjLV26BxHH/hETvq4Zs4KXru0k7cQN0Q06Tk9D0bR0Po+DAMx1P9arjsS3b2Y5nVmXZPNPnzML9C7ubDTxI9whsKNOl66q5uWpugv98czMrl69amquW5qql8X2E/SUtzaSLgQZnMuEx855k5rinTxk7UENGtqSZ+Ej4sOm14aEZRZl55Hj8l8VwqfWBBRxcJLChQYKrD6iKD2KcwXCobAadkcxZRxJlXMLMyDw2A1RyhrcZjFIYCZkZZ1VPv6z9JFbbvGcfLxWnnGM2RqrITFJHCy1pBhddbOnGuy1WtlLNNJurWtmIZjoGR7WxytrEI+uPVYOHY2vCFzOC72yw8jKMmbXsMEeD9rqn7W59NHKLXvpSXSRj+CbMfaT1nvZR2ThpFCtTimg9bDDoieU5PiqsVtNs32G1izipuFxlxnIj772Ll0Zj2omXdN6eSUeWFpOTpeikHtSqi9UAhTirB30Y0MJlkoHXpf7ewSyC841QCRv25yazCdeJN2v+sCzDzN3afUphpw5kQqoNLGMbGuZVHgIsNeNkI/9iFcx6WQp4qtHFpFhagWD426QAO7quJf0+CVXR2YUnZp5uAHkp5QNFxEHcO0FdNhD7GNyvQxX06VEJk3RTEfQNHAppa5tXbnHOk654FGNw9jlmWYzzcqtTdJTJFm4K0lgGc2elNeKBbl7ZjXLzq2JS/pJUKYbx/0wVvZ/AaHuppz0QwmmkwEhnSj3gQsUcqlAW07At4EDG1A6IFjhYhNcQVHAman4Lcqx/25yzPExaw4RS7dMICQr7kYoFIXtQlkz0ncOsnO9dliXLGdkOYyKuzKzYXXJMWEfXwGW9twcohlA31SQvAwZ3Nv7c+zyDupFucv6pnY9N5nnbg8muaukv2ItUCkW/sBXUvHuf6anG5eAtG/ucW62tWFMaL1YvvNVmcEAB55IKYiKkIoRBo2l9wcsdvg+1FcGpuW2vEET1Ndt4IF0gbXnsQuNkH9pg0qxs55V3t5feRsHZat7pjteFLP0zne6cxh43Z+5yTi6+vfucz9i5hR1bFztdj6khac+mqG6PRh8yxjHmLzOKf0LBu4fg6A04rB4wJe0x9CM4joKvDHvcDclvnWtI1/4AAAD//wMAUEsDBBQABgAIAAAAIQDI+sESOgMAANgHAAAYAAAAeGwvd29ya3NoZWV0cy9zaGVldDIueG1snFXbbtswDH0fsH8w9B7byj1GnKJLWqzYVhTLLs+KTCdCbcuTlFuH/fsoOXFuHdbWSCybIg/JQ1IeXm3yzFuB0kIWMaF+SDwouExEMY/J92+3jT7xtGFFwjJZQEy2oMnV6P274VqqR70AMB4iFDomC2PKKAg0X0DOtC9LKHAnlSpnBl/VPNClApY4ozwLmmHYDXImClIhROolGDJNBYeJ5MscClOBKMiYwfj1QpR6j5bzl8DlTD0uywaXeYkQM5EJs3WgxMt5dDcvpGKzDPPe0Dbj3kbhr4n/1t6Nk194ygVXUsvU+IgcVDFfpj8IBgHjNdJl/i+Coe1AwUrYAh6gmm8LiXZqrOYBrPVGsG4NZulS0VIkMfkd7q4GrtTewkZI7e3o+kNGw0RghW1WnoI0Jtc0+tgkwWjo+ueHgLU+evaepMynnGVwbxsuw1YOsZVtk86kfLTqd+g8RNySFeBtpyWWOiaYpZHlZ0jNGDK0usZIGTdiBQ+oFpOZNEbmdt+NgUFRquQTFC4SyAB1MUKLeapcgRxA9a8qi5Y1DOocjp/3+dy6kXlQ3oxpGMvsp0jMwiZEvARStszMkZD6nV7Yos1OvflVrj+CmC8wO9r0e7jhejRKthPQHIcGafAdk1xm6BPvXi7s8GPPs41b15XLTuj3aDhoWRBttnYOkB++1MjJPiqbTw2BdDoIXHcQ9LUQ6MBBdA8Q3VdG0dsn0m312weYI6rqZGwxKhpcSSbMsNFQybWHw4h8aCwsHm00wlPQEYrrc2x2sK+4tbm2RjHB4JFmjdLVqDsMVtbLTuNDpUEdb9ZkfC6YnAtuKoGrWYDB1REizRcRtn3bC8+WfB+jNYsJatkYjcIo09FcyWWpsbH8e5YDHQapjX3KF8sMzhL4v3lzZ/4pY1qfmY9PzB1DtHXqYXKp0jvVuLnU6J9q3D7jpn2qgseJ5eGI1mouqyYo2Ry+MDUXhfYynH87NdhYqpos94wnh5P2e+2QdnrtQXVh8atj4x+bC/wIAhY+9LHXUynN/gWb0XqdglmWeKSUoKbiCWduQDypBE6u+8rFpJTKKCbwSFKRPVLVXeLaKai/yaO/AAAA//8DAFBLAwQUAAYACAAAACEAO20yS8EAAABCAQAAIwAAAHhsL3dvcmtzaGVldHMvX3JlbHMvc2hlZXQxLnhtbC5yZWxzhI/BisIwFEX3A/5DeHuT1oUMQ1M3IrhV5wNi+toG25eQ9xT9e7McZcDl5XDP5Tab+zypG2YOkSzUugKF5GMXaLDwe9otv0GxOOrcFAktPJBh0y6+mgNOTkqJx5BYFQuxhVEk/RjDfsTZsY4JqZA+5tlJiXkwyfmLG9Csqmpt8l8HtC9Ote8s5H1Xgzo9Uln+7I59Hzxuo7/OSPLPhEk5kGA+okg5yEXt8oBiQet39p5rfQ4Epm3My/P2CQAA//8DAFBLAwQUAAYACAAAACEAE8QsE8IAAABCAQAAIwAAAHhsL3dvcmtzaGVldHMvX3JlbHMvc2hlZXQyLnhtbC5yZWxzhI/BasMwEETvhfyD2HskO4dQiiVfSiHXJv0ARV7bovZKaLcl+fvo2IRCjsNj3jBdf1kX9YuFYyILrW5AIYU0RJosfJ0+tq+gWDwNfkmEFq7I0LvNS/eJi5da4jlmVtVCbGEWyW/GcJhx9axTRqpkTGX1UmOZTPbh209odk2zN+WvA9ydUx0GC+UwtKBO11yXn7vTOMaA7yn8rEjyz4TJJZJgOaJIPchV7cuEYkHrR/aYd/ocCYzrzN1zdwMAAP//AwBQSwMEFAAGAAgAAAAhADShCZLCAAAAQgEAACMAAAB4bC93b3Jrc2hlZXRzL19yZWxzL3NoZWV0My54bWwucmVsc4SPwWrDMBBE74H8g9h7JCeFUoLlXEIg1zb9AFVeyyL2Smi3pfn76libQo/DY94w7el7ntQXFo6JLOx1AwrJpz5SsPB+u+xeQLE46t2UCC08kOHUbTftK05OaonHmFlVC7GFUSQfjWE/4uxYp4xUyZDK7KTGEkx2/u4CmkPTPJvy2wHdwqmuvYVy7fegbo9cl/93p2GIHs/Jf85I8seEySWSYHlDkXqQq9qVgGJB6zVb5yf9EQlM15rF8+4HAAD//wMAUEsDBBQABgAIAAAAIQDZynkhpgIAAPAFAAAYAAAAeGwvd29ya3NoZWV0cy9zaGVldDMueG1snJRrT9swFIa/T9p/sPy9zaUXaNQUMRAa0iahsctn1zlpLZI4s90b0/77Xju0dLAhhJXESezznHN8Xnt6tq0rtiZjlW5ynvRjzqiRulDNIuffvl71TjmzTjSFqHRDOd+R5Wez9++mG23u7JLIMRAam/Olc20WRVYuqRa2r1tqMFJqUwuHT7OIbGtIFMGorqI0jsdRLVTDO0JmXsPQZakkXWq5qqlxHcRQJRzit0vV2j2tlq/B1cLcrdqe1HULxFxVyu0ClLNaZteLRhsxr5D3NhkKybYGV4p7sHcT/j/zVCtptNWl64McdTE/T38STSIhD6Tn+b8KkwwjQ2vlC/iISt8WUjI6sNJH2OCNsPEB5pfLZCtV5PxX/NB66BP/iHvxwD+O2m8+mxYKFfZZMUNlzs+T7EPKo9k06Oe7oo09emdejnOt7/zANdzEILSiIba7bVHUnCMfp9tPVLoLqirwEJOQTq3pBtNyPtfO6dqPB8E7/CqNvqcm+KSKMBexeObfkzvII9T+7OIdeMPoEO3x+z7yq7A5bgybC0sXuvqhCrfELsQmLKgUq8p90ZuPpBZLJJCMsIhehVmxuyQrIX+k2U9H3o/UFaB4slr5fQz5im3oNx1zmPaTYTzGbCZXFpnufT1Yd3ZYpGCHfm83fsEu6tyGHC+FE7Op0RsGHcO/xUrhVEgysEL4OEj+HT7i9jbn3ijnY9Qp5xblW8/iabTGukncAB/oIB7TX6b6yTk/OaKmB2rwC1U9nZE88dtVscuwFQv6LMxCNZZVUIuvAeimK1J4h87C39OTYZyMToaTriGzTmT/GVzicCQsRNyHNEut3f4D9fVeb8mtWgiwJXOr7qHCCWfaKOggnH45b7VxRigI2GR+q5nrIgkiPJzVsz8AAAD//wMAUEsDBBQABgAIAAAAIQBtkKJnZwUAAHAVAAAYAAAAeGwvd29ya3NoZWV0cy9zaGVldDEueG1snFjbjqM4EH1faf8B8d4Bk5CbkowmMK1uaVcabe/lmRAnQQ2YNe7bjPbft2wwmILJZVozTfq4XKeOq1wmXn16z1LrlfIyYfnaJiPXtmges32SH9f2X3/e381tqxRRvo9SltO1/UFL+9Pm119Wb4w/lydKhQUe8nJtn4Qolo5TxieaReWIFTSHkQPjWSTgT350yoLTaK8mZanjue7UyaIktysPS36ND3Y4JDENWfyS0VxUTjhNIwHxl6ekKLW3LL7GXRbx55fiLmZZAS52SZqID+XUtrJ4+XjMGY92Keh+J5Mott45/PPg/1jTKLzHlCUxZyU7iBF4dqqY+/IXzsKJ4sZTX/9VbsjE4fQ1kQlsXXk/FxLxG19e62z8k86mjTO5XHz5kuzX9ne3/rmDJ5G/3PaXHvvP3qz2CWRYqrI4Paztz2T54Hm2s1mpAvo7oW+l8dkS0e6JpjQWFEiIbcn63DH2LA0fAXLBZRHl1Pp4KiDLaxsEClb8Rg8ioGkKBBBkFIvklX4Fs7W9Y0KwTI6rHSAAOnD2jeYqBkUlg5M+u8aVk9Zp+W8lYCwnOk305met5F7tlq/c2kUlDVj6T7IXJ5ADu3JPD9FLKgyQjPyZOyae3wz+wd4eaHI8gTrijWYwoMpzuf8IaRnDfoFlGKk1jFkKnPDbyhK576Hco/dq3SpK3x3NiLsYSyel+JBbANYnfilhTXRUUk/jApZTuYDnm476RhdAoFwAZe3C8290Ma1dwFO7GI/IxJ3KVbpKx6z2AM/aw2LkzX3iX+8CWqbSAU8dxOxGHYvaBTy1i1sTIoumSip80CkBVVetAmkqQm6lKp/ebDT3/cl0fnVNEF0UZDqeT9oojMptopF7o6pKtUPCSESbFWdvFrRFiKGEfQaHDFnCoqr6hudQcfuwzWM557OctLahEKDqS0BfN+OV8ypZaouttpBlLKcEBuAAdcMPMnr8k5EsqcH9pSOQ09Y26G4imKAI+hZ+1yLoWyy6FmHfgrhdky8DJqRrcj9g4jUmncWAXdpbjB+sRJsMOalquToZHgpy2zcheDG0iUwmacNTyQvNQZTpe9V6ldmDNpP1ZuYY0nS7LDkJyUILu+2b9GRpEyULhR6ag1jWRHVgWboP2gzLkm0Pb52L2ZKTLsjqm5ApKl1tomShyg/NQSTrSzU2Htqz934rWbvAkmHL3y5ZTkKSUYFttYnUg+QE5livMs1BnMJpq0ebYT2yZ9+cQjkJ6cHtT5sMtMbAHMP1GlaDw/mZtXq0D6xHfqO4WY+chPTgZto3ITNUktpElSTqLmE1OCxr3srSPrAsOKpvlyUnIVkorG3fhMyRLG0yuNOqwWFZC/VKarZB+dZwuww164KOARuCzrKgsRlUUo8OS4FBnBH5EmNqOXtYK2MpQb8NbHtI0ENCE+kcJ/LV53ru6vQ1uTESKIdmfKGJdLnREX1et3EgqhNySzAS9JDQRLrc6Bw9z22cWjU3RgKCkdBEutzosDvPbRwfNTdGAoKR0ES63OjUOc9ttPqaGyMBwUhoIl1u84SA5TrPbbTlmhsjAcFIaCJdbrObX+Q2emfNjZGAYCQ0kS632XIvcusm2e5vjAQEI6GJdL8SmH3yErcnjTu9pYcEPSQ0kS632dcucldfaoze4mEk6CGhiXS5zb52kbvX1+AGp7sSQQ8JTaTiri5Nqq+ERXSkv0f8mOSllcLljLzSgHLl1bWH+gzXOgqdzyYu8WeTRfUDG6q60/nB4AkuJym8S7sjaIAHxoT+AypGsj5R8VLAfU9B+VPyDS5EoFoYT+BaRd0+ru2CccGjREA0S3nVxR/3RB1KzV3p5n8AAAD//wMAUEsDBBQABgAIAAAAIQAZc15XvwYAAHYyAAANAAAAeGwvc3R5bGVzLnhtbOxbbW/iOBD+ftL9hyjSfaSJTUIJAlaFFmmlvdVK3ZPua4BAreYFJaYHPe1/v7HzYpcF79B2L3cSVKLBiR+PxzNPZibO8MMuia2nKC9Ylo5scuXaVpQusiVL1yP7j6+zTt+2Ch6myzDO0mhk76PC/jD+9ZdhwfdxdP8QRdwCiLQY2Q+cbwaOUyweoiQsrrJNlMKZVZYnIYef+dopNnkULgvRKYkd6ro9JwlZapcIg2SBAUnC/HG76SyyZBNyNmcx43uJZVvJYvBxnWZ5OI9B1B3xwoW1I72cWru8HkS2fjdOwhZ5VmQrfgW4TrZasUX0vbiBEzjhQiEB8uuQiO+49MXcd/krkTwnj56YWD57PFxlKS+sRbZN+ci+BkGFCgaPafZXOhOnYIWrq8bD4tl6CmNoIbYzHi6yOMstDksHmpMtaZhE5RXTMGbznInLVmHC4n3ZTEWDXO3quoSB7kWjI+QopdHGccUphXqTszA+inm8+/9PzHw9H9mzmSs/LydvUqlh+mdrby6WqF5o78wFkIIUsI4sjhurIn1hQdAyHoL/8ShPZ/DDqo6/7jdgPylQRWkH8rofXL3Owz2hPr5DkcVsKaRYT6XVVnqewWc6lTCaZMIaMVIcglau4NkWZ8Kb3KvrIAj6pNfv9wOvSzxP2v+8koGly2gXLUd2r5zIT5HABwmCbj/oURDE9fpyqJ8vgd+6DjQJWtJBr3UdaBK0pAO4obTsC5oELekAwqGWdaBJ0JIOgtZ1oEnQPh8gJZB3X+f97gvn6+C9JTjfEk9LIG/SEGvMs3wJ2Ugdw1K4zZdN42EcrTiEMzlbP4j/PNvA9zzjHCL28XDJwnWWhrEIP+seek/IYiBhGdn8ARKOOt6tIocJFX8ychCDVGMge0h5pDjIDiB4LTeyRznJ43OsJguqW0RxfC8m+eeq0R8EKePhbmWl22SW8I8Qn0CCJ6Lz+hBCo+qwVFb5A5R4qhOB/md36r6mE31jJxhUn5MVbjbx/vM2mUf5TCalUhmydSKtTv2+idk6TSIZ99llxy95xqMFl2myzGROKUgTG8KWliWAG2bLEgBNtSwBJLiti9C+LUIi0/I6QADbsgRww2rbFoF+2xYBCOoiArloAYKBixZEvHPRgtRCS3cILaB84ZPQbojYRDn73eO1y/janeGi/4v9nc6Y3s//XpVQAledn4W+NaE8iN0MSfJ/fKRXqfzf62TUnqOXOcqih1bvEA+nzi93WLvVG+oeVW+QWt6vSs+o2VM8HBMPVMtzdZ1BPss8v8JyYiSDIZ4uvDRYht5Qv6i9jBzWMkqVmSeNhD5MDN8IDXAnuOG9V0rU0qpaGDmstNQmVRlFZQaiOikMGExWK9i9LNc1Bm6Jx70jm7rWb1bHunl8hoIUsUDlJTZw4C4fbBlEsH+Xz5hdtwMHvviSR+VXfe6bfM5fFwmPgVMFDsuNAycl/I/BuwocVggHDltExOfH4J4CF9seUGrpYsF9BQ4VBBy4hwXvKXAoleHAfQO4d8JaCBgrDr2HRdfMRdTYcOjXWHTNXkSChkPvY9E1gyFAkjj0AIuuWQxBu+nNGejKaAQx46SfnIWvjYB21+k5Iwity9uuoE7cDG7PwRd6L/HRTnuHx1fSo7222gh0lMxeeK1vabZPsX5bEfFxsjzAb3RDsX5LTDz/Al0jNIr1W2Ii+s8ZZ8/KHCnWXYmJ4EvQZhUp1kuJidgrUE1WrHMSE6U3sBow1ieJic1rYKUGrCsSE43XsMrKsB5ITPxdwipQrOMRE22XoGKZJFd00d5mYut7uWE2X9aoInHcshg2jjRpxmGQV3fRaBfJisTEugpWAXfRPm/iWw25MZ8u2t9NTNsgK7PEqsJEsQ1sY0FdLJNU7HScWhWupmIsnVATrerIGjaWU6iJVDVstXxYUqEmZtWQlaaRC0hN7NoAK2/F0hU10WuDK6ZfsgCWr6iJXRWutnhY0qImgm2QxfylxB6Wt6iJYRtcMf8SF8sVVCdZVaOBLHe5U9tR5MYJLrbny40qTd4L0i+jVbiN+dfm5MhWx79HS7ZNgF2qq76wp4xLiJGtjj+JnUGkJ9LcaMc/FbCRB/5b25xBhnw3uQ5u72a003cn/Y7XjfxO4E9uO743ndzezgKXutNvMG3xLsMA9s2/4RUB+U4D1KGINyhieJEgryZbCX+v2ka29qMUX+5CArF12QOwsxufuJ1Z1yUdrxf2O/1e1+/MfEJve97kzp/5muz+K18lcB1CypcShPD+gLMkillar1W9QnorLBL8NEzCqVfCUS+MjP8BAAD//wMAUEsDBBQABgAIAAAAIQA1LErGiAEAAKgDAAAUAAAAeGwvc2hhcmVkU3RyaW5ncy54bWyEU9FuEzEQfEfiHyy/N05bqSro7qoG1BYCQqLhAzZ3y52FvQ5eO2nzM/2Y/hibNBLSmdA338zseLy7V109eKfWGNkGqvXpZKoVUhs6S32tfyxuTi614gTUgQuEtX5E1lfN2zcVc1JSS1zrIaXVe2O4HdADT8IKSZifIXpI8hl7w6uI0PGAmLwzZ9PphfFgSas2ZEq1PnunVSb7O+OHA3Chm4ptU6VmgQ9J8mHaZuqRKpOayuyov/QYm+NjKePUx7ySbGbugLl0um+H7LDw2ovH6JfQW+IxOkPKaYuRwJc+SLQJMY1rrmkLg1ML5HTyb9eD4jsyxjW+Jlpb3BzRfPq4v+alDeMcQt7u+zMmvoYuFy89h7HsfFkgbYFcF8hsjLxMQYFXNw68rGHYYK9mEX05MQlMnaydjG1XcAed9J4R5eSXOfZHvOfgLP0C2ertK0ogJZbqPkV4fkI5szq9nKjP2dkjkQ7xv4mUYZf8/1FuY3h+UnfZOYzLLE8p9Ub+tOYPAAAA//8DAFBLAwQUAAYACAAAACEAScDpJkwBAABtAgAAEQAIAWRvY1Byb3BzL2NvcmUueG1sIKIEASigAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfJJRT4MwFIXfTfwPpO9QCk5dAyxRsydJTMRofGvau41IS9NW2f69BTbEzPjYnnO/nnPTbLWXTfAFxtatyhGJYhSA4q2o1TZHL9U6vEWBdUwJ1rQKcnQAi1bF5UXGNeWtgSfTajCuBht4krKU6xztnNMUY8t3IJmNvEN5cdMayZw/mi3WjH+wLeAkjq+xBMcEcwz3wFBPRHRECj4h9adpBoDgGBqQoJzFJCL4x+vASPvnwKDMnLJ2B+07HePO2YKP4uTe23oydl0XdekQw+cn+K18fB6qhrXqd8UBFZnglBtgrjVFyfyCVFAC3zloMjyT+jU2zLrSb3xTg7g7nLnPHZ49VBkfABH4cHSsclJe0/uHao2KJCbLME7DeFGRhCY3dHH13gf4Nd+HHS/kMca/xCTxuDCJK7Kg6ZISMiOeAEWGzz5I8Q0AAP//AwBQSwMEFAAGAAgAAAAhAGWZqibuBgAAgB0AACcAAAB4bC9wcmludGVyU2V0dGluZ3MvcHJpbnRlclNldHRpbmdzMS5iaW7sln1sFGUawN9WrUUPr7ACGhooBe8kety2tCsgUXZnZtktuzvTndm2qcDedOZtd9LZebfzgW39CBo4weiJKBYMSPw4jUe9ttAY1ArGU/k6A3fKGc7jepHDNAGK4mEDxOIzs1us1I8/zsR/Zjc778fzPs/7vL/ned7ZpWgpUlALakAGwkhHK5xnOczGoGeidiTDrIUk1OxIShCDaFSDRj55V6KCf6EXiqmLK6/OQ+PQ09dWFMooD/0S1eXnQ1uXfwU8/ajiksb/38nLmbDbfPhNgM5F+FxumQ7HEqVoZUFf4YDnwZaNxT+087xRwhH7CBX+qLPfrP2hpXnAIPv9CTG4pn5iAqNjubIAIT4qVNlbFKFMQQhxqARFkJirkyqnOkrQfORFlfArATkF8hLkA42wlrHMgKKhIBuP8mwiTjEozvB0JIISmqJjw+6FOJpIiTCfCCNBtzCKY4OolqkQDfm8XjmjoKBomDCbFbO6gjVTdOQcGxfi/rAANrLTcQISXDbPCzqqgRFtZVTcimJsjLH3gZEiwYIq0hAT05hdgXVdkTHia4O1iBMzWOeVdoz8FYiRm7BA7GfOUhTLiii0ZUBqmQQxPBcPC7yVyRDdxHLWNb9qYl0D+xFsQi+ERTmnHeJiCQPTSmNjUNENkxObMJUiioSREE/YrtkzTKuEM/a5jKCiYpikOKZSLxsjDWtgvFEEZT5F7v625pjFEXI3o8nfM12D9TESRBHAEtYMrDuMKaKqcCTExhBrmbl4Ogx4UwSeWhOKEc12d2TMAhQDmGRDwEhEI2kClLNjAbeafiOgilLzyIwAY8VMixmDB3C2RUGIggbsB/Yx4nRFM6stUVXMtsU6sTKIq3bapA0nklF4rGLJ8TbnCjhNdNsEirIxlgrF2SiTjLK0g5qOOHHk6EiSoyI+m0BVhNEkIttbJ4TgPJiCFPFLErE0xx8YswE/RQlJp43ZGRcgusZqtM0GBixtB4xAaDRzdIp+12SSdcIMCnXRiB1ryA0ZpTLSfG+l1zenNa3aPoFrnGgYQgpO3JTKZlhVHLYwTF0EIAaCUYjmRIiTqMIgREPUTFFVwZg9YhsbnTZGzLECp+o4nWTscrN0CcNBRNuHlAo5N0cSG+yIpsF4toZ4YKNiO9mATNaZb8lZWb5MaHtqpbFOWYZJ0k51jegxmtig4ri/ls8Q4qSQU/kc71eVJi0NCEcqIMLbFcDxPNZXQLkYSRrbrajJdu2pCjYg60wL7oZsHTkeh6yGJKvZqQM126QRw1QkEzYauypXwGDOBMrgk5EiJJuBl9kDVLIlQZJqkIdjDVEpLDU3El3WFageKyNDWoxZBfchNpN8mE6W++YmA3Z7my8ZcsaVow6ZSw9O1+zDZRUqynMKXkehrLKy3LkZdOzXRLXNUHLXo32V5O4xfyQ6OluYWE2yzAtRvXSVZSM7eg3lj9O8wFJLLlVALeHg/nbC83O8aAc88BZJcKHr4X9D6+ZTm3ZrH3DXv7e7d2Jp4NBz23taH+i5om5S0ZXla5XSh+VA9dX7i9Y88KewZ/Oit2sKVrWuviN/Yf6S4LSVk3pqFuZN3Wz0vNyypX3czvSurdbFLff8+T5PcusJo+8NJCztar/uqpufPrgKv6N2Ll/3vHLmyJ3t9Qu6H2cm3P7SySfeOnjDgmH6073qNWv14snTGjx3+LpXL/bsnDO//rNh9rbr8l8bGt975pnCfVcd/WNf97RTk57/20BXeazsw+bBE0d2tR2y1l849Ejhp+Xm4NvMjYnOqtdKf1OeXjrlwv8m3mcemjz18JQlh//iWbjn0b5fB4dnri6bfaSj2HO6PzbwwpZb1m9btmDqNcfO7lw+67GhxR/eueX3uz5qLp3VEPvHvk23PvRIkd4ZnpunXCicIW8fmPnqL6bftT7fM9T9zhv34vqud7elQ9raxcUb19T1//fgmWcqzjXJbz7XvJn66K//fribfvFsf/N7E0nvzOUv799aFb2po2XcYwyFx5vH926tGqBOkO7PFjV27jj97Kxtt3tPLZpV2bduU9eawRfbfMKex/s/9h375PXE5wdmfvXmjgmBP9xyfhm/u/rL11/xN3XLvz1PJY8f+2TuE5F9rQf8n3ece3IoNWlDy/gTdXNf7Zzt00omNy+L19569K3ejt9J1eqRomF6uEy/QTlw9PDNenL/U72FMz4Ilp0et44KvG/s33C+/vjw9h31K/r+ee7vez4+fXLZ0PsdpHby4IbBk1O7e744e+rd6YMXru3vun/j9Pu/7LsrseeVe2a/9KtVRYHCGfDYO+E/UxilXXH/KLoEXAIuAZeAS8Al4BJwCbgEXAIuAZeAS8Al4BJwCfx8BL4GAAD//wMAUEsDBBQABgAIAAAAIQAPI1Aj3wYAAIAdAAAnAAAAeGwvcHJpbnRlclNldHRpbmdzL3ByaW50ZXJTZXR0aW5nczIuYmlu7JZrcBRVFoBvooQobEE0Pih5hEdJwaI1GUl4SHRnumeciTPdzXQPgTI42+m+ybTp6dv0I5ngA1TKJVhK1iW7vgpcBLdKicSt2l22NiiurPISFtAsaHTXEiUaUaOLrIWYPd0zYSPx8WOt0h89U9P3ce4599zvnHN7alEtUtAyVIdMhJGBmtynH2YZ6FloOZJh1kYSanQlZSiEaLQIDX4KzkdFPWjTeGpg5cgCdAF6eNTsYhkVoDFocWEhtIsLz4NnAM0+q/H/dwryJpy2EH4l0BmAz7mW6SiTnIJWFnUV915817IHx3/bznOHCAftI1T8nc7+b+23LS0ABrnv94jBM/U9Exgay5VFCPFxodrZYizSiyKIQ2UohsR8nVS71VGG5iEfqoBfGcgpkJehStCIarptBRUNhdlEnGeTCSqEEiGejsVQUlMMbDq9CEcTKRnlk1EkGDZGCWwS1bYUoqFKn0/WFRQWTQtmc2LWULBmia6cYxNCIhAVwEZuOkFAgsvn+kBHNTGibV3FWcSwTMjZB0aKBAuqSR0jZjDbhA1DkTHia8I1iBN1bPDKcowCs1FIbsACcZ55S3EsK6LQooPUtggK8VwiKvC2rhPDwnLOtYBqYUMD+zFsQS+CRTmvHeGYpIlppb4+rBimxYkNmEoTRcJISCQd15yZUFbCunMuM6yoGCYpLlRhlA+TRjUwXi+CMp8mzV/VHLY4RppDmvwN04uwMUyCKAJYopqJDZcxRVQVjoRYBrG2lY+ny4C3ROCpNSCGaI67g2MWoJjAJBeCkEQ0kiFAOTcWcNYKmEFVlBoHZwQYK1ZG1E0ewDkWBSEOGrAf2MeIMxTNWmiLqmK13GAQW0fcQrdNOXBiusJjFUuut3lXwGliOCZQnGVYKpJg46FUnKVd1HTMjSNHx1IcFat0CFTHQppEZGfrpBCeC1OQIgFJIrbm+gNjNhigKCHltoyTcUFiaKxGO2xgwNJOwAiERrOGpujXTaZYN8ygsDgec2INuSGjtC7N81X4Kq/OZlTHJ3CNE01TSMOJG9K5DKtOwBamZYgAxEQwitCcCHESVRhEaIiaJaoqGHNGbH292zLEGi5wq44ziO6Um21IGA4iOj6kVci5qyWxzoloBoznaogHNip2kg3I5Jz5ipyV5XOEjqd2BhuUbVok41bXoF5IE+tUnAjU8Dohbgq5lc/xAVVp0DKAcLACYrxTARzPY6MJysVM0dhpRU12ak9VsAlZZ9lwN+TqyPU4YtelWM1JHajZBo2YliJZsNHwVfkCBnMWUAafzDQhuQw8xx6gkm0JklSDPBxuiEpjqbGeGLKhQPXYugxpMWwV3IfYSvFROuWvvCYVdNo5lamIO64Ycsh8enCG5hwupzDbn1fwuQrlFRV+92YwcEAT1RZTyV+PzlWSv8cCsfjQbAkxi1LlPojq2assF9mha6hAguYFlrrxbAXUEA7ubzc8P8SLtvdieIskuUgp/G/IPnrioQOJw1zpi8/9dbT0UomuH7/yiqW///vox7sPXhDfNGHpzikvFNaWXtFeko7f23Ft7dz7t+6Y2jt123uHRv68bxvOFjZlmci0e9apTxacPuM/xe6vmlN1YnvVqfWPnBm3o6lnT0XpY+nrLv11ydvPLA88HW5bO9B9+NBdrbPWHNmu3lx4f116oHXf+qOlF71TNnrLv36yYIs06sAvPv7zsbrn+ydlZv3H/5mtHssU7x6xdHNP58SOS87cMbDWz5S/0vjoLUdbst3Hp/3jt+UlMdy7b+8HW6LPrpreuZkJ33fa//7rvY+1xvsXTugXMl07Ghfset33yZgZoyO7/yhvyJ5mgtNPLPll7ZlDr3KXb33p5JSWrqqNn5240EptbW1bPeOh6b9aUjBu8rHnrnx5xKaOqava3tq44pkR2SMPHBt5fGLR+K5RH755o3DTb3raVh8Zw+ycH/hyJnl8d2pq471PHx8/v4GpXzXZ3zHpwDhq48En6M0zV8yoaO958aotrffseT+9u/36psupvmZf57RLnzqZWSc3nX5++9o1O1+b+GT2p90b0mODu/pvjd9+w1EtYz3yxjyzu69l5iTrumv2rVtA5vV9gefjSR0b/R+Kl+y9c4y6+voP1jTf1P7KA0t/Nmfbhrtbl/TfWpWlPv/brhY53h1IfZIZ1/xGf0kwfF/dm0VtZvDVP+xpyhy9ubZzfftVf1q+/d8nD043//l556lP9+87fOhtfkJ384rbulp6b3t2mX5qr/XRX/r218z63btPLHh4bLB48irncdnKlGEte8H7Y+gR8Ah4BDwCHgGPgEfAI+AR8Ah4BDwCHgGPgEfAI/DjIfBfAAAA//8DAFBLAwQUAAYACAAAACEAZZmqJu4GAACAHQAAJwAAAHhsL3ByaW50ZXJTZXR0aW5ncy9wcmludGVyU2V0dGluZ3MzLmJpbuyWfWwUZRrA31atRQ+vsAIaGigF7yR63La0KyBRdmdm2S27O9Od2bapwN505m130tl5t/OBbf0IGjjB6IkoFgxI/DiNR7220BjUCsZT+ToDd8oZzuN6kcM0AYriYQPE4jOzW6zUjz/OxH9mNzvvx/M+z/u8v+d53tmlaClSUAtqQAbCSEcrnGc5zMagZ6J2JMOshSTU7EhKEINoVINGPnlXooJ/oReKqYsrr85D49DT11YUyigP/RLV5edDW5d/BTz9qOKSxv/fycuZsNt8+E2AzkX4XG6ZDscSpWhlQV/hgOfBlo3FP7TzvFHCEfsIFf6os9+s/aGlecAg+/0JMbimfmICo2O5sgAhPipU2VsUoUxBCHGoBEWQmKuTKqc6StB85EWV8CsBOQXyEuQDjbCWscyAoqEgG4/ybCJOMSjO8HQkghKaomPD7oU4mkiJMJ8II0G3MIpjg6iWqRAN+bxeOaOgoGiYMJsVs7qCNVN05BwbF+L+sAA2stNxAhJcNs8LOqqBEW1lVNyKYmyMsfeBkSLBgirSEBPTmF2BdV2RMeJrg7WIEzNY55V2jPwViJGbsEDsZ85SFMuKKLRlQGqZBDE8Fw8LvJXJEN3EctY1v2piXQP7EWxCL4RFOacd4mIJA9NKY2NQ0Q2TE5swlSKKhJEQT9iu2TNMq4Qz9rmMoKJimKQ4plIvGyMNa2C8UQRlPkXu/rbmmMURcjejyd8zXYP1MRJEEcAS1gysO4wpoqpwJMTGEGuZuXg6DHhTBJ5aE4oRzXZ3ZMwCFAOYZEPASEQjaQKUs2MBt5p+I6CKUvPIjABjxUyLGYMHcLZFQYiCBuwH9jHidEUzqy1RVcy2xTqxMoirdtqkDSeSUXisYsnxNucKOE102wSKsjGWCsXZKJOMsrSDmo44ceToSJKjIj6bQFWE0SQi21snhOA8mIIU8UsSsTTHHxizAT9FCUmnjdkZFyC6xmq0zQYGLG0HjEBoNHN0in7XZJJ1wgwKddGIHWvIDRmlMtJ8b6XXN6c1rdo+gWucaBhCCk7clMpmWFUctjBMXQQgBoJRiOZEiJOowiBEQ9RMUVXBmD1iGxudNkbMsQKn6jidZOxys3QJw0FE24eUCjk3RxIb7IimwXi2hnhgo2I72YBM1plvyVlZvkxoe2qlsU5ZhknSTnWN6DGa2KDiuL+WzxDipJBT+RzvV5UmLQ0IRyogwtsVwPE81ldAuRhJGtutqMl27akKNiDrTAvuhmwdOR6HrIYkq9mpAzXbpBHDVCQTNhq7KlfAYM4EyuCTkSIkm4GX2QNUsiVBkmqQh2MNUSksNTcSXdYVqB4rI0NajFkF9yE2k3yYTpb75iYDdnubLxlyxpWjDplLD07X7MNlFSrKcwpeR6GssrLcuRl07NdEtc1QctejfZXk7jF/JDo6W5hYTbLMC1G9dJVlIzt6DeWP07zAUksuVUAt4eD+dsLzc7xoBzzwFklwoevhf0Pr5lObdmsfcNe/t7t3Ymng0HPbe1of6LmiblLRleVrldKH5UD11fuL1jzwp7Bn86K3awpWta6+I39h/pLgtJWTemoW5k3dbPS83LKlfdzO9K6t1sUt9/z5Pk9y6wmj7w0kLO1qv+6qm58+uAq/o3YuX/e8cubIne31C7ofZybc/tLJJ946eMOCYfrTveo1a/XiydMaPHf4ulcv9uycM7/+s2H2tuvyXxsa33vmmcJ9Vx39Y1/3tFOTnv/bQFd5rOzD5sETR3a1HbLWXzj0SOGn5ebg28yNic6q10p/U55eOuXC/ybeZx6aPPXwlCWH/+JZuOfRvl8Hh2euLpt9pKPYc7o/NvDCllvWb1u2YOo1x87uXD7rsaHFH9655fe7PmoundUQ+8e+Tbc+9EiR3hmem6dcKJwhbx+Y+eovpt+1Pt8z1P3OG/fi+q53t6VD2trFxRvX1PX/9+CZZyrONclvPte8mfror/9+uJt+8Wx/83sTSe/M5S/v31oVvamjZdxjDIXHm8f3bq0aoE6Q7s8WNXbuOP3srG23e08tmlXZt25T15rBF9t8wp7H+z/2Hfvk9cTnB2Z+9eaOCYE/3HJ+Gb+7+svXX/E3dcu/PU8ljx/7ZO4TkX2tB/yfd5x7cig1aUPL+BN1c1/tnO3TSiY3L4vX3nr0rd6O30nV6pGiYXq4TL9BOXD08M16cv9TvYUzPgiWnR63jgq8b+zfcL7++PD2HfUr+v557u97Pj59ctnQ+x2kdvLghsGTU7t7vjh76t3pgxeu7e+6f+P0+7/suyux55V7Zr/0q1VFgcIZ8Ng74T9TGKVdcf8ougRcAi4Bl4BLwCXgEnAJuARcAi4Bl4BLwCXgEnAJ/HwEvgYAAP//AwBQSwMEFAAGAAgAAAAhAG54ryQ9AgAA8gUAABAACAFkb2NQcm9wcy9hcHAueG1sIKIEASigAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnFTBcpswEL13pv/AcI/BiSfteGQysd02mSatWxPfZbFgTYXESAux8z35k/5YJRgbkuAm7U2rfbx9+7QsudjmwqtAG67kxB8OQt8DyVTCZTbx7+LPJx99zyCVCRVKwsTfgfEvovfvyEKrAjRyMJ6lkGbibxCLcRAYtoGcmoFNS5tJlc4p2lBngUpTzmCuWJmDxOA0DM8D2CLIBJKT4kDoN4zjCv+XNFHM6TOreFdYwRGJFVIR8xyikARtQC6LQnBG0XYf3XKmlVEpep+2DAQJukliVS+BlZrjznF0Q7JkVMDMFoxSKgyQoL0gV0CdmQvKtYlIheMKGCrtGf5g7Rz53poacDInfkU1pxKtXAdrgvosCoM6utRr4GjW4vcjImgSWFSTqY/dD7pnPorOaoA9/BXYcE1BUikRvClo4PYt/6HOcNRfyClt2rYKnhoScxRgvqcLqrHHn+GHrkG1wsaeRmwMBjNdFnbUujIPxtyojEvTm4rd4GkD+FDK7MjnrDSococcfIVdL00HsqKifOLWQUamVVmYmRKD63kvSwv4RnMYvgFz+hqmzNegF6Ls775TsAb+hIrD/Zs4nee9QFGb7br84vo90uoz1PF+e4D9TbfAW5X0P0ALcfVeUb+gxtwrnbwY/PrHtRP8bGZnKi+o3EXXP6Yk2Afkhstf5q6I1Zwi7PfC00uy3FANiV0lh71xuCBXdiVo4UhmG2onNNljXibcFls1Kzwang/Cs9AuqM4dCdplHf0BAAD//wMAUEsDBBQABgAIAAAAIQD6JNc0mgAAALoAAAAQAAAAeGwvY2FsY0NoYWluLnhtbDyOQQrCMBBF94J3CLO3U4uISNOigifQA4R0bALJpGSC6O3NQl3+9+H934+vGNSTsvjEGrZNC4rYpsnzrOF+u24OoKQYnkxITBreJDAO61VvTbAXZzyramDR4EpZjohiHUUjTVqIa/NIOZpSY55RlkxmEkdUYsCubfcYqwCG3qqs4dyB8hp2oEJ9AvjFpx+uAP+rwwcAAP//AwBQSwECLQAUAAYACAAAACEAhtr0d4YBAACUBgAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLAQItABQABgAIAAAAIQC1VTAj9AAAAEwCAAALAAAAAAAAAAAAAAAAAL8DAABfcmVscy8ucmVsc1BLAQItABQABgAIAAAAIQD09Qc7EwEAAFkEAAAaAAAAAAAAAAAAAAAAAOQGAAB4bC9fcmVscy93b3JrYm9vay54bWwucmVsc1BLAQItABQABgAIAAAAIQDUggjq2wMAAEoLAAAPAAAAAAAAAAAAAAAAADcJAAB4bC93b3JrYm9vay54bWxQSwECLQAUAAYACAAAACEA1MRHKEUHAAAXIgAAEwAAAAAAAAAAAAAAAAA/DQAAeGwvdGhlbWUvdGhlbWUxLnhtbFBLAQItABQABgAIAAAAIQDI+sESOgMAANgHAAAYAAAAAAAAAAAAAAAAALUUAAB4bC93b3Jrc2hlZXRzL3NoZWV0Mi54bWxQSwECLQAUAAYACAAAACEAO20yS8EAAABCAQAAIwAAAAAAAAAAAAAAAAAlGAAAeGwvd29ya3NoZWV0cy9fcmVscy9zaGVldDEueG1sLnJlbHNQSwECLQAUAAYACAAAACEAE8QsE8IAAABCAQAAIwAAAAAAAAAAAAAAAAAnGQAAeGwvd29ya3NoZWV0cy9fcmVscy9zaGVldDIueG1sLnJlbHNQSwECLQAUAAYACAAAACEANKEJksIAAABCAQAAIwAAAAAAAAAAAAAAAAAqGgAAeGwvd29ya3NoZWV0cy9fcmVscy9zaGVldDMueG1sLnJlbHNQSwECLQAUAAYACAAAACEA2cp5IaYCAADwBQAAGAAAAAAAAAAAAAAAAAAtGwAAeGwvd29ya3NoZWV0cy9zaGVldDMueG1sUEsBAi0AFAAGAAgAAAAhAG2QomdnBQAAcBUAABgAAAAAAAAAAAAAAAAACR4AAHhsL3dvcmtzaGVldHMvc2hlZXQxLnhtbFBLAQItABQABgAIAAAAIQAZc15XvwYAAHYyAAANAAAAAAAAAAAAAAAAAKYjAAB4bC9zdHlsZXMueG1sUEsBAi0AFAAGAAgAAAAhADUsSsaIAQAAqAMAABQAAAAAAAAAAAAAAAAAkCoAAHhsL3NoYXJlZFN0cmluZ3MueG1sUEsBAi0AFAAGAAgAAAAhAEnA6SZMAQAAbQIAABEAAAAAAAAAAAAAAAAASiwAAGRvY1Byb3BzL2NvcmUueG1sUEsBAi0AFAAGAAgAAAAhAGWZqibuBgAAgB0AACcAAAAAAAAAAAAAAAAAzS4AAHhsL3ByaW50ZXJTZXR0aW5ncy9wcmludGVyU2V0dGluZ3MxLmJpblBLAQItABQABgAIAAAAIQAPI1Aj3wYAAIAdAAAnAAAAAAAAAAAAAAAAAAA2AAB4bC9wcmludGVyU2V0dGluZ3MvcHJpbnRlclNldHRpbmdzMi5iaW5QSwECLQAUAAYACAAAACEAZZmqJu4GAACAHQAAJwAAAAAAAAAAAAAAAAAkPQAAeGwvcHJpbnRlclNldHRpbmdzL3ByaW50ZXJTZXR0aW5nczMuYmluUEsBAi0AFAAGAAgAAAAhAG54ryQ9AgAA8gUAABAAAAAAAAAAAAAAAAAAV0QAAGRvY1Byb3BzL2FwcC54bWxQSwECLQAUAAYACAAAACEA+iTXNJoAAAC6AAAAEAAAAAAAAAAAAAAAAADKRwAAeGwvY2FsY0NoYWluLnhtbFBLBQYAAAAAEwATADwFAACSSAAAAAA=').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'IQB itc-ToolBox Logins-Erzeugen.xlsx.xlsx'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="dnldts63604"><i class="bi bi-filetype-xlsx"></i> Herunterladen Vorlage </button></a></p>
+<ol type="1">
+<li><p>Laden Sie die obige Vorlage herunter. Sie ist auf bestimmte Art strukturiert und mit Markierungen versehen, damit die folgenden Schritte die nötigen Informationen finden.</p></li>
+<li><p>Füllen Sie die erste Tabelle “Testgruppen” aus.</p></li>
+</ol>
+<p><img src="assets/generate-logins-1.jpg" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Bei Bedarf tragen Sie Textersetzungen in der Tabelle “Textersetzungen” ein. Siehe <a href="../../Testcenter/Testinhalte/testtaker-xml.html#angepasste-texte-customtexts">hier</a> für Erläuterungen.</li>
+</ol>
+</section>
+<section id="schritt-2-aufrufen-funktion-logins-aus-vorlage" class="level1">
+<h1>Schritt 2: Aufrufen Funktion “Logins aus Vorlage”</h1>
+<p>Jetzt wird die Funktion “Logins aus Vorlage” der itc-ToolBox aufgerufen. Man muss die vorbereitete Excel-Datei auswählen und kann dann einige Optionen wählen.</p>
+<p>Als Ergebnisse erhalten Sie:</p>
+<ul>
+<li>Die Excel-Datei, die Sie vorbereitet hatten, enthält jetzt in der Tabelle “Logins” alle erzeugten Logins</li>
+<li>Im Verzeichnis der Excel-Datei wurden Xml-Dateien erzeugt. Diese enthalten alle in der Excel-Datei erzeugten Logins.</li>
+</ul>
+<p>Sie können jetzt ggf. die erzeugten Logins bearbeiten und dann in das Testcenter hochladen.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqb-berlin\.github\.io\/tba-info\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Testcenter/toolbox/codes.html" class="pagination-link" aria-label="Codes erzeugen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Codes erzeugen</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Testcenter/toolbox/logins-docx.html" class="pagination-link" aria-label="Login-Handzettel erzeugen">
+        <span class="nav-page-text">Login-Handzettel erzeugen</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
+<p><i class="fa-solid fa-house" aria-label="house"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/iqb-berlin/tba-info">
+      <i class="bi bi-github" role="img" aria-label="Source Code">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.iqb.hu-berlin.de">
+<p>IQB 2025</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../news/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

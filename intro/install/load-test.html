@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lastverhalten – TBA - Verstehen und Anwenden</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../intro/install/security.html" rel="next">
+<link href="../../intro/install/configuration.html" rel="prev">
+<link href="../../assets/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-78ab54daca3b71ef59b6cac54c9b6787.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">TBA - Verstehen und Anwenden</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Suchen"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../intro/index.html">Einführung</a></li><li class="breadcrumb-item"><a href="../../intro/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../intro/install/load-test.html">Lasttests</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/bt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildungstrend</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/vera.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VERA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/install/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/studio-super-admin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Super-Admin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TC: Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/load-test.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lasttests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensicherheit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/offline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Offline-Szenario</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/e2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software-Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/kiosk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kiosk Mode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release-Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben entwickeln</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rollen und Rechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/workspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/move-and-copy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verschieben und Kopieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/task-sequence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgabenfolgen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/verona-modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verona-Module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metadaten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben gestalten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standardmodus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allgemeine Anleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/Stimulus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus-Text-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus-Email-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus Mobiltelefon-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus- Instruktion und Hörtext in einem Audio-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus Instruktion und Audio getrennt-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC mit Bild-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortfelder Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Kontrollkasten_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontrollkästchen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/DaD/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop-Zuordnen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung_zweiseitig/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zuordnung (2-Seitig) Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop- Sortieren-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rechenkästchen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Medienelemente</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Text/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Textelement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Bild/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildelemente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Audio/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Video/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Lückentext</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Tabellen_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Tabelle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erweiterter Modus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elementeinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elementeinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Abschnittseinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abschnittseinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Seiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elemente/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen &amp; Sichtbarkeiten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttonverlinkungen – interaktive Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren mit mehreren Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sichtbarkeitskaskaden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/geogebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/BalkenSaulen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Balken- und Säulendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Tortendiagramm/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tortendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Messen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messwerkzeug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Geobrett/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Geobrett</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Koordinatensystem/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koordinatensystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Zahlenstrahl/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zahlenstrahl</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/media/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bild/Audio/Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audio_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Video_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audios_konvertieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio bearbeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_vorbereiten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hinweise zu Bildern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder einfärben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder Größe ändern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/base64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Format Base64</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einfache Formulare</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ABI-Player</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syntax im Detail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praktische Hinweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Primar</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rahmen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_buttons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_drop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Auswahl fallen lassen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schreiben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Im Bild finden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/responses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antworten kodieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übungsaufgaben</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/speedtest/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speedtest</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/coding-scheme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elemente und Variablen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basisfälle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/extended.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sonderfälle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Workspace/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zugriffsrechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Testinhalte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testinhalte</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/booklet-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklet-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/testtaker-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testtaker-XML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Datenauswertung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenauswertung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/System_Check/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System-Check</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gruppenmonitor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Adaptives_Testen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptives Testen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Anforderungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anforderungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Studienkonfiguration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studienkonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Durchfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Durchführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beispielstudie</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/toolbox/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows ToolBox</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/codes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codes erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-generate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logins erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-docx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login-Handzettel erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/booklet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklets erzeugen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/faq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodieren und Auswerten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/data-structures/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenstrukturen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/response.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/coding-scheme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/response-status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort-Status im Prozess</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Missings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Schulungsmaterial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schulungsmaterial</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../news/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aktuell</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#vorüberlegungen" id="toc-vorüberlegungen" class="nav-link active" data-scroll-target="#vorüberlegungen">Vorüberlegungen</a>
+  <ul class="collapse">
+  <li><a href="#ziel" id="toc-ziel" class="nav-link" data-scroll-target="#ziel">Ziel</a></li>
+  <li><a href="#beschreibung-des-ladeverhaltens" id="toc-beschreibung-des-ladeverhaltens" class="nav-link" data-scroll-target="#beschreibung-des-ladeverhaltens">Beschreibung des Ladeverhaltens</a></li>
+  <li><a href="#indikatoren" id="toc-indikatoren" class="nav-link" data-scroll-target="#indikatoren">Indikatoren</a></li>
+  </ul></li>
+  <li><a href="#methodik-des-lasttests" id="toc-methodik-des-lasttests" class="nav-link" data-scroll-target="#methodik-des-lasttests">Methodik des Lasttests</a>
+  <ul class="collapse">
+  <li><a href="#warum-reicht-nicht-ein-standard-test-für-webserver" id="toc-warum-reicht-nicht-ein-standard-test-für-webserver" class="nav-link" data-scroll-target="#warum-reicht-nicht-ein-standard-test-für-webserver">Warum reicht nicht ein Standard-Test für Webserver?</a></li>
+  <li><a href="#eigenprogrammierung" id="toc-eigenprogrammierung" class="nav-link" data-scroll-target="#eigenprogrammierung">Eigenprogrammierung</a></li>
+  <li><a href="#szenarien" id="toc-szenarien" class="nav-link" data-scroll-target="#szenarien">Szenarien</a></li>
+  <li><a href="#strategien-bei-unbefriedigenden-lasttest-ergebnissen" id="toc-strategien-bei-unbefriedigenden-lasttest-ergebnissen" class="nav-link" data-scroll-target="#strategien-bei-unbefriedigenden-lasttest-ergebnissen">Strategien bei unbefriedigenden Lasttest-Ergebnissen</a></li>
+  </ul></li>
+  <li><a href="#lasttest-version-15" id="toc-lasttest-version-15" class="nav-link" data-scroll-target="#lasttest-version-15">Lasttest Version 15</a>
+  <ul class="collapse">
+  <li><a href="#vergleich-mit-version-14" id="toc-vergleich-mit-version-14" class="nav-link" data-scroll-target="#vergleich-mit-version-14">Vergleich mit Version 14</a></li>
+  </ul></li>
+  <li><a href="#weiterentwicklung" id="toc-weiterentwicklung" class="nav-link" data-scroll-target="#weiterentwicklung">Weiterentwicklung</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../intro/index.html">Einführung</a></li><li class="breadcrumb-item"><a href="../../intro/install/index.html">Installation</a></li><li class="breadcrumb-item"><a href="../../intro/install/load-test.html">Lasttests</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lastverhalten</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22. Januar 2024</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Geändert</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">10. Juni 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="vorüberlegungen" class="level1">
+<h1>Vorüberlegungen</h1>
+<section id="ziel" class="level2">
+<h2 class="anchored" data-anchor-id="ziel">Ziel</h2>
+<p>Bei der technischen Vorbereitung einer Lernstandserhebung muss abgeschätzt werden, wie viele Schülerinnen und Schüler mit einer bestimmten Software-/Hardwarekonstellation, ggf. verteilt über Tage oder Wochen, den fraglichen Test absolvieren können. Diese Abschätzung führt dann in Folge zu Entscheidungen auf institutioneller (welche Abteilungen/Firmen müssen eingebunden werden?), finanzieller (Server kosten Geld!) und administrativer Ebene (wie groß kann/muss das Zeitfenster sein?). Es müssen Verträge geschlossen werden, Schulen frühzeitig informiert und Serversysteme installiert und konfiguriert werden.</p>
+<p>Unter einem Lasttest versteht man die Belastbarkeit auf der Serverseite. Klar muss hierbei sein, dass die Verbindungsqualität sowie die Infrastruktur in der Schule sowie die Leistungsfähigkeit der Endgeräte ausgeblendet werden. Ein Lasttest muss also hier die Belastbarkeit einer Testcenter-Installation aus Sicht der Verantwortlichen einer Lernstandserhebung ermitteln. Da es keine Standard-Lernstandserhebung gibt, muss ein Lasttest stets konkret bezogen auf die Datenmenge eines bestimmten Leistungstests bzw. einer Befragung sein. Außerdem dienen Lasttests der Verbesserung der Programmierung, denn Performance und Stabilität sind Qualitätsmerkmale einer Software. Hier müssen dann verschiedene Szenarien vorgesehen werden.</p>
+</section>
+<section id="beschreibung-des-ladeverhaltens" class="level2">
+<h2 class="anchored" data-anchor-id="beschreibung-des-ladeverhaltens">Beschreibung des Ladeverhaltens</h2>
+<p>Die kritische Phase bei einer Lernstandserhebung mit dem Testcenter ist das Laden der Testinhalte. Um Verzögerungen während des Testablaufs zu verhindern (dies würde die Vergleichbarkeit der Ergebnisse gefährden), müssen die Testinhalte (auch Bilder, Audio-/Videosequenzen) geladen werden, bevor der Testperson etwas präsentiert wird. Das Testcenter kann jedoch auch so konfiguriert werden, dass die ersten Seiten angezeigt werden können, nachdem der erste Block geladen wurde (lazy loading). Diese Ladestrategie muss jedoch mit Bedacht gewählt werden: Es muss genügend Zeit im ersten Block zugebracht werden, damit das Betreten des nächsten Blockes nicht verzögert wird.</p>
+<p>Alle Testinhalte sollen also zu Beginn vom Server geladen werden. Vorher muss noch eine Anmeldung am Testsystem erfolgreich sein, damit das richtige Testheft zugewiesen wird und die Antworten der richtigen Person zugeordnet werden. Nach dem Ladevorgang präsentiert der Browser nacheinander die Aufgaben, wobei die Antworten bzw. der Status der Bearbeitung sofort an den Server geschickt werden. Mit Blick auf den Lasttest stellt jedoch die Phase der Bearbeitung und des Speicherns der Antworten einen relativ geringen Anteil an der Belastung des Servers dar. Im Vergleich zum anfänglichen Laden sind das sehr kleine Datenpakete. Für einen Lasttest wird also die anfängliche Ladephase simuliert: Aufruf der Startseite, Eingeben der Login-Daten, Laden der Testinhalte.</p>
+<p>Die Testinhalte bestehen aus mehreren Dateien. Technisch ist jedoch sichergestellt, dass pro Testperson nur eine Datei gleichzeitig abgerufen wird - Inhalte werden also nacheinander und nicht parallel abgerufen. Dieses serielle Laden verhindert, dass wenige Testpersonen viele parallele Ladevorgänge auslösen und früh alles geladen haben, andere Testpersonen jedoch durch die Begrenzung der Netzverbindungen keine Ladevorgänge auslösen können und sehr lange auf die Testinhalte warten.</p>
+</section>
+<section id="indikatoren" class="level2">
+<h2 class="anchored" data-anchor-id="indikatoren">Indikatoren</h2>
+<p>Die Serverkapazität wird zum Schluss über die Anzahl von Testpersonen ausgedrückt, die gleichzeitig einen Test starten und nach einer zumutbaren Wartezeit mit der Beantwortung beginnen können. Es gibt also zwei relevante und miteinander verbundene Indikatoren: <strong>Anzahl Testpersonen</strong> und <strong>Ladezeit</strong>. Je mehr Testpersonen einen Test starten, desto größer ist die Ladezeit. Das bedeutet praktisch, dass für mehrere Testpersonen-Szenarien (500, 1.000, 2.000 usw.) die Ladezeiten ermittelt werden und dann in der Gegenüberstellung bewertet wird, bei welcher Anzahl der Testpersonen die Ladezeit noch akzeptabel ist.</p>
+<p>Ein Lasttest weist üblicherweise außerdem die <strong>Fehlerrate</strong> aus. Mit steigender Last erhöht sich der Anteil der gescheiterten Datei-Abrufe. Wenn der Server überlastet ist, lehnt er weitere Verbindungen ab. Die Programmierung des Testcenters versucht die Verbindungsaufnahme mehrfach (5 Wiederholungen mit progressiver Verzögerung), und ein Fehler wird erst dann an die Testperson gemeldet, wenn alle Versuche fehlgeschlagen sind. Dann kann die Testperson ggf. nach einer Pause mit einem Neuladen der Webseite den Ladevorgang neu anstoßen. Als Fehler gilt hier, wenn alle 5 Ladeversuche gescheitert sind und die Testperson eine Fehlermeldung bekommt.</p>
+<p>Nach der Ermittlung der Werte für viele Testpersonen werden diese dann über den Median zu einem Wert zusammengefasst. Der Median eignet sich besser als der Mittelwert, weil die Wirkung extremer Messwerte (Ausreißer) abgeschwächt wird.</p>
+</section>
+</section>
+<section id="methodik-des-lasttests" class="level1">
+<h1>Methodik des Lasttests</h1>
+<section id="warum-reicht-nicht-ein-standard-test-für-webserver" class="level2">
+<h2 class="anchored" data-anchor-id="warum-reicht-nicht-ein-standard-test-für-webserver">Warum reicht nicht ein Standard-Test für Webserver?</h2>
+<p>Man könnte annehmen, dass es sich beim IQB-Testcenter um eine Webseite handelt und einen üblichen Lasttest beauftragen. Auch hier wird berichtet, wieviele Personen gleichzeitig Zugriff haben können. Aus folgenden Gründen sind Standard-Tests jedoch problematisch:</p>
+<ul>
+<li>Das Besucherverhalten wird als lose, teilweise zufällige Abfolge von Navigationsentscheidungen simuliert. Seiten werden oft vollständig geladen, manchmal wird aber auch das Laden abgebrochen durch eine andere Navigation. Das ist beim Testcenter eigenen Lasttest nicht der Fall.</li>
+<li>Es wird pro Besucher zugelassen, dass mehrere Ladevorgänge parallel angestoßen werden (eine Webseite hat üblicherweise mehrere Elemente wie z. B. Bilder). Wenn dies passiert, belastet ein Besucher den Server mehrfach. Das dieses Verhalten beim Testcenter nicht vorgesehen ist, wird durch dieses Testverhalten die Kapazität des Testcenters systematisch unterschätzt.</li>
+<li>Es wird ein praktisch unendlich aktiver Besucher simuliert. Dadurch kann nicht ermittelt werden, wann ein Testheft geladen wurde. Weiterhin behindert eine einmal gestartete Testperson folgende Teilnehmer - es gibt keine Entlastung nach der Ladephase zugunsten anderer Testpersonen. Dadurch wird die Kapazität des Testcenters systematisch unterschätzt und es fehlt die wichtige Information über die Ladezeit.</li>
+</ul>
+</section>
+<section id="eigenprogrammierung" class="level2">
+<h2 class="anchored" data-anchor-id="eigenprogrammierung">Eigenprogrammierung</h2>
+<p>Leider sind die verfügbaren Open Source-Systeme zum Bauen eines Lasttests (z. B. Locust, Tsung) stets auf den oben beschriebenen Standardfall ausgerichtet. Es sind viele Zufallsfaktoren eingebaut, so dass sich ein streng serielles Laden kaum realisieren lässt. Das IQB verwendet daher eine eigene Programmierung für Lasttests, die die Aufrufe in der Startphase korrekt nachstellt:</p>
+<ol type="1">
+<li>Anmeldung am Testsystem; für alle folgenden Requests wird das bei der Anmeldung erhaltene Auth-Token verwendet</li>
+<li>Nach erfolgreicher Anmeldung Abruf der Daten: Testheft (also Liste der erforderlichen Dateien)</li>
+<li>Abruf der Dateien</li>
+</ol>
+<p>Der Server, der geprüft wird, hat eine definierte Ausgangssituation. Das bedeutet, dass stets dieselben Testinhalte bereit stehen und sich noch niemand vorher angemeldet hat. Für jede Testperson wird ein separates Login bereitgestellt. Wenn also eine Last von 10.000 Testpersonen erzeugt werden soll, hält der Server 10.000 Logins bereit, die die ausführende Testsuite benutzt.</p>
+<p>Der Server, der die Last erzeugt, muss hierfür sehr viele Prozesse gleichzeitig managen können. Diese Bedingung erfüllt die genutzte Computersprache Go hinreichend.</p>
+<p>Im Moment ist die Programmierung auf die Anforderungen des IQB ausgerichtet. Nach der Diskussion mit Fachleuten auf dem Gebiet des Lasttests und weiterer Erprobung würden wir die Software so ausbauen, dass sie einfach durch Dritte installiert und genutzt werden kann (MIT-Lizenz). Auf der Liste der gewünschten Features stehen noch Einbeziehung von Daten aus dem Monitoring des angegriffenen Systems (Docker stats bzw. Informationen über CPU-Auslastung, RAM usw.), Automatisierung des Uploads des Testcenter-Content und einfache Parametrisierung der Testläufe.</p>
+</section>
+<section id="szenarien" class="level2">
+<h2 class="anchored" data-anchor-id="szenarien">Szenarien</h2>
+<p>Es werden zwei Parameter der Testung variiert:</p>
+<ul>
+<li>gleichzeitige Anzahl der Testpersonen: 100, 1.000, 2.000, 5.000, 10.000, 20.000; hierbei erfolgt real eine Streckung der Login-Anfragen: maximal 100 Anmeldungen pro Sekunde (sonst wird ein DoS-Angriffszenario simuliert)</li>
+<li>Gesamtgröße des Content: klein (70 kB), mittel (20 MB), groß (38 MB)</li>
+</ul>
+<p>Das IQB betreibt zwei konstante Server, damit die Ergebnisse der Lasttests vergleichbar sind. Hier ist das Ziel nicht, eine spezifische Lernstandserhebung vorzubereiten, sondern Versionen des Testcenters auf Veränderungen des Lastverhaltens zu prüfen. Die Serverausstattung wird bewusst nicht variiert.</p>
+</section>
+<section id="strategien-bei-unbefriedigenden-lasttest-ergebnissen" class="level2">
+<h2 class="anchored" data-anchor-id="strategien-bei-unbefriedigenden-lasttest-ergebnissen">Strategien bei unbefriedigenden Lasttest-Ergebnissen</h2>
+<p>Um die Lücke zwischen der erforderlichen Kapazität und den ermittelten Werten zu verringern, bieten sich folgende Strategien an:</p>
+<ul>
+<li>Verringerung der Testheft-Größe:
+<ul>
+<li>Sind alle Bilder, Audio- und Videosequenzen unverzichtbar?</li>
+<li>Könnte man die Auflösung von Bildern, Audio- und Videosequenzen verringern bei vertretbarem Qualitätsverlust?</li>
+<li>Könnte man ein Testheft aufteilen in mehrere Testhefte?</li>
+</ul></li>
+<li>Streckung des Testzeitraumes: Bereits eine Teilung der Testpopulation und dann Versatz um eine (Unterrichts-)Stunde würde die tägliche Kapazität verdoppeln; entsprechend wäre der Gewinn bei der Ausdehnung der Testung auf eine Woche</li>
+</ul>
+<p>Bevor man nun die teure Serverkapazität erhöht sollte man sicherstellen, dass die anderen Infrastruktur-Komponenten noch Reserven haben. Wenn die Anbindung der Schulen an das Internet, die Verteilung in der Schule (WLAN-Access-Points) sowie die Endgeräte keinen Engpass bilden, sollten mehr Server bereitgestellt werden:</p>
+<ul>
+<li>Aufsetzen mehrerer getrennter Server jeweils mit einer Testcenter-Installation; Aufteilen der Testpopulation mit fixer Zuweisung des Servers; späteres manuelles Zusammenführen der Antwortdaten,</li>
+<li>(derzeit noch nicht verfügbar) Installation des Testcenters auf einem System mit Lastverteilung (z. B. Kubernetes), wodurch die Administration erleichtert wird; Achtung: Auch in diesem Fall muss eine höhere Serverausstattung bereitgestellt werden (die Synchronisation der Datenbank-Inhalte erzeugt zusätzliche Last).</li>
+</ul>
+</section>
+</section>
+<section id="lasttest-version-15" class="level1">
+<h1>Lasttest Version 15</h1>
+<p>Serverausstattung des Testcenters: 8 CPUs, 16 GB RAM (virtueller Cloud-Server bei Ionos); Dezember 2023</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="87" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 86;"><span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"load-test.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="92" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 91;"><span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> <span class="st">"overflow: visible;"</span><span class="op">,</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">lineY</span>(data<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"users"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"complete_time_s"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"size"</span>})<span class="op">,</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(data<span class="op">,</span> Plot<span class="op">.</span><span class="fu">selectLast</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"users"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"complete_time_s"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"size"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"size"</span><span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span> <span class="dt">dx</span><span class="op">:</span> <span class="dv">3</span>}))</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-ojs-cell-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ojs-cell-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ojs-cell-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1: Ladezeit in Abhängigkeit der Personenzahl
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="105" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 104;"><span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> <span class="st">"overflow: visible;"</span><span class="op">,</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">lineY</span>(data<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"users"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error_count"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"size"</span>})<span class="op">,</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(data<span class="op">,</span> Plot<span class="op">.</span><span class="fu">selectLast</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"users"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error_count"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"size"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"size"</span><span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span> <span class="dt">dx</span><span class="op">:</span> <span class="dv">3</span>}))</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-ojs-cell-3" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ojs-cell-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ojs-cell-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2: Abbruch in Abhängigkeit der Personenzahl
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="vergleich-mit-version-14" class="level2">
+<h2 class="anchored" data-anchor-id="vergleich-mit-version-14">Vergleich mit Version 14</h2>
+<table class="table-hover caption-top table">
+<caption>Lastvergleich Testcenter Versionen 14 und 15, Dezember 2023</caption>
+<thead>
+<tr class="header">
+<th>Größe Content</th>
+<th style="text-align: right;">&nbsp;Users</th>
+<th>Version</th>
+<th style="text-align: right;">Ladezeit Median sec</th>
+<th style="text-align: right;">Errors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>70 kB</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;&nbsp;</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">100</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">500</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">1.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">2.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">232</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">5.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">355</td>
+<td style="text-align: right;">2.008</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">10.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td>20 MB</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;&nbsp;</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">100</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">500</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">1.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">2.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">378</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">5.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">567</td>
+<td style="text-align: right;">2.274</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">352</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">10.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">1.337</td>
+</tr>
+<tr class="odd">
+<td>38 MB</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;&nbsp;</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">100</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">500</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">379</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">112</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">1.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">787</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">91</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">2.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>14.13</td>
+<td style="text-align: right;">1.433</td>
+<td style="text-align: right;">320</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1.704</td>
+</tr>
+<tr class="even">
+<td>&nbsp;</td>
+<td style="text-align: right;">5.000</td>
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;</td>
+<td style="text-align: right;">&nbsp;</td>
+<td>15-rc9</td>
+<td style="text-align: right;">197</td>
+<td style="text-align: right;">3.314</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="weiterentwicklung" class="level1">
+<h1>Weiterentwicklung</h1>
+<p>Folgende Überlegungen gehen in die weitere Entwicklung der Lasttests ein:</p>
+<ul>
+<li>Sollte das Verhalten nachgebildet werden, dass nach dem ersten Block bereits eine Bearbeitung starten kann? Allerdings könnte man dann den gesamten Test auf den ersten Block begrenzen.</li>
+<li>Sollte man das Frontend mit einbeziehen? Dessen Ladezeit zu Beginn ist eventuell nicht unerheblich.</li>
+<li>Das Anlegen und dann wieder Löschen von 20.000 Logins entspricht dem realen Use Case, ist aber sehr aufwändig. Könnte ein Login im Modus <code>RUN-HOT-RESTART</code> hinreichend sein für die Ermittlung der Kapazität?</li>
+<li>Es gibt sehr viele potenzielle Faktoren serverseitig, die das Laden beeinflussen können. Um den Anteil herauszurechnen, der durch die Programmierung bzw. die Architektur des Testcenters verursacht wird, müsste man eine Art Kalibrierung vornehmen – also einen Ladevorgang simulieren mit dem effizientesten Verfahren, das ein Server bieten könnte.</li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImRhdGEgPSBGaWxlQXR0YWNobWVudChcImxvYWQtdGVzdC5jc3ZcIikuY3N2KHsgdHlwZWQ6IHRydWUgfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIHN0eWxlOiBcIm92ZXJmbG93OiB2aXNpYmxlO1wiLFxuICB5OiB7Z3JpZDogdHJ1ZX0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5ydWxlWShbMF0pLFxuICAgIFBsb3QubGluZVkoZGF0YSwge3g6IFwidXNlcnNcIiwgeTogXCJjb21wbGV0ZV90aW1lX3NcIiwgc3Ryb2tlOiBcInNpemVcIn0pLFxuICAgIFBsb3QudGV4dChkYXRhLCBQbG90LnNlbGVjdExhc3Qoe3g6IFwidXNlcnNcIiwgeTogXCJjb21wbGV0ZV90aW1lX3NcIiwgejogXCJzaXplXCIsIHRleHQ6IFwic2l6ZVwiLCB0ZXh0QW5jaG9yOiBcInN0YXJ0XCIsIGR4OiAzfSkpXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LnBsb3Qoe1xuICBzdHlsZTogXCJvdmVyZmxvdzogdmlzaWJsZTtcIixcbiAgeToge2dyaWQ6IHRydWV9LFxuICBtYXJrczogW1xuICAgIFBsb3QucnVsZVkoWzBdKSxcbiAgICBQbG90LmxpbmVZKGRhdGEsIHt4OiBcInVzZXJzXCIsIHk6IFwiZXJyb3JfY291bnRcIiwgc3Ryb2tlOiBcInNpemVcIn0pLFxuICAgIFBsb3QudGV4dChkYXRhLCBQbG90LnNlbGVjdExhc3Qoe3g6IFwidXNlcnNcIiwgeTogXCJlcnJvcl9jb3VudFwiLCB6OiBcInNpemVcIiwgdGV4dDogXCJzaXplXCIsIHRleHRBbmNob3I6IFwic3RhcnRcIiwgZHg6IDN9KSlcbiAgXVxufSlcbiJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../intro/install";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqb-berlin\.github\.io\/tba-info\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../intro/install/configuration.html" class="pagination-link" aria-label="TC: Konfiguration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">TC: Konfiguration</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../intro/install/security.html" class="pagination-link" aria-label="Datensicherheit">
+        <span class="nav-page-text">Datensicherheit</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
+<p><i class="fa-solid fa-house" aria-label="house"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/iqb-berlin/tba-info">
+      <i class="bi bi-github" role="img" aria-label="Source Code">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.iqb.hu-berlin.de">
+<p>IQB 2025</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../news/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

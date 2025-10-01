@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>System-Check – TBA - Verstehen und Anwenden</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Testcenter/Gruppenmonitor/index.html" rel="next">
+<link href="../../Testcenter/Datenauswertung/index.html" rel="prev">
+<link href="../../assets/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-452e721b62d9123c4b614c43ab971082.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c6c0c5fff747d56907a83e0875ecf708.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">TBA - Verstehen und Anwenden</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Suchen"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/System_Check/index.html">System-Check</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/bt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildungstrend</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/vera.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VERA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../intro/install/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/studio-super-admin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Super-Admin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TC: Konfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/load-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lasttests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datensicherheit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/offline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Offline-Szenario</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/e2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software-Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/kiosk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kiosk Mode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../intro/install/releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release-Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben entwickeln</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisieren</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rollen und Rechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/workspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/move-and-copy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verschieben und Kopieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/task-sequence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgabenfolgen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/verona-modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verona-Module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/manage/metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metadaten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aufgaben gestalten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standardmodus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allgemeine Anleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/Stimulus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stimulus-Text-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus-Email-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesestimulus Mobiltelefon-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus- Instruktion und Hörtext in einem Audio-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audiostimulus Instruktion und Audio getrennt-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MC mit Bild-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMC-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortfelder Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Kontrollkasten_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontrollkästchen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/basic/DaD/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop-Zuordnen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung_zweiseitig/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zuordnung (2-Seitig) Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drag &amp; Drop- Sortieren-Assistent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rechenkästchen-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra-Assistent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Medienelemente</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Text/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Textelement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Bild/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bildelemente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Audio/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Medienelemente/Video/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Lückentext</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/basic/Tabellen_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verbundelement Tabelle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erweiterter Modus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elementeinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elementeinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Abschnittseinstellungen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abschnittseinstellungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Seiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Elemente/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen &amp; Sichtbarkeiten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttonverlinkungen – interaktive Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hervorhebungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markieren mit mehreren Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sichtbarkeitskaskaden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/geogebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeoGebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/BalkenSaulen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Balken- und Säulendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Tortendiagramm/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tortendiagramm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Messen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messwerkzeug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Geobrett/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Geobrett</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Koordinatensystem/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koordinatensystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/geogebra/Zahlenstrahl/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zahlenstrahl</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/media/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bild/Audio/Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audio_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Video_Parameter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video-Parameter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Audios_konvertieren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio bearbeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_vorbereiten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hinweise zu Bildern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder einfärben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bilder Größe ändern</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/media/base64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Format Base64</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einfache Formulare</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/simple-forms/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ABI-Player</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syntax im Detail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwortdaten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/simple-forms/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praktische Hinweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Primar</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rahmen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_buttons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buttons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_drop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Auswahl fallen lassen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schreiben</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Im Bild finden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/responses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antworten kodieren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/stars/feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übungsaufgaben</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/design/speedtest/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speedtest</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tasks/coding-scheme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elemente und Variablen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basisfälle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tasks/coding-scheme/extended.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sonderfälle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studie durchführen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Workspace/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arbeitsbereiche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Zugriffsrechte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zugriffsrechte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Testinhalte/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testinhalte</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/erstellung-inhalte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Erstellung Testinhalte</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/unit-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/booklet-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklet-XML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Testinhalte/testtaker-xml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testtaker-XML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Datenauswertung/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenauswertung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/System_Check/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">System-Check</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Gruppenmonitor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gruppenmonitor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Adaptives_Testen/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptives Testen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt für Schritt</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Anforderungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anforderungen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Studienkonfiguration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studienkonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Durchfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Durchführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beispielstudie</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schritt 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Testcenter/toolbox/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows ToolBox</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/codes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codes erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-generate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logins erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/logins-docx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login-Handzettel erzeugen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/toolbox/booklet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Booklets erzeugen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Testcenter/faq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodieren und Auswerten</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../coding/data-structures/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenstrukturen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/response.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/data-structures/coding-scheme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kodierschema</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/response-status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antwort-Status im Prozess</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../coding/missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Missings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Schulungsmaterial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schulungsmaterial</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../news/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aktuell</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#system-check-anlegen" id="toc-system-check-anlegen" class="nav-link active" data-scroll-target="#system-check-anlegen">System-Check anlegen</a>
+  <ul class="collapse">
+  <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
+  <li><a href="#fehler-beim-hochladen" id="toc-fehler-beim-hochladen" class="nav-link" data-scroll-target="#fehler-beim-hochladen">Fehler beim Hochladen</a></li>
+  <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
+  <li><a href="#netzwerkanbindung" id="toc-netzwerkanbindung" class="nav-link" data-scroll-target="#netzwerkanbindung">Netzwerkanbindung</a>
+  <ul class="collapse">
+  <li><a href="#wie-werden-die-werte-für-das-eigene-testheft-ermittelt" id="toc-wie-werden-die-werte-für-das-eigene-testheft-ermittelt" class="nav-link" data-scroll-target="#wie-werden-die-werte-für-das-eigene-testheft-ermittelt">Wie werden die Werte für das eigene Testheft ermittelt?</a></li>
+  </ul></li>
+  <li><a href="#speichern-der-ergebnisse-auf-dem-server" id="toc-speichern-der-ergebnisse-auf-dem-server" class="nav-link" data-scroll-target="#speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</a></li>
+  <li><a href="#einbinden-einer-unit" id="toc-einbinden-einer-unit" class="nav-link" data-scroll-target="#einbinden-einer-unit">Einbinden einer Unit</a></li>
+  <li><a href="#fragenkatalog" id="toc-fragenkatalog" class="nav-link" data-scroll-target="#fragenkatalog">Fragenkatalog</a></li>
+  </ul></li>
+  <li><a href="#system-check-starten" id="toc-system-check-starten" class="nav-link" data-scroll-target="#system-check-starten">System-Check starten</a>
+  <ul class="collapse">
+  <li><a href="#system-check-login-in-testtaker-xml-anlegen" id="toc-system-check-login-in-testtaker-xml-anlegen" class="nav-link" data-scroll-target="#system-check-login-in-testtaker-xml-anlegen">System-Check Login in Testtaker-XML anlegen</a></li>
+  <li><a href="#system-check-global-anlegen" id="toc-system-check-global-anlegen" class="nav-link" data-scroll-target="#system-check-global-anlegen">System-Check global anlegen</a></li>
+  </ul></li>
+  <li><a href="#auswertung" id="toc-auswertung" class="nav-link" data-scroll-target="#auswertung">Auswertung</a></li>
+  <li><a href="#planung-und-diskussion" id="toc-planung-und-diskussion" class="nav-link" data-scroll-target="#planung-und-diskussion">Planung und Diskussion</a>
+  <ul class="collapse">
+  <li><a href="#was-kann-der-system-check-leisten" id="toc-was-kann-der-system-check-leisten" class="nav-link" data-scroll-target="#was-kann-der-system-check-leisten">Was kann der System-Check leisten?</a></li>
+  <li><a href="#planung" id="toc-planung" class="nav-link" data-scroll-target="#planung">Planung</a></li>
+  <li><a href="#hinweise-zur-durchführung" id="toc-hinweise-zur-durchführung" class="nav-link" data-scroll-target="#hinweise-zur-durchführung">Hinweise zur Durchführung</a></li>
+  <li><a href="#hinweise-zur-auswertung" id="toc-hinweise-zur-auswertung" class="nav-link" data-scroll-target="#hinweise-zur-auswertung">Hinweise zur Auswertung</a></li>
+  </ul></li>
+  <li><a href="#weiterentwicklung" id="toc-weiterentwicklung" class="nav-link" data-scroll-target="#weiterentwicklung">Weiterentwicklung</a></li>
+  </ul>
+<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_SysCheck.xsd"><i class="bi bi-link-45deg"></i>XML-Spezifikation System-Check</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Testcenter/index.html">Studie durchführen</a></li><li class="breadcrumb-item"><a href="../../Testcenter/System_Check/index.html">System-Check</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">System-Check</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der <strong>System-Check</strong> ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall- und damit die Frustrate deutlich senken.</p>
+<p>Ein System-Check wird angelegt, indem eine XML-Datei mit einem spezifischen Inhalt in einen Arbeitsbereich hochgeladen wird. Das IQB-Testcenter erzeugt dann automatisch einen Link zu diesem System-Check auf der Startseite. Alle Besucher*innen der Webanwendung können dann ohne Anmeldung den System-Check ausführen. Wenn ein Kennwort eingegeben wird, kann man das Ergebnis des System-Checks auch auf dem Server speichern. Dann stehen über die Verwaltung des Arbeitsbereichs die Ergebnisse gebündelt als Tabelle zum Download bereit.</p>
+<section id="system-check-anlegen" class="level1">
+<h1>System-Check anlegen</h1>
+<p>Zunächst wird ein Arbeitsbereichs-Admin mit Schreibrechten zu einem Arbeitsbereich einer IQB-Testcenter-Installation benötigt. Dieser kann eine SystemCheck-XML Datei hochladen. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).</p>
+<section id="grundstruktur" class="level2">
+<h2 class="anchored" data-anchor-id="grundstruktur">Grundstruktur</h2>
+<p>Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>syscheck1.xml</strong></pre>
+</div>
+<div class="sourceCode" id="annotated-cell-1" data-filename="syscheck1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;SYSCHECK_TBA&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;System-Check TBA&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> skipnetwork=</span><span class="st">"true"</span>&gt;&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="3" data-code-annotation="1">Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe <code>xsi:noNamespaceSchemaLocation</code> zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="2">Metadata: Die <code>Id</code> dient der internen Zuordnung der Ergebnisse, das <code>Label</code> wird angezeigt.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="3">Das <code>Config</code>-Element ist hier nur notwendig, um den Netzwerktest zu unterdrücken.</span>
+</dd>
+</dl>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="syscheck1.png" class="lightbox" data-gallery="input" title="Kleinste Version eines System-Checks"><img src="syscheck1.png" class="img-fluid figure-img" alt="Kleinste Version eines System-Checks"></a></p>
+<figcaption>Kleinste Version eines System-Checks</figcaption>
+</figure>
+</div>
+</section>
+<section id="fehler-beim-hochladen" class="level2">
+<h2 class="anchored" data-anchor-id="fehler-beim-hochladen">Fehler beim Hochladen</h2>
+<p>Das Hochladen ist nur erfolgreich, wenn es sich um eine gültige System-Check-Konfiguration handelt. Sollte sich beim Editieren ein Fehler eingeschlichen haben, versucht das Testcenter mit einer Fehlermeldung zu helfen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="syscheck2.png" class="lightbox" data-gallery="input" title="Fehlermeldung beim Hochladen"><img src="syscheck2.png" class="img-fluid figure-img" alt="Fehlermeldung beim Hochladen"></a></p>
+<figcaption>Fehlermeldung beim Hochladen</figcaption>
+</figure>
+</div>
+</section>
+<section id="angepasste-texte-customtexts" class="level2">
+<h2 class="anchored" data-anchor-id="angepasste-texte-customtexts">Angepasste Texte: CustomTexts</h2>
+<p>Einige Texte, die der System-Check den Nutzer*innen präsentiert, lassen sich ändern. Der Mechanismus hierzu ist auch an anderen Stellen der Textcenter-Konfiguration verfügbar und nennt sich <strong>CustomTexts</strong>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>syscheck2.xml</strong></pre>
+</div>
+<div class="sourceCode" id="annotated-cell-2" data-filename="syscheck2.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;SYSCHECK_TBA&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;System-Check TBA&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> skipnetwork=</span><span class="st">"true"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-9" class="code-annotation-target"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"syscheck_intro"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-10" class="code-annotation-target"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!</span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="9" data-code-annotation="1">Über das Attribut <code>key</code> referenziert man einen bestimmten Eintrag</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="10" data-code-annotation="2">Im Inhalt des <code>CustomText</code>-Elementes wird der neue zu verwendende Text platziert.</span>
+</dd>
+</dl>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="syscheck3.png" class="lightbox" data-gallery="input" title="System-Check mit angepasstem Text"><img src="syscheck3.png" class="img-fluid figure-img" alt="System-Check mit angepasstem Text"></a></p>
+<figcaption>System-Check mit angepasstem Text</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine vollständige Liste mit den verfügbaren CustomTexts <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">finden Sie hier</a>. Suchen Sie nach dem Präfix <code>syscheck_</code>!</p>
+</div>
+</div>
+</section>
+<section id="netzwerkanbindung" class="level2">
+<h2 class="anchored" data-anchor-id="netzwerkanbindung">Netzwerkanbindung</h2>
+<p>Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw., die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: <code>&lt;UploadSpeed&gt;</code>und <code>&lt;DownloadSpeed&gt;</code> zu finden.</p>
+<div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
+<span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;SYSCHECK_TBA&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="annotated-cell-3-6"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;System-Check TBA&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="annotated-cell-3-7"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Description</span>&gt;Prüfung Studiendurchführbarkeit&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="annotated-cell-3-8"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-3-9"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-3-10"><a href="#annotated-cell-3-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-11" class="code-annotation-target"><a href="#annotated-cell-3-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">UploadSpeed</span></span>
+<span id="annotated-cell-3-12"><a href="#annotated-cell-3-12" aria-hidden="true" tabindex="-1"></a><span class="ot">            min=</span><span class="st">"1024"</span></span>
+<span id="annotated-cell-3-13"><a href="#annotated-cell-3-13" aria-hidden="true" tabindex="-1"></a><span class="ot">            good=</span><span class="st">"2048"</span></span>
+<span id="annotated-cell-3-14"><a href="#annotated-cell-3-14" aria-hidden="true" tabindex="-1"></a><span class="ot">            maxDevianceBytesPerSecond=</span><span class="st">"10000"</span></span>
+<span id="annotated-cell-3-15"><a href="#annotated-cell-3-15" aria-hidden="true" tabindex="-1"></a><span class="ot">            maxErrorsPerSequence=</span><span class="st">"0"</span></span>
+<span id="annotated-cell-3-16"><a href="#annotated-cell-3-16" aria-hidden="true" tabindex="-1"></a><span class="ot">            maxSequenceRepetitions=</span><span class="st">"15"</span>&gt;</span>
+<span id="annotated-cell-3-17"><a href="#annotated-cell-3-17" aria-hidden="true" tabindex="-1"></a>            100000, 200000, 400000, 800000</span>
+<span id="annotated-cell-3-18"><a href="#annotated-cell-3-18" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">UploadSpeed</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-19" class="code-annotation-target"><a href="#annotated-cell-3-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">DownloadSpeed</span></span>
+<span id="annotated-cell-3-20"><a href="#annotated-cell-3-20" aria-hidden="true" tabindex="-1"></a><span class="ot">            min=</span><span class="st">"1024"</span></span>
+<span id="annotated-cell-3-21"><a href="#annotated-cell-3-21" aria-hidden="true" tabindex="-1"></a><span class="ot">            good=</span><span class="st">"2048"</span></span>
+<span id="annotated-cell-3-22"><a href="#annotated-cell-3-22" aria-hidden="true" tabindex="-1"></a><span class="ot">            maxDevianceBytesPerSecond=</span><span class="st">"200000"</span></span>
+<span id="annotated-cell-3-23"><a href="#annotated-cell-3-23" aria-hidden="true" tabindex="-1"></a><span class="ot">            maxErrorsPerSequence=</span><span class="st">"0"</span></span>
+<span id="annotated-cell-3-24"><a href="#annotated-cell-3-24" aria-hidden="true" tabindex="-1"></a><span class="ot">            maxSequenceRepetitions=</span><span class="st">"15"</span>&gt;</span>
+<span id="annotated-cell-3-25"><a href="#annotated-cell-3-25" aria-hidden="true" tabindex="-1"></a>            400000, 800000, 1600000, 3200000</span>
+<span id="annotated-cell-3-26"><a href="#annotated-cell-3-26" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">DownloadSpeed</span>&gt;</span>
+<span id="annotated-cell-3-27"><a href="#annotated-cell-3-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">CustomText</span><span class="ot"> key=</span><span class="st">"syscheck_intro"</span>&gt;</span>
+<span id="annotated-cell-3-28"><a href="#annotated-cell-3-28" aria-hidden="true" tabindex="-1"></a>            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!</span>
+<span id="annotated-cell-3-29"><a href="#annotated-cell-3-29" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="annotated-cell-3-30"><a href="#annotated-cell-3-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-3-31"><a href="#annotated-cell-3-31" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="1">Das Hochladen betrifft vor allem das Speichern der Antworten im Test.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="19" data-code-annotation="2">Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung.</span>
+</dd>
+</dl>
+<p>Es folgt eine kurze Beschreibung der Werte in den beiden Elementen:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Bedeutung im Test</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>min</code></td>
+<td>Mindestwert für die ermittelte Geschwindigkeit in <strong>Byte/s</strong></td>
+</tr>
+<tr class="even">
+<td><code>good</code></td>
+<td>Wird dieser Wert bei der Messung erreicht, wird die Bewertung “gut” vergeben. Einheit: <strong>Byte/s</strong>.</td>
+</tr>
+<tr class="odd">
+<td><code>maxDevianceBytesPerSecond</code></td>
+<td>Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von <code>maxSequenceRepetitions</code> wiederholt.</td>
+</tr>
+<tr class="even">
+<td><code>maxErrorsPerSequence</code></td>
+<td>Anzahl zulässiger Übertragungsfehler</td>
+</tr>
+<tr class="odd">
+<td><code>maxSequenceRepetitions</code></td>
+<td>Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in <code>maxDevianceBytesPerSecond</code> überschritten wurde.</td>
+</tr>
+<tr class="even">
+<td><code>100000</code>, <code>200000</code>, <code>400000</code>, <code>800000</code></td>
+<td>Die Zahlen geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern.</td>
+</tr>
+</tbody>
+</table>
+<p>Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="syscheck4.png" class="lightbox" data-gallery="input" title="Test der Netzwerkanbindung"><img src="syscheck4.png" class="img-fluid figure-img" alt="Test der Netzwerkanbindung"></a></p>
+<figcaption>Test der Netzwerkanbindung</figcaption>
+</figure>
+</div>
+<section id="wie-werden-die-werte-für-das-eigene-testheft-ermittelt" class="level3">
+<h3 class="anchored" data-anchor-id="wie-werden-die-werte-für-das-eigene-testheft-ermittelt">Wie werden die Werte für das eigene Testheft ermittelt?</h3>
+<section id="download" class="level4">
+<h4 class="anchored" data-anchor-id="download">Download</h4>
+<p><strong><code>min</code>:</strong></p>
+<p>Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von den Testheftgrößen ab. Es muss also zunächst ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: <strong>Dateien</strong> eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Mehr zur Ermittlung der Testheftgrößen ist auch den FAQ’s zu entnehmen. Da die Werte für <code>min</code> in <strong>Byte/s</strong> angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind.</p>
+<p>Dazu ein kurzes Beispiel:</p>
+<p>[1 MByte = 1024 kByte; 1 kByte = 1024 Byte; 1 Byte = 8 Bit]</p>
+<p>10MByte = 10.240kByte = 10.485.760 Byte</p>
+<p>Als nächstes muss festgelegt werden, welche maximale Ladezeit als vertretbar angesehen wird. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine max. gewünschte Ladezeit von 30 Sekunden an.</p>
+<p><code>min</code>= 10.485.760 Byte / 30s = <strong>349.525 Bytes/s</strong></p>
+<p>In diesem Beispiel wird alles bezogen auf das Laden eines einzelnes Testheftes. Während der Studiendurchführung werden aber unter Umstände (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig.</p>
+<p>Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bswp. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:</p>
+<p>Es wird folgendes angenommen:</p>
+<ul>
+<li>Testheftgröße: 10 MByte = 80 MBit</li>
+<li>Anzahl Testpersonen: 30</li>
+<li>Ermittelte minimale Downloadrate: 25MBit/s</li>
+</ul>
+<p>Es müssen also 80 MBit * 30 Personen = 2400 MBit geladen werden. Bei 25MBit/s würden dafür 96 Sekunden benötigt.</p>
+<p><strong>Fazit:</strong> Im unwahrscheinlichen Fall, dass alle Testhefte gleichzeitig geladen werden, wäre diese Verbindung ausreichend, weil es zu keinem Timeout im Chrome Browser kommen würde.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jeder Browser hat einen anderen voreingestellten Timeout. Nach der Feststellung, welche Browser vorwiegend zum Einsatz kommen, sollte geprüft werden, welchen Timeout dieser Browser aufweist.</p>
+</div>
+</div>
+<p><strong><code>good</code>:</strong></p>
+<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 50Mbit/s sein.</p>
+<p>Die Umrechnung erfolgt dann wie folgt:</p>
+<p>50 Mbit / 8 = 6,25 MByte<br> 6,25 MByte * 1024 = 6400 KByte<br> 6400 kByte * 1024 = 6.553.600 Byte<br></p>
+<p><code>good</code>= <strong>6.553.600 Byte/s</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die restlichen Werte können den Standardwert erhalten.</p>
+</div>
+</div>
+</section>
+<section id="upload" class="level4">
+<h4 class="anchored" data-anchor-id="upload">Upload</h4>
+<p><strong><code>min</code>:</strong></p>
+<p><strong><code>good</code>:</strong></p>
+<p>Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 10Mbit/s sein.</p>
+</section>
+</section>
+</section>
+<section id="speichern-der-ergebnisse-auf-dem-server" class="level2">
+<h2 class="anchored" data-anchor-id="speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Config</span><span class="ot"> savekey=</span><span class="st">"eckensteher"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wenn wie im obigen Beispiel ein <code>savekey</code> definiert wurde, kann die Person, die den System-Check durchführt, die Ergebnisse auf dem Server speichern. Ein entsprechender Button wird eingeblendet und das Kennwort wird abgefragt.</p>
+</section>
+<section id="einbinden-einer-unit" class="level2">
+<h2 class="anchored" data-anchor-id="einbinden-einer-unit">Einbinden einer Unit</h2>
+<p>Das IQB-Testcenter ist die Anwendung, mit der Testaufgaben bzw. Frageitems präsentiert werden und Antworten gespeichert werden. Der Programmcode für Präsentation und Interaktion ist über das <a href="https://verona-interfaces.github.io/player-docs/">Verona-Prinzip</a> ausgelagert. Welche Player bzw. spezifischen Interaktionsmodelle verwendet werden, ist dem Testcenter und also auch dem System-Check nicht bekannt. Daher kann bei der Konfiguration eines System-Check ein Player und eine Unit eingebunden werden.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Config</span><span class="ot"> unit=</span><span class="st">"bsp_unit"</span><span class="ot"> savekey=</span><span class="st">"saveme"</span><span class="ot"> skipnetwork=</span><span class="st">"false"</span>&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die Unit muss natürlich mit all ihren Dateien (xml, voud usw.) im Arbeitsbereich hochgeladen werden, auch der Player. Ansonsten wird der System-Check sofort mit einer Fehlermeldung abgebrochen.</p>
+<p>Die Antworten der Units werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.</p>
+</section>
+<section id="fragenkatalog" class="level2">
+<h2 class="anchored" data-anchor-id="fragenkatalog">Fragenkatalog</h2>
+<p>Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter <code>savekey</code> kann man so die Antworten der Units erhalten.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>syscheck4.xml</strong></pre>
+</div>
+<div class="sourceCode" id="annotated-cell-6" data-filename="syscheck4.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
+<span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Id</span>&gt;SYSCHECK_TBA&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="annotated-cell-6-6"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;System-Check TBA&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Description</span>&gt;Prüfung Studiendurchführbarkeit&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="annotated-cell-6-8"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-6-9"><a href="#annotated-cell-6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-10"><a href="#annotated-cell-6-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> savekey=</span><span class="st">"saveme"</span><span class="ot"> skipnetwork=</span><span class="st">"true"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-11" class="code-annotation-target"><a href="#annotated-cell-6-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"1"</span><span class="ot"> type=</span><span class="st">"header"</span><span class="ot"> prompt=</span><span class="st">"Die folgenden Fragen helfen uns, die Ergebnisse des System-Checks einordnen zu können."</span>&gt;&lt;/<span class="kw">Q</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-6-12" class="code-annotation-target"><a href="#annotated-cell-6-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"2"</span><span class="ot"> type=</span><span class="st">"radio"</span><span class="ot"> prompt=</span><span class="st">"1. An welchem Gerät wurde der System-Check durchgeführt?"</span>&gt;Tablet#Desktop/Laptop&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="annotated-cell-6-13"><a href="#annotated-cell-6-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"3"</span><span class="ot"> type=</span><span class="st">"radio"</span><span class="ot"> prompt=</span><span class="st">"2. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet?"</span>&gt;Ja#Nein#Weiß ich nicht&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="annotated-cell-6-14"><a href="#annotated-cell-6-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"4"</span><span class="ot"> type=</span><span class="st">"radio"</span><span class="ot"> prompt=</span><span class="st">"3. Wurde der System-Check während der Unterrichtszeit durchgeführt?"</span>&gt;Ja#Nein&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="annotated-cell-6-15"><a href="#annotated-cell-6-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"5"</span><span class="ot"> type=</span><span class="st">"radio"</span><span class="ot"> prompt=</span><span class="st">"4. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum?"</span>&gt;Nie#Einmal im Jahr#Einmal im halben Jahr#Einmal im Quartal#Einmal im Monat#Einmal in der Woche#Mehrmals pro Woche#Weiß ich nicht&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="annotated-cell-6-16"><a href="#annotated-cell-6-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Q</span><span class="ot"> id=</span><span class="st">"6"</span><span class="ot"> type=</span><span class="st">"string"</span><span class="ot"> prompt=</span><span class="st">"5. Gibt es sonstige technische Einschränkungen bezüglich der Geräte, die Sie gerne mitteilen möchten?"</span>/&gt;</span>
+<span id="annotated-cell-6-17"><a href="#annotated-cell-6-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-6-18"><a href="#annotated-cell-6-18" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="11" data-code-annotation="1"><code>type</code> vom Wert “header” erzeugt eine Überschrift</span>
+</dd>
+<dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="12" data-code-annotation="2"><code>type</code> vom Wert “radio” erzeugt eine Auswahl. Die Optionen sind mit <code>#</code> zu trennen</span>
+</dd>
+</dl>
+<p>Diese Konfiguration führt zu folgendem Ergebnis:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="syscheck5.png" class="lightbox" data-gallery="input" title="System-Check mit Fragenkatalog"><img src="syscheck5.png" class="img-fluid figure-img" alt="System-Check mit Fragenkatalog"></a></p>
+<figcaption>System-Check mit Fragenkatalog</figcaption>
+</figure>
+</div>
+<p>Weitere Inputfelder im Fragekatalog sehen so aus:</p>
+<table class="table-striped caption-top table">
+<caption>Werte für <code>type</code> innerhalb von <code>&lt;Q&gt;</code></caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Bedeutung im Fragenkatalog</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>header</code></td>
+<td>Überschrift: Hervorgehobener Text für die Strukturierung der Fragen</td>
+</tr>
+<tr class="even">
+<td><code>string</code></td>
+<td>Einzeilige Texteingabe</td>
+</tr>
+<tr class="odd">
+<td><code>text</code></td>
+<td>Mehrzeilige Texteingabe</td>
+</tr>
+<tr class="even">
+<td><code>check</code></td>
+<td>Ankreuzfeld</td>
+</tr>
+<tr class="odd">
+<td><code>select</code></td>
+<td>Auswahl, als Klappbox dargestellt; die Optionen sind als Inhalt des <code>&lt;Q&gt;</code>-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel)</td>
+</tr>
+<tr class="even">
+<td><code>radio</code></td>
+<td>Auswahl - jede Option wird in einer neuen Zeile dargestellt; die Optionen sind als Inhalt des <code>&lt;Q&gt;</code>-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="system-check-starten" class="level1">
+<h1>System-Check starten</h1>
+<p>Um einen System-Check zu starten, stehen derzeitig zwei Varianten zur Auswahl.</p>
+<section id="system-check-login-in-testtaker-xml-anlegen" class="level2">
+<h2 class="anchored" data-anchor-id="system-check-login-in-testtaker-xml-anlegen">System-Check Login in Testtaker-XML anlegen</h2>
+<p>In der Testtaker-XML kann ein spezieller Login für den System-Check angelegt werden. Dieser sieht wie folgt aus:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>testtaker-xml</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="testtaker-xml"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"sys-check-login"</span><span class="ot"> name=</span><span class="st">"sys-check"</span><span class="ot"> pw=</span><span class="st">"123"</span>/&gt;</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von <code>name</code>unterscheiden. Ist ein solcher Login vorhanden, wird auf der Anmeldeseite kein globaler Schalter für den System-Check angezeigt. Um den System-Check zu starten müssen die angelegten Zugangsdaten verwendet werden. Der Bericht des System-Checks kann dann ohne weitere Passwortabfrage gespeichert werden. Im Bericht beginnt die jeweilige Zeile mit den ermittelten Daten mit dem Wert des Attributs <code>name</code>. Sind mehrere System-Check Logins in der Testtaker-XML hinterlegt, kann so eine Unterscheidung erfolgen.</p>
+</section>
+<section id="system-check-global-anlegen" class="level2">
+<h2 class="anchored" data-anchor-id="system-check-global-anlegen">System-Check global anlegen</h2>
+<p>Ist kein System-Check Login in der Testtaker-XML angelegt und befindet sich eine System-Check-XML in einem Arbeitsbereich, wird ein Schalter für den System-Check auf der Anmeldeseite angezeigt. Befinden sich mehrere System-Check-XML’s in Arbeitsbereichen, wird nach Klick auf diesen Schalter eine Auswahl der verfügbaren System-Checks angeboten.</p>
+<p>Nachteil dieser Variante: Der Schalter auf der Anmeldeseite wird allen Personen angezeigt, die im Testcenter registriert sind (Workspace-Admin und Super-Admin). Ist in der System-Check-XML kein Passwort für das Speichern des Berichtes konfiguriert, kann jeder einen System-Check Bericht speichern. Das kann das Ergebnis verfälschen und Geräte einbeziehen, die gar nicht an der eigentlichen Studie beteiligt sind.</p>
+</section>
+</section>
+<section id="auswertung" class="level1">
+<h1>Auswertung</h1>
+<p>Alle Personen, die Zugriff auf den Arbeitsbereich im Testcenter haben, in dem der Systemcheck definiert wurde, können die Daten herunterladen. Es handelt sich jeweils um eine <code>CSV</code>-Datei mit folgender Struktur:</p>
+<table class="table-striped caption-top table">
+<caption>Download von System-Check-Daten: Allgemeine Daten</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 60%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spaltenname</th>
+<th>Erläuterung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>SysCheck-Id</code></td>
+<td>ID des System-Checks entsprechend Metadaten</td>
+<td>SYSCHECK_VERA-TBA-2024</td>
+</tr>
+<tr class="even">
+<td><code>SysCheck</code></td>
+<td>Label des System-Checks entsprechend Metadaten</td>
+<td>System-Check für VERA-TBA-Erprobung 2024</td>
+</tr>
+<tr class="odd">
+<td><code>DatumTS</code></td>
+<td>Zeitpunkt der Speicherung als JavaScript-TimeStamp</td>
+<td>1716886457</td>
+</tr>
+<tr class="even">
+<td><code>Datum</code></td>
+<td>Zeitpunkt der Speicherung als Text</td>
+<td>28.05.2024 10:54:17</td>
+</tr>
+<tr class="odd">
+<td><code>FileName</code></td>
+<td>Interner Dateiname der Daten im System für Fehlersuche</td>
+<td>report_66559bb9a4c825.91698723.json</td>
+</tr>
+</tbody>
+</table>
+<table class="table-striped caption-top table">
+<caption>Download von System-Check-Daten: Spalten zum System und Netzwerk</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spaltenname</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Betriebsystem</code></td>
+<td>Windows</td>
+</tr>
+<tr class="even">
+<td><code>Betriebsystem-Version</code></td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td><code>Bildschirm-Auflösung</code></td>
+<td>1536 x 864</td>
+</tr>
+<tr class="even">
+<td><code>Browser</code></td>
+<td>Chrome</td>
+</tr>
+<tr class="odd">
+<td><code>Browser-Cookies aktiviert</code></td>
+<td>1 (Wahr)</td>
+</tr>
+<tr class="even">
+<td><code>Browser-Plugins</code></td>
+<td>PDF Viewer, Chrome PDF Viewer, Chromium PDF Viewer, Microsoft Edge PDF Viewer, WebKit built-in PDF</td>
+</tr>
+<tr class="odd">
+<td><code>Browser-Sprache</code></td>
+<td>de-DE</td>
+</tr>
+<tr class="even">
+<td><code>Browser-Version</code></td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td><code>CPU-Kerne</code></td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><code>Fenster-Größe</code></td>
+<td>810 x 1010</td>
+</tr>
+<tr class="odd">
+<td><code>Gerätehersteller</code></td>
+<td>Apple</td>
+</tr>
+<tr class="even">
+<td><code>Gerätemodell</code></td>
+<td>iPad</td>
+</tr>
+<tr class="odd">
+<td><code>Gerätetyp</code></td>
+<td>tablet</td>
+</tr>
+<tr class="even">
+<td><code>Zeitabweichung</code></td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td><code>Zeitzone</code></td>
+<td>Europe/Berlin</td>
+</tr>
+<tr class="even">
+<td><code>Downloadgeschwindigkeit</code></td>
+<td>71.12 Mbit/s</td>
+</tr>
+<tr class="odd">
+<td><code>Downloadgeschwindigkeit benötigt</code></td>
+<td>8.19 kbit/s</td>
+</tr>
+<tr class="even">
+<td><code>Downloadbewertung</code></td>
+<td>good</td>
+</tr>
+<tr class="odd">
+<td><code>Uploadgeschwindigkeit</code></td>
+<td>4.46 Mbit/s</td>
+</tr>
+<tr class="even">
+<td><code>Uploadgeschwindigkeit benötigt</code></td>
+<td>8.19 kbit/s</td>
+</tr>
+<tr class="odd">
+<td><code>Uploadbewertung</code></td>
+<td>ok</td>
+</tr>
+<tr class="even">
+<td><code>Gesamtbewertung</code></td>
+<td>ok</td>
+</tr>
+<tr class="odd">
+<td><code>Netzwerkprofil des Browsers</code></td>
+<td>nicht verfügbar</td>
+</tr>
+<tr class="even">
+<td><code>CPU-Architektur</code></td>
+<td>amd64</td>
+</tr>
+<tr class="odd">
+<td><code>RoundTrip in Ms</code></td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td><code>Netzwerktyp nach Leistung</code></td>
+<td>4g</td>
+</tr>
+<tr class="odd">
+<td><code>Downlink MB/s</code></td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<table class="table-striped caption-top table">
+<caption>Download von System-Check-Daten: Spalten für Fragenkatalog Beispiel</caption>
+<colgroup>
+<col style="width: 78%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spaltenname</th>
+<th>Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. An welchem Gerät wurde der System-Check durchgeführt?</td>
+<td>Desktop/Laptop</td>
+</tr>
+<tr class="even">
+<td>2. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet?</td>
+<td>Ja</td>
+</tr>
+<tr class="odd">
+<td>3. Wurde der System-Check während der Unterrichtszeit durchgeführt?</td>
+<td>Nein</td>
+</tr>
+<tr class="even">
+<td>4. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum?</td>
+<td>Weiß ich nicht</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="planung-und-diskussion" class="level1">
+<h1>Planung und Diskussion</h1>
+<section id="was-kann-der-system-check-leisten" class="level2">
+<h2 class="anchored" data-anchor-id="was-kann-der-system-check-leisten">Was kann der System-Check leisten?</h2>
+<p>Ein System-Check kann <strong>keine</strong> Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. <strong>Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.</strong></p>
+<p>Ein positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Aktualisierungen) belegt ist.</p>
+<p>Im einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.</p>
+</section>
+<section id="planung" class="level2">
+<h2 class="anchored" data-anchor-id="planung">Planung</h2>
+<p>Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar, als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung, dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.</p>
+<p>Es sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden.</p>
+<p>Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen schon im Vorfeld abgeklärt werden:</p>
+<ul>
+<li>Welche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden?</li>
+<li>Gibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?</li>
+<li>Ist bekannt, ob es seitens des eigenen IT-Netzes besondere Beschränkungen bzgl. der Firewall gibt? Kommen spezielle Plugins in den Browsern zum Einsatz?</li>
+<li>Falls Tablets zum Einsatz kommen: Verfügen diese über externe Tastaturen?</li>
+</ul>
+<p>Auf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:</p>
+<p><strong>Gibt es im geplanten Testheft Aufgabe, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?</strong></p>
+<p>Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.</p>
+<p><strong>Gibt es im Testheft Aufgaben mit Audios?</strong></p>
+<p>Wenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.</p>
+<p><strong>Gibt es im Testheft Aufgaben mit Eingabefeldern oder ähnlichem?</strong></p>
+<p>Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit Eingabefeldern in den System-Check eingebunden werden und im Verlauf gefragt werden, ob Text oder auch Sonderzeichen in die Felder eingegeben werden konnten. Auf diese Weise können auch Tablet-Tastaturen und die IQB-eigene Tastatur zur Eingabe von Sonderzeichen getestet werden.</p>
+<p><strong>Gibt es im Testheft Aufgaben mit Drag-and-Drop-Elementen oder ähnlichem?</strong></p>
+<p>Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit solchen Elementen eingebunden werden. So kann sichergestellt werden, dass auch auf Tablets diese Elemente richtig funktionieren.</p>
+<p><strong>Soll ein Passwort zur Speicherung eines System-Check-Berichtes eingerichtet werden?</strong></p>
+<p>Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Im System-Check kann immer nur eine Unit zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.</p>
+</div>
+</div>
+</section>
+<section id="hinweise-zur-durchführung" class="level2">
+<h2 class="anchored" data-anchor-id="hinweise-zur-durchführung">Hinweise zur Durchführung</h2>
+<p>Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.</p>
+</div>
+</div>
+</section>
+<section id="hinweise-zur-auswertung" class="level2">
+<h2 class="anchored" data-anchor-id="hinweise-zur-auswertung">Hinweise zur Auswertung</h2>
+<p>Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:</p>
+<p><strong>Ist der Browser für die Studiendurchführung geeignet?</strong></p>
+<p>Im Kapitel <strong>Studiendurchführung/ Vorbetrachtungen</strong>, werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.</p>
+<p><strong>Wie hoch ist die Auflösung des Wiedergabebildschirms?</strong></p>
+<p>Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.</p>
+<p><strong>Welche Internet-Bandbreite wird für die Testung mindestens benötigt?</strong></p>
+<p>Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.</p>
+<p>Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite, ist im Abschnitt <strong>Netzwerkanbindung</strong> aufgezeigt, wie Eckwerte ermittelt werden können.</p>
+</section>
+</section>
+<section id="weiterentwicklung" class="level1">
+<h1>Weiterentwicklung</h1>
+<p>Folgende Überlegungen gehen in die Weiterentwicklung des System-Checks ein:</p>
+<ul>
+<li>Das IQB hat inzwischen weitere Erfahrungen bei der Ermittlung der technischen Kapazität einer Testcenter-Installation gesammelt. Dies wird in den Test der Netzwerkanbindung einfließen, damit die Ergebnisse aussagekräftiger werden. Es geht vor allem um den erwartbaren Speed.</li>
+<li>Im Management einer Testvorbereitung ist es wichtig zu wissen, ob alle Schulen den System-Check absolviert haben. Im Moment ist die Durchführung eines System-Checks nicht an eine Testgruppe gebunden und man muss manuell die Ergebnisse den Schulen zuordnen. Besser wäre es, wenn die Schulen einen vorbereiteten Login benutzen, bevor sie den Test durchführen.</li>
+<li>Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also mehrere Units einzubinden möglich sein und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.</li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqb-berlin\.github\.io\/tba-info\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Testcenter/Datenauswertung/index.html" class="pagination-link" aria-label="Datenauswertung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Datenauswertung</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Testcenter/Gruppenmonitor/index.html" class="pagination-link" aria-label="Gruppenmonitor">
+        <span class="nav-page-text">Gruppenmonitor</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
+<p><i class="fa-solid fa-house" aria-label="house"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/iqb-berlin/tba-info">
+      <i class="bi bi-github" role="img" aria-label="Source Code">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.iqb.hu-berlin.de">
+<p>IQB 2025</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../news/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
