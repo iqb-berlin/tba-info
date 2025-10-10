@@ -1,6 +1,6 @@
 ---
 lang: de
-title: "Einführung"
+title: "Überblick"
 format:
   html:
     toc: false
@@ -9,12 +9,17 @@ other-links:
     href: https://www.iqb.hu-berlin.de/tba/
 ---
 
-Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene.
+Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation soll zunächst einen generellen Überblick über das Projekt TBA verschaffen. Der hauptsächliche Fokus liegt in der Dokumentation, der vom IQB entwickelten TBA- Anwendungen für die Aufgabenentwicklung, die Testdurchführung und die Auswertungen von Testungen und Befragungen.
 
 Weiter in diesem Abschnitt:
 
+* [Generelles zu TBA](tba.qmd)
 * [Bildungsstandards und Bildungstrend](bt.qmd)
-* [Nutzung von TBA in den Ländern](vera.qmd)
+* [Nutzung von TBA in den Ländern-VERA](vera.qmd)
+
+## Die TBA-Anwendungen des IQB
+
+Das IQB hat im Rahmen des TBA-Projektes 3 Anwendungen entwickelt und unter einer MIT-Lizenz auf GitHub veröffentlicht:**
 
 ::: {#fig-tba-structure}
 ```{mermaid}
@@ -46,62 +51,32 @@ flowchart TD
 Ablaufschema Lernstandserhebung, IQB-Webanwendungen
 :::
 
-* Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Das IQB-Testcenter wurde als isolierte Webanwendung entworfen, um flexibel in verschiedenen Szenarien eingesetzt zu werden. Es kann isoliert betrieben werden und alle Testinhalte sowie Testergebnisse werden dann manuell über ein Administrationsportal ausgetauscht. Es kann aber auch eingebettet sein in eine komplexe Datenbankstruktur.
-* Anschließend war erforderlich, die gesamten Prozesse der **Aufgabenentwicklung** umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler\*innen direkt bedienen. Für die dabei entstandene Webanwendung "IQB-Studio" ist ebenfalls viel Raum in dieser Dokumentation vorgesehen. Insbesondere Aufgabenentwickler\*innen sollen hier eine erste Starthilfe bekommen.
-* Die **Verarbeitung der Ergebnisse** (Kodierung, Datenprüfung) steht noch am Anfang. Die Webanwendungen dazu starten 2025 erst in die Erprobung. Daher gibt es in dieser Dokumentation nur kurze Funktionsbeschreibungen.
+### IQB-Testcenter
 
-# TBA-Projekte der Länder
+Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Folgende Grundüberlegungen und Anforderungen wurde im Vorfeld an die Anwendung zur Testdurchführung gestellt:
 
-::: {.callout-note}
-## Begriff TBA
+* Isolierte Webanwendung, für den flexiblen Einsatz in verschiedenen Szenarien.
+* Manuelle Organisation von Testinhalte und Testergebnisse über ein Administrationsportal oder Einbettung in komplexe Datenbankstruktur möglich.
+* Möglichkeiten zur Steuerung und Konfiguration einer Testdurchführung oder einer Befragung sollen in Dateiform vorliegen. Es sollen keine visuelle Konfigurationsdialoge und aufwändige Assistenten zur Steuerung verfügbar sein. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats verwendet. Nur über diesen Weg soll es möglich sein, einen Test zu konfigurieren.
+* Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldung der Ergebnisse soll oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen, und über das API können gut die Antworten und Logdaten heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.
 
-In Deutschland werden verschiedene Bezeichnungen für computerbasiertes Testen verwendet - CBA, eAssessment, digitales Testen usw.. TBA steht für **Technologiebasiertes Assessment** und erweitert die Palette der technischen Instrumente zum Testen über den Computer hinaus (z. B. digitale Stifte).
-:::
+Unter Berücksichtigung dieser Anforderungen wurde die Anwendung **IQB-Testcenter** entwickelt und kann zur Durchführung von Tests oder Befragungen genutzt werden.
 
-Die Umstellung der großen Studien des nationalen Bildungsmonitorings auf Online-Tests startete 2018 mit einem Projekt zur Feststellung der Machbarkeit einer Online-Testung. Vorarbeiten gab es seitens der universitären Projekte [zepf](https://www.zepf.eu/) (damals Universität Koblenz-Landau), und [*kompetenztest.de*](https://www.kompetenztest.de/) (Universität Jena) sowie des IQB. Auftrag an das IQB war 2021-2023, Webanwendungen zu entwickeln, die auch durch die Länder installiert und genutzt werden können.
+Veröffentlichung: [GitHub](https://github.com/iqb-berlin/testcenter)<br>
+Dokumentation: [Studie durchführen](/study-run/index.qmd)
 
-::: {#fig-tba-timeline}
-```{mermaid}
-gantt
-dateFormat YYYY-MM-DD
-axisFormat %Y
-tickInterval 12month
+### IQB-Studio
 
-section Machbarkeits-<br/>studie
-  Antrag  : 2017-07-01, 2017-12-31
-  Prototyp, Erprobung : 2018-01-01, 2019-12-31
-  Analyse : 2020-01-01, 2020-12-31
+Eine weitere Anwendung war nötig, um den gesamten Prozess der **Aufgabenentwicklung** umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler\*innen direkt bedienen. Hierfür wurde die Anwendung: **IQB-Studio** entwickelt.
 
-section TBA I Techn. Infrastruktur
-  Antrag : 2020-01-01, 2020-12-31
-  IQB-Testcenter : 2021-01-01, 2023-12-31
-  IQB-Studio : 2021-06-01, 2024-06-30
-  IQB-Kodierbox: active, 2024-01-01, 2025-12-31
+Veröffentlichung: [GitHub](https://github.com/iqb-berlin/studio-lite)<br>
+Dokumentation: [Aufgaben entwickeln](/tasks/index.qmd)
 
-section TBA II Adaptiv/Formativ
-  Antrag : 2022-07-01, 2023-06-30
-  Entwicklung, Erprobung : active, 2023-07-01, 2026-06-30
+### IQB-Kodierbox
 
-section TBA III Rückmeldungen
-  Antrag : 2022-07-01, 2022-12-31
-  Entwicklung, Erprobung : active, 2023-01-01, 2026-06-30
-```
-TBA-Projekte der Länder
-:::
+Zur Verarbeitung der Ergebnisse (Kodierung, Datenprüfung) wurde eine weitere Anwendung benötigt. 
 
-Das TBA-Projekt III zu **Rückmeldungen** ist hier der Vollständigkeit halber erwähnt. Das IQB ist daran nur beratend beteiligt, weshalb es in diese Dokumentation nicht einbezogen ist. Eine kurze Erläuterung der Projektziele finden Sie [hier](https://www.kmk.org/de/themen/bildung-in-der-digitalen-welt/laenderuebergreifende-projekte.html).
+Veröffentlichung: [GitHub](https://github.com/iqb-berlin/coding-box)<br>
+Dokumentation: [Kodieren und Auswerten](/coding/index.qmd)
 
-Alle TBA-Projekte werden durch Mittel des [Digitalpakts Schule](https://www.digitalpaktschule.de/index.html) gefördert.
 
-# Ziel: Breite Nutzung
-
-Das IQB entwickelt in jedem Jahr eine große Anzahl von Testaufgaben und steht damit an der Spitze in Deutschland. Für die Fächer Deutsch, Mathematik, Englisch und Französisch liefert das IQB jedes Jahr neue Aufgaben für die Durchführung von VERA (Primarstufe, Sekundarstufe I). Darüber hinaus werden auch Aufgaben für die Naturwissenschaften entwickelt.
-
-Die Federführung der Aufgabenentwicklung liegt beim IQB. Abgeordnete Lehrkräfte liefern erste Entwürfe, die dann in enger Zusammenarbeit mit fachdidaktischen Expertinnen und Experten sowie den Wissenschaftler\*innen des IQB bewertet, weiterentwickelt und intensiv erprobt werden. Zu einer Aufgabe werden nicht nur die visuelle Erscheinung und die Interaktion erarbeitet, sondern auch Vorschriften zur Auswertung (sog. Kodierung) und teilweise auch Material, das in den Schulen im Rahmen der Auswertung für die Unterrichtsentwicklung genutzt wird.
-
-Aufgrund dieser Rolle im nationalen Bildungsmonitoring und bei der datengestützten Unterrichtsentwicklung hat das IQB einen großen Anteil an der Digitalisierung durch TBA. Um die Nutzung der TBA-Webanwendungen möglichst breit zu ermöglichen, bestimmen folgende Maßnahmen die Entwicklungsarbeiten:
-
-* Alle Webanwendungen sind als Open Source mit einer freien Nutzungslizenz (MIT) veröffentlicht.
-* Nach Abschluss der Projekte sichern Planstellen am IQB die nachhaltige Wartung und moderate Weiterentwicklung.
-* Alle [Spezifikation von Daten und Schnittstellen](https://iqb-specifications.github.io) werden veröffentlicht.
-* Die Zusammenarbeit mit den Ländern wird durch diverse Foren gewährleistet.

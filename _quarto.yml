@@ -41,9 +41,10 @@ website:
     contents:
       - href: index.qmd
         text: Start
-      - section: Einführung
+      - section: Überblick
         href: intro/index.qmd
         contents:
+          - href: intro/tba.qmd
           - href: intro/bt.qmd
             text: Bildungstrend
           - href: intro/vera.qmd
@@ -52,7 +53,7 @@ website:
             text: "Datensicherheit"
           - href: intro/releases.qmd
             text: "Release-Plan"
-      - section: "System-Setup"
+      - section: "Einrichtung"
         href: setup/index.qmd
         contents:
           - section: "Konfiguration"
@@ -210,19 +211,19 @@ website:
       - section: Studie durchführen
         href: study-run/index.qmd
         contents:
-          - study-run/Workspace/index.qmd
-          - study-run/access-rights.qmd
-          - section: Testinhalte
-            href: study-run/test-files/index.qmd
-            contents:
-            - study-run/test-files/basics-xml.qmd
-            - study-run/test-files/create-files.qmd
-            - study-run/test-files/unit-xml.qmd
-            - study-run/test-files/booklet-xml.qmd
-            - study-run/test-files/testtaker-xml.qmd
           - section: "Vorbereitungen"
             href: study-run/preparation/index.qmd
             contents:
+              - study-run/preparation/workspace/index.qmd
+              - study-run/preparation/access-rights.qmd
+              - section: Testinhalte
+                href: study-run/preparation/test-files/index.qmd
+                contents:
+                - study-run/preparation/test-files/basics-xml.qmd
+                - study-run/preparation/test-files/create-files.qmd
+                - study-run/preparation/test-files/unit-xml.qmd
+                - study-run/preparation/test-files/booklet-xml.qmd
+                - study-run/preparation/test-files/testtaker-xml.qmd
               - section: "Anforderungen"
                 href:  study-run/preparation/required/index.qmd
                 contents:
@@ -249,7 +250,8 @@ website:
             href: study-run/run/index.qmd
             contents:
             - study-run/run/support.qmd
-          - study-run/eval/index.qmd
+            - study-run/run/groupmon/index.qmd
+          - study-run/study-data/index.qmd
           - section: "Schritt für Schritt"
             href:  study-run/step-by-step/index.qmd
             contents:
@@ -259,20 +261,8 @@ website:
                   - study-run/step-by-step/example/step-1.qmd
                   - study-run/step-by-step/example/step-2.qmd
                   - study-run/step-by-step/example/step-3.qmd
-          - section: "Windows ToolBox"
-            href: study-run/toolbox/index.qmd
-            contents:
-              - href: study-run/toolbox/codes.qmd
-                text: Codes erzeugen
-              - href: study-run/toolbox/logins-generate.qmd
-                text: Logins erzeugen
-              - href: study-run/toolbox/logins-docx.qmd
-                text: Login-Handzettel erzeugen
-              - href: study-run/toolbox/booklet.qmd
-                text: Booklets erzeugen
           - href: study-run/faq/index.qmd
             text: FAQ
-
       - section: "Kodieren und Auswerten"
         href: coding/index.qmd
         contents:
@@ -280,15 +270,17 @@ website:
               href: coding/data-structures/index.qmd
               contents:
                 - href: coding/data-structures/response.qmd
-                  text: Antwort
+                - href: coding/data-structures/logs.qmd        
                 - href: coding/data-structures/coding-scheme.qmd
-                  text: Kodierschema
             - coding/response-status.qmd
             - coding/missings.qmd
-      - href: Schulungsmaterial/index.qmd
-        text: "Schulungsmaterial"
-      - href: news/index.qmd
-        text: "Aktuell"
+            - section: "itc-Toolbox"
+              href: coding/toolbox/index.qmd
+              contents:
+                - href: coding/toolbox/codes.qmd
+                - href: coding/toolbox/logins-generate.qmd
+                - href: coding/toolbox/logins-docx.qmd
+                - href: coding/toolbox/booklet.qmd
 format:
   html:
     theme: 

@@ -1,0 +1,22 @@
+---
+lang: de
+title: Studiendaten
+---
+
+Auf die eigentliche Auswertung wird im gleichnamigen Kapitel gesondert eingegangen. An dieser Stelle wird nur beschrieben, wie Studiendaten aus dem Testcenter geladen werden können und für die Auswertung genutzt werden können.
+
+# GUI Download der Studiendaten
+
+Um die Daten aus einer Studie oder einer Befragung zu erhalten, meldet man sich am Testcenter mit Admin-Rechten an und geht im betreffenden Arbeitsbereich auf den Tab "Ergebnisse/Antworten":
+
+![Datensatz: Antworten, Logs und Kommentare herunterladen](TC_DatenDownload.png)
+
+Nach Auswahl der gewünschten Testgruppe(n), kann ausgewählt werden, ob Logs oder die Antworten heruntergeladen werden sollen. Anschließend erhält man die Daten als CSV-Datei.
+
+# API Download der Studiendaten
+
+Es ist möglich die Daten auch über das API abzuholen. [Hier](https://iqb.pages.cms.hu-berlin.de/testcenter/dist/api/index.html#tag/admin-workspace) sind die HTTP-Befehle, die verwendet werden können.
+
+::: {.callout-tip}
+Bei großen Datenmengen kann ein manueller Download recht mühsam sein. Besser ist die Nutzung der API - der Serverschnittstelle des Testcenters. Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox) nutzt das API und bereitet für die Antwortformate des IQB die Daten auf.
+:::
