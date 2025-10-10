@@ -1,10 +1,10 @@
 project:
   type: website
   resources:
-    - Testcenter/toolbox/assets/Logins-Vorlage.xlsx
-    - Testcenter/toolbox/assets/Booklet-Template.xlsx
-    - Testcenter/toolbox/assets/Logins-Vorlage1.docx
-    - Testcenter/toolbox/assets/Logins-Vorlage2.docx
+    - study-run/toolbox/assets/Logins-Vorlage.xlsx
+    - study-run/toolbox/assets/Booklet-Template.xlsx
+    - study-run/toolbox/assets/Logins-Vorlage1.docx
+    - study-run/toolbox/assets/Logins-Vorlage2.docx
 
 website:
   site-url: https://iqb-berlin.github.io/tba-info/
@@ -41,33 +41,38 @@ website:
     contents:
       - href: index.qmd
         text: Start
-      - section: Einführung
+      - section: Überblick
         href: intro/index.qmd
         contents:
+          - href: intro/tba.qmd
           - href: intro/bt.qmd
             text: Bildungstrend
           - href: intro/vera.qmd
             text: VERA
-          - section: Installation
-            href: intro/install/index.qmd
+          - href: intro/security.qmd
+            text: "Datensicherheit"
+          - href: intro/releases.qmd
+            text: "Release-Plan"
+      - section: "Einrichtung"
+        href: setup/index.qmd
+        contents:
+          - section: "Konfiguration"
             contents:
-            - href: intro/install/studio-super-admin/index.qmd
-              text: "Studio: Super-Admin"
-            - href: intro/install/configuration.qmd
-              text: "TC: Konfiguration"
-            - href: intro/install/load-test.qmd
-              text: "Lasttests"
-            - href: intro/install/security.qmd
-              text: "Datensicherheit"
-            - href: intro/install/offline.qmd
-              text: "Offline-Szenario"
-            - href: intro/install/e2e.qmd
-              text: "Software-Tests"
-            - href:  intro/install/kiosk.qmd
-              text: "Kiosk Mode"
-            - href: intro/install/releases.qmd
-              text: "Release-Plan"
-
+              - href: setup/config/studio.qmd
+                text: "IQB-Studio"
+              - href: setup/config/testcenter.qmd
+                text: "IQB-Testcenter"
+          - href: setup/install/index.qmd
+            text: "Installation"
+          - href: setup/offline/index.qmd
+            text: "Offline-Nutzung"
+          - section: "Verfügbarkeit"
+            href: setup/availability/index.qmd
+            contents:
+              - href: setup/availability/e2e.qmd
+                text: "E2E-Tests"
+              - href: setup/availability/load-test.qmd
+                text: "Lasttest"
       - section: "Aufgaben entwickeln"
         href: tasks/index.qmd
         contents:
@@ -204,47 +209,60 @@ website:
                 text: Sonderfälle
 
       - section: Studie durchführen
-        href: Testcenter/index.qmd
+        href: study-run/index.qmd
         contents:
-          - Testcenter/Workspace/index.qmd
-          - Testcenter/Zugriffsrechte/index.qmd
-          - section: Testinhalte
-            href: Testcenter/Testinhalte/index.qmd
+          - section: "Vorbereitungen"
+            href: study-run/preparation/index.qmd
             contents:
-            - Testcenter/Testinhalte/erstellung-inhalte.qmd
-            - Testcenter/Testinhalte/unit-xml.qmd
-            - Testcenter/Testinhalte/booklet-xml.qmd
-            - Testcenter/Testinhalte/testtaker-xml.qmd
-          - Testcenter/Datenauswertung/index.qmd
-          - Testcenter/System_Check/index.qmd
-          - Testcenter/Gruppenmonitor/index.qmd
-          - Testcenter/Adaptives_Testen/index.qmd
+              - study-run/preparation/workspace/index.qmd
+              - study-run/preparation/access-rights.qmd
+              - section: Testinhalte
+                href: study-run/preparation/test-files/index.qmd
+                contents:
+                - study-run/preparation/test-files/basics-xml.qmd
+                - study-run/preparation/test-files/create-files.qmd
+                - study-run/preparation/test-files/unit-xml.qmd
+                - study-run/preparation/test-files/booklet-xml.qmd
+                - study-run/preparation/test-files/testtaker-xml.qmd
+              - section: "Anforderungen"
+                href:  study-run/preparation/required/index.qmd
+                contents:
+                - study-run/preparation/required/network.qmd
+                - study-run/preparation/required/browser.qmd
+                - study-run/preparation/required/booklet-size.qmd
+                - study-run/preparation/required/server-performance.qmd
+              - study-run/preparation/system-check/index.qmd
+              - section: "Endgeräte"
+                href:  study-run/preparation/devices/index.qmd
+                contents:
+                  - section: "Probleme"
+                    href:  study-run/preparation/devices/problems/index.qmd
+                    contents:
+                    - study-run/preparation/devices/problems/ipad/index.qmd
+                  - section: "Kiosk-Mode"
+                    href:  study-run/preparation/devices/kiosk/index.qmd
+                    contents:
+                    - study-run/preparation/devices/kiosk/ios.qmd
+                    - study-run/preparation/devices/kiosk/windows.qmd
+                    - study-run/preparation/devices/kiosk/seb.qmd
+              - study-run/preparation/study-config/index.qmd
+          - section: "Durchführung"
+            href: study-run/run/index.qmd
+            contents:
+            - study-run/run/support.qmd
+            - study-run/run/groupmon/index.qmd
+          - study-run/study-data/index.qmd
           - section: "Schritt für Schritt"
-            href: Testcenter/Studie_durchfuehren/index.qmd
+            href:  study-run/step-by-step/index.qmd
             contents:
-              - Testcenter/Studie_durchfuehren/Anforderungen.qmd
-              - Testcenter/Studie_durchfuehren/Studienkonfiguration.qmd
-              - Testcenter/Studie_durchfuehren/Durchfuehrung.qmd
               - section: "Beispielstudie"
-                href: Testcenter/Studie_durchfuehren/Beispielstudie/index.qmd
-                contents: 
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt1.qmd
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt2.qmd
-                  - Testcenter/Studie_durchfuehren/Beispielstudie/Schritt3.qmd
-          - section: "Windows ToolBox"
-            href: Testcenter/toolbox/index.qmd
-            contents:
-              - href: Testcenter/toolbox/codes.qmd
-                text: Codes erzeugen
-              - href: Testcenter/toolbox/logins-generate.qmd
-                text: Logins erzeugen
-              - href: Testcenter/toolbox/logins-docx.qmd
-                text: Login-Handzettel erzeugen
-              - href: Testcenter/toolbox/booklet.qmd
-                text: Booklets erzeugen
-          - href: Testcenter/faq/index.qmd
+                href:  study-run/step-by-step/example/index.qmd
+                contents:
+                  - study-run/step-by-step/example/step-1.qmd
+                  - study-run/step-by-step/example/step-2.qmd
+                  - study-run/step-by-step/example/step-3.qmd
+          - href: study-run/faq/index.qmd
             text: FAQ
-
       - section: "Kodieren und Auswerten"
         href: coding/index.qmd
         contents:
@@ -252,15 +270,17 @@ website:
               href: coding/data-structures/index.qmd
               contents:
                 - href: coding/data-structures/response.qmd
-                  text: Antwort
+                - href: coding/data-structures/logs.qmd        
                 - href: coding/data-structures/coding-scheme.qmd
-                  text: Kodierschema
             - coding/response-status.qmd
             - coding/missings.qmd
-      - href: Schulungsmaterial/index.qmd
-        text: "Schulungsmaterial"
-      - href: news/index.qmd
-        text: "Aktuell"
+            - section: "itc-Toolbox"
+              href: coding/toolbox/index.qmd
+              contents:
+                - href: coding/toolbox/codes.qmd
+                - href: coding/toolbox/logins-generate.qmd
+                - href: coding/toolbox/logins-docx.qmd
+                - href: coding/toolbox/booklet.qmd
 format:
   html:
     theme: 

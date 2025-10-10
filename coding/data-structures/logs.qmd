@@ -1,0 +1,31 @@
+---
+lang: de
+title: Logdaten
+---
+
+Logdaten sind zeitpunktbezogene Zustände. Sie dienen in wissenschaftlichen Erhebungen als wichtige Datenquelle. Darüber können Erkenntnisse erlangt werden, zu denen vorher kein Konzept, keine Hypothese existierte. Aus diesem explorativen Ansatz können neue Ideen für hypothesengeleitete Forschungsprojekte entstehen. Außerdem spielen Logdaten eine wichtige Rolle bei Reanalysen: Nachdem die Fragestellungen der durchgeführten Studie beantwortet sind, können später neue methodische Fortschritte eine erneute Analyse interessant machen. Logs als "Beifang" -- also Daten ohne direkten Bezug zur ursprünglichen Studie -- werden dann wichtig.
+
+Aktuell gibt es in Deutschland in den großen Studien des Bildungsmonitorings keinen Bedarf für Logdaten. Als Datenquellen für die Kompetenzschätzungen dienen die Antworten, also der jeweils letzte Stand der Beantwortung der Items durch die Testperson. In Befragungen spielen Logdaten ebenfalls keine Rolle. Eine Auswertung der Logdaten erfolgt am IQB in folgenden Zusammenhängen:
+
+* Time-on-page: Psychometrisch ist die Verweildauer einer Testperson auf einer Seite interessant. Ein sehr kurzes Verweilen und Beantworten könnte auf eine geringe Testteilnahmemotivation schließen lassen. Es gibt zahlreiche Studien hierzu und das IQB wertet derartige Daten aus, jedoch hat noch kein methodischer Ansatz Eingang in nationale Large Scale Assessments gefunden.
+* Protokollierung technischer Parameter: Aus den Logdaten lassen sich Informationen gewinnen, die für die technische Verbesserung des Testsystems verwendet werden können. Dazu gehören z. B. Betriebssystem und andere Systeminformationen sowie Ladezeiten von Testinhalten. Aufgetretene Probleme könnten so besser untersucht werden.
+
+Das Testcenter bietet zwei Möglichkeiten, Logdaten zu erzeugen:
+
+* Logging durch das Testcenter
+* Logging durch den Player: Über die Verona-Schnittstelle können Player Logdaten an den Host geben, und das Testcenter speichert diese Daten in die Datenbank
+
+In einem Arbeitsbereich kann man die Logdaten herunterladen. Es handelt sich um eine CSV-Datei mit folgendem Inhalt:
+
+| Spaltenname | Inhalt |
+|--------|---------------------------------------------|
+| groupname | IQB |
+| loginname | ID94 |
+| code | e4r |
+| bookletname | ABIEVALBOOKLET_ST_MATHEMATIK_GN_WTR |
+| unitname | M02360 |
+| timestamp | 1620629925532 |
+| logentry | PLAYER = LOADING<br/>PRESENTATION_PROGRESS = complete<br/>RESPONSE_PROGRESS = none |
+
+: Beispiel eines Logs
+

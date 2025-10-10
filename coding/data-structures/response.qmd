@@ -1,11 +1,44 @@
 ---
 lang: de
-title: Datenstruktur "Antwort"
+title: Antworten
+format:
+  html:
+    code-overflow: wrap
+    other-links:
+      - text: Spezifikation-Schema Antwort
+        href: https://iqb-specifications.github.io/response/
+lightbox: true
 ---
 
-Die Spezifikation in englischer Sprache finden Sie [hier](https://iqb-specifications.github.io/response).
+# Datensatz
 
-# Übersicht
+Die gegebenen Antworten werden mit einem Zeitstempel versehen in der Datenbank gespeichert. Das Testcenter speichert nicht bei jedem Tastendruck, sondern gesammelt in regelmäßigen Abständen. Sollte eine Unit erneut betreten werden (Neustart des Tests oder Zurückblättern), werden die Antworten wiederhergestellt.
+
+Das Speichern und die Wiederherstellung betreffen auch allgemeine Zustände wie "Fortschritt Beantwortung" oder "Fortschritt Präsentation". Auch der Stand des Abspielens einer Audiosequenz wird als Status gespeichert.
+
+Das Format der Antworten ist nicht spezifiziert. Im Rahmen der Verona-Spezifikationen ist festgelegt, dass die Antwort auf mehrere Daten-Chunks verteilt sein kann, aber die Antworten selbst sind als String gespeichert. Datenstrukturen sind also dem Testcenter nicht bekannt[^1] und die nachfolgenden Verarbeitungsschritte müssen eine sinnvolle Interpretation der Antwortdaten übernehmen. Durch diese Offenheit wird die Datenverarbeitung erschwert, aber sie ist auch sehr flexibel.
+
+| Spaltenname | Inhalt |
+|--------|---------------------------------------------|
+| groupname | TestakerGroup1 |
+| loginname | pankow |
+| code | |
+| bookletname | BOOKLET4 |
+| unitname | Textmarker |
+| responses |Gespeicherte Antworten des Players|
+| response-ts | 1,64155E+12 |
+| laststate	| {\"PLAYER\":\"RUNNING\",\"RESPONSE_PROGRESS\":\"complete\",\"PRESENTATION_PROGRESS\":\"complete\"} |
+
+: Beispiel einer Antwort
+
+
+# Antwort
+
+Die eigentlichen Antworten landen im Feld: `responses` in dem oben beschriebenen Antwortdatensatz und werden vom Player erzeugt. Die Verona-Spezifikationen sehen hier keinen Standard vor. Es werden nur Daten als String transportiert, d. h. die beteiligten Komponenten müssen selbst dafür sorgen, die Daten zu parsen und zu validieren.
+
+Das IQB hat für die Antworten eine Spezifikation entwickelt. Andere Tools und Webanwendungen, die das IQB entwickelt und auch unter MIT-Lizenz bereitstellt, setzen dieses Antwortformat voraus. Die Spezifikation in englischer Sprache finden Sie [hier](https://iqb-specifications.github.io/response).
+
+## Übersicht
 
 | Parameter | erforderlich | Beschreibung / mögliche Werte | Beispiele |
 |--|:-:|------------------|:--:|
@@ -17,7 +50,7 @@ Die Spezifikation in englischer Sprache finden Sie [hier](https://iqb-specificat
 | codes | - | Array von möglichen Codes; wird kurzzeitig im Rahmen des Kodierprozesses genutzt | s.u. |
 | score | - | Integer; steht für die Bewertung des Codes, also die Übereinstimmung mit einer als "richtig" angenommenen Antwort | 0 |
 
-# Status
+## Status
 
 Der Status-Wert übernimmt eine wichtige Anzeigefunktion für die Position einer Antwort im Entstehungs- und Verarbeitungsprozess. Die Datenstruktur wird nicht nur bei der Beantwortung der Testitems oder Fragen im Player genutzt, sondern auch während der Kodierung und Ableitung von neuen Variablen.
 
@@ -43,7 +76,7 @@ Der Status-Wert übernimmt eine wichtige Anzeigefunktion für die Position einer
 Für die Interpretation der aggregierten (abgeleiteten) Variablen spielt der Status eine herausragende Rolle. [Siehe hier](../missings.qmd#fälle-innerhalb-einer-unit) für eine detaillierte Beschreibung.
 :::
 
-# Value Types
+### Value Types
 
 * array<string | null>
 * array<number | null>
@@ -57,7 +90,7 @@ Für die Interpretation der aggregierten (abgeleiteten) Variablen spielt der Sta
 In Computersprachen, die eine strikte Typisierung erzwingen, ist diese Variabilität des Datentyps ärgerlich. JSON als Datenformat bietet dies zwar an, in der Praxis ist aber oft eine Transformation in den Datentyp `String` gebräuchlich.
 :::
 
-# `codes`
+### Codes
 
 Für jeden Code, den der Kodierprozess ggf. liefert, kann ein Parameter vom Typ `string` übergeben werden, der dann bei der Codeselektion hilft. Bei manuellem Kodieren durch mehrere Kodierer*innen kann das eine ID der Kodierperson sein. Bei KI-gestütztem Kodieren kann das ein numerischer Wert sein, der die Verlässlichkeit des Codes repräsentiert. Die Nutzung des Zusatz-Parameters ist hier nicht spezifiziert und muss gesondert dokumentiert werden.
 
@@ -81,6 +114,5 @@ Für jeden Code, den der Kodierprozess ggf. liefert, kann ein Parameter vom Typ 
         }
     ]
 }
-
-
 ```
+[^1]: Eine Ausnahme bildet die adaptive Testdurchführung: Dann wird das IQB-Standardformat bei den Antworten angenommen und entsprechend eine Kodierung und Bewertung vorgenommen.
