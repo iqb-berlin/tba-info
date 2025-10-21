@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-80d9ced5718886472a82df0d29590761.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1230,7 +1230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="eigene-testszenarien-entwerfen" class="level1">
 <h1>Eigene Testszenarien entwerfen</h1>
-<p>Eine eigen entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
+<p>Eine eigens entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
 <p>Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch, alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.</p>
 <ul>
 <li>Können sich die in der Testtaker-XML angelegten Testpersonen am Testcenter anmelden?</li>
@@ -1255,7 +1255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="manuelles-vs-automatisiertes-testen" class="level1">
 <h1>Manuelles vs automatisiertes Testen</h1>
-<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können.</p>
+<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können.</p>
 <section id="manuelles-testen" class="level2">
 <h2 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h2>
 <p>Vorteile</p>
@@ -1357,9 +1357,10 @@ Hinweis
 <li>Starten der IDE</li>
 <li>Spiegeln (clonen) des Testcenter <a href="https://github.com/iqb-berlin/testcenter">GitHub-Repos</a></li>
 <li>Öffnen des gespiegelten Ordners mit der IDE</li>
-<li>Terminal öffnen und den Befehl: <code>make test-system</code> eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche</li>
+<li>Terminal öffnen und die folgenden Befehle nacheinander eingeben: <code>make init</code>, <code>make build</code> und abschließend <code>make test-system</code>. Wenn alles erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche.</li>
 <li>“E2E Testing” in der Cypress Oberfläche auswählen</li>
 <li>Browser auswählen</li>
+<li>Testfall wählen und Test starten</li>
 </ol>
 </section>
 <section id="cypress-tests-ausführen" class="level2">

@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-80d9ced5718886472a82df0d29590761.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1162,7 +1162,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation soll zunächst einen generellen Überblick über das Projekt TBA verschaffen und hauptsächlich auf die vom IQB entwickelten Anwendungen eingehen.</p>
+<p>Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation soll zunächst einen generellen Überblick über das Projekt TBA verschaffen. Der Schwerpunkt dieser Dokumentation, liegt in der Beschreibung, der vom IQB entwickelten Anwendungen im Rahmen des TBA-Projektes.</p>
 <p>Weiter in diesem Abschnitt:</p>
 <ul>
 <li><a href="../intro/tba.html">Generelles zu TBA</a></li>
@@ -1222,21 +1222,21 @@ Abbildung&nbsp;1: Ablaufschema Lernstandserhebung, IQB-Webanwendungen
 <ul>
 <li>Isolierte Webanwendung, für den flexiblen Einsatz in verschiedenen Szenarien.</li>
 <li>Manuelle Organisation von Testinhalte und Testergebnisse über ein Administrationsportal oder Einbettung in komplexe Datenbankstruktur möglich.</li>
-<li>Möglichkeiten zur Steuerung und Konfiguration einer Testdurchführung oder einer Befragung sollen in Dateiform vorliegen. Es sollen keine visuelle Konfigurationsdialoge und aufwändige Assistenten zur Steuerung verfügbar sein. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats verwendet. Nur über diesen Weg soll es möglich sein, einen Test zu konfigurieren.</li>
-<li>Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldung der Ergebnisse soll oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen, und über das API können gut die Antworten und Logdaten heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.</li>
+<li>Steuerung und Konfiguration einer Testdurchführung oder einer Befragung sollen in Dateiform möglich sein. Es sollen keine visuelle Konfigurationsdialoge und aufwändige Assistenten zur Steuerung verfügbar sein. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats verwendet. Nur über diesen Weg soll es möglich sein, einen Test zu konfigurieren.</li>
+<li>Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldungen der Ergebnisse sollen oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen. Ebenso einfach soll es möglich sein Antworten und Logdaten über die Schnittstelle heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.</li>
 </ul>
 <p>Unter Berücksichtigung dieser Anforderungen wurde die Anwendung <strong>IQB-Testcenter</strong> entwickelt und kann zur Durchführung von Tests oder Befragungen genutzt werden.</p>
-<p>Veröffentlichung: <a href="https://github.com/iqb-berlin/testcenter">GitHub</a><br> Dokumentation: <a href="../study-run/index.html">Studie durchführen</a></p>
+<p>Veröffentlichung: <a href="https://github.com/iqb-berlin/testcenter">GitHub</a><br> Dokumentation: <a href="../study-run/index.html">Studie durchführen</a> Installation/ Konfiguration: <a href="../setup/index.html">Einrichtung</a></p>
 </section>
 <section id="iqb-studio" class="level3">
 <h3 class="anchored" data-anchor-id="iqb-studio">IQB-Studio</h3>
-<p>Eine weitere Anwendung war nötig, um den gesamten Prozess der <strong>Aufgabenentwicklung</strong> umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler*innen direkt bedienen. Hierfür wurde die Anwendung: <strong>IQB-Studio</strong> entwickelt.</p>
-<p>Veröffentlichung: <a href="https://github.com/iqb-berlin/studio-lite">GitHub</a><br> Dokumentation: <a href="../tasks/index.html">Aufgaben entwickeln</a></p>
+<p>Eine weitere Anwendung war nötig, um den gesamten Prozess der <strong>Aufgabenentwicklung</strong> umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein System zur Verfügung steht, welches durch die Aufgabenentwickler*innen intuitiv bedient werden kann. Hierfür wurde die Anwendung: <strong>IQB-Studio</strong> entwickelt.</p>
+<p>Veröffentlichung: <a href="https://github.com/iqb-berlin/studio-lite">GitHub</a><br> Dokumentation: <a href="../tasks/index.html">Aufgaben entwickeln</a> Installation/ Konfiguration: <a href="../setup/index.html">Einrichtung</a></p>
 </section>
 <section id="iqb-kodierbox" class="level3">
 <h3 class="anchored" data-anchor-id="iqb-kodierbox">IQB-Kodierbox</h3>
 <p>Zur Verarbeitung der Ergebnisse (Kodierung, Datenprüfung) wurde eine weitere Anwendung benötigt. Diese trägt den Namen <strong>IQB-Kodierbox</strong>.</p>
-<p>Veröffentlichung: <a href="https://github.com/iqb-berlin/coding-box">GitHub</a><br> Dokumentation: <a href="../coding/index.html">Kodieren und Auswerten</a></p>
+<p>Veröffentlichung: <a href="https://github.com/iqb-berlin/coding-box">GitHub</a><br> Dokumentation: <a href="../coding/index.html">Kodieren und Auswerten</a> Installation/ Konfiguration: <a href="../setup/index.html">Einrichtung</a></p>
 
 
 </section>
