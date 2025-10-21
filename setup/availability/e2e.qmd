@@ -13,7 +13,7 @@ Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erpro
 
 # Eigene Testszenarien entwerfen
 
-Eine eigen entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.
+Eine eigens entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.
 
 Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch, alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.
 
@@ -39,7 +39,7 @@ Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detail
 
 # Manuelles vs automatisiertes Testen
 
-Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können. 
+Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können. 
 
 ## Manuelles Testen
 
@@ -123,9 +123,10 @@ Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Fü
 1. Starten der IDE
 2. Spiegeln (clonen) des Testcenter [GitHub-Repos](https://github.com/iqb-berlin/testcenter)
 3. Öffnen des gespiegelten Ordners mit der IDE
-4. Terminal öffnen und den Befehl: `make test-system` eingeben (es dürfen keine Fehler angezeigt werden), wenn erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche
+4. Terminal öffnen und die folgenden Befehle nacheinander eingeben: `make init`, `make build` und abschließend `make test-system`. Wenn alles erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche.
 5. "E2E Testing" in der Cypress Oberfläche auswählen
 6. Browser auswählen
+7. Testfall wählen und Test starten
 
 ## Cypress Tests ausführen
 

@@ -9,7 +9,7 @@ other-links:
     href: https://www.iqb.hu-berlin.de/tba/
 ---
 
-Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation soll zunächst einen generellen Überblick über das Projekt TBA verschaffen und hauptsächlich auf die vom IQB entwickelten Anwendungen eingehen.
+Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation soll zunächst einen generellen Überblick über das Projekt TBA verschaffen. Der Schwerpunkt dieser Dokumentation, liegt in der Beschreibung, der vom IQB entwickelten Anwendungen im Rahmen des TBA-Projektes.
 
 
 Weiter in diesem Abschnitt:
@@ -58,20 +58,22 @@ Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Folg
 
 * Isolierte Webanwendung, für den flexiblen Einsatz in verschiedenen Szenarien.
 * Manuelle Organisation von Testinhalte und Testergebnisse über ein Administrationsportal oder Einbettung in komplexe Datenbankstruktur möglich.
-* Möglichkeiten zur Steuerung und Konfiguration einer Testdurchführung oder einer Befragung sollen in Dateiform vorliegen. Es sollen keine visuelle Konfigurationsdialoge und aufwändige Assistenten zur Steuerung verfügbar sein. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats verwendet. Nur über diesen Weg soll es möglich sein, einen Test zu konfigurieren.
-* Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldung der Ergebnisse soll oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen, und über das API können gut die Antworten und Logdaten heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.
+* Steuerung und Konfiguration einer Testdurchführung oder einer Befragung sollen in Dateiform möglich sein. Es sollen keine visuelle Konfigurationsdialoge und aufwändige Assistenten zur Steuerung verfügbar sein. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats verwendet. Nur über diesen Weg soll es möglich sein, einen Test zu konfigurieren.
+* Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldungen der Ergebnisse sollen oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen. Ebenso einfach soll es möglich sein Antworten und Logdaten über die Schnittstelle heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.
 
 Unter Berücksichtigung dieser Anforderungen wurde die Anwendung **IQB-Testcenter** entwickelt und kann zur Durchführung von Tests oder Befragungen genutzt werden.
 
 Veröffentlichung: [GitHub](https://github.com/iqb-berlin/testcenter)<br>
 Dokumentation: [Studie durchführen](/study-run/index.qmd)
+Installation/ Konfiguration: [Einrichtung](/setup/index.qmd)
 
 ### IQB-Studio
 
-Eine weitere Anwendung war nötig, um den gesamten Prozess der **Aufgabenentwicklung** umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein intuitiv zu bedienendes System zur Verfügung steht, das die Aufgabenentwickler\*innen direkt bedienen. Hierfür wurde die Anwendung: **IQB-Studio** entwickelt.
+Eine weitere Anwendung war nötig, um den gesamten Prozess der **Aufgabenentwicklung** umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein System zur Verfügung steht, welches durch die Aufgabenentwickler\*innen intuitiv bedient werden kann. Hierfür wurde die Anwendung: **IQB-Studio** entwickelt.
 
 Veröffentlichung: [GitHub](https://github.com/iqb-berlin/studio-lite)<br>
 Dokumentation: [Aufgaben entwickeln](/tasks/index.qmd)
+Installation/ Konfiguration: [Einrichtung](/setup/index.qmd)
 
 ### IQB-Kodierbox
 
@@ -79,5 +81,6 @@ Zur Verarbeitung der Ergebnisse (Kodierung, Datenprüfung) wurde eine weitere An
 
 Veröffentlichung: [GitHub](https://github.com/iqb-berlin/coding-box)<br>
 Dokumentation: [Kodieren und Auswerten](/coding/index.qmd)
+Installation/ Konfiguration: [Einrichtung](/setup/index.qmd)
 
 
