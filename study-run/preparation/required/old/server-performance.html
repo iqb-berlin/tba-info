@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Speedtest – TBA - Verstehen und Anwenden</title>
+<title>Serverlast – TBA - Verstehen und Anwenden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,29 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../tasks/coding-scheme/index.html" rel="next">
-<link href="../../../tasks/design/stars/feedback.html" rel="prev">
-<link href="../../../assets/favicon.ico" rel="icon">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../assets/favicon.ico" rel="icon">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -122,11 +82,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo light-content">
-    <img src="../../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo dark-content">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo light-content">
+    <img src="../../../../assets/iqb-logo-only-white.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">TBA - Verstehen und Anwenden</span>
     </a>
   </div>
@@ -140,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../tasks/index.html">Aufgaben entwickeln</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/index.html">Aufgaben gestalten</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/speedtest/index.html">Speedtest</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Serverlast</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -151,20 +111,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../../../index.html" class="sidebar-logo-link">
+      <a href="../../../../index.html" class="sidebar-logo-link">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Start</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../intro/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Überblick</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -173,31 +133,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../intro/tba.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../intro/tba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TBA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../intro/bt.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../intro/bt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bildungstrend</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../intro/vera.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../intro/vera.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VERA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../intro/security.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../intro/security.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datensicherheit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../intro/releases.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../intro/releases.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Release-Plan</span></a>
   </div>
 </li>
@@ -205,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../setup/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../setup/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einrichtung</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -223,13 +183,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../setup/config/studio.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../setup/config/studio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IQB-Studio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../setup/config/testcenter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../setup/config/testcenter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IQB-Testcenter</span></a>
   </div>
 </li>
@@ -237,19 +197,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../setup/install/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../setup/install/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../setup/offline/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../setup/offline/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Offline-Nutzung</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../setup/availability/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../setup/availability/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verfügbarkeit</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -258,13 +218,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../setup/availability/e2e.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../setup/availability/e2e.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">E2E-Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../setup/availability/load-test.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../setup/availability/load-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lasttest</span></a>
   </div>
 </li>
@@ -274,16 +234,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben entwickeln</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/manage/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Organisieren</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -292,37 +252,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/manage/roles.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rollen und Rechte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/manage/workspaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/manage/workspaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arbeitsbereiche</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/manage/move-and-copy.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/manage/move-and-copy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verschieben und Kopieren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/manage/task-sequence.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/manage/task-sequence.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgabenfolgen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/manage/verona-modules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/manage/verona-modules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verona-Module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/manage/metadata.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/manage/metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metadaten</span></a>
   </div>
 </li>
@@ -330,16 +290,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aufgaben gestalten</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/basic/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Standardmodus</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -348,13 +308,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Allgemeine_Anleitung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allgemeine Anleitung</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/basic/Stimulus/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/basic/Stimulus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stimulus</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -363,31 +323,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stimulus-Text-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lesestimulus-Email-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lesestimulus Mobiltelefon-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Audiostimulus- Instruktion und Hörtext in einem Audio-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Audiostimulus Instruktion und Audio getrennt-Assistent</span></a>
   </div>
 </li>
@@ -395,37 +355,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/MC_Text_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MC-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/MC_Bild_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MC mit Bild-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/CMC-Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CMC-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Antwortfelder_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Antwortfelder Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Kontrollkasten_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Kontrollkasten_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kontrollkästchen</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/basic/DaD/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/basic/DaD/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Drag &amp; Drop</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -434,19 +394,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Drag &amp; Drop-Zuordnen-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung_zweiseitig/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung_zweiseitig/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zuordnung (2-Seitig) Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/DaD/DaD_Assistent_Sortieren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Drag &amp; Drop- Sortieren-Assistent</span></a>
   </div>
 </li>
@@ -454,19 +414,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Markieren_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Markieren-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Rechenkastchen_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rechenkästchen-Assistent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/GGB_Assistent/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GeoGebra-Assistent</span></a>
   </div>
 </li>
@@ -481,25 +441,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Medienelemente/Text/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Medienelemente/Text/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Textelement</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Medienelemente/Bild/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Medienelemente/Bild/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bildelemente</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Medienelemente/Audio/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Medienelemente/Audio/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Audio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Medienelemente/Video/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Medienelemente/Video/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Video</span></a>
   </div>
 </li>
@@ -507,13 +467,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Lueckentext_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verbundelement Lückentext</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/basic/Tabellen_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/basic/Tabellen_Verbundelement/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verbundelement Tabelle</span></a>
   </div>
 </li>
@@ -521,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/extended/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/extended/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Erweiterter Modus</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -530,31 +490,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Elementeinstellungen/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Elementeinstellungen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Elementeinstellungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Abschnittseinstellungen/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Abschnittseinstellungen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abschnittseinstellungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Seiten/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Seiten/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Seiten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Elemente/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Elemente/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossar</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hervorhebungen &amp; Sichtbarkeiten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -563,25 +523,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Buttonverlinkungen – interaktive Stimuli</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hervorhebungen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Markieren mit mehreren Stimuli</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sichtbarkeitskaskaden</span></a>
   </div>
 </li>
@@ -591,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/geogebra/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/geogebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GeoGebra</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -600,43 +560,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/intro/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/BalkenSaulen/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/BalkenSaulen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Balken- und Säulendiagramm</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/Tortendiagramm/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/Tortendiagramm/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tortendiagramm</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/Messen/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/Messen/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Messwerkzeug</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/Geobrett/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/Geobrett/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Geobrett</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/Koordinatensystem/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/Koordinatensystem/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Koordinatensystem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/geogebra/Zahlenstrahl/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/geogebra/Zahlenstrahl/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zahlenstrahl</span></a>
   </div>
 </li>
@@ -644,7 +604,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/media/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/media/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bild/Audio/Video</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -653,43 +613,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/Audio_Parameter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/Audio_Parameter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Audio-Parameter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/Video_Parameter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/Video_Parameter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Video-Parameter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/Audios_konvertieren.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/Audios_konvertieren.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Audio bearbeiten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/Bilder_vorbereiten.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/Bilder_vorbereiten.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hinweise zu Bildern</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/Bilder_einfarben/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bilder einfärben</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/Bilder_skalieren/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bilder Größe ändern</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/media/base64.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/media/base64.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Format Base64</span></a>
   </div>
 </li>
@@ -697,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/simple-forms/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/simple-forms/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einfache Formulare</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -706,7 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/simple-forms/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/simple-forms/Abi_Player/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ABI-Player</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -715,19 +675,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/simple-forms/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/simple-forms/Abi_Player/Syntax_im_Detail.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syntax im Detail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/simple-forms/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/simple-forms/Abi_Player/Antwortdaten.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Antwortdaten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/simple-forms/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/simple-forms/Abi_Player/Praktische_Hinweise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Praktische Hinweise</span></a>
   </div>
 </li>
@@ -737,7 +697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/design/stars/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Primar</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -746,43 +706,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/root-parameters.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rahmen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/it_buttons.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/it_buttons.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Buttons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/it_drop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/it_drop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Auswahl fallen lassen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/it_write.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schreiben</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/it_find_on_image.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Im Bild finden</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/responses.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/responses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Antworten kodieren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/stars/feedback.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/design/stars/feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übungsaufgaben</span></a>
   </div>
 </li>
@@ -790,7 +750,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/design/speedtest/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../../tasks/design/speedtest/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Speedtest</span></a>
   </div>
 </li>
@@ -798,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../tasks/coding-scheme/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../tasks/coding-scheme/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kodierschema</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -807,19 +767,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/coding-scheme/steps.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/coding-scheme/steps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Elemente und Variablen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/coding-scheme/basic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/coding-scheme/basic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basisfälle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tasks/coding-scheme/extended.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../tasks/coding-scheme/extended.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sonderfälle</span></a>
   </div>
 </li>
@@ -829,7 +789,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studie durchführen</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -838,7 +798,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/preparation/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/preparation/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorbereitungen</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -847,7 +807,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/preparation/required/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/preparation/required/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anforderungen</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -856,25 +816,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/required/school.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/required/school.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schulausstattung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/required/server.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/required/server.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Serverausstattung und -management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/required/testorga.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/required/testorga.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testorganisation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/required/alternatives.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/required/alternatives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mögliche Alternativen für Schulen ohne ausreichende technische Ausstattung</span></a>
   </div>
 </li>
@@ -882,13 +842,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/system-check/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/system-check/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">System-Check</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/preparation/devices/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/preparation/devices/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Endgeräte</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -897,7 +857,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/preparation/devices/problems/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/preparation/devices/problems/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probleme</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -906,7 +866,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/devices/problems/ipad/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/devices/problems/ipad/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">iPad</span></a>
   </div>
 </li>
@@ -914,7 +874,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/preparation/devices/kiosk/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/preparation/devices/kiosk/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kiosk-Mode</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -923,19 +883,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/devices/kiosk/ios.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/devices/kiosk/ios.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IOS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/devices/kiosk/windows.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/devices/kiosk/windows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Windows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/devices/kiosk/seb.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/devices/kiosk/seb.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Safe-Exam-Browser</span></a>
   </div>
 </li>
@@ -945,7 +905,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/preparation/test-files/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/preparation/test-files/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testinhalte</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -954,31 +914,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/test-files/basics-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/test-files/basics-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grundlagenwissen XML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/test-files/create-files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/test-files/create-files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Erstellung Testinhalte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/test-files/unit-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/test-files/unit-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit-XML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/test-files/booklet-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/test-files/booklet-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Booklet-XML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/test-files/testtaker-xml.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/test-files/testtaker-xml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Testtaker-XML</span></a>
   </div>
 </li>
@@ -986,19 +946,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/study-config/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/study-config/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Konfiguration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/access-rights.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/access-rights.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zugriffsrechte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/preparation/workspace/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/preparation/workspace/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arbeitsbereiche</span></a>
   </div>
 </li>
@@ -1006,7 +966,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/run/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/run/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Durchführung</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -1015,13 +975,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/run/support.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/run/support.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problemlösung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/run/groupmon/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/run/groupmon/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gruppenmonitor</span></a>
   </div>
 </li>
@@ -1029,13 +989,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/study-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/study-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Studiendaten</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/step-by-step/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/step-by-step/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt für Schritt</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -1044,7 +1004,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../study-run/step-by-step/example/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../study-run/step-by-step/example/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Beispielstudie</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -1053,19 +1013,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/step-by-step/example/step-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/step-by-step/example/step-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/step-by-step/example/step-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/step-by-step/example/step-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/step-by-step/example/step-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/step-by-step/example/step-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schritt 3</span></a>
   </div>
 </li>
@@ -1075,7 +1035,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../study-run/faq/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../study-run/faq/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQ</span></a>
   </div>
 </li>
@@ -1083,7 +1043,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../coding/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../coding/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kodieren und Auswerten</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -1092,7 +1052,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../coding/data-structures/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../coding/data-structures/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datenstrukturen</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -1101,19 +1061,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/data-structures/response.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/data-structures/response.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Antworten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/data-structures/logs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/data-structures/logs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logdaten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/data-structures/coding-scheme.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/data-structures/coding-scheme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kodierschema</span></a>
   </div>
 </li>
@@ -1121,19 +1081,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/response-status.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/response-status.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Antwort-Status im Prozess</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/missings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/missings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Missings</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../coding/toolbox/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../coding/toolbox/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">itc-Toolbox</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -1142,25 +1102,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-32" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/toolbox/codes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/toolbox/codes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Codes erzeugen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/toolbox/logins-generate.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/toolbox/logins-generate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Login-Xml erzeugen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/toolbox/logins-docx.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/toolbox/logins-docx.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Handzettel für Logins Docx erzeugen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../coding/toolbox/booklet.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../coding/toolbox/booklet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Booklet.Xml erzeugen</span></a>
   </div>
 </li>
@@ -1173,25 +1133,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
-   
-  <ul>
-  <li><a href="#was-ist-ein-speedtest" id="toc-was-ist-ein-speedtest" class="nav-link active" data-scroll-target="#was-ist-ein-speedtest">Was ist ein Speedtest?</a></li>
-  <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen">Funktionen</a></li>
-  <li><a href="#player-und-editor-im-studio-verfügbar-machen" id="toc-player-und-editor-im-studio-verfügbar-machen" class="nav-link" data-scroll-target="#player-und-editor-im-studio-verfügbar-machen">Player und Editor im Studio verfügbar machen</a></li>
-  <li><a href="#editieren-und-vorschau" id="toc-editieren-und-vorschau" class="nav-link" data-scroll-target="#editieren-und-vorschau">Editieren und Vorschau</a></li>
-  <li><a href="#auswerten" id="toc-auswerten" class="nav-link" data-scroll-target="#auswerten">Auswerten</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../tasks/index.html">Aufgaben entwickeln</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/index.html">Aufgaben gestalten</a></li><li class="breadcrumb-item"><a href="../../../tasks/design/speedtest/index.html">Speedtest</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Speedtest</h1>
+<h1 class="title">Serverlast</h1>
 </div>
 
 
@@ -1208,123 +1158,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Der Haupteditor des IQB <code>Aspect</code> fokussiert auf frei gestaltete Aufgaben, die in ihrem Aufbau klassischen Formularen entsprechen. Die Testperson bearbeitet schrittweise die Frage-Items, und der letzte Zustand beim Verlassen wird als Antwort gespeichert. Manchmal möchte man jedoch einen Speedtest durchführen. Dies ist mit <code>Aspect</code> nicht gut möglich. Da das Verona-Prinzip innerhalb des Tests bzw. der Befragung den Einsatz anderer Player ermöglicht, hat das IQB einen spezialisierten Speedtest-Player entwickelt und dafür auch einen Editor.</p>
-<section id="was-ist-ein-speedtest" class="level1">
-<h1>Was ist ein Speedtest?</h1>
-<p>Bei einem Speedtest sollen die Testpersonen Wissen spontan anwenden, ohne groß zu überlegen. Beispielsweise kann darüber ein Lesegeschwindigkeitstest gestaltet werden. Die Aussage “Der Esel ist ein Vogel.” kann schnell beantwortet werden. Es ist also kein Nachdenken nötig, sondern man muss nur die Aussage lesen können. Die Auswertung fokussiert dann auf die Frage, wieviele Aussagen in einer vorgegebenen Zeit gelesen und richtig bewertet wurden.</p>
-</section>
-<section id="funktionen" class="level1">
-<h1>Funktionen</h1>
-<p>Folgende Anforderungen erfüllt der Speedtest-Player des IQB:</p>
-<ul>
-<li>In einer Aufgabe ist eine Vielzahl sehr gleichwertiger kleiner Items definiert. Die Anzeige der Items erfolgt einzeln.</li>
-<li>Eine Navigation zwischen den Items durch die Testperson ist nicht möglich. Man kann nur vorwärts gehen.</li>
-<li>Eine Beantwortung löst sofort ein Weitergehen zum nächsten Item aus. Das wird darüber gelöst, dass die Antwortoptionen als Buttons/Schalter gestaltet sind. Ein Klick/Touch auf den Button “Richtig” löst z. B. eine Navigation aus.</li>
-<li>In den Daten, die der Player zur Auswertung liefert, sind folgende Informationen zu finden:
-<ul>
-<li>Gewählte Antwortoption,</li>
-<li>Kodierung der Antwort im Sinne von Richtig/Falsch,</li>
-<li>Zeit in Millisekunden von der Präsentation bis zur Antwort für jedes Item,</li>
-<li>Summe der richtigen und Summe der falschen Antworten</li>
-</ul></li>
-</ul>
-<p>Folgende Anforderungen erfüllt der Speedtest-Editor des IQB:</p>
-<ul>
-<li>Als Frage-Stimulus kann Text und/oder ein Bild verwendet werden.</li>
-<li>Die Texte der Optionen sind frei wählbar pro Item.</li>
-<li>Die Ausrichtung sowie die Hintergrundfarbe der Buttons kann eingestellt werden.</li>
-</ul>
-</section>
-<section id="player-und-editor-im-studio-verfügbar-machen" class="level1">
-<h1>Player und Editor im Studio verfügbar machen</h1>
-<p>Die Installation des IQB-Studios muss den Speedtest-Player und -Editor als Modul hochgeladen haben. Nur der Systemadministrator hat dafür die Berechtigung. Die letzte Version kann man hier erhalten: <a href="https://github.com/iqb-berlin/verona-modules-speedtest/releases">verona-modules-speedtest</a>.</p>
-<p>Nachdem Player und Editor in das Studio geladen wurden, kann man in einem Arbeitsbereich eine neue Aufgabe anlegen und die Verona-Module zuweisen:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="speedtest1_verona.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Verona-Module zuweisen (Beispiel)"><img src="speedtest1_verona.png" class="border img-fluid figure-img" alt="Verona-Module zuweisen (Beispiel)"></a></p>
-<figcaption>Verona-Module zuweisen (Beispiel)</figcaption>
-</figure>
-</div>
-</section>
-<section id="editieren-und-vorschau" class="level1">
-<h1>Editieren und Vorschau</h1>
-<p>Die Bedienung bzw. die Optionen erschließen sich schnell. Klicken Sie auf die folgenden Bilder zum Vergrößern.</p>
-<div class="border quarto-layout-panel" data-layout-ncol="4">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="speedtest2.png" class="lightbox" data-gallery="gallery1" title="Startbildschirm"><img src="speedtest2.png" class="img-fluid figure-img" alt="Startbildschirm"></a></p>
-<figcaption>Startbildschirm</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="speedtest3.png" class="lightbox" data-gallery="gallery1" title="Neue Frage"><img src="speedtest3.png" class="img-fluid figure-img" alt="Neue Frage"></a></p>
-<figcaption>Neue Frage</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="speedtest4.png" class="lightbox" data-gallery="gallery1" title="Fragetext und Bewertung eingegeben"><img src="speedtest4.png" class="img-fluid figure-img" alt="Fragetext und Bewertung eingegeben"></a></p>
-<figcaption>Fragetext und Bewertung eingegeben</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="speedtest5.png" class="lightbox" data-gallery="gallery1" title="Vorschau"><img src="speedtest5.png" class="img-fluid figure-img" alt="Vorschau"></a></p>
-<figcaption>Vorschau</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="auswerten" class="level1">
-<h1>Auswerten</h1>
-<p>Für die einzelnen Items werden keine separaten Variablen angelegt. Statt dessen werden pro Item zwei Variablen <code>value</code> (Index der Antwortoption) und <code>time</code> (Zeit in Millisekunden von der Präsentation bis zur Antwort) angelegt. Zu welchem Item jeweils der Wert gehört, ist im Datenfeld <code>subform</code> festgelegt. Hier wird der Index des Items als ganzzahliger numerischer Wert gespeichert (beginnend mit <code>0</code>). Achtung: In der Darstellung im Editor beginnt die Itemnummerierung mit <code>1</code>.</p>
-<p>Sofern für den <code>value</code> eines Items die Bewertung als Richtig/Falsch verfügbar ist, wird sofort bei der Beantwortung durch den Player kodiert. Das ist daran sichtbar, dass <code>status</code> auf den Wert <code>CODING_COMPLETE</code> gesetzt ist und Werte für <code>code</code> und <code>score</code> hinzugefügt sind.</p>
-<p>Eine Beantwortung führt z. B. zu folgenden Antwortdaten (IQB-Standardformat):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"value"</span><span class="fu">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"CODING_COMPLETE"</span><span class="fu">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"value"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"subform"</span><span class="fu">:</span> <span class="st">"0"</span><span class="fu">,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"score"</span><span class="fu">:</span> <span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"time"</span><span class="fu">,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"VALUE_CHANGED"</span><span class="fu">,</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"value"</span><span class="fu">:</span> <span class="dv">3467</span><span class="fu">,</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"subform"</span><span class="fu">:</span> <span class="st">"0"</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"total_correct"</span><span class="fu">,</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"VALUE_CHANGED"</span><span class="fu">,</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"value"</span><span class="fu">:</span> <span class="dv">1</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"total_wrong"</span><span class="fu">,</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"VALUE_CHANGED"</span><span class="fu">,</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"value"</span><span class="fu">:</span> <span class="dv">0</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"activeQuestionIndex"</span><span class="fu">,</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"VALUE_CHANGED"</span><span class="fu">,</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"value"</span><span class="fu">:</span> <span class="dv">0</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Entscheidend für die Durchführbarkeit einer Studie ist die Belastbarkeit des Servers auf dem das Testcenter läuft. Das Lastverhalten kann mit einem Lasttest ermittelt werden. Entscheidend ist hierbei bereits vor Studienstart die Anzahl der Teilnehmer*innen und die verwendeten Testheftgrößen zu kennen. Mehr dazu ist <a href="../../../../setup/availability/load-test.html">hier</a> zu finden.</p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Zurück nach oben</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1734,25 +1570,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../../tasks/design/stars/feedback.html" class="pagination-link" aria-label="Übungsaufgaben">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Übungsaufgaben</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../../tasks/coding-scheme/index.html" class="pagination-link" aria-label="Kodierschema">
-        <span class="nav-page-text">Kodierschema</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link active" href="../../../index.html" aria-current="page">
+    <a class="nav-link active" href="../../../../index.html" aria-current="page">
 <p><i class="fa-solid fa-house" aria-label="house"></i></p>
 </a>
   </li>  
@@ -1775,7 +1599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../news/index.xml">
+    <a class="nav-link" href="../../../../news/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
@@ -1784,38 +1608,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
