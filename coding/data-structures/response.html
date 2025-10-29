@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -1182,7 +1147,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#status" id="toc-status" class="nav-link" data-scroll-target="#status">Status</a>
   <ul class="collapse">
   <li><a href="#value-types" id="toc-value-types" class="nav-link" data-scroll-target="#value-types">Value Types</a></li>
-  <li><a href="#codes" id="toc-codes" class="nav-link" data-scroll-target="#codes">Codes</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -1316,15 +1280,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">2</td>
 </tr>
 <tr class="even">
-<td>codes</td>
-<td style="text-align: center;">-</td>
-<td>Array von möglichen Codes; wird kurzzeitig im Rahmen des Kodierprozesses genutzt</td>
-<td style="text-align: center;">s.u.</td>
-</tr>
-<tr class="odd">
 <td>score</td>
 <td style="text-align: center;">-</td>
-<td>Integer; steht für die Bewertung des Codes, also die Übereinstimmung mit einer als “richtig” angenommenen Antwort</td>
+<td>Integer; steht für die Bewertung des Codes, also die Übereinstimmung mit einer als “richtig” angenommenen Antwort; üblicherweise steht 0 für “falsch” und 1 für “richtig”; in Modellen mit teilweise richtigen Lösungen (sog. Partial Credit) können z. B. die Werte 0, 1, 2, 3 verwendet werden, wobei die größte Zahl für die vollständig richtige Lösung stehen sollte</td>
 <td style="text-align: center;">0</td>
 </tr>
 </tbody>
@@ -1333,73 +1291,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="status" class="level2">
 <h2 class="anchored" data-anchor-id="status">Status</h2>
 <p>Der Status-Wert übernimmt eine wichtige Anzeigefunktion für die Position einer Antwort im Entstehungs- und Verarbeitungsprozess. Die Datenstruktur wird nicht nur bei der Beantwortung der Testitems oder Fragen im Player genutzt, sondern auch während der Kodierung und Ableitung von neuen Variablen.</p>
+<p>In der nachfolgenden Tabelle sind alle möglichen Statuswerte aufgelistet. Die letzte Spalte enthält einen numerischen Wert, der statt des String-Wertes in Datenbanken verwendet werden kann, um Speicherplatz zu sparen. Diese numerische Form ist aber nicht Teil der Spezifikation.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 86%">
+<col style="width: 11%">
+<col style="width: 76%">
+<col style="width: 11%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Wert</th>
 <th>Beschreibung</th>
+<th>Numerisch</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>UNSET</code></td>
 <td>Ausgangszustand beim Anlegen von Variablen. Sollte eine Variable an ein Interaktionselement gebunden sein, dann erhält sie jedoch sofort den Status <code>NOT_REACHED</code>.</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td><code>NOT_REACHED</code></td>
 <td>Ausgangszustand beim Anlegen von Variablen, die an ein Interaktionselement gebunden sind.</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td><code>DISPLAYED</code></td>
 <td>Variablen, die an ein Interaktionselement gebunden sind, bekommen diesen Status, wenn sie der Testperson präsentiert wurden - also sichtbar sind.</td>
+<td>2</td>
 </tr>
 <tr class="even">
-<td><code>PARTLY_DISPLAYED</code></td>
-<td>Diesen Zustand erhalten abgeleitete Variablen, die von Variablen abgeleitet wurden mit dem Status <code>PARTLY_DISPLAYED</code> oder mit <code>DISPLAYED</code> sowie außerdem den Status <code>NOT_REACHED</code> oder <code>UNSET</code>.</td>
-</tr>
-<tr class="odd">
 <td><code>VALUE_CHANGED</code></td>
 <td>Dieser Status zeigt an, dass eine Interaktion stattgefunden hat und also der Wert (Value) auszuwerten ist. Bei abgeleiteten Variablen zeigt dieser Status eine erfolgreiche Ableitung an.</td>
+<td>3</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>DERIVE_ERROR</code></td>
 <td>Dieser Status zeigt an, dass eine Ableitung fehlgeschlagen ist. Dies kann sich beispielsweise auf einen Typkonflikt (numerisch, Text) beziehen und ist in den meisten Fällen über eine Anpassung des Kodierschemas korrigierbar. Der Status bezieht sich allerdings nicht darauf, ob die zugrundeliegenden Variablen einen unzureichenden Status haben, sondern es geht um technische Fehler beim Ableitungsprozess.</td>
-</tr>
-<tr class="odd">
-<td><code>DERIVE_PENDING</code></td>
-<td>Dieser Status zeigt an, dass eine Ableitung nicht möglich ist, weil mindestens eine Variable, die zur Ableitung nötig ist, den Status <code>CODING_INCOMPLETE</code> oder <code>CODING_ERROR</code> hat. Im Arbeitsablauf “wartet” diese Variable also darauf, dass eine manuelle Kodierung zu <code>CODING_COMPLETE</code> führt und der Autocoder neu angestoßen wird.</td>
-</tr>
-<tr class="even">
-<td><code>NO_CODING</code></td>
-<td>Bei diesem Status wurde festgestellt, dass keine Informationen für eine Kodierung vorliegen (keine Codes sind im Kodierschema definiert). Das stellt eine Fehlersituation dar.</td>
-</tr>
-<tr class="odd">
-<td><code>INVALID</code></td>
-<td>Es wurde bei diesem Status eine Antwort festgestellt, die außerhalb des zulässigen Bereiches liegt. Beispielsweise wurde zwar zunächst ein Text eingegeben, dann aber alles gelöscht, so dass eine leere Antwort gespeichert wurde. Mit diesem Code werden auch Spaßantworten “Mir ist langweilig” kodiert.</td>
-</tr>
-<tr class="even">
-<td><code>CODING_INCOMPLETE</code></td>
-<td>Dieser Code zeigt nach einem Durchlauf einer Kodierprozedur an, dass keiner der vorgesehenen Codes als zutreffend angesehen wurde. Dieser Kodierfall muss dann manuell gesichtet werden.</td>
-</tr>
-<tr class="odd">
-<td><code>CODING_ERROR</code></td>
-<td>Während der Kodierung ist ein Fehler aufgetreten, der die Bewertung der Antwort verhindert hat. Dies kann ein technischer Fehler bei der Anzeige (Replay) für das manuelle Kodieren sein, aber auch Typkonflikte zwischen dem Wert und dem Kodierschema können die Ursache sein.</td>
-</tr>
-<tr class="even">
-<td><code>INTENDED_INCOMPLETE</code></td>
-<td>Die Kodierung der Variablen ist nicht abgeschlossen, aber dies stellt keinen Fehler dar. Es handelt sich hier z. B. um Variablen, die über andere Wege kodiert werden sollen (z. B. Rating oder Übersetzung in Berufe-Codes außerhalb der regulären Kodierprozesse). Es kann auch sein, dass der Variablenwert erst durch eine Ableitung ausgewertet wird und innerhalb der Variable keine isolierte Bewertung möglich ist.</td>
-</tr>
-<tr class="odd">
-<td><code>CODE_SELECTION_PENDING</code></td>
-<td>Die Kodierung der Variablen führte zu mehreren möglichen Codes. Dies kann vorkommen, wenn (a) mehrere Kodierer*innen denselben Fall kodieren sollen (Mehrfachkodierung bei offenen Antworten) oder (b) eine KI-gestützte Kodierung mehrere Vorschläge liefert. Dann muss als nächster Schritt einer der Codes ausgewählt werden und dieser Statuswert zeigt diesen Zustand an.</td>
+<td>4</td>
 </tr>
 <tr class="even">
 <td><code>CODING_COMPLETE</code></td>
 <td>Die Kodierung der Variablen ist erfolgreich abgeschlossen.</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><code>NO_CODING</code></td>
+<td>Bei diesem Status wurde festgestellt, dass keine Informationen für eine Kodierung vorliegen (keine Codes sind im Kodierschema definiert). Das stellt eine Fehlersituation dar.</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td><code>INVALID</code></td>
+<td>Es wurde bei diesem Status eine Antwort festgestellt, die außerhalb des zulässigen Bereiches liegt. Beispielsweise wurde zwar zunächst ein Text eingegeben, dann aber alles gelöscht, so dass eine leere Antwort gespeichert wurde. Mit diesem Code werden auch Spaßantworten “Mir ist langweilig” kodiert.</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td><code>CODING_INCOMPLETE</code></td>
+<td>Dieser Code zeigt nach einem Durchlauf einer Kodierprozedur an, dass keiner der vorgesehenen Codes als zutreffend angesehen wurde. Dieser Kodierfall muss dann manuell gesichtet werden.</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><code>CODING_ERROR</code></td>
+<td>Während der Kodierung ist ein Fehler aufgetreten, der die Bewertung der Antwort verhindert hat. Dies kann ein technischer Fehler bei der Anzeige (Replay) für das manuelle Kodieren sein, aber auch Typkonflikte zwischen dem Wert und dem Kodierschema können die Ursache sein.</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><code>PARTLY_DISPLAYED</code></td>
+<td>Diesen Zustand erhalten abgeleitete Variablen, die von Variablen abgeleitet wurden mit dem Status <code>PARTLY_DISPLAYED</code> oder mit <code>DISPLAYED</code> sowie außerdem den Status <code>NOT_REACHED</code> oder <code>UNSET</code>.</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td><code>DERIVE_PENDING</code></td>
+<td>Dieser Status zeigt an, dass eine Ableitung nicht möglich ist, weil mindestens eine Variable, die zur Ableitung nötig ist, den Status <code>CODING_INCOMPLETE</code> oder <code>CODING_ERROR</code> hat. Im Arbeitsablauf “wartet” diese Variable also darauf, dass eine manuelle Kodierung zu <code>CODING_COMPLETE</code> führt und der Autocoder neu angestoßen wird.</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td><code>INTENDED_INCOMPLETE</code></td>
+<td>Die Kodierung der Variablen ist nicht abgeschlossen, aber dies stellt keinen Fehler dar. Es handelt sich hier z. B. um Variablen, die über andere Wege kodiert werden sollen (z. B. Rating oder Übersetzung in Berufe-Codes außerhalb der regulären Kodierprozesse). Es kann auch sein, dass der Variablenwert erst durch eine Ableitung ausgewertet wird und innerhalb der Variable keine isolierte Bewertung möglich ist.</td>
+<td>12</td>
 </tr>
 </tbody>
 </table>
@@ -1440,29 +1410,6 @@ Vorsicht
 <p>In Computersprachen, die eine strikte Typisierung erzwingen, ist diese Variabilität des Datentyps ärgerlich. JSON als Datenformat bietet dies zwar an, in der Praxis ist aber oft eine Transformation in den Datentyp <code>String</code> gebräuchlich.</p>
 </div>
 </div>
-</section>
-<section id="codes" class="level3">
-<h3 class="anchored" data-anchor-id="codes">Codes</h3>
-<p>Für jeden Code, den der Kodierprozess ggf. liefert, kann ein Parameter vom Typ <code>string</code> übergeben werden, der dann bei der Codeselektion hilft. Bei manuellem Kodieren durch mehrere Kodierer*innen kann das eine ID der Kodierperson sein. Bei KI-gestütztem Kodieren kann das ein numerischer Wert sein, der die Verlässlichkeit des Codes repräsentiert. Die Nutzung des Zusatz-Parameters ist hier nicht spezifiziert und muss gesondert dokumentiert werden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"MER923"</span><span class="fu">,</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"CODE_SELECTION_PENDING"</span><span class="fu">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"sdos difosid hfosidhf osdihof"</span><span class="fu">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"codes"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"75"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"12"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"parameter"</span><span class="fu">:</span> <span class="st">"6"</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
