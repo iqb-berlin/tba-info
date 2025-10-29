@@ -47,32 +47,33 @@ Das IQB hat für die Antworten eine Spezifikation entwickelt. Andere Tools und W
 | value | x | kann verschiedene Datentypen annehmen, s. u. | ["9", null] |
 | subform | - | String; wird benutzt, um das ggf. mehrfache Auftreten der Variablen (z. B. in Kopien bei Unterformularen) zu kennzeichnen | "p01" |
 | code | - | Integer; steht für die zutreffende Kategorie entspr. Kodierschema | 2 |
-| codes | - | Array von möglichen Codes; wird kurzzeitig im Rahmen des Kodierprozesses genutzt | s.u. |
-| score | - | Integer; steht für die Bewertung des Codes, also die Übereinstimmung mit einer als "richtig" angenommenen Antwort | 0 |
+| score | - | Integer; steht für die Bewertung des Codes, also die Übereinstimmung mit einer als "richtig" angenommenen Antwort; üblicherweise steht 0 für "falsch" und 1 für "richtig"; in Modellen mit teilweise richtigen Lösungen (sog. Partial Credit) können z. B. die Werte 0, 1, 2, 3 verwendet werden, wobei die größte Zahl für die vollständig richtige Lösung stehen sollte | 0 |
 
 ## Status
 
 Der Status-Wert übernimmt eine wichtige Anzeigefunktion für die Position einer Antwort im Entstehungs- und Verarbeitungsprozess. Die Datenstruktur wird nicht nur bei der Beantwortung der Testitems oder Fragen im Player genutzt, sondern auch während der Kodierung und Ableitung von neuen Variablen.
 
-| Wert | Beschreibung |
-|--|-------------|
-|`UNSET`|Ausgangszustand beim Anlegen von Variablen. Sollte eine Variable an ein Interaktionselement gebunden sein, dann erhält sie jedoch sofort den Status `NOT_REACHED`.|
-|`NOT_REACHED`|Ausgangszustand beim Anlegen von Variablen, die an ein Interaktionselement gebunden sind.|
-|`DISPLAYED`|Variablen, die an ein Interaktionselement gebunden sind, bekommen diesen Status, wenn sie der Testperson präsentiert wurden - also sichtbar sind.|
-|`PARTLY_DISPLAYED`|Diesen Zustand erhalten abgeleitete Variablen, die von Variablen abgeleitet wurden mit dem Status `PARTLY_DISPLAYED` oder mit `DISPLAYED` sowie außerdem den Status `NOT_REACHED` oder `UNSET`.|
-|`VALUE_CHANGED`|Dieser Status zeigt an, dass eine Interaktion stattgefunden hat und also der Wert (Value) auszuwerten ist. Bei abgeleiteten Variablen zeigt dieser Status eine erfolgreiche Ableitung an.|
-|`DERIVE_ERROR`|Dieser Status zeigt an, dass eine Ableitung fehlgeschlagen ist. Dies kann sich beispielsweise auf einen Typkonflikt (numerisch, Text) beziehen und ist in den meisten Fällen über eine Anpassung des Kodierschemas korrigierbar. Der Status bezieht sich allerdings nicht darauf, ob die zugrundeliegenden Variablen einen unzureichenden Status haben, sondern es geht um technische Fehler beim Ableitungsprozess.|
-|`DERIVE_PENDING`|Dieser Status zeigt an, dass eine Ableitung nicht möglich ist, weil mindestens eine Variable, die zur Ableitung nötig ist, den Status `CODING_INCOMPLETE` oder `CODING_ERROR` hat. Im Arbeitsablauf "wartet" diese Variable also darauf, dass eine manuelle Kodierung zu `CODING_COMPLETE` führt und der Autocoder neu angestoßen wird.|
-|`NO_CODING`|Bei diesem Status wurde festgestellt, dass keine Informationen für eine Kodierung vorliegen (keine Codes sind im Kodierschema definiert). Das stellt eine Fehlersituation dar. |
-|`INVALID`|Es wurde bei diesem Status eine Antwort festgestellt, die außerhalb des zulässigen Bereiches liegt. Beispielsweise wurde zwar zunächst ein Text eingegeben, dann aber alles gelöscht, so dass eine leere Antwort gespeichert wurde. Mit diesem Code werden auch Spaßantworten "Mir ist langweilig" kodiert.|
-|`CODING_INCOMPLETE`|Dieser Code zeigt nach einem Durchlauf einer Kodierprozedur an, dass keiner der vorgesehenen Codes als zutreffend angesehen wurde. Dieser Kodierfall muss dann manuell gesichtet werden.|
-|`CODING_ERROR`|Während der Kodierung ist ein Fehler aufgetreten, der die Bewertung der Antwort verhindert hat. Dies kann ein technischer Fehler bei der Anzeige (Replay) für das manuelle Kodieren sein, aber auch Typkonflikte zwischen dem Wert und dem Kodierschema können die Ursache sein.|
-|`INTENDED_INCOMPLETE`|Die Kodierung der Variablen ist nicht abgeschlossen, aber dies stellt keinen Fehler dar. Es handelt sich hier z. B. um Variablen, die über andere Wege kodiert werden sollen (z. B. Rating oder Übersetzung in Berufe-Codes außerhalb der regulären Kodierprozesse). Es kann auch sein, dass der Variablenwert erst durch eine Ableitung ausgewertet wird und innerhalb der Variable keine isolierte Bewertung möglich ist.|
-|`CODE_SELECTION_PENDING`|Die Kodierung der Variablen führte zu mehreren möglichen Codes. Dies kann vorkommen, wenn (a) mehrere Kodierer*innen denselben Fall kodieren sollen (Mehrfachkodierung bei offenen Antworten) oder (b) eine KI-gestützte Kodierung mehrere Vorschläge liefert. Dann muss als nächster Schritt einer der Codes ausgewählt werden und dieser Statuswert zeigt diesen Zustand an.|
-|`CODING_COMPLETE`|Die Kodierung der Variablen ist erfolgreich abgeschlossen.|
+In der nachfolgenden Tabelle sind alle möglichen Statuswerte aufgelistet. Die letzte Spalte enthält einen numerischen Wert, der statt des String-Wertes in Datenbanken verwendet werden kann, um Speicherplatz zu sparen. Diese numerische Form ist aber nicht Teil der Spezifikation.
+
+| Wert | Beschreibung | Numerisch |
+|--|-------------|--|
+|`UNSET`|Ausgangszustand beim Anlegen von Variablen. Sollte eine Variable an ein Interaktionselement gebunden sein, dann erhält sie jedoch sofort den Status `NOT_REACHED`.|0|
+|`NOT_REACHED`|Ausgangszustand beim Anlegen von Variablen, die an ein Interaktionselement gebunden sind.|1|
+|`DISPLAYED`|Variablen, die an ein Interaktionselement gebunden sind, bekommen diesen Status, wenn sie der Testperson präsentiert wurden - also sichtbar sind.|2|
+|`VALUE_CHANGED`|Dieser Status zeigt an, dass eine Interaktion stattgefunden hat und also der Wert (Value) auszuwerten ist. Bei abgeleiteten Variablen zeigt dieser Status eine erfolgreiche Ableitung an.|3|
+|`DERIVE_ERROR`|Dieser Status zeigt an, dass eine Ableitung fehlgeschlagen ist. Dies kann sich beispielsweise auf einen Typkonflikt (numerisch, Text) beziehen und ist in den meisten Fällen über eine Anpassung des Kodierschemas korrigierbar. Der Status bezieht sich allerdings nicht darauf, ob die zugrundeliegenden Variablen einen unzureichenden Status haben, sondern es geht um technische Fehler beim Ableitungsprozess.|4|
+|`CODING_COMPLETE`|Die Kodierung der Variablen ist erfolgreich abgeschlossen.|5|
+|`NO_CODING`|Bei diesem Status wurde festgestellt, dass keine Informationen für eine Kodierung vorliegen (keine Codes sind im Kodierschema definiert). Das stellt eine Fehlersituation dar. |6|
+|`INVALID`|Es wurde bei diesem Status eine Antwort festgestellt, die außerhalb des zulässigen Bereiches liegt. Beispielsweise wurde zwar zunächst ein Text eingegeben, dann aber alles gelöscht, so dass eine leere Antwort gespeichert wurde. Mit diesem Code werden auch Spaßantworten "Mir ist langweilig" kodiert.|7|
+|`CODING_INCOMPLETE`|Dieser Code zeigt nach einem Durchlauf einer Kodierprozedur an, dass keiner der vorgesehenen Codes als zutreffend angesehen wurde. Dieser Kodierfall muss dann manuell gesichtet werden.|8|
+|`CODING_ERROR`|Während der Kodierung ist ein Fehler aufgetreten, der die Bewertung der Antwort verhindert hat. Dies kann ein technischer Fehler bei der Anzeige (Replay) für das manuelle Kodieren sein, aber auch Typkonflikte zwischen dem Wert und dem Kodierschema können die Ursache sein.|9|
+|`PARTLY_DISPLAYED`|Diesen Zustand erhalten abgeleitete Variablen, die von Variablen abgeleitet wurden mit dem Status `PARTLY_DISPLAYED` oder mit `DISPLAYED` sowie außerdem den Status `NOT_REACHED` oder `UNSET`.|10|
+|`DERIVE_PENDING`|Dieser Status zeigt an, dass eine Ableitung nicht möglich ist, weil mindestens eine Variable, die zur Ableitung nötig ist, den Status `CODING_INCOMPLETE` oder `CODING_ERROR` hat. Im Arbeitsablauf "wartet" diese Variable also darauf, dass eine manuelle Kodierung zu `CODING_COMPLETE` führt und der Autocoder neu angestoßen wird.|11|
+|`INTENDED_INCOMPLETE`|Die Kodierung der Variablen ist nicht abgeschlossen, aber dies stellt keinen Fehler dar. Es handelt sich hier z. B. um Variablen, die über andere Wege kodiert werden sollen (z. B. Rating oder Übersetzung in Berufe-Codes außerhalb der regulären Kodierprozesse). Es kann auch sein, dass der Variablenwert erst durch eine Ableitung ausgewertet wird und innerhalb der Variable keine isolierte Bewertung möglich ist.|12|
 
 ::: {.callout-caution}
 ## Status bei Ableitung
+
 Für die Interpretation der aggregierten (abgeleiteten) Variablen spielt der Status eine herausragende Rolle. [Siehe hier](../missings.qmd#fälle-innerhalb-einer-unit) für eine detaillierte Beschreibung.
 :::
 
@@ -90,29 +91,4 @@ Für die Interpretation der aggregierten (abgeleiteten) Variablen spielt der Sta
 In Computersprachen, die eine strikte Typisierung erzwingen, ist diese Variabilität des Datentyps ärgerlich. JSON als Datenformat bietet dies zwar an, in der Praxis ist aber oft eine Transformation in den Datentyp `String` gebräuchlich.
 :::
 
-### Codes
-
-Für jeden Code, den der Kodierprozess ggf. liefert, kann ein Parameter vom Typ `string` übergeben werden, der dann bei der Codeselektion hilft. Bei manuellem Kodieren durch mehrere Kodierer*innen kann das eine ID der Kodierperson sein. Bei KI-gestütztem Kodieren kann das ein numerischer Wert sein, der die Verlässlichkeit des Codes repräsentiert. Die Nutzung des Zusatz-Parameters ist hier nicht spezifiziert und muss gesondert dokumentiert werden.
-
-```{.json}
-{
-    "id": "MER923",
-    "status": "CODE_SELECTION_PENDING",
-    "value": "sdos difosid hfosidhf osdihof",
-    "codes": [
-        {
-            "id": 4,
-            "parameter": "75"
-        }
-        {
-            "id": 6,
-            "parameter": "12"
-        }
-        {
-            "id": 8,
-            "parameter": "6"
-        }
-    ]
-}
-```
 [^1]: Eine Ausnahme bildet die adaptive Testdurchführung: Dann wird das IQB-Standardformat bei den Antworten angenommen und entsprechend eine Kodierung und Bewertung vorgenommen.
