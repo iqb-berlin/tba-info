@@ -1,0 +1,43 @@
+---
+lang: de
+title: "StarS: Bilder"
+---
+
+Jedes Bild wird als [base64-kodierter](../media/base64.qmd) String in der Unit-Definition übergeben. Der folgende Text beschreibt, wie eine Ausrichtung und eventuell nötige Anpassung erfolgt sowie die Verfahren, wie mit Koordinaten zu arbeiten ist.
+
+# Allgemeine Grundsätze
+
+## Nie Vergrößerung
+
+Ein Bild wird nie vergrößert. Als Anpassung der Größe ist nur das Verkleinern zulässig. Der Grund liegt in einer normalerweise sichtbaren Verschlechterung der Darstellungsqualität.
+
+Man kann diesen Grundsatz ausnutzen, um eine Maximalgröße festzulegen. Ein Bild mit den Maßen 800 x 200 kann auf 400 x 100 verkleinert werden, um noch vollständig angezeigt zu werden, aber es wird nie 1000 x 250 erreichen.
+
+Um die Datenmenge möglichst gering zu halten, die bei einem Test transportiert werden muss, sollte ein Bild nur so groß wie nötig sein.
+
+## Konstante Aspect Ratio
+
+Das Verhältnis von Höhe und Breite eines Bildes wird nie verändert. Das kann zu unerwüscht kleinen Bildern führen, aber in keinem Fall wird der StarS-Player nur die Breite oder nur die Höhe verringern.
+
+# Verkleinerung wenn notwendig
+
+Sollte weniger Platz zur Verfügung stehen, als das Bild in einer 1:1-Darstellung benötigt, wird es nicht abgeschnitten. Eine Verkleinerung mag zu einer "unschönen" Darstellung führen oder sogar die Beantwortung beeinträchtigen. Dies ist jedoch günstiger im Vergleich zu einem Beschneiden: Dann wären Bildteile nicht mehr zu sehen, was sehr sicher zu verfälschten Testergebnissen führen würde.
+
+## Verfügbarer Platz
+
+Der StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.
+
+Ein Bild soll stets einen Mindestabstand zu anderen Elementen haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Manchmal gibt es feste Abstände, manchmal wird der Interaktionstyp Abstände dynamisch anpassen.
+
+## Eck-Buttons: Audio, Weiter
+
+Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Wenn das Bild rechts bzw. links dieser Buttons bleibt, ist z. B. für quadratische Bilder mehr Netto-Platz verfügbar als wenn das Bild unterhalb bzw. oberhalb der Buttons bleiben soll. Letzteres wäre aber für sehr breite Bilder günstiger.
+
+Um eine der beiden Anpassungsoptionen zu wählen, könnte ein Schwellenwert beim Verhältnis von Höhe und Breite nützlich sein. Diese Überlegung ist aktuell in Arbeit.
+
+Es gibt außerdem die Option, die Eck-Buttons nicht in die Berechnung des verfügbaren Platzes einzubeziehen. Der Parameter `imageUseFullArea` legt das Bild ggf. hinter die Buttons. Beim Erstellen des Bildes muss dann diese Möglichkeit in Betracht gezogen werden.
+
+# Koordinaten
+
+* **Relativ**: In den Interaktionsformaten `FIND_ON_IMAGE` und `DROP` werden Koodinaten als "X,Y" angegeben. Dies entspricht der Breiten- und der Höhenangabe, jeweils im Bereich 0..100. Dies wird interpretiert als Prozentangabe der jeweiligen Breite und Höhe des Bildes
+* **Absolut**: Im Interaktionsformat `POLYGON_BUTTONS` werden Pixel-Angaben bei den Punkt-Koordinaten der Polygone erwartet.
