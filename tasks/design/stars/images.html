@@ -1198,13 +1198,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="verfügbarer-platz" class="level2">
 <h2 class="anchored" data-anchor-id="verfügbarer-platz">Verfügbarer Platz</h2>
 <p>Der StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.</p>
-<p>Ein Bild soll stets einen Mindestabstand zu anderen Elementen haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Manchmal gibt es feste Abstände, manchmal wird der Interaktionstyp Abstände dynamisch anpassen.</p>
+<p>Ein Bild soll stets einen Mindestabstand zu anderen Elementen des Interaktionstyps haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Alle Interaktionstypen arbeiten mit festen Abständen.</p>
 </section>
 <section id="eck-buttons-audio-weiter" class="level2">
 <h2 class="anchored" data-anchor-id="eck-buttons-audio-weiter">Eck-Buttons: Audio, Weiter</h2>
-<p>Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Wenn das Bild rechts bzw. links dieser Buttons bleibt, ist z. B. für quadratische Bilder mehr Netto-Platz verfügbar als wenn das Bild unterhalb bzw. oberhalb der Buttons bleiben soll. Letzteres wäre aber für sehr breite Bilder günstiger.</p>
-<p>Um eine der beiden Anpassungsoptionen zu wählen, könnte ein Schwellenwert beim Verhältnis von Höhe und Breite nützlich sein. Diese Überlegung ist aktuell in Arbeit.</p>
-<p>Es gibt außerdem die Option, die Eck-Buttons nicht in die Berechnung des verfügbaren Platzes einzubeziehen. Der Parameter <code>imageUseFullArea</code> legt das Bild ggf. hinter die Buttons. Beim Erstellen des Bildes muss dann diese Möglichkeit in Betracht gezogen werden.</p>
+<p>Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Diese Buttons liegen außerhalb des Interaktionstyps. Es gibt zwei Möglichkeiten, wie diese Buttons in die Ermittlung des verfügbaren Platzes für ein Bild eingehen:</p>
+<ul>
+<li><strong>Standard</strong> Der verfügbare Platz beginnt unterhalb des Audio-Buttons und endet spätestens oberhalb des Weiter-Buttons. Mit diesem Modus ist eine Überlappung nicht möglich.</li>
+<li><code>imageUseFullArea</code> ist auf <code>true</code> gesetzt: Der verfügbare Platz wird ohne Beachtung der beiden Eck-Buttons ermittelt. Mit diesem Modus ist theoretisch eine Überlappung des Eck-Buttons mit dem Bild möglich. Das muss dann durch die Maße bzw. Gestaltung des Bildes verhindert werden (entweder maximale Breite des Bildes 650px - dann gibt es bei &gt;= 1000px Bildschirmbreite kein Problem) oder das Bild enthält in einer oberen linken Ecke keine Bildelemente.</li>
+</ul>
 </section>
 </section>
 <section id="koordinaten" class="level1">

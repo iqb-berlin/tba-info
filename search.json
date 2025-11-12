@@ -4761,7 +4761,7 @@
     "href": "tasks/design/stars/images.html#verfügbarer-platz",
     "title": "StarS: Bilder",
     "section": "Verfügbarer Platz",
-    "text": "Verfügbarer Platz\nDer StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.\nEin Bild soll stets einen Mindestabstand zu anderen Elementen haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Manchmal gibt es feste Abstände, manchmal wird der Interaktionstyp Abstände dynamisch anpassen.",
+    "text": "Verfügbarer Platz\nDer StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.\nEin Bild soll stets einen Mindestabstand zu anderen Elementen des Interaktionstyps haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Alle Interaktionstypen arbeiten mit festen Abständen.",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
@@ -4774,7 +4774,7 @@
     "href": "tasks/design/stars/images.html#eck-buttons-audio-weiter",
     "title": "StarS: Bilder",
     "section": "Eck-Buttons: Audio, Weiter",
-    "text": "Eck-Buttons: Audio, Weiter\nWenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Wenn das Bild rechts bzw. links dieser Buttons bleibt, ist z. B. für quadratische Bilder mehr Netto-Platz verfügbar als wenn das Bild unterhalb bzw. oberhalb der Buttons bleiben soll. Letzteres wäre aber für sehr breite Bilder günstiger.\nUm eine der beiden Anpassungsoptionen zu wählen, könnte ein Schwellenwert beim Verhältnis von Höhe und Breite nützlich sein. Diese Überlegung ist aktuell in Arbeit.\nEs gibt außerdem die Option, die Eck-Buttons nicht in die Berechnung des verfügbaren Platzes einzubeziehen. Der Parameter imageUseFullArea legt das Bild ggf. hinter die Buttons. Beim Erstellen des Bildes muss dann diese Möglichkeit in Betracht gezogen werden.",
+    "text": "Eck-Buttons: Audio, Weiter\nWenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Diese Buttons liegen außerhalb des Interaktionstyps. Es gibt zwei Möglichkeiten, wie diese Buttons in die Ermittlung des verfügbaren Platzes für ein Bild eingehen:\n\nStandard Der verfügbare Platz beginnt unterhalb des Audio-Buttons und endet spätestens oberhalb des Weiter-Buttons. Mit diesem Modus ist eine Überlappung nicht möglich.\nimageUseFullArea ist auf true gesetzt: Der verfügbare Platz wird ohne Beachtung der beiden Eck-Buttons ermittelt. Mit diesem Modus ist theoretisch eine Überlappung des Eck-Buttons mit dem Bild möglich. Das muss dann durch die Maße bzw. Gestaltung des Bildes verhindert werden (entweder maximale Breite des Bildes 650px - dann gibt es bei &gt;= 1000px Bildschirmbreite kein Problem) oder das Bild enthält in einer oberen linken Ecke keine Bildelemente.",
     "crumbs": [
       "Aufgaben entwickeln",
       "Aufgaben gestalten",
