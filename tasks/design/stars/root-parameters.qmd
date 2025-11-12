@@ -18,7 +18,7 @@ Zu Beginn der Unitdefinition ist es erforderlich zu definieren, dass es sich um 
 {
     "id": "stars-unit-definition",
     "version": "1.5",
-    // ...
+    
 }
 ```
 
@@ -62,19 +62,21 @@ Ein Button wird für das Haupt-Audio eingeblendet, wenn in der Unitdefintion ein
 ```json
 {
     "id": "stars-unit-definition",
-    "version": "0.7",
+    "version": "1.4",
     "mainAudio": {
         "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAwYA...", // <1>
         "firstClickLayer": true, // <2>
         "animateButton": false, // <3>
-        "maxPlay": 0 // <4>
-    },
+        "maxPlay": 0, // <4>
+        "disableInteractionUntilComplete": false // <5>
+    }
 }
 ```
 1. `audioSource` enthält die Audio-Sequenz in base64-Kodierung
 2. Wenn `firstClickLayer` auf `true` gesetzt ist, dann wird beim ersten Aufruf eine unsichtbare Fläche über den gesamten Player gelegt. Wenn die Testperson dann irgendwo klickt, wird das als ein Klicken des Audio-Buttons gewertet. Der Layer wird dann sofort entfernt. Standardwert ist `false`, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keinen Layer. 
 3. Wenn `animateButton` auf `true` gesetzt ist, wird der Button nach einiger Zeit animiert (Wackeln). Darüber soll die Testperson auf den Button hingewiesen werden und dazu veranlasst werden, zu klicken. Der Standardwert ist `false`, d. h. wenn die Unit-Definition diese Option nicht enthält, gibt es keine Animation.
 4. Über `maxPlay` kann festgelegt werden, wie oft die Audio-Sequenz gehört werden darf. Für die Vergleichbarkeit der Testergebnisse kann es wichtig sein, diese Anzahl zu begrenzen. Bei Standardwert `0` gibt es keine Beschränkung.
+5. Wenn `true`, dann kann man während der Audio-Laufzeit keine Interaktionen auslösen.
 
 # Weiter-Button
 
@@ -82,7 +84,7 @@ Rechts unten wird ein Button mit einem Pfeil eingeblendet, der zur nächsten Uni
 
 * `NO`: Der Button wird nie angezeigt.
 * `ALWAYS`: Der Button wird unabhängig vom Status der Beantwortung angezeigt. Dies ist die Standardeinstellung, d. h. wenn man den Parameter `continueButton` weglässt, wird der Button stets angezeigt.
-* `ON_MAIN_AUDIO_COMPLETE`: Der Button wird erst angezeigt, wenn das Haupt-Audio vollständig abgespielt wurde. Sollte es kein Haupt-Audio geben, wird der Standardwert `ALWAYS` gesetzt.
+* `ON_MAIN_AUDIO_COMPLETE`/`ON_VIDEO_COMPLETE`: Der Button wird erst angezeigt, wenn das Haupt-Audio bzw. das Video einer Interaktion `VIDEO` vollständig abgespielt wurde. Sollte es kein Haupt-Audio geben, wird der Standardwert `ALWAYS` gesetzt.
 * `ON_ANY_RESPONSE`: Der Button wird erst angezeigt, wenn irgendeine Interaktionsvariable einen gültigen Wert bekommen hat.
 * `ON_FULL_CREDIT`: Der Button wird erst angezeigt, wenn für alle erwarteten Variablen die richtige Lösung gewählt wurde (verwendet z. B. in Übungsaufgaben)
 
@@ -94,6 +96,34 @@ Das Verhalten und die Anzeige des Weiter-Buttons wird ggf. auch durch den Abschn
 
 Ist der Parameter `ribbonBars` auf `true` gesetzt, werden oben und unten gestreifte Bänder dargestellt. Dies soll den Aufgabenmodus "Übungsaufgabe" signalisieren. Dann wissen die Kinder, dass diese Aufgabe der Instruktion bzw. dem Üben der Beantwortung dient und noch keine Bewertung der Antwwort erfolgt.
 
+# Vorgelagertes Kurzzeit-Bild
+
+Nach einem ggf. definierten Haupt-Audio kann ein Bild für eine kurze Zeit eingeblendet werden. Dieses in der Didaktik als "Blitzsehen" bekannte Testformat liegt vor der eigentlichen Interaktion. Folgende Parameter sind möglich:
+
+```json
+{
+    "openingImage": {
+        "imageSource": "data:image/jpeg;base64,//OEZAAAAAAAAAwYA...", // <1>
+        "startTrigger": "UNIT_START", // <2>
+        "startDelayMS": 2000, // <3>
+        "presentationDurationMS": 1500, // <4>
+        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAwYA..." // <5>
+    }
+}
+```
+1. `imageSource` enthält das Bild in base64-Kodierung
+2. `startTrigger` legt fest, durch welches Ereignis die Anzeige ausgelöst werden soll: `UNIT_START` (Standardwert) blendet das Bild nach Start der Unit ein. `START_BUTTON` führt zum Einblenden eines Buttons, den die Testperson klicken muss, um die Anzeige zu starten. `MAIN_AUDIO_END` startet die Anzeige durch das Ende des Haupt-Audios. 
+3. `startDelayMS` legt eine Verzögerung der Anzeige in Millisekunden fest.
+4. `presentationDurationMS` legt die Dauer der Anzeige fest.
+5. Wenn eine `audioSource` festgelegt wurde, dann wird unmittelbar nach der Anzeige des Bildes dieses Audio gespielt. Die nachfolgende Interaktion wird während des Audios noch blockiert, d. h. erst nach Ablauf gilt das vorgelagerte Bild als abgeschlossen.
+
+
 # Interaktion
 
-Die eigentliche Beantwortung ist in der Unitdefinition über die Parameter `interactionType` und `interactionParameter` gesteuert. Diese werden auf den folgenden Seiten beschrieben.
+Die eigentliche Beantwortung wird "Interaktion" bezeichnet. Hierfür gibt es folgende Parameter:
+
+* `interactionType` legt den grundsätzlichen Typ fest. Je nach Typ wird dann ein spezifischer Satz von Parametern erwartet.
+* `interactionParameter` steuert die konkrete Interaktion.
+* `interactionMaxTimeMS` gibt die Möglichkeit, die Beantwortung mit einem Countdown zu verbinden. Die Zeitmessung beginnt mit dem Start der Interaktion (also ggf. nach einem Haupt-Audio und ggf. nach einem vorgelagerten Bild). Nach Ablauf der Zeit wird automatisch zur folgenden Unit gesprungen und damit die Bearbeitung abgebrochen.
+
+Die konkreten Interaktionen sind auf den folgenden Seiten beschrieben.

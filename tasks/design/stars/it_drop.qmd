@@ -4,7 +4,7 @@ title: "StarS: Interaktionstyp `DROP`"
 lightbox: true
 ---
 
-Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild. Klicken Sie unter dem Bild auf **Unitdefintion JSON**, um den JSON-Code anzuzeigen!
+Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind neben- oder untereinander dargestellt. Bei Auswahl eines Buttons wandert dieser auf das Bild. Klicken Sie unter dem Bild auf **Unitdefintion JSON**, um den JSON-Code anzuzeigen!
 
 ![](assets/drop.png)
 
@@ -67,16 +67,20 @@ Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons 
 {
     "variableId": "MK02", // <1>
     "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...", // <2>
-    "text": "Koffer" // <3>
+    "imagePosition": "TOP", // <3>
+    "imageLandingXY": "50,20", // <4>
+    "text": "Koffer" // <5>
 }
 ```
 1. `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `DROP`.
 2. `imageSource` enthält ein Bild in base64-Kodierung
-3. `text` liefert Text für das `<alt>`-Attribut (Unterstützung der Barrierefreiheit)
+3. `imagePosition` legt fest, ob das Bild oberhalb (`TOP`) oder unterhalb (`BOTTOM` Standard) der Buttons angezeigt wird
+4. `imageLandingXY` legt die Position fest, auf die der selektierte Button verschoben wird. Damit kann man von der Mitte ("50,50" Standard) abweichende Orte wählen.
+5. `text` liefert Text für das `<alt>`-Attribut (Unterstützung der Barrierefreiheit)
 
 # Optionen
 
-Hier ist die Liste von Bildern anzugeben, die oben in einer Zeile als Buttons angezeigt werden.
+Hier ist die Liste von Bildern anzugeben, die oben in einer Zeile als Buttons angezeigt werden. Die möglichen Objekte und Parameter siehe [hier](it_buttons.qmd#optionen-als-buttons).
 
 # Auswahl und Antwortwert
 
