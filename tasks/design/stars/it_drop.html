@@ -1206,7 +1206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind oben nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser nach unten auf das Bild. Klicken Sie unter dem Bild auf <strong>Unitdefintion JSON</strong>, um den JSON-Code anzuzeigen!</p>
+<p>Bei diesem Interaktionstyp wird unten ein großes Bild gezeigt. Mehrere Buttons sind neben- oder untereinander dargestellt. Bei Auswahl eines Buttons wandert dieser auf das Bild. Klicken Sie unter dem Bild auf <strong>Unitdefintion JSON</strong>, um den JSON-Code anzuzeigen!</p>
 <p><a href="assets/drop.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/drop.png" class="img-fluid"></a></p>
 <details>
 <summary>
@@ -1263,8 +1263,10 @@ Unitdefintion JSON
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode json code-annotation-code code-with-copy code-annotated"><code class="sourceCode json"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"variableId"</span><span class="fu">:</span> <span class="st">"MK02"</span><span class="fu">,</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"imageSource"</span><span class="fu">:</span> <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK..."</span><span class="fu">,</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Koffer"</span></span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"imagePosition"</span><span class="fu">:</span> <span class="st">"TOP"</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"imageLandingXY"</span><span class="fu">:</span> <span class="st">"50,20"</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Koffer"</span></span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
@@ -1276,13 +1278,21 @@ Unitdefintion JSON
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="3"><code>text</code> liefert Text für das <code>&lt;alt&gt;</code>-Attribut (Unterstützung der Barrierefreiheit)</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="3"><code>imagePosition</code> legt fest, ob das Bild oberhalb (<code>TOP</code>) oder unterhalb (<code>BOTTOM</code> Standard) der Buttons angezeigt wird</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="5" data-code-annotation="4"><code>imageLandingXY</code> legt die Position fest, auf die der selektierte Button verschoben wird. Damit kann man von der Mitte (“50,50” Standard) abweichende Orte wählen.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="6" data-code-annotation="5"><code>text</code> liefert Text für das <code>&lt;alt&gt;</code>-Attribut (Unterstützung der Barrierefreiheit)</span>
 </dd>
 </dl>
 </section>
 <section id="optionen" class="level1">
 <h1>Optionen</h1>
-<p>Hier ist die Liste von Bildern anzugeben, die oben in einer Zeile als Buttons angezeigt werden.</p>
+<p>Hier ist die Liste von Bildern anzugeben, die oben in einer Zeile als Buttons angezeigt werden. Die möglichen Objekte und Parameter siehe <a href="../../../tasks/design/stars/it_buttons.html#optionen-als-buttons">hier</a>.</p>
 </section>
 <section id="auswahl-und-antwortwert" class="level1">
 <h1>Auswahl und Antwortwert</h1>

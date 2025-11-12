@@ -1482,16 +1482,18 @@ Unitdefintion JSON
 </details>
 <section id="variableid" class="level1">
 <h1><code>variableId</code></h1>
-<p>Die Antwort wird stets mit einer <code>id</code> gespeichert. Dies nennt man “Variable”. Der Standard-Wert ist <code>BUTTONS</code>. Diese Variablen-ID muss im Bereich Kodierung verwendet werden.</p>
-<p>Wenn man eine bestimmte Variablen-ID in den Antwortdaten haben möchte, kann man diesen Wert anpassen. In der Kodierung muss dann auch die Variablen-ID geändert werden.</p>
+<p>Die Antwort wird stets mit einer <code>id</code> gespeichert. Dies nennt man “Variable”. Der Standard-Wert ist “BUTTONS”. Wenn man eine bestimmte Variablen-ID in den Antwortdaten haben möchte, kann man diesen Wert anpassen.</p>
+<p>Diese Variablen-ID wird ggf. im Bereich <a href="../../../tasks/design/stars/responses.html">Kodierung</a> referenziert.</p>
 </section>
 <section id="stimulus-imagetext" class="level1">
 <h1>Stimulus Image/Text</h1>
 <p>Zusätzlich oder alternativ zum Haupt-Audio kann Text oder ein Image übergeben werden.</p>
 <ul>
 <li><code>imageSource</code>: Image als base64-kodierter String</li>
-<li><code>imagePosition</code>: Man kann über die Konstanten <code>TOP</code> und <code>LEFT</code> (Standard) die Position des Images beeinflussen.</li>
-<li><code>text</code>: Normaler String, wird ggf. nach Bedarf umgebrochen.</li>
+<li><code>imagePosition</code>: Man kann über die Konstanten <code>TOP</code> (darüber) und <code>LEFT</code> (linkerhand, Standard) die Position des Images relativ zu den Buttons beeinflussen.</li>
+<li><code>imageMaxWidthPx</code>, <code>imageMaxHeightPx</code>: Über diese Parameter kann man verhindern, dass das Image zu stark vergrößert wird.</li>
+<li><code>imageUseFullArea</code>: Normalerweise versucht der Player, das Image so groß wie möglich darzustellen und achtet dabei darauf, dass der Ort des Audio-Buttons nicht vom Bild erreicht wird. Wenn dieser Parameter auf <code>true</code> gesetzt ist, dann wird der Audio-Button ignoriert und überdeckt dann ggf. Teile des Bildes. Man muss in diesem Fall bei der Gestaltung des Bildes einen (möglichen) Audio-Button mitdenken.</li>
+<li><code>text</code>: Es wird ein Text dargestellt. Sollte außerdem ein Bild definiert sein, dann befindet sich der Text darüber. Der Text wird umgebrochen, wenn zu wenig Platz ist.</li>
 </ul>
 </section>
 <section id="darstellung-der-buttons" class="level1">
@@ -1499,21 +1501,23 @@ Unitdefintion JSON
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-6"><pre class="sourceCode json code-annotation-code code-with-copy code-annotated"><code class="sourceCode json"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-2" class="code-annotation-target"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"buttonType"</span><span class="fu">:</span> <span class="st">"BIG_SQUARE"</span><span class="fu">,</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-6-3" class="code-annotation-target"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"numberOfRows"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-6-4" class="code-annotation-target"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"options"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"buttons"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="annotated-cell-6-6"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">{</span></span>
-<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Ja"</span></span>
-<span id="annotated-cell-6-8"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span><span class="ot">,</span></span>
-<span id="annotated-cell-6-9"><a href="#annotated-cell-6-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">{</span></span>
-<span id="annotated-cell-6-10"><a href="#annotated-cell-6-10" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Nein"</span></span>
-<span id="annotated-cell-6-11"><a href="#annotated-cell-6-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
-<span id="annotated-cell-6-12"><a href="#annotated-cell-6-12" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
-<span id="annotated-cell-6-13"><a href="#annotated-cell-6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="annotated-cell-6-14"><a href="#annotated-cell-6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-6-4" class="code-annotation-target"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"multiSelect"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-6-5" class="code-annotation-target"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"triggerNavigationOnSelect"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-6-6" class="code-annotation-target"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"options"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"buttons"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="annotated-cell-6-8"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">{</span></span>
+<span id="annotated-cell-6-9"><a href="#annotated-cell-6-9" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Ja"</span></span>
+<span id="annotated-cell-6-10"><a href="#annotated-cell-6-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="annotated-cell-6-11"><a href="#annotated-cell-6-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">{</span></span>
+<span id="annotated-cell-6-12"><a href="#annotated-cell-6-12" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Nein"</span></span>
+<span id="annotated-cell-6-13"><a href="#annotated-cell-6-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
+<span id="annotated-cell-6-14"><a href="#annotated-cell-6-14" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
+<span id="annotated-cell-6-15"><a href="#annotated-cell-6-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="annotated-cell-6-16"><a href="#annotated-cell-6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="2" data-code-annotation="1"><code>buttonType</code> legt Form, Größe und teilw. Position fest. Es sind Quadrate in verschiedenen Größen (<code>BIG_SQUARE</code>, <code>MEDIUM_SQUARE</code> Standard, <code>SMALL_SQUARE</code>), Text (<code>TEXT</code>) und <code>CIRCLE</code> als runder Button möglich.</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="2" data-code-annotation="1"><code>buttonType</code> legt Form, Größe und teilw. Position fest. Es sind Quadrate in verschiedenen Größen (<code>EXTRA_LARGE_SQUARE</code>, <code>BIG_SQUARE</code>, <code>MEDIUM_SQUARE</code> Standard, <code>SMALL_SQUARE</code>), ein breit gezogenes Rechteck (<code>LONG_RECTANGLE</code>), Text (<code>TEXT</code>) und <code>CIRCLE</code> als runder Button möglich.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
 <dd>
@@ -1521,12 +1525,25 @@ Unitdefintion JSON
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="4" data-code-annotation="3"><code>options</code> gibt es in zwei Varianten (s. u.)</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="4" data-code-annotation="3"><code>multiSelect</code> entscheidet, ob mehrere Buttons geklickt werden können</span>
+</dd>
+<dt data-target-cell="annotated-cell-6" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="5" data-code-annotation="4">Wenn <code>triggerNavigationOnSelect</code> auf <code>true</code> gesetzt ist, dann löst die Auswahl eines Buttons sofort die Navigation zur nächsten Unit aus.</span>
+</dd>
+<dt data-target-cell="annotated-cell-6" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="6" data-code-annotation="5"><code>options</code> gibt es in zwei Varianten (s. u.)</span>
 </dd>
 </dl>
 <section id="optionen-als-buttons" class="level2">
 <h2 class="anchored" data-anchor-id="optionen-als-buttons">Optionen als <code>buttons</code></h2>
-<p>In dieser Variante (s. Beispiel oben) muss jeder Button einzeln definiert werden. Es ist ein <code>text</code>, ein <code>imageSource</code> oder ein <code>icon</code> mit den möglichen Werten <code>CHECK_GREEN</code>, <code>CLOSE_RED</code> und <code>CLAP_HANDS</code> möglich.</p>
+<p>In dieser Variante (s. Beispiel oben) muss jeder Button einzeln definiert werden. Mögliche Datenstrukturen an dieser Stelle:</p>
+<ul>
+<li>Objekt mit einem Parameter <code>text</code>, dessen Wert in dem Button angezeigt wird,</li>
+<li>Objekt mit den Parametern <code>imageSource</code> (base64-kodiertes Bild), <code>label</code> für eine textliche Beschreibung der Option für spätere Auswertungen und <code>audioSource</code>. Der letzte Parameter führt zur Anzeige eines kleinen Play-Buttons in der Nähe des Buttons. Bei einem Klick darauf wird die Audio-Sequenz abgespielt. Dies kann zum Vorlesen der Option genutzt werden.</li>
+<li>Objekt mit dem Parameter <code>icon</code> mit den möglichen Werten <code>SMILEY_1</code>..<code>SMILEY_5</code>, <code>CHECK_GREEN</code>, <code>CLOSE_RED</code> und <code>CLAP_HANDS</code> möglich.</li>
+</ul>
 </section>
 <section id="optionen-als-repeatbutton" class="level2">
 <h2 class="anchored" data-anchor-id="optionen-als-repeatbutton">Optionen als <code>repeatButton</code></h2>

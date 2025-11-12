@@ -1180,6 +1180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#haupt-audio" id="toc-haupt-audio" class="nav-link" data-scroll-target="#haupt-audio">Haupt-Audio</a></li>
   <li><a href="#weiter-button" id="toc-weiter-button" class="nav-link" data-scroll-target="#weiter-button">Weiter-Button</a></li>
   <li><a href="#flatterband" id="toc-flatterband" class="nav-link" data-scroll-target="#flatterband">Flatterband</a></li>
+  <li><a href="#vorgelagertes-kurzzeit-bild" id="toc-vorgelagertes-kurzzeit-bild" class="nav-link" data-scroll-target="#vorgelagertes-kurzzeit-bild">Vorgelagertes Kurzzeit-Bild</a></li>
   <li><a href="#interaktion" id="toc-interaktion" class="nav-link" data-scroll-target="#interaktion">Interaktion</a></li>
   </ul>
 </nav>
@@ -1218,7 +1219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"stars-unit-definition"</span><span class="fu">,</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">...</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="hintergrundfarbe" class="level1">
@@ -1256,14 +1257,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ein Button wird für das Haupt-Audio eingeblendet, wenn in der Unitdefintion eine Audiosequenz gefunden wurde:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode json code-annotation-code code-with-copy code-annotated"><code class="sourceCode json"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"stars-unit-definition"</span><span class="fu">,</span></span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.7"</span><span class="fu">,</span></span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"1.4"</span><span class="fu">,</span></span>
 <span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"mainAudio"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"audioSource"</span><span class="fu">:</span> <span class="st">"data:audio/mpeg;base64,//OEZAAAAAAAAAwYA..."</span><span class="fu">,</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"firstClickLayer"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-7" class="code-annotation-target"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"animateButton"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-8" class="code-annotation-target"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"maxPlay"</span><span class="fu">:</span> <span class="dv">0</span></span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-8" class="code-annotation-target"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"maxPlay"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-2-9" class="code-annotation-target"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"disableInteractionUntilComplete"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
@@ -1281,6 +1283,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dd>
 <span data-code-cell="annotated-cell-2" data-code-lines="8" data-code-annotation="4">Über <code>maxPlay</code> kann festgelegt werden, wie oft die Audio-Sequenz gehört werden darf. Für die Vergleichbarkeit der Testergebnisse kann es wichtig sein, diese Anzahl zu begrenzen. Bei Standardwert <code>0</code> gibt es keine Beschränkung.</span>
 </dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="9" data-code-annotation="5">Wenn <code>true</code>, dann kann man während der Audio-Laufzeit keine Interaktionen auslösen.</span>
+</dd>
 </dl>
 </section>
 <section id="weiter-button" class="level1">
@@ -1289,7 +1295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>NO</code>: Der Button wird nie angezeigt.</li>
 <li><code>ALWAYS</code>: Der Button wird unabhängig vom Status der Beantwortung angezeigt. Dies ist die Standardeinstellung, d.&nbsp;h. wenn man den Parameter <code>continueButton</code> weglässt, wird der Button stets angezeigt.</li>
-<li><code>ON_MAIN_AUDIO_COMPLETE</code>: Der Button wird erst angezeigt, wenn das Haupt-Audio vollständig abgespielt wurde. Sollte es kein Haupt-Audio geben, wird der Standardwert <code>ALWAYS</code> gesetzt.</li>
+<li><code>ON_MAIN_AUDIO_COMPLETE</code>/<code>ON_VIDEO_COMPLETE</code>: Der Button wird erst angezeigt, wenn das Haupt-Audio bzw. das Video einer Interaktion <code>VIDEO</code> vollständig abgespielt wurde. Sollte es kein Haupt-Audio geben, wird der Standardwert <code>ALWAYS</code> gesetzt.</li>
 <li><code>ON_ANY_RESPONSE</code>: Der Button wird erst angezeigt, wenn irgendeine Interaktionsvariable einen gültigen Wert bekommen hat.</li>
 <li><code>ON_FULL_CREDIT</code>: Der Button wird erst angezeigt, wenn für alle erwarteten Variablen die richtige Lösung gewählt wurde (verwendet z. B. in Übungsaufgaben)</li>
 </ul>
@@ -1311,9 +1317,50 @@ Hinweis
 <h1>Flatterband</h1>
 <p>Ist der Parameter <code>ribbonBars</code> auf <code>true</code> gesetzt, werden oben und unten gestreifte Bänder dargestellt. Dies soll den Aufgabenmodus “Übungsaufgabe” signalisieren. Dann wissen die Kinder, dass diese Aufgabe der Instruktion bzw. dem Üben der Beantwortung dient und noch keine Bewertung der Antwwort erfolgt.</p>
 </section>
+<section id="vorgelagertes-kurzzeit-bild" class="level1">
+<h1>Vorgelagertes Kurzzeit-Bild</h1>
+<p>Nach einem ggf. definierten Haupt-Audio kann ein Bild für eine kurze Zeit eingeblendet werden. Dieses in der Didaktik als “Blitzsehen” bekannte Testformat liegt vor der eigentlichen Interaktion. Folgende Parameter sind möglich:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode json code-annotation-code code-with-copy code-annotated"><code class="sourceCode json"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"openingImage"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"imageSource"</span><span class="fu">:</span> <span class="st">"data:image/jpeg;base64,//OEZAAAAAAAAAwYA..."</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"startTrigger"</span><span class="fu">:</span> <span class="st">"UNIT_START"</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-5" class="code-annotation-target"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"startDelayMS"</span><span class="fu">:</span> <span class="dv">2000</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-6" class="code-annotation-target"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"presentationDurationMS"</span><span class="fu">:</span> <span class="dv">1500</span><span class="fu">,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-3-7" class="code-annotation-target"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"audioSource"</span><span class="fu">:</span> <span class="st">"data:audio/mpeg;base64,//OEZAAAAAAAAAwYA..."</span></span>
+<span id="annotated-cell-3-8"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="annotated-cell-3-9"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="3" data-code-annotation="1"><code>imageSource</code> enthält das Bild in base64-Kodierung</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="2"><code>startTrigger</code> legt fest, durch welches Ereignis die Anzeige ausgelöst werden soll: <code>UNIT_START</code> (Standardwert) blendet das Bild nach Start der Unit ein. <code>START_BUTTON</code> führt zum Einblenden eines Buttons, den die Testperson klicken muss, um die Anzeige zu starten. <code>MAIN_AUDIO_END</code> startet die Anzeige durch das Ende des Haupt-Audios.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="5" data-code-annotation="3"><code>startDelayMS</code> legt eine Verzögerung der Anzeige in Millisekunden fest.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="6" data-code-annotation="4"><code>presentationDurationMS</code> legt die Dauer der Anzeige fest.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="7" data-code-annotation="5">Wenn eine <code>audioSource</code> festgelegt wurde, dann wird unmittelbar nach der Anzeige des Bildes dieses Audio gespielt. Die nachfolgende Interaktion wird während des Audios noch blockiert, d.&nbsp;h. erst nach Ablauf gilt das vorgelagerte Bild als abgeschlossen.</span>
+</dd>
+</dl>
+</section>
 <section id="interaktion" class="level1">
 <h1>Interaktion</h1>
-<p>Die eigentliche Beantwortung ist in der Unitdefinition über die Parameter <code>interactionType</code> und <code>interactionParameter</code> gesteuert. Diese werden auf den folgenden Seiten beschrieben.</p>
+<p>Die eigentliche Beantwortung wird “Interaktion” bezeichnet. Hierfür gibt es folgende Parameter:</p>
+<ul>
+<li><code>interactionType</code> legt den grundsätzlichen Typ fest. Je nach Typ wird dann ein spezifischer Satz von Parametern erwartet.</li>
+<li><code>interactionParameter</code> steuert die konkrete Interaktion.</li>
+<li><code>interactionMaxTimeMS</code> gibt die Möglichkeit, die Beantwortung mit einem Countdown zu verbinden. Die Zeitmessung beginnt mit dem Start der Interaktion (also ggf. nach einem Haupt-Audio und ggf. nach einem vorgelagerten Bild). Nach Ablauf der Zeit wird automatisch zur folgenden Unit gesprungen und damit die Bearbeitung abgebrochen.</li>
+</ul>
+<p>Die konkreten Interaktionen sind auf den folgenden Seiten beschrieben.</p>
 
 
 </section>
