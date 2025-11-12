@@ -27,15 +27,14 @@ Sollte weniger Platz zur Verfügung stehen, als das Bild in einer 1:1-Darstellun
 
 Der StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.
 
-Ein Bild soll stets einen Mindestabstand zu anderen Elementen haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Manchmal gibt es feste Abstände, manchmal wird der Interaktionstyp Abstände dynamisch anpassen.
+Ein Bild soll stets einen Mindestabstand zu anderen Elementen des Interaktionstyps haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Alle Interaktionstypen arbeiten mit festen Abständen.
 
 ## Eck-Buttons: Audio, Weiter
 
-Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Wenn das Bild rechts bzw. links dieser Buttons bleibt, ist z. B. für quadratische Bilder mehr Netto-Platz verfügbar als wenn das Bild unterhalb bzw. oberhalb der Buttons bleiben soll. Letzteres wäre aber für sehr breite Bilder günstiger.
+Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Diese Buttons liegen außerhalb des Interaktionstyps. Es gibt zwei Möglichkeiten, wie diese Buttons in die Ermittlung des verfügbaren Platzes für ein Bild eingehen:
 
-Um eine der beiden Anpassungsoptionen zu wählen, könnte ein Schwellenwert beim Verhältnis von Höhe und Breite nützlich sein. Diese Überlegung ist aktuell in Arbeit.
-
-Es gibt außerdem die Option, die Eck-Buttons nicht in die Berechnung des verfügbaren Platzes einzubeziehen. Der Parameter `imageUseFullArea` legt das Bild ggf. hinter die Buttons. Beim Erstellen des Bildes muss dann diese Möglichkeit in Betracht gezogen werden.
+* **Standard** Der verfügbare Platz beginnt unterhalb des Audio-Buttons und endet spätestens oberhalb des Weiter-Buttons. Mit diesem Modus ist eine Überlappung nicht möglich.
+* `imageUseFullArea` ist auf `true` gesetzt: Der verfügbare Platz wird ohne Beachtung der beiden Eck-Buttons ermittelt. Mit diesem Modus ist theoretisch eine Überlappung des Eck-Buttons mit dem Bild möglich. Das muss dann durch die Maße bzw. Gestaltung des Bildes verhindert werden (entweder maximale Breite des Bildes 650px - dann gibt es bei >= 1000px Bildschirmbreite kein Problem) oder das Bild enthält in einer oberen linken Ecke keine Bildelemente.
 
 # Koordinaten
 
