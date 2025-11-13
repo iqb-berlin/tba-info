@@ -116,14 +116,3 @@ Nach einem ggf. definierten Haupt-Audio kann ein Bild für eine kurze Zeit einge
 3. `startDelayMS` legt eine Verzögerung der Anzeige in Millisekunden fest.
 4. `presentationDurationMS` legt die Dauer der Anzeige fest.
 5. Wenn eine `audioSource` festgelegt wurde, dann wird unmittelbar nach der Anzeige des Bildes dieses Audio gespielt. Die nachfolgende Interaktion wird während des Audios noch blockiert, d. h. erst nach Ablauf gilt das vorgelagerte Bild als abgeschlossen.
-
-
-# Interaktion
-
-Die eigentliche Beantwortung wird "Interaktion" bezeichnet. Hierfür gibt es folgende Parameter:
-
-* `interactionType` legt den grundsätzlichen Typ fest. Je nach Typ wird dann ein spezifischer Satz von Parametern erwartet.
-* `interactionParameter` steuert die konkrete Interaktion.
-* `interactionMaxTimeMS` gibt die Möglichkeit, die Beantwortung mit einem Countdown zu verbinden. Die Zeitmessung beginnt mit dem Start der Interaktion (also ggf. nach einem Haupt-Audio und ggf. nach einem vorgelagerten Bild). Nach Ablauf der Zeit wird automatisch zur folgenden Unit gesprungen und damit die Bearbeitung abgebrochen.
-
-Die konkreten Interaktionen sind auf den folgenden Seiten beschrieben.
