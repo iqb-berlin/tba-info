@@ -1,0 +1,32 @@
+---
+lang: de
+title: "StarS: Interaktionstyp `POLYGON_BUTTONS`"
+lightbox: true
+---
+
+Bei diesem Interaktionstyp werden Vielecke gezeigt. Ein oder mehrere Vielecke können über Klick/Tippen ausgewählt werden (visuelle Rückmeldung: Farbinvertierung).
+
+# Parameter
+
+* `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `POLYGON_BUTTONS`.
+* `multiSelect` entscheidet, ob mehrere Buttons geklickt werden können
+* `options` spezifiziert die Polygone:
+  - `points`: Ein string genau in der Syntax, wie Polygone in svg definiert werden (s. u.)
+  - `label`: Dieser Text kann als unsichbarer Text für die Verbesserung der Barrierefreiheit genutzt werden. Außerdem kann damit in Rückmeldungen die gewählte Option benannt werden, ohne die Figur zeichnen zu müssen.
+
+Die Attribute für die Linie der Polygone (stroke) und die Füllfarbe (fill) können nicht gesetzt werden. Der Player verwendet hierfür Standard-Werte.
+
+# Koordinaten
+
+Die Koordinaten aller Polygone beziehen sich auf dieselbe Zeichnungsfläche (canvas-Element). Es ist daher ratsam, alle Polygone gemeinsam mit einem Zeichnungsprogramm zu zeichnen und dann die Werte des points-Attributes in die Unit-Definition zu übertragen.
+
+Beim Zeichnen wird der Player ggf. vorhandenen Rand entfernen und die Gruppe der Buttons zentrieren.
+
+# Antwortwert
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `POLYGON_BUTTONS` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](responses.qmd)).
+
+Für `value` muss unterschieden werden, ob `multiSelect` gesetzt wurde:
+
+* `multiSelect` `true`: Der Antwortwert ist ein String. Jedes Zeichen ist `0` oder `1` und steht für einen Button, ob er gewählt wurde oder nicht. Die Reihenfolge der Zeichen richtet sich nach der Position der Polygone in der `options`-Liste.
+* `multiSelect` `false`: Der Antwortwert ist eine Zahl mit der Position des gewählten Polygons in der `options`-Liste. `1` steht für den ersten Button.
