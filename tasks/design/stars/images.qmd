@@ -1,9 +1,42 @@
 ---
 lang: de
 title: "StarS: Bilder"
+lightbox: true
 ---
 
 Jedes Bild wird als [base64-kodierter](../media/base64.qmd) String in der Unit-Definition übergeben. Der folgende Text beschreibt, wie eine Ausrichtung und eventuell nötige Anpassung erfolgt sowie die Verfahren, wie mit Koordinaten zu arbeiten ist.
+
+# Verfügbarer Platz
+
+Wieviel Platz eine Interaktion zur Verfügung hat, richtet sich nach folgenden Einstellungen (s. Grafik):
+
+![](assets/StarsPlayerHeightWidth.png)
+
+* Der optionale **Übungsmodus** benötigt Platz oben und unten für einen gebänderten Streifen.
+* Der optionale **Audio-Button** braucht Platz oben links im Ruhezustand (nur Button) und im aktiven Zustand (animierte Grafik rechts daneben).
+* Der optionale **Weiter-Button** benötigt Platz in der rechten unteren Ecke.
+
+Es verbleibt ein rechteckiger Bereich, der im Querformat oder im Hochformat genutzt für Breite und Höhe unterschiedliche Werte hat.
+
+## Querformat
+
+Die verfügbare **Breite** ermittelt sich über **F**.
+
+Die verfügbare **Höhe** ermittelt sich über **A**
+* wenn Audio minus **B**
+* wenn Weiter-Button minus **D**
+
+# Hochformat
+
+Die verfügbare **Breite** ermittelt sich über **F**
+* wenn Audio minus **G**
+  - wenn man die verfügbare Fläche mittig besetzten will, dann nochmal minus **G**; Weiter-Button spielt dann keine Rolle
+* wenn Weiter-Button
+  - minus **H**, wenn nicht bereits rechts durch den Audio-Button reduziert wurde
+  - nochmal minus **H**, wenn nicht bereits links durch den Audio-Button reduziert wurde und man die verfügbare Fläche mittig besetzten will
+
+Die verfügbare **Höhe** ermittelt sich über **A**
+* wenn Übungsmodus minus **C** und minus **E**
 
 # Allgemeine Grundsätze
 
