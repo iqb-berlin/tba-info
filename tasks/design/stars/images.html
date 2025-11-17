@@ -45,6 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -1165,14 +1168,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#allgemeine-grundsätze" id="toc-allgemeine-grundsätze" class="nav-link active" data-scroll-target="#allgemeine-grundsätze">Allgemeine Grundsätze</a>
+  <li><a href="#verfügbarer-platz" id="toc-verfügbarer-platz" class="nav-link active" data-scroll-target="#verfügbarer-platz">Verfügbarer Platz</a>
+  <ul class="collapse">
+  <li><a href="#querformat" id="toc-querformat" class="nav-link" data-scroll-target="#querformat">Querformat</a></li>
+  </ul></li>
+  <li><a href="#hochformat" id="toc-hochformat" class="nav-link" data-scroll-target="#hochformat">Hochformat</a></li>
+  <li><a href="#allgemeine-grundsätze" id="toc-allgemeine-grundsätze" class="nav-link" data-scroll-target="#allgemeine-grundsätze">Allgemeine Grundsätze</a>
   <ul class="collapse">
   <li><a href="#nie-vergrößerung" id="toc-nie-vergrößerung" class="nav-link" data-scroll-target="#nie-vergrößerung">Nie Vergrößerung</a></li>
   <li><a href="#konstante-aspect-ratio" id="toc-konstante-aspect-ratio" class="nav-link" data-scroll-target="#konstante-aspect-ratio">Konstante Aspect Ratio</a></li>
   </ul></li>
   <li><a href="#verkleinerung-wenn-notwendig" id="toc-verkleinerung-wenn-notwendig" class="nav-link" data-scroll-target="#verkleinerung-wenn-notwendig">Verkleinerung wenn notwendig</a>
   <ul class="collapse">
-  <li><a href="#verfügbarer-platz" id="toc-verfügbarer-platz" class="nav-link" data-scroll-target="#verfügbarer-platz">Verfügbarer Platz</a></li>
+  <li><a href="#verfügbarer-platz-1" id="toc-verfügbarer-platz-1" class="nav-link" data-scroll-target="#verfügbarer-platz-1">Verfügbarer Platz</a></li>
   <li><a href="#eck-buttons-audio-weiter" id="toc-eck-buttons-audio-weiter" class="nav-link" data-scroll-target="#eck-buttons-audio-weiter">Eck-Buttons: Audio, Weiter</a></li>
   </ul></li>
   <li><a href="#koordinaten" id="toc-koordinaten" class="nav-link" data-scroll-target="#koordinaten">Koordinaten</a></li>
@@ -1202,6 +1210,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Jedes Bild wird als <a href="../../../tasks/design/media/base64.html">base64-kodierter</a> String in der Unit-Definition übergeben. Der folgende Text beschreibt, wie eine Ausrichtung und eventuell nötige Anpassung erfolgt sowie die Verfahren, wie mit Koordinaten zu arbeiten ist.</p>
+<section id="verfügbarer-platz" class="level1">
+<h1>Verfügbarer Platz</h1>
+<p>Wieviel Platz eine Interaktion zur Verfügung hat, richtet sich nach folgenden Einstellungen (s. Grafik):</p>
+<p><a href="assets/StarsPlayerHeightWidth.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/StarsPlayerHeightWidth.png" class="img-fluid"></a></p>
+<ul>
+<li>Der optionale <strong>Übungsmodus</strong> benötigt Platz oben und unten für einen gebänderten Streifen.</li>
+<li>Der optionale <strong>Audio-Button</strong> braucht Platz oben links im Ruhezustand (nur Button) und im aktiven Zustand (animierte Grafik rechts daneben).</li>
+<li>Der optionale <strong>Weiter-Button</strong> benötigt Platz in der rechten unteren Ecke.</li>
+</ul>
+<p>Es verbleibt ein rechteckiger Bereich, der im Querformat oder im Hochformat genutzt für Breite und Höhe unterschiedliche Werte hat.</p>
+<section id="querformat" class="level2">
+<h2 class="anchored" data-anchor-id="querformat">Querformat</h2>
+<p>Die verfügbare <strong>Breite</strong> ermittelt sich über <strong>F</strong>.</p>
+<p>Die verfügbare <strong>Höhe</strong> ermittelt sich über <strong>A</strong> * wenn Audio minus <strong>B</strong> * wenn Weiter-Button minus <strong>D</strong></p>
+</section>
+</section>
+<section id="hochformat" class="level1">
+<h1>Hochformat</h1>
+<p>Die verfügbare <strong>Breite</strong> ermittelt sich über <strong>F</strong> * wenn Audio minus <strong>G</strong> - wenn man die verfügbare Fläche mittig besetzten will, dann nochmal minus <strong>G</strong>; Weiter-Button spielt dann keine Rolle * wenn Weiter-Button - minus <strong>H</strong>, wenn nicht bereits rechts durch den Audio-Button reduziert wurde - nochmal minus <strong>H</strong>, wenn nicht bereits links durch den Audio-Button reduziert wurde und man die verfügbare Fläche mittig besetzten will</p>
+<p>Die verfügbare <strong>Höhe</strong> ermittelt sich über <strong>A</strong> * wenn Übungsmodus minus <strong>C</strong> und minus <strong>E</strong></p>
+</section>
 <section id="allgemeine-grundsätze" class="level1">
 <h1>Allgemeine Grundsätze</h1>
 <section id="nie-vergrößerung" class="level2">
@@ -1218,8 +1247,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="verkleinerung-wenn-notwendig" class="level1">
 <h1>Verkleinerung wenn notwendig</h1>
 <p>Sollte weniger Platz zur Verfügung stehen, als das Bild in einer 1:1-Darstellung benötigt, wird es nicht abgeschnitten. Eine Verkleinerung mag zu einer “unschönen” Darstellung führen oder sogar die Beantwortung beeinträchtigen. Dies ist jedoch günstiger im Vergleich zu einem Beschneiden: Dann wären Bildteile nicht mehr zu sehen, was sehr sicher zu verfälschten Testergebnissen führen würde.</p>
-<section id="verfügbarer-platz" class="level2">
-<h2 class="anchored" data-anchor-id="verfügbarer-platz">Verfügbarer Platz</h2>
+<section id="verfügbarer-platz-1" class="level2">
+<h2 class="anchored" data-anchor-id="verfügbarer-platz-1">Verfügbarer Platz</h2>
 <p>Der StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.</p>
 <p>Ein Bild soll stets einen Mindestabstand zu anderen Elementen des Interaktionstyps haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Alle Interaktionstypen arbeiten mit festen Abständen.</p>
 </section>
@@ -1700,6 +1729,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
