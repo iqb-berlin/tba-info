@@ -7,105 +7,9 @@ title: "End-to-end-Test im IQB-Testcenter"
 
 Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer\*innen getestet werden. Diese Art der Testung nennt sich **End-to-end-Testung** oder auch **Akzeptanztest**. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden
 
-Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen **E2E-Testungen** und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer\*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.
+Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen **E2E-Testungen** und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Die Automatisierung erfolgte mit **Cypress**. 
 
-Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge aus eigenen Erfahrungen geben.
-
-# Eigene Testszenarien entwerfen
-
-Eine eigens entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.
-
-Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch, alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.
-
-* Können sich die in der Testtaker-XML angelegten Testpersonen am Testcenter anmelden?
-* Können die angelegten Booklets gestartet werden?
-* Werden die vorgesehenen Aufgaben in festgelegter Reihenfolge dargestellt?
-* Funktioniert das Blättern zwischen den Aufgaben auf die gewünschte Weise?
-* Sind vorgesehene Bezeichner und Schaltflächen vorhanden?
-* Darf erst zur nächsten Aufgabe geblättert werden, wenn Pflichtfelder zuvor ausgefüllt wurden?
-* Wenn Zeitbeschränkungen eingerichtet sind, sind diese während der Testung aktiv und funktional?
-* Weisen Aufgabenelemente die gewünschten Funktionen auf, sprich können diese wie vorgesehen bedient werden?
-* Werden die gegebenen Antworten auch korrekt gespeichert?
-
-Sind Schwerpunkte definiert, können weitere Überlegungen angestellt werden:
-
-* Welche Testdaten werden benötigt?
-* Auf welchen Endgeräten und mit welchen Browsern soll die Studie durchgeführt werden?
-* In welchem Stadium der Studienplanung können Testdaten repräsentativ eingesetzt werden?
-* Mit welcher Version der Anwendung soll die Studie durchgeführt werden und steht diese zum Testzeitpunkt in der eigenen IT-Infrastruktur zur Verfügung?
-* Wie soll getestet werden, manuell oder automatisiert?
-
-Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.
-
-# Manuelles vs automatisiertes Testen
-
-Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können. 
-
-## Manuelles Testen
-
-Vorteile
-
-* sinnvoll bei selten ausgeführten Testungen und kleineren Studien
-* relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung
-* Pflege und Aktualisierung sind relativ einfach, da nur Skripte angepasst werden müssen
-* keine zusätzliche Software oder Programmierkenntnisse notwendig
-
-Nachteile
-
-* Ausführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend
-* Auswertung muss ebenfalls manuell erfolgen, das kostet Zeit
-* Skripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)
-* wenn oft ausgeführt, werden aus mangelnder Motivation gerne Abkürzungen genommen und damit eventuell entscheidende Stelle nicht wie im Skript vorgeschrieben geprüft
-* alle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein
-
-::: {.callout-tip}
-Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. **Testomat.io** und **Testbench** genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.
-:::
-
-## Automatisiertes Testen
-
-Vorteile
-
-* sinnvoll bei häufig ausgeführten Testungen und größeren Studien
-* Ausführung ist schnell und homogen
-* gute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden
-* Verwaltung der Tests und zugehörige Auswertungen ist übersichtlich
-* zu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden
-
-Nachteile
-
-* Entwurfsphase benötigt Zeit
-* Pflege und Aktualisierung können je nach eingesetzter Software aufwändig werden
-* zusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig
-
-Ist eine Entscheidung für das automatisierte Testen gefallen, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug **Cypress** zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.
-
-Hier ein kleines Beispiel, wie ein sehr einfacher Test mit Cypress aussehen könnte:
-
-```{.ts}
-//Testfall Beispiel
-describe('Check Google', () => {
-
-    //1.Testschritt: Prüfe ob Google geladen werden kann
-    it('Öffne Google', () => {
-        //Öffne Seite
-        cy.visit(`www.google.com`);
-        //Erwartungsauswertung: Konnte Seite geladen werden, 
-        //dann sollte sie "Google" enthalten
-        cy.contains('Google')
-            .should('exist');
-    });
-
-    //2.Testschritt: Tue noch etwas auf der Google Seite
-    it('Öffne Google', () => {
-        
-        //Tue etwas....
-    });
-});
-```
 # E2E-Tests des IQB verwenden
-
-Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können. 
 
 ::: {.callout-note}
 Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann hinsichtlich der Funktionalität der nachfolgend genannten Schritte keine Aussage getroffen werden.
@@ -113,243 +17,38 @@ Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Fü
 
 ## Vorbereitungen
 
-* **Entwicklungsumgebung (IDE):** Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.
-* **Node.js:** Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.
-* **Git:** Wird zum Duplizieren des Testcenter Repositories benötigt.
-* **Cypress in Version 13.3.3:** Hinweise zur Installation sind [hier](https://docs.cypress.io/guides/getting-started/installing-cypress) zu finden.
+* Git Repository des Testcenters duplizieren und mit geeigneter IDE (Visual-Studio-Code etc.) öffnen
+* `npm install` im Stammverzeichnis der Anwendung ausführen: Installiert alle Abhängigkeiten und Pakete für die Anwendung.
+* `npm install` im Verzeichnis *./e2e* ausführen: Installiert Cypress.
 
-## Cypress starten
+Hinweise zur Installation sind auch [hier](https://docs.cypress.io/guides/getting-started/installing-cypress) zu finden.
 
-1. Starten der IDE
-2. Spiegeln (clonen) des Testcenter [GitHub-Repos](https://github.com/iqb-berlin/testcenter)
-3. Öffnen des gespiegelten Ordners mit der IDE
-4. Terminal öffnen und die folgenden Befehle nacheinander eingeben: `make init`, `make build` und abschließend `make test-system`. Wenn alles erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche.
-5. "E2E Testing" in der Cypress Oberfläche auswählen
-6. Browser auswählen
-7. Testfall wählen und Test starten
+## Cypress GUI starten
 
-## Cypress Tests ausführen
+Die nachfolgenden Befehle in gezeigter Reihenfolge absetzen:
 
-Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer\*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer\*innen für ihre Konfiguration der Testdateien genutzt werden könnten.
+1. `make init`
+2. `make build` 
+3. `make test-system` startet die grafische Oberfläche von Cypress. Hier kann der Browser gewählt werden mit dem getestet werden soll. Anschließend ist eine Übersicht aller zur Verfügung stehenden Tests zu sehen.
 
-**Wo sind die Tests zu finden?**
+## Cypress in der Konsole ausführen
 
-Der Testcode ist im Projektverzeichnis: **/e2e/src/e2e** zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Testdateien eingebunden werden sollen, sind diese unter: **/sampledata/system-test** zu hinterlegen. Anschließend müssen sie in der Klasse: **WorkspaceInitializer.class.php** eingetragen werden. 
+Die nachfolgenden Befehle in gezeigter Reihenfolge absetzen:
+
+1. `make init`
+2. `make build` 
+3. `make test-system-headless` führt alle Tests im Verzeichnis *.e2e/src/e2e* in der Konsole aus.
+4. `make test-system-headless spec=Test-Controller/demo` für einen bestimmten Test in der Konsole aus. In diesem Beispiel den Test für eine Demo-Mode Durchführung.
+
+## Pfad zu den Testdateien
+
+Der Testcode ist im Projektverzeichnis: **/e2e/src/e2e** zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar.
+
+## Erklärungen zu bestehenden Tests
 
 ### Booklet-Config
 
-Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. Die hier aufgeführten Parameter können innerhalb des Testheftes im Feld: `<BookletConfig>` im Element `<Config>` angegeben werden. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (**default** - **value 1-3**) in der nachfolgenden Tabelle für jeden Parameter getestet.
-
-
-```{=html}
-<div style="overflow-x:auto;">
-<table>
-    <thead>
-        <tr>
-            <th>parameter</th>
-            <th>default</th>
-            <th>value-1</th>
-            <th>value-2</th>
-            <th>value-3</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><code>ask_for_fullscreen</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_show_time_left</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_time_left_warnings</code></td>
-            <td align="left"><code>10,5,1</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>page_navibutton</code></td>
-            <td align="left"><code>SEPARATE_BOTTOM</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_navibuttons</code></td>
-            <td align="left"><code>FULL</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ARROWS_ONLY</code></td>
-            <td align="left"><code>FORWARD_ONLY</code></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_menu</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>FULL</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        </tr>
-            <td align="left"><code>show_fullscreen_button</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-           <tr>
-            <td align="left"><code>unit_title</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_screenheader</code></td>
-            <td align="left"><code>EMPTY</code></td>
-            <td align="left"><code>WITH_UNIT_TITLE</code></td>
-            <td align="left"><code>WITH_BOOKLET_TITLE</code></td>
-            <td align="left"><code>WITH_BLOCK_TITLE</code></td>
-        </tr>
-        <tr>
-            <td align="left"><code>force_presentaion_complete</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALWAYS</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>force_response_complete</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALWAYS</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>allow_player_to_terminate_test</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>LAST_UNIT</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>restore_current_page_on_return</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>lock_test_on_termination</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>    
-    </tbody>
-</table>
-</div>
-```
-Im Verzeichnis: **e2e/src/e2e/Booklet-Config** sind die dafür verwendeten Testdateien zu finden. Die Bezeichner entsprechen dabei den möglichen Werteoptionen (**default** - **value-3**). Zur Durchführung dieser Tests werden Testhefte im Verzeichnis **sampledata/system-test** eingebunden. Der Bezeichner dieser Testhefte enthält ebenfalls eine der möglichen Werteoptionen.
-
-Es gibt weitere Konfigurationsmöglichkeiten in der Booklet-XML, die nicht im Feld `<BookletConfig>` angegeben sind, sondern Testlet spezifisch im Feld: `<Restrictions>` angegeben werden können. Hier können einzelne Parameter in den folgenden Elementen verwendet werden:
-
-#### `<TimeMax>`
-
-```{=html}
-<div style="overflow-x:auto;">
-<table>
-    <thead>
-        <tr>
-            <th>parameter</th>
-            <th>default</th>
-            <th>value-1</th>
-            <th>value-2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><code>leave</code></td>
-            <td align="left"><code>confirm</code></td>
-            <td align="left"><code>forbidden</code></td>
-            <td align="left"><code>allowed</code></td>
-        </tr>
-    </tbody>
-</table>
-</div>
-```
-Der hier angegebene Parameter wird im Test: **time-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 3 Testhefte im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_TestletRestrictionParam_1** - **CY_BKL_TestletRestrictionParam_3**.
-
-#### `<DenyNavigationOnIncomplete>`
-
-```{=html}
-<div style="overflow-x:auto;">
-<table>
-    <thead>
-        <tr>
-            <th>parameter</th>
-            <th>value-1</th>
-            <th>value-2</th>
-            <th>value-3</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><code>presentation</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALWAYS</code></td>
-        </tr>
-        <tr>
-            <td align="left"><code>response</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALWAYS</code></td>
-        </tr>
-    </tbody>
-</table>
-</div>
-```
-Der hier angegebene Parameter wird im Test: **nav-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 3 Testhefte im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_RestrNavValue1 - 3**.
-
-#### `<LockAfterLeaving>`
-
-```{=html}
-<div style="overflow-x:auto;">
-<table>
-    <thead>
-        <tr>
-            <th>parameter</th>
-            <th>value-1</th>
-            <th>value-2</th>
-            <th>value-3</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><code>scope</code></td>
-            <td align="left"><code>unit</code></td>
-            <td align="left"><code>testlet</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>confirm</code></td>
-            <td align="left"><code>true</code></td>
-            <td align="left"><code>false</code></td>
-            <td align="left"></td>
-        </tr>
-    </tbody>
-</table>
-</div>
-```
-
-Der hier angegebene Parameter wird im Test: **leave-block-restrictions** im Verzeichnis **Test-Controller** getestet. Dazu stehen 2 Testhefte im  Verzeichnis: **sampledata/system-test** zur Verfügung. Diese tragen die Namen: **CY_BKL_RestrLockAfterLeave1 - 2**.
+Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft. 
 
 ### Group-Monitor
 
@@ -368,10 +67,13 @@ Hier werden die Grundfunktionen der Modi: `hot-restart` und `hot-return` geteste
 
 Es werden die verschiedenen Anmeldevarianten getestet (Link, Code etc.).
 
+**login-sink:**
+
+Prüft die Anzahl ungültiger Anmeldeversuche und die zeitlich befristete Sperrung für Neueingaben.
+
 **testtakers-content:**
 
 Es wird getestet, dass nur eine gültige Testtaker-XML geladen werden kann. Bspw. dürfen keine gleichen Group-IDs oder Loginnamen in der Testtaker-XML  angelegt sein.
-
 
 **time-limited access:**
 
@@ -385,18 +87,20 @@ Es werden alle Funktionen des Super-Admins getestet.
 
 Es werden die Grundfunktionen eines System-Checks getestet und der erzeugte Bericht wird auf Richtigkeit geprüft.
 
-
 ### Test-Controller
 
 Es werden die [folgenden](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html) spezifischen Funktionen der Modi: **demo**, **hot-restart**, **hot-return** und **review** geprüft:
 
 Mit dem Test: **time-restrictions** werden zeitliche Beschränkungen getestet.
 
-::: {.callout-note}
-Dieser Test nimmt einige Minuten in Anspruch. Sollen einzelne Testschritte oder Testfällen aus zeitlichen Gründen nicht durchgeführt werden, können diese mit einem `skip` übersprungen werden. 
-:::
+In dem Test *nav-restriction-bklt-config.cy.ts* werden die Booklet-Konfigurationsparameter: `presentation-complete` `response-complete` getestet. "Nav" steht an dieser Stelle für Navigation.
+
+In dem Test *nav-restriction-testlet.cy.ts* werden die im Testlet zur Verfügung stehenden Parameter: `presentation-complete` `response-complete` getestet.
 
 ### Workspace-Admin
 
 Es werden alle Funktionen eines Workspace-Admins getestet. Dazu gehört bspw. das Laden von Testdateien in einen Arbeitsbereich, das Herunterladen von Antworten und vieles mehr.
 
+### utils
+
+Hier befinden sich alle Routinen die mehrfach in den Tests Verwendung finden.
