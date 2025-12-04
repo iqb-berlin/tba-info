@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -1201,17 +1166,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung">Einführung</a></li>
-  <li><a href="#eigene-testszenarien-entwerfen" id="toc-eigene-testszenarien-entwerfen" class="nav-link" data-scroll-target="#eigene-testszenarien-entwerfen">Eigene Testszenarien entwerfen</a></li>
-  <li><a href="#manuelles-vs-automatisiertes-testen" id="toc-manuelles-vs-automatisiertes-testen" class="nav-link" data-scroll-target="#manuelles-vs-automatisiertes-testen">Manuelles vs automatisiertes Testen</a>
-  <ul class="collapse">
-  <li><a href="#manuelles-testen" id="toc-manuelles-testen" class="nav-link" data-scroll-target="#manuelles-testen">Manuelles Testen</a></li>
-  <li><a href="#automatisiertes-testen" id="toc-automatisiertes-testen" class="nav-link" data-scroll-target="#automatisiertes-testen">Automatisiertes Testen</a></li>
-  </ul></li>
   <li><a href="#e2e-tests-des-iqb-verwenden" id="toc-e2e-tests-des-iqb-verwenden" class="nav-link" data-scroll-target="#e2e-tests-des-iqb-verwenden">E2E-Tests des IQB verwenden</a>
   <ul class="collapse">
   <li><a href="#vorbereitungen" id="toc-vorbereitungen" class="nav-link" data-scroll-target="#vorbereitungen">Vorbereitungen</a></li>
-  <li><a href="#cypress-starten" id="toc-cypress-starten" class="nav-link" data-scroll-target="#cypress-starten">Cypress starten</a></li>
-  <li><a href="#cypress-tests-ausführen" id="toc-cypress-tests-ausführen" class="nav-link" data-scroll-target="#cypress-tests-ausführen">Cypress Tests ausführen</a>
+  <li><a href="#cypress-gui-starten" id="toc-cypress-gui-starten" class="nav-link" data-scroll-target="#cypress-gui-starten">Cypress GUI starten</a></li>
+  <li><a href="#cypress-in-der-konsole-ausführen" id="toc-cypress-in-der-konsole-ausführen" class="nav-link" data-scroll-target="#cypress-in-der-konsole-ausführen">Cypress in der Konsole ausführen</a></li>
+  <li><a href="#pfad-zu-den-testdateien" id="toc-pfad-zu-den-testdateien" class="nav-link" data-scroll-target="#pfad-zu-den-testdateien">Pfad zu den Testdateien</a></li>
+  <li><a href="#erklärungen-zu-bestehenden-tests" id="toc-erklärungen-zu-bestehenden-tests" class="nav-link" data-scroll-target="#erklärungen-zu-bestehenden-tests">Erklärungen zu bestehenden Tests</a>
   <ul class="collapse">
   <li><a href="#booklet-config" id="toc-booklet-config" class="nav-link" data-scroll-target="#booklet-config">Booklet-Config</a></li>
   <li><a href="#group-monitor" id="toc-group-monitor" class="nav-link" data-scroll-target="#group-monitor">Group-Monitor</a></li>
@@ -1220,6 +1181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#system-check" id="toc-system-check" class="nav-link" data-scroll-target="#system-check">System-Check</a></li>
   <li><a href="#test-controller" id="toc-test-controller" class="nav-link" data-scroll-target="#test-controller">Test-Controller</a></li>
   <li><a href="#workspace-admin" id="toc-workspace-admin" class="nav-link" data-scroll-target="#workspace-admin">Workspace-Admin</a></li>
+  <li><a href="#utils" id="toc-utils" class="nav-link" data-scroll-target="#utils">utils</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -1250,110 +1212,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="einführung" class="level1">
 <h1>Einführung</h1>
 <p>Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer*innen getestet werden. Diese Art der Testung nennt sich <strong>End-to-end-Testung</strong> oder auch <strong>Akzeptanztest</strong>. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden</p>
-<p>Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen <strong>E2E-Testungen</strong> und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Somit ist es allen Endnutzer*innen möglich diese Tests zu nutzen oder diese als Vorlage für eigene Testszenarien zu verwenden.</p>
-<p>Es ist mühselig und zeitraubend eigene Testszenarien zu entwickeln und zu erproben. Diese Arbeit möchte das IQB an dieser Stelle gerne abnehmen oder zumindest unterstützend einwirken. Am Ende steht es jedem frei, wie E2E-Tests für die eigene Instanz auszusehen haben. Es können hier ganz unterschiedliche Anforderungen bestehen, was wo und wie getestet werden soll. Falls die E2E-Testfälle des IQB genutzt werden sollen, werden hier Hinweise zu deren Verwendung gegeben. Sollen eigene Testungen entworfen werden, wollen wir zumindest auch hierzu Ratschläge aus eigenen Erfahrungen geben.</p>
-</section>
-<section id="eigene-testszenarien-entwerfen" class="level1">
-<h1>Eigene Testszenarien entwerfen</h1>
-<p>Eine eigens entworfene E2E-Testung nimmt in Planung und Durchführung einige Zeit in Anspruch. Es sollten also rechtzeitig entsprechende Zeiträume dafür eingeplant werden. Es ist davon abzuraten einfach drauf los zu testen. Testungen müssen reproduzierbar sein. Damit wird sichergestellt, dass ein aufgetretener Fehler auch ein weiteres Mal unter bekannten Umständen provoziert werden kann. Die Reproduzierbarkeit wird mittels detaillierter und eindeutiger Dokumentation erreicht.</p>
-<p>Bevor eine Testung durchgeführt werden kann, muss klar umrissen werden, welche Funktionen eigentlich geprüft werden sollen. Der Anspruch, alle möglichen Fehler aufzudecken, sollte aufgegeben werden. Der zeitliche und personelle Aufwand wäre einfach zu groß. Stattdessen sollten Schwerpunkte gesetzt werden. Nachfolgend ist bsph. aufgeführt, welche Fragen sich die Verantwortlichen im Vorfeld stellen könnten, um diese Schwerpunkte zu definieren.</p>
-<ul>
-<li>Können sich die in der Testtaker-XML angelegten Testpersonen am Testcenter anmelden?</li>
-<li>Können die angelegten Booklets gestartet werden?</li>
-<li>Werden die vorgesehenen Aufgaben in festgelegter Reihenfolge dargestellt?</li>
-<li>Funktioniert das Blättern zwischen den Aufgaben auf die gewünschte Weise?</li>
-<li>Sind vorgesehene Bezeichner und Schaltflächen vorhanden?</li>
-<li>Darf erst zur nächsten Aufgabe geblättert werden, wenn Pflichtfelder zuvor ausgefüllt wurden?</li>
-<li>Wenn Zeitbeschränkungen eingerichtet sind, sind diese während der Testung aktiv und funktional?</li>
-<li>Weisen Aufgabenelemente die gewünschten Funktionen auf, sprich können diese wie vorgesehen bedient werden?</li>
-<li>Werden die gegebenen Antworten auch korrekt gespeichert?</li>
-</ul>
-<p>Sind Schwerpunkte definiert, können weitere Überlegungen angestellt werden:</p>
-<ul>
-<li>Welche Testdaten werden benötigt?</li>
-<li>Auf welchen Endgeräten und mit welchen Browsern soll die Studie durchgeführt werden?</li>
-<li>In welchem Stadium der Studienplanung können Testdaten repräsentativ eingesetzt werden?</li>
-<li>Mit welcher Version der Anwendung soll die Studie durchgeführt werden und steht diese zum Testzeitpunkt in der eigenen IT-Infrastruktur zur Verfügung?</li>
-<li>Wie soll getestet werden, manuell oder automatisiert?</li>
-</ul>
-<p>Im nächsten Schritt können die gesetzten Schwerpunkte in Testfälle und detaillierte Testschritte umgewandelt und entsprechend dokumentiert werden.</p>
-</section>
-<section id="manuelles-vs-automatisiertes-testen" class="level1">
-<h1>Manuelles vs automatisiertes Testen</h1>
-<p>Sind die Testszenarien entworfen und festgehalten, muss im nächsten Schritt überlegt werden, wie getestet werden soll. Es kann manuell oder automatisiert getestet werden. Es kann an dieser Stelle keine pauschale Empfehlung gegeben werden, welche Methode angewendet werden sollte, da es von vielen individuellen Faktoren abhängt. Beides hat Vor- und Nachteile. Nachfolgend wird eine kurze Gegenüberstellung aufgezeigt, die für die Entscheidung behilflich sein können.</p>
-<section id="manuelles-testen" class="level2">
-<h2 class="anchored" data-anchor-id="manuelles-testen">Manuelles Testen</h2>
-<p>Vorteile</p>
-<ul>
-<li>sinnvoll bei selten ausgeführten Testungen und kleineren Studien</li>
-<li>relativ schnelle Entwurfsphase, meist reicht ein Handlungsskript zur Durchführung</li>
-<li>Pflege und Aktualisierung sind relativ einfach, da nur Skripte angepasst werden müssen</li>
-<li>keine zusätzliche Software oder Programmierkenntnisse notwendig</li>
-</ul>
-<p>Nachteile</p>
-<ul>
-<li>Ausführung dauert lange und es wird Personal benötigt, bei größeren Studie erhöht sich der zeitliche Aufwand entsprechend</li>
-<li>Auswertung muss ebenfalls manuell erfolgen, das kostet Zeit</li>
-<li>Skripte und Auswertungen lassen sich schlecht organisieren und personalisieren (In welchem Verzeichnis liegt welches Skript und welche Auswertung gibt es dazu?)</li>
-<li>wenn oft ausgeführt, werden aus mangelnder Motivation gerne Abkürzungen genommen und damit eventuell entscheidende Stelle nicht wie im Skript vorgeschrieben geprüft</li>
-<li>alle Browser und Endgeräte die getestet werden sollen, müssen physisch vorhanden sein</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Es sei an dieser Stelle erwähnt, dass es auch für das manuelle Testen Anbieter gibt, die die Organisation von Testskripten vereinfachen. Somit können viele Einzeldokumente bspw. mittels Word oder Excel vermieden werden. Hier sind einmal bspw. <strong>Testomat.io</strong> und <strong>Testbench</strong> genannt. Beide Anbieter bieten freie Zugänge an, die für kleinere Testungen ausreichend sind. Natürlich gibt es hier viele weitere Anbieter.</p>
-</div>
-</div>
-</section>
-<section id="automatisiertes-testen" class="level2">
-<h2 class="anchored" data-anchor-id="automatisiertes-testen">Automatisiertes Testen</h2>
-<p>Vorteile</p>
-<ul>
-<li>sinnvoll bei häufig ausgeführten Testungen und größeren Studien</li>
-<li>Ausführung ist schnell und homogen</li>
-<li>gute Auswertungsmöglichkeiten, da automatisch Testergebnisse gespeichert werden</li>
-<li>Verwaltung der Tests und zugehörige Auswertungen ist übersichtlich</li>
-<li>zu testende Endgeräte müssen nicht zwingend physisch vorhanden sein, es kann schnell gegen emulierte Geräte getestet werden</li>
-</ul>
-<p>Nachteile</p>
-<ul>
-<li>Entwurfsphase benötigt Zeit</li>
-<li>Pflege und Aktualisierung können je nach eingesetzter Software aufwändig werden</li>
-<li>zusätzliche Software notwendig und je nach Einsatz Programmierkenntnisse im kleineren Umfang notwendig</li>
-</ul>
-<p>Ist eine Entscheidung für das automatisierte Testen gefallen, kann das IQB nachfolgend Software vorstellen, die für den Testentwurf und zur Testdurchführung genutzt werden könnten. Der Markt für Software zum automatisierten E2E-Testen ist riesig und jeder Anbieter hat Vor- und Nachteile. Da das IQB bereits den Großteil seiner Testszenarien automatisiert hat, wollen wir an dieser Stelle gerne das Werkzeug <strong>Cypress</strong> zur Integration von E2E-Tests empfehlen. Es ist schnell einsatzbereit und unkompliziert zu bedienen. Die Testschritte können in JavaScript oder TypeScript geschrieben werden.</p>
-<p>Hier ein kleines Beispiel, wie ein sehr einfacher Test mit Cypress aussehen könnte:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode ts code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Testfall Beispiel</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="st">'Check Google'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">//1.Testschritt: Prüfe ob Google geladen werden kann</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">it</span>(<span class="st">'Öffne Google'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Öffne Seite</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        cy<span class="op">.</span><span class="fu">visit</span>(<span class="vs">`www.google.com`</span>)<span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Erwartungsauswertung: Konnte Seite geladen werden, </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">//dann sollte sie "Google" enthalten</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        cy<span class="op">.</span><span class="fu">contains</span>(<span class="st">'Google'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">should</span>(<span class="st">'exist'</span>)<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">//2.Testschritt: Tue noch etwas auf der Google Seite</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">it</span>(<span class="st">'Öffne Google'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Tue etwas....</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
+<p>Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen <strong>E2E-Testungen</strong> und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Die Automatisierung erfolgte mit <strong>Cypress</strong>.</p>
 </section>
 <section id="e2e-tests-des-iqb-verwenden" class="level1">
 <h1>E2E-Tests des IQB verwenden</h1>
-<p>Wie eingangs erwähnt, sind in der Anwendung bereits automatisierte Cypress E2E-Testfälle enthalten. Hier soll nun näher beschrieben werden, wie diese genutzt werden können.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1370,237 +1232,40 @@ Hinweis
 <section id="vorbereitungen" class="level2">
 <h2 class="anchored" data-anchor-id="vorbereitungen">Vorbereitungen</h2>
 <ul>
-<li><strong>Entwicklungsumgebung (IDE):</strong> Um die Bestandteile der Anwendung adäquat verwenden und sichten zu können, wird eine IDE benötigt. Hier genannt sei bspw. MS-Visual Studio Code.</li>
-<li><strong>Node.js:</strong> Zur Installation von Cypress wird der Node Package Manager (npm) verwendet.</li>
-<li><strong>Git:</strong> Wird zum Duplizieren des Testcenter Repositories benötigt.</li>
-<li><strong>Cypress in Version 13.3.3:</strong> Hinweise zur Installation sind <a href="https://docs.cypress.io/guides/getting-started/installing-cypress">hier</a> zu finden.</li>
+<li>Git Repository des Testcenters duplizieren und mit geeigneter IDE (Visual-Studio-Code etc.) öffnen</li>
+<li><code>npm install</code> im Stammverzeichnis der Anwendung ausführen: Installiert alle Abhängigkeiten und Pakete für die Anwendung.</li>
+<li><code>npm install</code> im Verzeichnis <em>./e2e</em> ausführen: Installiert Cypress.</li>
 </ul>
+<p>Hinweise zur Installation sind auch <a href="https://docs.cypress.io/guides/getting-started/installing-cypress">hier</a> zu finden.</p>
 </section>
-<section id="cypress-starten" class="level2">
-<h2 class="anchored" data-anchor-id="cypress-starten">Cypress starten</h2>
+<section id="cypress-gui-starten" class="level2">
+<h2 class="anchored" data-anchor-id="cypress-gui-starten">Cypress GUI starten</h2>
+<p>Die nachfolgenden Befehle in gezeigter Reihenfolge absetzen:</p>
 <ol type="1">
-<li>Starten der IDE</li>
-<li>Spiegeln (clonen) des Testcenter <a href="https://github.com/iqb-berlin/testcenter">GitHub-Repos</a></li>
-<li>Öffnen des gespiegelten Ordners mit der IDE</li>
-<li>Terminal öffnen und die folgenden Befehle nacheinander eingeben: <code>make init</code>, <code>make build</code> und abschließend <code>make test-system</code>. Wenn alles erfolgreich ausgeführt, öffnet sich die Cypress Oberfläche.</li>
-<li>“E2E Testing” in der Cypress Oberfläche auswählen</li>
-<li>Browser auswählen</li>
-<li>Testfall wählen und Test starten</li>
+<li><code>make init</code></li>
+<li><code>make build</code></li>
+<li><code>make test-system</code> startet die grafische Oberfläche von Cypress. Hier kann der Browser gewählt werden mit dem getestet werden soll. Anschließend ist eine Übersicht aller zur Verfügung stehenden Tests zu sehen.</li>
 </ol>
 </section>
-<section id="cypress-tests-ausführen" class="level2">
-<h2 class="anchored" data-anchor-id="cypress-tests-ausführen">Cypress Tests ausführen</h2>
-<p>Nachdem die vorherigen Schritte abgeschlossen sind, ist eine Liste aller bereits angelegten Testfälle zu sehen. Da die Anwendung Testcenter vor jeder Veröffentlichung vom IQB getestet wird, sind für Endnutzer*innen nicht alle Testfälle interessant. Es sind ehr Testfälle interessant, die Funktionen testen, die direkt mit der Studiendurchführung zu tun haben. Hier wäre als klassisches Beispiel die bedingte Navigation (responses/ presentation complete) zu nennen. Nachfolgend werden die Testfälle aufgezeigt, die von Endnutzer*innen für ihre Konfiguration der Testdateien genutzt werden könnten.</p>
-<p><strong>Wo sind die Tests zu finden?</strong></p>
-<p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/src/e2e</strong> zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar. Falls andere Testdateien eingebunden werden sollen, sind diese unter: <strong>/sampledata/system-test</strong> zu hinterlegen. Anschließend müssen sie in der Klasse: <strong>WorkspaceInitializer.class.php</strong> eingetragen werden.</p>
+<section id="cypress-in-der-konsole-ausführen" class="level2">
+<h2 class="anchored" data-anchor-id="cypress-in-der-konsole-ausführen">Cypress in der Konsole ausführen</h2>
+<p>Die nachfolgenden Befehle in gezeigter Reihenfolge absetzen:</p>
+<ol type="1">
+<li><code>make init</code></li>
+<li><code>make build</code></li>
+<li><code>make test-system-headless</code> führt alle Tests im Verzeichnis <em>.e2e/src/e2e</em> in der Konsole aus.</li>
+<li><code>make test-system-headless spec=Test-Controller/demo</code> für einen bestimmten Test in der Konsole aus. In diesem Beispiel den Test für eine Demo-Mode Durchführung.</li>
+</ol>
+</section>
+<section id="pfad-zu-den-testdateien" class="level2">
+<h2 class="anchored" data-anchor-id="pfad-zu-den-testdateien">Pfad zu den Testdateien</h2>
+<p>Der Testcode ist im Projektverzeichnis: <strong>/e2e/src/e2e</strong> zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar.</p>
+</section>
+<section id="erklärungen-zu-bestehenden-tests" class="level2">
+<h2 class="anchored" data-anchor-id="erklärungen-zu-bestehenden-tests">Erklärungen zu bestehenden Tests</h2>
 <section id="booklet-config" class="level3">
 <h3 class="anchored" data-anchor-id="booklet-config">Booklet-Config</h3>
-<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft. Die hier aufgeführten Parameter können innerhalb des Testheftes im Feld: <code>&lt;BookletConfig&gt;</code> im Element <code>&lt;Config&gt;</code> angegeben werden. Um den Aufbau dieser spezifischen Tests etwas verständlicher zu machen, erfolgt an dieser Stelle eine kurze Erläuterung, wie die Tests organisiert sind. Während der Testung werden die Werteoptionen (<strong>default</strong> - <strong>value 1-3</strong>) in der nachfolgenden Tabelle für jeden Parameter getestet.</p>
-<div style="overflow-x:auto;">
-<table>
-    <thead>
-        <tr>
-            <th>parameter</th>
-            <th>default</th>
-            <th>value-1</th>
-            <th>value-2</th>
-            <th>value-3</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><code>ask_for_fullscreen</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_show_time_left</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_time_left_warnings</code></td>
-            <td align="left"><code>10,5,1</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>page_navibutton</code></td>
-            <td align="left"><code>SEPARATE_BOTTOM</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_navibuttons</code></td>
-            <td align="left"><code>FULL</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ARROWS_ONLY</code></td>
-            <td align="left"><code>FORWARD_ONLY</code></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_menu</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>FULL</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        
-            <tr><td align="left"><code>show_fullscreen_button</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-           <tr>
-            <td align="left"><code>unit_title</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>unit_screenheader</code></td>
-            <td align="left"><code>EMPTY</code></td>
-            <td align="left"><code>WITH_UNIT_TITLE</code></td>
-            <td align="left"><code>WITH_BOOKLET_TITLE</code></td>
-            <td align="left"><code>WITH_BLOCK_TITLE</code></td>
-        </tr>
-        <tr>
-            <td align="left"><code>force_presentaion_complete</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALWAYS</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>force_response_complete</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>ALWAYS</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>allow_player_to_terminate_test</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>LAST_UNIT</code></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>restore_current_page_on_return</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>
-        <tr>
-            <td align="left"><code>lock_test_on_termination</code></td>
-            <td align="left"><code>OFF</code></td>
-            <td align="left"><code>ON</code></td>
-            <td align="left"></td>
-            <td align="left"></td>
-        </tr>    
-    </tbody>
-</table>
-</div>
-<p>Im Verzeichnis: <strong>e2e/src/e2e/Booklet-Config</strong> sind die dafür verwendeten Testdateien zu finden. Die Bezeichner entsprechen dabei den möglichen Werteoptionen (<strong>default</strong> - <strong>value-3</strong>). Zur Durchführung dieser Tests werden Testhefte im Verzeichnis <strong>sampledata/system-test</strong> eingebunden. Der Bezeichner dieser Testhefte enthält ebenfalls eine der möglichen Werteoptionen.</p>
-<p>Es gibt weitere Konfigurationsmöglichkeiten in der Booklet-XML, die nicht im Feld <code>&lt;BookletConfig&gt;</code> angegeben sind, sondern Testlet spezifisch im Feld: <code>&lt;Restrictions&gt;</code> angegeben werden können. Hier können einzelne Parameter in den folgenden Elementen verwendet werden:</p>
-<section id="timemax" class="level4">
-<h4 class="anchored" data-anchor-id="timemax"><code>&lt;TimeMax&gt;</code></h4>
-<div style="overflow-x:auto;">
-
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">parameter</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">default</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>leave</code></td>
-<td style="text-align: left;"><code>confirm</code></td>
-<td style="text-align: left;"><code>forbidden</code></td>
-<td style="text-align: left;"><code>allowed</code></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-<p>Der hier angegebene Parameter wird im Test: <strong>time-restrictions</strong> im Verzeichnis <strong>Test-Controller</strong> getestet. Dazu stehen 3 Testhefte im Verzeichnis: <strong>sampledata/system-test</strong> zur Verfügung. Diese tragen die Namen: <strong>CY_BKL_TestletRestrictionParam_1</strong> - <strong>CY_BKL_TestletRestrictionParam_3</strong>.</p>
-</section>
-<section id="denynavigationonincomplete" class="level4">
-<h4 class="anchored" data-anchor-id="denynavigationonincomplete"><code>&lt;DenyNavigationOnIncomplete&gt;</code></h4>
-<div style="overflow-x:auto;">
-
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">parameter</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-2</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>presentation</code></td>
-<td style="text-align: left;"><code>OFF</code></td>
-<td style="text-align: left;"><code>ON</code></td>
-<td style="text-align: left;"><code>ALWAYS</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>response</code></td>
-<td style="text-align: left;"><code>OFF</code></td>
-<td style="text-align: left;"><code>ON</code></td>
-<td style="text-align: left;"><code>ALWAYS</code></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-<p>Der hier angegebene Parameter wird im Test: <strong>nav-restrictions</strong> im Verzeichnis <strong>Test-Controller</strong> getestet. Dazu stehen 3 Testhefte im Verzeichnis: <strong>sampledata/system-test</strong> zur Verfügung. Diese tragen die Namen: <strong>CY_BKL_RestrNavValue1 - 3</strong>.</p>
-</section>
-<section id="lockafterleaving" class="level4">
-<h4 class="anchored" data-anchor-id="lockafterleaving"><code>&lt;LockAfterLeaving&gt;</code></h4>
-<div style="overflow-x:auto;">
-
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">parameter</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-2</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">value-3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>scope</code></td>
-<td style="text-align: left;"><code>unit</code></td>
-<td style="text-align: left;"><code>testlet</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>confirm</code></td>
-<td style="text-align: left;"><code>true</code></td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-<p>Der hier angegebene Parameter wird im Test: <strong>leave-block-restrictions</strong> im Verzeichnis <strong>Test-Controller</strong> getestet. Dazu stehen 2 Testhefte im Verzeichnis: <strong>sampledata/system-test</strong> zur Verfügung. Diese tragen die Namen: <strong>CY_BKL_RestrLockAfterLeave1 - 2</strong>.</p>
-</section>
+<p>Hier wird der Großteil der zur Verfügung stehenden <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">Booklet-Konfigurations-Parameter</a> geprüft.</p>
 </section>
 <section id="group-monitor" class="level3">
 <h3 class="anchored" data-anchor-id="group-monitor">Group-Monitor</h3>
@@ -1616,6 +1281,8 @@ Hinweis
 </ul>
 <p><strong>login-possibilities:</strong></p>
 <p>Es werden die verschiedenen Anmeldevarianten getestet (Link, Code etc.).</p>
+<p><strong>login-sink:</strong></p>
+<p>Prüft die Anzahl ungültiger Anmeldeversuche und die zeitlich befristete Sperrung für Neueingaben.</p>
 <p><strong>testtakers-content:</strong></p>
 <p>Es wird getestet, dass nur eine gültige Testtaker-XML geladen werden kann. Bspw. dürfen keine gleichen Group-IDs oder Loginnamen in der Testtaker-XML angelegt sein.</p>
 <p><strong>time-limited access:</strong></p>
@@ -1633,23 +1300,16 @@ Hinweis
 <h3 class="anchored" data-anchor-id="test-controller">Test-Controller</h3>
 <p>Es werden die <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html">folgenden</a> spezifischen Funktionen der Modi: <strong>demo</strong>, <strong>hot-restart</strong>, <strong>hot-return</strong> und <strong>review</strong> geprüft:</p>
 <p>Mit dem Test: <strong>time-restrictions</strong> werden zeitliche Beschränkungen getestet.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dieser Test nimmt einige Minuten in Anspruch. Sollen einzelne Testschritte oder Testfällen aus zeitlichen Gründen nicht durchgeführt werden, können diese mit einem <code>skip</code> übersprungen werden.</p>
-</div>
-</div>
+<p>In dem Test <em>nav-restriction-bklt-config.cy.ts</em> werden die Booklet-Konfigurationsparameter: <code>presentation-complete</code> <code>response-complete</code> getestet. “Nav” steht an dieser Stelle für Navigation.</p>
+<p>In dem Test <em>nav-restriction-testlet.cy.ts</em> werden die im Testlet zur Verfügung stehenden Parameter: <code>presentation-complete</code> <code>response-complete</code> getestet.</p>
 </section>
 <section id="workspace-admin" class="level3">
 <h3 class="anchored" data-anchor-id="workspace-admin">Workspace-Admin</h3>
 <p>Es werden alle Funktionen eines Workspace-Admins getestet. Dazu gehört bspw. das Laden von Testdateien in einen Arbeitsbereich, das Herunterladen von Antworten und vieles mehr.</p>
+</section>
+<section id="utils" class="level3">
+<h3 class="anchored" data-anchor-id="utils">utils</h3>
+<p>Hier befinden sich alle Routinen die mehrfach in den Tests Verwendung finden.</p>
 
 
 </section>
