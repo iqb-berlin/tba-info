@@ -1,0 +1,22 @@
+---
+lang: de
+title: "StarS: Interaktionstyp `PLACE_VALUE`"
+lightbox: true
+---
+
+Bei diesem Interaktionstyp legt die Testperson eine Zahl mit Hilfe von 10er-Riegeln und 1er-Plättchen auf einer Stellenwerttafel. Die Testperson klickt bzw. tippt auf einen 10er-Riegel oder ein 1er-Plättchen und verschiebt dieses dadurch auf die Ablagefläche bzw. entfernt es. Auf der Ablagefläche werden die Elemente automatisch sortiert und ausgerichtet.
+
+![](assets/interaction-place-value.png){group="my-gallery"}
+
+# Parameter
+
+* `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `PLACE_VALUE`. Achtung: Es wird eine zweite Variable erzeugt (s. u.).
+* `value` ist die Zahl, die mit den Riegeln und Plättchen gelegt werden soll. Diese wird oben über der Ablagefläche angezeigt.
+* `numberOfRows` definiert die Höhe der Ablagefläche (Anzahl Zeilen; Standardwert: 5)
+
+# Antwortwert
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.qmd) des IQB. Es gibt **zwei Variablen**, die als Antwortwerte zur Verfügung gestellt werden:
+
+* Summe der gelegten Riegel- bzw. Plättchenwerte. 1 10er-Riegel und 14 1er-Plättchen ergeben die Summe 24. Die `id` dieser Variable entspricht der über die Parameter gesetzten `variableId`. Standardwert ist `PLACE_VALUE`.
+* Anzahl der gelegten 10er-Riegel. Aus der Summe und der Anzahl der 10er-Riegel kann die Antwort korrekt rekonstruiert werden. Die `id` dieser Variable entspricht der über die Parameter gesetzten `variableId` plus dem Suffix `_TENS`. Standardwert ist `PLACE_VALUE_TENS`.
