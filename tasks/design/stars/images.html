@@ -762,6 +762,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Polygone</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../tasks/design/stars/it_place_value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stellenwert-Tafel</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -1168,22 +1174,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#verfügbarer-platz" id="toc-verfügbarer-platz" class="nav-link active" data-scroll-target="#verfügbarer-platz">Verfügbarer Platz</a>
-  <ul class="collapse">
-  <li><a href="#querformat" id="toc-querformat" class="nav-link" data-scroll-target="#querformat">Querformat</a></li>
-  </ul></li>
-  <li><a href="#hochformat" id="toc-hochformat" class="nav-link" data-scroll-target="#hochformat">Hochformat</a></li>
-  <li><a href="#allgemeine-grundsätze" id="toc-allgemeine-grundsätze" class="nav-link" data-scroll-target="#allgemeine-grundsätze">Allgemeine Grundsätze</a>
+  <li><a href="#größenanpassung" id="toc-größenanpassung" class="nav-link active" data-scroll-target="#größenanpassung">Größenanpassung</a>
   <ul class="collapse">
   <li><a href="#nie-vergrößerung" id="toc-nie-vergrößerung" class="nav-link" data-scroll-target="#nie-vergrößerung">Nie Vergrößerung</a></li>
+  <li><a href="#verkleinerung-wenn-notwendig" id="toc-verkleinerung-wenn-notwendig" class="nav-link" data-scroll-target="#verkleinerung-wenn-notwendig">Verkleinerung wenn notwendig</a></li>
   <li><a href="#konstante-aspect-ratio" id="toc-konstante-aspect-ratio" class="nav-link" data-scroll-target="#konstante-aspect-ratio">Konstante Aspect Ratio</a></li>
   </ul></li>
-  <li><a href="#verkleinerung-wenn-notwendig" id="toc-verkleinerung-wenn-notwendig" class="nav-link" data-scroll-target="#verkleinerung-wenn-notwendig">Verkleinerung wenn notwendig</a>
-  <ul class="collapse">
-  <li><a href="#verfügbarer-platz-1" id="toc-verfügbarer-platz-1" class="nav-link" data-scroll-target="#verfügbarer-platz-1">Verfügbarer Platz</a></li>
-  <li><a href="#eck-buttons-audio-weiter" id="toc-eck-buttons-audio-weiter" class="nav-link" data-scroll-target="#eck-buttons-audio-weiter">Eck-Buttons: Audio, Weiter</a></li>
-  </ul></li>
-  <li><a href="#koordinaten" id="toc-koordinaten" class="nav-link" data-scroll-target="#koordinaten">Koordinaten</a></li>
+  <li><a href="#verfügbarer-platz" id="toc-verfügbarer-platz" class="nav-link" data-scroll-target="#verfügbarer-platz">Verfügbarer Platz</a></li>
+  <li><a href="#standard-modus" id="toc-standard-modus" class="nav-link" data-scroll-target="#standard-modus">Standard-Modus</a></li>
+  <li><a href="#imageusefullarea-true" id="toc-imageusefullarea-true" class="nav-link" data-scroll-target="#imageusefullarea-true"><code>imageUseFullArea: true</code></a></li>
   </ul>
 </nav>
     </div>
@@ -1210,62 +1209,47 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Jedes Bild wird als <a href="../../../tasks/design/media/base64.html">base64-kodierter</a> String in der Unit-Definition übergeben. Der folgende Text beschreibt, wie eine Ausrichtung und eventuell nötige Anpassung erfolgt sowie die Verfahren, wie mit Koordinaten zu arbeiten ist.</p>
-<section id="verfügbarer-platz" class="level1">
-<h1>Verfügbarer Platz</h1>
-<p>Wieviel Platz eine Interaktion zur Verfügung hat, richtet sich nach folgenden Einstellungen (s. Grafik):</p>
-<p><a href="assets/StarsPlayerHeightWidth.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/StarsPlayerHeightWidth.png" class="img-fluid"></a></p>
-<ul>
-<li>Der optionale <strong>Übungsmodus</strong> benötigt Platz oben und unten für einen gebänderten Streifen.</li>
-<li>Der optionale <strong>Audio-Button</strong> braucht Platz oben links im Ruhezustand (nur Button) und im aktiven Zustand (animierte Grafik rechts daneben).</li>
-<li>Der optionale <strong>Weiter-Button</strong> benötigt Platz in der rechten unteren Ecke.</li>
-</ul>
-<p>Es verbleibt ein rechteckiger Bereich, der im Querformat oder im Hochformat genutzt für Breite und Höhe unterschiedliche Werte hat.</p>
-<section id="querformat" class="level2">
-<h2 class="anchored" data-anchor-id="querformat">Querformat</h2>
-<p>Die verfügbare <strong>Breite</strong> ermittelt sich über <strong>F</strong>.</p>
-<p>Die verfügbare <strong>Höhe</strong> ermittelt sich über <strong>A</strong> * wenn Audio minus <strong>B</strong> * wenn Weiter-Button minus <strong>D</strong></p>
-</section>
-</section>
-<section id="hochformat" class="level1">
-<h1>Hochformat</h1>
-<p>Die verfügbare <strong>Breite</strong> ermittelt sich über <strong>F</strong> * wenn Audio minus <strong>G</strong> - wenn man die verfügbare Fläche mittig besetzten will, dann nochmal minus <strong>G</strong>; Weiter-Button spielt dann keine Rolle * wenn Weiter-Button - minus <strong>H</strong>, wenn nicht bereits rechts durch den Audio-Button reduziert wurde - nochmal minus <strong>H</strong>, wenn nicht bereits links durch den Audio-Button reduziert wurde und man die verfügbare Fläche mittig besetzten will</p>
-<p>Die verfügbare <strong>Höhe</strong> ermittelt sich über <strong>A</strong> * wenn Übungsmodus minus <strong>C</strong> und minus <strong>E</strong></p>
-</section>
-<section id="allgemeine-grundsätze" class="level1">
-<h1>Allgemeine Grundsätze</h1>
+<section id="größenanpassung" class="level1">
+<h1>Größenanpassung</h1>
 <section id="nie-vergrößerung" class="level2">
 <h2 class="anchored" data-anchor-id="nie-vergrößerung">Nie Vergrößerung</h2>
 <p>Ein Bild wird nie vergrößert. Als Anpassung der Größe ist nur das Verkleinern zulässig. Der Grund liegt in einer normalerweise sichtbaren Verschlechterung der Darstellungsqualität.</p>
 <p>Man kann diesen Grundsatz ausnutzen, um eine Maximalgröße festzulegen. Ein Bild mit den Maßen 800 x 200 kann auf 400 x 100 verkleinert werden, um noch vollständig angezeigt zu werden, aber es wird nie 1000 x 250 erreichen.</p>
 <p>Um die Datenmenge möglichst gering zu halten, die bei einem Test transportiert werden muss, sollte ein Bild nur so groß wie nötig sein.</p>
 </section>
+<section id="verkleinerung-wenn-notwendig" class="level2">
+<h2 class="anchored" data-anchor-id="verkleinerung-wenn-notwendig">Verkleinerung wenn notwendig</h2>
+<p>Sollte weniger Platz zur Verfügung stehen, als das Bild in einer 1:1-Darstellung benötigt, wird es nicht abgeschnitten. Eine Verkleinerung mag zu einer “unschönen” Darstellung führen oder sogar die Beantwortung beeinträchtigen. Dies ist jedoch günstiger im Vergleich zu einem Beschneiden: Dann wären Bildteile nicht mehr zu sehen, was sehr sicher zu verfälschten Testergebnissen führen würde.</p>
+</section>
 <section id="konstante-aspect-ratio" class="level2">
 <h2 class="anchored" data-anchor-id="konstante-aspect-ratio">Konstante Aspect Ratio</h2>
-<p>Das Verhältnis von Höhe und Breite eines Bildes wird nie verändert. Das kann zu unerwüscht kleinen Bildern führen, aber in keinem Fall wird der StarS-Player nur die Breite oder nur die Höhe verringern.</p>
+<p>Das Verhältnis von Höhe und Breite eines Bildes wird nie verändert. Das kann zu unerwünscht kleinen Bildern führen, aber in keinem Fall wird der StarS-Player nur die Breite oder nur die Höhe verringern.</p>
 </section>
 </section>
-<section id="verkleinerung-wenn-notwendig" class="level1">
-<h1>Verkleinerung wenn notwendig</h1>
-<p>Sollte weniger Platz zur Verfügung stehen, als das Bild in einer 1:1-Darstellung benötigt, wird es nicht abgeschnitten. Eine Verkleinerung mag zu einer “unschönen” Darstellung führen oder sogar die Beantwortung beeinträchtigen. Dies ist jedoch günstiger im Vergleich zu einem Beschneiden: Dann wären Bildteile nicht mehr zu sehen, was sehr sicher zu verfälschten Testergebnissen führen würde.</p>
-<section id="verfügbarer-platz-1" class="level2">
-<h2 class="anchored" data-anchor-id="verfügbarer-platz-1">Verfügbarer Platz</h2>
-<p>Der StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.</p>
-<p>Ein Bild soll stets einen Mindestabstand zu anderen Elementen des Interaktionstyps haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Alle Interaktionstypen arbeiten mit festen Abständen.</p>
-</section>
-<section id="eck-buttons-audio-weiter" class="level2">
-<h2 class="anchored" data-anchor-id="eck-buttons-audio-weiter">Eck-Buttons: Audio, Weiter</h2>
-<p>Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Diese Buttons liegen außerhalb des Interaktionstyps. Es gibt zwei Möglichkeiten, wie diese Buttons in die Ermittlung des verfügbaren Platzes für ein Bild eingehen:</p>
+<section id="verfügbarer-platz" class="level1">
+<h1>Verfügbarer Platz</h1>
+<p>Wieviel Platz eine Interaktion zur Verfügung hat, richtet sich nach folgenden Einstellungen (s. Grafik):</p>
+<p><a href="assets/StarsPlayerHeightWidth.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/StarsPlayerHeightWidth.png" class="img-fluid"></a></p>
 <ul>
-<li><strong>Standard</strong> Der verfügbare Platz beginnt unterhalb des Audio-Buttons und endet spätestens oberhalb des Weiter-Buttons. Mit diesem Modus ist eine Überlappung nicht möglich.</li>
-<li><code>imageUseFullArea</code> ist auf <code>true</code> gesetzt: Der verfügbare Platz wird ohne Beachtung der beiden Eck-Buttons ermittelt. Mit diesem Modus ist theoretisch eine Überlappung des Eck-Buttons mit dem Bild möglich. Das muss dann durch die Maße bzw. Gestaltung des Bildes verhindert werden (entweder maximale Breite des Bildes 650px - dann gibt es bei &gt;= 1000px Bildschirmbreite kein Problem) oder das Bild enthält in einer oberen linken Ecke keine Bildelemente.</li>
+<li>A/D: Der optionale <strong>Übungsmodus</strong> benötigt Platz oben und unten für einen gebänderten Streifen.</li>
+<li>B/F: Der optionale <strong>Audio-Button</strong> braucht Platz oben links im Ruhezustand (nur Button) und im aktiven Zustand (animierte Grafik rechts daneben).</li>
+<li>C/E: Der optionale <strong>Weiter-Button</strong> benötigt Platz in der rechten unteren Ecke.</li>
 </ul>
+<p>Es verbleibt ein rechteckiger Bereich, der im Querformat oder im Hochformat genutzt für Breite und Höhe unterschiedliche Werte hat.</p>
 </section>
+<section id="standard-modus" class="level1">
+<h1>Standard-Modus</h1>
+<p>Die Interaktionselemente und das Bild werden in den dunkelblauen Bereich eingepasst. Je nachdem, ob Audio und/oder Weiter-Button bzw. Streifen um Übungsmodus definiert sind, ist der Platz verkleinert. Dadurch ist sichergestellt, dass es zu keiner Überlappung kommt.</p>
 </section>
-<section id="koordinaten" class="level1">
-<h1>Koordinaten</h1>
+<section id="imageusefullarea-true" class="level1">
+<h1><code>imageUseFullArea: true</code></h1>
+<p>Im Interaktionstyp <code>BUTTONS</code> und im <code>openingImage</code> ist der Parameter <code>imageUseFullArea</code> verfügbar. Wenn dieser auf <code>true</code> gesetzt wird, dann werden die ggf. vorhandenen Buttons für Audio und Weiter-Funktion ignoriert. Der verfügbare Platz dehnt sich dann auf die blaue Fläche in der obigen Darstellung aus.</p>
+<p>Die Buttons werden zwar bei Bedarf trotzdem angezeigt und überlappen das Image. Aber die Funktion des Images ist natürlich ggf. eingeschränkt. Man kann dies bei der Gestaltung des Images beachten und so unerwünschte Effekte vermeiden:</p>
 <ul>
-<li><strong>Relativ</strong>: In den Interaktionsformaten <code>FIND_ON_IMAGE</code> und <code>DROP</code> werden Koodinaten als “X,Y” angegeben. Dies entspricht der Breiten- und der Höhenangabe, jeweils im Bereich 0..100. Dies wird interpretiert als Prozentangabe der jeweiligen Breite und Höhe des Bildes</li>
-<li><strong>Absolut</strong>: Im Interaktionsformat <code>POLYGON_BUTTONS</code> werden Pixel-Angaben bei den Punkt-Koordinaten der Polygone erwartet.</li>
+<li><strong>A/D</strong>: Im Übungsmodus nimmt der Streifen 30px ein.</li>
+<li><strong>B/D</strong>: Die Höhe der Buttons beträgt 125px. Im Übungsmodus verringert sich dieser Wert um 30px, da die Streifen nicht überdeckt werden können.</li>
+<li><strong>E</strong>: Die Breite des Weiter-Buttons einschl. Abstand zum Rand beträgt 108px.</li>
+<li><strong>F</strong>: Die Breite des Audio-Buttons beträgt einschl. Abstand zum Rand und der Ton-Animation 253px.</li>
 </ul>
 
 
