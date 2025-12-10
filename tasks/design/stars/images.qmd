@@ -6,39 +6,7 @@ lightbox: true
 
 Jedes Bild wird als [base64-kodierter](../media/base64.qmd) String in der Unit-Definition übergeben. Der folgende Text beschreibt, wie eine Ausrichtung und eventuell nötige Anpassung erfolgt sowie die Verfahren, wie mit Koordinaten zu arbeiten ist.
 
-# Verfügbarer Platz
-
-Wieviel Platz eine Interaktion zur Verfügung hat, richtet sich nach folgenden Einstellungen (s. Grafik):
-
-![](assets/StarsPlayerHeightWidth.png)
-
-* Der optionale **Übungsmodus** benötigt Platz oben und unten für einen gebänderten Streifen.
-* Der optionale **Audio-Button** braucht Platz oben links im Ruhezustand (nur Button) und im aktiven Zustand (animierte Grafik rechts daneben).
-* Der optionale **Weiter-Button** benötigt Platz in der rechten unteren Ecke.
-
-Es verbleibt ein rechteckiger Bereich, der im Querformat oder im Hochformat genutzt für Breite und Höhe unterschiedliche Werte hat.
-
-## Querformat
-
-Die verfügbare **Breite** ermittelt sich über **F**.
-
-Die verfügbare **Höhe** ermittelt sich über **A**
-* wenn Audio minus **B**
-* wenn Weiter-Button minus **D**
-
-# Hochformat
-
-Die verfügbare **Breite** ermittelt sich über **F**
-* wenn Audio minus **G**
-  - wenn man die verfügbare Fläche mittig besetzten will, dann nochmal minus **G**; Weiter-Button spielt dann keine Rolle
-* wenn Weiter-Button
-  - minus **H**, wenn nicht bereits rechts durch den Audio-Button reduziert wurde
-  - nochmal minus **H**, wenn nicht bereits links durch den Audio-Button reduziert wurde und man die verfügbare Fläche mittig besetzten will
-
-Die verfügbare **Höhe** ermittelt sich über **A**
-* wenn Übungsmodus minus **C** und minus **E**
-
-# Allgemeine Grundsätze
+# Größenanpassung
 
 ## Nie Vergrößerung
 
@@ -48,28 +16,37 @@ Man kann diesen Grundsatz ausnutzen, um eine Maximalgröße festzulegen. Ein Bil
 
 Um die Datenmenge möglichst gering zu halten, die bei einem Test transportiert werden muss, sollte ein Bild nur so groß wie nötig sein.
 
-## Konstante Aspect Ratio
-
-Das Verhältnis von Höhe und Breite eines Bildes wird nie verändert. Das kann zu unerwüscht kleinen Bildern führen, aber in keinem Fall wird der StarS-Player nur die Breite oder nur die Höhe verringern.
-
-# Verkleinerung wenn notwendig
+## Verkleinerung wenn notwendig
 
 Sollte weniger Platz zur Verfügung stehen, als das Bild in einer 1:1-Darstellung benötigt, wird es nicht abgeschnitten. Eine Verkleinerung mag zu einer "unschönen" Darstellung führen oder sogar die Beantwortung beeinträchtigen. Dies ist jedoch günstiger im Vergleich zu einem Beschneiden: Dann wären Bildteile nicht mehr zu sehen, was sehr sicher zu verfälschten Testergebnissen führen würde.
 
-## Verfügbarer Platz
+## Konstante Aspect Ratio
 
-Der StarS-Player scrollt nicht. Der verfügbare Bildschirmbereich stellt gleichzeitig die maximal verfügbare Darstellungsfläche für eine Unit dar.
+Das Verhältnis von Höhe und Breite eines Bildes wird nie verändert. Das kann zu unerwünscht kleinen Bildern führen, aber in keinem Fall wird der StarS-Player nur die Breite oder nur die Höhe verringern.
 
-Ein Bild soll stets einen Mindestabstand zu anderen Elementen des Interaktionstyps haben. Dies betrifft vor allem Texte und Buttons. Jeder Interaktionstyp wird hier die für das Bild verfügbare Fläche festlegen und dann das Bild einpassen. Alle Interaktionstypen arbeiten mit festen Abständen.
+# Verfügbarer Platz
 
-## Eck-Buttons: Audio, Weiter
+Wieviel Platz eine Interaktion zur Verfügung hat, richtet sich nach folgenden Einstellungen (s. Grafik):
 
-Wenn der verfügbare Platz ermittelt wird, spielt ggf. der Button links oben zum Starten des Audios und der Button rechts unten zum Weitergehen eine Sonderrolle. Diese Buttons liegen außerhalb des Interaktionstyps. Es gibt zwei Möglichkeiten, wie diese Buttons in die Ermittlung des verfügbaren Platzes für ein Bild eingehen:
+![](assets/StarsPlayerHeightWidth.png)
 
-* **Standard** Der verfügbare Platz beginnt unterhalb des Audio-Buttons und endet spätestens oberhalb des Weiter-Buttons. Mit diesem Modus ist eine Überlappung nicht möglich.
-* `imageUseFullArea` ist auf `true` gesetzt: Der verfügbare Platz wird ohne Beachtung der beiden Eck-Buttons ermittelt. Mit diesem Modus ist theoretisch eine Überlappung des Eck-Buttons mit dem Bild möglich. Das muss dann durch die Maße bzw. Gestaltung des Bildes verhindert werden (entweder maximale Breite des Bildes 650px - dann gibt es bei >= 1000px Bildschirmbreite kein Problem) oder das Bild enthält in einer oberen linken Ecke keine Bildelemente.
+* A/D: Der optionale **Übungsmodus** benötigt Platz oben und unten für einen gebänderten Streifen.
+* B/F: Der optionale **Audio-Button** braucht Platz oben links im Ruhezustand (nur Button) und im aktiven Zustand (animierte Grafik rechts daneben).
+* C/E: Der optionale **Weiter-Button** benötigt Platz in der rechten unteren Ecke.
 
-# Koordinaten
+Es verbleibt ein rechteckiger Bereich, der im Querformat oder im Hochformat genutzt für Breite und Höhe unterschiedliche Werte hat.
 
-* **Relativ**: In den Interaktionsformaten `FIND_ON_IMAGE` und `DROP` werden Koodinaten als "X,Y" angegeben. Dies entspricht der Breiten- und der Höhenangabe, jeweils im Bereich 0..100. Dies wird interpretiert als Prozentangabe der jeweiligen Breite und Höhe des Bildes
-* **Absolut**: Im Interaktionsformat `POLYGON_BUTTONS` werden Pixel-Angaben bei den Punkt-Koordinaten der Polygone erwartet.
+# Standard-Modus
+
+Die Interaktionselemente und das Bild werden in den dunkelblauen Bereich eingepasst. Je nachdem, ob Audio und/oder Weiter-Button bzw. Streifen um Übungsmodus definiert sind, ist der Platz verkleinert. Dadurch ist sichergestellt, dass es zu keiner Überlappung kommt.
+
+# `imageUseFullArea: true`
+
+Im Interaktionstyp `BUTTONS` und im `openingImage` ist der Parameter `imageUseFullArea` verfügbar. Wenn dieser auf `true` gesetzt wird, dann werden die ggf. vorhandenen Buttons für Audio und Weiter-Funktion ignoriert. Der verfügbare Platz dehnt sich dann auf die blaue Fläche in der obigen Darstellung aus.
+
+Die Buttons werden zwar bei Bedarf trotzdem angezeigt und überlappen das Image. Aber die Funktion des Images ist natürlich ggf. eingeschränkt. Man kann dies bei der Gestaltung des Images beachten und so unerwünschte Effekte vermeiden:
+
+* **A/D**: Im Übungsmodus nimmt der Streifen 30px ein.
+* **B/D**: Die Höhe der Buttons beträgt 125px. Im Übungsmodus verringert sich dieser Wert um 30px, da die Streifen nicht überdeckt werden können.
+* **E**: Die Breite des Weiter-Buttons einschl. Abstand zum Rand beträgt 108px.
+* **F**: Die Breite des Audio-Buttons beträgt einschl. Abstand zum Rand und der Ton-Animation 253px.
