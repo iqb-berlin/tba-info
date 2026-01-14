@@ -1279,27 +1279,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Anschließend findet sich im Ordner zusätzlich eine Datei <code>base64.json</code> z. B. mit folgendem Inhalt (base64-Strings gekürzt):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"tool"</span><span class="fu">:</span>  <span class="st">"iqb-base64-generator"</span><span class="fu">,</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span>  <span class="st">"1.3"</span><span class="fu">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"created"</span><span class="fu">:</span>  <span class="st">"15.08.2025 16:19:50"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"version"</span><span class="fu">:</span>  <span class="st">"1.4"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"created"</span><span class="fu">:</span>  <span class="st">"14.01.2026 16:19:50"</span><span class="fu">,</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"files"</span><span class="fu">:</span>  <span class="ot">[</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAB5CAM......"</span><span class="fu">,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency1.png"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRX....."</span><span class="fu">,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency2.jpg"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOoAAA...."</span><span class="fu">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency2.png"</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>              <span class="ot">]</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency1.png"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"base64"</span><span class="fu">:</span>  <span class="ot">[</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAB5CAM......"</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"comment"</span><span class="fu">:</span>  <span class="st">"use the line above to copy with colon"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"comment"</span><span class="fu">:</span>  <span class="st">"use the line below to copy without colon"</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAB5CAM......"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                                 <span class="ot">]</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency2.png"</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"base64"</span><span class="fu">:</span>  <span class="ot">[</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">{</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRX....."</span><span class="fu">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"comment"</span><span class="fu">:</span>  <span class="st">"use the line above to copy with colon"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">{</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"comment"</span><span class="fu">:</span>  <span class="st">"use the line below to copy without colon"</span><span class="fu">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRX....."</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">}</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                                 <span class="ot">]</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">{</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"filename"</span><span class="fu">:</span>  <span class="st">"emergency3.png"</span><span class="fu">,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">"base64"</span><span class="fu">:</span>  <span class="ot">[</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">{</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOoAAA...."</span><span class="fu">,</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"comment"</span><span class="fu">:</span>  <span class="st">"use the line above to copy with colon"</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">{</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"comment"</span><span class="fu">:</span>  <span class="st">"use the line below to copy without colon"</span><span class="fu">,</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>                                         <span class="dt">"imageSource"</span><span class="fu">:</span>  <span class="st">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOoAAA...."</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">}</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                                 <span class="ot">]</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">}</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>              <span class="ot">]</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Wenn man nun diese Datei mit einem Texteditor öffnet, kann man die jeweilige Zeile mit dem Base64-String kopieren und in die Zieldatei übertragen. Bei dem Format JSON bitte folgendes beachten:</p>
 <ul>
 <li>Als Name der Property nutzt das Script <code>audioSource</code>, <code>videoSource</code> bzw. <code>imageSource</code>. Dies muss man ggf. an die jeweilige erforderliche Syntax anpassen.</li>
-<li>Hinter dem Base64-String ist noch ein Komma platziert. Wenn jedoch in der Zieldatei dieser Eintrag der letzte ist, muss dieses Komma entfernt werden. Sonst könnte die JSON-Datei ungültig werden, d.&nbsp;h. das Zielsystem lehnt die Datendatei ab. Die Editoren bieten mitunter eine Prüfung der Syntax an (z. B. in Notepad++ Menüpunkt “Plugins/JsonTools/check JSON syntax now”).</li>
+<li>Für die korrekte Syntax der Zieldatei ist es wichtig, ob die kopierte Zeile mit einem Komma endet. Als letzter Parameter in einem JSON-Objekt darf kein Komma folgen, ansonsten muss ein Komma folgen. Da die Zeile sehr lang sein kann ist es schwierig, an das Ende zu scrollen. Aus diesem Grund finden sich für jede Datei zwei Varianten des Base64-Strings in der Ausgabedatei, jeweils markiert mit einem Kommentar (s. o.).</li>
+<li>Die Editoren bieten mitunter eine Prüfung der Syntax an (z. B. in Notepad++ Menüpunkt “Plugins/JsonTools/check JSON syntax now”).</li>
 <li>Eine falsche Einrückung spielt in JSON technisch keine Rolle, d.&nbsp;h. man könnte es so lassen. In größeren Datendateien erhöht eine konsistente Einrückung jedoch die Lesbarkeit und vermeidet Fehler. Die Editoren bieten mitunter eine Reformatierung der Syntax an (z. B. in Notepad++ Menüpunkt “Plugins/JsonTools/Pretty-print current JSON file)”.</li>
 </ul>
 </section>
