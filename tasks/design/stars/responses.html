@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-f8de076aeb9658a6c96d343f1d6c5546.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-4b10d88bc01b3c2b62a30403842a2cd1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -1216,7 +1216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#variableid" id="toc-variableid" class="nav-link" data-scroll-target="#variableid"><code>variableId</code></a></li>
   <li><a href="#responsecomplete" id="toc-responsecomplete" class="nav-link" data-scroll-target="#responsecomplete"><code>responseComplete</code></a></li>
-  <li><a href="#codingsource" id="toc-codingsource" class="nav-link" data-scroll-target="#codingsource"><code>codingSource</code></a></li>
+  <li><a href="#codingsource-codingsourceparameter" id="toc-codingsource-codingsourceparameter" class="nav-link" data-scroll-target="#codingsource-codingsourceparameter"><code>codingSource</code>, <code>codingSourceParameter</code></a></li>
   <li><a href="#codes" id="toc-codes" class="nav-link" data-scroll-target="#codes"><code>codes</code></a></li>
   <li><a href="#kodierregel-method-und-parameter" id="toc-kodierregel-method-und-parameter" class="nav-link" data-scroll-target="#kodierregel-method-und-parameter">Kodierregel: <code>method</code> und <code>parameter</code></a></li>
   </ul></li>
@@ -1288,13 +1288,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>ON_FULL_CREDIT</code>: Es muss die richtige Antwort gegeben werden. Dazu muss natürlich mindestens ein Code definiert werden, der einen Score &gt; 1 hat (s. unten). Für “Full Credit/Volle Punktzahl” nimmt dann der Player den höchsten Score an. Dieses Szenario eignet sich für Übungsaufgaben, bei denen die Testperson die Beantwortung eines bestimmten Frageformates lernen soll. Ein Weitergehen wird erst dann erlaubt, wenn man annehmen kann, dass die Testperson sinnvoll mit dem Computer interagiert.</li>
 </ul>
 </section>
-<section id="codingsource" class="level2">
-<h2 class="anchored" data-anchor-id="codingsource"><code>codingSource</code></h2>
-<p>Der Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Zunächst muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:</p>
+<section id="codingsource-codingsourceparameter" class="level2">
+<h2 class="anchored" data-anchor-id="codingsource-codingsourceparameter"><code>codingSource</code>, <code>codingSourceParameter</code></h2>
+<p>Der Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Es muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:</p>
 <ul>
 <li><code>VALUE</code>: Es wird direkt der Antwortwert genommen (Standard).</li>
 <li><code>VALUE_TO_UPPER</code>: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.</li>
 <li><code>SUM</code>: Der Antwortwert ist ein String in der Form “01101”, und es wird die Summe der “1”-Zeichen berechnet.</li>
+<li><code>SUM_CHAR_MATCHES</code>: Der Antwortwert ist ein String in der Form “01101”, und es wird genau überprüft, ob “0” und “1” an den richtigen Stellen sind. Dazu muss noch ein Vergleichsstring übergeben werden, wozu der Parameter <code>codingSourceParameter</code> zu nutzen ist. Die Anzahl der Zeichen muss gleich sein, und es wird zeichenweise der Antwortwert mit dem Vergleichsstring verglichen. Das Ergebnis ist die Summe der Übereinstimmungen. Beispiel: Antwortwert “01101” und Vergleichsstring “01110” ergibt 3.</li>
 </ul>
 </section>
 <section id="codes" class="level2">
@@ -1305,10 +1306,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="kodierregel-method-und-parameter" class="level2">
 <h2 class="anchored" data-anchor-id="kodierregel-method-und-parameter">Kodierregel: <code>method</code> und <code>parameter</code></h2>
-<p>Ein Code-Eintrag führt stets zum Setzen eines <code>code</code>- und eines <code>score</code>-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über <code>method</code> und <code>parameter</code>. Folgende Methoden stehen zur Verfügung:</p>
+<p>Ein Code-Eintrag führt stets zum Setzen eines <code>code</code>- und eines <code>score</code>-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über <code>method</code> und <code>parameter</code>. Die Methode wird mit dem Parameter auf den Wert angewendet, der über <code>codingSource</code> festgelegt wurde (s. o., also Antwortwert, Summe usw.). Folgende Methoden stehen zur Verfügung:</p>
 <ul>
-<li><code>EQUALS</code>: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.</li>
-<li><code>GREATER_THAN</code>, <code>LESS_THAN</code>: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.</li>
+<li><code>EQUALS</code>: Es erfolgt ein String-Vergleich, d.&nbsp;h. ‘4,0’ wird nicht als derselbe Wert wie ‘4’ gewertet.</li>
+<li><code>GREATER_THAN</code>, <code>LESS_THAN</code>: Es erfolgt ein numerischer Vergleich, d.&nbsp;h. die ggf. als String vorliegenden Werte werden transformiert. Der Code trifft dann zu, wenn der zu prüfende Wert größer bzw. kleiner als der Parameter-Wert ist.</li>
 <li><code>IN_POSITION_RANGE</code>: Der Interaktionstyp FIND_ON_IMAGE (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format ‘x,y’ (jeweils ganze Zahlen 0..100, also z. B. ‘34,77’). Mit der Methode <code>IN_POSITION_RANGE</code> wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist ‘x,y-x,y’ (linke obere und rechte untere Ecke).</li>
 </ul>
 </section>
