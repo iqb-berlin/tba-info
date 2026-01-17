@@ -104,15 +104,11 @@ Nach einem ggf. definierten Haupt-Audio kann ein Bild für eine kurze Zeit einge
 {
     "openingImage": {
         "imageSource": "data:image/jpeg;base64,//OEZAAAAAAAAAwYA...", // <1>
-        "startTrigger": "UNIT_START", // <2>
-        "startDelayMS": 2000, // <3>
-        "presentationDurationMS": 1500, // <4>
-        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAwYA..." // <5>
+        "presentationDurationMS": 1500, // <2>
+        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAwYA..." // <3>
     }
 }
 ```
 1. `imageSource` enthält das Bild in base64-Kodierung
-2. `startTrigger` legt fest, durch welches Ereignis die Anzeige ausgelöst werden soll: `UNIT_START` (Standardwert) blendet das Bild nach Start der Unit ein. `START_BUTTON` führt zum Einblenden eines Buttons, den die Testperson klicken muss, um die Anzeige zu starten. `MAIN_AUDIO_END` startet die Anzeige durch das Ende des Haupt-Audios. 
-3. `startDelayMS` legt eine Verzögerung der Anzeige in Millisekunden fest.
-4. `presentationDurationMS` legt die Dauer der Anzeige fest.
-5. Wenn eine `audioSource` festgelegt wurde, dann wird unmittelbar nach der Anzeige des Bildes dieses Audio gespielt. Die nachfolgende Interaktion wird während des Audios noch blockiert, d. h. erst nach Ablauf gilt das vorgelagerte Bild als abgeschlossen.
+2. `presentationDurationMS` legt die Dauer der Anzeige fest.
+3. Wenn eine `audioSource` festgelegt wurde, dann wird unmittelbar nach der Anzeige des Bildes dieses Audio gespielt. Die nachfolgende Interaktion wird während des Audios noch blockiert, d. h. erst nach Ablauf gilt das vorgelagerte Bild als abgeschlossen.

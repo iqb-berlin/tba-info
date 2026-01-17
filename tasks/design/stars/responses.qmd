@@ -53,13 +53,14 @@ Für jede Variable kann für den Parameter `responseComplete` folgendes festgele
 * `ON_ANY_RESPONSE`: Es muss irgendeine Antwort gegeben werden. Für StarS bedeutet dies, dass für diese Variable eine Antwort und dann auch eine Kodierung vorliegt. Ob die Antwort richtig ist, spielt keine Rolle. Diese Einstellung ist für die meisten Fälle in StarS sinnvoll.
 * `ON_FULL_CREDIT`: Es muss die richtige Antwort gegeben werden. Dazu muss natürlich mindestens ein Code definiert werden, der einen Score > 1 hat (s. unten). Für "Full Credit/Volle Punktzahl" nimmt dann der Player den höchsten Score an. Dieses Szenario eignet sich für Übungsaufgaben, bei denen die Testperson die Beantwortung eines bestimmten Frageformates lernen soll. Ein Weitergehen wird erst dann erlaubt, wenn man annehmen kann, dass die Testperson sinnvoll mit dem Computer interagiert.   
 
-## `codingSource`
+## `codingSource`, `codingSourceParameter`
 
-Der Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form "01101" oder eine offene Eingabe. Zunächst muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:
+Der Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form "01101" oder eine offene Eingabe. Es muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:
 
 * `VALUE`: Es wird direkt der Antwortwert genommen (Standard).
 * `VALUE_TO_UPPER`: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.
 * `SUM`: Der Antwortwert ist ein String in der Form "01101", und es wird die Summe der "1"-Zeichen berechnet.
+* `SUM_CHAR_MATCHES`: Der Antwortwert ist ein String in der Form "01101", und es wird genau überprüft, ob "0" und "1" an den richtigen Stellen sind. Dazu muss noch ein Vergleichsstring übergeben werden, wozu der Parameter `codingSourceParameter` zu nutzen ist. Die Anzahl der Zeichen muss gleich sein, und es wird zeichenweise der Antwortwert mit dem Vergleichsstring verglichen. Das Ergebnis ist die Summe der Übereinstimmungen. Beispiel: Antwortwert "01101" und Vergleichsstring "01110" ergibt 3.
 
 ## `codes`
 
@@ -71,10 +72,10 @@ Wenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0
 
 ## Kodierregel: `method` und `parameter`
 
-Ein Code-Eintrag führt stets zum Setzen eines `code`- und eines `score`-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über `method` und `parameter`. Folgende Methoden stehen zur Verfügung:
+Ein Code-Eintrag führt stets zum Setzen eines `code`- und eines `score`-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über `method` und `parameter`. Die Methode wird mit dem Parameter auf den Wert angewendet, der über `codingSource` festgelegt wurde (s. o., also Antwortwert, Summe usw.). Folgende Methoden stehen zur Verfügung:
 
-* `EQUALS`: Sollte der Antwortwert numerisch sein, dann wird er zunächst in einen String überführt. Dann wird er mit dem Parameter-Wert verglichen. Bei Gleichheit trifft der Code zu.
-* `GREATER_THAN`, `LESS_THAN`: Sollte der Antwortwert als String vorliegen, wird er - genau wie der Parameter-Wert - in einen numerischen Wert überführt. Der Code trifft dann zu, wenn der Antwortwert größer bzw. kleiner als der Parameter-Wert ist.
+* `EQUALS`: Es erfolgt ein String-Vergleich, d. h. '4,0' wird nicht als derselbe Wert wie '4' gewertet.
+* `GREATER_THAN`, `LESS_THAN`: Es erfolgt ein numerischer Vergleich, d. h. die ggf. als String vorliegenden Werte werden transformiert. Der Code trifft dann zu, wenn der zu prüfende Wert größer bzw. kleiner als der Parameter-Wert ist.
 * `IN_POSITION_RANGE`: Der Interaktionstyp FIND_ON_IMAGE (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format 'x,y' (jeweils ganze Zahlen 0..100, also z. B. '34,77'). Mit der Methode `IN_POSITION_RANGE` wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist 'x,y-x,y' (linke obere und rechte untere Ecke).
 
 # Antwort-Status
