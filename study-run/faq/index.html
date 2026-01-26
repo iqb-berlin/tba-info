@@ -1203,6 +1203,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv." id="toc-audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv." class="nav-link" data-scroll-target="#audios-können-nicht-gestartet-werden.-der-play-knopf-ist-inaktiv."><span class="header-section-number">24</span> Audios können nicht gestartet werden. Der Play-Knopf ist inaktiv.</a></li>
   <li><a href="#warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt" id="toc-warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt" class="nav-link" data-scroll-target="#warum-werden-aufgabeninhalte-in-chrome-nur-kurz-angezeigt"><span class="header-section-number">25</span> Warum werden Aufgabeninhalte in Chrome nur kurz angezeigt?</a></li>
   <li><a href="#wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" id="toc-wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" class="nav-link" data-scroll-target="#wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten"><span class="header-section-number">26</span> Wie kann ich den Test auswerten? Wo finde ich die Daten?</a></li>
+  <li><a href="#bei-der-wiedergabe-einer-aufgabe-kommt-die-meldung-unit-definition-veraltet" id="toc-bei-der-wiedergabe-einer-aufgabe-kommt-die-meldung-unit-definition-veraltet" class="nav-link" data-scroll-target="#bei-der-wiedergabe-einer-aufgabe-kommt-die-meldung-unit-definition-veraltet"><span class="header-section-number">27</span> Bei der Wiedergabe einer Aufgabe kommt die Meldung: Unit-Definition veraltet</a></li>
   </ul>
 </nav>
     </div>
@@ -1386,6 +1387,10 @@ Tipp
 <section id="wie-kann-ich-den-test-auswerten-wo-finde-ich-die-daten" class="level1" data-number="26">
 <h1 data-number="26"><span class="header-section-number">26</span> Wie kann ich den Test auswerten? Wo finde ich die Daten?</h1>
 <p>Das Testcenter speichert in bestimmten <strong>Testmodi</strong> die Ergebnisse eines Tests in dem Arbeitsbereich ab, in welchem sich auch die Testdateien für den Test befinden. Öffnen Sie den jeweiligen Arbeitsbereich und klicken Sie auf den Reiter: <strong>Ergebnisse/Antworten</strong>. Dort können Sie die Ergebnisse herunterladen. Die Dateien werden dann in einem CSV-Format gespeichert.</p>
+</section>
+<section id="bei-der-wiedergabe-einer-aufgabe-kommt-die-meldung-unit-definition-veraltet" class="level1" data-number="27">
+<h1 data-number="27"><span class="header-section-number">27</span> Bei der Wiedergabe einer Aufgabe kommt die Meldung: Unit-Definition veraltet</h1>
+<p>Editor-/ und Playerversion gehören immer zusammen. Bei der Aufgabenerstellung im Studio erzeugt der Editor eine Versionsnummer in der Unit-VOUD. Wird in der Unit-XML die angegebene Playerversion erhöht, ist es möglich diese höhere Version des Players zusammen mit der Aufgabe in das Testcenter zu laden. Beim Start des PLayers gleicht dieser aber seine Version mit der Version der Unit-VOUD ab. Gibt es hier eine Diskrepanz erscheint die Meldung, dass die Unit-Definition veraltet ist. Lösung: Soll ein neuerer Player verwendet werden, ist die Version im Studio für die jeweilige Aufgabe umzustellen und anschließend zu speichern. Im nächsten Schritt kann die Aufgabe exportiert werden und in das Testcenter geladen werden.</p>
 
 
 </section>
