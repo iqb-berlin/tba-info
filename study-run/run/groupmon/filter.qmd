@@ -1,0 +1,208 @@
+---
+lang: de
+title: "Filter einrichten"
+---
+
+# Einführung
+
+Über die {{< fa gear >}}-Schaltfläche können Filter zur Ansicht eingerichtet werden. Es stehen 2 Standardfilter unter dem Punkt: "Sitzungen ausblenden" zur Verfügung:
+
+* ausblenden von ausstehenden Tests
+* ausblenden von gesperrten Tests
+
+Es ist möglich mithilfe der {{< fa plus >}}-Schaltfläche weitere individuelle Filter einzurichten. Im erweiterten Modus kann auf regulärer Ausdrücke gefiltert werden. Im Standard-Modus kann auf "gleich" und "enthält" gefiltert werden. Wird ein adaptives Testheft verwendet, kann auf die dort hinterlegten State-Elemente und auf die zugehörigen Options-Elemente gefiltert werden. 
+
+# Filter-Menu zur Einrichtung eines Filters
+
+Nachfolgend ist das Filter-Menu zu sehen:
+
+![](assets/GM-Filtersetting.png)
+
+Es folgt eine Beschreibung der Felder und Schaltflächen und welche Werte verwendet werden können:
+
+| Attribut | Feld im Menu | Typ | Erforderlich | Beschreibung |
+|----------|-------------|-----|--------------|--------------|
+| `label` | Filtername |`xs:string` | Nein | Anzeigebezeichnung für den Filter |
+| `field` | Feld |`GroupMonitorProfileFilterField` | Nein | Feld, auf das der Filter angewendet wird |
+| `type` | Filtertyp |`FilterTypeType` | Nein | Art des Filters |
+| `value` | Filter* |`xs:string` | Nein | Filterwert |
+| `not` | nicht | `xs:boolean` | Nein | Negiert den Filter (invertierte Logik) |
+
+## Zulässige Typen
+
+### `field` (Feld)
+
+- `bookletLabel` - Booklet-Bezeichnung
+- `personLabel` - Personen-Bezeichnung
+- `state` - Status
+- `blockLabel` - Block-Bezeichnung
+- `groupName` - Gruppenname
+- `bookletId` - Booklet-ID
+- `unitId` - Unit-ID
+- `unitLabel` - Unit-Bezeichnung
+- `blockId` - Block-ID
+- `testState` - Teststatus
+- `mode` - Modus
+- `bookletSpecies` - Booklet-Art
+- `bookletStates` - Booklet-Status
+
+#### `type` (Filtertyp)
+
+- `equal` (gleicht)- Exakte Übereinstimmung
+- `substring` (enthält) - Teilstring-Übereinstimmung
+- `regex` (matched regulären Ausdruck)- Regulärer Ausdruck
+
+# Filter einrichten in der Testtaker-XML
+
+Eigene Filter und Profile können aber auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
+
+```{.xml}
+
+<Profiles>
+    <GroupMonitor>
+      <Profile
+        id="small"
+        label="Nicht alles zeigen"
+        blockColumn="hide"
+        unitColumn="hide"
+        view="small"
+        groupColumn="hide"
+        bookletColumn="hide"
+        bookletStatesColumns=""
+        filterPending="yes"
+        filterLocked="yes"
+      >
+        <Filter label="Reduced Booklet" field="personLabel" type="equal" value="test" not="false"/>
+      </Profile>
+
+      <Profile
+        id="all"
+        label="Alles zeigen"
+        blockColumn="show"
+        unitColumn="show"
+        view="full"
+        groupColumn="show"
+        bookletColumn="show"
+        bookletStatesColumns="level bonus"
+        filterPending="yes"
+        filterLocked="no"      
+      >
+      </Profile>
+    </GroupMonitor>
+  </Profiles>
+
+
+ <Group id="sample_group" label="Primary Sample Group">
+
+    <Login mode="run-hot-return" name="test" pw="user123">
+      <Booklet codes="xxx yyy">BOOKLET.SAMPLE-1</Booklet>
+      <Booklet codes="xxx yyy">BOOKLET.SAMPLE-3</Booklet>
+    </Login>
+
+    <Login mode="monitor-group" name="test-group-monitor" pw="user123">
+      <Profile id="all" />
+      <Profile id="small" />      
+    </Login>
+  </Group>
+```
+
+Es folgt eine detaillierte Beschreibung der mögliche Attribute und der zulässiger Werte:
+
+::: {.callout-note}
+Welche Attribute zur Verfügung stehen ist auch in [XML-Schemadefinition](https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd) für die Testtaker-XML zu finden. Die Attribute sind hier im xs-Element: **ProfileType** zu finden.
+:::
+
+## Attribute und zulässige Werte
+
+### id
+- **Typ:** `xs:string`
+- **Erforderlich:** Ja
+- **Beschreibung:** Eindeutige Kennung des Profils, wird verwendet um das Profil einem Gruppenmonitor-Login zuzuordnen.  Im oberen Beispiel zu sehen mit den Ids: `small` und `all`.
+
+### label
+- **Typ:** `xs:string`
+- **Erforderlich:** Nein
+- **Beschreibung:** Anzeigebezeichnung für das Profil. Nach der Anmeldung zum Starten eines Gruppenmonitors, wird diese Bezeichnung dem Benutzer zur Auswahl angezeigt. Im oberen Beispiel zu sehen mit den Labels: "Nicht alles zeigen" und "Alles zeigen".
+
+### blockColumn
+- **Typ:** `GroupMonitorProfileColumnSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `show` - Block-Spalte anzeigen
+  - `hide` - Block-Spalte verbergen
+- **Beschreibung:** Sichtbarkeit der Block-Spalte im Gruppenmonitor
+
+### unitColumn
+- **Typ:** `GroupMonitorProfileColumnSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `show` - Unit-Spalte anzeigen
+  - `hide` - Unit-Spalte verbergen
+- **Beschreibung:** Sichtbarkeit der Unit-Spalte im Gruppenmonitor
+
+### groupColumn
+- **Typ:** `GroupMonitorProfileColumnSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `show` - Gruppen-Spalte anzeigen
+  - `hide` - Gruppen-Spalte verbergen
+- **Beschreibung:** Sichtbarkeit der Gruppen-Spalte im Gruppenmonitor
+
+### bookletColumn
+- **Typ:** `GroupMonitorProfileColumnSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `show` - Booklet-Spalte anzeigen
+  - `hide` - Booklet-Spalte verbergen
+- **Beschreibung:** Sichtbarkeit der Booklet-Spalte im Gruppenmonitor
+
+### bookletStatesColumns
+- **Typ:** `xs:string`
+- **Erforderlich:** Nein
+- **Beschreibung:** Definition der anzuzeigenden Booklet-Status-Spalten (als Zeichenkette)
+
+### view
+- **Typ:** `GroupMonitorProfileViewSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `full` - Vollständige Ansicht
+  - `medium` - Mittlere Ansicht
+  - `small` - Kompakte Ansicht
+- **Beschreibung:** Definiert die Detailstufe der Darstellung im Gruppenmonitor
+
+### filterPending
+- **Typ:** `GroupMonitorProfileFilterSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `yes` - Ausstehende Tests filtern
+  - `no` - Ausstehende Tests nicht filtern
+- **Beschreibung:** Steuert die Filterung von ausstehenden (pending) Tests. Hierbei handelt sich um einen der genannten Standardfilter oben. Dieser ist dann je nach Wert aktiv oder eben nicht.
+
+### filterLocked
+- **Typ:** `GroupMonitorProfileFilterSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `yes` - Gesperrte Tests filtern
+  - `no` - Gesperrte Tests nicht filtern
+- **Beschreibung:** Steuert die Filterung von gesperrten Tests. Hierbei handelt sich um einen der genannten Standardfilter oben. Dieser ist dann je nach Wert aktiv oder eben nicht.
+
+### autoselectNextBlock
+- **Typ:** `GroupMonitorProfileFilterSetting`
+- **Erforderlich:** Nein
+- **Zulässige Werte:**
+  - `yes` - Nächsten Block automatisch auswählen
+  - `no` - Nächsten Block nicht automatisch auswählen
+- **Beschreibung:** Steuert die automatische Auswahl des nächsten Blocks. Im Detail: Ist **yes** als Wert hinterlegt, wird nach jedem Sprung zu einem Block automatisch der nächste Block markiert. Ein erneuter Klick auf den Schalter "Springe zu" veranlasst dann einen Sprung zu dem automatisch markierten Block. Der Wert **no** verhindert diese automatische Markierung des nächsten Blocks. Das kann dann Sinn machen, wenn die Gefahr verringert werden soll, dass aus Versehen (Doppelklick auf "Springe zu") in einen Block gesprungen wird, der noch nicht an der Reihe ist.
+
+
+
+
+
+
+
+
+
+
+
+
+
