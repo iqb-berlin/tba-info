@@ -3,15 +3,13 @@ lang: de
 title: "Glossar"
 ---
 
-::: {.callout-caution}
-Diese Seite wird zurzeit überarbeitet. Weitere Inhalte und Grafiken folgen demnächst.
-:::
-
 In diesem Glossar finden Sie eine Übersicht über alle Elemente und ihre spezifischen Einstellungen. Einstellungen, die allen Elementen gemein sind finden Sie hier: [Link](../Elementeinstellungen/index.qmd)
 
 ## Medienelemente
 
-### Audio
+![](Grafiken/element_medium.png)
+
+### ![](Grafiken/element_medium_audio.png) Audio 
 
 Mit dem Knopf „Medienoptionen anpassen“ können Sie ein erweitertes Menü für Audioelemente öffnen.  
 
@@ -25,7 +23,7 @@ Den Fortschrittsbalken, der anzeigt, wie viel von dem Audio bereits abgespielt w
 
 Wenn Sie die Option „Fortschrittssteuerung erlauben“ auswählen, kann das Audio im Test beliebig vor- und zurückgespult werden; ansonsten läuft es strikt von Anfang bis Ende durch.
 
-Die Option „Lautstärkeregelung anzeigen“ ist standardmäßig aktiviert, da es schwierig ist, zu garantieren, dass die Lautstärke auf allen Endgeräten gleichmäßig ist. Es wird nicht empfohlen, diese Auswahl zu ändern. 
+Die Option „Lautstärkeregelung anzeigen“ ist standardmäßig aktiviert, da es schwierig ist, zu garantieren, dass die Lautstärke auf allen Endgeräten gleichmäßig ist. Es wird empfohlen, diese Auswahl nicht zu ändern. 
 
 Sie können allerdings die minimale und maximale Lautstärke regulieren. Die Werte geben Sie als Dezimalzahl zwischen 0 und 1 an, wobei 1 gleich 100% der möglichen Lautstärke ist und 0 gleich 0%, also stumm.
 
@@ -39,19 +37,19 @@ Unter dem Reiter „Verhalten“ können Sie einstellen, ob das Audio automatisc
 
 Sie können außerdem einstellen, wie oft das Audio abspielbar ist. Die minimale Anzahl der Durchläufe sagt aus, wie oft das Audio mindestens abgespielt werden muss, damit es als vollständig wahrgenommen zählt. Dies wird im Studio als „Presentation Complete“ gewertet. Die maximale Anzahl der Durchläufe bestimmt, nach wie vielen Durchläufen der Knopf zum Abspielen deaktiviert wird. 
 
-### Bild
+### ![](Grafiken/element_medium_bild.png) Bild
  
 Mit der Funktion „Skalieren“ können Sie das Bild auf die Größe des Editors anpassen. Außerdem gibt es die Funktion „Lupe“, mit der sich bestimmte Bereiche des Bildes vergrößert anzeigen lassen. Über „Größe der Lupe in px“ können Sie festlegen, wie groß der vergrößerte Bildausschnitt in Pixeln sein soll. Mit dem Regler bei „Vergrößerungsfaktor“ lässt sich einstellen, um wie viel dieser Bereich vergrößert wird.
 
 Die Funktion „Vollbildansicht erlauben“ macht den Vollbildmodus des Bildes möglich.
 
-### Text
+### ![](Grafiken/element_medium_text.png) Text 
 
 Textelemente können Sie im erweiterten Modus wie im Standardmodus editieren. Weitere Details dazu finden Sie hier: [Link](../../basic/Medienelemente/Text/index.qmd)
 
 Im erweiterten Modus können Sie den Text innerhalb des Elements in mehrere Spalten teilen. Im Texteditor wird der Text dann anteilig auf die eingestellte Anzahl Spalten aufgeteilt. Alternativ können Sie aber auch im Raster weitere Spalten mit neuen Textelementen hinzufügen. Weitere Informationen zum Raster finden Sie [hier](../Abschnittseinstellungen/index.qmd#layout).
 
-### Video
+### ![](Grafiken/element_medium_video.png) Video
 
 Mit dem Knopf „Medienoptionen anpassen“ können Sie ein erweitertes Menü für Videoelemente öffnen. 
 
@@ -81,7 +79,9 @@ Sie können außerdem einstellen, wie oft das Video abspielbar ist. Die minimale
 
 ## Eingabeelemente
 
-### Eingabefeld 
+![](Grafiken/element_eingabe.png)
+
+### ![](Grafiken/element_eingabe_ef.png) Eingabefeld
 
 Eingabefelder sind Elemente für einzeilige Textantworten.
 
@@ -97,13 +97,13 @@ Eingabefelder (nicht Eingabebereiche) können eine Maximallänge erhalten. Wird 
 
 Eingabeelemente können mit einer Eingabehilfe versehen werden. Dazu muss zunächst die IQB-Tastatur aktiviert werden, indem „Tastatur einblenden“ ausgewählt wird. Dazu gibt es eine Reihe von Voreinstellungen oder die Möglichkeit eine eigene Zeichenkette einzugeben indem „Eigene Zeichen“ ausgewählt wird. Anschließend kann noch die Position der Eingabehilfe verändert, Pfeiltasten zum Navigieren innerhalb der Eingabe und eine Löschtaste hinzugefügt (nützlich für Aufgaben an mobilen Geräten) und die Bearbeitung anderer Zeichen verhindert werden. Letzteres bedeutet, dass nur die Zeichen aus der Eingabehilfe hinzugefügt oder entfernt werden können und kann z. B. bei Aufgaben, bei denen Satzzeichen in einen Satz eingefügt werden sollen, verwendet werden.
 
-### Eingabebereich 
+### ![](Grafiken/element_eingabe_eb.png) Eingabebereich 
 
 Eingabebereiche sind Elemente für mehrzeilige Textantworten.
 
 Eingabebereiche teilen sich die meisten elementspezifischen Einstellungen mit Eingabefeldern, besitzen jedoch keine Einstellung für eine Maximallänge. Stattdessen kann die Anzahl der Zeilen bestimmt werden. Diese können Sie entweder manuell setzen oder dynamisch einstellen, indem Sie die erwartete Zeichenzahl eingeben, also die Anzahl der Zeichen in der längsten zu erwartenden Antwort. Der Eingabebereich wird darauf basierend automatisch mit genügend Zeilen angezeigt, sodass diese Zeichenzahl eingegeben werden kann.
 
-### Wort Korrigieren 
+### ![](Grafiken/element_eingabe_korrigieren.png) Wort Korrigieren 
 
 Das Korrekturelement zeigt einen Textabschnitt, der korrigiert werden kann. Wenn man ihn anklickt, wird er durchgestrichen und man kann eine Korrektur eingeben. Üblicherweise wird für jedes Wort ein einzelnes Korrekturelement verwendet.
 
@@ -111,17 +111,19 @@ Die Beschriftung des Elements ist der zu korrigierende Textabschnitt.
 
 Wie bei anderen Eingabeelementen kann auch hier eine Eingabehilfe eingestellt werden.
 
-### Formel 
+### ![](Grafiken/element_eingabe_formel.png) Formel 
 
 Das Formelelement ist für Antworten gedacht, die mathematische Formeln enthalten sollen. Wenn man es in der Vorschau oder im Test ausgewählt und auf das Sigma geklickt wird, erscheint ein Menü zum Einfügen der Formel.
 
-### Rechenkästchen 
+### ![](Grafiken/element_eingabe_rechenkasten.png) Rechenkästchen 
 
 Das Rechenkästchenelement erzeugt eine Tabelle, in deren Zellen je eine Zahl oder ein Rechenzeichen steht. Es gibt Voreinstellungen, sodass übliche Rechenverfahren wie Addition, Subtraktion und Multiplikation schriftlich gerechnet werden können.
 
 ## Auswahl
 
-### Optionsfelder (MC) 
+![](Grafiken/element_auswahl.png)
+
+### ![](Grafiken/element_auswahl_mc.png) Optionsfelder (MC) 
 
 Optionsfelder erlauben die Auswahl von genau einer Option aus beliebig vielen. 
 
@@ -129,7 +131,7 @@ Ein Optionsfeldelement kann beschriftet werden; die Beschriftung erscheint dann 
 
 Es öffnet sich ein Dialog mit vereinfachtem Texteditor und, falls Optionsfelder mit Bild genutzt wird, den Optionen „Bild laden“, „Bild entfernen“ und „Bildposition“. Mit „Bild laden“ kann das Bild für die ausgewählte Option ausgewählt werden. Mit „Bild entfernen“ kann das aktuell geladene Bild der ausgewählten Option gelöscht werden. Mit „Bildposition“ kann eingestellt werden, wo das Bild in Relation zum Text stehen soll. Auch bei Optionsfeldern mit Bild kann man Text, zusätzlich zu den Bildern, einfügen.
 
-### Optionentabelle (CMC) 
+### ![](Grafiken/element_auswahl_cmc.png) Optionentabelle (CMC) 
 
 In einer Optionentabelle werden zeilenweise Antworten gegeben, indem man genau eine Spalte auswählt.
 
@@ -139,7 +141,7 @@ Für lange Tabellen empfiehlt sich die Option „haftende Kopfzeile“. Ist dort
 
 Zudem kann eingestellt werden, wieviel Platz die erste Spalte anteilig an der Breite der Tabelle einnimmt. Dafür gibt es die Option „Anteil der ersten Spalte“. Die erste Spalte enthält die Items auf die mit Hilfe der anderen Spalten geantwortet werden soll. Sollte eine große Lücke zwischen der ersten Spalte und den anderen Spalten bestehen,  dann können Sie den Anteil der ersten Spalte verringern, um dies zu beheben. Gleiches gilt, wenn die Spaltenüberschriften gedrängt wirken.
 
-### Klappliste 
+### ![](Grafiken/element_auswahl_klappliste.png) Klappliste 
 
 Die Klappliste ist ein Dropdown-Menü, d. h. wenn es angeklickt wird, öffnet sich eine Liste von auswählbaren Optionen.
 
@@ -147,7 +149,7 @@ Die Klappliste hat eine Beschriftung, die angepasst oder gelöscht werden kann. 
 
 Außerdem können Sie einstellen, welche Option standardmäßig ausgewählt ist. Öffnen Sie dazu das Menü „Vorbelegung“. Zudem können Sie „Deselektion“ erlauben, d. h. die Möglichkeit gewählte Optionen abzuwählen, sodass Testteilnehmende auch keine Auswahl treffen können.
 
-### Kontrollkästchen 
+### ![](Grafiken/element_auswahl_kontrollkasten.png) Kontrollkästchen 
 
 Ein Kontrollkästchen ist eine Box, die Testteilnehmende auswählen bzw. wieder abwählen können.
 
@@ -157,7 +159,7 @@ Das Kontrollkästchen kann eine Vorbelegung erhalten: „Wahr“ für angekreuzt
 
 Außerdem kann eingestellt werden, dass bei Auswahl des Kontrollkästchens, also wenn es auf „Wahr“ gestellt ist, die Beschriftung durchgestrichen wird. Dazu „Auswahl durchstreichen“ anklicken.
 
-### Schieberegler
+### ![](Grafiken/element_auswahl_schieberegler.png) Schieberegler
 
 Beim Schieberegler kann ein Punkt aus einem Wertebereich ausgewählt werden.
 
@@ -169,7 +171,7 @@ Wird die Option „Zeige gewählten Wert“ ausgewählt, sieht man beim Bewegen 
 
 Sie können eine Vorbelegung aus dem Wertebereich angeben, standardmäßig ist dies der Minimalwert.
 
-### Bildbereiche
+### ![](Grafiken/element_auswahl_bildbereiche.png) Bildbereiche
 
 Ein Bildbereichelement besteht aus einem Bild, auf dem mehrere Bereiche existieren, die angeklickt werden können, um sie auszuwählen. Um dieses Element anzulegen, muss ein Bild hochgeladen werden.
 
@@ -188,6 +190,8 @@ Um einen Bereich hinzuzufügen, wird das Plus-Symbol unter „Bereiche“ benutz
 * Schreibgeschützt: Hier wird eingestellt, ob der Bereich ausgewählt bzw. abgewählt werden kann.
 
 ## Ablegeliste (Drag & Drop, DaD)
+
+![](Grafiken/element_zuordnung.png)
 
 Ablegelisten sind Elemente, in denen Optionen liegen können, die verschoben werden können. Geschieht dies innerhalb der Ablegeliste, spricht man von einer Sortierliste. Werden die Optionen von einer Liste rausgezogen und in eine andere abgelegt, spricht man von Drag and Drop, kurz DaD oder D&D.
 
@@ -213,7 +217,9 @@ Wenn „Potentielle Ablagen hervorheben“ eingestellt wird, werden beim Ziehen 
 
 ## Verbund
 
-### Lückentext
+![](Grafiken/element_verbund.png)
+
+### ![](Grafiken/element_verbund_luckentext.png) Lückentext
 
 Lückentextelemente haben einen eigenen Editor, der wie der normale Texteditor funktioniert, bei dem aber zusätzlich noch folgende Elemente eingefügt werden können:
 
@@ -229,7 +235,7 @@ Das Optionsfeld wird mit zwei Optionen erstellt, welche wie beim normalen Option
 
 Das Kontrollkästchen erscheint ebenfalls ohne Kästchen, aber wenn man es anklickt wird, es farblich markiert. Alternativ kann es auch durchgestrichen werden.
 
-### Tabelle
+### ![](Grafiken/element_verbund_tabelle.png) Tabelle
 
 Ein Tabellenelement besteht aus mehreren Zeilen und Spalten, die in einem Raster angeordnet sind und durch Linien unterteilt werden. Dieses Raster ist unabhängig vom normalen Raster im Studio, d. h. ein Tabellenelement kann eine Zelle im Raster in mehrere Zellen unterteilen.
 
@@ -243,7 +249,9 @@ In den Gestaltungseinstellungen für das Tabellenelement kann das Design der Rah
 
 ## Sonstige
 
-### Knopf
+![](Grafiken/element_sonstige.png)
+
+### ![](Grafiken/element_sonstige_knopf.png) Knopf
 
 Das Knopfelement wird benutzt, um Teile der Aufgabe oder des Tests zu steuern, etwa um zur nächsten Seite zu springen.
 
@@ -262,7 +270,7 @@ Unter „Aktion“ wird festgelegt, was passiert, wenn man den Knopf anklickt. F
 Knöpfe sind sehr hilfreich beim Erstellen einiger fortgeschrittener Aufgaben. Weitere Details dazu finden Sie hier: [Buttonverlinkung](../Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.qmd).
 :::
 
-### Rahmen
+### ![](Grafiken/element_sonstige_rahmen.png) Rahmen
 
 Rahmen bieten die Möglichkeit Linien am Rand von Spalten und Zeilen zu ziehen. Die Umrandungen umgeben dementsprechend eine Zelle.
 
@@ -270,19 +278,19 @@ Rahmen können in ihrer Farbe und Stärke sowie im Radius und Stil variiert werd
 
 Zudem kann eingestellt werden, an welchen Kanten der Layout-Zelle der Rahmen angezeigt wird. 
 
-### Geometrie
+### ![](Grafiken/element_sonstige_geometrie.png) Geometrie
 
 Mit der Geometrie-Funktion können GGB-Dateien in das Studio eingefügt werden. In der [GeoGebra-Anleitung](../../geogebra/index.qmd) finden Sie mehr Informationen zur Arbeit mit GeoGebra.
 
 Nach dem Einbetten der Datei können im Studio weitere Einstellungen vorgenommen werden, insbesondere Höhe und Breite des Geometrieelements. 
 
-### Textmarkierung
+### ![](Grafiken/element_sonstige_markierung.png) Textmarkierung
  
 Das Element Textmarkierung funktioniert ähnlich wie die Markierfunktion, die Textelementen hinzugefügt werden kann. Während die Markierfunktion jedoch fest an das Textelement angefügt ist, können Sie das Markierungselement frei positionieren und dann einem Text zuordnen.
 
 Stellen Sie beim Textmarkierungselement ein, welche Farben zum Markieren zur Verfügung stehen sollen. Sie können dann bei jedem Textelement in der gleichen Aufgabe das Markierungselement auswählen und den Markiermodus einstellen. Damit können Sie mehrere Markieraufgaben erstellen, die sich auf den gleichen Text beziehen oder ein Markierelement, das für mehrere Texte funktioniert. 
 
-### Auslöser (Trigger) 
+### ![](Grafiken/element_sonstige_trigger.png) Auslöser (Trigger) 
 
 Auslöser können in Abschnitte gelegt werden, um diese mit Aktionen zu verbinden. Diese Aktionen werden ausgelöst, sobald der Abschnitt angezeigt wird.
 
