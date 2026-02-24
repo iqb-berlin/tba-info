@@ -42,9 +42,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-4b10d88bc01b3c2b62a30403842a2cd1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap-05e14cb7d94e65a6923a3e1e3b680608.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../../../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -1189,7 +1191,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#design" id="toc-design" class="nav-link active" data-scroll-target="#design">Design</a></li>
-  <li><a href="#zustandsvariabel" id="toc-zustandsvariabel" class="nav-link" data-scroll-target="#zustandsvariabel">Zustandsvariabel</a></li>
+  <li><a href="#zustandsvariable" id="toc-zustandsvariable" class="nav-link" data-scroll-target="#zustandsvariable">Zustandsvariable</a></li>
   <li><a href="#knöpfe-hinzufügen" id="toc-knöpfe-hinzufügen" class="nav-link" data-scroll-target="#knöpfe-hinzufügen">Knöpfe hinzufügen</a></li>
   <li><a href="#sichtbarkeitseinstellungen" id="toc-sichtbarkeitseinstellungen" class="nav-link" data-scroll-target="#sichtbarkeitseinstellungen">Sichtbarkeitseinstellungen</a></li>
   <li><a href="#knopfverlinkung" id="toc-knopfverlinkung" class="nav-link" data-scroll-target="#knopfverlinkung">Knopfverlinkung</a></li>
@@ -1218,45 +1220,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Vorsicht
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Diese Seite wird zurzeit überarbeitet. Weitere Inhalte und Grafiken folgen demnächst.</p>
-</div>
-</div>
 <p>Um beispielsweise eine interaktive Karte oder den Nachbau einer Website zu ermöglichen, kann es sinnvoll sein Buttonverlinkungen zu verwenden. Mit diesen ist es möglich durch das Betätigen eines Knopfes auf eine andere Seite zu gelangen.</p>
-<p>Im Folgenden sehen Sie ein Beispiel, das aus den prototypischen Aufgaben des IQB-Studios stammt:</p>
+<p>Im Folgenden sehen Sie ein Beispiel aus den prototypischen Aufgaben des IQB-Studios:</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="../Grafiken/Erdferkel.mp4"></video></div>
 <section id="design" class="level2">
 <h2 class="anchored" data-anchor-id="design">Design</h2>
 <p>Zunächst legen Sie die Website, Karte o. ä. so an, wie Sie es sich vorstellen. Pro Seite, die durch eine Knopfverlinkung erreicht werden soll, muss ein einzelner Abschnitt angelegt werden.</p>
+<p>Im Beispiel wurde der obere Teil der Webseite als ein Abschnitt angelegt und der untere Teil mit der Bildergalerie besteht aus jeweils einem Abschnitt pro Bild.</p>
 </section>
-<section id="zustandsvariabel" class="level2">
-<h2 class="anchored" data-anchor-id="zustandsvariabel">Zustandsvariabel</h2>
-<p>Nun wird eine Zustandsvariable vergeben. Sie wird „Seite” genannt und erhält den Wert „1”.</p>
+<section id="zustandsvariable" class="level2">
+<h2 class="anchored" data-anchor-id="zustandsvariable">Zustandsvariable</h2>
+<p><img src="../Grafiken/Zustandsvariabel_knopf.png" class="img-fluid"></p>
+<p>Erstellen Sie nun eine Zustandsvariable. Geben Sie ihr einen eindeutigen Namen, im Beispiel ist es „Seite”, und geben ihr einen Wert, z.B. „1”. Der Wert der Variable soll später den verschiedenen Abschnitten zugewiesen werden.</p>
 </section>
 <section id="knöpfe-hinzufügen" class="level2">
 <h2 class="anchored" data-anchor-id="knöpfe-hinzufügen">Knöpfe hinzufügen</h2>
-<p>Nun werden die gewünschten Knöpfe hinzugefügt. Das Knopfelement liegt bei den Elementen im Abschnitt „Sonstige”:</p>
+<p>Fügen Sie nun Knöpfe hinzu. Das Knopfelement liegt bei den Elementen im Abschnitt „Sonstige”:</p>
 <p>Sie können wie gewünscht in den Einstellungen beschriftet und eingefärbt werden. In dem gezeigten Beispiel ist die Beschriftung „❯” und die Hintergrundfarbe „#ff0000”. Die Knöpfe sind die roten Weiter-/Zurückpfeile.</p>
 <p>Die Position der Knöpfe kann durch Spalten- und Zeilenposition, feste Breiten und Höhen sowie Abstände angepasst werden.</p>
 </section>
 <section id="sichtbarkeitseinstellungen" class="level2">
 <h2 class="anchored" data-anchor-id="sichtbarkeitseinstellungen">Sichtbarkeitseinstellungen</h2>
-<p>Nun erhält jeder Abschnitt eine Sichtbarkeitseinstellung, wobei sich der Wert des jeweiligen Abschnitts verändert. Im gezeigten Beispiel sind es die Werte von 1 bis 5.</p>
-<p>Das erneute Ausblenden muss erlaubt sein, die „Variablen/Element-ID” wird „Seite” benannt und der Operator ist „=”.</p>
+<p>Nun erhält jeder Abschnitt eine Sichtbarkeitseinstellung, wobei sich der Wert des jeweiligen Abschnitts verändert. Wählen Sie dazu den Abschnitt aus und klicken auf die Sichtbarkeitseinstellungen <img src="../Grafiken/symbol_knopf_sichtbarkeit.png" class="img-fluid">.</p>
+<p>Das erneute Ausblenden muss erlaubt sein, die „Variablen/Element-ID” wird „Seite” benannt und der Operator ist „=”. Ein Abschnitt wird also dann eingeblendet wenn die Zustandsvariable den entsprechenden Wert annimmt und wieder ausgeblendet, wenn sich die Variable wieder ändert.</p>
 </section>
 <section id="knopfverlinkung" class="level2">
 <h2 class="anchored" data-anchor-id="knopfverlinkung">Knopfverlinkung</h2>
 <p>Nun erhält jeder Knopf die Verknüpfung zur passenden Seite, beziehungsweise zum richtigen Abschnitt.</p>
 <p>Dafür wird der jeweilige Knopf angeklickt und eine Aktion bestimmt. Es wird „Zustandsvariable ändern” ausgewählt, die ID ist „Seite” und der Wert ist der Wert des Abschnitts, der gezeigt werden soll, wenn der Knopf betätigt wird.</p>
-<p>Der hier gezeigte Knopf soll auf den Abschnitt mit der Sichtbarkeitseinstellung Seite=2 leiten.</p>
 
 
 </section>
@@ -1719,6 +1710,7 @@ Vorsicht
     </div>
   </div>
 </footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
