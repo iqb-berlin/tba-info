@@ -3,11 +3,14 @@ lang: de
 title: "Sichtbarkeitskaskaden"
 ---
 
-::: {.callout-caution}
-Diese Seite wird zurzeit überarbeitet. Weitere Inhalte und Grafiken folgen demnächst.
-:::
+Sichtbarkeitskaskaden ermöglichen eine kaskadenartige Freischaltung von Studio-Abschnitten, d. h. jeder Abschnitt wird erst zugänglich, wenn der vorherige bearbeitet wurde.
 
-Sichtbarkeitskaskaden ermöglichen eine kaskadenartige Freischaltung von Studio-Abschnitten, d. h. jeder Abschnitt wird erst zugänglich, wenn der vorherige bearbeitet wurde. So kann zum Beispiel zunächst ein Audio-Stimulus angezeigt werden; wenn dieser gestartet wird, ist auch die Instruktion zu sehen und wenn er beendet ist, sind die Schaltflächen zur ersten Aufgabe geöffnet. Nun kann zur ersten Aufgabe gelangt und diese bearbeitet werden. Wenn diese Aufgabe mit einer Audio-Datei verbunden ist, kann auch eingestellt werden, dass die nächste Aufgabe erst nach Anhören des Audios zu sehen ist. 
+Eine Sichtbarkeitskaskade könnte also z.B. so aufgebaut sein:
+
+1. Sichtbar ist ein Audioelement und die Instruktion es anzuören.
+2. Nachdem das Audio startet wird eine weitere Instruktion angezeigt.
+3. Wenn das Audio vollständig abgespielt wurde erscheint die erste Aufgabe mit einem weiteren Audioelement.
+4. Sobald das neue Audio angehört wurde erscheint die nächste Aufgabe usw.
 
 Im Folgenden wird erläutert, wie diese Kaskaden einzustellen sind.
 
@@ -43,6 +46,6 @@ Stellen Sie nun den Abschnitt mit der eigentlichen Aufgabe wie folgt ein:
 
 Als „Variablen/Element-ID” wird die Audio-Datei der Instruktion ausgewählt. Mit dem Operator „>” und dem Wert „0” wird dann angegeben, dass der bearbeitete Abschnitt gezeigt wird, sobald die Audio-Datei größer als 0 ist – also angefangen hat.
 
-### Aufgabe 2 – x mit Vertonung
+### Aufgabe 2 und folgende mit Vertonung
 
 Die Aufgaben, die auf die erste Aufgabe folgen, beziehen sich nun mit den Sichtbarkeitseinstellungen auf die Audio-Datei der Instruktion der vorherigen Aufgabe.
