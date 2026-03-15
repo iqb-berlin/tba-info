@@ -4,11 +4,19 @@ title: "StarS: Antwortspeicherung und Kodieren"
 toc-expand: true
 ---
 
-Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien "Richtig" und "Falsch", für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für den StarS-Player die Antwort im [Standard-Datenformat des IQB](../../../coding/data-structures/response.qmd) gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von "Richtig"/"Falsch") bekommen.
+Als **Antwort** bezeichnet man das Ergebnis der Interaktion der Testperson mit dem Testsystem. Wenn man sich rückwärts im Testverlauf bewegt oder einen Neustart der Beantwortung anstößt, wird mit Hilfe dieses Antwortwertes der vorherige Antwort-Status wiederhergestellt. Der StarS-Player sendet wie alle anderen IQB-Player die Antwort im [Standard-Antwortformat des IQB](../../../coding/data-structures/response.qmd). 
 
-Grundsätzlich ist die Kodierung im StarS-Pplayer optional. Da die Architektur des [StarS-Projektes](https://www.iqb.hu-berlin.de/research/dm/StarS/) jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.
+Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien "Richtig" und "Falsch", für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Nach der Kodierung sind für **Code** und **Score** entsprechende Werte gesetzt.
 
-Alle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur `variableInfo` außerhalb der Interaktionsparameter.
+Die meisten Player schicken nur den Antwortwert und überlassen die Kodierung anderen Programmkomponenten. Der StarS-Player nimmt jedoch sofort eine Kodierung vor. Dies hat folgende Gründe:
+
+* Das StarS-Projekt sieht nur automatische Kodierung vor.
+* Eine Kodierung außerhalb des Players erfordert zusätzlich ein [Kodierschema](../../../coding/data-structures/coding-scheme.qmd). Da es sich bei StarS-Items überwiegend um einfache Auswahl oder Eingaben handelt, ist es viel praktischer, die nötigen Angaben für die Kodierung direkt in der Syntax der UI-Definition der Unit unterzubringen.
+* Die meisten StarS-Items haben einen sog. Übungsmodus. Das bedeutet, dass der Testperson sofort innerhalb der Unit eine Rückmeldung zur Antwort gegeben werden soll ("fein gemacht", "überleg nochmal"). Das ist nur möglich, wenn die Kodierung durch den Player erfolgt.
+
+# Kodierinformation `variableInfo`
+
+Die Antworten einer StarS-Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur `variableInfo` außerhalb der Interaktionsparameter.
 
 ```json
 {
@@ -76,7 +84,7 @@ Ein Code-Eintrag führt stets zum Setzen eines `code`- und eines `score`-Wertes.
 
 * `EQUALS`: Es erfolgt ein String-Vergleich, d. h. '4,0' wird nicht als derselbe Wert wie '4' gewertet.
 * `GREATER_THAN`, `LESS_THAN`: Es erfolgt ein numerischer Vergleich, d. h. die ggf. als String vorliegenden Werte werden transformiert. Der Code trifft dann zu, wenn der zu prüfende Wert größer bzw. kleiner als der Parameter-Wert ist.
-* `IN_POSITION_RANGE`: Der Interaktionstyp FIND_ON_IMAGE (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format 'x,y' (jeweils ganze Zahlen 0..100, also z. B. '34,77'). Mit der Methode `IN_POSITION_RANGE` wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist 'x,y-x,y' (linke obere und rechte untere Ecke).
+* `IN_POSITION_RANGE`: Der Interaktionstyp `FIND_ON_IMAGE` (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format 'x,y' (jeweils ganze Zahlen 0..100, also z. B. '34,77'). Mit der Methode `IN_POSITION_RANGE` wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist 'x,y-x,y' (linke obere und rechte untere Ecke).
 
 # Antwort-Status
 
