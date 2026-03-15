@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-4b10d88bc01b3c2b62a30403842a2cd1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-8b468d8a917b507d28eb3b9837b62208.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-05e14cb7d94e65a6923a3e1e3b680608.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1223,7 +1223,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#parameter" id="toc-parameter" class="nav-link active" data-scroll-target="#parameter">Parameter</a>
+  <li><a href="#kodierinformation-variableinfo" id="toc-kodierinformation-variableinfo" class="nav-link active" data-scroll-target="#kodierinformation-variableinfo">Kodierinformation <code>variableInfo</code></a></li>
+  <li><a href="#parameter" id="toc-parameter" class="nav-link" data-scroll-target="#parameter">Parameter</a>
   <ul class="collapse">
   <li><a href="#variableid" id="toc-variableid" class="nav-link" data-scroll-target="#variableid"><code>variableId</code></a></li>
   <li><a href="#responsecomplete" id="toc-responsecomplete" class="nav-link" data-scroll-target="#responsecomplete"><code>responseComplete</code></a></li>
@@ -1257,9 +1258,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Da für den StarS-Player die Antwort im <a href="../../../coding/data-structures/response.html">Standard-Datenformat des IQB</a> gespeichert wird, muss der Antwort ein Code (Zahl als neutrale Kategorie) und ein Score (Zahl 1/0 im Sinne von “Richtig”/“Falsch”) bekommen.</p>
-<p>Grundsätzlich ist die Kodierung im StarS-Pplayer optional. Da die Architektur des <a href="https://www.iqb.hu-berlin.de/research/dm/StarS/">StarS-Projektes</a> jedoch eine durchgängig automatische Antwortverarbeitung und Datenanalyse vorsieht (keine manuelle Kodierung), soll die Unitdefinition stets Kodiervorschriften enthalten.</p>
-<p>Alle Variablen einer Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur <code>variableInfo</code> außerhalb der Interaktionsparameter.</p>
+<p>Als <strong>Antwort</strong> bezeichnet man das Ergebnis der Interaktion der Testperson mit dem Testsystem. Wenn man sich rückwärts im Testverlauf bewegt oder einen Neustart der Beantwortung anstößt, wird mit Hilfe dieses Antwortwertes der vorherige Antwort-Status wiederhergestellt. Der StarS-Player sendet wie alle anderen IQB-Player die Antwort im <a href="../../../coding/data-structures/response.html">Standard-Antwortformat des IQB</a>.</p>
+<p>Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Nach der Kodierung sind für <strong>Code</strong> und <strong>Score</strong> entsprechende Werte gesetzt.</p>
+<p>Die meisten Player schicken nur den Antwortwert und überlassen die Kodierung anderen Programmkomponenten. Der StarS-Player nimmt jedoch sofort eine Kodierung vor. Dies hat folgende Gründe:</p>
+<ul>
+<li>Das StarS-Projekt sieht nur automatische Kodierung vor.</li>
+<li>Eine Kodierung außerhalb des Players erfordert zusätzlich ein <a href="../../../coding/data-structures/coding-scheme.html">Kodierschema</a>. Da es sich bei StarS-Items überwiegend um einfache Auswahl oder Eingaben handelt, ist es viel praktischer, die nötigen Angaben für die Kodierung direkt in der Syntax der UI-Definition der Unit unterzubringen.</li>
+<li>Die meisten StarS-Items haben einen sog. Übungsmodus. Das bedeutet, dass der Testperson sofort innerhalb der Unit eine Rückmeldung zur Antwort gegeben werden soll (“fein gemacht”, “überleg nochmal”). Das ist nur möglich, wenn die Kodierung durch den Player erfolgt.</li>
+</ul>
+<section id="kodierinformation-variableinfo" class="level1">
+<h1>Kodierinformation <code>variableInfo</code></h1>
+<p>Die Antworten einer StarS-Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur <code>variableInfo</code> außerhalb der Interaktionsparameter.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"variableInfo"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
@@ -1278,6 +1287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Das obige Beispiel definiert für die Variable “MK02”, dass der Code 1 und der Score 1 vergeben werden soll, wenn die Summe des Antwortwertes genau 4 beträgt. Ansonsten wird Code 0 und Score 0 vergeben.</p>
+</section>
 <section id="parameter" class="level1">
 <h1>Parameter</h1>
 <section id="variableid" class="level2">
@@ -1321,7 +1331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>EQUALS</code>: Es erfolgt ein String-Vergleich, d.&nbsp;h. ‘4,0’ wird nicht als derselbe Wert wie ‘4’ gewertet.</li>
 <li><code>GREATER_THAN</code>, <code>LESS_THAN</code>: Es erfolgt ein numerischer Vergleich, d.&nbsp;h. die ggf. als String vorliegenden Werte werden transformiert. Der Code trifft dann zu, wenn der zu prüfende Wert größer bzw. kleiner als der Parameter-Wert ist.</li>
-<li><code>IN_POSITION_RANGE</code>: Der Interaktionstyp FIND_ON_IMAGE (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format ‘x,y’ (jeweils ganze Zahlen 0..100, also z. B. ‘34,77’). Mit der Methode <code>IN_POSITION_RANGE</code> wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist ‘x,y-x,y’ (linke obere und rechte untere Ecke).</li>
+<li><code>IN_POSITION_RANGE</code>: Der Interaktionstyp <code>FIND_ON_IMAGE</code> (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format ‘x,y’ (jeweils ganze Zahlen 0..100, also z. B. ‘34,77’). Mit der Methode <code>IN_POSITION_RANGE</code> wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist ‘x,y-x,y’ (linke obere und rechte untere Ecke).</li>
 </ul>
 </section>
 </section>
