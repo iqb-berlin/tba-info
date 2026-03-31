@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Schritt 1 – TBA - Verstehen und Anwenden</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../assets/favicon.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-4b10d88bc01b3c2b62a30403842a2cd1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bfe735afd4d1464c5a58396f81eeeb61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-05e14cb7d94e65a6923a3e1e3b680608.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-125963ab7989dd489ab7ad26ba2b0bfe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1282,30 +1284,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="booklet-xml" class="level2">
 <h2 class="anchored" data-anchor-id="booklet-xml">Booklet-XML</h2>
 <p>Nachfolgend ist die Booklet-XML dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;TH01&lt;/<span class="kw">Id</span>&gt;</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Testheft 1&lt;/<span class="kw">Label</span>&gt;</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BookletConfig</span>&gt;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_show_time_left"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_title"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"unit_menu"</span>&gt;FULL&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span><span class="ot"> key=</span><span class="st">"force_response_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"unit_show_time_left"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"unit_title"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"unit_menu"</span>&gt;FULL&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"force_response_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">BookletConfig</span>&gt;</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Units</span>&gt;</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"Start"</span><span class="ot"> label=</span><span class="st">"Begrüßung"</span><span class="ot"> labelshort=</span><span class="st">""</span>/&gt;</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Block1"</span><span class="ot"> label=</span><span class="st">"Aufgabenblock1"</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"Start"</span> <span class="ot">label=</span><span class="st">"Begrüßung"</span> <span class="ot">labelshort=</span><span class="st">""</span>/&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Block1"</span> <span class="ot">label=</span><span class="st">"Aufgabenblock1"</span>&gt;</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Restrictions</span>&gt;</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">CodeToEnter</span><span class="ot"> code=</span><span class="st">"Hase"</span>&gt;Bitte gib das Freigabewort ein.&lt;/<span class="kw">CodeToEnter</span>&gt;</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">TimeMax</span><span class="ot"> minutes=</span><span class="st">"3"</span>/&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">CodeToEnter</span> <span class="ot">code=</span><span class="st">"Hase"</span>&gt;Bitte gib das Freigabewort ein.&lt;/<span class="kw">CodeToEnter</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">TimeMax</span> <span class="ot">minutes=</span><span class="st">"3"</span>/&gt;</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Restrictions</span>&gt;</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"Aufgabe1"</span><span class="ot"> label=</span><span class="st">"Aufgabe1"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"Aufgabe2"</span><span class="ot"> label=</span><span class="st">"Aufgabe2"</span><span class="ot"> labelshort=</span><span class="st">"2"</span>/&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"Aufgabe1"</span> <span class="ot">label=</span><span class="st">"Aufgabe1"</span> <span class="ot">labelshort=</span><span class="st">"1"</span>/&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"Aufgabe2"</span> <span class="ot">label=</span><span class="st">"Aufgabe2"</span> <span class="ot">labelshort=</span><span class="st">"2"</span>/&gt;</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"Ende"</span><span class="ot"> label=</span><span class="st">"Verabschiedung"</span><span class="ot"> labelshort=</span><span class="st">""</span>/&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"Ende"</span> <span class="ot">label=</span><span class="st">"Verabschiedung"</span> <span class="ot">labelshort=</span><span class="st">""</span>/&gt;</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Units</span>&gt;</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="werte-und-attribute-für-die-anforderungen-an-navigation-und-testheft-strukturierung" class="level4">
@@ -1345,20 +1347,20 @@ Hinweis
 <section id="testtaker-xml" class="level2">
 <h2 class="anchored" data-anchor-id="testtaker-xml">Testtaker-XML</h2>
 <p>Nachfolgend ist die Testtaker-XML dargestellt. Der Inhalt kann in eine Textdatei kopiert werden und mit der Endung <strong>XML</strong> gespeichert werden. Der Name der Datei ist dabei frei wählbar.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>/&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"Gruppe1"</span><span class="ot"> label=</span><span class="st">"Teilnehmer Gruppe 1"</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"T01_v3x4v"</span><span class="ot"> pw=</span><span class="st">"h6z5"</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span> <span class="ot">id=</span><span class="st">"Gruppe1"</span> <span class="ot">label=</span><span class="st">"Teilnehmer Gruppe 1"</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"T01_v3x4v"</span> <span class="ot">pw=</span><span class="st">"h6z5"</span>&gt;</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;TH01&lt;/<span class="kw">Booklet</span>&gt;</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"T02_d7a9t"</span><span class="ot"> pw=</span><span class="st">"q7a5"</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"T02_d7a9t"</span> <span class="ot">pw=</span><span class="st">"q7a5"</span>&gt;</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;TH01&lt;/<span class="kw">Booklet</span>&gt;</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"T03_f7q3v"</span><span class="ot"> pw=</span><span class="st">"c2f2"</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"T03_f7q3v"</span> <span class="ot">pw=</span><span class="st">"c2f2"</span>&gt;</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;TH01&lt;/<span class="kw">Booklet</span>&gt;</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"monitor-group"</span><span class="ot"> name=</span><span class="st">"TL_x6r9h"</span><span class="ot"> pw=</span><span class="st">"t7r6"</span>/&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"monitor-group"</span> <span class="ot">name=</span><span class="st">"TL_x6r9h"</span> <span class="ot">pw=</span><span class="st">"t7r6"</span>/&gt;</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="werte-und-attribute-für-die-anforderungen-an-die-studien-konfiguration" class="level4">

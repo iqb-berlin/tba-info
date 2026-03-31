@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Konfiguration IQB-Testcenter – TBA - Verstehen und Anwenden</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,17 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../assets/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4b10d88bc01b3c2b62a30403842a2cd1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bfe735afd4d1464c5a58396f81eeeb61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-05e14cb7d94e65a6923a3e1e3b680608.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-125963ab7989dd489ab7ad26ba2b0bfe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -1223,7 +1228,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#server-administratorin-konfigurationsoptionen-in-der-.env.prod" id="toc-server-administratorin-konfigurationsoptionen-in-der-.env.prod" class="nav-link active" data-scroll-target="#server-administratorin-konfigurationsoptionen-in-der-.env.prod">Server-Administrator*in: Konfigurationsoptionen in der .env.prod</a>
+  <li><a href="#überblick" id="toc-überblick" class="nav-link active" data-scroll-target="#überblick">Überblick</a>
+  <ul class="collapse">
+  <li><a href="#architektur-und-microservices" id="toc-architektur-und-microservices" class="nav-link" data-scroll-target="#architektur-und-microservices">Architektur und Microservices</a></li>
+  <li><a href="#speicherdienste-und-stateful-komponenten" id="toc-speicherdienste-und-stateful-komponenten" class="nav-link" data-scroll-target="#speicherdienste-und-stateful-komponenten">Speicherdienste und Stateful-Komponenten</a></li>
+  <li><a href="#infrastruktur--systemkomponenten" id="toc-infrastruktur--systemkomponenten" class="nav-link" data-scroll-target="#infrastruktur--systemkomponenten">Infrastruktur- &amp; Systemkomponenten</a></li>
+  <li><a href="#skalierung-und-ausfallsicherheit-values.yaml" id="toc-skalierung-und-ausfallsicherheit-values.yaml" class="nav-link" data-scroll-target="#skalierung-und-ausfallsicherheit-values.yaml">Skalierung und Ausfallsicherheit (values.yaml)</a></li>
+  <li><a href="#das-installations-skript-helm-install-tc.sh" id="toc-das-installations-skript-helm-install-tc.sh" class="nav-link" data-scroll-target="#das-installations-skript-helm-install-tc.sh">Das Installations-Skript (helm-install-tc.sh)</a></li>
+  </ul></li>
+  <li><a href="#server-administratorin-konfigurationsoptionen-in-der-.env.prod" id="toc-server-administratorin-konfigurationsoptionen-in-der-.env.prod" class="nav-link" data-scroll-target="#server-administratorin-konfigurationsoptionen-in-der-.env.prod">Server-Administrator*in: Konfigurationsoptionen in der .env.prod</a>
   <ul class="collapse">
   <li><a href="#version" id="toc-version" class="nav-link" data-scroll-target="#version">Version</a></li>
   <li><a href="#grundsätzliche-netzwerkeinstellungen." id="toc-grundsätzliche-netzwerkeinstellungen." class="nav-link" data-scroll-target="#grundsätzliche-netzwerkeinstellungen.">Grundsätzliche Netzwerkeinstellungen.</a></li>
@@ -1274,7 +1287,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Eine Testcenter-Instanz wird nicht aus einer zentralen Stelle heraus konfiguriert, sondern bietet an verschiedenen Stellen die Möglichkeit unterschiedliche Konfigurationen vorzunehmen.</p>
+<section id="überblick" class="level1">
+<h1>Überblick</h1>
+<p><a href="../assets/tc-services1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../assets/tc-services1.png" class="img-fluid" width="400"></a></p>
+<p>Die Kubernetes-Konfiguration des IQB Testcenters basiert auf Helm-Charts und ist auf eine Microservice-Architektur sowie eine hohe Skalierbarkeit und Ausfallsicherheit ausgelegt. Die gesamte Konfiguration befindet sich im Projektverzeichnis unter scripts/helm/.</p>
+<section id="architektur-und-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="architektur-und-microservices">Architektur und Microservices</h2>
+<p>Die Anwendung ist in mehrere unabhängige Komponenten (Pods) unterteilt, die jeweils in eigenen Deployments definiert sind:</p>
+<ul>
+<li>Frontend (Angular SPA): Die Weboberfläche der Anwendung. Sie wird als statuslose (stateless) Anwendung bereitgestellt und hat geringe Hardware-Anforderungen. Da sie nur statische Dateien ausliefert, kann sie bei Bedarf horizontal einfach skaliert werden.</li>
+<li>Backend (PHP/Slim REST API): Das Herzstück der Anwendung, welches die gesamte Geschäftslogik, Authentifizierung und Datenbankzugriffe steuert. In der Konfiguration ist broadcasterEnabled und fileServerEnabled vorgesehen, um Zugriffe modular auf diese Dienste umzuleiten.</li>
+<li>Broadcaster (Node.js/NestJS): Ein dedizierter Service, der WebSocket-Verbindungen verwaltet. Da das PHP-Backend zustandslos arbeitet, übernimmt diese Komponente die Verwaltung der Echtzeit-Kommunikation (z. B. für den Monitor-Modus der Testleiter).</li>
+<li>File-Server (Nginx basiert): Ein optimierter Nginx-Webserver, um hochgeladene Testdateien und statische Inhalte auszuliefern. Optional kann hier die Integration mit dem Cache Server (Redis) aktiviert werden, um oft abgerufene Dateien zu cachen.</li>
+</ul>
+</section>
+<section id="speicherdienste-und-stateful-komponenten" class="level2">
+<h2 class="anchored" data-anchor-id="speicherdienste-und-stateful-komponenten">Speicherdienste und Stateful-Komponenten</h2>
+<ul>
+<li>Datenbank (db - MySQL 8.4): Speichert persistente Anwendungsdaten, Ergebnisse, Metadaten und Nutzerprofile. Die Konfiguration nutzt hier Kubernetes Persistent Volume Claims (PVC), um den Speicher bei Neustarts der Pods nicht zu verlieren.</li>
+<li>Cache-Server (cacheServer - Redis 8.0): Ein In-Memory-Speicher, der für Sessions sowie das Zwischenspeichern von statischen Inhalten (File-Server) genutzt wird, um die Zugriffszeiten drastisch zu reduzieren.</li>
+</ul>
+</section>
+<section id="infrastruktur--systemkomponenten" class="level2">
+<h2 class="anchored" data-anchor-id="infrastruktur--systemkomponenten">Infrastruktur- &amp; Systemkomponenten</h2>
+<p>Das Testcenter liefert auch eigene Kubernetes-Infrastruktur-Dienste mit, die über das Installations-Skript (scripts/helm/helm-install-tc.sh) zugeschaltet werden können:</p>
+<ul>
+<li>Traefik (Ingress-Controller): Wird als standardisiertes API-Gateway genutzt, das die eintreffenden Web-Requests (HTTP/HTTPS) entgegennimmt und an den richtigen Service (z.B. Frontend oder direkte API-Routen für das Backend) weiterleitet. Er kümmert sich auch um die SSL/TLS-Terminierung (tlsEnabled: true).</li>
+<li>Longhorn (Persistent Storage): Ein Storage-Provisioner für Kubernetes. Wenn das Testcenter in einem frischen Cluster aufgesetzt wird, kann das Skript automatisch Longhorn installieren und konfigurieren. Alle zustandsbehafteten Dienste (wie MySQL, Backend-Files) verwenden dann “Longhorn Persistent Volumes”, da dieses System Block Storage über das Cluster verteilt und repliziert (storageClass: longhorn).</li>
+</ul>
+</section>
+<section id="skalierung-und-ausfallsicherheit-values.yaml" class="level2">
+<h2 class="anchored" data-anchor-id="skalierung-und-ausfallsicherheit-values.yaml">Skalierung und Ausfallsicherheit (values.yaml)</h2>
+<p>Die values.yaml Datei definiert genau, wie sich das System bei Deployment und Betrieb verhalten soll. Besondere Merkmale der Konfiguration:</p>
+<ul>
+<li>Rolling Updates (strategy.type: RollingUpdate): Updates finden ohne Downtime statt (maxUnavailable: 0 und maxSurge: 1), d.h. neue Pods werden gestartet bevor alte gestoppt werden.</li>
+<li>Ressourcen-Beschränkungen (resources.limits &amp; requests): Jedem Service werden genaue CPU- und Arbeitsspeicher-Garantien zugeteilt, um das Cluster nicht zu überlasten. (z. B. DB: max 2 GB RAM, Backend: max 1 GB RAM).</li>
+<li>Health-Checks (Liveness, Readiness, Startup Probes): Zur Überwachung des Zustands hat das System für jeden Dienst definierte Parameter, wann ein Dienst als “bereit” gilt oder er neu gestartet werden muss.</li>
+</ul>
+</section>
+<section id="das-installations-skript-helm-install-tc.sh" class="level2">
+<h2 class="anchored" data-anchor-id="das-installations-skript-helm-install-tc.sh">Das Installations-Skript (helm-install-tc.sh)</h2>
+<p>Um die Kubernetes-Konfiguration zu vereinfachen, existiert dieses Skript, welches eine interaktive Installation vornimmt:</p>
+<ul>
+<li>Prüft die Systemvoraussetzungen (kubectl, helm).</li>
+<li>Fragt ab, ob Longhorn für persistente Volumens installiert werden soll.</li>
+<li>Fragt ab, ob Traefik installiert und wie die Basis-Domain lauten soll.</li>
+<li>Generiert automatisch sichere, zufällige Standard-Passwörter (z.B. für Datenbank-Root, den iqb_tba_db_user, Redis etc.) und schreibt diese überschreibend (als Secret) in das Helm-Release.</li>
+<li>Deployt abschließend die Anwendung (normalerweise in den tc Namespace).</li>
+</ul>
+</section>
+</section>
 <section id="server-administratorin-konfigurationsoptionen-in-der-.env.prod" class="level1">
 <h1>Server-Administrator*in: Konfigurationsoptionen in der .env.prod</h1>
 <p>Betreiber einer Testcenter-Instanz (Server-Admins) können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste aller aktuell vorhandenen Konfigurationsparameter befinden sich <a href="https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env">hier</a>. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
@@ -1847,6 +1909,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

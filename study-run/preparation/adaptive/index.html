@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Adaptives Testen – TBA - Verstehen und Anwenden</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../assets/favicon.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-4b10d88bc01b3c2b62a30403842a2cd1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-bfe735afd4d1464c5a58396f81eeeb61.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-05e14cb7d94e65a6923a3e1e3b680608.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-125963ab7989dd489ab7ad26ba2b0bfe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1318,18 +1320,18 @@ Hinweis
 <h3 class="anchored" data-anchor-id="optionen-und-status-anlegen">Optionen und Status anlegen</h3>
 <p>Hier ein Beispiel:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus"</span><span class="ot"> label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"Bonus 1"</span> &gt; </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span> <span class="ot">id=</span><span class="st">"bonus"</span> <span class="ot">label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span> <span class="ot">id=</span><span class="st">"bonus1"</span> <span class="ot">label=</span><span class="st">"Bonus 1"</span> &gt; </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio_1"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio_2"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio_3"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"300"</span> /&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"300"</span> /&gt;</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Option</span>&gt;</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"Bonus 2"</span> /&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span> <span class="ot">id=</span><span class="st">"bonus2"</span> <span class="ot">label=</span><span class="st">"Bonus 2"</span> /&gt;</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="states" class="level4">
@@ -1372,39 +1374,39 @@ Wichtig
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">If</span>&gt;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Count</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"100"</span> /&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio1"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"100"</span> /&gt;</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"100"</span> /&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio2"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"100"</span> /&gt;</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"100"</span> /&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio3"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"100"</span> /&gt;</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Count</span>&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"1"</span> /&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"1"</span> /&gt;</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><code>&lt;Median&gt;</code></p>
 <p>Beispiel: Median des Score von 3 Antworten</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">If</span>&gt;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Median</span>&gt;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio1"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio2"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio3"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Median</span>&gt;</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"200"</span>/&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"200"</span>/&gt;</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">If</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><code>&lt;Mean&gt;</code></p>
 <p>Beispiel: Mittelwert</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">If</span>&gt;</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">Mean</span>&gt;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio1"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio2"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio3"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>     &lt;/<span class="kw">Mean</span>&gt;</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"100"</span>/&gt;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"100"</span>/&gt;</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">If</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 </section>
@@ -1451,28 +1453,28 @@ Hinweis
 <p>In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"unit0"</span><span class="ot"> label=</span><span class="st">"Startunit"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit0"</span> <span class="ot">label=</span><span class="st">"Startunit"</span> <span class="ot">labelshort=</span><span class="st">"1"</span>/&gt;</span>
 <span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Bonus-Aufgaben"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Bonus-Aufgaben"</span>&gt;</span>
 <span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-7" class="code-annotation-target"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Bonus-Aufgaben-1"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-7" class="code-annotation-target"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Bonus-Aufgaben-1"</span>&gt;</span>
 <span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Restrictions</span>&gt;</span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span><span class="ot"> if=</span><span class="st">"bonus"</span><span class="ot"> is=</span><span class="st">"bonus1"</span> /&gt;</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span> <span class="ot">if=</span><span class="st">"bonus"</span> <span class="ot">is=</span><span class="st">"bonus1"</span> /&gt;</span>
 <span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">Restrictions</span>&gt;</span>
 <span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit1"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 1"</span><span class="ot"> labelshort=</span><span class="st">"2"</span> /&gt;</span>
-<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit2"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 2"</span><span class="ot"> labelshort=</span><span class="st">"3"</span> /&gt;</span>
-<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit3"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 3"</span><span class="ot"> labelshort=</span><span class="st">"4"</span> /&gt;</span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit1"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 1"</span> <span class="ot">labelshort=</span><span class="st">"2"</span> /&gt;</span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit2"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 2"</span> <span class="ot">labelshort=</span><span class="st">"3"</span> /&gt;</span>
+<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit3"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 3"</span> <span class="ot">labelshort=</span><span class="st">"4"</span> /&gt;</span>
 <span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-17" class="code-annotation-target"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Bonus-Aufgaben-2"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-17" class="code-annotation-target"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Bonus-Aufgaben-2"</span>&gt;</span>
 <span id="annotated-cell-2-18"><a href="#annotated-cell-2-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Restrictions</span>&gt;</span>
-<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span><span class="ot"> if=</span><span class="st">"bonus"</span><span class="ot"> is=</span><span class="st">"bonus2"</span> /&gt;</span>
+<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span> <span class="ot">if=</span><span class="st">"bonus"</span> <span class="ot">is=</span><span class="st">"bonus2"</span> /&gt;</span>
 <span id="annotated-cell-2-20"><a href="#annotated-cell-2-20" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">Restrictions</span>&gt;</span>
 <span id="annotated-cell-2-21"><a href="#annotated-cell-2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-22"><a href="#annotated-cell-2-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit4"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 4"</span><span class="ot"> labelshort=</span><span class="st">"2"</span> /&gt;</span>
-<span id="annotated-cell-2-23"><a href="#annotated-cell-2-23" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit5"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 5"</span><span class="ot"> labelshort=</span><span class="st">"3"</span> /&gt;</span>
-<span id="annotated-cell-2-24"><a href="#annotated-cell-2-24" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit6"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 6"</span><span class="ot"> labelshort=</span><span class="st">"4"</span> /&gt;</span>
+<span id="annotated-cell-2-22"><a href="#annotated-cell-2-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit4"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 4"</span> <span class="ot">labelshort=</span><span class="st">"2"</span> /&gt;</span>
+<span id="annotated-cell-2-23"><a href="#annotated-cell-2-23" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit5"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 5"</span> <span class="ot">labelshort=</span><span class="st">"3"</span> /&gt;</span>
+<span id="annotated-cell-2-24"><a href="#annotated-cell-2-24" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit6"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 6"</span> <span class="ot">labelshort=</span><span class="st">"4"</span> /&gt;</span>
 <span id="annotated-cell-2-25"><a href="#annotated-cell-2-25" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="annotated-cell-2-26"><a href="#annotated-cell-2-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-2-27"><a href="#annotated-cell-2-27" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
@@ -1501,45 +1503,45 @@ Hinweis
 <h3 class="anchored" data-anchor-id="das-komplette-beispiel">Das komplette Beispiel</h3>
 <p><strong>Optionen und Status anlegen</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus"</span><span class="ot"> label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"Bonus 1"</span>&gt;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span> <span class="ot">id=</span><span class="st">"bonus"</span> <span class="ot">label=</span><span class="st">"Bonusaufgaben"</span>&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span> <span class="ot">id=</span><span class="st">"bonus1"</span> <span class="ot">label=</span><span class="st">"Bonus 1"</span>&gt;</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">If</span>&gt;</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">Sum</span>&gt;</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_1"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_2"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span><span class="ot"> of=</span><span class="st">"radio_3"</span><span class="ot"> from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio_1"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio_2"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Score</span> <span class="ot">of=</span><span class="st">"radio_3"</span> <span class="ot">from=</span><span class="st">"unit0"</span>/&gt;</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          &lt;/<span class="kw">Sum</span>&gt;</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span><span class="ot"> equal=</span><span class="st">"300"</span> /&gt;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Is</span> <span class="ot">equal=</span><span class="st">"300"</span> /&gt;</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">If</span>&gt;</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Option</span>&gt;</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"bonus2"</span><span class="ot"> label=</span><span class="st">"Bonus 2"</span> /&gt;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Option</span> <span class="ot">id=</span><span class="st">"bonus2"</span> <span class="ot">label=</span><span class="st">"Bonus 2"</span> /&gt;</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Optionen und Status abfragen:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode xml code-annotation-code code-with-copy"><code class="sourceCode xml"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"unit0"</span><span class="ot"> label=</span><span class="st">"Startunit"</span><span class="ot"> labelshort=</span><span class="st">"1"</span>/&gt;</span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit0"</span> <span class="ot">label=</span><span class="st">"Startunit"</span> <span class="ot">labelshort=</span><span class="st">"1"</span>/&gt;</span>
 <span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Bonus-Aufgaben"</span>&gt;</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Bonus-Aufgaben"</span>&gt;</span>
 <span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Bonus-Aufgaben-1"</span>&gt;</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Bonus-Aufgaben-1"</span>&gt;</span>
 <span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Restrictions</span>&gt;</span>
-<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span><span class="ot"> if=</span><span class="st">"bonus"</span><span class="ot"> is=</span><span class="st">"bonus1"</span> /&gt;</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span> <span class="ot">if=</span><span class="st">"bonus"</span> <span class="ot">is=</span><span class="st">"bonus1"</span> /&gt;</span>
 <span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">Restrictions</span>&gt;</span>
 <span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit1"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 1"</span><span class="ot"> labelshort=</span><span class="st">"2"</span> /&gt;</span>
-<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit2"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 2"</span><span class="ot"> labelshort=</span><span class="st">"3"</span> /&gt;</span>
-<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit3"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 3"</span><span class="ot"> labelshort=</span><span class="st">"4"</span> /&gt;</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit1"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 1"</span> <span class="ot">labelshort=</span><span class="st">"2"</span> /&gt;</span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit2"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 2"</span> <span class="ot">labelshort=</span><span class="st">"3"</span> /&gt;</span>
+<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit3"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 3"</span> <span class="ot">labelshort=</span><span class="st">"4"</span> /&gt;</span>
 <span id="annotated-cell-4-15"><a href="#annotated-cell-4-15" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="annotated-cell-4-16"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span><span class="ot"> id=</span><span class="st">"Bonus-Aufgaben-2"</span>&gt;</span>
+<span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"Bonus-Aufgaben-2"</span>&gt;</span>
 <span id="annotated-cell-4-18"><a href="#annotated-cell-4-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Restrictions</span>&gt;</span>
-<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span><span class="ot"> if=</span><span class="st">"bonus"</span><span class="ot"> is=</span><span class="st">"bonus2"</span> /&gt;</span>
+<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">Show</span> <span class="ot">if=</span><span class="st">"bonus"</span> <span class="ot">is=</span><span class="st">"bonus2"</span> /&gt;</span>
 <span id="annotated-cell-4-20"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">Restrictions</span>&gt;</span>
 <span id="annotated-cell-4-21"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit4"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 4"</span><span class="ot"> labelshort=</span><span class="st">"2"</span> /&gt;</span>
-<span id="annotated-cell-4-23"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit5"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 5"</span><span class="ot"> labelshort=</span><span class="st">"3"</span> /&gt;</span>
-<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span><span class="ot"> id=</span><span class="st">"BonusUnit6"</span><span class="ot"> label=</span><span class="st">"Bonus Unit 6"</span><span class="ot"> labelshort=</span><span class="st">"4"</span> /&gt;</span>
+<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit4"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 4"</span> <span class="ot">labelshort=</span><span class="st">"2"</span> /&gt;</span>
+<span id="annotated-cell-4-23"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit5"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 5"</span> <span class="ot">labelshort=</span><span class="st">"3"</span> /&gt;</span>
+<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"BonusUnit6"</span> <span class="ot">label=</span><span class="st">"Bonus Unit 6"</span> <span class="ot">labelshort=</span><span class="st">"4"</span> /&gt;</span>
 <span id="annotated-cell-4-25"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Testlet</span>&gt;</span>
 <span id="annotated-cell-4-26"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-4-27"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
@@ -1553,20 +1555,20 @@ Hinweis
 <h3 class="anchored" data-anchor-id="optionen-und-status-anlegen-1">Optionen und Status anlegen</h3>
 <p>DDie Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
 <p>Beispiel: Das Booklet: <strong>BOOKLET.SAMPLE-1</strong> wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span><span class="ot"> id=</span><span class="st">"sample_group"</span><span class="ot"> label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span> <span class="ot">id=</span><span class="st">"sample_group"</span> <span class="ot">label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span><span class="ot"> mode=</span><span class="st">"run-hot-return"</span><span class="ot"> name=</span><span class="st">"er3Cdx"</span><span class="ot"> pw=</span><span class="st">"123"</span>&gt;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"er3Cdx"</span> <span class="ot">pw=</span><span class="st">"123"</span>&gt;</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span><span class="ot"> state=</span><span class="st">"bonus1:yes"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span> <span class="ot">state=</span><span class="st">"bonus1:yes"</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Damit die Option mit der ID: <strong>yes</strong> über die Testtaker-XML aktiviert werden kann, muss die Option auch in der <strong>Booklet-XML</strong> angelegt sein:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span><span class="ot"> id=</span><span class="st">"bonus1"</span><span class="ot"> label=</span><span class="st">"Bonusmaterial"</span>&gt;</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"no"</span><span class="ot"> label=</span><span class="st">"nein"</span> /&gt;</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Option</span><span class="ot"> id=</span><span class="st">"yes"</span><span class="ot"> label=</span><span class="st">"ja"</span> /&gt;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">State</span> <span class="ot">id=</span><span class="st">"bonus1"</span> <span class="ot">label=</span><span class="st">"Bonusmaterial"</span>&gt;</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Option</span> <span class="ot">id=</span><span class="st">"no"</span> <span class="ot">label=</span><span class="st">"nein"</span> /&gt;</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Option</span> <span class="ot">id=</span><span class="st">"yes"</span> <span class="ot">label=</span><span class="st">"ja"</span> /&gt;</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">States</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
