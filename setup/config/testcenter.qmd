@@ -1,9 +1,54 @@
 ---
 lang: de
 title: "Konfiguration IQB-Testcenter"
+lightbox: true
 ---
 
-Eine Testcenter-Instanz wird nicht aus einer zentralen Stelle heraus konfiguriert, sondern bietet an verschiedenen Stellen die Möglichkeit unterschiedliche Konfigurationen vorzunehmen.
+# Überblick
+
+![](../assets/tc-services1.png){width="400"}
+
+Die Kubernetes-Konfiguration des IQB Testcenters basiert auf Helm-Charts und ist auf eine Microservice-Architektur sowie eine hohe Skalierbarkeit und Ausfallsicherheit ausgelegt. Die gesamte Konfiguration befindet sich im Projektverzeichnis unter scripts/helm/.
+
+## Architektur und Microservices
+
+Die Anwendung ist in mehrere unabhängige Komponenten (Pods) unterteilt, die jeweils in eigenen Deployments definiert sind:
+
+* Frontend (Angular SPA): Die Weboberfläche der Anwendung. Sie wird als statuslose (stateless) Anwendung bereitgestellt und hat geringe Hardware-Anforderungen. Da sie nur statische Dateien ausliefert, kann sie bei Bedarf horizontal einfach skaliert werden.
+* Backend (PHP/Slim REST API): Das Herzstück der Anwendung, welches die gesamte Geschäftslogik, Authentifizierung und Datenbankzugriffe steuert. In der Konfiguration ist broadcasterEnabled und fileServerEnabled vorgesehen, um Zugriffe modular auf diese Dienste umzuleiten.
+* Broadcaster (Node.js/NestJS): Ein dedizierter Service, der WebSocket-Verbindungen verwaltet. Da das PHP-Backend zustandslos arbeitet, übernimmt diese Komponente die Verwaltung der Echtzeit-Kommunikation (z. B. für den Monitor-Modus der Testleiter).
+* File-Server (Nginx basiert): Ein optimierter Nginx-Webserver, um hochgeladene Testdateien und statische Inhalte auszuliefern. Optional kann hier die Integration mit dem Cache Server (Redis) aktiviert werden, um oft abgerufene Dateien zu cachen.
+
+## Speicherdienste und Stateful-Komponenten
+
+* Datenbank (db - MySQL 8.4): Speichert persistente Anwendungsdaten, Ergebnisse, Metadaten und Nutzerprofile. Die Konfiguration nutzt hier Kubernetes Persistent Volume Claims (PVC), um den Speicher bei Neustarts der Pods nicht zu verlieren.
+* Cache-Server (cacheServer - Redis 8.0): Ein In-Memory-Speicher, der für Sessions sowie das Zwischenspeichern von statischen Inhalten (File-Server) genutzt wird, um die Zugriffszeiten drastisch zu reduzieren.
+
+## Infrastruktur- & Systemkomponenten
+
+Das Testcenter liefert auch eigene Kubernetes-Infrastruktur-Dienste mit, die über das Installations-Skript (scripts/helm/helm-install-tc.sh) zugeschaltet werden können:
+
+* Traefik (Ingress-Controller): Wird als standardisiertes API-Gateway genutzt, das die eintreffenden Web-Requests (HTTP/HTTPS) entgegennimmt und an den richtigen Service (z.B. Frontend oder direkte API-Routen für das Backend) weiterleitet. Er kümmert sich auch um die SSL/TLS-Terminierung (tlsEnabled: true).
+* Longhorn (Persistent Storage): Ein Storage-Provisioner für Kubernetes. Wenn das Testcenter in einem frischen Cluster aufgesetzt wird, kann das Skript automatisch Longhorn installieren und konfigurieren. Alle zustandsbehafteten Dienste (wie MySQL, Backend-Files) verwenden dann "Longhorn Persistent Volumes", da dieses System Block Storage über das Cluster verteilt und repliziert (storageClass: longhorn).
+
+## Skalierung und Ausfallsicherheit (values.yaml)
+
+Die values.yaml Datei definiert genau, wie sich das System bei Deployment und Betrieb verhalten soll.
+Besondere Merkmale der Konfiguration:
+
+* Rolling Updates (strategy.type: RollingUpdate): Updates finden ohne Downtime statt (maxUnavailable: 0 und maxSurge: 1), d.h. neue Pods werden gestartet bevor alte gestoppt werden.
+* Ressourcen-Beschränkungen (resources.limits & requests): Jedem Service werden genaue CPU- und Arbeitsspeicher-Garantien zugeteilt, um das Cluster nicht zu überlasten. (z. B. DB: max 2 GB RAM, Backend: max 1 GB RAM).
+* Health-Checks (Liveness, Readiness, Startup Probes): Zur Überwachung des Zustands hat das System für jeden Dienst definierte Parameter, wann ein Dienst als "bereit" gilt oder er neu gestartet werden muss.
+
+## Das Installations-Skript (helm-install-tc.sh)
+
+Um die Kubernetes-Konfiguration zu vereinfachen, existiert dieses Skript, welches eine interaktive Installation vornimmt:
+
+* Prüft die Systemvoraussetzungen (kubectl, helm).
+* Fragt ab, ob Longhorn für persistente Volumens installiert werden soll.
+* Fragt ab, ob Traefik installiert und wie die Basis-Domain lauten soll.
+* Generiert automatisch sichere, zufällige Standard-Passwörter (z.B. für Datenbank-Root, den iqb_tba_db_user, Redis etc.) und schreibt diese überschreibend (als Secret) in das Helm-Release.
+* Deployt abschließend die Anwendung (normalerweise in den tc Namespace).
 
 # Server-Administrator\*in: Konfigurationsoptionen in der .env.prod
 
