@@ -38,88 +38,29 @@ Um den Gruppenmonitor nutzen zu können, muss dieser für die gewünschte Person
 
 # Anmeldung
 
-Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten (hier im Beispiel: **test-group-monitor** und **er45tz**) am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Booklets und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: **Test-Gruppen Überwachung**.
+Um den Gruppenmonitor zu starten, meldet sich die Testleitung mit entsprechenden Zugangsdaten (hier im Beispiel: **test-group-monitor** und **er45tz**) am Testcenter an. Anschließend öffnet sich der Gruppenmonitor und zeigt eine Liste aller verfügbaren Testhefte und eine Schaltfläche um den Gruppenmonitor zu starten. Die entsprechende Schaltfläche ist zu finden unter der Bezeichnung: **Test-Gruppen Überwachung**.
 
 # Bedienung und Ansicht
 
-Der Gruppenmonitor ist in zwei Teile aufgeteilt, einen mittleren und einen linken Teil.
-Im linken Teil erfolgt die Testnavigation. Im mittleren Teil sind Informationen zu den Testpersonen, zum Fortschritt der Testung und weitere Informationen zu finden. Würde die oben gezeigte Testtaker-XML verwendet werden, sind hier Informationen zu den 3 Personen: Testperson1, Testperson2 und Testperson3 zu finden. Außerdem ist der Verbindungsstatus ersichtlich und es können Einstellungen bzgl. der Ansicht vorgenommen werden.
-
 ::: {.callout-note}
-Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: **Spalten:** Teil und Abschnitt **Aktivität:** Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, setzen Sie zuvor die Ansichtsoptionen entsprechend.
+Der Gruppenmonitor bietet verschiedene Ansichtsoptionen. Alle nachfolgenden Bilder werden mit den folgenden Ansichtsoptionen dargestellt: **Spalten:** Teil und Abschnitt **Aktivität:** Nur Abschnitte. Wird diese Anleitung parallel zu einem geöffneten Gruppenmonitor verwendet, sind zuvor die Ansichtsoptionen entsprechend zu setzen.
 :::
 
 Beispielhafte Ansicht eines Gruppenmonitors:
 
 ![Übersicht Gruppenmonitor](assets/GM_Gesamtansicht.png)
 
-#### Testnavigation (links)
+## Testnavigation (links)
 
-Im linken Teil des Fensters sind Schalter für die Navigation zu finden. Diese haben erst eine Funktion, wenn im mittleren Teil (Aktivitätsfenster) eine entsprechende Testperson angewählt wurde. Die Testperson muss online sein, also den Test gerade bearbeiten. Es ist möglich die Testperson zu einem anderen Block im Booklet zu navigieren (springen), den Test zu pausieren, den Test zu sperren und den Test zu beenden. Ganz oben ist ein Schalter mit der Bezeichnung: **Alle Logins gleichzeitig steuern** zu sehen. Diese Funktion steht nur zur Verfügung, wenn alle in der Gruppe verwendeten Booklets eine ähnliche Struktur aufweisen. Sind bspw. in den Booklets unterschiedlich viele Blöcke enthalten, ist eine gemeinsame Steuerung nicht möglich. Da in diesem Beispiel unterschiedliche Booklets verwendet werden, ist der Schalter im Bild auch inaktiv.
-
-#### Systeminformationen und Einstellungen (rechts)
-
-Oben rechts ist in Form eines kleinen Symbols der Verbindungsstatus des Gruppenmonitors zu sehen. Bei einer fehlerfreien Verbindung sollte das Symbol grün sein und es sollte "LIVE" darin stehen.
-
-Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht für das mittlere Fenster, das Aktivitätsfenster, angepasst werden. Hier können bspw. Spalten hinzugefügt werden und Anzeigefilter gesetzt werden. Mehr zum Thema Filter ist [hier](filter.qmd) zu finden.
-
-#### Aktivitätsfenster (Mitte)
-
-Hier ist eine Liste aller Personen einer Gruppe zu sehen. Außerdem sind die Struktur der Booklets, der Fortschritt der Testung und weitere hilfreiche Informationen in Spalten sortiert zu sehen.
-
-![Aktivitätsfenster](assets/GM_Personenliste_Testhefte.png)
-
-Welche Informationen den einzelnen Spalten dieser Liste zu entnehmen sind und welche Bedeutung diese habe, wird nachfolgend von links nach rechts beschrieben:
-
-**Spalte: Personenstatus**
-
-Hier wird der Status der Testperson angezeigt. Folgende Status gibt es:
-
-
-| Symbolik | Beschreibung |
-|:-:|-------------------------|
-|![](assets/GM_Status_offline.png) | Test noch nicht gestartet. | 
-|![](assets/GM_Status_Connection_Websocket.png) |Test läuft, Verbindung ist live.|
-|![](assets/GM_Status_Connection_polling.png) |Test läuft. Testläufe und Teilnehmer sind im Polling-Modus verbunden. Dies ist ein Fallback für den Fall, dass der Live-Modus aufgrund des Browsers des Betreuers oder eines technischen Fehlers nicht möglich ist. Die Leistung des Monitors ist hierbei nicht so gleichmäßig.|
-|![](assets/GM_Status_ok.png) |Der Test scheint zu laufen, aber der Verbindungstyp ist unbekannt. Dies ist mehr oder weniger ein Fallback-Zustand, der anzeigt, dass außer seiner Existenz nichts über den Test bekannt ist. Dies kann bei verschiedenen Fehlerszenarien oder Fehlkonfigurationen der Fall sein, sollte aber im Allgemeinen nicht vorkommen. Es sollte untersucht werden, aber höchstwahrscheinlich kann der Test sicher fortgesetzt werden, da der Fehler eher auf der Seite des Monitors liegt.|
-|![](assets/GM_Status_Idle.png) |Test ist 5 Minuten oder länger inaktiv.|
-|![](assets/GM_Status_Pause.png) |Test ist pausiert.|
-|![](assets/GM_Status_Locked.png) |Test ist gesperrt.|
-|![](assets/GM_Status_Focus_lost.png) |Fokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browser-Tab.|
-|![](assets/GM_Status_Connection_lost.png) |Browserfenster wurde geschlossen oder Netzwerkverbindung ist gestört.|
-|![](assets/GM_Status_Controller_terminated.png) |Testausführung wurde beendet und kann wieder aufgenommen werden.|
-
-
-[Hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-session-super-states.html) ist auch eine automatisch generierte Liste in Englisch zu finden.
-
-**Spalte: Teilnehmer**
-
-Es ist im Beispielbild eine längere Kennung zu sehen, die sich wie folgt zusammensetzt:
-
-* Benutzername der Anmeldung, in diesem Fall: **iea-testtaker-bista2217**
-* der zur Anmeldung eingegebene Code, in diesem Fall: **abc1**, **abc2** usw..
-
-**Spalte: Teil**
-
-Hier sind die Booklets zu sehen, die einem Zugangscode zugeordnet sind. Bspw. sind dem Code: **abc1** drei Booklets zugeordnet, nämlich: **Anleitung**, **Teil1**, **Teil2** und **Teil3**.
-
-**Spalte: Abschnitt**
-
-Ist der Test gestartet wird hier der Abschnitt innerhalb eines Blocks angezeigt.
-
-**Spalte: Aktivität**
-
-Es ist die Bookletstruktur zu sehen und an welcher Stelle sich die Testperson befindet. Sind Blöcke im Booklet vorhanden, wird die Anzahl der enthaltenen Aufgaben im Block angezeigt. Zu jedem Block in einem Booklet werden festgelegte Beschränkungen angezeigt. Vor den jeweiligen beschränkten Blöcken ist dann bspw. eine kleine Uhr oder ein Schlosssymbol zu sehen. Das Schloss öffnet sich, wenn das richtige Kennwort für den Block eingegeben wurde. Ist die vorgeschriebene Zeit für den Block abgelaufen, ist die Uhr durchgestrichen. Zusätzlich wird bei zeitbeschränkten Blöcken die verbleibende Zeit vor den Blöcken dargestellt. Wie im Bild zu sehen ist, sind die Zeilen der Anmeldungen farblich gekennzeichnet. Die farbliche Kennzeichnung zeigt auf, welche Booklets eine ähnliche Struktur habe und gemeinsam gesteuert werden könnten.
-
-# Testnavigation (Steuerung)
-
-::: {.callout-note}
-Es ist möglich mehrere Personen gleichzeitig zu steuern. Hierfür kann der Schalter: **Alle Logins gleichzeitig steuern** verwendet werden. Dieser Schalter kann nur aktiviert werden, wenn die verwendeten Booklets eine ähnliche Struktur aufweisen. Das betrifft hauptsächlich die Anzahl der Blöcke in einem Booklet. Werden Booklets mit unterschiedlicher Anzahl von Blöcken verwendet, ist der Schalter inaktiv.
-:::
+Hier sind Schalter für die Navigation zu finden. Diese haben erst eine Funktion, wenn im rechten Teil (Aktivitätsfenster) eine entsprechende Testperson angewählt wurde. Die Testperson muss online sein, also den Test gerade bearbeiten. Es ist möglich die Testperson zu einem anderen Block im Testheft zu navigieren (springen), den Test zu pausieren, den Test zu sperren oder den Test zu beenden. Ganz oben ist ein Schalter mit der Bezeichnung: **Alle Logins gleichzeitig steuern** zu sehen. Diese Funktion steht nur zur Verfügung, wenn alle in der Gruppe verwendeten Testhefte eine ähnliche Struktur aufweisen. Sind bspw. in den Testheften unterschiedlich viele Blöcke enthalten, ist eine gemeinsame Steuerung nicht möglich. Da in diesem Beispiel unterschiedliche Testhefte verwendet werden, ist der Schalter im Bild auch inaktiv.
 
 #### Pausieren
 
 Markieren Sie im Aktivitätsfenster die gewünschte Person und betätigen Sie anschließend die Schaltfläche: **Pause**. Ist der Test erfolgreich pausiert, erscheint das entsprechende {{< fa pause >}}-Symbol bei der Person. Außerdem erscheint im Browser der Person eine entsprechende Meldung, dass der Test pausiert wurde. Soll das Pausieren aufgehoben werden, ist erneut die entsprechende Person zu markieren und anschließend ist die Schaltfläche: **Weiter** zu betätigen. Der Test wird dann fortgeführt.
+
+#### Weiter
+
+Der Test kann mithilfe dieses Schalters nach Pausierung fortgesetzt werden.
 
 #### Springe zu Block
 
@@ -133,7 +74,7 @@ Durch einen Maus-Linksklick auf einen Block innerhalb einer Personenzeile, werde
 
 Um Blöcke für einzelne Personen zu selektieren, ist es nicht notwendig den Haken vor einer Personen zu wählen. Es reicht mit einem Maus-Linksklick auf den zu selektierenden Block zu klicken. Dies bewirkt sowohl eine Selektierung des Blocks als auch der Personen der jeweiligen Zeile. Bei einem weiteren Maus-Linksklick werden automatisch alle Blöcke in der selben Spalte selektiert und die zugehörigen Personen werden aktiviert (Haken vor Person wird gesetzt). Durch einen Maus-Rechtsklick auf einen der selektierten Blöcke wird die Selektierung wieder aufgehoben.
 
-Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Booklets: **Teil1** markiert.
+Nachfolgend wird der zweite Block der Anmeldung: **abc2** des Testhefts: **Teil1** markiert.
 
 ![Block markieren](assets/GM_Block_markieren.png)
 
@@ -161,13 +102,84 @@ Ein Testheft kann mit Hilfe des Schalters: **Test entsperren** wieder entsperrt 
 ::: {.callout-note}
 Für die Entsperrung eines Blocks kann dieser Schalter nicht verwendet werden.
 :::
+## Systeminformationen, Einstellungen und Status (rechts)
+
+### Verbindungsstatus
+
+Oben rechts ist das Symbol für den Verbindungsstatus des Gruppenmonitors zu sehen ![Übersicht Gruppenmonitor](assets/GM_Connection.png){width=80px}. Der Status kann Abhängig von der Verbindungsqualität wechseln:
+
+* OFFLINE: Es besteht eine Störung der Verbindung. Keine Verbindung mehr zur Testsession. 
+* RECONN: Es wird versucht, eine Verbindung herzustellen. In dieser Phases besteht keine Verbindung zur Testsession.
+* LIVE: Fehlerfreie Verbindung im WebSocket-Betrieb.
+* POLLING: Es besteht eine Verbindung via Polling-Betrieb. Die Verbindung via WebSocket ist gestört und kann nicht aufgebaut werden. Es greift ein Fallback auf den Polling-Betrieb. In diesem Fall ist die Verbindung zum Gruppenmonitor nicht so stabil wie im Live-Modus, aber es besteht zumindest eine Verbindung.
+
+::: {.callout-note collapse="true"}
+## Technische Informationen Polling/WebSocket
+WebSocket:<br>
+Persistente bidirektionale Verbindung. Die Verbindung zwischen Gruppenmonitor und der jeweiligen Testsession erfolgt über die Technologie WebSocket. Es wird nur einmalig eine Verbindung zum Server aufgebaut, diese bleibt während der gesamten Testsession bestehen und wird nicht für jede Aktualisierung neu aufgebaut. Dies entlastet die Server-/ Client-Kommunikation und spart unnötige Handshakes. 
+
+Polling:<br>
+Periodischer Verbindungsaufbau. Beim Polling öffnet der Client jedes Mal eine neue HTTP-Verbindung — mit vollständigem Header-Overhead, TCP-Handshake und Wartezeit. Der Server wird regelmäßig belastet, auch wenn sich gar nichts geändert hat.
+:::
+
+### Einstellungen
+
+Ebenfalls oben rechts ist eine {{< fa gear >}}-Schaltfläche zu sehen. Mit Hilfe dieser kann die Ansicht für das Statusfenster angepasst werden. Hier können bspw. Spalten hinzugefügt werden und Anzeigefilter gesetzt werden. Mehr zum Thema Filter ist [hier](filter.qmd) zu finden.
+
+### Status
+
+![Statusfenster](assets/GM_Personenliste_Testhefte.png)
+
+### {{< fa user >}} (Personenstatus):
+
+Hier ist bspw. zu sehen, ob die Testperson den Fokus auf dem Browserfenster verloren hat oder ob die Verbindung zum Gruppenmonitor gestört ist. Folgenden Status kann eine Testperson annehmen:
+
+
+| Symbolik | Beschreibung |
+|:-:|-------------------------|
+|![](assets/GM_Status_offline.png) | Test noch nicht gestartet. | 
+|![](assets/GM_Status_Connection_Websocket.png) |Test läuft, Verbindung ist live.|
+|![](assets/GM_Status_Connection_polling.png) |Test läuft. Testläufe und Teilnehmer sind im Polling-Modus verbunden. Dies ist ein Fallback für den Fall, dass der Live-Modus aufgrund des Browsers des Betreuers oder eines technischen Fehlers nicht möglich ist. Die Leistung des Monitors ist hierbei nicht so gleichmäßig.|
+|![](assets/GM_Status_ok.png) |Der Test scheint zu laufen, aber der Verbindungstyp ist unbekannt. Dies ist mehr oder weniger ein Fallback-Zustand, der anzeigt, dass außer seiner Existenz nichts über den Test bekannt ist. Dies kann bei verschiedenen Fehlerszenarien oder Fehlkonfigurationen der Fall sein, sollte aber im Allgemeinen nicht vorkommen. Es sollte untersucht werden, aber höchstwahrscheinlich kann der Test sicher fortgesetzt werden, da der Fehler eher auf der Seite des Monitors liegt.|
+|![](assets/GM_Status_Idle.png) |Test ist 5 Minuten oder länger inaktiv.|
+|![](assets/GM_Status_Pause.png) |Test ist pausiert.|
+|![](assets/GM_Status_Locked.png) |Test ist gesperrt.|
+|![](assets/GM_Status_Focus_lost.png) |Fokus nicht mehr auf Browserfenster. Testperson ist bspw. auf einem anderen Browser-Tab.|
+|![](assets/GM_Status_Connection_lost.png) |Browserfenster wurde geschlossen oder Netzwerkverbindung ist gestört.|
+|![](assets/GM_Status_Controller_terminated.png) |Testausführung wurde beendet und kann wieder aufgenommen werden.|
+
+
+[Hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-session-super-states.html) ist auch eine automatisch generierte Liste in Englisch zu finden.
+
+### Teilnehmer
+
+Es ist im Beispielbild eine längere Kennung zu sehen, die sich wie folgt zusammensetzt:
+
+* Benutzername der Anmeldung, in diesem Fall: **iea-testtaker-bista2217**
+* der zur Anmeldung eingegebene Code, in diesem Fall: **abc1**, **abc2** usw..
+
+### Teil
+
+Hier sind die Testhefte zu sehen, die einem Zugangscode zugeordnet sind. Bspw. sind dem Code: *abc1* drei Testhefte zugeordnet, nämlich: *Anleitung*, *Teil1*, *Teil2* und *Teil3*.
+
+### Abschnitt
+
+Ist der Test gestartet wird hier der Abschnitt innerhalb eines Blocks angezeigt.
+
+### Aktivität
+
+Es wird der Bearbeitungsstand des Testheftes angezeigt. Es ist zu sehen, an welcher Stelle im Testheft sich die Testperson befindet. Der Zustand eines beschränkten Blocks wird angezeigt. Dazu zählt bspw. die Anzeige der verbleibenden Blockzeit {{< fa clock >}} oder die Anzeige eines Schlosssymbols {{< fa lock >}}, wenn der Block gesperrt ist. 
+
+::: {.callout-note}
+Je nach Filtereinstellungen können weitere Spalten angezeigt werden. Auf diese wird an dieser Stelle nicht weiter eingegangen, da sie weitgehend selbsterklärend sein sollten.
+:::
 
 # Troubleshooting
 
 #### Testperson kann die Aufgabe nicht bearbeiten
 
 **Fehler:** 
-Die Testperson kann eine Aufgabe nicht bearbeiten, weil die Inhalte der Aufgabe nicht dargestellt werden. Da die Navigation im Booklet zu anderen Aufgaben eventuell nur möglich ist nachdem eine Aufgabe vollständig beantwortet wurde, kann die Testperson nicht mit der Testung fortfahren.
+Die Testperson kann eine Aufgabe nicht bearbeiten, weil die Inhalte der Aufgabe nicht dargestellt werden. Da die Navigation im Testheft zu anderen Aufgaben eventuell nur möglich ist nachdem eine Aufgabe vollständig beantwortet wurde, kann die Testperson nicht mit der Testung fortfahren.
 
 **Ursache:**
 Die Aufgabeninhalte (Video, Grafik etc.) können eventuell nicht vollständig geladen werden.

@@ -20,13 +20,13 @@ Nachfolgend ist das Filter-Menu zu sehen:
 
 Es folgt eine Beschreibung der Felder und Schaltflächen und welche Werte verwendet werden können:
 
-| Attribut | Feld im Menu | Typ | Erforderlich | Beschreibung |
-|----------|-------------|-----|--------------|--------------|
-| `label` | Filtername |`xs:string` | Nein | Anzeigebezeichnung für den Filter |
-| `field` | Feld |`GroupMonitorProfileFilterField` | Nein | Feld, auf das der Filter angewendet wird |
-| `type` | Filtertyp |`FilterTypeType` | Nein | Art des Filters |
-| `value` | Filter* |`xs:string` | Nein | Filterwert |
-| `not` | nicht | `xs:boolean` | Nein | Negiert den Filter (invertierte Logik) |
+| Attribut | Feld im Menu | Beschreibung |
+|----------|-------------|------------|--------------|
+| `label` | Filtername | Anzeigebezeichnung für den Filter |
+| `field` | Feld | Feld, auf das der Filter angewendet wird |
+| `type` | Filtertyp | Art des Filters |
+| `value` | Filter* | Filterwert |
+| `not` | nicht | Negiert den Filter (invertierte Logik) |
 
 ## Zulässige Typen
 
@@ -54,7 +54,7 @@ Es folgt eine Beschreibung der Felder und Schaltflächen und welche Werte verwen
 
 # Filter einrichten in der Testtaker-XML
 
-Eigene Filter und Profile können aber auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
+Eigene Filter und Profile können auch direkt über die **Testtaker-XML** konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: `personLabel`aus, wenn diese gleich dem Wert "test" ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im `<Login>`-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.
 
 ```{.xml}
 
