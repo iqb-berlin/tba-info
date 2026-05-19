@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-b00097fbe245c0658e8e1284714b1aa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-8c2b493f5bdd6a9724d205551163edc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-751557b920bf0c36902ecede0b94ad0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1291,57 +1291,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="assets/GM-Filtersetting.png" class="img-fluid"></p>
 <p>Es folgt eine Beschreibung der Felder und Schaltflächen und welche Werte verwendet werden können:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 23%">
-<col style="width: 8%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Attribut</th>
 <th>Feld im Menu</th>
-<th>Typ</th>
-<th>Erforderlich</th>
 <th>Beschreibung</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>label</code></td>
 <td>Filtername</td>
-<td><code>xs:string</code></td>
-<td>Nein</td>
 <td>Anzeigebezeichnung für den Filter</td>
+<td></td>
 </tr>
 <tr class="even">
 <td><code>field</code></td>
 <td>Feld</td>
-<td><code>GroupMonitorProfileFilterField</code></td>
-<td>Nein</td>
 <td>Feld, auf das der Filter angewendet wird</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td><code>type</code></td>
 <td>Filtertyp</td>
-<td><code>FilterTypeType</code></td>
-<td>Nein</td>
 <td>Art des Filters</td>
+<td></td>
 </tr>
 <tr class="even">
 <td><code>value</code></td>
 <td>Filter*</td>
-<td><code>xs:string</code></td>
-<td>Nein</td>
 <td>Filterwert</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td><code>not</code></td>
 <td>nicht</td>
-<td><code>xs:boolean</code></td>
-<td>Nein</td>
 <td>Negiert den Filter (invertierte Logik)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1377,7 +1364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="filter-einrichten-in-der-testtaker-xml" class="level1">
 <h1>Filter einrichten in der Testtaker-XML</h1>
-<p>Eigene Filter und Profile können aber auch direkt über die <strong>Testtaker-XML</strong> konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: <code>personLabel</code>aus, wenn diese gleich dem Wert “test” ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im <code>&lt;Login&gt;</code>-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.</p>
+<p>Eigene Filter und Profile können auch direkt über die <strong>Testtaker-XML</strong> konfiguriert werden. Nachfolgend sind bspw. 2 Profile angelegt. Im ersten Profil ist auch bereits ein Filter angelegt. Dieser blendet die Spalte: <code>personLabel</code>aus, wenn diese gleich dem Wert “test” ist. Die angelegten Profile werden dann mit Hilfe ihrer ID im <code>&lt;Login&gt;</code>-Element eingebunden und somit nach der Anmeldung zur Auswahl angeboten.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Profiles</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">GroupMonitor</span>&gt;</span>
