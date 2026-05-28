@@ -1,0 +1,1120 @@
+---
+lang: de
+---
+
+````{=html}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IQB Testcenter · Schulung Testinhalte</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F5F2EC;
+    --surface: #FDFCF9;
+    --surface2: #EDEBE4;
+    --border: #D8D4C8;
+    --border-light: #E8E5DE;
+    --text: #1A1917;
+    --text-muted: #6B6860;
+    --text-faint: #9B9890;
+    --accent: #2B5FA6;
+    --accent-bg: #EBF0FA;
+    --accent-border: #B8CBED;
+    --green: #1E6B42;
+    --green-bg: #E8F4EE;
+    --amber: #7A4B0E;
+    --amber-bg: #FBF0E0;
+    --red: #8B2121;
+    --red-bg: #FBE8E8;
+    --purple: #4A2E8A;
+    --purple-bg: #EEE9FB;
+    --player-color: #7A4B0E;
+    --player-bg: #FBF0E0;
+    --unit-color: #1E6B42;
+    --unit-bg: #E8F4EE;
+    --booklet-color: #2B5FA6;
+    --booklet-bg: #EBF0FA;
+    --testtaker-color: #4A2E8A;
+    --testtaker-bg: #EEE9FB;
+    --radius: 6px;
+    --radius-lg: 12px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 0 var(--border-light);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .header-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--text);
+  }
+
+  /* PIPELINE NAV */
+  .pipeline {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--border-light);
+  }
+  .pipeline-step {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-top: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    transition: all 0.15s;
+    position: relative;
+    white-space: nowrap;
+  }
+  .pipeline-step:hover { color: var(--text); background: var(--bg); }
+  .pipeline-step.active { color: var(--text); font-weight: 500; }
+  .pipeline-step.active[data-key="player"] { border-top-color: var(--player-color); color: var(--player-color); background: var(--player-bg); }
+  .pipeline-step.active[data-key="unit"] { border-top-color: var(--unit-color); color: var(--unit-color); background: var(--unit-bg); }
+  .pipeline-step.active[data-key="booklet"] { border-top-color: var(--booklet-color); color: var(--booklet-color); background: var(--booklet-bg); }
+  .pipeline-step.active[data-key="testtaker"] { border-top-color: var(--testtaker-color); color: var(--testtaker-color); background: var(--testtaker-bg); }
+  .step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    background: var(--surface2);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--text-faint);
+  }
+  .pipeline-step.active .step-num { background: rgba(0,0,0,0.08); }
+  .step-arrow {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--border);
+    font-size: 14px;
+    z-index: 1;
+  }
+  .pipeline-step:last-child .step-arrow { display: none; }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* PANELS */
+  .panel { display: none; animation: fadeIn 0.2s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  /* PANEL HEADER */
+  .panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  .panel-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--text);
+  }
+  .panel-title span {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .panel-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .file-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    border: 1px solid;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  [data-panel="player"] .file-badge { background: var(--player-bg); color: var(--player-color); border-color: #D9B87E; }
+  [data-panel="unit"] .file-badge { background: var(--unit-bg); color: var(--unit-color); border-color: #9ECDB5; }
+  [data-panel="booklet"] .file-badge { background: var(--booklet-bg); color: var(--booklet-color); border-color: var(--accent-border); }
+  [data-panel="testtaker"] .file-badge { background: var(--testtaker-bg); color: var(--testtaker-color); border-color: #B9A7E8; }
+  .panel-order {
+    font-size: 12px;
+    color: var(--text-faint);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* LAYOUT GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  @media (max-width: 640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .pipeline-step { font-size: 11px; padding: 0.6rem 0.5rem; }
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+  }
+  .card-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-faint);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 0.75rem;
+  }
+
+  /* FACT CARDS */
+  .facts { display: flex; flex-direction: column; gap: 10px; }
+  .fact {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .fact-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  [data-panel="player"] .fact-dot { background: var(--player-color); }
+  [data-panel="unit"] .fact-dot { background: var(--unit-color); }
+  [data-panel="booklet"] .fact-dot { background: var(--booklet-color); }
+  [data-panel="testtaker"] .fact-dot { background: var(--testtaker-color); }
+
+  /* CODE BLOCK */
+  .code-wrap {
+    background: #1A1917;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .code-label {
+    background: #252320;
+    padding: 8px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #6B6860;
+    border-bottom: 1px solid #2E2B28;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .code-label::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3D3A36; }
+  pre {
+    padding: 1.25rem 1.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.8;
+    overflow-x: auto;
+    color: #C9C5BC;
+  }
+  .t-tag { color: #7CB8E8; }
+  .t-attr { color: #D9A96C; }
+  .t-val { color: #98C689; }
+  .t-comment { color: #5C5850; font-style: italic; }
+
+  /* CALLOUT */
+  .callout {
+    border-radius: var(--radius);
+    padding: 0.875rem 1rem;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    border-left: 3px solid;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .callout-icon { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+  .callout.info { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+  .callout.warn { background: var(--amber-bg); border-color: #C07820; color: var(--amber); }
+  .callout.danger { background: var(--red-bg); border-color: #C03030; color: var(--red); }
+  .callout.success { background: var(--green-bg); border-color: #2A8A52; color: var(--green); }
+
+  /* MODE TABLE */
+  .mode-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .mode-table th { text-align: left; font-weight: 500; font-size: 11px; color: var(--text-faint); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.06em; padding: 6px 12px; border-bottom: 1px solid var(--border); }
+  .mode-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .mode-table tr:last-child td { border-bottom: none; }
+  .mode-table tr:hover td { background: var(--bg); }
+  .mode-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .chip-hot { background: var(--green-bg); color: var(--green); border: 1px solid #9ECDB5; }
+  .chip-review { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
+  .chip-demo { background: var(--amber-bg); color: var(--amber); border: 1px solid #D9B87E; }
+  .chip-monitor { background: var(--purple-bg); color: var(--purple); border: 1px solid #B9A7E8; }
+  .chip-trial { background: var(--green-bg); color: var(--green); border: 1px solid #9ECDB5; }
+  .chip-sim { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
+
+  td.desc { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+  td.save { text-align: center; }
+  td.save .yes { color: var(--green); font-size: 16px; }
+  td.save .no { color: var(--red); font-size: 16px; }
+
+  /* PLAYERS LIST */
+  .player-grid { display: flex; flex-direction: column; gap: 8px; }
+  .player-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.875rem 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .player-name { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; color: var(--text); min-width: 120px; }
+  .player-desc { font-size: 13px; color: var(--text-muted); }
+
+  /* RESTRICTIONS TABLE */
+  .restrictions { display: flex; flex-direction: column; gap: 8px; }
+  .restriction-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.875rem 1rem;
+  }
+  .restriction-name { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); margin-bottom: 4px; }
+  .restriction-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* UPLOAD ORDER */
+  .order-strip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+  }
+  .order-chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid;
+  }
+  .oc-p { background: var(--player-bg); color: var(--player-color); border-color: #D9B87E; }
+  .oc-u { background: var(--unit-bg); color: var(--unit-color); border-color: #9ECDB5; }
+  .oc-b { background: var(--booklet-bg); color: var(--booklet-color); border-color: var(--accent-border); }
+  .oc-t { background: var(--testtaker-bg); color: var(--testtaker-color); border-color: #B9A7E8; }
+  .order-arrow { color: var(--text-faint); }
+  .order-label { font-size: 12px; color: var(--text-faint); margin-left: auto; font-family: 'IBM Plex Mono', monospace; }
+
+  /* SECTION HEADING */
+  .section-h {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.875rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-h::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+    margin-left: 4px;
+  }
+
+  /* OVERVIEW PAGE */
+  .overview-hero {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .overview-hero p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+  .overview-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .overview-title em { font-style: italic; font-weight: 600; }
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-left: 4px solid;
+  }
+  .overview-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); transform: translateY(-1px); }
+  .overview-card[data-goto="player"] { border-left-color: var(--player-color); }
+  .overview-card[data-goto="unit"] { border-left-color: var(--unit-color); }
+  .overview-card[data-goto="booklet"] { border-left-color: var(--booklet-color); }
+  .overview-card[data-goto="testtaker"] { border-left-color: var(--testtaker-color); }
+  .oc-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .oc-kicker.p { color: var(--player-color); }
+  .oc-kicker.u { color: var(--unit-color); }
+  .oc-kicker.b { color: var(--booklet-color); }
+  .oc-kicker.t { color: var(--testtaker-color); }
+  .oc-name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem; margin-bottom: 6px; }
+  .oc-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+  .oc-go { display: flex; align-items: center; gap: 4px; font-size: 12px; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; }
+  .oc-go.p { color: var(--player-color); }
+  .oc-go.u { color: var(--unit-color); }
+  .oc-go.b { color: var(--booklet-color); }
+  .oc-go.t { color: var(--testtaker-color); }
+  .oc-ext { font-size: 12px; padding: 2px 8px; border-radius: 4px; float: right; font-family: 'IBM Plex Mono', monospace; }
+
+  hr.divider { border: none; border-top: 1px solid var(--border-light); margin: 1.5rem 0; }
+
+  /* TIPS */
+  .tip-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .tip-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .tip-title { font-weight: 500; color: var(--text); font-size: 13px; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+
+  /* NAV BUTTONS */
+  .nav-row { display: flex; justify-content: space-between; margin-top: 2.5rem; }
+  .nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 18px;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.12s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-btn:hover { background: var(--bg); color: var(--text); border-color: var(--text-muted); }
+  .nav-btn.primary { background: var(--text); color: var(--surface); border-color: var(--text); }
+  .nav-btn.primary:hover { background: #3A3835; }
+  .spacer { flex: 1; }
+
+  strong { font-weight: 500; color: var(--text); }
+  code { font-family: 'IBM Plex Mono', monospace; font-size: 12px; background: var(--surface2); padding: 1px 5px; border-radius: 3px; color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <span class="header-kicker">IQB Testcenter · Schulung</span>
+      <span class="header-title">Testinhalte &amp; Testdateien</span>
+    </div>
+    <nav class="pipeline" id="pipeline">
+      <div class="pipeline-step active" data-key="overview" onclick="navigate('overview')">
+        <span class="step-num">↩</span> Übersicht
+        <span class="step-arrow">›</span>
+      </div>
+      <div class="pipeline-step" data-key="xml" onclick="navigate('xml')">
+        <span class="step-num">0</span> XML-Grundlagen
+        <span class="step-arrow">›</span>
+      </div>
+      <div class="pipeline-step" data-key="player" onclick="navigate('player')">
+        <span class="step-num">1</span> Player
+        <span class="step-arrow">›</span>
+      </div>
+      <div class="pipeline-step" data-key="unit" onclick="navigate('unit')">
+        <span class="step-num">2</span> Unit-XML
+        <span class="step-arrow">›</span>
+      </div>
+      <div class="pipeline-step" data-key="booklet" onclick="navigate('booklet')">
+        <span class="step-num">3</span> Booklet-XML
+        <span class="step-arrow">›</span>
+      </div>
+      <div class="pipeline-step" data-key="testtaker" onclick="navigate('testtaker')">
+        <span class="step-num">4</span> Testtaker-XML
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ==================== OVERVIEW ==================== -->
+  <div class="panel active" id="panel-overview">
+    <div class="order-strip">
+      <span style="font-size:12px; color:var(--text-faint); font-family:'IBM Plex Mono',monospace;">Ladereihenfolge</span>
+      <span class="order-arrow">:</span>
+      <span class="order-chip oc-p">Player</span>
+      <span class="order-arrow">→</span>
+      <span class="order-chip oc-u">Unit-XML</span>
+      <span class="order-arrow">→</span>
+      <span class="order-chip oc-b">Booklet-XML</span>
+      <span class="order-arrow">→</span>
+      <span class="order-chip oc-t">Testtaker-XML</span>
+      <span class="order-label">Löschen in umgekehrter Reihenfolge</span>
+    </div>
+
+    <div class="overview-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="overview-card" style="border-left-color:#888780; grid-column:1/-1;" data-goto="xml" onclick="navigate('xml')">
+        <div class="oc-kicker" style="color:#5F5E5A;">Vorwissen · Grundlage</div>
+        <div class="oc-name">XML-Grundlagen</div>
+        <div class="oc-desc">Drei der vier Testdateien sind XML. Was sind Elemente, Attribute und Schema-Definitionen — und welcher Editor eignet sich am besten?</div>
+        <div class="oc-go" style="color:#5F5E5A;">Details ansehen →</div>
+      </div>
+      <div class="overview-card" data-goto="player" onclick="navigate('player')">
+        <div class="oc-kicker p">Schritt 1 · .html</div>
+        <div class="oc-name">Player</div>
+        <div class="oc-desc">Stellt Aufgaben im Browser dar. Das Testcenter selbst zeigt keine Items an — der Player übernimmt die Darstellung vollständig.</div>
+        <div class="oc-go p">Details ansehen →</div>
+      </div>
+      <div class="overview-card" data-goto="unit" onclick="navigate('unit')">
+        <div class="oc-kicker u">Schritt 2 · .xml</div>
+        <div class="oc-name">Unit-XML</div>
+        <div class="oc-desc">Beschreibt eine einzelne Aufgabe oder Seite: Metadaten, eindeutige ID, Verweis auf den Player und die eigentliche Aufgabendefinition.</div>
+        <div class="oc-go u">Details ansehen →</div>
+      </div>
+      <div class="overview-card" data-goto="booklet" onclick="navigate('booklet')">
+        <div class="oc-kicker b">Schritt 3 · .xml</div>
+        <div class="oc-name">Booklet-XML</div>
+        <div class="oc-desc">Legt die Reihenfolge der Units fest und konfiguriert Blöcke, Zeitlimits, Freigabeworte und Navigationsregeln.</div>
+        <div class="oc-go b">Details ansehen →</div>
+      </div>
+      <div class="overview-card" data-goto="testtaker" onclick="navigate('testtaker')">
+        <div class="oc-kicker t">Schritt 4 · .xml</div>
+        <div class="oc-name">Testtaker-XML</div>
+        <div class="oc-desc">Definiert Logins, weist Booklets zu und steuert den Modus der Teilnahme. Logins sind nach dem Upload sofort aktiv.</div>
+        <div class="oc-go t">Details ansehen →</div>
+      </div>
+    </div>
+
+    <div class="section-h">Wichtige Grundregeln</div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-title">📋 Alle XML-Dateien</div>
+        Unit-, Booklet- und Testtaker-Dateien sind XML. Ein Editor mit Syntax-Hervorhebung (z. B. VS Code) hilft enorm, Fehler vor dem Upload zu finden.
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🔗 IDs sind Verweise</div>
+        Das Booklet referenziert Units über deren <code>Id</code>. Die Testtaker-XML referenziert Booklets über deren <code>Id</code>. IDs müssen stabil und eindeutig sein.
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">⚠️ Upload-Reihenfolge</div>
+        Das Testcenter prüft Abhängigkeiten beim Upload. Fehlt eine abhängige Datei, schlägt der Upload fehl. Ladereihenfolge unbedingt einhalten.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== XML GRUNDLAGEN ==================== -->
+  <div class="panel" id="panel-xml" data-panel="xml">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">XML-Grundlagen<br><span>Bevor es losgeht</span></div>
+      </div>
+      <div class="panel-meta">
+        <div class="file-badge" style="background:var(--surface2);color:var(--text-muted);border-color:var(--border);">Vorwissen</div>
+        <div class="panel-order">Grundlage für Schritte 2–4</div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">ℹ</span>
+      <span>Drei der vier Testdateien (Unit, Booklet, Testtaker) sind XML-Dateien. Ein grundlegendes Verständnis von XML erspart viel Fehlersuche.</span>
+    </div>
+
+    <div class="grid-2" style="margin-top:1.25rem">
+      <div class="card">
+        <div class="card-title">Was ist XML?</div>
+        <div class="facts">
+          <div class="fact" style="--dot-color:var(--accent)"><div class="fact-dot" style="background:var(--accent)"></div><span>XML ist ein Textformat zur strukturierten Übertragung von Informationen — lesbar für Menschen und Maschinen gleichermaßen.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>XML-Dateien können mit jedem Texteditor geöffnet und bearbeitet werden.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Eine XML besteht aus <strong>Elementen</strong>, die mit spitzen Klammern eingeleitet und mit einem Schrägstrich abgeschlossen werden: <code>&lt;Element&gt;...&lt;/Element&gt;</code></span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Elemente können beliebig tief <strong>verschachtelt</strong> werden und weitere Kind-Elemente enthalten.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Elemente, Attribute &amp; Werte</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span><strong>Daten</strong> stehen zwischen den spitzen Klammern: <code>&lt;Titel&gt;Mein Buch&lt;/Titel&gt;</code></span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span><strong>Attribute</strong> stehen im öffnenden Tag und ergänzen ein Element um zusätzliche Eigenschaften: <code>&lt;Buch kategorie="kochen"&gt;</code></span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Elemente können leere Kurzform nutzen, wenn kein Inhalt nötig ist: <code>&lt;Unit id="M1" /&gt;</code></span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Groß- und Kleinschreibung ist in XML <strong>bedeutsam</strong> — <code>&lt;Unit&gt;</code> und <code>&lt;unit&gt;</code> sind verschiedene Elemente.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-h">Aufbau einer XML — Beispiel</div>
+    <div class="code-wrap">
+      <div class="code-label">beispiel.xml</div>
+      <pre><span class="t-tag">&lt;?xml version=<span class="t-val">"1.0"</span>?&gt;</span>       <span class="t-comment">&lt;!-- Pflicht-Header jeder XML-Datei --&gt;</span>
+
+<span class="t-tag">&lt;Buecher&gt;</span>                      <span class="t-comment">&lt;!-- Hauptelement (root) --&gt;</span>
+
+  <span class="t-tag">&lt;Buch</span> <span class="t-attr">kategorie=</span><span class="t-val">"kochen"</span><span class="t-tag">&gt;</span>    <span class="t-comment">&lt;!-- Kind-Element mit Attribut --&gt;</span>
+    <span class="t-tag">&lt;Titel&gt;</span><span class="t-val">Tolle Suppen kochen</span><span class="t-tag">&lt;/Titel&gt;</span>   <span class="t-comment">&lt;!-- Daten zwischen Tags --&gt;</span>
+    <span class="t-tag">&lt;Autor&gt;</span><span class="t-val">Sven Mustermann</span><span class="t-tag">&lt;/Autor&gt;</span>
+    <span class="t-tag">&lt;Preis&gt;</span><span class="t-val">20.00</span><span class="t-tag">&lt;/Preis&gt;</span>
+  <span class="t-tag">&lt;/Buch&gt;</span>
+
+  <span class="t-tag">&lt;Buch</span> <span class="t-attr">kategorie=</span><span class="t-val">"backen"</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;Titel&gt;</span><span class="t-val">Tolle Kuchen backen</span><span class="t-tag">&lt;/Titel&gt;</span>
+    <span class="t-tag">&lt;Autor&gt;</span><span class="t-val">Sabine Mustermann</span><span class="t-tag">&lt;/Autor&gt;</span>
+    <span class="t-tag">&lt;Preis&gt;</span><span class="t-val">20.00</span><span class="t-tag">&lt;/Preis&gt;</span>
+  <span class="t-tag">&lt;/Buch&gt;</span>
+
+<span class="t-tag">&lt;/Buecher&gt;</span></pre>
+    </div>
+
+    <div class="section-h">Warum ist Struktur so wichtig?</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Anwendungen lesen die Struktur</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Eine Anwendung wie das Testcenter liest XML-Dateien nach einem festen Schema — sie erwartet Elemente an bestimmten Stellen mit bestimmten Namen.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Wird ein Element umbenannt oder an die falsche Stelle gesetzt, kann die Anwendung die Datei nicht mehr korrekt lesen — im schlimmsten Fall ohne Fehlermeldung.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Daher: <strong>Struktur und Elementnamen niemals eigenmächtig ändern</strong>. Nur Werte und Inhalte anpassen.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">XML-Schema-Definition (XSD)</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Das Testcenter legt für jede Dateiart eine <strong>Schema-Definition (XSD)</strong> fest — eine maschinenlesbare Vorlage aller erlaubten Elemente und Attribute.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Die XSD wird im Haupt-Element der XML verlinkt. Beim Upload prüft das Testcenter automatisch gegen diese Vorlage.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span>Fehlt der XSD-Link, erscheint die Warnung <em>„File has no link to XSD-Schema"</em>. Stimmt die Version nicht, erscheint <em>„Outdated or wrong version"</em>.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-h">Empfohlene Editoren</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Windows</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span><strong>Visual Studio Code</strong> — kostenlos, hervorragende XML-Unterstützung mit Erweiterungen, farbliche Syntaxhervorhebung.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span><strong>Notepad++</strong> — leichtgewichtig, schnell, gute Wahl für einfache Bearbeitungen.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Linux / macOS</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span><strong>Visual Studio Code</strong> — plattformübergreifend verfügbar, gleiche Vorteile wie unter Windows.</span></div>
+          <div class="fact"><div class="fact-dot" style="background:var(--accent)"></div><span><strong>Atom</strong> — ebenfalls kostenfrei mit XML-Erweiterungen verfügbar.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="callout-icon">▲</span>
+      <span>Ein einfacher Texteditor (z. B. Windows Editor / Notepad) kennt keine XML-Syntax. Tippfehler in Elementnamen werden dort nicht auffallen — erst das Testcenter meldet beim Upload einen Fehler. Ein spezialisierter Editor spart Zeit.</span>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" onclick="navigate('overview')">← Übersicht</button>
+      <button class="nav-btn primary" onclick="navigate('player')">Weiter: Player →</button>
+    </div>
+  </div>
+
+  <!-- ==================== PLAYER ==================== -->
+  <div class="panel" id="panel-player" data-panel="player">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Player<br><span>Aufgaben sichtbar machen</span></div>
+      </div>
+      <div class="panel-meta">
+        <div class="file-badge">.html</div>
+        <div class="panel-order">Upload: Schritt 1 von 4</div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">ℹ</span>
+      <span>Das Testcenter stellt die Testaufgaben <strong>nicht selbst dar</strong> — es liefert nur den Rahmen und speichert Antworten. Ein Player übernimmt die eigentliche Darstellung jeder Unit.</span>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Was ist ein Player?</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span>Eine <code>.html</code>-Datei, die der Verona-Spezifikation folgt.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Wird in den Arbeitsbereich hochgeladen — muss vor den Units vorhanden sein.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Manche Player benötigen zusätzliche <strong>Basis-Pakete</strong> (z. B. GeoGebra als <code>.itcr.zip</code>). Diese werden zuerst geladen.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Die Unit-XML referenziert den Player über seinen Namen im Attribut <code>player</code>.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Basis-Pakete</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span>Einige Player laden zur Laufzeit zusätzlichen Code nach (z. B. GeoGebra für interaktive Grafiken).</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Basis-Pakete sind <code>.itcr.zip</code>-Dateien und müssen <strong>vor dem Player</strong> hochgeladen sein.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>GeoGebra wird aus lizenzrechtlichen Gründen nicht mit dem Testcenter ausgeliefert und muss separat heruntergeladen werden.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-h">IQB-Player im Überblick</div>
+    <div class="player-grid">
+      <div class="player-row">
+        <div class="player-name">Aspect</div>
+        <div class="player-desc">Standard-Player für komplexe Testaufgaben (VERA, Bildungstrend). Zusammen mit dem IQB-Studio verwendbar — Export direkt ins Testcenter ladbar.</div>
+      </div>
+      <div class="player-row">
+        <div class="player-name">Abi</div>
+        <div class="player-desc">Player für einfache Scriptsprache mit dynamischen Unterformularen. Ideal für Befragungen von Erwachsenen; ermöglicht automatisierte Rotation von Frageitems.</div>
+      </div>
+      <div class="player-row">
+        <div class="player-name">Speed Test (multi)</div>
+        <div class="player-desc">Lesegeschwindigkeitstest mit mehreren Items pro Unit (Text und Bild). Editor im IQB-Studio vorhanden.</div>
+      </div>
+      <div class="player-row">
+        <div class="player-name">Speed Test (mono)</div>
+        <div class="player-desc">Lesegeschwindigkeitstest mit einem Item pro Unit (nur Text). Sehr einfache Dateistruktur, leicht manuell erstellbar.</div>
+      </div>
+      <div class="player-row">
+        <div class="player-name">Simple Player</div>
+        <div class="player-desc">Universeller Player für HTML-Seiten. Erlaubt die Nutzung gängiger HTML-Werkzeuge zur Aufgabenerstellung.</div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" onclick="navigate('overview')">← Übersicht</button>
+      <button class="nav-btn primary" onclick="navigate('unit')">Weiter: Unit-XML →</button>
+    </div>
+  </div>
+
+  <!-- ==================== UNIT ==================== -->
+  <div class="panel" id="panel-unit" data-panel="unit">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Unit-XML<br><span>Eine Aufgabe, eine Datei</span></div>
+      </div>
+      <div class="panel-meta">
+        <div class="file-badge">.xml</div>
+        <div class="panel-order">Upload: Schritt 2 von 4</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Was ist eine Unit?</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span>Eine Unit entspricht einer Seite im Testablauf — mit Items, als Begrüßungsseite oder Abschlussseite.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Units sind <strong>unabhängig</strong> gedacht — sie sollen unabhängig von einem konkreten Test entwickelt und wiederverwendet werden.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Die <strong>zwingend erforderliche</strong> <code>Id</code> wird im Booklet referenziert und muss stabil bleiben.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Jede Unit-XML muss auf einen im Arbeitsbereich vorhandenen <strong>Player</strong> verweisen.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Definition: inline oder extern?</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span><strong>Inline (<code>Definition</code>):</strong> Die Aufgabendefinition steht direkt in der XML. Einfach, aber bei komplexen Formaten (JSON) unhandlich.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span><strong>Extern (<code>DefinitionRef</code>):</strong> Verweis auf eine separate Datei (z. B. <code>.voud</code>). Empfohlen für JSON-basierte Aufgaben, da kein XML-Escaping nötig ist.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Externe Ressourcendateien müssen ebenfalls in den Arbeitsbereich hochgeladen werden.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-h">Beispiel: Unit-XML mit externer Definition</div>
+    <div class="code-wrap">
+      <div class="code-label">unit1.xml</div>
+      <pre><span class="t-tag">&lt;?xml version=<span class="t-val">"1.0"</span>?&gt;</span>
+<span class="t-tag">&lt;Unit</span> <span class="t-attr">xmlns:xsi=</span><span class="t-val">"http://www.w3.org/2001/XMLSchema-instance"</span>
+      <span class="t-attr">xsi:noNamespaceSchemaLocation=</span><span class="t-val">"https://raw.githubusercontent.com/.../vo_Unit.xsd"</span><span class="t-tag">&gt;</span>
+  <span class="t-tag">&lt;Metadata&gt;</span>
+    <span class="t-tag">&lt;Id&gt;</span><span class="t-val">M1_JK05</span><span class="t-tag">&lt;/Id&gt;</span>                    <span class="t-comment">&lt;!-- zwingend erforderlich --&gt;</span>
+    <span class="t-tag">&lt;Label&gt;</span><span class="t-val">Schriftliche Verfahren Plus 1</span><span class="t-tag">&lt;/Label&gt;</span>
+  <span class="t-tag">&lt;/Metadata&gt;</span>
+  <span class="t-tag">&lt;DefinitionRef</span> <span class="t-attr">player=</span><span class="t-val">"iqb-player-aspect@2.0"</span><span class="t-tag">&gt;</span>  <span class="t-comment">&lt;!-- Player referenzieren --&gt;</span>
+    <span class="t-val">M1_JK05.voud</span>                               <span class="t-comment">&lt;!-- externe Definitionsdatei --&gt;</span>
+  <span class="t-tag">&lt;/DefinitionRef&gt;</span>
+<span class="t-tag">&lt;/Unit&gt;</span></pre>
+    </div>
+
+    <div class="callout warn">
+      <span class="callout-icon">▲</span>
+      <span>Externe Ressourcen (z. B. <code>.voud</code>-Dateien) müssen <strong>zusammen mit der Unit-XML</strong> hochgeladen sein — sonst schlägt der Upload der Unit mit "Resource not found" fehl.</span>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" onclick="navigate('player')">← Player</button>
+      <button class="nav-btn primary" onclick="navigate('booklet')">Weiter: Booklet-XML →</button>
+    </div>
+  </div>
+
+  <!-- ==================== BOOKLET ==================== -->
+  <div class="panel" id="panel-booklet" data-panel="booklet">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Booklet-XML<br><span>Ablauf &amp; Regeln definieren</span></div>
+      </div>
+      <div class="panel-meta">
+        <div class="file-badge">.xml</div>
+        <div class="panel-order">Upload: Schritt 3 von 4</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Was macht ein Booklet?</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span>Definiert die <strong>Reihenfolge der Units</strong> für einen Test via Unit-IDs.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Steuert Darstellung und Verhalten über <code>&lt;BookletConfig&gt;</code> (z. B. Navigationsmodus, Seitenlayout).</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Units können in <strong>Blöcke (Testlets)</strong> gruppiert werden — mit optionalen Restriktionen.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Texte im Test können über <code>CustomTexts</code> bookletspezifisch angepasst werden (z. B. Ansprache "Du"/"Sie").</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Testlets: Blöcke mit Regeln</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span>Blöcke erhöhen die Übersichtlichkeit und ermöglichen Restriktionen pro Abschnitt.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Der <strong>Gruppenmonitor</strong> benötigt Blöcke, um Testpersonen gezielt steuern zu können.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Blöcke können verschachtelt sein — Vorsicht, da sich Restriktionen gegenseitig behindern können.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Tipp: Stets alleinstehende Units vor und nach einem Block einplanen, um Blockierungen zu vermeiden.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-h">Restriktionen im Testlet</div>
+    <div class="restrictions">
+      <div class="restriction-row">
+        <div class="restriction-name">CodeToEnter</div>
+        <div class="restriction-desc">Zeigt vor dem Betreten des Blocks eine Dialogbox. Erst nach Eingabe des korrekten Codes (Groß-/Kleinschreibung egal) wird der Block betreten. Dient der Synchronisation innerhalb einer Testgruppe.</div>
+      </div>
+      <div class="restriction-row">
+        <div class="restriction-name">TimeMax</div>
+        <div class="restriction-desc">Zeitlimit für den Block in Minuten. Nach Ablauf wird automatisch zur nächsten Unit außerhalb des Blocks navigiert und der Block wird gesperrt. Attribut <code>leave</code> steuert, ob freiwilliges Verlassen erlaubt ist (<code>allowed</code> / <code>forbidden</code>).</div>
+      </div>
+      <div class="restriction-row">
+        <div class="restriction-name">DenyNavigationOnIncomplete</div>
+        <div class="restriction-desc">Verhindert das Verlassen einer Unit bei unvollständiger Präsentation oder unvollständigen Antworten. Werte: <code>OFF</code> (keine Beschränkung), <code>ON</code> (nur Vorwärts), <code>ALWAYS</code> (Vor- und Rückwärts).</div>
+      </div>
+      <div class="restriction-row">
+        <div class="restriction-name">LockAfterLeaving</div>
+        <div class="restriction-desc">Sperrt eine Unit oder das gesamte Testlet nach dem Verlassen. Attribut <code>scope</code>: <code>unit</code> oder <code>testlet</code>. Attribut <code>confirm</code>: Warnung vor Sperrung anzeigen (true/false).</div>
+      </div>
+    </div>
+
+    <div class="callout info" style="margin-top:1.25rem">
+      <span class="callout-icon">ℹ</span>
+      <span>Die Reihenfolge der Restrictions-Elemente ist zwingend: <strong>CodeToEnter → TimeMax → DenyNavigationOnIncomplete → LockAfterLeaving</strong></span>
+    </div>
+
+    <div class="section-h" style="margin-top:1.5rem">Beispiel: Booklet mit Block</div>
+    <div class="code-wrap">
+      <div class="code-label">booklet1.xml</div>
+      <pre><span class="t-tag">&lt;Booklet&gt;</span>
+  <span class="t-tag">&lt;Metadata&gt;</span>
+    <span class="t-tag">&lt;Id&gt;</span><span class="t-val">booklet1</span><span class="t-tag">&lt;/Id&gt;</span>
+    <span class="t-tag">&lt;Label&gt;</span><span class="t-val">Testheft 1</span><span class="t-tag">&lt;/Label&gt;</span>
+  <span class="t-tag">&lt;/Metadata&gt;</span>
+  <span class="t-tag">&lt;BookletConfig&gt;</span>
+    <span class="t-tag">&lt;Config</span> <span class="t-attr">key=</span><span class="t-val">"pagingMode"</span><span class="t-tag">&gt;</span><span class="t-val">buttons</span><span class="t-tag">&lt;/Config&gt;</span>
+  <span class="t-tag">&lt;/BookletConfig&gt;</span>
+  <span class="t-tag">&lt;Units&gt;</span>
+    <span class="t-tag">&lt;Unit</span> <span class="t-attr">id=</span><span class="t-val">"Welcome"</span> <span class="t-attr">label=</span><span class="t-val">"Willkommen"</span> <span class="t-attr">labelshort=</span><span class="t-val">"-"</span><span class="t-tag">/&gt;</span>
+    <span class="t-tag">&lt;Testlet</span> <span class="t-attr">id=</span><span class="t-val">"Block1"</span> <span class="t-attr">label=</span><span class="t-val">"Aufgaben"</span><span class="t-tag">&gt;</span>
+      <span class="t-tag">&lt;Restrictions&gt;</span>
+        <span class="t-tag">&lt;CodeToEnter</span> <span class="t-attr">code=</span><span class="t-val">"BUS"</span><span class="t-tag">&gt;</span><span class="t-val">Bitte warte auf das Freigabewort.</span><span class="t-tag">&lt;/CodeToEnter&gt;</span>
+        <span class="t-tag">&lt;TimeMax</span> <span class="t-attr">minutes=</span><span class="t-val">"10"</span> <span class="t-attr">leave=</span><span class="t-val">"forbidden"</span><span class="t-tag">/&gt;</span>
+      <span class="t-tag">&lt;/Restrictions&gt;</span>
+      <span class="t-tag">&lt;Unit</span> <span class="t-attr">id=</span><span class="t-val">"M1_JK05"</span> <span class="t-attr">label=</span><span class="t-val">"Aufgabe 1"</span> <span class="t-attr">labelshort=</span><span class="t-val">"1"</span><span class="t-tag">/&gt;</span>
+      <span class="t-tag">&lt;Unit</span> <span class="t-attr">id=</span><span class="t-val">"M2_AK18"</span> <span class="t-attr">label=</span><span class="t-val">"Aufgabe 2"</span> <span class="t-attr">labelshort=</span><span class="t-val">"2"</span><span class="t-tag">/&gt;</span>
+    <span class="t-tag">&lt;/Testlet&gt;</span>
+    <span class="t-tag">&lt;Unit</span> <span class="t-attr">id=</span><span class="t-val">"Goodbye"</span> <span class="t-attr">label=</span><span class="t-val">"Danke"</span> <span class="t-attr">labelshort=</span><span class="t-val">"-"</span><span class="t-tag">/&gt;</span>
+  <span class="t-tag">&lt;/Units&gt;</span>
+<span class="t-tag">&lt;/Booklet&gt;</span></pre>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" onclick="navigate('unit')">← Unit-XML</button>
+      <button class="nav-btn primary" onclick="navigate('testtaker')">Weiter: Testtaker-XML →</button>
+    </div>
+  </div>
+
+  <!-- ==================== TESTTAKER ==================== -->
+  <div class="panel" id="panel-testtaker" data-panel="testtaker">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Testtaker-XML<br><span>Wer darf, wie, was testen?</span></div>
+      </div>
+      <div class="panel-meta">
+        <div class="file-badge">.xml</div>
+        <div class="panel-order">Upload: Schritt 4 von 4</div>
+      </div>
+    </div>
+
+    <div class="callout danger">
+      <span class="callout-icon">⚠</span>
+      <span>Logins sind <strong>sofort nach dem Upload aktiv</strong>. Das Löschen einer Testtaker-XML sperrt die Logins unmittelbar — laufende Studien können unterbrochen werden.</span>
+    </div>
+
+    <div class="grid-2" style="margin-top:1.25rem">
+      <div class="card">
+        <div class="card-title">Grundprinzip: Gruppen &amp; Logins</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span>Logins werden in <strong>Gruppen</strong> (<code>&lt;Group&gt;</code>) organisiert. Mindestens eine Gruppe muss vorhanden sein.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Die Gruppen-ID muss im gesamten Testcenter eindeutig sein — auch über verschiedene Arbeitsbereiche hinweg.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Benutzernamen müssen installationsweit eindeutig sein. Zu kurze Namen vermeiden!</span></div>
+          <div class="fact"><div class="fact-dot"></div><span>Mehrere Testtaker-XMLs können hochgeladen werden — die Logins werden in einer gemeinsamen Liste geführt.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Login-Varianten</div>
+        <div class="facts">
+          <div class="fact"><div class="fact-dot"></div><span><strong>Klassisch:</strong> Name + Kennwort — Standardfall. Das Kennwort wird als Punkte dargestellt.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span><strong>Nur Name (URL):</strong> Anmeldung direkt über URL oder QR-Code. Ideal für vereinfachte Szenarien oder Integration in Lernmanagementsysteme.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span><strong>Zweistufig (Personencode):</strong> Gleiche Zugangsdaten für alle Computer einer Gruppe, individuelle Identifikation durch kurzen Personencode.</span></div>
+          <div class="fact"><div class="fact-dot"></div><span><strong>Zeitbeschränkung:</strong> Attribute <code>validFrom</code>, <code>validTo</code>, <code>validFor</code> steuern die zeitliche Gültigkeit einer Anmeldegruppe.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-h">Login-Modi im Vergleich</div>
+    <div style="font-size:12px; color:var(--text-faint); margin-bottom:10px; font-family:'IBM Plex Mono',monospace;">
+      Quelle: <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/test-mode.html" style="color:var(--accent);">iqb.pages.cms.hu-berlin.de/testcenter/pages/test-mode.html</a>
+    </div>
+    <div style="overflow-x:auto;">
+    <table class="mode-table" style="min-width:780px;">
+      <thead>
+        <tr>
+          <th style="min-width:155px;">Modus</th>
+          <th>Neuer Teilnehmer je Login</th>
+          <th>Reviews (Kommentare)</th>
+          <th>Antworten &amp; Logs gespeichert</th>
+          <th>Zeitbeschränkungen aktiv</th>
+          <th>Navigationsbeschränkungen aktiv</th>
+          <th>Im Gruppenmonitor sichtbar</th>
+          <th>Freigabewort vorausgefüllt</th>
+          <th>Aufgaben-Übersicht erlaubt</th>
+          <th>Aus Monitor steuerbar</th>
+          <th>Adaptiver Pfad frei wählbar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="mode-chip chip-hot">run-hot-return</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-hot">run-hot-restart</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-review">run-review</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-trial">run-trial</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-sim">run-simulation</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-demo">run-demo</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="no">✗</span></td>
+          <td class="save"><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-monitor">monitor-group</span></td>
+          <td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-monitor">monitor-study</span></td>
+          <td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td>
+        </tr>
+        <tr>
+          <td><span class="mode-chip chip-sim">sys-check-login</span></td>
+          <td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td><td class="save">—</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="font-size:12px; color:var(--text-faint); margin-top:8px; line-height:1.6;">
+      <strong style="font-weight:500; color:var(--text-muted);">sys-check-login</strong>: Versteckt den System-Check für alle anderen Logins. Der Check ist dann nur über Logins mit diesem Modus erreichbar.
+    </div>
+
+    <div class="section-h" style="margin-top:1.5rem">Beispiel: Testtaker-XML</div>
+    <div class="code-wrap">
+      <div class="code-label">testtaker1.xml</div>
+      <pre><span class="t-tag">&lt;Testtakers&gt;</span>
+  <span class="t-tag">&lt;Metadata/&gt;</span>
+  <span class="t-tag">&lt;Group</span> <span class="t-attr">id=</span><span class="t-val">"Klasse4a"</span> <span class="t-attr">label=</span><span class="t-val">"Klasse 4a"</span><span class="t-tag">&gt;</span>
+
+    <span class="t-comment">&lt;!-- Reguläre Testperson --&gt;</span>
+    <span class="t-tag">&lt;Login</span> <span class="t-attr">mode=</span><span class="t-val">"run-hot-return"</span> <span class="t-attr">name=</span><span class="t-val">"t9f5y"</span> <span class="t-attr">pw=</span><span class="t-val">"v6e5"</span><span class="t-tag">&gt;</span>
+      <span class="t-tag">&lt;Booklet&gt;</span><span class="t-val">booklet1</span><span class="t-tag">&lt;/Booklet&gt;</span>
+    <span class="t-tag">&lt;/Login&gt;</span>
+
+    <span class="t-comment">&lt;!-- Testleitung / Gruppenmonitor --&gt;</span>
+    <span class="t-tag">&lt;Login</span> <span class="t-attr">mode=</span><span class="t-val">"monitor-group"</span> <span class="t-attr">name=</span><span class="t-val">"lehrerin4a"</span><span class="t-tag">&gt;</span>
+    <span class="t-tag">&lt;/Login&gt;</span>
+
+  <span class="t-tag">&lt;/Group&gt;</span>
+<span class="t-tag">&lt;/Testtakers&gt;</span></pre>
+    </div>
+
+    <div class="section-h">Richtlinien für Login-Codes</div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-title">🔤 Geeignete Zeichen</div>
+        Buchstaben: <code>abcdefghprqstuvxyz</code><br>Ziffern: <code>2345679</code><br>Keine optisch ähnlichen Zeichen (n/m, 1/l). Codes beginnen mit einem Buchstaben, dann wechseln Ziffern und Buchstaben ab.
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🔊 Sprechen &amp; Tippen</div>
+        Codes müssen gut sprechbar und akustisch verständlich sein. Keine Großbuchstaben oder Sonderzeichen — alle Zeichen sollten mit einer Taste erreichbar sein.
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🚫 Keine Serien-Codes</div>
+        Keine fortlaufenden Muster wie <code>gxst1</code>, <code>gxst2</code> etc. — Schüler*innen raten dann schnell benachbarte Logins. Das itc-ToolBox-Programm erzeugt eindeutige, zufällige Codes.
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" onclick="navigate('booklet')">← Booklet-XML</button>
+      <button class="nav-btn primary" onclick="navigate('overview')">↩ Zur Übersicht</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const order = ['overview', 'xml', 'player', 'unit', 'booklet', 'testtaker'];
+
+  function navigate(key) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.pipeline-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('panel-' + key).classList.add('active');
+    const btn = document.querySelector('.pipeline-step[data-key="' + key + '"]');
+    if (btn) btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
+
+````
