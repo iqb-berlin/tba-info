@@ -1339,7 +1339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="server-administratorin-konfigurationsoptionen-in-der-.env.prod" class="level1">
 <h1>Server-Administrator*in: Konfigurationsoptionen in der .env.prod</h1>
-<p>Betreiber einer Testcenter-Instanz (Server-Admins) können im .env-File eine Reihe von Konfigurationen Vornehmen. Eine vollständige Liste aller aktuell vorhandenen Konfigurationsparameter befinden sich <a href="https://github.com/iqb-berlin/testcenter/blob/master/docker/default.env">hier</a>. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
+<p>Betreiber einer Testcenter-Instanz (Server-Admins) können im .env-File eine Reihe von Konfigurationen Vornehmen. Diese sollten nur mit Vorsicht und Kenntnis verändert werden.</p>
 <section id="version" class="level2">
 <h2 class="anchored" data-anchor-id="version">Version</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">VERSION</span><span class="ot">=</span><span class="st">15.1.8</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1350,7 +1350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">HOSTNAME</span><span class="ot">=</span><span class="kw">localhost</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Servername, z. B. <code>ìqb-testcenter4.de</code>. Wenn Sie eine www-subdomain als Alternativen Namen verwenden wollen, geben Sie das <code>www</code> <em>nicht</em> mit an - es wird eine automatische Weiterleitung eingerichtet.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">TLS_ENABLED</span><span class="ot">=</span><span class="kw">no</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Soll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen (siehe <a href="#server-admin-tls-einrichten">hier</a>). Der default ist hier <code>yes</code>.</p>
+<p>Soll TLS (https) verwendet werden? Wenn ja, sollten sie entsprechende Zertifikate hinterlegen. Der default ist hier <code>yes</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">PORT</span><span class="ot">=</span><span class="dv">80</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">TLS_PORT</span><span class="ot">=</span><span class="dv">443</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Der Port auf dem das Testcenter laufen soll. Ist <code>TLS_ENABLED</code> gesetzt wird der <code>TLS_PORT</code> genutzt, ansonsten wird der <code>PORT</code> genutzt.</p>
@@ -1358,7 +1358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sicherheit" class="level2">
 <h2 class="anchored" data-anchor-id="sicherheit">Sicherheit</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">PASSWORD_SALT</span><span class="ot">=</span><span class="st">t</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Salt für verwendete admin-passwörter. Achtung: Ändern Sie diese Einstellung nicht mehr, nachdem Sie die Applikation bereits einmal gestartet haben, sonst können Sie sicht nicht mehr einloggen.</p>
+<p>Salt für verwendete admin-passwörter. Achtung: Ändern Sie diese Einstellung nicht mehr, nachdem Sie die Applikation bereits einmal gestartet haben, sonst können Sie sich nicht mehr einloggen.</p>
 </section>
 <section id="services" class="level2">
 <h2 class="anchored" data-anchor-id="services">Services</h2>
