@@ -1629,6 +1629,47 @@ Hinweis
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Hier ist ein vollständiges vorgefertigtes Beispiel des System-Checks.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Passen Sie ggfs. den Namen der eingebundenen Unit an (<code>unit="UNIT.SAMPLE"</code>). Die verwendete Schema-URL ist nur ab Testcenter-Version 18.0.0 anwendbar. Wenn Sie eine ältere Version des Testcenters verwenden, müssen Sie die ältere Schema-URL <code>https://raw.githubusercontent.com/iqb-berlin/testcenter/17.6.0/definitions/vo_SysCheck.xsd</code> verwenden und die Testcenter-Version anpassen.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://w3id.org/iqb/spec/testcenter-syscheck-xml/18.0"</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;SYSCHECK.SAMPLE&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;System-Check Beispiel&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;Beschreibungstext für den Systemcheck&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Config</span> <span class="ot">unit=</span><span class="st">"UNIT.SAMPLE"</span> <span class="ot">savekey=</span><span class="st">"123"</span> <span class="ot">skipnetwork=</span><span class="st">"false"</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">UploadSpeed</span> <span class="ot">min=</span><span class="st">"1024"</span> <span class="ot">good=</span><span class="st">"2048"</span> <span class="ot">maxDevianceBytesPerSecond=</span><span class="st">"10000"</span> <span class="ot">maxErrorsPerSequence=</span><span class="st">"0"</span> <span class="ot">maxSequenceRepetitions=</span><span class="st">"15"</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      100000, 200000, 400000, 800000</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">UploadSpeed</span>&gt;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">DownloadSpeed</span> <span class="ot">min=</span><span class="st">"1024"</span> <span class="ot">good=</span><span class="st">"2048"</span> <span class="ot">maxDevianceBytesPerSecond=</span><span class="st">"200000"</span> <span class="ot">maxErrorsPerSequence=</span><span class="st">"0"</span> <span class="ot">maxSequenceRepetitions=</span><span class="st">"15"</span>&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      400000, 800000, 1600000, 3200000</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">DownloadSpeed</span>&gt;</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Q</span> <span class="ot">id=</span><span class="st">"1"</span> <span class="ot">type=</span><span class="st">"header"</span> <span class="ot">prompt=</span><span class="st">"Beispielüberschrift"</span>/&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Q</span> <span class="ot">id=</span><span class="st">"2"</span> <span class="ot">type=</span><span class="st">"string"</span> <span class="ot">prompt=</span><span class="st">"Eingabefeld"</span> <span class="ot">required=</span><span class="st">"true"</span>/&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Q</span> <span class="ot">id=</span><span class="st">"3"</span> <span class="ot">type=</span><span class="st">"select"</span> <span class="ot">prompt=</span><span class="st">"Auswahl"</span>&gt;Option A#Option B&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Q</span> <span class="ot">id=</span><span class="st">"4"</span> <span class="ot">type=</span><span class="st">"text"</span> <span class="ot">prompt=</span><span class="st">"Eingabebereich"</span>/&gt;</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Q</span> <span class="ot">id=</span><span class="st">"5"</span> <span class="ot">type=</span><span class="st">"check"</span> <span class="ot">prompt=</span><span class="st">"Kontrollkästchen"</span>/&gt;</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Q</span> <span class="ot">id=</span><span class="st">"6"</span> <span class="ot">type=</span><span class="st">"radio"</span> <span class="ot">prompt=</span><span class="st">"Optionsfelder"</span>&gt;Option A#Option B&lt;/<span class="kw">Q</span>&gt;</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Config</span>&gt;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="system-check-starten" class="level1">
@@ -1640,10 +1681,10 @@ Hinweis
 <div class="code-with-filename-file">
 <pre><strong>testtaker-xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="testtaker-xml"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"sys-check-login"</span> <span class="ot">name=</span><span class="st">"sys-check"</span> <span class="ot">pw=</span><span class="st">"123"</span>/&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="testtaker-xml"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"sys-check-login"</span> <span class="ot">name=</span><span class="st">"sys-check"</span> <span class="ot">pw=</span><span class="st">"123"</span>/&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von <code>name</code> unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fast alle Ergebnisse unter dem Namen der System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: <strong>System-Check</strong> heruntergeladen werden.</p>
+<p>Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von <code>name</code> unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fast alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: <strong>System-Check</strong> heruntergeladen werden.</p>
 </section>
 </section>
 <section id="auswertung" class="level1">
