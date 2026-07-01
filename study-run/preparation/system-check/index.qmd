@@ -255,6 +255,46 @@ Weitere Inputfelder im Fragekatalog sehen so aus:
 
 : Werte für `type` innerhalb von `<Q>` {.striped}
 
+::: {.callout-note collapse="true"}
+### Hier ist ein vollständiges vorgefertigtes Beispiel des System-Checks. 
+
+Passen Sie ggfs. den Namen der eingebundenen Unit an (`unit="UNIT.SAMPLE"`). Die verwendete Schema-URL ist nur ab Testcenter-Version 18.0.0 anwendbar. Wenn Sie eine ältere Version des Testcenters verwenden, müssen Sie die ältere Schema-URL `https://raw.githubusercontent.com/iqb-berlin/testcenter/17.6.0/definitions/vo_SysCheck.xsd` verwenden und die Testcenter-Version anpassen.
+
+```{.xml}
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-syscheck-xml/18.0">
+  <Metadata>
+    <Id>SYSCHECK.SAMPLE</Id>
+    <Label>System-Check Beispiel</Label>
+    <Description>Beschreibungstext für den Systemcheck</Description>
+  </Metadata>
+
+  <Config unit="UNIT.SAMPLE" savekey="123" skipnetwork="false">
+    <UploadSpeed min="1024" good="2048" maxDevianceBytesPerSecond="10000" maxErrorsPerSequence="0" maxSequenceRepetitions="15">
+      100000, 200000, 400000, 800000
+    </UploadSpeed>
+    <DownloadSpeed min="1024" good="2048" maxDevianceBytesPerSecond="200000" maxErrorsPerSequence="0" maxSequenceRepetitions="15">
+      400000, 800000, 1600000, 3200000
+    </DownloadSpeed>
+
+    <Q id="1" type="header" prompt="Beispielüberschrift"/>
+    <Q id="2" type="string" prompt="Eingabefeld" required="true"/>
+    <Q id="3" type="select" prompt="Auswahl">Option A#Option B</Q>
+    <Q id="4" type="text" prompt="Eingabebereich"/>
+    <Q id="5" type="check" prompt="Kontrollkästchen"/>
+    <Q id="6" type="radio" prompt="Optionsfelder">Option A#Option B</Q>
+  </Config>
+</SysCheck>
+
+```
+
+:::
+
+
+
+
+
 # System-Check starten
 
 ## System-Check Login in Testtaker-XML anlegen
@@ -266,7 +306,7 @@ In der Testtaker-XML wird ein spezieller Login für den System-Check angelegt:
 <Login mode="sys-check-login" name="sys-check" pw="123"/>
 
 ```
-Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fast alle Ergebnisse unter dem Namen der System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
+Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fast alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
 
 # Auswertung
 
