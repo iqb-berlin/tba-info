@@ -954,7 +954,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../study-run/preparation/devices/kiosk/ios.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IOS</span></a>
+ <span class="menu-text">iOS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1336,15 +1336,15 @@ Hinweis
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="states" class="level4">
 <h4 class="anchored" data-anchor-id="states"><code>&lt;States&gt;</code></h4>
-<p>Elternelement für das Status- Element. Dieses Element darf nur einmal in der XML vorhanden sein.</p>
+<p>Elternelement für das Status-Element. Dieses Element darf nur einmal in der XML vorhanden sein.</p>
 </section>
 <section id="state" class="level4">
 <h4 class="anchored" data-anchor-id="state"><code>&lt;State&gt;</code></h4>
-<p>Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig <code>ìd</code> und ein <code>label</code>. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.</p>
+<p>Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutige <code>ìd</code> und ein <code>label</code>. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.</p>
 </section>
 <section id="option" class="level4">
 <h4 class="anchored" data-anchor-id="option"><code>&lt;Option&gt;</code></h4>
-<p>Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: <strong>bonus2</strong> aktiv, wenn die Option mit der ID: <strong>bonus1</strong> nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.</p>
+<p>Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: <strong>bonus2</strong> aktiv, wenn die Option mit der ID: <strong>bonus1</strong> nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt sind. Es können beliebig viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine <code>id</code>. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1361,7 +1361,7 @@ Wichtig
 </section>
 <section id="if" class="level4">
 <h4 class="anchored" data-anchor-id="if"><code>&lt;If&gt;</code></h4>
-<p>Hiermit werden die Bedingungen für eine Option festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.</p>
+<p>Hiermit werden die Bedingungen für eine Option festgelegt. Es können mehrere IF-Anweisungen verschachtelt werden.</p>
 </section>
 <section id="sum" class="level4">
 <h4 class="anchored" data-anchor-id="sum"><code>&lt;Sum&gt;</code></h4>
@@ -1412,13 +1412,13 @@ Wichtig
 </section>
 <section id="score" class="level4">
 <h4 class="anchored" data-anchor-id="score"><code>&lt;Score&gt;</code></h4>
-<p>Hier wird die Variable: <code>score</code> einer Antwort ausgelesen. Diese Element weist die folgenden Attribute auf:</p>
+<p>Hier wird die Variable: <code>score</code> einer Antwort ausgelesen. Dieses Element weist die folgenden Attribute auf:</p>
 <ul>
 <li><code>of</code>: ID des Aufgabenelements, hier bspw. <strong>radio1</strong></li>
 <li><code>from</code>: ID oder Alias der Unit. In diesem Fall die Unit mit der ID: <strong>unit0</strong></li>
-<li><code>or</code>: Fallback für den Fall das ein Wert nicht verfügbar ist. Bspw. wenn <strong>radio1</strong> keinen Score hat (Kodierfehler), wird -1 angenommen. Das ist bei Additionen und anderen Aggregationen mitunter relevant. Default ist 0.</li>
+<li><code>or</code>: Fallback für den Fall, dass ein Wert nicht verfügbar ist. Bspw. wenn <strong>radio1</strong> keinen Score hat (Kodierfehler), wird -1 angenommen. Das ist bei Additionen und anderen Aggregationen mitunter relevant. Default ist 0.</li>
 </ul>
-<p>Wie eingangs bereits erwähnt, können anstelle des Score auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:</p>
+<p>Wie eingangs bereits erwähnt, können anstelle des Scores auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:</p>
 <ul>
 <li><code>State</code></li>
 <li><code>Value</code></li>
@@ -1553,7 +1553,7 @@ Hinweis
 <h2 class="anchored" data-anchor-id="konfiguration-in-der-testtaker-xml">Konfiguration in der Testtaker-XML</h2>
 <section id="optionen-und-status-anlegen-1" class="level3">
 <h3 class="anchored" data-anchor-id="optionen-und-status-anlegen-1">Optionen und Status anlegen</h3>
-<p>DDie Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
+<p>Die Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.</p>
 <p>Beispiel: Das Booklet: <strong>BOOKLET.SAMPLE-1</strong> wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Group</span> <span class="ot">id=</span><span class="st">"sample_group"</span> <span class="ot">label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>

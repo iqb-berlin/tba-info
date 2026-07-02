@@ -957,7 +957,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../study-run/preparation/devices/kiosk/ios.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IOS</span></a>
+ <span class="menu-text">iOS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1466,7 +1466,7 @@ Hinweis
 </tr>
 </tbody>
 </table>
-<p>Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:</p>
+<p>Nach dem Start des Netzwerkscans ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="syscheck4.png" class="lightbox" data-gallery="input" title="Test der Netzwerkanbindung"><img src="syscheck4.png" class="img-fluid figure-img" alt="Test der Netzwerkanbindung"></a></p>
@@ -1484,8 +1484,8 @@ Hinweis
 <p>10MByte = 10.240kByte = 10.485.760 Byte</p>
 <p>Als nächstes muss festgelegt werden, welche maximale Ladezeit als vertretbar angesehen wird. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine max. gewünschte Ladezeit von 30 Sekunden an.</p>
 <p><code>min</code>= 10.485.760 Byte / 30s = <strong>349.525 Bytes/s</strong></p>
-<p>In diesem Beispiel wird alles bezogen auf das Laden eines einzelnes Testheftes. Während der Studiendurchführung werden aber unter Umstände (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig.</p>
-<p>Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bswp. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:</p>
+<p>In diesem Beispiel wird alles bezogen auf das Laden eines einzelnen Testheftes. Während der Studiendurchführung werden aber unter Umständen (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig.</p>
+<p>Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bspw. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:</p>
 <p>Es wird folgendes angenommen:</p>
 <ul>
 <li>Testheftgröße: 10 MByte = 80 MBit</li>
@@ -1537,7 +1537,7 @@ Hinweis
 <section id="speichern-der-ergebnisse-auf-dem-server" class="level2">
 <h2 class="anchored" data-anchor-id="speichern-der-ergebnisse-auf-dem-server">Speichern der Ergebnisse auf dem Server</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Config</span> <span class="ot">savekey=</span><span class="st">"eckensteher"</span> <span class="ot">skipnetwork=</span><span class="st">"false"</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Das Attribut <code>savekey</code> ist eigentlich obsolet, muss aber weiterhin geführt und befüllt werden, um Fehler zu vermeiden. Dieser Key wird an keiner Stelle mehr abfragt.</p>
+<p>Das Attribut <code>savekey</code> ist eigentlich obsolet, muss aber weiterhin geführt und befüllt werden, um Fehler zu vermeiden. Dieser Key wird an keiner Stelle mehr abgefragt.</p>
 </section>
 <section id="einbinden-einer-unit" class="level2">
 <h2 class="anchored" data-anchor-id="einbinden-einer-unit">Einbinden einer Unit</h2>
@@ -1684,7 +1684,7 @@ Hinweis
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="testtaker-xml"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"sys-check-login"</span> <span class="ot">name=</span><span class="st">"sys-check"</span> <span class="ot">pw=</span><span class="st">"123"</span>/&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von <code>name</code> unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fast alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: <strong>System-Check</strong> heruntergeladen werden.</p>
+<p>Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von <code>name</code> unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fasst alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: <strong>System-Check</strong> heruntergeladen werden.</p>
 </section>
 </section>
 <section id="auswertung" class="level1">
@@ -1746,11 +1746,11 @@ Hinweis
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Betriebsystem</code></td>
+<td><code>Betriebssystem</code></td>
 <td>Windows</td>
 </tr>
 <tr class="even">
-<td><code>Betriebsystem-Version</code></td>
+<td><code>Betriebssystem-Version</code></td>
 <td>10</td>
 </tr>
 <tr class="odd">
@@ -1897,9 +1897,9 @@ Hinweis
 </section>
 <section id="planung" class="level2">
 <h2 class="anchored" data-anchor-id="planung">Planung</h2>
-<p>Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar, als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung, dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.</p>
+<p>Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar, als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.</p>
 <p>Es sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden.</p>
-<p>Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen schon im Vorfeld abgeklärt werden:</p>
+<p>Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bspw. könnten folgende Themen schon im Vorfeld abgeklärt werden:</p>
 <ul>
 <li>Welche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden?</li>
 <li>Gibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?</li>
@@ -1907,8 +1907,8 @@ Hinweis
 <li>Falls Tablets zum Einsatz kommen: Verfügen diese über externe Tastaturen?</li>
 </ul>
 <p>Auf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:</p>
-<p><strong>Gibt es im geplanten Testheft Aufgabe, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?</strong></p>
-<p>Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.</p>
+<p><strong>Gibt es im geplanten Testheft Aufgaben, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?</strong></p>
+<p>Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantwortet werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.</p>
 <p><strong>Gibt es im Testheft Aufgaben mit Audios?</strong></p>
 <p>Wenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.</p>
 <p><strong>Gibt es im Testheft Aufgaben mit Eingabefeldern oder ähnlichem?</strong></p>
@@ -1933,7 +1933,7 @@ Tipp
 </section>
 <section id="hinweise-zur-durchführung" class="level2">
 <h2 class="anchored" data-anchor-id="hinweise-zur-durchführung">Hinweise zur Durchführung</h2>
-<p>Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.</p>
+<p>Verantwortliche vor Ort starten den System-Check an jedem Endgerät das für die Durchführung verwendet werden soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1952,12 +1952,12 @@ Hinweis
 <h2 class="anchored" data-anchor-id="hinweise-zur-auswertung">Hinweise zur Auswertung</h2>
 <p>Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:</p>
 <p><strong>Ist der Browser für die Studiendurchführung geeignet?</strong></p>
-<p>Im Kapitel <strong>Studiendurchführung/ Vorbetrachtungen</strong>, werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.</p>
+<p>Im Kapitel <strong>Studiendurchführung/ Vorbetrachtungen</strong> werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.</p>
 <p><strong>Wie hoch ist die Auflösung des Wiedergabebildschirms?</strong></p>
 <p>Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.</p>
 <p><strong>Welche Internet-Bandbreite wird für die Testung mindestens benötigt?</strong></p>
-<p>Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.</p>
-<p>Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite, ist im Abschnitt <strong>Netzwerkanbindung</strong> aufgezeigt, wie Eckwerte ermittelt werden können.</p>
+<p>Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, die einen umfangreichen Download auslöst.</p>
+<p>Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite ist im Abschnitt <strong>Netzwerkanbindung</strong> aufgezeigt, wie Eckwerte ermittelt werden können.</p>
 </section>
 </section>
 <section id="weiterentwicklung" class="level1">
@@ -1966,7 +1966,7 @@ Hinweis
 <ul>
 <li>Das IQB hat inzwischen weitere Erfahrungen bei der Ermittlung der technischen Kapazität einer Testcenter-Installation gesammelt. Dies wird in den Test der Netzwerkanbindung einfließen, damit die Ergebnisse aussagekräftiger werden. Es geht vor allem um den erwartbaren Speed.</li>
 <li>Im Management einer Testvorbereitung ist es wichtig zu wissen, ob alle Schulen den System-Check absolviert haben. Im Moment ist die Durchführung eines System-Checks nicht an eine Testgruppe gebunden und man muss manuell die Ergebnisse den Schulen zuordnen. Besser wäre es, wenn die Schulen einen vorbereiteten Login benutzen, bevor sie den Test durchführen.</li>
-<li>Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also mehrere Units einzubinden möglich sein und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.</li>
+<li>Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also möglich sein, mehrere Units einzubinden und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.</li>
 </ul>
 
 
