@@ -73,15 +73,15 @@ Hier ein Beispiel:
 
 #### `<States>`
 
-Elternelement für das Status- Element. Dieses Element darf nur einmal in der XML vorhanden sein.
+Elternelement für das Status-Element. Dieses Element darf nur einmal in der XML vorhanden sein.
 
 #### `<State>`
 
-Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutig `ìd` und ein `label`. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet. 
+Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutige `ìd` und ein `label`. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet. 
 
 #### `<Option>`
 
-Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: **bonus2** aktiv, wenn die Option mit der ID: **bonus1** nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt ist. Es können beliebige viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.
+Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: **bonus2** aktiv, wenn die Option mit der ID: **bonus1** nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt sind. Es können beliebig viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.
 
 ::: {.callout-important}
 Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status aktiv. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer nur eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält. Das garantiert min. eine aktive Option innerhalb eines Status.
@@ -89,7 +89,7 @@ Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die 
 
 #### `<If>`
 
-Hiermit werden die Bedingungen für eine Option festgelegt. Es können mehrere IF-Anweisung verschachtelt werden.
+Hiermit werden die Bedingungen für eine Option festgelegt. Es können mehrere IF-Anweisungen verschachtelt werden.
 
 #### `<Sum>`
 
@@ -154,13 +154,13 @@ Es gibt außer `sum` noch weitere Funktionen:
 
 #### `<Score>`
 
-Hier wird die Variable: `score` einer Antwort ausgelesen. Diese Element weist die folgenden Attribute auf: 
+Hier wird die Variable: `score` einer Antwort ausgelesen. Dieses Element weist die folgenden Attribute auf: 
 
 * `of`: ID des Aufgabenelements, hier bspw. **radio1**
 * `from`: ID oder Alias der Unit. In diesem Fall die Unit mit der ID: **unit0**
-* `or`: Fallback für den Fall das ein Wert nicht verfügbar ist. Bspw. wenn **radio1** keinen Score hat (Kodierfehler), wird -1 angenommen. Das ist bei Additionen und anderen Aggregationen mitunter relevant. Default ist 0.
+* `or`: Fallback für den Fall, dass ein Wert nicht verfügbar ist. Bspw. wenn **radio1** keinen Score hat (Kodierfehler), wird -1 angenommen. Das ist bei Additionen und anderen Aggregationen mitunter relevant. Default ist 0.
 
-Wie eingangs bereits erwähnt, können anstelle des Score auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:
+Wie eingangs bereits erwähnt, können anstelle des Scores auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:
 
 * `State`
 * `Value`
@@ -278,7 +278,7 @@ In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden,
 
 ### Optionen und Status anlegen
 
-DDie Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
+Die Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
 
 Beispiel: Das Booklet: **BOOKLET.SAMPLE-1** wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.
 

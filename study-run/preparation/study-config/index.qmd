@@ -10,7 +10,7 @@ format:
         href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters
 ---
 
-Mit Hilfe der beiden Dateien **Testtaker-XML** und **Booklet-XML** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen einer Konfigurationen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die alle Studienverantwortlichen im Vorfeld betrachten sollten.
+Mit Hilfe der beiden Dateien **Testtaker-XML** und **Booklet-XML** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die alle Studienverantwortlichen im Vorfeld betrachten sollten.
 
 ::: {.callout-tip}
 Detaillierte Informationen zu den beiden XML-Dateien sind dem Kapitel: **Testinhalte** zu entnehmen.
@@ -20,7 +20,7 @@ Detaillierte Informationen zu den beiden XML-Dateien sind dem Kapitel: **Testinh
 
 ## Adaptives Testen
 
-Sollen Aufgaben in Abhängigkeit der gegebenen Antworten angezeigt werden, muss dies stellenweise in der Testtaker-XMl konfiguriert werden. Mehr dazu ist in [diesem](../adaptive/index.qmd) Kapitel zu finden.
+Sollen Aufgaben in Abhängigkeit der gegebenen Antworten angezeigt werden, muss dies stellenweise in der Testtaker-XML konfiguriert werden. Mehr dazu ist in [diesem](../adaptive/index.qmd) Kapitel zu finden.
 
 ## Aufteilung der Zugänge
 
@@ -71,7 +71,7 @@ Bestimmte Texte in der Anwendung und während des Studienlaufs können individue
 Texte werden mit Hilfe bestimmter Attribute und Daten in der Testtaker-XML geändert. Hierfür gibt es eine spezielle [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) mit möglichen Werten, die im Element: `<CustomText>` dem Attribut: `key` hinzugefügt werden können. Werden Texte nicht ersetzt, erhalten sie einen Standardtext. Welcher Text das ist, ist ebenfalls der Liste zu entnehmen.
 :::
 
-**Beispiel zum ändern eines Standardtextes:**
+**Beispiel zum Ändern eines Standardtextes:**
 
 Ist in der Testtaker-XML ein Code zu einem Testheft angegeben, erscheint nach der Anmeldung ein Fenster zur Codeeingabe mit dem Standardtext: "Bitte gib den Schülercode ein...." (siehe Liste). Dieser Standardtext soll hier nun durch einen individuellen Text ersetzt werden. 
 
@@ -99,25 +99,25 @@ Dazu wird in der Testtaker-XML im Element: `<CustomText>` dem Attribut: `key` de
 
 </Testtakers>
 ```
-Nach Anmeldung einer Testperson, erscheint bei der Codeeingabe der neue Text.
+Nach Anmeldung einer Testperson erscheint bei der Codeeingabe der neue Text.
 
 ![Bild 2: Anzeige veränderter Text bei Code-Abfrage](TC_Bsp_Textersetzung2.png)
 
 ## Gruppenmonitor
 
-Bei einer größeren Anzahl von Studienteilnehmer\*innen kann es sinnvoll sein einen Gruppenmonitor einzusetzen. Dieser erlaubt der Testleitung die Testpersonen zu steuern und einzutakten. Der Gruppenmonitor wird mit Hilfe eines speziellen Zugangs mit dem Modus: `monitor-group` in der zu beobachtenden Gruppe angelegt. Siehe Code-Beispiel oben.
+Bei einer größeren Anzahl von Studienteilnehmer\*innen, kann es sinnvoll sein einen Gruppenmonitor einzusetzen. Dieser erlaubt der Testleitung die Testpersonen zu steuern und einzutakten. Der Gruppenmonitor wird mit Hilfe eines speziellen Zugangs mit dem Modus: `monitor-group` in der zu beobachtenden Gruppe angelegt. Siehe Code-Beispiel oben.
 
 Mehr zum Gruppenmonitor ist dem gleichnamigen Kapitel zu entnehmen.
 
 # Booklet-XML
 
 ::: {.callout-tip}
-Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attributs: `key` vorgenommen werden. Die möglichen Werte und Daten, die angegeben werden können, sind einer spezielle [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Außerhalb dieses Elementes können weitere Konfigurationen erfolgen. 
+Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attributs: `key` vorgenommen werden. Die möglichen Werte und Daten, die angegeben werden können, sind einer speziellen [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Außerhalb dieses Elementes können weitere Konfigurationen erfolgen. 
 :::
 
 ## Adaptives Testen
 
-Sollen Aufgaben in Abhängigkeit der gegebenen Antworten angezeigt werden, muss dies stellenweise in der Booklet-XMl konfiguriert werden. Mehr dazu ist dem Kapitel: **Adaptives Testen** zu entnehmen.
+Sollen Aufgaben in Abhängigkeit der gegebenen Antworten angezeigt werden, muss dies stellenweise in der Booklet-XML konfiguriert werden. Mehr dazu ist dem Kapitel: **Adaptives Testen** zu entnehmen.
 
 ## Anzeige Aufgaben-, Testheftbezeichner
 
@@ -265,7 +265,7 @@ Hier kann keine generelle Empfehlung erfolgen, weil es in hohem Maß vom Umfang 
 
 * Soll ein Gruppenmonitor zur Steuerung einer Studie zum Einsatz kommen, sollten Blöcke angelegt werden. Mit Hilfe des Gruppenmonitors kann die Testleitung die Testpersonen dann direkt zu einzelnen Blöcken leiten.
 
-Das soll an dieser Stelle erst einmal ausreichend sein. Es gebe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte Struktur der Testhefte erfordern würden.
+Das soll an dieser Stelle erst einmal ausreichend sein. Es gäbe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte Struktur der Testhefte erfordern würden.
 
 ## Test beenden
 
@@ -280,7 +280,7 @@ Mehr Informationen zur Verwendung eines Modus zur Erprobung sind dem Kapitel: **
 :::
 
 ::: {.callout-tip}
-Testen Sie auch abschließend finale Zugänge für die Testpersonen in einem "heißen" Modus (run-hot-return, run-hot-restart) und kontrollieren Sie ob Antworten gespeichert wurden.
+Testen Sie auch abschließend finale Zugänge für die Testpersonen in einem "heißen" Modus (run-hot-return, run-hot-restart) und kontrollieren Sie, ob Antworten gespeichert wurden.
 :::
 
 ::: {.callout-tip}

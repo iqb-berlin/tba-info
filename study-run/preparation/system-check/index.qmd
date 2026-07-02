@@ -127,7 +127,7 @@ Es folgt eine kurze Beschreibung der Werte in den beiden Elementen:
 | `maxSequenceRepetitions` | Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in `maxDevianceBytesPerSecond` überschritten wurde. |
 | `100000`, `200000`, `400000`, `800000` | Die Zahlen geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern. |
 
-Nach dem Start des Netzwerkscans, ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:
+Nach dem Start des Netzwerkscans ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:
 
 ![Test der Netzwerkanbindung](syscheck4.png){group="input"}
 
@@ -149,9 +149,9 @@ Als nächstes muss festgelegt werden, welche maximale Ladezeit als vertretbar an
 
 `min`= 10.485.760 Byte / 30s = **349.525 Bytes/s**
 
-In diesem Beispiel wird alles bezogen auf das Laden eines einzelnes Testheftes. Während der Studiendurchführung werden aber unter Umstände (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. 
+In diesem Beispiel wird alles bezogen auf das Laden eines einzelnen Testheftes. Während der Studiendurchführung werden aber unter Umständen (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig. 
 
-Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bswp. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:
+Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bspw. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:
 
 Es wird folgendes angenommen:
 
@@ -197,7 +197,7 @@ Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. 
 <Config savekey="eckensteher" skipnetwork="false">
 ```
 
-Das Attribut `savekey` ist eigentlich obsolet, muss aber weiterhin geführt und befüllt werden, um Fehler zu vermeiden. Dieser Key wird an keiner Stelle mehr abfragt.
+Das Attribut `savekey` ist eigentlich obsolet, muss aber weiterhin geführt und befüllt werden, um Fehler zu vermeiden. Dieser Key wird an keiner Stelle mehr abgefragt.
 
 ## Einbinden einer Unit
 
@@ -306,7 +306,7 @@ In der Testtaker-XML wird ein spezieller Login für den System-Check angelegt:
 <Login mode="sys-check-login" name="sys-check" pw="123"/>
 
 ```
-Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fast alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
+Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fasst alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
 
 # Auswertung
 
@@ -324,8 +324,8 @@ Alle Personen, die Zugriff auf den Arbeitsbereich im Testcenter haben, in dem de
 
 | Spaltenname | Beispiel |
 |-----|--------------------------|
-| `Betriebsystem` | Windows |
-| `Betriebsystem-Version` | 10 |
+| `Betriebssystem` | Windows |
+| `Betriebssystem-Version` | 10 |
 | `Bildschirm-Auflösung` | 1536 x 864 |
 | `Browser` | Chrome |
 | `Browser-Cookies aktiviert` | 1 (Wahr) |
@@ -375,11 +375,11 @@ Im einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Br
 
 ## Planung
 
-Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar, als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung, dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.
+Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar, als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.
 
 Es sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden. 
 
-Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bsph. könnten folgende Themen schon im Vorfeld abgeklärt werden:
+Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bspw. könnten folgende Themen schon im Vorfeld abgeklärt werden:
 
 * Welche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden? 
 * Gibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?
@@ -388,9 +388,9 @@ Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Per
 
 Auf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:
 
-**Gibt es im geplanten Testheft Aufgabe, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?**
+**Gibt es im geplanten Testheft Aufgaben, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?**
 
-Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantworten werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.
+Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantwortet werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.
 
 **Gibt es im Testheft Aufgaben mit Audios?**
 
@@ -414,7 +414,7 @@ Im System-Check kann immer nur eine Unit zur Ansicht eingebunden werden. Gibt es
 
 ## Hinweise zur Durchführung
 
-Verantwortliche vor Ort starten den System-Check an jedem Endgerät, welches an der Testungen teilnehmen soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.
+Verantwortliche vor Ort starten den System-Check an jedem Endgerät das für die Durchführung verwendet werden soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.
 
 ::: {.callout-note}
 Um reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.
@@ -426,7 +426,7 @@ Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:
 
 **Ist der Browser für die Studiendurchführung geeignet?**
 
-Im Kapitel **Studiendurchführung/ Vorbetrachtungen**, werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.
+Im Kapitel **Studiendurchführung/ Vorbetrachtungen** werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.
 
 **Wie hoch ist die Auflösung des Wiedergabebildschirms?**
 
@@ -434,9 +434,9 @@ Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit eine
 
 **Welche Internet-Bandbreite wird für die Testung mindestens benötigt?**
 
-Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, das einen umfangreichen Download auslöst.
+Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, die einen umfangreichen Download auslöst.
 
-Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite, ist im Abschnitt **Netzwerkanbindung** aufgezeigt, wie Eckwerte ermittelt werden können.
+Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite ist im Abschnitt **Netzwerkanbindung** aufgezeigt, wie Eckwerte ermittelt werden können.
 
 # Weiterentwicklung
 
@@ -444,4 +444,4 @@ Folgende Überlegungen gehen in die Weiterentwicklung des System-Checks ein:
 
 * Das IQB hat inzwischen weitere Erfahrungen bei der Ermittlung der technischen Kapazität einer Testcenter-Installation gesammelt. Dies wird in den Test der Netzwerkanbindung einfließen, damit die Ergebnisse aussagekräftiger werden. Es geht vor allem um den erwartbaren Speed.
 * Im Management einer Testvorbereitung ist es wichtig zu wissen, ob alle Schulen den System-Check absolviert haben. Im Moment ist die Durchführung eines System-Checks nicht an eine Testgruppe gebunden und man muss manuell die Ergebnisse den Schulen zuordnen. Besser wäre es, wenn die Schulen einen vorbereiteten Login benutzen, bevor sie den Test durchführen.
-* Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also mehrere Units einzubinden möglich sein und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.
+* Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also möglich sein, mehrere Units einzubinden und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.
