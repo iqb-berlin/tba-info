@@ -1365,7 +1365,7 @@ Tipp
 </section>
 <section id="strukturierung-in-blöcken-testlet" class="level1">
 <h1>Strukturierung in Blöcken (Testlet)</h1>
-<p>Units können blockweise aufgeteilt werden. Durch Blöcke wird die Übersichtlichkeit erhöht. Außerdem bieten Blöcke die Möglichkeit Zugangs- und Ablaufbeschränkungen zu vergeben. Soll ein Gruppenmonitor zum Einsatz kommen, sind Blöcke unabdingbar. Die Testleitung kann dann mit Hilfe des Monitors Testpersonen in einzelne Blöcke bewegen. Die eventuell vergebenen Beschränkungen, können die Testpersonen dann in einem Block halten. Dies ermöglicht eine bessere Synchronisierung des Testablaufs.</p>
+<p>Units können blockweise aufgeteilt werden. Durch Blöcke wird die Übersichtlichkeit erhöht. Außerdem bieten Blöcke die Möglichkeit Zugangs- und Ablaufbeschränkungen zu vergeben. Soll ein Gruppenmonitor zum Einsatz kommen, sind Blöcke unabdingbar. Die Testleitung kann dann mit Hilfe des Monitors Testpersonen in einzelne Blöcke bewegen. Die eventuell vergebenen Beschränkungen können die Testpersonen dann in einem Block halten. Dies ermöglicht eine bessere Synchronisierung des Testablaufs.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>booklet3.xml</strong></pre>
@@ -1411,7 +1411,7 @@ Tipp
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="15" data-code-annotation="4"><strong>TimeMax</strong>: Nach Ablauf der angegeben Zeit wird in die erste Unit nach dem Block navigiert und der Block wird gesperrt. Die Testperson kann das nicht verhindern. Die Testperson kann den Block auf Wunsch vor Ablauf der Zeit verlassen. Dazu navigiert die Person in eine Unit außerhalb des aktiven Blocks und erhält eine entsprechende Warnmeldung. Nach Bestätigung dieser, wird der Block frühzeitig verlassen und gesperrt. Mit Hilfe des Attributs: <code>leave</code> kann festgelegt werden, ob der Block verlassen werden darf. Hierfür stehen die Werte: <code>allowed</code> und <code>forbidden</code> zur Verfügung. Der Wert: <code>confirm</code> legt fest, ob vor dem Verlassen eine Meldung angezeigt werden soll.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="15" data-code-annotation="4"><strong>TimeMax</strong>: Nach Ablauf der angegebenen Zeit wird in die erste Unit nach dem Block navigiert und der Block wird gesperrt. Die Testperson kann das nicht verhindern. Die Testperson kann den Block auf Wunsch vor Ablauf der Zeit verlassen. Dazu navigiert die Person in eine Unit außerhalb des aktiven Blocks und erhält eine entsprechende Warnmeldung. Nach Bestätigung dieser wird der Block frühzeitig verlassen und gesperrt. Mit Hilfe des Attributs: <code>leave</code> kann festgelegt werden, ob der Block verlassen werden darf. Hierfür stehen die Werte: <code>allowed</code> und <code>forbidden</code> zur Verfügung. Der Wert: <code>confirm</code> legt fest, ob vor dem Verlassen eine Meldung angezeigt werden soll.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
 <dd>
@@ -1419,7 +1419,7 @@ Tipp
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="17" data-code-annotation="6">Soll eine Aufgabe oder ein Testheft nach dem Verlassen (Navigation zur nächsten Aufgaben oder Testheft) nicht mehr zugänglich sein, kann die Restriktion <strong>LockAfterLeaving</strong> verwendet werden. Hier kann im Attribut <code>confirm</code>festgelegt werden, ob vor der Sperrung eine Warnung erscheint oder nicht (boolean). Mit Hilfe des Attributs <code>scope</code> kann festgelegt werden, ob beim Verlassen das Testheft gesperrt wird oder nur die verlassene Unit in einem Testheft (testlet, unit).</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="17" data-code-annotation="6">Soll eine Aufgabe oder ein Testheft nach dem Verlassen (Navigation zur nächsten Aufgabe oder Testheft) nicht mehr zugänglich sein, kann die Restriktion <strong>LockAfterLeaving</strong> verwendet werden. Hier kann im Attribut <code>confirm</code>festgelegt werden, ob vor der Sperrung eine Warnung erscheint oder nicht (boolean). Mit Hilfe des Attributs <code>scope</code> kann festgelegt werden, ob beim Verlassen das Testheft gesperrt wird oder nur die verlassene Unit in einem Testheft (testlet, unit).</span>
 </dd>
 </dl>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1503,7 +1503,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Textersetzungen die bereits in der Testtaker-XML definiert wurden, werden von den Textersetzungen in der Booklet-XML überschrieben.</p>
+<p>Textersetzungen, die bereits in der Testtaker-XML definiert wurden, werden von den Textersetzungen in der Booklet-XML überschrieben.</p>
 </div>
 </div>
 
