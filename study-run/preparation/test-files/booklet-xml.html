@@ -1229,7 +1229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link active" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
-  <li><a href="#booklet-einstellungen" id="toc-booklet-einstellungen" class="nav-link" data-scroll-target="#booklet-einstellungen">Booklet-Einstellungen</a></li>
+  <li><a href="#booklet-einstellungen-bookletconfig" id="toc-booklet-einstellungen-bookletconfig" class="nav-link" data-scroll-target="#booklet-einstellungen-bookletconfig">Booklet-Einstellungen (BookletConfig)</a></li>
   <li><a href="#strukturierung-in-blöcken-testlet" id="toc-strukturierung-in-blöcken-testlet" class="nav-link" data-scroll-target="#strukturierung-in-blöcken-testlet">Strukturierung in Blöcken (Testlet)</a></li>
   <li><a href="#unit-alias" id="toc-unit-alias" class="nav-link" data-scroll-target="#unit-alias">Unit-Alias</a></li>
   <li><a href="#adaptives-testen" id="toc-adaptives-testen" class="nav-link" data-scroll-target="#adaptives-testen">Adaptives Testen</a></li>
@@ -1324,9 +1324,22 @@ Tipp
 <span data-code-cell="annotated-cell-1" data-code-lines="9,10,11" data-code-annotation="3">Units: Die Liste der Units, die präsentiert werden sollen. Die <code>id</code> verweist auf eine im Arbeitsbereich vorhandene Unit. Das <code>label</code> wird ggf. als Überschrift verwendet. Das <code>labelshort</code> wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.</span>
 </dd>
 </dl>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html">hier</a> zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.</p>
+</div>
+</div>
 </section>
-<section id="booklet-einstellungen" class="level1">
-<h1>Booklet-Einstellungen</h1>
+<section id="booklet-einstellungen-bookletconfig" class="level1">
+<h1>Booklet-Einstellungen (BookletConfig)</h1>
 <p>Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in <code>&lt;BookletConfig&gt;</code>. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1361,7 +1374,19 @@ Tipp
 <span data-code-cell="annotated-cell-2" data-code-lines="9,10,11" data-code-annotation="2">Jeder Konfigurationseintrag besteht aus einem <code>key</code> und dem inneren Teil des Elementes, dem Wert (<code>value</code>)</span>
 </dd>
 </dl>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Die vollständige Liste der Booklet-Einstellungen <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">finden Sie hier</a>. Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.</p>
+</div>
+</div>
 </section>
 <section id="strukturierung-in-blöcken-testlet" class="level1">
 <h1>Strukturierung in Blöcken (Testlet)</h1>
@@ -1464,6 +1489,7 @@ Vorsicht
 <section id="adaptives-testen" class="level1">
 <h1>Adaptives Testen</h1>
 <p>In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier wird festgelegt unter welchen Bedingungen bestimmte Testhefte und Aufgaben angezeigt werden. Wie die Konfiguration vorzunehmen ist, ist <a href="../../../study-run/preparation/adaptive/index.html">diesem</a> Kapitel zu entnehmen.</p>
+<p>Eine automatisch generierte Übersicht über die Elemente, Attribute und Werte für das adaptive Testen ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/adaptive-config.html">hier</a> zu finden.</p>
 </section>
 <section id="angepasste-texte-customtexts" class="level1">
 <h1>Angepasste Texte: CustomTexts</h1>
