@@ -59,6 +59,10 @@ Das Beispiel zeigt eine einfache Version einer Testtaker-XML.
 4. `<Login>`: Über das Attribut `mode` wird eine Vielzahl von Funktionen des Testcenters gesteuert ([s. unten](#login-modus)). Benutzername `name` und Kennwort `pw` stehen für die gängigste Anmeldemethode ([s. unten](#varianten-des-anmeldeverfahrens)).
 5. `<Booklet>`: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.
 
+::: {.callout-note}
+Eine automatisch generierte Übersicht über die Elemente einer Testtaker-XML ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/testtaker.html) zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.
+:::
+
 # Login-Modus
 
 Über das Attribut `mode` im `<Login>` wird die **Rolle der angemeldeten Person** innerhalb einer Testung festgelegt. Es stehen hier sehr unterschiedliche Rollen zur Verfügung. Diese gehen aber nie über den Arbeitsbereich hinaus.
@@ -81,8 +85,6 @@ Das Testcenter bietet die Möglichkeit, alle Logins eines Group-Elementes -- als
 * `monitor-group`: Diese Anmeldung ist für Lehrkräfte oder Testleitungen vor Ort gedacht. Man kann sich alle Testhefte, die den Personen der Gruppe zugewiesen sind, anschauen, und kann direkt einen Schüler ansprechen, bei dem man ein auffälliges Verhalten sieht (z. B. Verlassen des Browserfensters der Testung).
 Diesem Login kann ein weiteres Attribut zur Steuerung der Ansicht von Testheften hinzugefügt werden. Es trägt den Namen: `monitorBookletVisibility` und kann die Werte: `collapsed`, `visible` oder `hidden` annehmen. Die Werte steuern, ob die Testhefte der Gruppe in der Übersicht des Gruppenmonitors standardmäßig eingeklappt, sichtbar oder versteckt sein sollen.
 * `monitor-study`: Diese Anmeldung ist zwar aus technischen Gründen ebenfalls innerhalb einer Gruppe definiert, bezieht sich aber auf alle Login-Gruppen eines Arbeitsbereiches. Die Rolle dahinter könnte man mit "Hotline" benennen: Während einer Testung mit vielen Klassen ruft jemand an, und im Support möchte man schnell nach dem Bearbeitungsstand der Gruppe schauen und ggf. eingreifen. Nach der Anmeldung erhält man zunächst alle Gruppen zur Auswahl und kann dann gezielt helfen[^3].
-
-
 
 ## Test ausprobieren (Qualitäts-Check): `run-review`, `run-trial`, `run-simulation`
 

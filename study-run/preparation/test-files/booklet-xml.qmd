@@ -49,7 +49,11 @@ Das Beispiel zeigt eine minimale Version einer Booklet-XML.
 2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.
 3. Units: Die Liste der Units, die präsentiert werden sollen. Die `id` verweist auf eine im Arbeitsbereich vorhandene Unit. Das `label` wird ggf. als Überschrift verwendet. Das `labelshort` wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.
 
-# Booklet-Einstellungen
+::: {.callout-note}
+Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html) zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.
+:::
+
+# Booklet-Einstellungen (BookletConfig)
 
 Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in `<BookletConfig>`. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.
 
@@ -76,7 +80,9 @@ Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine 
 1. Das BookletConfig-Element muss unmittelbar nach den Metadaten platziert werden.
 2. Jeder Konfigurationseintrag besteht aus einem `key` und dem inneren Teil des Elementes, dem Wert (`value`)
 
+::: {.callout-note}
 Die vollständige Liste der Booklet-Einstellungen [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters). Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.
+:::
 
 # Strukturierung in Blöcken (Testlet)
 
@@ -145,7 +151,9 @@ Wenn eine Unit mehrfach vorkommt, aber in verschiedenen Booklets, kann das Testc
 
 # Adaptives Testen
 
-In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier wird festgelegt unter welchen Bedingungen bestimmte Testhefte und Aufgaben angezeigt werden. Wie die Konfiguration vorzunehmen ist, ist  [diesem](../adaptive/index.qmd) Kapitel zu entnehmen.
+In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier wird festgelegt unter welchen Bedingungen bestimmte Testhefte und Aufgaben angezeigt werden. Wie die Konfiguration vorzunehmen ist, ist  [diesem](../adaptive/index.qmd) Kapitel zu entnehmen. 
+
+Eine automatisch generierte Übersicht über die Elemente, Attribute und Werte für das adaptive Testen ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/adaptive-config.html) zu finden.
 
 # Angepasste Texte: CustomTexts
 
