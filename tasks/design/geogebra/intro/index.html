@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-de496f528715af83dbfc05246820299f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-eb91cecb37e182402a61adac2bff10ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1226,13 +1229,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="allgemeine-einführung" class="level2">
 <h2 class="anchored" data-anchor-id="allgemeine-einführung">Allgemeine Einführung</h2>
-<p>GeoGebra ist ein mächtiges Werkzeug zum Anlegen von Aufgaben in verschiedenen mathematischen Bereichen. Um die Erstellung von Aufgaben zu erleichtern und zu vereinheitlichen, gibt es eine Reihe von Vorlagen. Zu jeder Vorlage gibt es eine spezifische Anleitung. Es wird empfohlen, sich möglichst genau an die Anleitungen zu halten, damit stets vergleichbare Aufgaben entstehen.</p>
+<p>GeoGebra ist ein vielseitiges Werkzeug zum Anlegen von Aufgaben in verschiedenen mathematischen Bereichen. Um die Erstellung von Aufgaben zu erleichtern und zu vereinheitlichen, gibt es eine Reihe von Vorlagen. Zu jeder Vorlage gibt es eine spezifische Anleitung. Es wird empfohlen, sich möglichst genau an die Anleitungen zu halten, damit stets vergleichbare Aufgaben entstehen.</p>
 <p>Diese Anleitung bietet eine Übersicht über die grundlegenden Funktionen von GeoGebra. Fortgeschrittene Nutzer*innen können auch direkt mit den Anleitungen der individuellen Vorlagen arbeiten.</p>
 </section>
 <section id="ansichten" class="level2">
 <h2 class="anchored" data-anchor-id="ansichten">Ansichten</h2>
+<p>GeoGebra ist in Ansichten unterteilt, wobei zunächst meist nur die „Grafik“ Ansicht angezeigt wird. Für eine bessere Übersicht bietet es sich an, zumindest auch die Ansicht „Algebra“ zu kennen. Hier eine kurze Übersicht, wie Sie die verschiedenen Ansichten aktivieren:</p>
 <p>Oben rechts in GeoGebra finden Sie drei horizontale Striche. Wenn Sie diese anklicken, erscheint das allgemeine Menü.</p>
+<p><img src="ggb_dreistrichmenu.png" class="img-fluid"></p>
 <p>Auf der rechten Seite des Fensters erscheint folgendes Menü:</p>
+<p><img src="ggb_menu.png" class="img-fluid"></p>
 <p>Falls der Unterpunkt „Ansicht“ noch nicht angewählt ist, diesen einfach anklicken. Nun gibt es eine Reihe von Ansichten, die Sie sichtbar schalten können, indem Sie sie anklicken (sichtbare Ansichten haben einen Haken).</p>
 <p>Normalerweise wird in der Ansicht „Grafik“ gearbeitet, diese sollte immer sichtbar sein, d.&nbsp;h. der Haken bleibt gesetzt. Manchmal wird auch die Ansicht „Algebra“ benötigt, diese sollte aber in der fertigen Aufgabe deaktiviert sein, damit Testteilnehmende nicht darauf zugreifen können.</p>
 <p>Andere Ansichten werden im Normalfall nicht benötigt und können zunächst ignoriert werden.</p>
@@ -1243,9 +1249,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Wird das Werkzeug „Punkt“ in der Grafikansicht verwendet, so wird ein Objekt vom Typ Punkt erstellt. Wird im Eingabefeld der Algebra-Ansicht etwas wie „Punkt ({0,1})“ eingegeben, so wird ein Objekt vom Typ Punkt (mit den Koordinaten x=0, y=1) erstellt. Fast alles, was Sie in der Grafik-Ansicht sehen können, sind Objekte. Ausnahme: Koordinatengitter und Achsen.</p>
 <p>Objekte sind meist zunächst in irgendeiner Form interaktiv. Um Aufgaben nicht zu überladen, sollte es möglichst wenig interaktive Objekte geben. Um ein Objekt nicht interaktiv zu gestalten, müssen Sie seine Einstellungen ändern. Die Einstellungen erreichen Sie entweder:</p>
 <p>Indem Sie auf das Objekt rechtsklicken und die Option „Einstellungen“ wählen, oder…</p>
+<p><img src="ggb_objektoption.png" class="img-fluid"></p>
 <p>… indem Sie in der Algebra die drei Punkte neben dem Objekt auswählen.</p>
+<p><img src="ggb_objektalgebra.png" class="img-fluid"></p>
 <p>Letzteres ist insbesondere nützlich, wenn das Objekt versteckt ist, Sie es also in der Grafik-Ansicht nicht auswählen können.</p>
 <p>In den Einstellungen gibt es mehrere Reiter:</p>
+<p><img src="ggb_einstellungenreiter.png" class="img-fluid"></p>
 <p>In den Grundeinstellungen sind die häufig genutzten Optionen „Objekt anzeigen“ und „Objekt fixieren“. Außerdem gibt es dort Einstellungen für die Beschriftung, die manchmal relevant sind.</p>
 <p>Die Reiter Farbe und Darstellung sind relativ selbsterklärend, meist muss dort nichts geändert werden.</p>
 <p>Unter „Erweitert“ finden Sie insbesondere die Option „Auswahl erlaubt“, welche oft relevant ist.</p>
@@ -1255,19 +1264,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="globale-einstellungen" class="level2">
 <h2 class="anchored" data-anchor-id="globale-einstellungen">Globale Einstellungen</h2>
 <p>Im allgemeinen Menü von GeoGebra, welches über die drei horizontalen Striche oben rechts zu erreichen ist, gibt es einen Abschnitt namens „Einstellungen“. Klicken Sie diesen an, so erscheint folgendes Menü:</p>
+<p><img src="ggb_einstellungglobal.png" class="img-fluid"></p>
 <p>Dies sind die globalen Einstellungen. Unter „Objektname anzeigen“ soll die Option „Keine neuen Objekte“ ausgewählt werden. Dies verhindert, dass neue Objekte mit Beschriftung angezeigt werden, welche bei der Bearbeitung von Aufgaben eher irritiert.</p>
 <p>Zudem lässt sich die Schriftgröße einstellen. Da GeoGebra eine andere Schrift als das IQB-Studio verwendet, gibt es leichte Unterschiede beim Erscheinungsbild. Eine Schriftgröße von 24 hat sich optisch bewährt.</p>
 </section>
 <section id="koordinatensysteme-und-gitter" class="level2">
 <h2 class="anchored" data-anchor-id="koordinatensysteme-und-gitter">Koordinatensysteme und Gitter</h2>
 <p>Über das globale Menü oder über das Menü der Grafik-Ansicht kommen Sie zu folgender Leiste auf der rechten Seite:</p>
+<p><img src="ggb_koordinatensystemauswahl.png" class="img-fluid"></p>
 <p>Wählen Sie das dritte Symbol aus (den Kreis mit dem Dreieck), so kommen Sie zu den Einstellungen für die Grafik-Ansicht allgemein. Wieder gibt es mehrere Reiter. Reiter Koordinatengitter: Dort lässt sich einstellen, ob das Koordinatengitter angezeigt wird und wie groß die Abstände in x und y Richtung sein sollen. Außerdem gibt es Einstellungen zur Darstellung des Gitters, die aber seltener relevant sind. Reiter x-Achse: Hier lässt sich einstellen, ob die x-Achse angezeigt wird, ob nur die positive Achse angezeigt werden soll, wie groß die Abstände sind, etc. Reiter y-Achse: Analog zu x-Achse. Reiter Grundeinstellungen: Hier können das Verhältnis von x-Achse zu y-Achse eingestellt und ein paar weitere visuelle Einstellungen der Achsen vorgenommen werden.</p>
 </section>
 <section id="punktfang" class="level2">
 <h2 class="anchored" data-anchor-id="punktfang">Punktfang</h2>
 <p>Es ist möglich, GeoGebra so einzustellen, dass Aktionen vom Gitter „eingefangen“ werden. Entweder magnetisch, sodass Bewegungen in der Nähe des Gitters auf das Gitter gezogen werden, oder am Gitter fixiert, sodass z. B. Punkte nur auf dem Gitter platziert werden können.</p>
-<p>Den Punktfang können Sie einstellen, indem Sie mit dem „Bewege“-Werkzeug ins Leere klicken und dann erst auf dieses Symbol, welches sich oben rechts befindet, klicken:</p>
-<p>Anschließend auf dieses Symbol, in der Leiste, die sich nach links öffnet:</p>
+<p>Den Punktfang können Sie einstellen, indem Sie mit dem „Bewege“-Werkzeug ins Leere klicken und dann erst auf dieses Symbol, welches sich oben rechts befindet, klicken: <img src="ggb_symbolgrafikmenu.png" class="img-fluid"></p>
+<p>Anschließend auf dieses Symbol, in der Leiste, die sich nach links öffnet: <img src="ggb_symbolpunktfang.png" class="img-fluid"></p>
 <p>Dann können Sie den gewünschten Punktfang einstellen. „An Koordinatengitter fangen“ ist sozusagen der magnetische Punktfang, „Am Koordinatengitter fixiert“ ist der Punktfang, der Objekte nur auf dem Gitter zulässt.</p>
 </section>
 <section id="koordinatensystem-skalieren" class="level2">
@@ -1275,6 +1286,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Es ist möglich, das Koordinatensystem zu skalieren. Hierfür gibt es mehrere Optionen, die je nach Bedarf passen können. Eine einfache Lösung ist es oft, das Koordinatensystem gar nicht wirklich zu skalieren, sondern nur die Beschriftung zu verändern. Dazu können Sie Textfelder an den Achsen verwenden.</p>
 <p>Wenn Sie nur das Gitter skalieren möchten, verwenden Sie die Einstellungen im Reiter „Koordinatengitter“. Dort können Sie die Abstände in x und y-Richtung einstellen.</p>
 <p>Um das Koordinatensystem zu skalieren, gehen Sie in die Grundeinstellungen des Koordinatensystems. Dort können Sie Folgendes sehen:</p>
+<p><img src="ggb_koordinatensystemskalieren.png" class="img-fluid"></p>
 <p>Das ist das Verhältnis der beiden Achsen. Wenn Sie das Vorhängeschloss anklicken, können Sie die ausgegrauten Werte verändern. Achtung: Sehr große Werte können GeoGebra verlangsamen.</p>
 </section>
 <section id="werkzeugleiste" class="level2">
@@ -1286,7 +1298,19 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="dateien-öffnen-und-speichern">Dateien öffnen und speichern</h2>
 <p>Zum Öffnen:</p>
 <p>Im allgemeinen Menü wählen Sie den obersten Unterpunkt, „Datei“. Klicken Sie auf „Öffnen“, dann oben links auf „Lokale Datei“ und wählen Sie dann die geeignete Vorlage oder Datei im Dateibrowser.</p>
-<p>Zum Speichern: 1. Sicherstellen, dass die Aufgabe korrekt angelegt wurde. 2. Alle unnötigen Objekte fixieren, nicht auswählbar machen und ggf. nicht sichtbar machen, siehe Abschnitt Objekte. 3. Der Zoomfaktor sollte passend gewählt werden, sodass die Aufgabe gut bearbeitbar ist und ins Studio passt. 4. Die Aufgabe muss ganz oben links sein (Das Werkzeug “Bewege” kann hier nützlich sein). 5. Das GeoGebra-Fenster kleiner ziehen bis nur noch die Aufgabe sichtbar ist, sodass möglichst wenig weißer Rand bleibt. 6. Werkzeugleiste einstellen, alle zur Bearbeitung unnötigen Werkzeuge entfernen, siehe Abschnitt „Werkzeugleiste“. 7. Algebra-Ansicht ausschalten, siehe Abschnitt „Ansichten“. 8. Falls die Einstellungen für Objekte noch offen sind, diese schließen. Es sollte kein Menü außer dem allgemeinen Menü geöffnet sein. 9. Über das allgemeine Menü, Unterpunkt „Datei“, die Option „Herunterladen als…“ auswählen. Keine andere Option zum Speichern verwenden, da diese Fehler verursachen können. 10. Bei „Herunterladen als…“ die Option „GeoGebra Datei (.ggb)“ auswählen. Dann den Speicherort auswählen und einen geeigneten Namen wählen. Nicht den Namen der Vorlage verwenden! Es besteht die Gefahr, die Vorlage zu überschreiben. Beim Eingeben des Namens außerdem die Dateiendung mit eingeben, also „.ggb“ am Ende anhängen. Das macht GeoGebra nicht automatisch. Falls Sie das vergessen, können Sie es aber auch nachträglich noch ergänzen.</p>
+<p>Zum Speichern:</p>
+<ol type="1">
+<li>Sicherstellen, dass die Aufgabe korrekt angelegt wurde.</li>
+<li>Alle unnötigen Objekte fixieren, nicht auswählbar machen und ggf. nicht sichtbar machen, siehe Abschnitt Objekte.</li>
+<li>Der Zoomfaktor sollte passend gewählt werden, sodass die Aufgabe gut bearbeitbar ist und ins Studio passt.</li>
+<li>Die Aufgabe muss ganz oben links sein (Das Werkzeug “Bewege” kann hier nützlich sein).</li>
+<li>Das GeoGebra-Fenster kleiner ziehen bis nur noch die Aufgabe sichtbar ist, sodass möglichst wenig weißer Rand bleibt.</li>
+<li>Werkzeugleiste einstellen, alle zur Bearbeitung unnötigen Werkzeuge entfernen, siehe Abschnitt „Werkzeugleiste“.</li>
+<li>Algebra-Ansicht ausschalten, siehe Abschnitt „Ansichten“.</li>
+<li>Falls die Einstellungen für Objekte noch offen sind, diese schließen. Es sollte kein Menü außer dem allgemeinen Menü geöffnet sein.</li>
+<li>Über das allgemeine Menü, Unterpunkt „Datei“, die Option „Herunterladen als…“ auswählen. Keine andere Option zum Speichern verwenden, da diese Fehler verursachen können.</li>
+<li>Bei „Herunterladen als…“ die Option „GeoGebra Datei (.ggb)“ auswählen. Dann den Speicherort auswählen und einen geeigneten Namen wählen. Nicht den Namen der Vorlage verwenden! Es besteht die Gefahr, die Vorlage zu überschreiben. Beim Eingeben des Namens außerdem die Dateiendung mit eingeben, also „.ggb“ am Ende anhängen. Das macht GeoGebra nicht automatisch. Sie können es aber auch nachträglich noch ergänzen.</li>
+</ol>
 
 
 </section>
