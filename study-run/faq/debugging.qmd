@@ -1,0 +1,81 @@
+---
+lang: de
+title: "Debugging"
+---
+
+## Safari auf iPad
+
+### Eruda
+
+Eruda ist ein voll ausgestattetes Mobile-DevTools-Paket direkt im Browser. Da mobile Browser (wie Safari auf dem iPad oder Chrome auf Android) standardmäßig keine integrierten Entwicklertools wie die F12-Taste am PC bieten, baut Eruda diese Schnittstelle visuell auf deiner Webseite nach.
+
+Hier ist eine Übersicht aller Kernfunktionen und Tabs, die Eruda bietet:
+
+**Konsole:**
+
+* Log-Ausgaben: Zeigt alle `console.log`, `console.info`, `console.warn` und `console.error` in Echtzeit an.
+* Fehler-Erfassung: Fängt unbehandelte JavaScript-Laufzeitfehler (*Uncaught Exceptions*) und Promise-Rejections automatisch ab.
+* Code-Ausführung: Enthält eine interaktive Eingabezeile, über die du direkt JavaScript-Code im Kontext der laufenden Seite ausführen und Variablen abfragen kannst.
+* Filter: Ermöglicht das Filtern von Log-Meldungen nach Typ oder Suchbegriff.
+
+**Elemente (DOM- & CSS-Inspector):**
+
+* DOM-Baum durchsuchen: Zeigt die komplette HTML-Struktur der Seite an. Du kannst Knoten aufklappen, bearbeiten oder löschen.
+* Element-Selector: Ein Klick auf das Fadenkreuz-Symbol erlaubt es dir, ein beliebiges Element auf dem Bildschirm per Touch anzuwählen, um dessen HTML/CSS zu untersuchen.
+* *Live-CSS-Editor: Zeigt die angewendeten CSS-Regeln an. Du kannst Werte live im Browser anpassen oder neue CSS-Eigenschaften hinzufügen.
+* Box Model: Visuelle Darstellung von `margin`, `border`, `padding` und Element-Abmessungen.
+
+**Netzwerk-Analyse:**
+
+* Request-Tracking: Zeichnet alle ausgehenden HTTP/HTTPS-Anfragen auf (AJAX, `fetch`, XHR, Bilder, Skripte, Stylesheets).
+* Detailansicht: Zeigt für jeden Request die Anfragedauer, HTTP-Statuscodes (z. B. 200, 404, 500), Request/Response-Header und den zurückgegebenen Inhalt (Response Payload / JSON) an.
+
+**Speicher & Storage:**
+
+* LocalStorage & SessionStorage: Einsicht in gespeicherte Key-Value-Paare mit der Möglichkeit, Einträge zu bearbeiten, hinzuzufügen oder zu löschen.
+* Cookies: Übersicht aller gesetzten Cookies inklusive Pfad, Domain und Ablaufdatum.
+* IndexedDB & Web SQL: Inspektion lokaler Browser-Datenbanken.
+
+**Quellcode:**
+
+* Datei-Browser: Zeigt den Quelltext der aktuell geladenen HTML-Dokumente, CSS-Dateien und JavaScript-Skripte an.
+* Pretty Print: Formatiert minimierte (minified) JavaScript- oder CSS-Dateien lesbar um.
+
+**Info (System- & Performance-Informationen):**
+
+* Geräte-Details: Zeigt User-Agent, Bildschirmauflösung, Pixel-Ratio und Systemverbindung an.
+* Performance: Aufschlüsselung der Performance-Timings (DOMContentLoaded, Load Time, DNS-Lookup etc.).
+
+**Snippets (Nützliche Helfer-Skripte):**
+
+* Enthält vorgefertigte kleine Skripte, um z. B. die FPS (Frames per Second) auf der Seite anzuzeigen, den CSS-Border aller Elemente zum Debuggen einzublenden (*Border-Debug*) oder den Seitenspeicher zu leeren.
+
+#### Einrichtung
+
+##### Schritt 1: Ein beliebiges Lesezeichen erstellen
+
+1. Safari auf dem iPad öffnen
+2. Testcenterseite öffnen 
+3. Tippen auf das **Teilen-Symbol** (Quadrat mit Pfeil nach oben) und Auswahl **„Lesezeichen hinzufügen“**.
+4. Benennung des Lesezeichens bspw. **„Eruda DevTools“** und speichern
+
+##### Schritt 2: Den Code in das Lesezeichen einfügen
+
+1. Kopieren dieses JavaScript-Code:
+   ```javascript
+  javascript:(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/eruda';document.body.appendChild(s);s.onload=function(){eruda.init();};})();
+  ```
+2. Tippen in Safari auf das Buch-Symbol (Lesezeichen-Leiste)
+3. Tippen unten auf „Bearbeiten“ und Auswahl des eben erstellten Lesezeichens „Eruda DevTools“
+4. Löschen der bestehenden Webadresse (https://iqb-testcenter.de) im Adressfeld und einfügen des kopierten Codes
+5. Tippen auf „Fertig“.
+
+##### Schritt 3: Eruda für Testcenter starten
+
+1. Wenn auf Testcenterseite, Lesezeichen "Eruda DevTools" öffnen
+
+Nach 1–2 Sekunden erscheint unten rechts das kleine Zahnrad-Icon von Eruda.
+
+::: {.callout-note}
+Wenn die Seite neu geladen wird, verschwindet Eruda wieder. Dann muss einfach erneut das Lesezeichen ausgewählt werden.
+:::
