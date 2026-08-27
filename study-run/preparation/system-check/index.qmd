@@ -12,17 +12,15 @@ aliases:
   - "/Testcenter/System_Check/index.html"
 ---
 
-Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfall- und damit die Frustrate deutlich senken.
-
-Ein System-Check wird angelegt, indem eine XML-Datei mit einem spezifischen Inhalt in einen Arbeitsbereich hochgeladen wird. Das IQB-Testcenter erzeugt dann automatisch einen Link zu diesem System-Check auf der Startseite. Alle Besucher\*innen der Webanwendung können dann ohne Anmeldung den System-Check ausführen. Wenn ein Kennwort eingegeben wird, kann man das Ergebnis des System-Checks auch auf dem Server speichern. Dann stehen über die Verwaltung des Arbeitsbereichs die Ergebnisse gebündelt als Tabelle zum Download bereit.
+Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfallzeiten und damit die Frustrate deutlich senken.
 
 # System-Check anlegen
 
-Zunächst wird ein Arbeitsbereichs-Admin mit Schreibrechten zu einem Arbeitsbereich einer IQB-Testcenter-Installation benötigt. Dieser kann eine SystemCheck-XML Datei hochladen. Diese kann mit einem einfachen Texteditor erzeugt werden. Zu empfehlen wäre hier, einen Texteditor zu wählen, der automatisch die Syntax hervorhebt und Syntaxfehler anzeigt (z. B. Notepad++).
+Zunächst wird eine SystemCheck-XML Datei in einen Arbeitsbereich geladen. Diese stellt die Konfigurationsgrundlage für den System-Check dar.
 
 ## Grundstruktur
 
-Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur Eigenschaften des Client-Systems angezeigt.
+Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur die Eigenschaften des Computers angezeigt auf denen der System-Check ausgeführt wird.
 
 ```{.xml filename="syscheck1.xml"}
 <?xml version="1.0" encoding="utf-8"?>
@@ -35,7 +33,7 @@ Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es w
 	<Config skipnetwork="true"></Config> # <3>
 </SysCheck>
 ```
-1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller benötigten Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist.
 2. Metadata: Die `Id` dient der internen Zuordnung der Ergebnisse, das `Label` wird angezeigt.
 3. Das `Config`-Element ist hier nur notwendig, um den Netzwerktest zu unterdrücken.
 
@@ -43,7 +41,7 @@ Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es w
 
 ## Fehler beim Hochladen
 
-Das Hochladen ist nur erfolgreich, wenn es sich um eine gültige System-Check-Konfiguration handelt. Sollte sich beim Editieren ein Fehler eingeschlichen haben, versucht das Testcenter mit einer Fehlermeldung zu helfen:
+Das Hochladen ist nur erfolgreich, wenn es sich um eine gültige System-Check-Konfiguration handelt. Dabei wird die zu ladende Datei gegen das XML-Schema validiert. Befinden sich erforderliche Felder und Attribute, die im Schema definiert sind, nicht in dieser Datei, wird eine Fehlermeldung wie bspw. nachfolgend angezeigt:
 
 ![Fehlermeldung beim Hochladen](syscheck2.png){group="input"}
 
@@ -67,17 +65,17 @@ Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich �
 </SysCheck>
 ```
 1. Über das Attribut `key` referenziert man einen bestimmten Eintrag
-2. Im Inhalt des `CustomText`-Elementes wird der neue zu verwendende Text platziert.
+2. Im Inhalt des `CustomText`-Elementes wird der neue Text platziert.
 
 ![System-Check mit angepasstem Text](syscheck3.png){group="input"}
 
 ::: {.callout-note}
-Eine vollständige Liste mit den verfügbaren CustomTexts [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html). Suchen Sie nach dem Präfix `syscheck_`!
+Eine vollständige Liste mit den verfügbaren CustomTexts ist [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) zu sehen. Suchen Sie nach dem Präfix `syscheck`.
 :::
 
 ## Netzwerkanbindung
 
-Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit, ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw. die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: `<UploadSpeed>`und `<DownloadSpeed>` zu finden.
+Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit. Ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw. die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: `<UploadSpeed>`und `<DownloadSpeed>` zu finden.
 
 ```{.xml}
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,7 +125,7 @@ Es folgt eine kurze Beschreibung der Werte in den beiden Elementen:
 | `maxSequenceRepetitions` | Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in `maxDevianceBytesPerSecond` überschritten wurde. |
 | `100000`, `200000`, `400000`, `800000` | Die Zahlen geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern. |
 
-Nach dem Start des Netzwerkscans ist das folgende Ergebnis auf Grundlage der SC-XML zu sehen:
+Nach dem Start des Netzwerktests ist das folgende Ergebnis auf Grundlage der konfigurierten System-Check-XML zu sehen:
 
 ![Test der Netzwerkanbindung](syscheck4.png){group="input"}
 
@@ -137,7 +135,7 @@ Nach dem Start des Netzwerkscans ist das folgende Ergebnis auf Grundlage der SC-
 
 **`min`:**
 
-Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von den Testheftgrößen ab. Es muss also zunächst ermittelt werden, wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Mehr zur Ermittlung der Testheftgrößen ist auch den FAQ's zu entnehmen. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
+Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von den Testheftgrößen ab. Es muss also zunächst ermittelt werden wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Mehr zur Ermittlung der Testheftgrößen ist auch den FAQ's zu entnehmen. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind. 
 
 Dazu ein kurzes Beispiel:
 
@@ -189,7 +187,7 @@ Die restlichen Werte können den Standardwert erhalten.
 
 **`good`:**
 
-Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 10Mbit/s sein.
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein unterer Wert der dem aktuellen Stand entspricht, könnte hier bspw. 10Mbit/s sein.
 
 ## Speichern der Ergebnisse auf dem Server
 
@@ -201,15 +199,13 @@ Das Attribut `savekey` ist eigentlich obsolet, muss aber weiterhin geführt und 
 
 ## Einbinden einer Unit
 
-Das IQB-Testcenter ist die Anwendung, mit der Testaufgaben bzw. Frageitems präsentiert werden und Antworten gespeichert werden. Der Programmcode für Präsentation und Interaktion ist über das [Verona-Prinzip](https://verona-interfaces.github.io/player-docs/) ausgelagert. Welche Player bzw. spezifischen Interaktionsmodelle verwendet werden, ist dem Testcenter und also auch dem System-Check nicht bekannt. Daher kann bei der Konfiguration eines System-Check ein Player und eine Unit eingebunden werden.
+Es ist möglich dem System-Check eine Aufgabe zur Ansicht beizufügen. Diese Aufgabe muss samt ihrer Ressourcen (Player, VOUD) mit der System-Check-XML in den Arbeitsbereich geladen und in der System-Check-XML referenziert werden. Dies kann hilfreich sein, um Darstellung und Funktion einer Aufgabe bereits beim System-Check zu prüfen. 
 
 ```{.xml}
 <Config unit="bsp_unit" savekey="saveme" skipnetwork="false">
 ```
 
-Die Unit muss natürlich mit all ihren Dateien (xml, voud usw.) im Arbeitsbereich hochgeladen werden, auch der Player. Ansonsten wird der System-Check sofort mit einer Fehlermeldung abgebrochen.
-
-Die Antworten der Units werden nicht gespeichert, denn es könnte sein, dass die Anzeige fehlschlägt. Statt dessen sollen durch den Fragenkatalog Erkenntnisse gesammelt werden, ob und wie die Unit funktioniert.
+Über einen Fragekatalog der ebenfalls in der System-Check-XML eingerichtet wird, können dann Fragen zu dieser Aufgabe gestellt werden. Hier könnte dann bspw. gefragt werden, ob die Aufgabe richtig wiedergegeben oder ob ein eingebundenes Audio abgespielt werden konnte.
 
 ## Fragenkatalog
 
@@ -256,7 +252,7 @@ Weitere Inputfelder im Fragekatalog sehen so aus:
 : Werte für `type` innerhalb von `<Q>` {.striped}
 
 ::: {.callout-note collapse="true"}
-### Hier ist ein vollständiges vorgefertigtes Beispiel des System-Checks. 
+### Hier ist ein vollständiges vorgefertigtes Beispiel der System-Checks-XML 
 
 Passen Sie ggfs. den Namen der eingebundenen Unit an (`unit="UNIT.SAMPLE"`). Die verwendete Schema-URL ist nur ab Testcenter-Version 18.0.0 anwendbar. Wenn Sie eine ältere Version des Testcenters verwenden, müssen Sie die ältere Schema-URL `https://raw.githubusercontent.com/iqb-berlin/testcenter/17.6.0/definitions/vo_SysCheck.xsd` verwenden und die Testcenter-Version anpassen.
 
@@ -291,10 +287,6 @@ Passen Sie ggfs. den Namen der eingebundenen Unit an (`unit="UNIT.SAMPLE"`). Die
 
 :::
 
-
-
-
-
 # System-Check starten
 
 ## System-Check Login in Testtaker-XML anlegen
@@ -306,7 +298,7 @@ In der Testtaker-XML wird ein spezieller Login für den System-Check angelegt:
 <Login mode="sys-check-login" name="sys-check" pw="123"/>
 
 ```
-Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und beantwortet. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fasst alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich die Testtaker mit diesem System-Check-Login befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
+Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und müssen beantwortet werden. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fasst alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich System-Check-XML befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
 
 # Auswertung
 
@@ -369,9 +361,7 @@ Alle Personen, die Zugriff auf den Arbeitsbereich im Testcenter haben, in dem de
 
 Ein System-Check kann **keine** Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. **Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.** 
 
-Ein positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Die Leistungsfähigkeit der Internetverbindung beispielsweise hängt davon ab, was parallel in der Schule gerade an Bandbreite für andere Zwecke (z. B. automatische System-Aktualisierungen) belegt ist.
-
-Im einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.
+Ein positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Beispielsweise hängt die Leistungsfähigkeit der Internetverbindung massgeblich davon ab, wie viele Personen am Tag der Studiendurchführung gleichzeitig auf das Internet zugreifen. Im einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.
 
 ## Planung
 
@@ -409,7 +399,7 @@ Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe 
 Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.
 
 ::: {.callout-tip}
-Im System-Check kann immer nur eine Unit zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
+Im System-Check kann immer nur eine Aufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
 :::
 
 ## Hinweise zur Durchführung
@@ -417,7 +407,7 @@ Im System-Check kann immer nur eine Unit zur Ansicht eingebunden werden. Gibt es
 Verantwortliche vor Ort starten den System-Check an jedem Endgerät das für die Durchführung verwendet werden soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.
 
 ::: {.callout-note}
-Um reelle Werte bei der Ermittlung der Internetgeschwindigkeit zu erhalten, sollte der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.
+Der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.
 :::
 
 ## Hinweise zur Auswertung
@@ -428,7 +418,7 @@ Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:
 
 Im Kapitel **Studiendurchführung/ Vorbetrachtungen** werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.
 
-**Wie hoch ist die Auflösung des Wiedergabebildschirms?**
+**Wie hoch ist die Auflösung der verwendeten Bildschirme?**
 
 Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.
 
@@ -443,5 +433,4 @@ Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. 
 Folgende Überlegungen gehen in die Weiterentwicklung des System-Checks ein:
 
 * Das IQB hat inzwischen weitere Erfahrungen bei der Ermittlung der technischen Kapazität einer Testcenter-Installation gesammelt. Dies wird in den Test der Netzwerkanbindung einfließen, damit die Ergebnisse aussagekräftiger werden. Es geht vor allem um den erwartbaren Speed.
-* Im Management einer Testvorbereitung ist es wichtig zu wissen, ob alle Schulen den System-Check absolviert haben. Im Moment ist die Durchführung eines System-Checks nicht an eine Testgruppe gebunden und man muss manuell die Ergebnisse den Schulen zuordnen. Besser wäre es, wenn die Schulen einen vorbereiteten Login benutzen, bevor sie den Test durchführen.
 * Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also möglich sein, mehrere Units einzubinden und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.
