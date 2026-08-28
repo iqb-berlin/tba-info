@@ -10,7 +10,7 @@ format:
         href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters
 ---
 
-Mit Hilfe der beiden Dateien **Testtaker-XML** und **Booklet-XML** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die alle Studienverantwortlichen im Vorfeld betrachten sollten.
+Mit Hilfe der beiden Dateien **Testtaker-XML** und **Booklet-XML** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die betrachtet werden sollten.
 
 ::: {.callout-tip}
 Detaillierte Informationen zu den beiden XML-Dateien sind dem Kapitel: **Testinhalte** zu entnehmen.
@@ -20,11 +20,11 @@ Detaillierte Informationen zu den beiden XML-Dateien sind dem Kapitel: **Testinh
 
 ## Adaptives Testen
 
-Sollen Aufgaben in Abhängigkeit der gegebenen Antworten angezeigt werden, muss dies stellenweise in der Testtaker-XML konfiguriert werden. Mehr dazu ist in [diesem](../adaptive/index.qmd) Kapitel zu finden.
+Die Einrichtung eines adaptiven Tests erfolgt hauptsächlich in der Booklet-XML. In der Testtaker-XML besteht die Möglichkeit einem Login eine Bedingung zur Anzeige bestimmter Aufgaben mitzugeben. Die Bedingung wird dann nicht mehr im Testheftverlauf gesetzt, sondern steht bereits nach der Anmeldung fest. Im Testheft wird dann nur nach dieser Bedingung verzweigt. Mehr dazu ist in [diesem](../adaptive/index.qmd) Kapitel zu finden.
 
 ## Aufteilung der Zugänge
 
-Die Zugangsdaten können Gruppen zugeordnet werden. Alle gegebenen Antworten werden dann abhängig von der Gruppe gespeichert, sprich der Datensatz wird mit dem Namen der jeweiligen Gruppe im Testcenter abgespeichert. Im Vorfeld sollten sich die Studienverantwortlichen gut überlegen, wie die Zugangsdaten gruppiert werden sollen. So wird eine schnelle Zuordnung der Testpersonen bei der Auswertung erreicht.
+Die Zugangsdaten können Gruppen zugeordnet werden. Alle Antworten werden dann abhängig von der Gruppe gespeichert. Der Datensatz wird dann mit dem Namen der jeweiligen Gruppe im Testcenter abgespeichert. Im Vorfeld sollten die Gruppierung der Zugangsdaten gut durchdacht sein. So wird eine schnelle Zuordnung der Testpersonen bei der Auswertung erreicht.
 
 ## Zeitliche Beschränkungen der Zugänge
 
@@ -65,7 +65,7 @@ Die beiden Testpersonen 1 und 2 können sich nur bis zum 01.03.2024 19:30Uhr anm
 
 ## Textersetzungen
 
-Bestimmte Texte in der Anwendung und während des Studienlaufs können individuell angepasst werden. Im Vorfeld können Überlegungen stattfinden, an welchen Stellen die Standardtexte durch individuelle Texte ersetzt werden sollen.
+Bestimmte Texte in der Anwendung und während des Studienlaufs können individuell angepasst werden. Es wird dann auch von Custom-Text gesprochen. Im Vorfeld können Überlegungen stattfinden, an welchen Stellen die Standardtexte durch individuelle Texte ersetzt werden sollen.
 
 ::: {.callout-tip}
 Texte werden mit Hilfe bestimmter Attribute und Daten in der Testtaker-XML geändert. Hierfür gibt es eine spezielle [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) mit möglichen Werten, die im Element: `<CustomText>` dem Attribut: `key` hinzugefügt werden können. Werden Texte nicht ersetzt, erhalten sie einen Standardtext. Welcher Text das ist, ist ebenfalls der Liste zu entnehmen.
@@ -117,11 +117,11 @@ Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attrib
 
 ## Adaptives Testen
 
-Sollen Aufgaben in Abhängigkeit der gegebenen Antworten angezeigt werden, muss dies stellenweise in der Booklet-XML konfiguriert werden. Mehr dazu ist dem Kapitel: **Adaptives Testen** zu entnehmen.
+Das adaptive Testen wird hauptsächlich in der Booklet-XML konfiguriert. Hier werden mit Hilfe einer definierten Struktur Bedingungen erstellt, in deren Abhängigkeit entsprechende Aufgaben angezeigt werden.Es stehen weitere Konfigurationsmöglichkeiten in der Testtaker-XML zu Verfügung, die oben beschrieben sind.  Mehr dazu ist dem Kapitel: **Adaptives Testen** zu entnehmen.
 
 ## Anzeige Aufgaben-, Testheftbezeichner
 
-Das in der Booklet-XML festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird mit Hilfe des Wertes: `unit_screenheader`und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe angezeigt.
+Das in der Booklet-XML festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird mit Hilfe des Wertes: `unit_screenheader` und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe angezeigt.
 
 ![Bild 3: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menü](TC_UnitTitle_NaviMenu.png)
 
@@ -207,7 +207,7 @@ Mit Hilfe der beiden Werte: `force_response_complete` und `force_presentation_co
 
 ## Blockbeschränkungen
 
-In der Booklet-XML können Aufgaben so genannten Testlets (Block) zugewiesen werden. Für einen Block können Beschränkungen festgelegt werden. Wird im Testverlauf der Block erreicht, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.
+In der Booklet-XML können Aufgaben so genannten Testlets (Blöcken) zugewiesen werden. Für einen Block können Beschränkungen festgelegt werden. Wird im Testverlauf der Block erreicht, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.
 
 Folgende Beschränkungen stehen zur Verfügung:
 
@@ -257,7 +257,7 @@ In der Testheft-Konfiguration ist `force_presentation_complete` und `force_respo
 
 ## Strukturierung Testhefte
 
-Hier kann keine generelle Empfehlung erfolgen, weil es in hohem Maß vom Umfang einer Studie und auch von den Erwartungen an eine Studie abhängt. Im Vorfeld sollten sich die Verantwortlichen eine konkrete Vorstellung davon machen, wie ihr Testheft aussehen soll. Nachfolgend ein paar gedanklichen Anregungen zur Gestaltung eines Testheftes.
+Wie in den oberen Beispielen zu sehen ist, können Testhefte individuell strukturiert werden. An dieser Stelle kann keine generelle Empfehlung gegeben werden, wie ein Testheft auszusehen hat, aber es können ein paar kleinere Denkansätze vorgegeben werden..
 
 * Soll bspw. in einer Studie nur eine bestimmte Zeit zur Aufgabenbearbeitung gegeben werden, müssen die entsprechenden Aufgaben einem Block zugeordnet werden. Dieser Block erhält dann eine Zeitbeschränkung. 
 
@@ -265,7 +265,7 @@ Hier kann keine generelle Empfehlung erfolgen, weil es in hohem Maß vom Umfang 
 
 * Soll ein Gruppenmonitor zur Steuerung einer Studie zum Einsatz kommen, sollten Blöcke angelegt werden. Mit Hilfe des Gruppenmonitors kann die Testleitung die Testpersonen dann direkt zu einzelnen Blöcken leiten.
 
-Das soll an dieser Stelle erst einmal ausreichend sein. Es gäbe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte Struktur der Testhefte erfordern würden.
+Es gäbe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte Struktur der Testhefte erfordern würden.
 
 ## Test beenden
 
