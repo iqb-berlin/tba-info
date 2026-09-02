@@ -1232,7 +1232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#handhabung-der-logins" id="toc-handhabung-der-logins" class="nav-link active" data-scroll-target="#handhabung-der-logins">Handhabung der Logins</a></li>
-  <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
+  <li><a href="#aufbau" id="toc-aufbau" class="nav-link" data-scroll-target="#aufbau">Aufbau</a></li>
   <li><a href="#login-modus" id="toc-login-modus" class="nav-link" data-scroll-target="#login-modus">Login-Modus</a>
   <ul class="collapse">
   <li><a href="#testperson-run-hot-return-run-hot-restart" id="toc-testperson-run-hot-return-run-hot-restart" class="nav-link" data-scroll-target="#testperson-run-hot-return-run-hot-restart">Testperson: <code>run-hot-return</code>, <code>run-hot-restart</code></a></li>
@@ -1251,7 +1251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adaptives-testen" id="toc-adaptives-testen" class="nav-link" data-scroll-target="#adaptives-testen">Adaptives Testen</a></li>
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd"><i class="bi bi-link-45deg"></i>XML-Schema für Testtakers</a></li><li><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html"><i class="bi bi-link-45deg"></i>Mögliche Textersetzungen</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-specifications/testcenter-testtaker-xml"><i class="bi bi-link-45deg"></i>XML-Schema für Testtaker</a></li><li><a href="https://iqb-specifications.github.io/testcenter-testtaker-xml"><i class="bi bi-link-45deg"></i>Dokumentation der Testtaker-XML</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1316,26 +1316,102 @@ Tipp
 <li>Wenn Sie Logins erneut hochladen, die Sie vorher gelöscht hatten und die bereits benutzt wurden, dann sind die alten Antworten ggf. wieder verfügbar<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Sollten Sie für diese Logins den Testmodus geändert haben, riskieren Sie den Verlust von Antwortdaten.</li>
 </ul>
 </section>
-<section id="grundstruktur" class="level1">
-<h1>Grundstruktur</h1>
-<p>Das Beispiel zeigt eine einfache Version einer Testtaker-XML.</p>
+<section id="aufbau" class="level1">
+<h1>Aufbau</h1>
+<p>Das Beispiel zeigt Testtaker-XML.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>testtaker1.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="testtaker1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="testtaker1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>            <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>/&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span> <span class="ot">id=</span><span class="st">"TestTakerGroup_d4c9t"</span> <span class="ot">label=</span><span class="st">"Login-Gruppe A"</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"t9f5y"</span> <span class="ot">pw=</span><span class="st">"v6e5"</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"y3u6u"</span> <span class="ot">pw=</span><span class="st">"y4v5"</span>&gt;</span>
-<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;booklet1&lt;/<span class="kw">Booklet</span>&gt;</span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
-<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>                  <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://w3id.org/iqb/spec/testcenter-testtaker-xml/18.0"</span>&gt;</span>
+<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span> <span class="ot">key=</span><span class="st">"booklet_codeToEnterTitle"</span>&gt;Bitte Code eingeben&lt;/<span class="kw">CustomText</span>&gt;</span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">CustomTexts</span>&gt;</span>
+<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-13" class="code-annotation-target"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Profiles</span>&gt;</span>
+<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">GroupMonitor</span>&gt;</span>
+<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span></span>
+<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a>        <span class="ot">id=</span><span class="st">"small"</span></span>
+<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>        <span class="ot">label=</span><span class="st">"Superklein"</span></span>
+<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a>        <span class="ot">blockColumn=</span><span class="st">"hide"</span></span>
+<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a>        <span class="ot">unitColumn=</span><span class="st">"hide"</span></span>
+<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>        <span class="ot">groupColumn=</span><span class="st">"hide"</span></span>
+<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a>        <span class="ot">bookletColumn=</span><span class="st">"hide"</span></span>
+<span id="annotated-cell-1-22"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>        <span class="ot">bookletStatesColumns=</span><span class="st">""</span></span>
+<span id="annotated-cell-1-23"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>        <span class="ot">view=</span><span class="st">"small"</span></span>
+<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a>        <span class="ot">filterLocked=</span><span class="st">"yes"</span></span>
+<span id="annotated-cell-1-25"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a>        <span class="ot">filterPending=</span><span class="st">"yes"</span></span>
+<span id="annotated-cell-1-26"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a>      &gt;</span>
+<span id="annotated-cell-1-27"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Filter</span> <span class="ot">label=</span><span class="st">"Reduced Booklet"</span> <span class="ot">type=</span><span class="st">"equal"</span> <span class="ot">field=</span><span class="st">"bookletLabel"</span> <span class="ot">value=</span><span class="st">"Reduced Booklet"</span> /&gt;</span>
+<span id="annotated-cell-1-28"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Profile</span>&gt;</span>
+<span id="annotated-cell-1-29"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span></span>
+<span id="annotated-cell-1-30"><a href="#annotated-cell-1-30" aria-hidden="true" tabindex="-1"></a>        <span class="ot">id=</span><span class="st">"all"</span></span>
+<span id="annotated-cell-1-31"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a>        <span class="ot">label=</span><span class="st">"Alles zeigen"</span></span>
+<span id="annotated-cell-1-32"><a href="#annotated-cell-1-32" aria-hidden="true" tabindex="-1"></a>        <span class="ot">blockColumn=</span><span class="st">"show"</span></span>
+<span id="annotated-cell-1-33"><a href="#annotated-cell-1-33" aria-hidden="true" tabindex="-1"></a>        <span class="ot">unitColumn=</span><span class="st">"show"</span></span>
+<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a>        <span class="ot">groupColumn=</span><span class="st">"show"</span></span>
+<span id="annotated-cell-1-35"><a href="#annotated-cell-1-35" aria-hidden="true" tabindex="-1"></a>        <span class="ot">bookletColumn=</span><span class="st">"show"</span></span>
+<span id="annotated-cell-1-36"><a href="#annotated-cell-1-36" aria-hidden="true" tabindex="-1"></a>        <span class="ot">bookletStatesColumns=</span><span class="st">"level bonus"</span></span>
+<span id="annotated-cell-1-37"><a href="#annotated-cell-1-37" aria-hidden="true" tabindex="-1"></a>        <span class="ot">view=</span><span class="st">"full"</span></span>
+<span id="annotated-cell-1-38"><a href="#annotated-cell-1-38" aria-hidden="true" tabindex="-1"></a>        <span class="ot">filterLocked=</span><span class="st">"no"</span></span>
+<span id="annotated-cell-1-39"><a href="#annotated-cell-1-39" aria-hidden="true" tabindex="-1"></a>        <span class="ot">filterPending=</span><span class="st">"no"</span></span>
+<span id="annotated-cell-1-40"><a href="#annotated-cell-1-40" aria-hidden="true" tabindex="-1"></a>        <span class="ot">autoselectNextBlock=</span><span class="st">"no"</span></span>
+<span id="annotated-cell-1-41"><a href="#annotated-cell-1-41" aria-hidden="true" tabindex="-1"></a>      &gt;</span>
+<span id="annotated-cell-1-42"><a href="#annotated-cell-1-42" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">Profile</span>&gt;</span>
+<span id="annotated-cell-1-43"><a href="#annotated-cell-1-43" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">GroupMonitor</span>&gt;</span>
+<span id="annotated-cell-1-44"><a href="#annotated-cell-1-44" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Profiles</span>&gt;</span>
+<span id="annotated-cell-1-45"><a href="#annotated-cell-1-45" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-46" class="code-annotation-target"><a href="#annotated-cell-1-46" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Group</span> <span class="ot">id=</span><span class="st">"sample_group"</span> <span class="ot">validFrom=</span><span class="st">"1/3/2020 10:00"</span> <span class="ot">label=</span><span class="st">"Primary Sample Group"</span>&gt;</span>
+<span id="annotated-cell-1-47"><a href="#annotated-cell-1-47" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-48" class="code-annotation-target"><a href="#annotated-cell-1-48" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">AssetAssignments</span>&gt;</span>
+<span id="annotated-cell-1-49"><a href="#annotated-cell-1-49" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Asset</span> <span class="ot">slot=</span><span class="st">"logo"</span>&gt;bildLogo-1.png&lt;/<span class="kw">Asset</span>&gt;</span>
+<span id="annotated-cell-1-50"><a href="#annotated-cell-1-50" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Asset</span> <span class="ot">slot=</span><span class="st">"codeInputIllustration"</span>&gt;bildCode.jpg&lt;/<span class="kw">Asset</span>&gt;</span>
+<span id="annotated-cell-1-51"><a href="#annotated-cell-1-51" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">AssetAssignments</span>&gt;</span>
+<span id="annotated-cell-1-52"><a href="#annotated-cell-1-52" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-1-53" class="code-annotation-target"><a href="#annotated-cell-1-53" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"test"</span> <span class="ot">pw=</span><span class="st">"user123"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-1-54" class="code-annotation-target"><a href="#annotated-cell-1-54" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="annotated-cell-1-55"><a href="#annotated-cell-1-55" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">AssetAssignments</span>&gt;</span>
+<span id="annotated-cell-1-56"><a href="#annotated-cell-1-56" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Asset</span> <span class="ot">slot=</span><span class="st">"logo"</span>&gt;bildLogo-2.png&lt;/<span class="kw">Asset</span>&gt;</span>
+<span id="annotated-cell-1-57"><a href="#annotated-cell-1-57" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">AssetAssignments</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="8" onclick="event.preventDefault();">8</a><span id="annotated-cell-1-58" class="code-annotation-target"><a href="#annotated-cell-1-58" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">ViewSettings</span>&gt;</span>
+<span id="annotated-cell-1-59"><a href="#annotated-cell-1-59" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">theme</span>&gt;Primar&lt;/<span class="kw">theme</span>&gt;</span>
+<span id="annotated-cell-1-60"><a href="#annotated-cell-1-60" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">codeInput</span>&gt;</span>
+<span id="annotated-cell-1-61"><a href="#annotated-cell-1-61" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">type</span>&gt;text-field&lt;/<span class="kw">type</span>&gt;</span>
+<span id="annotated-cell-1-62"><a href="#annotated-cell-1-62" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">length</span>&gt;3&lt;/<span class="kw">length</span>&gt;</span>
+<span id="annotated-cell-1-63"><a href="#annotated-cell-1-63" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">codeInput</span>&gt;</span>
+<span id="annotated-cell-1-64"><a href="#annotated-cell-1-64" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">monitorBookletVisibility</span>&gt;hidden&lt;/<span class="kw">monitorBookletVisibility</span>&gt;</span>
+<span id="annotated-cell-1-65"><a href="#annotated-cell-1-65" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">ViewSettings</span>&gt;</span>
+<span id="annotated-cell-1-66"><a href="#annotated-cell-1-66" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="annotated-cell-1-67"><a href="#annotated-cell-1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-68"><a href="#annotated-cell-1-68" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"run-hot-return"</span> <span class="ot">name=</span><span class="st">"test2"</span> <span class="ot">pw=</span><span class="st">"user123"</span>&gt;</span>
+<span id="annotated-cell-1-69"><a href="#annotated-cell-1-69" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Booklet</span>&gt;BOOKLET.SAMPLE-2&lt;/<span class="kw">Booklet</span>&gt;</span>
+<span id="annotated-cell-1-70"><a href="#annotated-cell-1-70" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">ViewSettings</span>&gt;</span>
+<span id="annotated-cell-1-71"><a href="#annotated-cell-1-71" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">theme</span>&gt;Sekundar&lt;/<span class="kw">theme</span>&gt;</span>
+<span id="annotated-cell-1-72"><a href="#annotated-cell-1-72" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">codeInput</span>&gt;</span>
+<span id="annotated-cell-1-73"><a href="#annotated-cell-1-73" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">type</span>&gt;keypad-numbers&lt;/<span class="kw">type</span>&gt;</span>
+<span id="annotated-cell-1-74"><a href="#annotated-cell-1-74" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">length</span>&gt;3&lt;/<span class="kw">length</span>&gt;</span>
+<span id="annotated-cell-1-75"><a href="#annotated-cell-1-75" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">codeInput</span>&gt;</span>
+<span id="annotated-cell-1-76"><a href="#annotated-cell-1-76" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">ViewSettings</span>&gt;</span>
+<span id="annotated-cell-1-77"><a href="#annotated-cell-1-77" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt;</span>
+<span id="annotated-cell-1-78"><a href="#annotated-cell-1-78" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-1-79"><a href="#annotated-cell-1-79" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"monitor-group"</span> <span class="ot">name=</span><span class="st">"test-group-monitor"</span> <span class="ot">pw=</span><span class="st">"user123"</span>&gt; </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="9" onclick="event.preventDefault();">9</a><span id="annotated-cell-1-80" class="code-annotation-target"><a href="#annotated-cell-1-80" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span> <span class="ot">id=</span><span class="st">"all"</span>/&gt;</span>
+<span id="annotated-cell-1-81"><a href="#annotated-cell-1-81" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">Profile</span> <span class="ot">id=</span><span class="st">"small"</span>/&gt;</span>
+<span id="annotated-cell-1-82"><a href="#annotated-cell-1-82" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">ViewSettings</span>&gt;</span>
+<span id="annotated-cell-1-83"><a href="#annotated-cell-1-83" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">monitorBookletVisibility</span>&gt;hidden&lt;/<span class="kw">monitorBookletVisibility</span>&gt;</span>
+<span id="annotated-cell-1-84"><a href="#annotated-cell-1-84" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">ViewSettings</span>&gt;</span>
+<span id="annotated-cell-1-85"><a href="#annotated-cell-1-85" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Login</span>&gt; #</span>
+<span id="annotated-cell-1-86"><a href="#annotated-cell-1-86" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Login</span> <span class="ot">mode=</span><span class="st">"sys-check-login"</span> <span class="ot">name=</span><span class="st">"sys-check"</span> /&gt;</span>
+<span id="annotated-cell-1-87"><a href="#annotated-cell-1-87" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Group</span>&gt;</span>
+<span id="annotated-cell-1-88"><a href="#annotated-cell-1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-89"><a href="#annotated-cell-1-89" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Testtakers</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
@@ -1344,32 +1420,48 @@ Tipp
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="2"><code>&lt;Metadata&gt;</code>: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein <code>Description</code>-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet – sind also nur zur Verbesserung des Lesens dieser XML gedacht.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="5,6,7" data-code-annotation="2"><code>&lt;Metadata&gt;</code>: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein <code>Description</code>-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet – sind also nur zur Verbesserung des Lesens dieser XML gedacht.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="3"><code>&lt;Group&gt;</code>: Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die <code>id</code> muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Das <code>label</code> wird z. B. in der Anzeige des Studienfortschritts verwendet.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="13,44" data-code-annotation="3"><code>&lt;Profiles&gt;</code>: Hier können Profile für den Gruppenmonitor definiert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="4"><code>&lt;Login&gt;</code>: Über das Attribut <code>mode</code> wird eine Vielzahl von Funktionen des Testcenters gesteuert (<a href="#login-modus">s. unten</a>). Benutzername <code>name</code> und Kennwort <code>pw</code> stehen für die gängigste Anmeldemethode (<a href="#varianten-des-anmeldeverfahrens">s. unten</a>).</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="46,87" data-code-annotation="4"><code>&lt;Group&gt;</code>: Innerhalb einer Gruppe werden Logins definiert. Es können mehrere Gruppen angelegt werden. Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die <code>id</code> muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Wird ein Gruppenmonitor Login in einer Gruppe angelegt, kann dieser alle Logins in dieser Gruppe anzeigen und steuern. Alle Antworten und Logs eines Logins werden unter dem Gruppennamen (<code>label</code>) im Arbeitsbereich unter Antworten gespeichert.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="7" data-code-annotation="5"><code>&lt;Booklet&gt;</code>: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="48,51" data-code-annotation="5"><code>&lt;AssetAssignments&gt;</code>: Hier können Assets (z. B. Bilder) für die Logins der Gruppe zugewiesen werden. Die Assets werden über ihren Slot referenziert und müssen im Adminbereich gespeichert sein. AssetAssignments können auch noch einmal einem Login zugewiesen werden. Die AssetAssignments innerhalb eines Logins überschreiben dann die AssetAssignments der Gruppe.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="53,66" data-code-annotation="6"><code>&lt;Login&gt;</code>: Über das Attribut <code>mode</code> wird eine Vielzahl von Funktionen des Testcenters gesteuert (<a href="#login-modus">s. unten</a>). Benutzername <code>name</code> und Kennwort <code>pw</code> stehen für die gängigste Anmeldemethode (<a href="#varianten-des-anmeldeverfahrens">s. unten</a>).</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="54" data-code-annotation="7"><code>&lt;Booklet&gt;</code>: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="58,65" data-code-annotation="8"><code>&lt;ViewSettings&gt;</code>: Hier können Einstellungen für die Ansicht der Logins innerhalb einer Gruppe vorgenommen werden. Welche Einstellungen möglich sind, ist der automatisierten Dokumentation zu entnehmen.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="9">9</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="80,81" data-code-annotation="9"><code>&lt;Profile&gt;</code>: Hier können Profile für den Gruppenmonitor Login innerhalb der Gruppe referenziert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.</span>
 </dd>
 </dl>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Tipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Eine automatisch generierte Übersicht über die Elemente einer Testtaker-XML ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/testtaker.html">hier</a> zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.</p>
+<p>Alle hier beschriebenen Elemente sind auch in einer <a href="https://iqb-specifications.github.io/testcenter-testtaker-xml">automatisierten Dokumentation</a> zu finden.</p>
 </div>
 </div>
 </section>
@@ -1548,6 +1640,19 @@ Wichtig
 <li>Bezeichnung der Studie ändern: Ist es eine “Evaluation” oder eine “Lernausgangslage”?</li>
 </ul>
 <p>Eine vollständige Liste mit den verfügbaren CustomTexts <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">finden Sie hier</a>. Achten Sie auf den Präfix des Keys: Damit wird der Verwendungszusammenhang angezeigt.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Alle hier beschriebenen key-value Paare sind auch in der <a href="https://iqb-specifications.github.io/testcenter-testtaker-xml/#CustomTexts">automatisierten Dokumentation</a> zu finden.</p>
+</div>
+</div>
 
 
 </section>
