@@ -6,11 +6,9 @@ format:
     code-overflow: wrap
     other-links:
       - text: XML-Schema für Booklet
-        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd
-      - text: Mögliche Textersetzungen
-        href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html
-      - text: Werte Booklet-Konfiguration
-        href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters
+        href: https://github.com/iqb-specifications/testcenter-booklet-xml
+      - text: Dokumentation der Booklet-XML
+        href: https://iqb-specifications.github.io/testcenter-booklet-xml
 ---
 
 ::: {.callout-tip}
@@ -26,31 +24,73 @@ flowchart LR
   style D fill:#a0e3f3
 ```
 
-# Grundstruktur
+# Aufbau
 
-Das Beispiel zeigt eine minimale Version einer Booklet-XML.
+::: {.callout-tip}
+Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-booklet-xml) zu finden.
+:::
+
+Beispiel einer Booklet-XML (ohne adaptives Testen):
 
 ```{.xml filename="booklet1.xml"}
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"> # <1>
+         xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-booklet-xml/18.0"> # <1>
   <Metadata> # <2>
-    <Id>booklet1</Id> # <2>
-    <Label>Testheft 1</Label> # <2>
+    <Id>BOOKLET.SAMPLE-1</Id> # <2>
+    <Label>Sample booklet</Label>  # <2>
+    <Description>This a sample booklet.</Description> # <2>
   </Metadata> # <2>
-  <Units>
-    <Unit id="M1_JK05" label="Schriftliche Verfahren Plus 1" labelshort="1"/> # <3>
-    <Unit id="M2_AK18" label="Längen - 15cm" labelshort="2"/> # <3>
-    <Unit id="M2_IP23" label="Messbecher_3/4 Liter" labelshort="3"/> # <3>
-  </Units>
+
+  <BookletConfig> # <3>
+    <Config key="unit_menu">FULL</Config> # <3>
+    <Config key="unit_navibuttons">LABEL</Config> # <3>
+    <Config key="force_response_complete">ON</Config> # <3>
+    <Config key="force_presentation_complete">ON</Config> # <3>
+  </BookletConfig> # <3>
+
+  <States> # <4>
+  </States> # <4>
+
+  <Units> # <5>
+    <Unit id="unit-1" label="first unit"/>
+    <Testlet id="tslt-1" label="First block">
+        <Restrictions>
+            <CodeToEnter code="sample">Please insert the word `sample`.</CodeToEnter>
+            <TimeMax minutes="10" />
+            <DenyNavigationOnIncomplete response="ALWAYS" presentation="ALWAYS"/>
+        </Restrictions>
+        <Unit id="unit-2" label="second unit"/>
+        <Unit id="unit-3" label="third unit"/>    
+    </Testlet>
+    <Unit id="unit-4" label="Introductions"/>
+    <Testlet id="tslt-2" label="Second block">
+        <Restrictions>
+            <LockAfterLeaving confirm="true" scope="testlet" />
+        </Restrictions>
+        <Unit id="unit-5" label="fifth unit"/>
+        <Unit id="unit-6" label="sixth unit"/>    
+    </Testlet>
+    <Unit id="unit-4" label="Introductions" alias="intro-u2"/>
+    <Testlet id="tslt-3" label="Third block">
+        <Unit id="unit-7" label="seventh unit"/>
+        <Unit id="unit-8" label="eighth unit"/>    
+    </Testlet>
+    <Unit id="unit-9" label="End"/>
+  </Units> # <5>
 </Booklet>
+
 ```
 1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
 2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.
-3. Units: Die Liste der Units, die präsentiert werden sollen. Die `id` verweist auf eine im Arbeitsbereich vorhandene Unit. Das `label` wird ggf. als Überschrift verwendet. Das `labelshort` wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.
+3. BookletConfig: Hier werden die Einstellungen für das Booklet vorgenommen. Die Liste der möglichen Einstellungen ist [hier]() zu finden.
+4. States: Hier können bedingte Zustände definiert werden (adaptives Testen), die entscheiden, welche Testlets angezeigt werden. Mehr dazu im Kapitel [Adaptives Testen](../adaptive/index.qmd). 
+5. Dient der Definition von Units und Testlets.<br>
+ **Unit:** Unit's werden über ihre `id` referenziert. Die entsprechende Unit muss dafür im Arbeitsbereich des Testcenters vorhanden sein. Das `label` einer Unit kann ggf. als Überschrift verwendet werden. <br>
+ **Testlet**: Ein Testlet ist ein Block von Units, der mit Restriktionen versehen werden kann. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen. 
 
 ::: {.callout-note}
-Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html) zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.
+Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html) zu finden.
 :::
 
 # Booklet-Einstellungen (BookletConfig)
@@ -79,10 +119,6 @@ Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine 
 ```
 1. Das BookletConfig-Element muss unmittelbar nach den Metadaten platziert werden.
 2. Jeder Konfigurationseintrag besteht aus einem `key` und dem inneren Teil des Elementes, dem Wert (`value`)
-
-::: {.callout-note}
-Die vollständige Liste der Booklet-Einstellungen [finden Sie hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters). Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.
-:::
 
 # Strukturierung in Blöcken (Testlet)
 
@@ -152,8 +188,6 @@ Wenn eine Unit mehrfach vorkommt, aber in verschiedenen Booklets, kann das Testc
 # Adaptives Testen
 
 In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier wird festgelegt unter welchen Bedingungen bestimmte Testhefte und Aufgaben angezeigt werden. Wie die Konfiguration vorzunehmen ist, ist  [diesem](../adaptive/index.qmd) Kapitel zu entnehmen. 
-
-Eine automatisch generierte Übersicht über die Elemente, Attribute und Werte für das adaptive Testen ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/adaptive-config.html) zu finden.
 
 # Angepasste Texte: CustomTexts
 
