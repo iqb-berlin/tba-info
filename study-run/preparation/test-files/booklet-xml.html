@@ -1231,14 +1231,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#grundstruktur" id="toc-grundstruktur" class="nav-link active" data-scroll-target="#grundstruktur">Grundstruktur</a></li>
+  <li><a href="#aufbau" id="toc-aufbau" class="nav-link active" data-scroll-target="#aufbau">Aufbau</a></li>
   <li><a href="#booklet-einstellungen-bookletconfig" id="toc-booklet-einstellungen-bookletconfig" class="nav-link" data-scroll-target="#booklet-einstellungen-bookletconfig">Booklet-Einstellungen (BookletConfig)</a></li>
   <li><a href="#strukturierung-in-blöcken-testlet" id="toc-strukturierung-in-blöcken-testlet" class="nav-link" data-scroll-target="#strukturierung-in-blöcken-testlet">Strukturierung in Blöcken (Testlet)</a></li>
   <li><a href="#unit-alias" id="toc-unit-alias" class="nav-link" data-scroll-target="#unit-alias">Unit-Alias</a></li>
   <li><a href="#adaptives-testen" id="toc-adaptives-testen" class="nav-link" data-scroll-target="#adaptives-testen">Adaptives Testen</a></li>
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Booklet.xsd"><i class="bi bi-link-45deg"></i>XML-Schema für Booklet</a></li><li><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html"><i class="bi bi-link-45deg"></i>Mögliche Textersetzungen</a></li><li><a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters"><i class="bi bi-link-45deg"></i>Werte Booklet-Konfiguration</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-specifications/testcenter-booklet-xml"><i class="bi bi-link-45deg"></i>XML-Schema für Booklet</a></li><li><a href="https://iqb-specifications.github.io/testcenter-booklet-xml"><i class="bi bi-link-45deg"></i>Dokumentation der Booklet-XML</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1292,26 +1292,72 @@ Tipp
 </div>
 </div>
 </div>
-<section id="grundstruktur" class="level1">
-<h1>Grundstruktur</h1>
-<p>Das Beispiel zeigt eine minimale Version einer Booklet-XML.</p>
+<section id="aufbau" class="level1">
+<h1>Aufbau</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Alle hier beschriebenen Elemente sind auch in einer <a href="https://iqb-specifications.github.io/testcenter-booklet-xml">automatisierten Dokumentation</a> zu finden.</p>
+</div>
+</div>
+<p>Beispiel einer Booklet-XML (ohne adaptives Testen):</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>booklet1.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="booklet1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="booklet1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://w3id.org/iqb/spec/testcenter-booklet-xml/18.0"</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;booklet1&lt;/<span class="kw">Id</span>&gt;</span>
-<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Testheft 1&lt;/<span class="kw">Label</span>&gt;</span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
-<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Units</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-9" class="code-annotation-target"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"M1_JK05"</span> <span class="ot">label=</span><span class="st">"Schriftliche Verfahren Plus 1"</span> <span class="ot">labelshort=</span><span class="st">"1"</span>/&gt;</span>
-<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"M2_AK18"</span> <span class="ot">label=</span><span class="st">"Längen - 15cm"</span> <span class="ot">labelshort=</span><span class="st">"2"</span>/&gt;</span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"M2_IP23"</span> <span class="ot">label=</span><span class="st">"Messbecher_3/4 Liter"</span> <span class="ot">labelshort=</span><span class="st">"3"</span>/&gt;</span>
-<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Units</span>&gt;</span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Id</span>&gt;BOOKLET.SAMPLE-1&lt;/<span class="kw">Id</span>&gt;</span>
+<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Label</span>&gt;Sample booklet&lt;/<span class="kw">Label</span>&gt;</span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Description</span>&gt;This a sample booklet.&lt;/<span class="kw">Description</span>&gt;</span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Metadata</span>&gt;</span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-10" class="code-annotation-target"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">BookletConfig</span>&gt;</span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"unit_menu"</span>&gt;FULL&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"unit_navibuttons"</span>&gt;LABEL&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"force_response_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">key=</span><span class="st">"force_presentation_complete"</span>&gt;ON&lt;/<span class="kw">Config</span>&gt;</span>
+<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">BookletConfig</span>&gt;</span>
+<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-17" class="code-annotation-target"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">States</span>&gt;</span>
+<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">States</span>&gt;</span>
+<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-20" class="code-annotation-target"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Units</span>&gt;</span>
+<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-1"</span> <span class="ot">label=</span><span class="st">"first unit"</span>/&gt;</span>
+<span id="annotated-cell-1-22"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"tslt-1"</span> <span class="ot">label=</span><span class="st">"First block"</span>&gt;</span>
+<span id="annotated-cell-1-23"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Restrictions</span>&gt;</span>
+<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">CodeToEnter</span> <span class="ot">code=</span><span class="st">"sample"</span>&gt;Please insert the word `sample`.&lt;/<span class="kw">CodeToEnter</span>&gt;</span>
+<span id="annotated-cell-1-25"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">TimeMax</span> <span class="ot">minutes=</span><span class="st">"10"</span> /&gt;</span>
+<span id="annotated-cell-1-26"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">DenyNavigationOnIncomplete</span> <span class="ot">response=</span><span class="st">"ALWAYS"</span> <span class="ot">presentation=</span><span class="st">"ALWAYS"</span>/&gt;</span>
+<span id="annotated-cell-1-27"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Restrictions</span>&gt;</span>
+<span id="annotated-cell-1-28"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-2"</span> <span class="ot">label=</span><span class="st">"second unit"</span>/&gt;</span>
+<span id="annotated-cell-1-29"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-3"</span> <span class="ot">label=</span><span class="st">"third unit"</span>/&gt;    </span>
+<span id="annotated-cell-1-30"><a href="#annotated-cell-1-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
+<span id="annotated-cell-1-31"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-4"</span> <span class="ot">label=</span><span class="st">"Introductions"</span>/&gt;</span>
+<span id="annotated-cell-1-32"><a href="#annotated-cell-1-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"tslt-2"</span> <span class="ot">label=</span><span class="st">"Second block"</span>&gt;</span>
+<span id="annotated-cell-1-33"><a href="#annotated-cell-1-33" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Restrictions</span>&gt;</span>
+<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">LockAfterLeaving</span> <span class="ot">confirm=</span><span class="st">"true"</span> <span class="ot">scope=</span><span class="st">"testlet"</span> /&gt;</span>
+<span id="annotated-cell-1-35"><a href="#annotated-cell-1-35" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">Restrictions</span>&gt;</span>
+<span id="annotated-cell-1-36"><a href="#annotated-cell-1-36" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-5"</span> <span class="ot">label=</span><span class="st">"fifth unit"</span>/&gt;</span>
+<span id="annotated-cell-1-37"><a href="#annotated-cell-1-37" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-6"</span> <span class="ot">label=</span><span class="st">"sixth unit"</span>/&gt;    </span>
+<span id="annotated-cell-1-38"><a href="#annotated-cell-1-38" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
+<span id="annotated-cell-1-39"><a href="#annotated-cell-1-39" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-4"</span> <span class="ot">label=</span><span class="st">"Introductions"</span> <span class="ot">alias=</span><span class="st">"intro-u2"</span>/&gt;</span>
+<span id="annotated-cell-1-40"><a href="#annotated-cell-1-40" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Testlet</span> <span class="ot">id=</span><span class="st">"tslt-3"</span> <span class="ot">label=</span><span class="st">"Third block"</span>&gt;</span>
+<span id="annotated-cell-1-41"><a href="#annotated-cell-1-41" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-7"</span> <span class="ot">label=</span><span class="st">"seventh unit"</span>/&gt;</span>
+<span id="annotated-cell-1-42"><a href="#annotated-cell-1-42" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-8"</span> <span class="ot">label=</span><span class="st">"eighth unit"</span>/&gt;    </span>
+<span id="annotated-cell-1-43"><a href="#annotated-cell-1-43" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Testlet</span>&gt;</span>
+<span id="annotated-cell-1-44"><a href="#annotated-cell-1-44" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit-9"</span> <span class="ot">label=</span><span class="st">"End"</span>/&gt;</span>
+<span id="annotated-cell-1-45"><a href="#annotated-cell-1-45" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Units</span>&gt;</span>
+<span id="annotated-cell-1-46"><a href="#annotated-cell-1-46" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">Booklet</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
@@ -1320,11 +1366,19 @@ Tipp
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="4,5,6,7" data-code-annotation="2">Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="4,5,6,7,8" data-code-annotation="2">Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="9,10,11" data-code-annotation="3">Units: Die Liste der Units, die präsentiert werden sollen. Die <code>id</code> verweist auf eine im Arbeitsbereich vorhandene Unit. Das <code>label</code> wird ggf. als Überschrift verwendet. Das <code>labelshort</code> wird z. B. in der Navigationsleiste verwendet als Beschriftung für einen Button.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="10,11,12,13,14,15" data-code-annotation="3">BookletConfig: Hier werden die Einstellungen für das Booklet vorgenommen. Die Liste der möglichen Einstellungen ist <a href="">hier</a> zu finden.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="17,18" data-code-annotation="4">States: Hier können bedingte Zustände definiert werden (adaptives Testen), die entscheiden, welche Testlets angezeigt werden. Mehr dazu im Kapitel <a href="../../../study-run/preparation/adaptive/index.html">Adaptives Testen</a>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="20,45" data-code-annotation="5">Dient der Definition von Units und Testlets.<br> <strong>Unit:</strong> Unit’s werden über ihre <code>id</code> referenziert. Die entsprechende Unit muss dafür im Arbeitsbereich des Testcenters vorhanden sein. Das <code>label</code> einer Unit kann ggf. als Überschrift verwendet werden. <br> <strong>Testlet</strong>: Ein Testlet ist ein Block von Units, der mit Restriktionen versehen werden kann. Die <code>id</code> ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen.</span>
 </dd>
 </dl>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1337,7 +1391,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html">hier</a> zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.</p>
+<p>Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html">hier</a> zu finden.</p>
 </div>
 </div>
 </section>
@@ -1377,19 +1431,6 @@ Hinweis
 <span data-code-cell="annotated-cell-2" data-code-lines="9,10,11" data-code-annotation="2">Jeder Konfigurationseintrag besteht aus einem <code>key</code> und dem inneren Teil des Elementes, dem Wert (<code>value</code>)</span>
 </dd>
 </dl>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die vollständige Liste der Booklet-Einstellungen <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters">finden Sie hier</a>. Diese Liste ist nicht Bestandteil dieser Dokumentation, um nicht Irritationen durch mangelnde Aktualität zu riskieren. Die Liste wird automatisch erzeugt und ist verlässlich Teil der Programmierung.</p>
-</div>
-</div>
 </section>
 <section id="strukturierung-in-blöcken-testlet" class="level1">
 <h1>Strukturierung in Blöcken (Testlet)</h1>
@@ -1492,7 +1533,6 @@ Vorsicht
 <section id="adaptives-testen" class="level1">
 <h1>Adaptives Testen</h1>
 <p>In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier wird festgelegt unter welchen Bedingungen bestimmte Testhefte und Aufgaben angezeigt werden. Wie die Konfiguration vorzunehmen ist, ist <a href="../../../study-run/preparation/adaptive/index.html">diesem</a> Kapitel zu entnehmen.</p>
-<p>Eine automatisch generierte Übersicht über die Elemente, Attribute und Werte für das adaptive Testen ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/adaptive-config.html">hier</a> zu finden.</p>
 </section>
 <section id="angepasste-texte-customtexts" class="level1">
 <h1>Angepasste Texte: CustomTexts</h1>
