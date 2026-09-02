@@ -5,10 +5,10 @@ format:
   html:
     code-overflow: wrap
     other-links:
-      - text: XML-Schema für Testtakers
-        href: https://github.com/iqb-berlin/testcenter/blob/master/definitions/vo_Testtakers.xsd
-      - text: Mögliche Textersetzungen
-        href: https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html
+      - text: XML-Schema für Testtaker
+        href: https://github.com/iqb-specifications/testcenter-testtaker-xml
+      - text: Dokumentation der Testtaker-XML
+        href: https://iqb-specifications.github.io/testcenter-testtaker-xml
 ---
 
 ::: {.callout-tip}
@@ -34,33 +34,114 @@ Die Handhabung der Testtaker-XML zur Steuerung der Logins ist ein kritischer Pun
 * Die Benutzernamen der Logins müssen eindeutig sein für die gesamte Testcenter-Installation. Es kann also passieren, dass das Hochladen einer Testtaker-XML abgewiesen wird, weil in einem anderen Arbeitsbereich derselbe Benutzername definiert wurde. Nehmen Sie daher nicht zu kurze Benutzernamen oder stimmen Sie sich mit anderen Studien auf derselben Testcenter-Installation ab.
 * Wenn Sie Logins erneut hochladen, die Sie vorher gelöscht hatten und die bereits benutzt wurden, dann sind die alten Antworten ggf. wieder verfügbar[^2]. Sollten Sie für diese Logins den Testmodus geändert haben, riskieren Sie den Verlust von Antwortdaten.
 
-# Grundstruktur
+# Aufbau
 
-Das Beispiel zeigt eine einfache Version einer Testtaker-XML.
+Das Beispiel zeigt Testtaker-XML.
 
 ```{.xml filename="testtaker1.xml"}
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Testtakers.xsd"> # <1>
-  <Metadata/> # <2>
-  <Group id="TestTakerGroup_d4c9t" label="Login-Gruppe A"> # <3>
-    <Login mode="run-hot-return" name="t9f5y" pw="v6e5"> # <4>
-      <Booklet>booklet1</Booklet> # <5>
+                  xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-testtaker-xml/18.0"> # <1>
+
+  <Metadata> # <2>
+    <Description></Description> # <2>
+  </Metadata> # <2>
+
+  <CustomTexts>
+    <CustomText key="booklet_codeToEnterTitle">Bitte Code eingeben</CustomText>
+  </CustomTexts>
+
+  <Profiles> # <3>
+    <GroupMonitor>
+      <Profile
+        id="small"
+        label="Superklein"
+        blockColumn="hide"
+        unitColumn="hide"
+        groupColumn="hide"
+        bookletColumn="hide"
+        bookletStatesColumns=""
+        view="small"
+        filterLocked="yes"
+        filterPending="yes"
+      >
+        <Filter label="Reduced Booklet" type="equal" field="bookletLabel" value="Reduced Booklet" />
+      </Profile>
+      <Profile
+        id="all"
+        label="Alles zeigen"
+        blockColumn="show"
+        unitColumn="show"
+        groupColumn="show"
+        bookletColumn="show"
+        bookletStatesColumns="level bonus"
+        view="full"
+        filterLocked="no"
+        filterPending="no"
+        autoselectNextBlock="no"
+      >
+      </Profile>
+    </GroupMonitor>
+  </Profiles> # <3>
+
+  <Group id="sample_group" validFrom="1/3/2020 10:00" label="Primary Sample Group"> # <4>
+
+    <AssetAssignments> # <5>
+      <Asset slot="logo">bildLogo-1.png</Asset>
+      <Asset slot="codeInputIllustration">bildCode.jpg</Asset>
+    </AssetAssignments> # <5>
+
+    <Login mode="run-hot-return" name="test" pw="user123"> # <6>
+      <Booklet>BOOKLET.SAMPLE-1</Booklet> # <7>
+      <AssetAssignments>
+        <Asset slot="logo">bildLogo-2.png</Asset>
+      </AssetAssignments>
+      <ViewSettings> # <8>
+        <theme>Primar</theme>
+        <codeInput>
+          <type>text-field</type>
+          <length>3</length>
+        </codeInput>
+        <monitorBookletVisibility>hidden</monitorBookletVisibility>
+      </ViewSettings> # <8>
+    </Login> # <6>
+
+    <Login mode="run-hot-return" name="test2" pw="user123">
+      <Booklet>BOOKLET.SAMPLE-2</Booklet>
+      <ViewSettings>
+        <theme>Sekundar</theme>
+        <codeInput>
+          <type>keypad-numbers</type>
+          <length>3</length>
+        </codeInput>
+      </ViewSettings>
     </Login>
-    <Login mode="run-hot-return" name="y3u6u" pw="y4v5">
-      <Booklet>booklet1</Booklet>
-    </Login>
-  </Group>
+    
+    <Login mode="monitor-group" name="test-group-monitor" pw="user123"> 
+      <Profile id="all"/> # <9>
+      <Profile id="small"/> # <9>
+      <ViewSettings>
+        <monitorBookletVisibility>hidden</monitorBookletVisibility>
+      </ViewSettings>
+    </Login> #
+    <Login mode="sys-check-login" name="sys-check" />
+  </Group> # <4>
+
 </Testtakers>
 ```
+
 1. `<Testtakers>`: Verweis auf XML-Schema, das eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei ist. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
 2. `<Metadata>`: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein `Description`-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet -- sind also nur zur Verbesserung des Lesens dieser XML gedacht.
-3. `<Group>`: Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die `id` muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Das `label` wird z. B. in der Anzeige des Studienfortschritts verwendet.
-4. `<Login>`: Über das Attribut `mode` wird eine Vielzahl von Funktionen des Testcenters gesteuert ([s. unten](#login-modus)). Benutzername `name` und Kennwort `pw` stehen für die gängigste Anmeldemethode ([s. unten](#varianten-des-anmeldeverfahrens)).
-5. `<Booklet>`: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.
+3. `<Profiles>`: Hier können Profile für den Gruppenmonitor definiert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.
+4. `<Group>`: Innerhalb einer Gruppe werden Logins definiert. Es können mehrere Gruppen angelegt werden. Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die `id` muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Wird ein Gruppenmonitor Login in einer Gruppe angelegt, kann dieser alle Logins in dieser Gruppe anzeigen und steuern. Alle Antworten und Logs eines Logins werden unter dem Gruppennamen (`label`) im Arbeitsbereich unter Antworten gespeichert.
+5. `<AssetAssignments>`: Hier können Assets (z. B. Bilder) für die Logins der Gruppe zugewiesen werden. Die Assets werden über ihren Slot referenziert und müssen im Adminbereich gespeichert sein. AssetAssignments können auch noch einmal einem Login zugewiesen werden. Die AssetAssignments innerhalb eines Logins überschreiben dann die AssetAssignments der Gruppe.
+6. `<Login>`: Über das Attribut `mode` wird eine Vielzahl von Funktionen des Testcenters gesteuert ([s. unten](#login-modus)). Benutzername `name` und Kennwort `pw` stehen für die gängigste Anmeldemethode ([s. unten](#varianten-des-anmeldeverfahrens)).
+7. `<Booklet>`: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.
+8. `<ViewSettings>`: Hier können Einstellungen für die Ansicht der Logins innerhalb einer Gruppe vorgenommen werden. Welche Einstellungen möglich sind, ist der automatisierten Dokumentation zu entnehmen.
+9. `<Profile>`: Hier können Profile für den Gruppenmonitor Login innerhalb der Gruppe referenziert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.
 
-::: {.callout-note}
-Eine automatisch generierte Übersicht über die Elemente einer Testtaker-XML ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/testtaker.html) zu finden. Die Dokumentation optionaler Element ist ggf. separat dokumentiert.
+::: {.callout-tip}
+Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-testtaker-xml) zu finden.
 :::
 
 # Login-Modus
@@ -186,3 +267,7 @@ Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Ei
 [^1]: Nur wenn Sie die Attribute für Zeitrestriktionen in den Logins benutzen, wird die Freischaltung darüber gesteuert. Zeitbeschränkungen sind allerdings manchmal problematisch im praktischen Einsatz, da man schnell den Überblick verliert und die Flexibilität eingeschränkt ist (adhoc-Verschiebung eines Tests auf den nächsten Tag).
 [^2]: Dies hängt vom Testmodus ab. Nur bei der regulären Testdurchführung `run-hot-return` werden Antworten wiederhergestellt.
 [^3]: Als Admin eines Arbeitsbereiches kann man sich auch den Fortschritt aller Gruppen anzeigen lassen als Liste.
+
+::: {.callout-tip}
+Alle hier beschriebenen key-value Paare sind auch in der [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-testtaker-xml/#CustomTexts) zu finden.
+:::
