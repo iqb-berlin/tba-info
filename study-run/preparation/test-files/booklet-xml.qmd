@@ -5,10 +5,13 @@ format:
   html:
     code-overflow: wrap
     other-links:
-      - text: XML-Schema für Booklet
-        href: https://github.com/iqb-specifications/testcenter-booklet-xml
-      - text: Dokumentation der Booklet-XML
-        href: https://iqb-specifications.github.io/testcenter-booklet-xml
+      - text: Schema-Definition Booklet-XML
+        href: https://github.com/iqb-specifications/testcenter-booklet-xml/blob/main/testcenter-booklet-xml.xsd
+      - text: Dokumentation Booklet-XML
+        href: https://iqb-specifications.github.io/testcenter-booklet-xml/
+      - text: Dokumentation der Booklet-Konfiguration
+        href: https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet-config.html
+date: 2026-09-07
 ---
 
 ::: {.callout-tip}
@@ -25,10 +28,6 @@ flowchart LR
 ```
 
 # Aufbau
-
-::: {.callout-tip}
-Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-booklet-xml) zu finden.
-:::
 
 Beispiel einer Booklet-XML (ohne adaptives Testen):
 
@@ -83,19 +82,19 @@ Beispiel einer Booklet-XML (ohne adaptives Testen):
 ```
 1. Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
 2. Metadaten: Die ID und das Label sind zwingend zu deklarieren. Die ID wird referenziert in den Testtaker-XML und das Label wird der Testperson angezeigt nach dem Login, wenn mehrere Testhefte zur Auswahl stehen. Es kann noch ein Description-Element hinzugefügt werden.
-3. BookletConfig: Hier werden die Einstellungen für das Booklet vorgenommen. Die Liste der möglichen Einstellungen ist [hier]() zu finden.
+3. BookletConfig: Hier werden die Einstellungen für das Booklet vorgenommen. Die Liste der möglichen key-value-Paare ist oben rechts unter "weitere Links" zu finden.
 4. States: Hier können bedingte Zustände definiert werden (adaptives Testen), die entscheiden, welche Testlets angezeigt werden. Mehr dazu im Kapitel [Adaptives Testen](../adaptive/index.qmd). 
 5. Dient der Definition von Units und Testlets.<br>
  **Unit:** Unit's werden über ihre `id` referenziert. Die entsprechende Unit muss dafür im Arbeitsbereich des Testcenters vorhanden sein. Das `label` einer Unit kann ggf. als Überschrift verwendet werden. <br>
  **Testlet**: Ein Testlet ist ein Block von Units, der mit Restriktionen versehen werden kann. Die `id` ist für interne Zwecke notwendig und muss einmalig im Booklet vorkommen. 
 
 ::: {.callout-note}
-Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist [hier](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html) zu finden.
+Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist [hier](https://iqb-specifications.github.io/testcenter-booklet-xml) zu finden.
 :::
 
 # Booklet-Einstellungen (BookletConfig)
 
-Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in `<BookletConfig>`. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.
+Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von key-value- in `<BookletConfig>`. 
 
 ```{.xml filename="booklet2.xml"}
 <?xml version="1.0"?>
@@ -119,6 +118,10 @@ Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine 
 ```
 1. Das BookletConfig-Element muss unmittelbar nach den Metadaten platziert werden.
 2. Jeder Konfigurationseintrag besteht aus einem `key` und dem inneren Teil des Elementes, dem Wert (`value`)
+
+::: {.callout-note}
+Eine vollständige Liste aller möglichen key-value-Paare, ist oben rechts unter "weitere Links" zu finden.
+:::
 
 # Strukturierung in Blöcken (Testlet)
 
@@ -194,6 +197,10 @@ In der Booklet-XML findet die Konfiguration für das adaptive Testen statt. Hier
 Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Eingabeaufforderung oder Warnung usw. gezeigt werden, können -- **spezifisch für dieses Booklet** -- geändert werden.
 
 {{< include _custom-texts.qmd >}}
+
+::: {.callout-tip}
+Alle hier beschriebenen key-value Paare sind separat zu dokumentiert und unter "weitere Links" oben rechts zu finden.
+:::
 
 ::: {.callout-note}
 Textersetzungen, die bereits in der Testtaker-XML definiert wurden, werden von den Textersetzungen in der Booklet-XML überschrieben.
