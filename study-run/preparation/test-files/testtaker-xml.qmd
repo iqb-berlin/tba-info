@@ -137,7 +137,7 @@ Das Beispiel zeigt Testtaker-XML.
 
 1. `<Testtakers>`: Verweis auf XML-Schema, das eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei ist. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
 2. `<Metadata>`: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein `Description`-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet -- sind also nur zur Verbesserung des Lesens dieser XML gedacht.
-3. `<CustomTexts>`: Im Feld `<CustomText>` können key-value-Paare hinterlegt werden, die bestimmte Texte innerhalb der Testcenter-Installation überschreiben. Die Key-Werte sind in einer separat dokumentiertenListe hinterlegt (siehe "weitere Links" oben rechts).
+3. `<CustomTexts>`: Im Feld `<CustomText>` können key-value-Paare hinterlegt werden, die bestimmte Texte innerhalb der Testcenter-Installation überschreiben. Die Key-Werte sind in einer separat dokumentiertenListe hinterlegt (siehe "weitere Links" rechts).
 4. `<Profiles>`: Hier können Profile für den Gruppenmonitor definiert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.
 5. `<Group>`: Innerhalb einer Gruppe werden Logins definiert. Es können mehrere Gruppen angelegt werden. Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die `id` muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Wird ein Gruppenmonitor Login in einer Gruppe angelegt, kann dieser alle Logins in dieser Gruppe anzeigen und steuern. Alle Antworten und Logs eines Logins werden unter dem Gruppennamen (`label`) im Arbeitsbereich unter Antworten gespeichert.
 6. `<AssetAssignments>`: Hier können Assets (z. B. Bilder) für die Logins der Gruppe zugewiesen werden. Die Assets werden über ihren Slot referenziert und müssen im Adminbereich gespeichert sein. AssetAssignments können auch noch einmal einem Login zugewiesen werden. Die AssetAssignments innerhalb eines Logins überschreiben dann die AssetAssignments der Gruppe.
@@ -147,7 +147,7 @@ Das Beispiel zeigt Testtaker-XML.
 10. `<Profile>`: Hier können Profile für den Gruppenmonitor Login innerhalb der Gruppe referenziert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.
 
 ::: {.callout-tip}
-Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-testtaker-xml) zu finden. Die Liste der optionalen Custom-Text key-value-Paare ist separat dokumentiert (siehe "weitere Links" oben rechts).
+Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-testtaker-xml) zu finden. Die Liste der optionalen Custom-Text key-value-Paare ist separat dokumentiert (siehe "weitere Links" rechts).
 :::
 
 # Login-Modus
@@ -155,7 +155,7 @@ Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentati
 Über das Attribut `mode` im `<Login>` wird festgelegt, wie die Testung abläuft. Es stehen unterschiedliche Modi zur Verfügung. Jeder Modus bietet eine andere Funktionalität der Testdurchführung.
 
 ::: {.callout-caution}
-Eine Tabelle, die detailliert alle funktionellen Unterschiede der Modis aufzeigt, ist oben rechts unter "weitere Links" zu finden.
+Eine Tabelle, die detailliert alle funktionellen Unterschiede der Modis aufzeigt, ist rechts unter "weitere Links" zu finden.
 :::
 #
 ## Testperson: `run-hot-return`, `run-hot-restart`
@@ -275,5 +275,5 @@ Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Ei
 [^3]: Als Admin eines Arbeitsbereiches kann man sich auch den Fortschritt aller Gruppen anzeigen lassen als Liste.
 
 ::: {.callout-tip}
-Alle hier beschriebenen key-value Paare sind separat zu dokumentiert und unter "weitere Links" oben rechts zu finden.
+Alle hier beschriebenen key-value Paare sind separat zu dokumentiert und unter "weitere Links" rechts zu finden.
 :::
