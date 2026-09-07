@@ -1238,7 +1238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adaptives-testen" id="toc-adaptives-testen" class="nav-link" data-scroll-target="#adaptives-testen">Adaptives Testen</a></li>
   <li><a href="#angepasste-texte-customtexts" id="toc-angepasste-texte-customtexts" class="nav-link" data-scroll-target="#angepasste-texte-customtexts">Angepasste Texte: CustomTexts</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-specifications/testcenter-booklet-xml"><i class="bi bi-link-45deg"></i>XML-Schema für Booklet</a></li><li><a href="https://iqb-specifications.github.io/testcenter-booklet-xml"><i class="bi bi-link-45deg"></i>Dokumentation der Booklet-XML</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="https://github.com/iqb-specifications/testcenter-booklet-xml/blob/main/testcenter-booklet-xml.xsd"><i class="bi bi-link-45deg"></i>Schema-Definition Booklet-XML</a></li><li><a href="https://iqb-specifications.github.io/testcenter-booklet-xml/"><i class="bi bi-link-45deg"></i>Dokumentation Booklet-XML</a></li><li><a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet-config.html"><i class="bi bi-link-45deg"></i>Dokumentation der Booklet-Konfiguration</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1253,6 +1253,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7. September 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1294,19 +1300,6 @@ Tipp
 </div>
 <section id="aufbau" class="level1">
 <h1>Aufbau</h1>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Alle hier beschriebenen Elemente sind auch in einer <a href="https://iqb-specifications.github.io/testcenter-booklet-xml">automatisierten Dokumentation</a> zu finden.</p>
-</div>
-</div>
 <p>Beispiel einer Booklet-XML (ohne adaptives Testen):</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1370,7 +1363,7 @@ Tipp
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="10,11,12,13,14,15" data-code-annotation="3">BookletConfig: Hier werden die Einstellungen für das Booklet vorgenommen. Die Liste der möglichen Einstellungen ist <a href="">hier</a> zu finden.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="10,11,12,13,14,15" data-code-annotation="3">BookletConfig: Hier werden die Einstellungen für das Booklet vorgenommen. Die Liste der möglichen key-value-Paare ist oben rechts unter “weitere Links” zu finden.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
@@ -1391,13 +1384,13 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist <a href="https://iqb.pages.cms.hu-berlin.de/testcenter/pages/booklet.html">hier</a> zu finden.</p>
+<p>Eine automatisch generierte Übersicht über die Elemente einer Booklet-XML ist <a href="https://iqb-specifications.github.io/testcenter-booklet-xml">hier</a> zu finden.</p>
 </div>
 </div>
 </section>
 <section id="booklet-einstellungen-bookletconfig" class="level1">
 <h1>Booklet-Einstellungen (BookletConfig)</h1>
-<p>Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von Parametern in <code>&lt;BookletConfig&gt;</code>. Sie werden in einem dafür reservierten Abschnitt der Booklet-XML deklariert.</p>
+<p>Um die Erscheinung und das Verhalten des Booklets zu beeinflussen, gibt es eine Vielzahl von key-value- in <code>&lt;BookletConfig&gt;</code>.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>booklet2.xml</strong></pre>
@@ -1431,6 +1424,19 @@ Hinweis
 <span data-code-cell="annotated-cell-2" data-code-lines="9,10,11" data-code-annotation="2">Jeder Konfigurationseintrag besteht aus einem <code>key</code> und dem inneren Teil des Elementes, dem Wert (<code>value</code>)</span>
 </dd>
 </dl>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine vollständige Liste aller möglichen key-value-Paare, ist oben rechts unter “weitere Links” zu finden.</p>
+</div>
+</div>
 </section>
 <section id="strukturierung-in-blöcken-testlet" class="level1">
 <h1>Strukturierung in Blöcken (Testlet)</h1>
@@ -1561,7 +1567,19 @@ Vorsicht
 <li>Ansprache der Testperson ändern: “Du” oder “Sie”?</li>
 <li>Bezeichnung der Studie ändern: Ist es eine “Evaluation” oder eine “Lernausgangslage”?</li>
 </ul>
-<p>Eine vollständige Liste mit den verfügbaren CustomTexts <a href="https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html">finden Sie hier</a>. Achten Sie auf den Präfix des Keys: Damit wird der Verwendungszusammenhang angezeigt.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Alle hier beschriebenen key-value Paare sind separat zu dokumentiert und unter “weitere Links” oben rechts zu finden.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
