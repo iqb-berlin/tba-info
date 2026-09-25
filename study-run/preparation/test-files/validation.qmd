@@ -1,0 +1,89 @@
+---
+lang: de
+title: "XML Validierung"
+---
+
+::: {.callout-note}
+**Die XML Validierung ist ab der Testcenter Version 19.0.0 eingeschaltet.** Ältere Versionen validieren gar nicht oder mit veralteten Abläufen.
+:::
+
+## Einleitung
+
+XML-Dateien werden zur Validierung gegen eine XML-Schema-Definition (XSD) geprüft. Diese dient als eine Art Schablone und legt fest, was in einer XML-Datei erlaubt ist und was nicht. Damit eine XML-Datei gegen die XSD validiert werden kann, muss im Kopf der XML-Datei die Adresse zur XSD angegeben werden.
+
+## Ort der XSD
+
+Die XSD's befinden sich in Repositories unter [IQB-Specifications](https://github.com/iqb-specifications/iqb-specifications.github.io):
+
+* [Testcenter-Testtaker-xml](https://github.com/iqb-specifications/testcenter-testtaker-xml)
+* [Testcenter-Booklet-xml](https://github.com/iqb-specifications/testcenter-booklet-xml)
+* [Unit-xml](https://github.com/iqb-specifications/unit-xml)
+
+Bei Änderungen an einer XSD wird ein neues Release mit entsprechenden Release-Notes in diesen Repositories erzeugt.
+Ein Permalink im Kopf der XML-Dateien verweist auf das entsprechende Repository und den gewünschten Release-Tag.
+
+#### Permalink zur XSD
+
+Im Root-Element der XML-Dateien Booklet, Testtaker und Unit befindet sich der Permalink zur XSD.
+
+::: {.callout-note}
+Die hier angegebenen Versionen sind eventuell bereits veraltet. Die aktuelle Version ist den Spezifikationen zu entnehmen.
+:::
+
+**Testtaker-XML**
+
+```{.xml filename="testtaker.xml"}
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-testtaker-xml/18.0"
+```
+
+**Booklet-XML**
+
+```{.xml filename="booklet.xml"}
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-booklet-xml/18.0"
+```
+
+**Unit-XML**
+
+```{.xml filename="unit.xml"}
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/unit-xml/17.6"
+```
+
+## Ablauf der Validierung
+
+Das Testcenter prüft beim Laden einer XML-Datei folgendes:
+
+* gültige Adresse in `xsi:noNamespaceSchemaLocation`
+    * Adresse entspricht der festgelegten Norm
+    * Adresse ist nicht leer
+* gültige Version in `xsi:noNamespaceSchemaLocation`
+    * Release-Tag existiert wirklich
+* Inhalt der XML, wie in XSD festgelegt
+
+::: {.callout-note}
+Es gibt keinen Fallback! Wenn die Version nicht existiert, kann die XML nicht geladen werden. Es wird nicht automatisch auf die letzte aktuelle Version umgeschaltet.
+:::
+
+Wurde eine XML angenommen und in das Testcenter geladen. Wird die zugehörige XSD-Version im Testcenter gehalten. Jede nachfolgende Validierung gegen die selbe XSD-Version, ist dann nicht mehr auf eine funktionierende Internetverbindung angewiesen. Das ist entscheidend für Offline-Testungen.
+
+::: {.callout-note}
+Bei der Einrichtung von Offline-Testungen, muss der verwendete Server beim Laden der XML-Dateien mit dem Internet verbunden sein.
+:::
+
+### Abgleich mit der Version des Testcenters
+
+Da Testcenter und XSD getrennt versioniert werden, muss geprüft werden, ob die verwendete Version des Testcenters die neuen Elemente und Attribute einer XSD-Version unterstützt. Es würde zu Verwirrungen führen, wenn eine XML mit neuen Inhalten vom Testcenter angenommen wird, diese neuen Inhalte aber vom Testcenter nicht gelesen und logisch weiterverarbeitet werden können. Es wird daher geprüft ob die XSD-Version vom Testcenter unterstützt wird. Ist dies nicht der Fall, wird die XMl abgelehnt.
+
+Welche XSD-Version von der eingesetzen Testcenter Version unterstützt wird, ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/compatibility.json) zu finden.
+
+
+
+
+
+
+
+
+
+
