@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8ee512f19367224acfba0033acd4fca8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-115a9038de263bd34b829fafbe318f07.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -1342,12 +1342,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="angepasste-texte-customtexts" class="level2">
 <h2 class="anchored" data-anchor-id="angepasste-texte-customtexts">Angepasste Texte: CustomTexts</h2>
-<p>Einige Texte, die der System-Check den Nutzer*innen präsentiert, lassen sich ändern. Der Mechanismus hierzu ist auch an anderen Stellen der Textcenter-Konfiguration verfügbar und nennt sich <strong>CustomTexts</strong>.</p>
+<p>Einige Texte, die der System-Check den Nutzer*innen präsentiert, lassen sich ändern. Hierfür stehen entsprechende Key-Value-Paare zur Verfügung.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>syscheck2.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="syscheck2.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="syscheck2.xml"><pre class="sourceCode xml code-annotation-code code-with-copy"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>          <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
 <span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1355,27 +1355,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">Label</span>&gt;System-Check TBA&lt;/<span class="kw">Label</span>&gt;</span>
 <span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Metadata</span>&gt;</span>
 <span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Config</span> <span class="ot">skipnetwork=</span><span class="st">"true"</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-9" class="code-annotation-target"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">CustomText</span> <span class="ot">key=</span><span class="st">"syscheck_intro"</span>&gt;</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-10" class="code-annotation-target"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">CustomText</span> <span class="ot">key=</span><span class="st">"syscheck_intro"</span>&gt;</span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!</span>
 <span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">CustomText</span>&gt;</span>
 <span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">Config</span>&gt;</span>
-<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="9" data-code-annotation="1">Über das Attribut <code>key</code> referenziert man einen bestimmten Eintrag</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="10" data-code-annotation="2">Im Inhalt des <code>CustomText</code>-Elementes wird der neue Text platziert.</span>
-</dd>
-</dl>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="syscheck3.png" class="lightbox" data-gallery="input" title="System-Check mit angepasstem Text"><img src="syscheck3.png" class="img-fluid figure-img" alt="System-Check mit angepasstem Text"></a></p>
-<figcaption>System-Check mit angepasstem Text</figcaption>
-</figure>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">SysCheck</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
