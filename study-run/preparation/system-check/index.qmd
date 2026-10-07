@@ -47,7 +47,7 @@ Das Hochladen ist nur erfolgreich, wenn es sich um eine gültige System-Check-Ko
 
 ## Angepasste Texte: CustomTexts
 
-Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich ändern. Der Mechanismus hierzu ist auch an anderen Stellen der Textcenter-Konfiguration verfügbar und nennt sich **CustomTexts**. 
+Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich ändern. Hierfür stehen entsprechende Key-Value-Paare zur Verfügung.
 
 ```{.xml filename="syscheck2.xml"}
 <?xml version="1.0" encoding="utf-8"?>
@@ -64,10 +64,6 @@ Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich �
 	</Config>
 </SysCheck>
 ```
-1. Über das Attribut `key` referenziert man einen bestimmten Eintrag
-2. Im Inhalt des `CustomText`-Elementes wird der neue Text platziert.
-
-![System-Check mit angepasstem Text](syscheck3.png){group="input"}
 
 ::: {.callout-note}
 Eine vollständige Liste mit den verfügbaren CustomTexts ist [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) zu sehen. Suchen Sie nach dem Präfix `syscheck`.
