@@ -1280,7 +1280,7 @@ Hinweis
 </div>
 <section id="einleitung" class="level2">
 <h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>XML-Dateien werden zur Validierung gegen eine XML-Schema-Definition (XSD) validiert. Die XSD dient als eine Art Schablone und legt fest, was in einer XML-Datei erlaubt ist und was nicht. Damit eine XML-Datei gegen die XSD validiert werden kann, muss im Kopf der XML-Datei die Adresse zur XSD angegeben werden.</p>
+<p>Eine XML wird zur Validierung gegen eine XML-Schema-Definition (XSD) validiert. Die XSD dient als eine Art Schablone und legt fest was in einer XML-Datei erlaubt ist und was nicht. Damit eine XML gegen die XSD validiert werden kann, muss im Kopf der XML die Adresse zur XSD angegeben werden.</p>
 </section>
 <section id="ort-der-xsd" class="level2">
 <h2 class="anchored" data-anchor-id="ort-der-xsd">Ort der XSD</h2>
@@ -1290,10 +1290,10 @@ Hinweis
 <li><a href="https://github.com/iqb-specifications/testcenter-booklet-xml">Testcenter-Booklet-xml</a></li>
 <li><a href="https://github.com/iqb-specifications/unit-xml">Unit-xml</a></li>
 </ul>
-<p>Bei Änderungen an einer XSD wird ein neues Release mit entsprechenden Release-Notes in diesen Repositories erzeugt. Ein Permalink im Kopf der XML-Dateien verweist auf das entsprechende Repository und den gewünschten Release-Tag.</p>
+<p>Bei Änderungen an einer XSD wird ein neues Release mit entsprechenden Release-Notes in diesen Repositories erzeugt. Ein Permalink im Kopf der XML verweist auf das entsprechende Repository und den gewünschten Release-Tag.</p>
 <section id="permalink-zur-xsd" class="level4">
 <h4 class="anchored" data-anchor-id="permalink-zur-xsd">Permalink zur XSD</h4>
-<p>Im Root-Element der XML-Dateien Booklet, Testtaker und Unit befindet sich der Permalink zur XSD.</p>
+<p>Im Root-Element der XML-Dateien Booklet, Testtaker und Unit befindet sich ein Permalink zur XSD. Dieser verweist auf eine gültige XSD-Version (Release), die in den Repositories unter IQB-Specifications veröffentlicht wurde.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1304,7 +1304,7 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die hier angegebenen Versionen sind eventuell bereits veraltet. Die aktuelle Version ist den Spezifikationen zu entnehmen.</p>
+<p>Die hier gezeigten Versionsnummern entsprechend dem Stand zum Zeitpunkt der Dokumentationserstellung und sind eventuell bereits veraltet. Prüfen Sie deshalb zuvor, ob es vielleicht bereits eine neuere Version gibt.</p>
 </div>
 </div>
 <p><strong>Testtaker-XML</strong></p>
@@ -1335,7 +1335,7 @@ Hinweis
 </section>
 <section id="ablauf-der-validierung" class="level2">
 <h2 class="anchored" data-anchor-id="ablauf-der-validierung">Ablauf der Validierung</h2>
-<p>Das Testcenter prüft beim Laden einer XML-Datei folgendes:</p>
+<p>Das Testcenter prüft beim Laden einer XML folgendes:</p>
 <ul>
 <li>gültige Adresse in <code>xsi:noNamespaceSchemaLocation</code>
 <ul>
@@ -1361,7 +1361,7 @@ Hinweis
 <p>Es gibt keinen Fallback! Wenn die Version nicht existiert, kann die XML nicht geladen werden. Es wird nicht automatisch auf die letzte aktuelle Version umgeschaltet.</p>
 </div>
 </div>
-<p>Wurde eine XML angenommen und in das Testcenter geladen. Wird die zugehörige XSD-Version im Testcenter gehalten. Jede nachfolgende Validierung gegen die selbe XSD-Version, ist dann nicht mehr auf eine funktionierende Internetverbindung angewiesen. Das ist entscheidend für Offline-Testungen.</p>
+<p>Wurde eine XML angenommen und in das Testcenter geladen. Wird die zugehörige XSD-Version im Testcenter gehalten. Jede nachfolgende Validierung gegen diese XSD-Version, ist dann nicht mehr auf eine funktionierende Internetverbindung angewiesen. Das ist entscheidend für Offline-Testungen.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1372,12 +1372,12 @@ Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Bei der Einrichtung von Offline-Testungen, muss der verwendete Server beim Laden der XML-Dateien mit dem Internet verbunden sein.</p>
+<p>Zum Zeitpunkt der Installation auf einem Server, muss eine Verbindung zum Internet bestehen, damit die Docker-Images geladen werden können. Dabei werden auch die aktuellsten XSD-Versionen heruntergeladen und gehalten. Wenn der Server offline verwendet wird, werden alle XML’s gegen diese Version validiert. Wenn nach der Installation eine neue XSD-Version veröffentlicht wird und eine XML diese Version verwenden, kann das Testcenter die XML nicht validieren solange es offline ist.</p>
 </div>
 </div>
 <section id="abgleich-mit-der-version-des-testcenters" class="level3">
 <h3 class="anchored" data-anchor-id="abgleich-mit-der-version-des-testcenters">Abgleich mit der Version des Testcenters</h3>
-<p>Da Testcenter und XSD getrennt versioniert werden, muss geprüft werden, ob die verwendete Version des Testcenters die neuen Elemente und Attribute einer XSD-Version unterstützt. Es würde zu Verwirrungen führen, wenn eine XML mit neuen Inhalten vom Testcenter angenommen wird, diese neuen Inhalte aber vom Testcenter nicht gelesen und logisch weiterverarbeitet werden können. Es wird daher geprüft ob die XSD-Version vom Testcenter unterstützt wird. Ist dies nicht der Fall, wird die XMl abgelehnt.</p>
+<p>Da Testcenter und XSD getrennt versioniert werden, muss geprüft werden, ob die verwendete Version des Testcenters die neuen Elemente und Attribute einer XSD-Version unterstützt. Es würde zu Verwirrungen führen, wenn eine XML mit neuen Inhalten vom Testcenter angenommen wird, die Inhalte aber vom Testcenter nicht gelesen und logisch weiterverarbeitet werden können. Es wird daher geprüft, ob die XSD-Version vom Testcenter unterstützt wird. Ist dies nicht der Fall, wird die XML mit einer entsprechenden Meldung abgelehnt.</p>
 <p>Welche XSD-Version von der eingesetzen Testcenter Version unterstützt wird, ist <a href="https://github.com/iqb-berlin/testcenter/blob/master/definitions/compatibility.json"><strong>hier</strong></a> zu finden.</p>
 
 
