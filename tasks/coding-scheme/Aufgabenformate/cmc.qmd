@@ -3,33 +3,140 @@ lang: de
 title: "Complex Multiple Choice (CMC)"
 ---
 
-![](assets/cmc_task.png){width="498"}
+<!-- ![](assets/cmc_task.png){width="498"}
+-->
 
-## Umbenennung des Interaktionselements „Optionenfeld“
+## Benennung der Basisvariablen
 
-Prüfen Sie zunächst, ob für das CMC-Element (Optionsfelder) alle IDs umbenannt wurden. Die Umbenennung für CMC-Elemente wird [hier](IDs%20im%20Studio%20umbenennen%20–%20Optionentabelle%20(CMC)) erklärt.
+::: {layout="[ [40,60] ]"}
+Prüfen Sie zunächst, ob die Basisvariablen der CMC-Aufgabe die richtigen IDs haben. Eine Basisvariable entspricht einer Zeile in der CMC-Tabelle. Wie genau die Umbenennung erfolgt wird [hier](IDs%20im%20Studio%20umbenennen%20–%20Optionentabelle%20(CMC)) erklärt. Zur Übersicht sehen Sie in der Abbildung rechts, wie das Schema für die Benennung einer CMC-Aufgabe aussieht.
+
+![](assets/cmc_IDs.png)
+:::
+
+# Variante A
 
 ## Kodierschema der Basisvariablen
 
-1.  Kodierschema generieren: Im ersten Schritt geben Sie für jede Basisvariable (Zeile der CMC-Tabelle) die richtige Antwortoption an. Wählen Sie dazu eine Basisvariable aus und klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"}, um dort die richtige Antwortoption für die entsprechende Zeile anzugeben. Klicken Sie auf „Generiere Kodierung“.
+::: {.panel-tabset}
 
-![](assets/cmc_basis_Zauberstab_Auswahl.png){width="282"} ![](assets/cmc_basis_Zauberstab_Menu.png){width="556"}
+## Kodierungs-Assistent ![](../assets/Zauberstab-Symbol.png){width="24"} 
 
-2.  Wiederholen Sie den Schritt mit jeder Basisvariable der CMC-Tabelle.
+::: {layout="[[1]]"}
+### Schritt 1: Kodierschema generieren 
+
+Im ersten Schritt geben Sie für jede Basisvariable (Zeile der CMC-Tabelle) die richtige Antwortoption an. Gehen Sie dazu mit jeder Basisvariable wie folgt vor:
+:::
+
+::: {layout="[[2,1]]"}
+1.  Wählen Sie eine Basisvariable aus.
+
+![](assets/cmc_basisvar_menu.png){fig-align="center"}
+:::
+
+::: {layout="[[1,1]]"}
+2.  Klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"}. Es sollte sich ein neues Fenster öffnen.
+
+![](assets/cmc_basis_Zauberstab_Auswahl.png){fig-align="right"}
+:::
+
+::: {layout="[[1]]"}
+3.  Geben Sie in dem Fenster die richtige Antwortoption für die entsprechende Zeile der CMC-Tabelle an. \n 4. Klicken Sie auf „Generiere Kodierung“
+
+![](assets/cmc_basis_Zauberstab_Menu.png){fig-align="center"}
+:::
+
+Wiederholen Sie die Schritte mit jeder Basisvariable der CMC-Tabelle.
+
+## Manuelle Erstellung
+
+Hier kommt eine Anleitung zum manuellen Anlegen des Kodierschemas. 
+
+:::
+
+# Variante B
+
+::: {.panel-tabset}
+
+## Kodierungs-Assistent ![](../assets/Zauberstab-Symbol.png){width="24"} 
+
+:::::: columns
+::: column
+**1.**  Wählen Sie eine Basisvariable aus.
+
+![](assets/cmc_basisvar_menu.png){width="50%" fig-align="center"}
+:::
+
+::: column
+**2.**  Klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"}. Es sollte sich ein neues Fenster öffnen.
+
+![](assets/cmc_basis_Zauberstab_Auswahl.png){width="70%" fig-align="center"}
+:::
+::::::
+
+**3.**  Geben Sie in dem Fenster die richtige Antwortoption für die entsprechende Zeile der CMC-Tabelle an. 
+
+**4.** Klicken Sie auf „Generiere Kodierung“
+
+![](assets/cmc_basis_Zauberstab_Menu.png){width="95%" fig-align="center"}
+
+Wiederholen Sie die Schritte mit jeder Basisvariable der CMC-Tabelle.
+
+## Manuelle Erstellung
+
+Hier kommt eine Anleitung zum manuellen Anlegen des Kodierschemas. 
+
+:::
 
 ## Kodierschema der abgeleiteten Variable erstellen
 
 Mit der abgeleiteten Variable wird geprüft, ob die Summe der Bewertungen über alle Zeilen der Tabelle mit dem eingetragenen Wert übereinstimmt. Das hier beschriebene Kodierschema der abgeleiteten Variable vergibt eine Bewertung mit einem Punkt, wenn alle Zeilen der Tabelle richtig beantwortet wurden. Andernfalls wird die CMC-Tabelle mit 0 Punkten bewertet.
 
-1.  [Erstellen Sie die abgeleitete Variable](): Wählen Sie für die abgeleitete Variable alle Zeilen der CMC-Tabelle als Quellvariablen aus, und wählen Sie als Ableitungsmethode „Bewertungen summieren“. Die Variable erhält die übergeordnete ID zu den Zeilen der Tabelle (d.h. ID `03`, falls die Zeilen nach dem Schema `03a`, `03b`, … benannt sind).
+::: {.panel-tabset}
 
-![](assets/cmc_abgeleitet_hinzu.png){width="152"} ![](assets/cmc_abgeleitet_Menu.png){width="422"}
+## Kodierungs-Assistent ![](../assets/Zauberstab-Symbol.png){width="24"} 
 
-2.  Kodierschema generieren: Klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"} und tragen dort unter „Übereinstimmung:“ die Anzahl an Zeilen ein. Klicken Sie auf „Generiere Kodierung“.
+### Schritt 1: Erstellen Sie die abgeleitete Variable
 
-![](assets/cmc_abgeleitet_Zauberstab_Auswahl.png){width="266"}
+:::::: columns
+::: column
+1.  Klicken Sie dazu auf das Plus-Symbol "Abgeleitete Variable hinzufügen". Es öffnet sich ein Menü, um die abgeleitete Variable zu erstellen.
+:::
 
-![](assets/cmc_abgeleitet_Zauberstab_Menu.png){width="492"}
+::: column
+![](assets/cmc_abgeleitetevar_hinzu.png){width="60%" fig-align="center"}
+:::
+::::::
+
+::: {layout="[[1,1]]"}
+2.  Nehmen Sie in dem Menü folgende Einstellungen für die abgeleitete Variable vor:
+    - Name: Die Variable erhält als Namen die übergeordnete ID zu den Zeilen der Tabelle (d.h. ID `03`, falls die Basisvariablen nach dem Schema `03a`, `03b`, … benannt sind).
+    - Wählen Sie als Quellvariablen alle Basisvariablen aus, die eine Zeile der CMC-Tabelle kodieren.
+    - Ableitungsmethode: „Bewertungen summieren“
+
+![](assets/cmc_abgeleitet_Menu.png){width="95%" fig-align="center"}
+:::
+
+
+### Schritt 2: Kodierschema generieren 
+
+::: {layout="[[2,1]]"}
+1. Klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"}. Es öffent sich ein neues Fenster.
+
+![](assets/cmc_abgeleitet_Zauberstab_Auswahl.png){fig-align="center"}
+:::
+
+2. Tragen Sie in dem Fenster unter „Übereinstimmung“ die Anzahl an Zeilen ein, die die CMC-Tabelle hat. 
+
+3. Klicken Sie auf „Generiere Kodierung“.
+
+![](assets/cmc_abgeleitet_Zauberstab_Menu.png){width="95%" fig-align="center"}
+
+## Manuelle Erstellung
+
+Hier kommt eine Anleitung zum manuellen Anlegen des Kodierschemas. 
+
+:::
 
 Das erstellte Kodierschema sollte ungefähr so aussehen:
 
@@ -44,5 +151,5 @@ Kodierung jeder Basisvariable
 
 Kodierung der abgeleiteten Variable
 
-![](assets/cmc_code_ableitung.png)
+![](assets/cmc_code_abgeleitet.png)
 :::
