@@ -1,0 +1,48 @@
+---
+lang: de
+title: "Complex Multiple Choice (CMC)"
+---
+
+![](assets/cmc_task.png){width="498"}
+
+## Umbenennung des Interaktionselements „Optionenfeld“
+
+Prüfen Sie zunächst, ob für das CMC-Element (Optionsfelder) alle IDs umbenannt wurden. Die Umbenennung für CMC-Elemente wird [hier](IDs%20im%20Studio%20umbenennen%20–%20Optionentabelle%20(CMC)) erklärt.
+
+## Kodierschema der Basisvariablen
+
+1.  Kodierschema generieren: Im ersten Schritt geben Sie für jede Basisvariable (Zeile der CMC-Tabelle) die richtige Antwortoption an. Wählen Sie dazu eine Basisvariable aus und klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"}, um dort die richtige Antwortoption für die entsprechende Zeile anzugeben. Klicken Sie auf „Generiere Kodierung“.
+
+![](assets/cmc_basis_Zauberstab_Auswahl.png){width="282"} ![](assets/cmc_basis_Zauberstab_Menu.png){width="556"}
+
+2.  Wiederholen Sie den Schritt mit jeder Basisvariable der CMC-Tabelle.
+
+## Kodierschema der abgeleiteten Variable erstellen
+
+Mit der abgeleiteten Variable wird geprüft, ob die Summe der Bewertungen über alle Zeilen der Tabelle mit dem eingetragenen Wert übereinstimmt. Das hier beschriebene Kodierschema der abgeleiteten Variable vergibt eine Bewertung mit einem Punkt, wenn alle Zeilen der Tabelle richtig beantwortet wurden. Andernfalls wird die CMC-Tabelle mit 0 Punkten bewertet.
+
+1.  [Erstellen Sie die abgeleitete Variable](): Wählen Sie für die abgeleitete Variable alle Zeilen der CMC-Tabelle als Quellvariablen aus, und wählen Sie als Ableitungsmethode „Bewertungen summieren“. Die Variable erhält die übergeordnete ID zu den Zeilen der Tabelle (d.h. ID `03`, falls die Zeilen nach dem Schema `03a`, `03b`, … benannt sind).
+
+![](assets/cmc_abgeleitet_hinzu.png){width="152"} ![](assets/cmc_abgeleitet_Menu.png){width="422"}
+
+2.  Kodierschema generieren: Klicken Sie auf das Zauberstab-Symbol ![](../assets/Zauberstab-Symbol.png){width="24"} und tragen dort unter „Übereinstimmung:“ die Anzahl an Zeilen ein. Klicken Sie auf „Generiere Kodierung“.
+
+![](assets/cmc_abgeleitet_Zauberstab_Auswahl.png){width="266"}
+
+![](assets/cmc_abgeleitet_Zauberstab_Menu.png){width="492"}
+
+Das erstellte Kodierschema sollte ungefähr so aussehen:
+
+::: panel-tabset
+## Basisvariablen
+
+Kodierung jeder Basisvariable
+
+![](assets/cmc_code_basis.png)
+
+## Abgeleitete Variable
+
+Kodierung der abgeleiteten Variable
+
+![](assets/cmc_code_ableitung.png)
+:::

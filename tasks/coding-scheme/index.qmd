@@ -1,71 +1,20 @@
 ---
 lang: de
-title: "Kodierschema"
+title: "Kodierschema anlegen"
 ---
 
-Bei der Aufgabenerstellung im Studio werden Frageelemente in einer Unit angeordnet. Die Beantwortung dieser Frageelemente erzeugt Antwortwerte. Um Schlussfolgerungen hinsichtlich der Bewertung einer Antwort zu ziehen, werden die Antwortwerte Kategorien zugeordnet. Im einfachsten Fall gibt es die Kategorien richtig und falsch, sowie Kategorien für fehlende Werte. Die Zuordnung erfolgt durch die Erstellung von Regeln und Instruktionen. Diese sagen dann ganz grob ausgedrückt, diese Antwort ist falsch, und diese Antwort ist richtig.
+In dem Kapitel [Aufgaben gestalten](../design/index.qmd) wurde erklärt, wie Sie Aufgaben im Studio anlegen können. Im nächsten Schritt muss nun festgelegt werden, wie die Antworten zu den Aufgaben bewertet werden sollen, was auf den Seiten dieses Kapitel erklärt wird. Die Aufgabenelemente mit denen während der Testung interagiert werden kann, werden **Variablen** genannt. Das Kodierschema gibt für jede Variable an, welche Antworten als richtig und welche als falsch gewertet werden sollen. Das Kodierschema einer Variable besteht aus Instruktionen und Regeln. In den **Instruktionen** werden die Lösungen der Variable schriftlich für die manuelle Korrektur hinterlegt. Bei vielen Variablen können zudem **Regeln** angelegt werden, die ein computergestütztes Bewerten der Aufgaben ermöglichen. Auf den folgenden Seiten finden Sie Erklärungen zum Anlegen von Kodierschemata im IQB-Studio.
 
-* Die Zuordnung einer Antwort zu einer Kategorie nennen wir **Kodierung**. Man vergibt für eine Antwort einen Code.
-* Wir unterscheiden **Regeln** für die automatische Kodierung und **Instruktionen** für die manuelle Kodierung.
-* Die Gesamtheit der Regeln und Instruktionen zur Kodierung der Antworten einer Aufgabe nennen wir **Kodierschema**.
-* Den Teil der Studioprogrammierung, mit dem wir das Kodierschema definieren, nennen wir **Schemer**. Es handelt sich um ein austauschbares Verona-Modul wie der Player und der Editor.
+Das Programm des IQB-Studios, in dem das Kodierschema angelegt und bearbeitet wird, nennt sich **Schemer**. Die folgenden Anleitungen wurden mit dem IQB-Schemer 2.8 geschrieben. Weitere Infos zum Schemer finden Sie [hier](..manage\verona-modules.qmd).
 
-Dieser Abschnitt thematisiert die Definition eines Kodierschemas als Teil der Aufgabenentwicklung.
+# Schritte zum Anlegen des Kodierschemas
 
-::: {.callout-note}
-Das Kodierschema ist grundsätzlich sehr offen und flexibel. Für eine effiziente Kodierung und Datenauswertung hat das IQB jedoch zahlreiche Konventionen und Vorgehensweisen eingeführt, die in diesem Abschnitt als notwendig beschrieben sind.
-:::
+1.  **Schemer auswählen:** Im Reiter "Eigenschaften" des IQB-Studios wählen Sie unter „Verona Module“ die Version unter Schemer (Kodierung) aus, die der Aufgabe von Ihrem Fachbereich zugewiesen wurde. Eventuell wurde hier bereits eine Voreinstellung durch den Fachbereich hinterlegt, sodass Sie hier nichts mehr tun müssen.
 
-Lesen Sie weiter:
+2.  **Variablen umbenennen:** Für die Erstellung von Aufgaben des IQB wurden Benennungskonventionen für die Interaktionselemente festgelegt. Diese müssen vor der Anlegung der Kodierung umbenannt werden. Wie das geht wird [hier](Allgemein/umbenennung.qmd) erklärt.
 
-* [Elemente und Variablen](steps.qmd)
-* [Basisfälle](basic.qmd)
-* [Sonderfälle](extended.qmd)
+3.  **Kodierung anlegen:** Nun wird unter dem Reiter „Kodierung“ im IQB-Studio nach und nach für jede Aufgabe die Kodierungen angelegt. Wählen Sie dazu [hier](Aufgabenformate/index.qmd) das Aufgabenformat aus, für welches Sie das Kodierschema wollen. Für eine allgemeine Übersicht, wie man das Kodierschema im IQB-Studio anlegt, lesen Sie [hier](Allgemein/index.qmd) weiter.
 
-:::{.border}
-![Gesamtansicht Schemer](assets/Schemer_total.png)
-:::
+4.  **Testung der Kodierung:** Wenn Sie das Kodierschema angelegt haben, überprüfen Sie, ob die Regeln richtig funktionieren. Einige Hinweise zum Vorgehen beim Testen des Kodierschemas finden Sie [hier](Allgemein/testung.qmd).
 
-* Im **linken Bildschirmbereich** finden Sie eine Liste aller Variablen und Schalter für übergreifende Funktionen.
-  * Oben in der Liste finden sich die Basisvariablen. Diese stehen für Datenquellen, die in der Aufgabendefinition angelegt wurden (z. B. Eingabefeld, Checkbox usw.).
-  * Weiter unten sind die abgeleiteten Variablen gelistet. Diese beziehen ihren Wert und dann ihre Kodierung aus einer oder mehreren anderen Variablen.
-  * Über Schalter unten links können Variablen angelegt, gelöscht, umbenannt, kopiert oder geprüft werden.
-* Im **rechten Bildschirmbereich** sind die Regeln und Instruktionen für die jeweils gewählte Variable zu sehen.
-
-
-Die folgende Darstellung zeigt die allgemeine Arbeitsweise bei der Definition eines Kodierschemas. Die einzelnen Punkte sind dann in separaten Texten dieses Abschnittes beschrieben.
-
-::: {.border}
-```{dot}
-digraph G {
-  rankdir="LR"
-  node [style=filled,color=white,shape=rounded,fontname="Arial"];
-  style=filled;
-  fontname="Arial";
-  color=lightblue;
-  subgraph cluster_0 {
-    m[label = "Prüfen\nSchemer-Zuweisung"];
-    i[label = "Zuweisen Item-Variable"];
-    label = "Eigenschaften";
-  }
-  subgraph cluster_1 {
-    p[label = "Prüfen/Anpassen\nElemente-ID"];
-    label = "Editor";
-  }
-  subgraph cluster_2 {
-    e[label = "Erstellen/Ändern\nKodierschema"];
-    label = "Kodierung";
-  }
-  subgraph cluster_3 {
-    k[label = "Prüfen\nKodierung"];
-    label = "Vorschau";
-  }
-
-  m -> p -> e
-  e -> k
-  e -> i
-  k -> e
-}
-```
-Arbeitsablauf beim Bearbeiten des Kodierschemas
-:::
+5.  **Metadaten:** Wenn das Kodierschema fertig angelegt und getestet wurde, werden die betreffenden Items bei den Metadaten hinzugefügt. Gehen Sie hierzu zu Eigenschaften. Klicken Sie unter „Metadaten (Items)“ auf Item hinzufügen.

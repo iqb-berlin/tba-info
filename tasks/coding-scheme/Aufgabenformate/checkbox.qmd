@@ -1,0 +1,33 @@
+---
+lang: de
+title: "Kontrollkästchen"
+---
+
+## Umbenennung des Interaktionselements „Kontrollkästchen“
+Prüfen Sie zunächst, ob bei allen Kontrollkästchen die IDs umbenannt wurden. Die Konvention zur Umbenennung wird [hier](IDs im Studio umbenennen) erklärt.
+
+
+## Kodierschema der Basisvariablen
+1. Kodierung Generieren:
+Im ersten Schritt geben Sie für jede Basisvariable (jedes Kontrollkästchen) die richtige Antwortoption an. Wählen Sie dazu eine Basisvariable aus und nutzen Sie das Zauberstab-Symbol, um dort die richtige Antwortoption für die entsprechende Zeile anzugeben. Klicken Sie auf „Generiere Kodierung“. 
+
+2. Basis-/Ableitungsparameter ändern: 
+Wählen Sie unter „Basis-/Ableitungsparameter“ die Option „Angezeigt = Wert geändert“ aus. Dadurch werden die Kontrollkästchen, die als Teil der Lösung nicht angeklickt wurden auch als „bearbeitet“ kodiert.
+
+Wiederholen Sie die Schritte mit jeder Basisvariable der Kontrollkästchen.
+
+Das Kodierschema einer Basisvariable sollte in etwa so aussehen: 
+
+
+## Kodierschema der abgeleiteten Variable 
+
+Mit der abgeleiteten Variable wird geprüft, ob für alle Kästchen die richtige Option gewählt wurde. 
+1. Erstellen Sie eine abgeleitete Variable: 
+- ID: übergeordnete ID der Aufgabe (z.B. `02`, wenn die Basisvariablen `02a`, `02b` heißen).
+- Quellvariablen: alle Kontrollkästchen-Basisvariablen
+- Ableitungsmethode: „Bewertungen summieren“
+
+2. Kodierung generieren:
+Wählen Sie das Zauberstab-Symbol aus. Geben Sie bei „Übereinstimmung“ die Anzahl der Kontrollkästchen ein. Generieren Sie die Kodierung. 
+
+Das Kodierschema der abgeleiteten Variable sollte in etwa so aussehen. Dieses Beispiel gilt für 5 Kontrollkästchen:

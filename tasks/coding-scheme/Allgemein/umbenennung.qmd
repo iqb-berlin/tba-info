@@ -1,0 +1,57 @@
+---
+title: "Umbenennung von Aufgabenelementen"
+lang: de
+number-sections: true
+---
+
+# Benennungskonventionen IDs
+
+Damit im Kodierschema erkennbar ist, auf welche Items sich die Regeln und Instruktionen beziehen, müssen die Items nach einer vorgegebenen Struktur umbenannt werden. Jedes Item einer Aufgabe erhält eine eindeutige, zweistellige ID.\
+- Beispiel: das erste Item erhält die ID `01`, das zweite Item die ID `02`, usw.
+
+Wenn sich die Bewertung eines Items aus mehreren untergeordneten Items (Subitems) zusammensetzt, dann wird jedem dieser Subitems eine ID auf dem nächsthöheren Level gegeben.\
+- Beispiel: Das erste Item `01` ist eine Optionentabelle, die sich aus zwei Items zusammensetzt. Dann erhalten die zwei Subitems die IDs `01a` und `01b`.
+
+Items können noch tiefer verschachtelt sein, sodass für jede tieferliegende Ebene die ID-Vergabe angepasst werden muss. Eine Übersicht über die ID-Vergabe für Items bis zu einer 3-stufigen Verschachtelung sind in der folgenden Tabelle dargestellt. Außerdem zeigt die Tabelle, wie IDs bei Stellenübertritt fortgeführt werden.
+
+#### Übersicht ID-Benennungskonventionen
+
+| Level | Konvention | Beispiele | Zielvariable im Beispiel | Bei Stellenübertritt |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| Itemwert | Benennung entsprechend der Chronologie der Aufgabe | `01`, `02`, `03` | \- | `100`, `101`, ..., `200`, `201` |
+| Level-1-Subitem | Itemwert mit Buchstaben | `02a`, `02b`, `02c` | `02` | `02aa`, `02ab`, ..., `02ba`, `02bb` |
+| Level-2-Subitem | Level-1-Subitem mit Zahl | `03a_1`, `03a_2`, `03a_2` | `03a` | `03a_10`, `03a_11`, ..., `03a_100`, `03a_101` |
+| Level-3-Subitem | Level-2-Subitem mit Buchstaben | `03a_1a`, `03a_1b`, `03a_1c` | `03a_1` | `03a_1aa`, `03a_1ab`, ..., `03a_1ba`, `03a_1ba` |
+
+# IDs von Aufgabenelementen ändern {#sec-umbenennung}
+
+Die Umbenennung erfolgt im Editor des Studios. Wählen Sie dazu das Interaktionselement der Aufgabe aus. Im Menü rechts steht ganz oben, um was für ein Element es sich handelt.
+
+Bei den meisten Aufgabenformaten geben Sie nun in dem rechten Menü in das Feld „ID“ die entsprechende ID ein. Alle Elemente die anders behandelt werden müssen, werden weiter unten erklärt. (Optionsfelder (MC), Klappliste, Eingabefeld, Eingabebereich, Wort korrigieren, Formel, Rechenkästchen, Kontrollkästchen, Schieberegler, Bildbereiche).
+
+![](assets/optionsfeld_ID-feld.png)
+
+## Optionentabelle (Complex Multiple Choice) {#sec-umbenennung_cmc}
+
+Bei dem Interaktionselement Optionentabelle (CMC), … müssen Sie zusätzlich zur Vergabe der ID für die ganze Optionentabelle noch IDs für jede Zeile der Tabelle vergeben. Dazu müssen Sie im Menü runterscrollen, bis Sie eine Liste mit den Zeilenwerten sehen. Klicken Sie auf das Schraubenschlüssel-Symbol und geben Sie dort die IDs der Zeilen ein. Die IDs der Zeilen sind auf dem nächsthöheren Item-ID-Sublevel.
+
+## Ablegeliste (Drag & Drop)
+
+### Drag & Drop - Sortierliste {#sec-umbenennung_dnd_sortierliste}
+
+![](assets/dnd-s_IDs.png){width="408"}
+
+Bei diesem Aufgabenformat gibt es nur eine Ablegeliste – die Sortierliste. Diese erhält die für die Aufgabe übergeordnete ID, welche im Menü rechts oben eingetragen wird. Zusätzlich erhält jedes der enthaltenen Elemente eine eigene ID, welche ein Sublevel über der ID der Elementliste sind und nach dem Schema `01_1`, `01_2`, `01_3`, usw. vergeben werden.\
+Hier geht es weiter zu \[Drag & Drop – Sortierliste kodieren\].
+
+### Drag & Drop – Zuordnung {#sec-umbenennung_dnd_zuordnung}
+
+![](assets/dnd-z_IDs.png){width="401"}
+
+Bei diesem Aufgabenformat gibt es die Ablegeliste, die die Antwortoptionen enthält (Elementliste) und weitere zugeordnete Ablageliste, in die die Antwortoptionen eingefügt werden sollen (Zielablagen). Die übergeordnete ID der Elementliste beginnt mit einem Unterstrich „\_“, gefolgt von der ID, mit einem angehängten „a“. Der Buchstabe wird fortlaufend hochgezählt, falls es mehrere Elementlisten für eine Zielablage gibt. Jedes Element in der Elementliste erhält eine eigene ID nach dem Schema: `01_1`, `01_2`, `01_3`, … . Die Zielablagen erhalten IDs gemäß dem Schema: `01a`, `01b`, `01c`, …, die im Menü rechts oben unter eingetragen werden. Hier geht es weiter zu \[Drag & Drop – Zuordnung kodieren\].
+
+### Drag & Drop – Zuordnung mit Beschriftung {#sec-umbenennung_dnd_kombi}
+
+## Markierungselement (Markieraufgaben) {#sec-umbenennung_markieren}
+
+Bei Markieraufgaben erhält der Textstimulus eine ID, der mit dem Markierelement verknüpft ist. Das Markierungselement selbst muss nicht umbenannt werden. Weiter zu \[Markieraufgaben kodieren\].

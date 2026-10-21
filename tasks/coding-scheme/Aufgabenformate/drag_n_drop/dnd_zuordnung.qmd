@@ -1,0 +1,31 @@
+---
+lang: de
+title: "Drag & Drop: Zuordnung"
+number-sections: true
+---
+
+Bei diesem Aufgabenformat gibt es die Ablegeliste, die die Antwortoptionen enthält (Elementliste) und weitere zugeordnete Ablageliste, in die die Antwortoptionen eingefügt werden sollen (Zielablagen). Im folgenden wird beschrieben wie das Kodierschema für jede Zielablage angelegt wird. 
+
+## Umbenennung des Interaktionselements „Ablegeliste“
+
+Überprüfen Sie zunächst, ob die Benennung der Interaktionselemente korrekt ist. Wie die Umbenennung funktioniert wird auf der Seite @sec-umbenennung_dnd_zuordnung beschrieben.
+
+
+## Kodierschema der Basisvariable (Zielablage) erstellen
+
+Gehen Sie in der Liste der Basisvariablen auf die ID der ersten Zielablage und wählen Sie das Zauberstab-Symbol aus. Wählen Sie die richtige Antwortoption für diese Zielablage aus. 
+
+Wiederholen Sie diesen Schritt für jede Zielablage.
+
+Das generierte Kodierschema für eine Zielablage sollte in etwa so aussehen: 
+
+## Kodierschema der abgeleiteten Variable erstellen
+1.	Abgeleitete Variable erstellen
+Erstellen Sie eine abgeleitete Variable, die die Aufgabe als richtig wertet, wenn alle Elemente an der richtigen Position abgelegt wurden:
+•	ID: übergeordnete ID der Zielablagen, z.B.: `01`
+•	Quellvariablen: alle Zielablagen (z.B.: `01a`, `01b`, `01c`, `01d`)
+•	Ableitungsmethode: „Bewertung summieren“
+
+2.	Kodierschema erstellen
+Wählen Sie das Zauberstab-Symbol aus und geben Sie in dem Feld „Übereinstimmung“ die Anzahl an Zielablagen ein. In der hier gewählten Beispielaufgabe ist die Anzahl 4.
+Die generierte Kodierung der abgeleiteten Variable sollte in etwa so aussehen:

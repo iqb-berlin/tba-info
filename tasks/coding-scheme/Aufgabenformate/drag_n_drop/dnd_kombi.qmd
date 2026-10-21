@@ -1,0 +1,55 @@
+---
+lang: de
+title: "Drag & Drop: Zuordnung mit Beschriftung"
+number-sections: true
+---
+
+## Umbenennung des Interaktionselements „Ablegeliste“
+
+Überprüfen Sie zunächst, ob die Benennung der Interaktionselemente korrekt ist. Wie die Umbenennung funktioniert wird auf der Seite @sec-umbenennung_dnd_kombi beschrieben.
+
+## Kodierschema der Zielablagen erstellen
+
+1.  Richtig-Codes hinzufügen: Das Kodierschema der Zielablagen soll zunächst prüfen, ob irgendeine richtige Kombination von Elementen in dem Ablagefeld abgelegt wurde. Dazu wird für jede Zielablage alle erlaubten Kombinationen dafür kodiert. Fügen Sie dazu einen Richtig-Code mit der Regel „Zeichen/Text Übereinstimmung“ ein, der eine der richtigen Kombinationen prüfen soll. Tragen Sie dort die richtigen Codes der Elemente ein. Falls mehrere Elemente zusammen abgelegt werden müssen für eine richtige Antwort, fügen Sie eine Regel hinzu über das Plus-Symbol:
+
+Achten Sie darauf, das im Feld „Verknüpfung der Regel“ „UND“ ausgewählt ist. Dadurch wird bei der Zielablage nur ein Richtig-Code ausgelöst, wenn alle angegebenen Elemente der Zielablage zugeordnet wurden. Fügen Sie für jede andere Kombinationen in den Ablagen einen weiteren Richtig-Code ein, der weitere Kombinationen kodiert.
+
+2.  Falsch-Code hinzufügen: Fügen Sie einen Falsch-Code „Falsch: Alle anderen Antworten – AUTOMATISCH“ hinzu.
+
+Das Kodierschema sollte in etwa so aussehen:
+
+Kopieren Sie dieses Kodierschema auf alle anderen Zielablagen.
+
+## Kodierschema der Eingabefelder erstellen
+
+1.  Richtig-Codes hinzufügen: Fügen Sie für jede korrekte Antwort einen Richtig-Code ein mit der Regel „Zeichen/Text Übereinstimmung“. Geben Sie dort alle korrekten Antworttexte für alle Textfelder ein.
+
+2.  Falsch-Code einfügen: Fügen Sie einen Falsch-Code „Falsch: Alle anderen Antworten - AUTOMATISCH“ hinzu.
+
+Das erzeugte Kodierschema sollte in etwa so aussehen:
+
+Kopieren Sie dieses Schema auf alle anderen Texteingabefelder.
+
+## Kodierschema der abgeleiteten Variablen erster Ebene erstellen
+
+1.  Abgeleitete Variablen erstellen: Erstellen Sie eine abgeleitete Variable pro Zielablage-Textfeld-Kombination. Wählen Sie als Quellvariablen jeweils zusammengehörige Zielablage und Textfeld. Benennen Sie die abgeleitete Variable dann nach der ID der übergeordneten Ebene, also nach dem Schema: 01a, 01b, … . Wählen Sie dann die Ableitungsmethode „Codes aneinanderhängen“.
+
+Gehen Sie für jede abgeleitete Variable die weiteren Schritte durch.
+
+2.  Richtig-Code einfügen: Fügen Sie einen Richtig-Code mit der Regel „Zeichen/Text Übereinstimmung“ ein. Dieser Code soll prüfen, ob die zugeordneten Elemente zusammen mit der richtigen Texteingabe aufgetreten sind. Geben Sie daher die Codes der zusammengehörigen Regeln aus Eingabefeld und Textfeld ein.
+
+3.  Falsch-Code einfügen: Fügen Sie einen Falsch-Code „Falsch: Alle anderen Antworten - AUTOMATISCH“ hinzu.
+
+Das erstellte Kodierschema sollte in etwa so aussehen:
+
+Kopieren Sie das Kodierschema in die abgeleitete Variable für die weiteren Zeilen.
+
+## Kodierschema der abgeleiteten Variable zweiter Ebene erstellen
+
+1.  Abgeleitete Variablen erstellen: Erstellen Sie eine weitere abgeleitete Variable. Wählen Sie als Quellvariablen die abgeleiteten Variablen aus, die im vorhergehenden Schritt erstellt wurden. Benennen Sie die abgeleitete Variable nach der ID eine Ebene über den anderen, also z.B. `01,` wenn die Quellvariablen `01a`,`01b`, … heißen.
+
+2.  Richtig-Code einfügen: Fügen Sie einen Richtig-Code mit der Regel „Numerisch Übereinstimmung“ ein. Geben Sie dort die Anzahl an Zuordnung-Text-Kombinationen ein. Damit prüft der Code, ob jede Kombination in den abgeleiteten Variablen zuvor als richtig kodiert wurde.
+
+3.  Falsch-Code einfügen: Fügen Sie einen Falsch-Code „Falsch: Alle anderen Antworten - AUTOMATISCH“ hinzu.
+
+Das erstelle Kodierschema sollte in etwa so aussehen:
