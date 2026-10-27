@@ -1,0 +1,27 @@
+# Koordinatensystem
+
+## Koordinatensystem
+
+Die Vorlagen für das Koordinatensystem sind v. a. für die Sekundarstufe gedacht. Mithilfe der Vorlagen lassen sich verschiedene Aufgaben erstellen, wie z. B. Aufgaben zur Spiegelung, zum Formen und Aufgaben zu (stückweise) linearen Funktionen.
+
+Hinweis: Zur Änderung der Streckendarstellung „Strecken“- Werkzeug in den Einstellungen oben rechts auswählen.
+
+Anleitung zum Erstellen von Aufgaben zum Spiegeln:
+
+1.  Zeichnen Sie mit dem Werkzeug „Strecke“ eine Spiegelachse und anschließend die zu spiegelnde Figur.
+2.  Wählen Sie alle Strecken (man kann dazu in der Algebra-Ansicht auf das Wort „Strecke“ klicken) und fixieren Sie diese, d. h. in den Einstellungen einen Haken bei „Objekt fixieren“ setzen und den Haken bei „Auswahl erlaubt“ entfernen (siehe allgemeine Anleitung).
+3.  Ggf. unnötige Werkzeuge entfernen.
+4.  Ggf. Algebra-Ansicht ausschalten, Fenster auf angemessene Größe reduzieren und speichern.
+
+Anleitung zum Erstellen einer Aufgabe mit Graphen:
+
+1.  Mit den Werkzeugen „Strecke“ und „Punkt“ vorgegebene Teile des Graphen einzeichnen.
+2.  Alle Strecken und Punkte auswählen (man kann dazu in der Algebra-Ansicht auf das Wort „Strecke“ klicken) und dann fixieren, d. h. in den Einstellungen einen Haken bei „Objekt fixieren“ setzen und den Haken bei „Auswahl erlaubt“ entfernen (siehe allgemeine Anleitung).
+3.  Bei Änderungen des Koordinatensystems das Menü oben rechts anklicken:
+    1.  das Zahnrad anklicken
+    2.  Falls die Leiste mit dem Zahnrad nicht angezeigt wird: die drei Striche mit den geometrischen Formen anklicken
+4.  ggf. unnötige Werkzeuge entfernen
+5.  ggf. offene Einstellungen schließen, Algebra-Ansicht schließen
+6.  Fenster auf angemessene Größe reduzieren und speichern
+
+Zurück nach oben

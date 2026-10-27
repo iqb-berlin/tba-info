@@ -1,0 +1,7 @@
+# Einfache Formulare
+
+Eine wichtige Stärke des TBA-Systems des IQB ist die Flexibilität in der Darstellung und Interaktion einzelner Aufgaben. Wer eine einfache Befragung durchführen möchte, muss nicht den aufwändigen Aspect-Editor und -Player benutzen. Für Evaluationen im Bereich der Abituraufgaben setzt das IQB seit 2019 einen scriptgesteuerten Player ein, der auf den nachfolgenden Seiten beschrieben ist:
+
+[Abi-Player](../../../tasks/design/simple-forms/Abi_Player/index.llms.md)
+
+Zurück nach oben

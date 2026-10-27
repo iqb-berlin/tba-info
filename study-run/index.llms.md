@@ -1,0 +1,50 @@
+# Eine Studie durchführen mit dem IQB-Testcenter
+
+> **NOTE:**
+>
+> Wenn Sie Hilfe benötigen, senden Sie gerne eine Mail an <iqb-tbadev@hu-berlin.de>.
+
+Dieser Abschnitt erläutert die Funktionen der Webanwendung **IQB-Testcenter** und richtet sich an Verantwortliche, die mit der Vorbereitung, Durchführung und der Auswertung einer Studie beauftragt sind. Der Begriff **Studie** steht hierbei gleichermaßen für Leistungstests und für Befragungen. Als Voraussetzung muss das **IQB-Testcenter** auf einem Server installiert werden. Zur weiteren Einrichtung des Testcenters muss ein Super-Admin-Account vorhanden sein. Mehr dazu ist dem Kapitel [Einrichtung](../setup/index.llms.md) zu entnehmen.
+
+## Schwerpunkte dieses Kapitels:
+
+#### [Vorbereitungen](../study-run/preparation/index.llms.md)
+
+Um eine Studie mit dem **IQB-Testcenter** durchführen zu können, sind einige Vorbereitungen notwendig. Dazu gehört bspw. die Ermittlung von verwendeten Endgeräten, die Studienkonfiguration und einiges mehr.
+
+Schnell zu:
+
+- [Testinhalte](../study-run/preparation/test-files/index.llms.md): Dateien zur Erzeugung von Inhalten und zur Konfiguration eines Tests
+- [System-Check](../study-run/preparation/system-check/index.llms.md): Prüfung zur Eignung der eingesetzen Schulhard- und -software
+
+#### [Durchführung](../study-run/run/index.llms.md)
+
+Schnell zu:
+
+- [Gruppenmonitor](../study-run/run/groupmon/index.llms.md)
+- [Problemlösung](../study-run/run/support.llms.md)
+
+#### [Studiendaten](../study-run/study-data/index.llms.md)
+
+Informationen zur Auswertung sind in dem separaten Kapitel [Kodieren und Auswerten](../coding/index.llms.md) zu finden. Hier wird nur beschrieben, wie die Daten aus dem Testcenter geladen werden können.
+
+#### [Schritt für Schritt](../study-run/step-by-step/index.llms.md)
+
+#### [FAQ](../study-run/faq/index.llms.md)
+
+## Funktionen des Testcenters
+
+- Anmeldung der Testperson: Über Link (z. B. QR-Code), Name und Kennwort oder zweistufig mit einem zusätzlichen Code
+- Anmeldung ohne Personenbezug, z. B. für Befragungen
+- Anmeldung im Demo- oder Review-Modus, ohne die Antworten zu speichern
+- Mehrere Testhefte: Eine Testperson kann mehrere Testhefte nacheinander bearbeiten mit denselben Anmeldedaten
+- zeitliche Beschränkung von Testteilen: Für eine bestimmte Anzahl Aufgaben steht der Testperson eine begrenzte Zeit zur Verfügung
+- Fortsetzung erst mit Freigabewort: Die Testdurchführung z. B. in einer Klasse kann synchronisiert werden, indem die Testleitung ein Wort ansagt, mit dem dann der Test fortgesetzt werden kann
+- Fortsetzung erst nach vollständiger Präsentation: Um zu vermeiden, dass Teile einer Aufgabe übersehen werden, kann das Weiterblättern solange unterbunden werden, bis alle Audio-Sequenzen abgespielt wurden und alle Seiten vollständig angezeigt wurden
+- Fortsetzung erst nach vollständiger Beantwortung
+- sofortige Speicherung: Alle Antworten werden sofort zum Server gesendet; nach Abbruch der Testung oder Absturz eines Computers bzw. Browsers kann der vorherige Stand wiederhergestellt werden
+- In Abhängigkeit gegebener Antworten und einer zuvor festgelegten Wichtung kann zu bestimmten Aufgaben verzweigt werden (adaptives Testen)
+- Prüfung des Serversystems und der Schulhardware und -software zur Sicherstellung der Durchführbarkeit einer Testung (**System-Check**)
+- Steuerung und Beobachtung der Testgruppe durch die Testleitung (**Gruppenmonitor**)
+
+Zurück nach oben

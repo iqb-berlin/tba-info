@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8ee512f19367224acfba0033acd4fca8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-81e0e216479a6f265d24d68c6882b77a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-de96a5d1355003136a914f3a07c2962e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -1562,7 +1562,22 @@ Unitdefintion JSON
 </section>
 <section id="darstellung-der-buttons" class="level1">
 <h1>Darstellung der Buttons</h1>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-6"><pre class="sourceCode json code-annotation-code code-with-copy code-annotated"><code class="sourceCode json"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-6" data-llms-code-original="{
+    &quot;buttonType&quot;: &quot;BIG_SQUARE&quot;, // <1>
+    &quot;numberOfRows&quot;: 2, // <2>
+    &quot;multiSelect&quot;: false, // <3>
+    &quot;triggerNavigationOnSelect&quot;: false, // <4>
+    &quot;options&quot;: { // <5>
+        &quot;buttons&quot;: [
+            {
+                &quot;text&quot;: &quot;Ja&quot;
+            },
+            {
+                &quot;text&quot;: &quot;Nein&quot;
+            }
+        ]
+    }
+}"><pre class="sourceCode json code-annotation-code code-with-copy code-annotated"><code class="sourceCode json"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-2" class="code-annotation-target"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"buttonType"</span><span class="fu">:</span> <span class="st">"BIG_SQUARE"</span><span class="fu">,</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-6-3" class="code-annotation-target"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"numberOfRows"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-6-4" class="code-annotation-target"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"multiSelect"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>

@@ -1,0 +1,59 @@
+# Konfiguration des IQB-Studio
+
+# Server-Administrator\*in:
+
+> **NOTE:**
+>
+> In Bearbeitung.
+
+# Super-Administrator\*in: Systemeinstellungen in der UI
+
+Systemeinstellungen für das Studio können mit Hilfe eines speziellen Zugangs, dem so genannten Super-Administrator vorgenommen werden. Aus sicherheitstechnischer Sicht, sollten einen solchen Zugang nur ausgewählte Administratoren\*innen erhalten. Dieser Zugang ermöglicht das Anlegen und Entfernen neuer Zugänge, Arbeitsbereiche und Bereichsgruppen. Das Laden von Modulen, wie bspw. Player und Editor und weiterer Systemnaher Einstellungen. Alle Einstellungen werden gruppiert in Reitern. Diese werden nachfolgend beschrieben.
+
+### Nutzer\*innen
+
+Hier werden die Zugänge für das Studio eingerichtet. Auf der linken Seite ist eine Liste aller Zugänge zu sehen. Durch Betätigung der  - Schaltfläche wird ein neuer Zugang eingerichtet. Es erscheint ein Formular zur Eingabe von Metadaten zum Zugang. Hier wird unter anderem ein Passwort festgelegt und eine Mailadresse hinterlegt. Es wird außerdem festgelegt, ob der Zugang Rechte als System-Administrator\*in erhalten soll. Nach dem Speichern des Formulars ist der Zugang angelegt.
+
+> **NOTE:**
+>
+> Zugänge die als System-Administrator\*in angelegt wurde, werden in der Liste der Zugänge mit einem Sternchen gekennzeichnet.
+
+Zugänge können mit der  - Schaltfläche entfernt werden. Sollen Metadaten verändert werden, kann die -Schaltfläche verwendet werden. Bspw. könnte hier die Mailadresse nachträglich geändert werden oder eine vorherige Festlegung als System-Administrator\*in wieder rückgängig gemacht werden.
+
+> **NOTE:**
+>
+> Soll ein Zugang entfernt oder Metadaten angepasst werden, ist der entsprechende Zugang zuvor zu markieren.
+
+Ganz rechts ist die Liste aller Bereichsgruppen zu sehen. Ist ein Zugang markiert, kann dem Zugang eine Bereichsgruppe zugeordnet werden. Damit diese Änderungen nicht verloren gehen, muss mit der  - Schaltfläche oben rechts gespeichert werden.
+
+> **NOTE:**
+>
+> Wird einem Zugang eine Bereichsgruppe zugeordnet, besitzt dieser Zugang die Berechtigung auf die Bereichsgruppen-Einstellungen zuzugreifen. Dieser Zugang ist dann Bereichsgruppen-Administrator\*in.
+
+### Bereichsgruppen
+
+Links ist eine Liste aller Bereichsgruppen zu sehen. Mithilfe der  - Schaltfläche kann eine neue Bereichsgruppe angelegt werde. Der Name der Bereichsgruppe sollte sich dabei günstigerweise an dem Zweck der Studie orientieren. Durch Markierung kann eine Bereichsgruppe gelöscht werden oder umbenannt werden. Außerdem kann mit Hilfe der  - Schaltfläche das Metadaten-Profil der Bereichsgruppe angepasst werden.
+
+Es finden sich zwei weitere Schaltfläche. Diese können genutzt werden, um separate Dateien zur Übersicht der Module und der Arbeitsbereiche in den Bereichsgruppen zu generieren. Das verschafft System-Administrator\*innen einen zusätzlichen Überblick über nicht mehr genutzte Arbeitsbereiche und Module. Auf diese Weise ist es möglich hin und wieder ältere Stände zu entfernen und somit die Datenlast für das Studio zu reduzieren.
+
+### Module
+
+Es ist eine Liste aller Module für Editor, Schemer und Player zu sehen. Mit der  - Schaltfläche können neue Module geladen werden. Module können erst gelöscht werden, nachdem sie zuvor markiert wurden.
+
+### Einstellungen
+
+Hier können Texte zu Wartungsarbeiten (Warnungen) auf der Anmeldeseite und Texte im Impressum verändert werden. Außerdem kann das Layout der Anwendung angepasst werden.
+
+Da das Studio neben der Unit-XML auch optional eine Booklet-XML und eine Testtaker-XML ausgeben kann, kann in den Einstellungen festgelegt werden, welche Schema-Definition (Xsd) zur Validierung dieser XML-Dateien verwendet werden soll.
+
+> **NOTE:**
+>
+> Zu jeder Testcenter-Version gehört eine Schema-Definition (Xsd) mit gleicher Versionsnummer.
+
+Für die Kodierung können im JSON-Format Missing Profiles angelegt werden.
+
+### Pakete
+
+Hier können Pakete bswp. für GeoGebra geladen werden. Damit GeoGebra-Elemente in der Vorschau des Editors sichtbar sind, muss das entsprechende Paket vorhanden sein.
+
+Zurück nach oben

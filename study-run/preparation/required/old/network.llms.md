@@ -1,0 +1,13 @@
+# Internetverbindung
+
+Ist die Anbindung zu schlecht, kann im schlimmsten Fall die Studie im örtlichen Umfeld nicht durchgeführt werden. Leider kann an dieser Stelle keine generelle Aussage getroffen werden, ab welchen Werten eine Studie gesichert durchgeführt werden kann. Dafür spielen zu viele Faktoren eine Rolle. Es wird empfohlen einen System-Check durchzuführen. Dieser kann so konfiguriert werden, dass eine Bewertung der Internetgeschwindigkeit bezogen auf die verwendete Testheftgröße erfolgen kann. Mehr dazu ist dem Kapitel: **System-Check** zu entnehmen.
+
+> **TIP:**
+>
+> Ist die Internetanbindung nicht ausreichend, kann das Testcenter auch offline betrieben werden. Hierfür wird das Testcenter auf einem PC installiert und die entsprechenden Endgeräte werden mit diesem verbunden. Der PC fungiert dann als Server.
+
+> **TIP:**
+>
+> Manche IT-Sicherheitskonzepte in den Einrichtungen können die Studiendurchführung stören oder gänzlich unmöglich machen. Daher ist es wichtig zuvor die Erreichbarkeit des Testcenters aus dem Netz der Einrichtung heraus zu prüfen.
+
+Zurück nach oben

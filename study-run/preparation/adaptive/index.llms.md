@@ -1,0 +1,378 @@
+# Adaptives Testen
+
+Veröffentlichungsdatum
+
+7\. September 2026
+
+Aufgaben können während einer Studiendurchführung abhängig von den gegebenen Antworten angezeigt werden. Der Antwortwert besteht nicht einfach nur aus einem Antwortwert. Der Player erzeugt vielmehr ein Datenobjekt bestehend aus vielen Variablen. Die folgenden Variablen sind in diesem Objekt enthalten:
+
+- `id`: ID des Datenobjektes, welches zu einem bestimmten Aufgabenelement (Bsp. Optionsfeld) gehört
+- `state`: Status des Datenobjektes
+- `value`: Gespeicherter Antwortwert, bspw. bei einem Optionselement true oder false
+- `code`: Kategorie des Antwortwertes nach dem Kodierungsprozess
+- `score`: Auswertung des Codes nach dem Kodierungsprozess
+
+> **NOTE:**
+>
+> Das Datenobjekt unterliegt einer Spezifikation. Die Spezifikation ist [hier](https://pages.cms.hu-berlin.de/iqb/ci_cd/responses/#schema-response@iqb-standard@1.3) zu finden.
+
+Jede Variable dieses Datenobjektes kann ausgewertet und davon abhängig eine Aufgabe angezeigt werden. Es ist auch möglich mehrere Antworten in Kombination auszuwerten. Auf diese Weise können Antwortwerte auch logisch miteinander verknüpft werden.
+
+Die Konfiguration erfolgt in der Booklet-XML und in der Testtaker-XML. Dort stehen Options-Elemente (`<Option>`) und Zustands-Elementen (`<State>`) zur Verfügung, die in Kombination die jeweiligen Bedingungen zur Anzeige abbilden. Welche Attribute in diesen Elementen verwendet werden können, ist der Schema-Definition für die Booklet-XML und Testtaker-XML zu entnehmen.
+
+## Beispielkonfiguration
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-booklet-xml/18.0">
+  <Metadata>
+    <Id>BOOKLET.SAMPLE-2</Id>
+    <Label>Adaptive Booklet</Label>
+    <Description>This Booklet demonstrates the adaptivity features.</Description>
+  </Metadata>
+
+  <BookletConfig></BookletConfig>
+
+  <States>
+    <State id="level" label="Schwierigkeitsstufe">
+      <Option id="professional" label="schwer">
+        <If>
+          <Count>
+            <If><Value of="var1" from="decision-unit"/><Is greaterThan="150"/></If>
+            <If>
+              <Sum>
+                <Value of="var2" from="decision-unit"/>
+                <Value of="var3" from="decision-unit"/>
+              </Sum>
+              <Is greaterThan="2"/>
+            </If>
+          </Count>
+          <Is greaterThan="0"/>
+        </If>
+      </Option>
+      <Option id="advanced" label="mittel">
+        <If><Value of="derived_var" from="decision-unit"/><Is greaterThan="99"/></If>
+      </Option>
+      <Option id="beginner" label="leicht"/>
+    </State>
+  </States>
+
+  <Units>
+    <Unit id="UNIT.SAMPLE-2" label="Decision Unit" labelshort="D" alias="decision-unit"/>
+    <Testlet id="stage1">
+      <Testlet id="stage1-professional" label="Stage ① Block Ⓒ">
+        <Restrictions>
+          <Show if="level" is="professional"/>
+        </Restrictions>
+        <Unit id="UNIT.SAMPLE-2" label="Ⓒ Professional Unit" labelshort="Ⓒ" alias="professional-unit"/>
+      </Testlet>
+      <Testlet id="stage1-advanced" label="Stage ① Block Ⓑ">
+        <Restrictions>
+          <Show if="level" is="advanced"/>
+        </Restrictions>
+        <Unit id="UNIT.SAMPLE-2" label="Ⓑ Advanced Unit" labelshort="Ⓑ" alias="advanced-unit"/>
+      </Testlet>
+      <Testlet id="stage1-beginner" label="Stage ① Block Ⓐ">
+        <Restrictions>
+          <Show if="level" is="beginner"/>
+        </Restrictions>
+        <Unit id="UNIT.SAMPLE-2" label="Ⓐ Beginner Unit" labelshort="Ⓐ" alias="beginner-unit"/>
+      </Testlet>
+    </Testlet>
+  </Units>
+</Booklet>
+```
+
+> **TIP:**
+>
+> Alle nachfolgend beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-booklet-xml/#States) zu finden.
+
+## Konfiguration in der Booklet-XML
+
+### Werte in der Booklet-Config
+
+Im Element **BookletConfig** stehen Werte zur Verfügung, die im Zusammenhang mit dem adaptiven Testen zum Einsatz kommen können. Dies betrifft die folgenden Werte:
+
+`unit_responses_buffer_time`:
+
+Sobald der Browser gestartet wird, startet dieser, in der hier hinterlegten Zeit in ms, zyklisch einen Timer. Nach Ablauf des Timers werden die Antwortwerte auf ein Frageelement ausgelesen und in Abhängigkeit der konfigurierten Bedingungen die optionalen Aufgaben eingeblendet. Ist diese Zeit groß eingestellt, kann es entsprechende Zeit dauern, bis die von den Bedingungen abhängigen Aufgaben in der Navigationsleiste angezeigt werden. Die Standardzeit ist 5000ms, wenn der Wert in der Booklet-Config nicht angegeben wird.
+
+> **NOTE:**
+>
+> Der Timer startet nicht erst nach der Beantwortung eines Frageelements. Der Wert des Timers ist vielmehr abhängig vom Zeitpunkt des Browserstarts.
+
+`unit_state_buffer_time`:
+
+Der hier angegebene Wert in ms legt fest in welchen Abständen die Zustandswerte (response complete, presentation complete etc.) einer Unit gespeichert werden.
+
+`test_state_buffer_time`:
+
+Speicherfrequenz für Test-Zustände in ms.
+
+### Optionen und Status anlegen
+
+Hier ein Beispiel:
+
+``` xml
+<States>
+    <State id="bonus" label="Bonusaufgaben">
+      <Option id="bonus1" label="Bonus 1" > 
+        <If>
+          <Sum>
+            <Score of="radio_1" from="unit0"/>
+            <Score of="radio_2" from="unit0"/>
+            <Score of="radio_3" from="unit0"/>
+          </Sum>
+            <Is equal="300" />
+        </If>
+      </Option>
+      <Option id="bonus2" label="Bonus 2" />
+    </State>
+ </States>
+```
+
+#### `<States>`
+
+Elternelement für das Status-Element. Dieses Element darf nur einmal in der XML vorhanden sein.
+
+#### `<State>`
+
+Bildet den Testheft Status ab und ist Elternelement für die Optionen. Dieses Element kann mehrfach verwendet werden. Jedes State-Element erhält eine eindeutige `ìd` und ein `label`. Zur Selektierung (es kann mehrere State-Elemente geben) wird die ID verwendet.
+
+#### `<Option>`
+
+Optionen können ohne bedingte Verzweigungen angelegt sein und sind damit bedingungslos aktiv. Sie können aber auch um bedingte Verzweigungen (IF-ELSE-Anweisungen) erweitert werden und sind dann in Abhängigkeit dieser IF-Anweisung aktiv. In diesem Beispiel wird die Option mit der ID: **bonus2** aktiv, wenn die Option mit der ID: **bonus1** nicht aktiv werden kann, weil die IF-Bedingungen nicht erfüllt sind. Es können beliebig viele Options-Elemente angelegt werden. Jedes Options-Element verfügt über eine `id`. Über diese kann die Option selektiert werden. Später werden Status und Option in Kombination abgefragt, um eine Aufgabe anzuzeigen.
+
+> **IMPORTANT:**
+>
+> Es kann nur eine Option innerhalb des State-Elements aktiv sein. Dabei gilt die Regel: Die erste Option (von oben nach unten) die aktiv werden kann (IF-Bedingung erfüllt oder Option ohne IF-Bedingung angelegt), wird für den jeweiligen Status aktiv. Die nachfolgenden Optionen werden dann nicht mehr betrachtet. Um sicherzustellen, dass immer nur eine Option aktiv ist, sollte immer eine Option am Ende angelegt sein, die keine IF-Bedingungen enthält. Das garantiert min. eine aktive Option innerhalb eines Status.
+
+#### `<If>`
+
+Hiermit werden die Bedingungen für eine Option festgelegt. Es können mehrere IF-Anweisungen verschachtelt werden.
+
+#### `<Sum>`
+
+In diesem Beispiel wird der Score von 3 Antworten mit den ID\`s: **radio1**, **radio2** und **radio3** der Unit mit der ID: **unit0** addiert.
+
+Es gibt außer `sum` noch weitere Funktionen:
+
+- `<Count>`
+
+  Hiermit können bspw. logische Verknüpfungen erstellt werden.
+
+  Beispiel: Es darf nur eine der 3 IF-Bedingungen erfüllt sein (ODER-Verknüpfung)
+
+  ``` xml
+      <If>
+        <Count>
+          <If>
+              <Score of="radio1" from="unit0"/>
+              <Is equal="100" />
+          </If>
+          <If>
+              <Score of="radio2" from="unit0"/>
+              <Is equal="100" />
+          </If>
+          <If>
+              <Score of="radio3" from="unit0"/>
+              <Is equal="100" />
+          </If>
+        </Count>
+        <Is equal="1" />
+      </If>
+  ```
+
+- `<Median>`
+
+  Beispiel: Median des Score von 3 Antworten
+
+  ``` xml
+      <If>
+        <Median>
+          <Score of="radio1" from="unit0"/>
+          <Score of="radio2" from="unit0"/>
+          <Score of="radio3" from="unit0"/>
+        </Median>
+        <Is equal="200"/>
+      </If>
+  ```
+
+- `<Mean>`
+
+  Beispiel: Mittelwert
+
+  ``` xml
+     <If>
+       <Mean>
+         <Score of="radio1" from="unit0"/>
+         <Score of="radio2" from="unit0"/>
+         <Score of="radio3" from="unit0"/>
+       </Mean>
+       <Is equal="100"/>
+     </If>
+  ```
+
+#### `<Score>`
+
+Hier wird die Variable: `score` einer Antwort ausgelesen. Dieses Element weist die folgenden Attribute auf:
+
+- `of`: ID des Aufgabenelements, hier bspw. **radio1**
+- `from`: ID oder Alias der Unit. In diesem Fall die Unit mit der ID: **unit0**
+- `or`: Fallback für den Fall, dass ein Wert nicht verfügbar ist. Bspw. wenn **radio1** keinen Score hat (Kodierfehler), wird -1 angenommen. Das ist bei Additionen und anderen Aggregationen mitunter relevant. Default ist 0.
+
+Wie eingangs bereits erwähnt, können anstelle des Scores auch die anderen Variablen einer Antwort (Datenobjekt) abgefragt werden. Hierfür muss nur der Name des Elements durch einen der nachfolgenden ersetzt werden:
+
+- `State`
+- `Value`
+- `Code`
+
+> **NOTE:**
+>
+> Die beiden Variablen `score` und `code` können nur sinnvoll zur Erstellung von Bedingungen eingesetzt werden, wenn zu den Aufgabenelementen, in diesem Beispiel: **radio1 - radio3**, auch eine Kodieranweisung vorhanden ist. Außerdem muss dem Testcenter diese Kodieranweisung bekannt gemacht werden. Zu der eigentlichen Unit-XML muss dann zwingend auch die Unit-VOCS in das Testcenter geladen werden. Die Unit-VOCS enthält die Kodieranweisungen.
+
+#### `<Is>`
+
+In den vorhergehenden Beispielen wird geprüft, ob ein Ergebnis einem bestimmten Wert entspricht. Hierfür wird das Attribut: `equal` benutzt. Es können auch andere Vergleichsoperatoren eingesetzt werden:
+
+- `lowerThan`
+- `greaterThan`
+- `notEqual`
+
+### Optionen abfragen
+
+In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: `<Restriction>` das Element: `<Show>` mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.
+
+``` xml
+<Units>
+
+    <Unit id="unit0" label="Startunit" labelshort="1"/> # <1>
+    
+    <Testlet id="Bonus-Aufgaben"> # <2>
+    
+        <Testlet id="Bonus-Aufgaben-1"> # <3>
+            <Restrictions>
+                <Show if="bonus" is="bonus1" />
+            </Restrictions>
+
+            <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
+            <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
+            <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+        </Testlet>
+
+        <Testlet id="Bonus-Aufgaben-2"> # <4>
+            <Restrictions>
+                <Show if="bonus" is="bonus2" />
+            </Restrictions>
+
+            <Unit id="BonusUnit4" label="Bonus Unit 4" labelshort="2" />
+            <Unit id="BonusUnit5" label="Bonus Unit 5" labelshort="3" />
+            <Unit id="BonusUnit6" label="Bonus Unit 6" labelshort="4" />
+        </Testlet>
+
+    </Testlet>
+
+</Units>
+```
+
+1.  Da in Abhängigkeit von dem Score der Frageelemente in der **unit0** eine Anzeige von Bonusaufgaben erfolgt, muss die **unit0** bedingungslos sichtbar sein. Daher erfolgt gleich am Anfang der Aufruf dieser Unit.
+2.  Übergeordnetes Testlet: Hier werden alle Testlets organisiert, die die Optionen des State-Elements: **bonus** abfragen. Hintergrund: Soll ein Gruppenmonitor zum Einsatz kommen, muss es möglich sein zu dem Block mit den Bonusaufgaben zu springen. Dies wäre nicht möglich, wenn die beiden Testlets: **Bonus-Aufgaben-1** und **Bonus-Aufgaben-2** ohne übergeordnetes Testlet organisiert wären.
+3.  Ist die Option: **bonus1** aktiv, wird dieses Testlet mit den entsprechenden Bonusaufgaben angezeigt.
+4.  Ist die Option: **bonus2** aktiv, wird dieses Testlet mit den entsprechenden Bonusaufgaben angezeigt.
+
+### Das komplette Beispiel
+
+**Optionen und Status anlegen**
+
+``` xml
+<States>
+    <State id="bonus" label="Bonusaufgaben">
+      <Option id="bonus1" label="Bonus 1">
+        <If>
+          <Sum>
+            <Score of="radio_1" from="unit0"/>
+            <Score of="radio_2" from="unit0"/>
+            <Score of="radio_3" from="unit0"/>
+          </Sum>
+            <Is equal="300" />
+        </If>
+      </Option>
+      <Option id="bonus2" label="Bonus 2" />
+    </State>
+ </States>
+```
+
+**Optionen und Status abfragen:**
+
+``` xml
+<Units>
+
+    <Unit id="unit0" label="Startunit" labelshort="1"/>
+
+    <Testlet id="Bonus-Aufgaben"> # <2>
+    
+        <Testlet id="Bonus-Aufgaben-1"> # <3>
+            <Restrictions>
+                <Show if="bonus" is="bonus1" />
+            </Restrictions>
+
+            <Unit id="BonusUnit1" label="Bonus Unit 1" labelshort="2" />
+            <Unit id="BonusUnit2" label="Bonus Unit 2" labelshort="3" />
+            <Unit id="BonusUnit3" label="Bonus Unit 3" labelshort="4" />
+        </Testlet>
+
+        <Testlet id="Bonus-Aufgaben-2"> # <4>
+            <Restrictions>
+                <Show if="bonus" is="bonus2" />
+            </Restrictions>
+
+            <Unit id="BonusUnit4" label="Bonus Unit 4" labelshort="2" />
+            <Unit id="BonusUnit5" label="Bonus Unit 5" labelshort="3" />
+            <Unit id="BonusUnit6" label="Bonus Unit 6" labelshort="4" />
+        </Testlet>
+
+    </Testlet>
+
+</Units>
+```
+
+## Konfiguration in der Testtaker-XML
+
+### Optionen und Status anlegen
+
+Die Aktivierung bestimmter Optionen kann auch bereits in der Testtaker-XML erfolgen.
+
+Beispiel: Das Booklet: **BOOKLET.SAMPLE-1** wird nach Anmeldung zweimal zur Auswahl angezeigt. Einmal mit Bonusaufgaben, einmal ohne.
+
+``` xml
+<Group id="sample_group" label="Primary Sample Group">
+
+    <Login mode="run-hot-return" name="er3Cdx" pw="123">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+      <Booklet state="bonus1:yes">BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+
+  </Group>
+```
+
+Damit die Option mit der ID: **yes** über die Testtaker-XML aktiviert werden kann, muss die Option auch in der **Booklet-XML** angelegt sein:
+
+``` xml
+<States>
+
+    <State id="bonus1" label="Bonusmaterial">
+        <Option id="no" label="nein" />
+        <Option id="yes" label="ja" />
+    </State>
+
+<States>
+```
+
+Wird in diesem Fall das Booklet ohne Bonus ausgewählt, ist die erste Option im Status die Option mit der ID: **no**. Diese Option wird also für diesen Status aktiviert. In Abhängigkeit von der Konfiguration in der Booklet-XML werden die entsprechenden Bonusaufgaben nicht angezeigt. Wird das Booklet mit Bonus gewählt, wird eine der 2 Optionen bereits mit Hilfe der Testtaker-XML für den Status aktiviert. In diesem Fall die Option mit der ID: **yes**. Entsprechend der Konfiguration in der Booklet-XML werden die Bonusaufgaben angezeigt.
+
+## Prüfen der Konfiguration im Review-Modus
+
+Der Review-Modus kann zur Prüfung der Konfiguration genutzt werden. Im Unit-Menü (rechts) kann unten in einem Listenfeld eine der konfigurierten Optionen ausgewählt werden. Sobald eine Option gewählt ist, werden oberhalb die entsprechende Aufgaben angezeigt, die abhängig von dieser Option angezeigt werden sollen. In der Liste ist auch zu erkennen, welche Option gerade aufgrund des aktuellen Antwortstatus aktiv ist. Die Option ist dann mit einem grau hinterlegten Haken markiert. Werden Frageitems probeweise beantwortet, kann geprüft werden, ob die richtige Option aktiv angezeigt wird. So ist es zum einen möglich zu testen, ob die richtigen Aufgaben zur Option angezeigt werden und ob die jeweiligen Optionen bei entsprechenden Antworten auch aktiv werden.
+
+Zurück nach oben

@@ -1,0 +1,53 @@
+# Antwortfelder Assistent
+
+# Antwortfeld(er)
+
+Mit dem Assistenten „Antwortfeld(er)“ können Sie Aufgaben mit einem oder mehreren offenen Textfeldern erstellen, die von den Testteilnehmenden ausgefüllt werden können.
+
+![](Grafiken/assistent_antwortfeld_einzeilig_eingabefeld.png)
+
+Im Assistenten geben Sie zunächst die Fragestellung ein und optional einen Satzanfang, der oberhalb der Antwortoptionen angezeigt wird. Danach erfassen Sie die Antwortoptionen. Zusätzlich können Sie am Ende der Aufgabe ein Textfeld (z. B. für Begründungen) hinzufügen.
+
+## Fragestellung
+
+Die Frage verfassen Sie im Texteditor des Studios. Weitere Details dazu finden Sie hier: [Editor](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+![](Grafiken/assistent_Frage.png)
+
+## Anzahl Antwortfelder
+
+Unter „Anzahl Antwortfelder“ können Sie bestimmen, wie viele Antwortfelder angezeigt werden.
+
+![](Grafiken/assistent_Anzahl_Antwortfelder.png)
+
+## Nummerierung
+
+Sie können verschiedene Nummerierungen für die Antwortfelder auswählen. Zusätzlich können Sie durch Setzen des Häkchens „Nummerierung mit Text erweitern“ einen gewünschten Text neben der Nummerierung einstellen, welcher über dem jeweiligen Antwortfeld erscheint. Für jedes Antwortfeld kann ein eigener Text hinterlegt werden.
+
+![](Grafiken/assistent_Nummerierung.png)
+
+## Antwortfeldgröße
+
+Die Größe der Antwortfelder kann unter „Antwortfeldgröße“ bearbeitet werden. Unter „Einzeilig“ können Sie die Länge des Antwortfeldes abhängig von der erwarteten Wortanzahl bestimmen.
+
+![](Grafiken/assistent_antwortfeldgrosse.png)
+
+> **NOTE:**
+>
+> Eine Begrenzung der Zeichenanzahl ist im Standardmodus nicht möglich, nur im erweiterten Modus.
+
+Unter „Mehrzeilig“ können Sie die Anzahl der Zeilen des Antwortfeldes abhängig von der erwarteten Zeichenanzahl festlegen. Die Zeichenanzahl definiert den optischen Platz des Feldes und die Höhe passt sich entsprechend an. Die Breite entspricht dabei immer einem einzeiligen langen Antwortfeld (\<12 Wörter).
+
+![](Grafiken/assistent_Antwortfeldgrosse_mehrzeilig.png)
+
+## Formeleingabe
+
+Wenn Sie bei „Formeleingabe“ ein Häkchen setzen, steht beim Klick ins Eingabefeld eine mathematische Bildschirmtastatur zur Verfügung.
+
+![](Grafiken/antwortfeld_assistent_formeleingabe.png)
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt für Sie die Aufgabe im Studio. Um Ihre Eingaben zu verwerfen klicken Sie auf „Abbrechen“. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

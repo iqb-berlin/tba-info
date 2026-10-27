@@ -1,0 +1,22 @@
+# Video-Parameter
+
+> **TIP:**
+>
+> Das IQB verwendet für die Videoeinstellungen das Programm: **kdenlive**. Die Einstellungen sollten aber auch mit anderen Programmen wie bswp. Camtasia vorgenommen werden können.
+
+> **WARNING:**
+>
+> Die Empfehlung unten enthält einen lizenzpflichtigen Codec, der eine breite Palette an Browsern und Betriebsssystemen abdeckt. Der Safe Exam Browser kann lizenzpflichtige Codecs jedoch nicht abspielen.
+
+## Empfehlungen zu Parametern
+
+- Video-Codec: H264
+- Auflösung: PAL (also 720 Pixel in der Breite; z. B. 720x576)
+- Qualität: RF30 (s. u.)
+- Encoder-Preset: VerySlow
+- Audio: AAC, 80 kbit/s
+- Container: mp4
+
+Der Codec H264 ist eigentlich veraltet, alle neueren scheiden allerdings aus, weil diese auf bestimmten Geräten/ Browser/ Betriebssystemen nicht laufen, zumeist wegen Lizenzproblemen. Daher diese Auswahl, die wichtig ist, damit ein Video überhaupt abgespielt werden kann. Diese Einstellungen bieten die höchstmögliche Kompression bei gerade noch ausreichender Qualität.
+
+Zurück nach oben

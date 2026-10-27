@@ -1,0 +1,49 @@
+# Allgemeine Anleitung
+
+## Anlegen von Aufgaben im Standardmodus:
+
+1.  Aufgaben werden nach Arbeitsbereichen sortiert. Der richtige Arbeitsbereich sollte Ihnen in Ihrem Fach zugewiesen werden.
+
+2.  Erstellen einer neuen Aufgabe: Durch Anklicken des ![](Symbol_neue_Seite.png)-Symbols ganz unten links wird eine neue Aufgabe erstellt.
+
+    ![](AllgemeineAnleitung_hinzufugen.png)
+
+    1.  Kurzname: Ein Kürzel, mit dem die Aufgabe eindeutig identifiziert werden kann. Innerhalb eines Arbeitsbereichs kommt jeder Kurzname höchstens einmal vor. Er darf keine Leerzeichen enthalten und muss relativ kurz sein. Normalerweise gibt es Konventionen für die Kurznamen, die im Fachbereich abgesprochen sind.
+
+    2.  Name: Der Name der Aufgabe, den Sie frei vergeben können.
+
+    3.  Gruppe: Innerhalb eines Arbeitsbereichs können Aufgaben in Gruppen unterteilt werden. Diese Gruppen werden im Fachbereich definiert (z. B. nach Kompetenzbereichen).
+
+3.  Auswählen der aktuellen Version: In den Eigenschaften der Aufgabe wählen Sie unter „Verona Module“ die aktuelle Version für Editor, Player und Kodierung aus, sofern es keine Voreinstellung durch den Fachbereich gibt.
+
+4.  Zur Bearbeitung: Wechsel in den Editor (oben in der Leiste im Studio der zweite Tab)
+
+    ![](AllgemeineAnleitung_Leiste.png)
+
+    1.  Einseitige Aufgaben: für Aufgabentypen ohne oder mit einem sehr kurzen Stimulus, welcher während der Bearbeitung der Items nicht sichtbar sein muss oder auch an einem kleinen Bildschirm noch sichtbar ist (bei wenigen oder kurzen Items) (z. B. für Deutsch Primarstufe und Sekundarstufe I (Zuhören, Sprachgebrauch, Orthografie), Mathematik, Fremdsprachen) -\> hier kann direkt losgelegt werden
+
+    2.  Zweiseitige Aufgabe: für Aufgabentypen, bei denen ein Stimulus (z. B. ein Text, eine Grafik, eine Tabelle, …) während der Bearbeitung der Items gleichzeitig sichtbar sein soll. Der Stimulus liegt i. d. R. auf der linken Bildschirmseite, die Items auf der rechten Bildschirmseite (z. B. für Deutsch, Fremdsprachen (Lesen bzw. Leseverstehen oder Sprachgebrauch) oder vereinzelt in Mathematik) -\> hier muss eine zweite Seite angelegt werden:
+
+        1.  Oben im Editor eine neue Seite hinzufügen: ![](Symbol_neue_Seite.png)
+
+        2.  Auf die drei Punkte neben dem Schriftzug „Seite 1“ klicken und den Haken bei „Seite dauerhaft sichtbar“ setzen
+
+        3.  Die linke Seite ![](Symbol_linke_Seite.png) ist für den Stimulus, die rechte Seite ![](Symbol_Seite_1.png) für die Teilaufgaben
+
+5.  Bei Aufgaben mit Stimulus wird dieser mithilfe des Assistenten [„Stimulus: Text“](../../../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.llms.md) oder [„Stimulus: Audio“](../../../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.llms.md) angelegt. Bei zweiseitigen Aufgaben (siehe letzter Punkt) geschieht das auf dieser Seite: ![](Symbol_linke_Seite.png), bei einseitigen Aufgaben ganz oben auf Seite 1.
+
+6.  Jetzt können Sie auf Seite 1 nach und nach die Teilaufgaben mithilfe der Assistenten angelegen. Dafür muss links jeweils der richtige Assistent ausgewählt und befüllt werden ([-\> siehe dazu hier](../../../../tasks/design/basic/index.llms.md))
+
+## Löschen und Umsortieren von Teilaufgaben:
+
+Einzelne Teilaufgaben können Sie über das Kreuz ![](Symbol_Abschnitt_loeschen.png) am jeweiligen Abschnitt löschen. Genauso können Sie die Teilaufgaben mit den Pfeilsymbolen ![](Symbol_Pfeil_oben.png) ![](Symbol_Pfeil_unten.png) innerhalb einer Aufgabe verschieben.
+
+## Teilaufgabennummerierung:
+
+Die Nummerierung muss nicht händisch eingefügt werden, sondern kann im Editor rechts oben eingeschaltet werden:
+
+![](aufgabennummerierung_markiert.png)
+
+Der Haken „vertikale Ausrichtung“ sollte nur bei zweiseitigen Aufgaben (mit z. B. Stimulus links) gesetzt werden. Abschnitte, die nicht nummeriert werden sollen, können in den Abschnittseinstellungen durch Klicken ![](Symbol_Abschnitt_von_Nummerierung_ausnehmen.png) von der Nummerierung ausgenommen werden.
+
+Zurück nach oben

@@ -1,0 +1,64 @@
+# Aufgabenentwurf
+
+Der Aufgabenentwurf mit den entsprechenden Funktionen ist im blau markierten Bereich zu finden.
+
+![](Ansicht_Arbeitsbereich.png)
+
+Bild: Ansicht Arbeitsbereich
+
+Zum Aufgabenentwurf gehören die folgenden Funktionen:
+
+- Eigenschaften
+- Editor
+- Vorschau
+- Kodierung
+- Kommentare
+
+Diese Funktionen sind in Reiter oberhalb angeordnet.
+
+# Eigenschaften
+
+- Zuweisung von Metadaten Profilen (Welche Profile zur Verfügung stehen sollen, wird in den Einstellungen einer Bereichsgruppe festgelegt)
+- Eingabe Name und Beschreibung der Aufgabe
+- Auswahl eines Bearbeitungsstatus (Es muss zuvor in den Bereichsgruppen Einstellungen ein oder mehrere Status angelegt werden)
+- Auswahl der Module für Editor, Player und Schemer (Die Module müssen zuvor in den Einstellungen des System-Administrator\*in geladen werden)
+
+# Editor
+
+Hier ist die Oberfläche des Editors für den Aufgabenentwurf zu sehen. Mehr dazu ist dem Kapitel: [Aufgaben gestalten](../../../tasks/design/index.llms.md) zu entnehmen.
+
+# Vorschau
+
+Während des Aufgabenentwurfs ist es jederzeit möglich in einer Vorschau die Aufgabe zu betrachten. Das soll einen schnellen Überblick verschaffen, ob die Aufgabe aussieht wie geplant. Unten links sind mithilfe von Schaltflächen und Anzeigen weitere Funktionen der Vorschau zu finden:
+
+**Prüfen Player Meldungen:**
+
+In der Vorschau ist es möglich Meldungen des Players abzufragen. Hierzu gehören:
+
+![](Aufgabenentwurf_PRF.png)
+
+Bild: Statusanzeige P, R und F
+
+- **P:** Präsentation komplett (presentation complete): Alle Pflichtfelder wurden bedient.
+- **R:** Antworten komplett (responses complete): Alle Aufgabenbestandteile (auch Audio/Video) wurden gesehen/gehört.
+- **F:** Maus im Playerfenster (focus): Mauszeiger befindet sich im Fenster des Players.
+
+Die Anzeigen sind im Vorschaufenster unten links zu sehen. Ist die Anzeige rot, ist die Meldung des Players: False. Ist die Anzeige grün, ist die Meldung des Players: True.
+
+**Validieren:**
+
+Aufgabenelemente können in der Entwurfsphase als “Pflichtelemente” deklariert werden. Wenn in der Booklet-XML festgelegt wurde (`presentation complete = ON`), kann der Zustand dieser Pflichtelemente darüber entscheiden, ob zur nächsten Aufgabe navigiert werden darf. Darf bspw. wegen der fehlenden Beantwortung eines Pflichtfeldes nicht zur nächsten Aufgabe navigiert werden, muss das noch nicht beantwortete Pflichtfeld markiert werden, denn Pflichtfelder sind im Vorfeld für die Nutzer\*innen nicht als solche erkennbar. Mit dem Schalter: **Validierung** kann geprüft werden, ob noch nicht beantwortete Pflichtfelder entsprechend markiert werden. Eine Markierung besteht aus einer farblichen Hervorhebung des Feldes und einem eindeutigen Text (“Eingabe erforderlich”).
+
+**Kodierung prüfen:**
+
+Ist eine Kodierregel unter dem Reiter: **Kodierung** hinterlegt, kann diese mithilfe dieses Schalters geprüft werden.
+
+# Kodierung
+
+Mehr dazu ist dem Kapitel: **Kodierschema** zu entnehmen.
+
+# Kommentare
+
+Bearbeiten mehrere Aufgabenentwickler\*innen eine Aufgabe, bietet diese Funktion die Möglichkeit einen Austausch im Team zu gestalten. Wird ein Kommentar für eine Aufgabe in einem bestimmten Arbeitsbereich erzeugt, wird dieser neue Kommentar für alle Mitglieder des Arbeitsbereiches in der Liste der Aufgabe angezeigt. Die entsprechende Aufgabe ist dann mit einem roten Punkt markiert. Nach Beantwortung des neuen Kommentars von einem der Teammitglieder, wird die Markierung wieder aufgehoben. Jedes Teammitglied sieht den Verlauf der gegebenen Kommentare und kann Antworten auf einzelne Kommentare geben.
+
+Zurück nach oben

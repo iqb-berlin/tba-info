@@ -1,0 +1,37 @@
+# GeoGebra-Assistent
+
+![](Grafiken/geogebra_ohne_tooltip_beispiel.png)
+
+Der Assistent „GeoGebra“ hilft beim Erstellen von GeoGebra-Aufgaben im IQB Studio.
+
+Im Assistenten geben Sie die Fragestellung bzw. Instruktion ein und fügen die entsprechende GeoGebra-Datei ein. Weitere Informationen zur Arbeit mit GeoGebra finden Sie hier: [GeoGebra Anleitung](../../../../tasks/design/geogebra/index.llms.md).
+
+## Text
+
+![](Grafiken/assistent_ggb_Text.png)
+
+Die Frage und/oder Instruktion wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## GeoGebra-Datei
+
+![](Grafiken/assistent_ggb_Datei.png)
+
+Wenn Sie auf den Stift klicken, öffnet sich ein Fenster, um eine GeoGebra-Datei auf Ihrem Computer auszuwählen. Klicken Sie auf „Öffnen“, um die Datei im IQB-Studio hochzuladen. Nach erfolgreicher Auswahl der GeoGebra-Datei wechselt der Text zu „Definition vorhanden“.
+
+## Hilfe
+
+![](Grafiken/assistent_ggb_gluhbirne.png)
+
+Bei Zeichenaufgaben wird die Verwendung des Tooltipps (Standardeinstellung) empfohlen. Dazu muss der Haken „Bild mit Hilfstext für Zeichenaufgabe anfügen“ aktiviert sein.
+
+![](Grafiken/assistent_ggb_Hilfe.png)
+
+> **NOTE:**
+>
+> Der Tooltipp unterstützt Sie bei unbekannten Aufgabenformaten. Am Laptop oder PC erscheint der Tooltipp-Text, sobald Sie den Mauszeiger auf die Glühbirne bewegen. Auf dem Tablet oder einem Touchscreen-Gerät tippen Sie das Symbol einfach an. Tippen Sie erneut auf die Glühbirne oder warten Sie einige Sekunden, blendet sich der Text automatisch wieder aus. Sie können den Tooltipp beliebig oft ein- und ausblenden.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen klicken, Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

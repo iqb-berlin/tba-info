@@ -1,0 +1,87 @@
+# StarS: Interaktionstyp `DROP`
+
+Bei diesem Interaktionstyp wird oben oder unten ein großes Bild gezeigt. Mehrere Buttons sind nebeneinander dargestellt. Bei Auswahl eines Buttons wandert dieser auf das Bild. Klicken Sie unter dem Bild auf **Unitdefintion JSON**, um den JSON-Code anzuzeigen!
+
+[![](assets/drop.png)](assets/drop.png)
+
+Unitdefintion JSON
+
+``` json
+{
+    "id": "stars-unit-definition",
+    "version": "0.13",
+    "backgroundColor": "#3cf",
+    "continueButtonShow": "ALWAYS",
+    "mainAudio": {
+        "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAA......",
+        "firstClickLayer": false,
+        "animateButton": false,
+        "maxPlay": 0
+    },
+    "interactionType": "DROP",
+    "interactionParameters": {
+        "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAA....",
+        "options": [
+            {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+            },
+            {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+            },
+            {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+            },
+            {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+            }
+        ]
+    },
+    "variableInfo": [
+        {
+            "variableId": "DROP",
+            "responseComplete": "ON_ANY_RESPONSE",
+            "codingSource": "VALUE",
+            "codes": [
+                {
+                    "method": "EQUALS",
+                    "parameter": "3",
+                    "code": 1,
+                    "score": 1
+                }
+            ]
+        }
+    ]
+}
+```
+
+# Parameter
+
+``` json
+{
+    "variableId": "MK02", // <1>
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeCAYAAADNK...", // <2>
+    "imagePosition": "TOP", // <3>
+    "imageLandingXY": "50,20", // <4>
+    "text": "Koffer" // <5>
+}
+```
+
+1.  `variableId` setzt die Bezeichnung der Antwortvariablen auf einen bestimmten Wert. Standard hier ist `DROP`.
+2.  `imageSource` enthält ein Bild in base64-Kodierung
+3.  `imagePosition` legt fest, ob das Bild oberhalb (`TOP`) oder unterhalb (`BOTTOM` Standard) der Buttons angezeigt wird
+4.  `imageLandingXY` legt die Position fest, auf die der selektierte Button verschoben wird. Damit kann man von der Mitte (“50,50” Standard) abweichende Orte wählen.
+5.  `text` liefert Text für das `<alt>`-Attribut (Unterstützung der Barrierefreiheit)
+
+# Optionen
+
+Hier ist die Liste von Bildern anzugeben, die oben in einer Zeile als Buttons angezeigt werden. Die möglichen Objekte und Parameter siehe [hier](../../../tasks/design/stars/it_buttons.llms.md#optionen-als-buttons).
+
+# Auswahl und Antwortwert
+
+Die ausgewählte Antwort wird durch eine Farbänderung im Hintergrund (blau) und bei der Schrift (weiß) visualisiert (Parameter `text`) oder durch einen fetten blauen Rand. Außerdem “wandert” der Button auf das untere Bild. Sollte sich dort bereits ein Button befinden, “wandert” dieser wieder an seine vorherige Stelle. Ein Klick auf einen Button, der sich auf dem Bild befindet, lässt diesen ebenfalls an seine Ausgangsposition zurückwandern.
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.llms.md) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `DROP` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](../../../tasks/design/stars/responses.llms.md)).
+
+Der Antwortwert ist eine Zahl mit der Position des gewählten Buttons. `1` steht für die erste Option.
+
+Zurück nach oben

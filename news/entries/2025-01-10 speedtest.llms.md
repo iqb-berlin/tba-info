@@ -1,0 +1,21 @@
+# Neu: Speedtest Player+Editor
+
+Verona-Module
+
+Speedtest
+
+Für die Durchführung von Speedtests wurde ein neuer Player und Editor veröffentlicht.
+
+Veröffentlichungsdatum
+
+10\. Januar 2025
+
+Ein Speedtest ist eine Form der Interaktion, bei der die Testperson innerhalb einer festgesetzten Zeit eine Reihe von kurzen Fragen beantworten soll. Dies geschieht durch das Klicken auf eine Auswahl von Schaltern (z. B. “Richtig” oder “Falsch”). Beim Klicken auf einen Schalter wird sofort zur nächsten Frage gesprungen – ein Zurückgehen ist nicht möglich.
+
+Diese Form des Tests ruft Wissen bzw. Fähigkeiten ab, die die Testperson unmittelbar spontan hat. Man kann hierüber beispielsweise die Lesegeschwindigkeit testen. Als Indikator für die Schätzung der Personenfähigkeit wird dann die Anzahl der richtigen abzüglich der falschen Antworten genommen. Es sind stets mehr Fragen verfügbar als eine Testperson in der verfügbaren Zeit beantworten könnte.
+
+Das IQB hat jetzt für einen Speedtest sowohl einen Player als auch einen Editor veröffentlicht. Man kann im Editor auch definieren, welche Antwort als richtig zu bewerten ist, d. h. der Player liefert dann sofort die Summen der richtigen und falschen Antworten.
+
+Module und Quellcode sind [hier zu finden](https://github.com/iqb-berlin/verona-modules-speedtest).
+
+Zurück nach oben

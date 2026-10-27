@@ -1,0 +1,49 @@
+# MC-Assistent
+
+![](Grafiken/mc_mit_text_beipiel.png)
+
+# MC-Assistent
+
+## Text
+
+Der Assistent „MC: Text“ hilft Ihnen beim Erstellen von Multiple-Choice Aufgaben mit textbasierten Antwortoptionen.
+
+Im Assistenten geben Sie die Fragestellung und optional einen Satzanfang, der über den Antwortoptionen steht, ein. Anschließend geben Sie die Antwortoptionen ein. Außerdem können Sie ein Textfeld, z.B. für Begründungen, ans Ende der Aufgabe anfügen.
+
+## Fragestellung
+
+![](Grafiken/mc_assistent_Fragestellung.png)
+
+Die Frage wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Satzanfang
+
+![](Grafiken/mc_assistent_Satzanfang.png)
+
+Den optionalen Satzanfang können Sie über ein einfaches Texteingabefeld definieren. Er erscheint zwischen der Fragestellung und den Antwortoptionen. Geben Sie nichts ein, wird im Studio kein Satzanfang angezeigt.
+
+> **NOTE:**
+>
+> Sie können Sonderzeichen in einem anderen Texteditor, z. B. oben bei der Fragestellung, schreiben und dann in das Eingabefeld für den Satzanfang kopieren.
+
+## Antwortoptionen
+
+![](Grafiken/mc_assistent_Optionen.png)
+
+Geben Sie die Antwortoptionen einzeln nacheinander ein und klicken Sie jeweils auf das Plus oder drücken Sie die Enter-Taste. Auf diese Weise können Sie eine Option eingeben, bestätigen und sofort die nächste hinzufügen. Die Antwortoptionen lassen sich mit der Maus sortieren, indem Sie sie an die gewünschte Position ziehen. Außerdem können Sie Antwortoptionen mit dem Schraubenschlüssel-Symbol bearbeiten und mit Klick auf das Kreuz löschen.
+
+## Begründungsfeld (optional)
+
+![](Grafiken/mc_assistent_Begrundungsfeld.png)
+
+Hier kann optional ein Begründungsfeld hinzugefügt werden, indem Sie den Kasten neben der Option anklicken. Im Begründungsfeld kann eine Freitextantwort ergänzend zur MC Aufgabe gegeben werden. Definieren Sie im Textfeld eine Fragestellung, alternativ können Sie auch die Vorgabe „Begründe deine Entscheidung.“ verwenden. Das Begründungsfeld für die Testteilnehmenden kann zum Formeleingabefeld erweitert werden, damit mathematische Symbole verwendet werden können. Insbesondere bei Aufgaben mit Bruchrechnung ist dies notwendig.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+## Nachträgliches Bearbeiten
+
+Sie können auch nach dem Erstellen der Aufgabe noch Änderungen vornehmen. Wenn Sie auf das MC-Element klicken, können Sie rechts mit dem Plus neue Elemente hinzufügen. Außerdem können Sie bestehende Elemente mit dem Schraubenschlüssel bearbeiten, mit Klick auf das Kreuz löschen, und verschieben, indem Sie sie innerhalb der Liste mit der Maus ziehen.
+
+Zurück nach oben

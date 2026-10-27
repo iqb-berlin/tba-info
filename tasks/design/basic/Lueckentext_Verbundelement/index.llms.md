@@ -1,0 +1,75 @@
+# Verbundelement Lückentext
+
+## Lückentext
+
+Der Verbund: Lückentext hilft Ihnen beim Erstellen von Lückentextaufgaben.
+
+## Beispiele:
+
+![](Grafiken/verbundelement_lueckentext_beispiel.png)
+
+Lückentext mit Eingabefeldern
+
+![](Grafiken/verbundelement_lueckentext_ablegeliste.png)
+
+Lückentext mit Ablegelisten
+
+![](Grafiken/verbundelement_lueckentext_optionsfelder.png)
+
+Lückentext mit Optionsfeldern
+
+Nachdem Sie auf das (Verbund-)Element „Lückentext“ geklickt haben wird automatisch ein Lückentext generiert. Im rechten Reiter „Eigenschaften“ können Sie weitere Einstellungen des Lückentexts vornehmen.
+
+## Lückentext Eigenschaften
+
+![](Grafiken/verbundelement_lueckentext_eigenschaften.png)
+
+Neben der Anpassung der ID (hier: „cloze_1“) können Sie mit einem Klick auf den „Text und Elemente editieren“-Knopf die Inhalte des Lückentextes editieren.
+
+> **NOTE:**
+>
+> Zum Editieren des Lückentexts können Sie diesen auch durch einen Doppelklick auf das Lückentext-Element öffnen.
+
+![](Grafiken/verbundelement_lueckentext_bearbeiten.png)
+
+Den Lückentext können Sie wie ein normales Textelement im Studio bearbeiten. Zusätzlich können Sie einige interaktive Elemente in den Lückentext einbetten. Dazu zählen Eingabefelder, Ablegelisten, Optionsfelder, Knöpfe und Kontrollkästchen. Diese können Sie über Anklicken des jeweiligen Elements am oberen Rand des Eingabefeldes einfügen und nach Speichern des Lückentextes rechts in den Einstellungen anpassen. Dafür müssen Sie jeweils das gewünschte Element im Lückentext anklicken.
+
+## Eingabefeld
+
+![](Grafiken/verbundelement_lueckentext_eingabefeld.png)
+
+Es handelt sich hier um den „klassischen“ Lückentext: Schüler\*innen können, wie bei normalen Eingabefeldern, Text eintippen. Neben der ID, dem Schreibschutz und einer Vorbelegung für Beispiele können Sie auch die Breite des Eingabefelds einstellen.
+
+## Ablegeliste
+
+![](Grafiken/verbundelement_lueckentext_ablegeliste.png)
+
+Mit Ablegelisten können Sie Zuordnungsaufgaben in Lückentexten anlegen. Genau wie bei den Eingabefeldern können Sie auch hier eine feste Breite einstellen. Zu den Einstellungsmöglichkeiten von Ablegelisten siehe [Ablegeliste](../../../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.llms.md).
+
+## Optionsfeld
+
+![](Grafiken/verbundelement_lueckentext_optionsfelder.png)
+
+Mit Optionsfeldern können Sie MC-Aufgaben in Lückentexten anlegen. Dabei kann eingestellt werden, ob entweder richtige Antworten farbig markiert oder falsche Antworten durchgestrichen werden sollen. Für Letzteres setzen Sie den Haken „Gewählte Option durchstreichen“.
+
+Um die einzelnen Optionen zu bearbeiten, können Sie diese unter Eigenschaften durch Klicken auf den Schraubenschlüssel ![](Grafiken/symbol_schraubenschlussel.png) anpassen. Neue Optionen – auch Bilder – können Sie mit dem Plus neben „Neue Option“ anlegen.
+
+Wenn die Optionsfelder vertikal statt horizontal angeordnet sein sollen, können Sie die „vertikale Ausrichtung“ auswählen.
+
+## Knopf
+
+Mit dem Knopf können Tooltipps als Knopf, Bild oder Hyperlinks angelegt werden. Dazu müssen Sie nach dem Anlegen rechts in den Einstellungen einen Tooltipp-Text festlegen.
+
+Genau wie bei den Eingabefeldern können Sie auch hier eine feste Breite einstellen.
+
+> **NOTE:**
+>
+> Knöpfe können auch genutzt werden, um bestimmte Aktionen im Studio durchzuführen, was aber meist nur im erweiterten Modus sinnvoll ist. Dieser erfordert besondere Rechte im Arbeitsbereich. Mehr Informationen über die Funktionalität von Knöpfen im erweiterten Modus finden Sie hier: [Knöpfe](../../../../tasks/design/extended/Elemente/index.llms.md)
+
+## Kontrollkästchen
+
+Mit der Funktion „Kontrollkästchen“ können einzelne Wörter eingefügt werden, die die Testteilnehmenden durchstreichen können. Durch Wiederanklicken des durchgestrichenen Worts können Testteilnehmende die Streichung wieder aufheben.
+
+Um den Text zu ändern, klicken Sie auf „Beschriftung“. Die Vorbelegung gibt an, ob das Wort bereits durchgestrichen sein soll: bei „falsch“ erscheint das Wort nicht durchgestrichen, während es bei „wahr“ durchgestrichen erscheint.
+
+Zurück nach oben

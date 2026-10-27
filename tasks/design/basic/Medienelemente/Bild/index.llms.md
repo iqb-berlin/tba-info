@@ -1,0 +1,27 @@
+# Bildelemente
+
+![](medium_bild_bild.png)
+
+## Bild
+
+Das Medium „Bild“ hilft Ihnen beim Erstellen von Aufgaben mit Bildern.
+
+Nachdem Sie auf das Medium „Bild“ geklickt haben, öffnet sich der Explorer ihres Gerätes. Sie können nun das gewünschte Bild auswählen und auf „Öffnen“ klicken.
+
+## Maximalbreite
+
+![](medium_bild_maximalbreite.png)
+
+Nachdem Sie ein Bild ins Studio eingefügt haben, können Sie die Breite des Bildes begrenzen. Wählen Sie dazu das Bild im Editor aus und klicken Sie rechts auf „Maximalbreite setzen“. Anschließend können Sie darunter angeben, wie viele Pixel das Bild einnehmen soll.
+
+> **TIP:**
+>
+> Beachten Sie, dass Seiten im Studio normalerweise auf 750 Pixel Breite begrenzt sind, d. h. Bilder sollten höchstens 750 Pixel breit sein, jedoch meistens weniger.
+
+## Anderes Bild hochladen
+
+![](medium_bild_toolbox.png)
+
+Neben der Anpassung der ID (z. B.: „image_1“) können Sie mit einem Klick auf den „Medienquelle ändern“-Knopf ein anderes Bild einfügen.
+
+Zurück nach oben

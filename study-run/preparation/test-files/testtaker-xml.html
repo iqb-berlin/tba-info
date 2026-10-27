@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8ee512f19367224acfba0033acd4fca8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f853c6030ad396e16db6fae4150cb86c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-115a9038de263bd34b829fafbe318f07.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1336,7 +1336,95 @@ Tipp
 <div class="code-with-filename-file">
 <pre><strong>testtaker1.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="testtaker1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="testtaker1.xml" data-llms-code-original="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>
+<Testtakers xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+                  xsi:noNamespaceSchemaLocation=&quot;https://w3id.org/iqb/spec/testcenter-testtaker-xml/18.0&quot;> # <1>
+
+  <Metadata> # <2>
+    <Description></Description> # <2>
+  </Metadata> # <2>
+
+  <CustomTexts> # <3>
+    <CustomText key=&quot;booklet_codeToEnterTitle&quot;>Bitte Code eingeben</CustomText>
+  </CustomTexts> # <3>
+
+  <Profiles> # <4>
+    <GroupMonitor>
+      <Profile
+        id=&quot;small&quot;
+        label=&quot;Superklein&quot;
+        blockColumn=&quot;hide&quot;
+        unitColumn=&quot;hide&quot;
+        groupColumn=&quot;hide&quot;
+        bookletColumn=&quot;hide&quot;
+        bookletStatesColumns=&quot;&quot;
+        view=&quot;small&quot;
+        filterLocked=&quot;yes&quot;
+        filterPending=&quot;yes&quot;
+      >
+        <Filter label=&quot;Reduced Booklet&quot; type=&quot;equal&quot; field=&quot;bookletLabel&quot; value=&quot;Reduced Booklet&quot; />
+      </Profile>
+      <Profile
+        id=&quot;all&quot;
+        label=&quot;Alles zeigen&quot;
+        blockColumn=&quot;show&quot;
+        unitColumn=&quot;show&quot;
+        groupColumn=&quot;show&quot;
+        bookletColumn=&quot;show&quot;
+        bookletStatesColumns=&quot;level bonus&quot;
+        view=&quot;full&quot;
+        filterLocked=&quot;no&quot;
+        filterPending=&quot;no&quot;
+        autoselectNextBlock=&quot;no&quot;
+      >
+      </Profile>
+    </GroupMonitor>
+  </Profiles> # <4>
+
+  <Group id=&quot;sample_group&quot; validFrom=&quot;1/3/2020 10:00&quot; label=&quot;Primary Sample Group&quot;> # <5>
+
+    <AssetAssignments> # <6>
+      <Asset slot=&quot;logo&quot;>bildLogo-1.png</Asset>
+      <Asset slot=&quot;codeInputIllustration&quot;>bildCode.jpg</Asset>
+    </AssetAssignments> # <6>
+
+    <Login mode=&quot;run-hot-return&quot; name=&quot;test&quot; pw=&quot;user123&quot;> # <7>
+      <Booklet>BOOKLET.SAMPLE-1</Booklet> # <8>
+      <AssetAssignments>
+        <Asset slot=&quot;logo&quot;>bildLogo-2.png</Asset>
+      </AssetAssignments>
+      <ViewSettings> # <9>
+        <theme>Primar</theme>
+        <codeInput>
+          <type>text-field</type>
+          <length>3</length>
+        </codeInput>
+        <monitorBookletVisibility>hidden</monitorBookletVisibility>
+      </ViewSettings> # <9>
+    </Login> # <7>
+
+    <Login mode=&quot;run-hot-return&quot; name=&quot;test2&quot; pw=&quot;user123&quot;>
+      <Booklet>BOOKLET.SAMPLE-2</Booklet>
+      <ViewSettings>
+        <theme>Sekundar</theme>
+        <codeInput>
+          <type>keypad-numbers</type>
+          <length>3</length>
+        </codeInput>
+      </ViewSettings>
+    </Login>
+    
+    <Login mode=&quot;monitor-group&quot; name=&quot;test-group-monitor&quot; pw=&quot;user123&quot;> 
+      <Profile id=&quot;all&quot;/> # <10>
+      <Profile id=&quot;small&quot;/> # <10>
+      <ViewSettings>
+        <monitorBookletVisibility>hidden</monitorBookletVisibility>
+      </ViewSettings>
+    </Login> #
+    <Login mode=&quot;sys-check-login&quot; name=&quot;sys-check&quot; />
+  </Group> # <5>
+
+</Testtakers>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Testtakers</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>                  <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://w3id.org/iqb/spec/testcenter-testtaker-xml/18.0"</span>&gt;</span>
 <span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1636,7 +1724,11 @@ Wichtig
 <section id="angepasste-texte-customtexts" class="level1">
 <h1>Angepasste Texte: CustomTexts</h1>
 <p>Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Eingabeaufforderung oder Warnung usw. gezeigt werden, können – <strong>spezifisch für die Logins dieser XML</strong> – geändert werden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5" data-llms-code-original="  <CustomTexts> # <1>
+    <CustomText key=&quot;login_testEndButtonText&quot;> # <2>
+       Test beenden # <3>
+    </CustomText>
+  </CustomTexts>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span> <span class="ot">key=</span><span class="st">"login_testEndButtonText"</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>       Test beenden</span>
 <span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">CustomText</span>&gt;</span>

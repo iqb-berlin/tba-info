@@ -1,0 +1,14 @@
+# Organisieren
+
+Die Texte dieses Abschnittes fokussieren auf die Rolle der **Leitung eines Entwicklungsteams**. Mit besonderen Rechten können Einstellungen im IQB-Studio vorgenommen werden, mit denen die Entwicklung auch großer Aufgabenmengen effizient erfolgen kann.
+
+Lesen Sie im Detail:
+
+- [Rollen und Rechte](../../tasks/manage/roles.llms.md): Die Beteiligten nehmen unterschiedliche Funktionen wahr und es ist wichtig, ihnen entsprechende Rechte für die Ansicht oder das Ändern zu geben. Der Text stellt die Möglichkeiten dar, über Zugriffsrechte die Arbeit zu organisieren.
+- [Arbeitsbereiche](../../tasks/manage/workspaces.llms.md): Große Mengen an Aufgaben müssen gruppiert werden. Im IQB-Studio stehen dafür die Ebenen Bereichsgruppe, Arbeitsbereich und Aufgabengruppe zur Verfügung.
+- [Verschieben und Kopieren](../../tasks/manage/move-and-copy.llms.md): Effizientes Arbeiten über Arbeitsbereiche hinweg.
+- [Aufgabenfolgen](../../tasks/manage/task-sequence.llms.md): Schnelle Zusammenstellung von Aufgaben zum Review mit zusätzlichen Daten wie Kommentare und Kodierschema.
+- [Verona-Module](../../tasks/manage/verona-modules.llms.md): Zuweisung von Verona-Modulen für Player, Editor und Schemer
+- [Metadaten](../../tasks/manage/metadata.llms.md) von Aufgaben und Items: Profile für Metadaten zuweisen
+
+Zurück nach oben

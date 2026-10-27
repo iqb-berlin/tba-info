@@ -1,0 +1,428 @@
+# System-Check
+
+Es ist bitter, wenn man erst während der Studiendurchführung bemerkt, dass die Hardware oder die Software-Ausstattung für einen Online-Test nicht geeignet ist. Der **System-Check** ist ein Weg, vorab diese Eignung zu prüfen. Man kann natürlich nicht alle Probleme erkennen und vielleicht hat man für bestimmte Probleme auch keine Lösung parat, aber man kann die Ausfallzeiten und damit die Frustrate deutlich senken.
+
+# System-Check anlegen
+
+Zunächst wird eine SystemCheck-XML Datei in einen Arbeitsbereich geladen. Diese stellt die Konfigurationsgrundlage für den System-Check dar.
+
+## Grundstruktur
+
+Das folgende XML-Beispiel erzeugt die kleinste Version eines System-Checks. Es werden nur die Eigenschaften des Computers angezeigt auf denen der System-Check ausgeführt wird.
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"> # <1>
+    <Metadata> # <2>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+    </Metadata>
+    <Config skipnetwork="true"></Config> # <3>
+</SysCheck>
+```
+
+1.  Verweis auf XML-Schema: Ein XML-Schema ist eine maschinenlesbare Liste aller benötigten Elemente einer XML-Datei. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist.
+2.  Metadata: Die `Id` dient der internen Zuordnung der Ergebnisse, das `Label` wird angezeigt.
+3.  Das `Config`-Element ist hier nur notwendig, um den Netzwerktest zu unterdrücken.
+
+[![Kleinste Version eines System-Checks](syscheck1.png)](syscheck1.png "Kleinste Version eines System-Checks")
+
+Kleinste Version eines System-Checks
+
+## Fehler beim Hochladen
+
+Das Hochladen ist nur erfolgreich, wenn es sich um eine gültige System-Check-Konfiguration handelt. Dabei wird die zu ladende Datei gegen das XML-Schema validiert. Befinden sich erforderliche Felder und Attribute, die im Schema definiert sind, nicht in dieser Datei, wird eine Fehlermeldung wie bspw. nachfolgend angezeigt:
+
+[![Fehlermeldung beim Hochladen](syscheck2.png)](syscheck2.png "Fehlermeldung beim Hochladen")
+
+Fehlermeldung beim Hochladen
+
+## Angepasste Texte: CustomTexts
+
+Einige Texte, die der System-Check den Nutzer\*innen präsentiert, lassen sich ändern. Hierfür stehen entsprechende Key-Value-Paare zur Verfügung.
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+    <Metadata>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+    </Metadata>
+    <Config skipnetwork="true">
+        <CustomText key="syscheck_intro"> # <1>
+            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben! # <2>
+        </CustomText>
+    </Config>
+</SysCheck>
+```
+
+> **NOTE:**
+>
+> Eine vollständige Liste mit den verfügbaren CustomTexts ist [hier](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) zu sehen. Suchen Sie nach dem Präfix `syscheck`.
+
+## Netzwerkanbindung
+
+Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit. Ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw. die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: `<UploadSpeed>`und `<DownloadSpeed>` zu finden.
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+    <Metadata>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+        <Description>Prüfung Studiendurchführbarkeit</Description>
+    </Metadata>
+
+    <Config skipnetwork="false">
+        <UploadSpeed  # <1>
+            min="1024"
+            good="2048"
+            maxDevianceBytesPerSecond="10000"
+            maxErrorsPerSequence="0"
+            maxSequenceRepetitions="15">
+            100000, 200000, 400000, 800000
+        </UploadSpeed>
+        <DownloadSpeed  # <2>
+            min="1024"
+            good="2048"
+            maxDevianceBytesPerSecond="200000"
+            maxErrorsPerSequence="0"
+            maxSequenceRepetitions="15">
+            400000, 800000, 1600000, 3200000
+        </DownloadSpeed>
+        <CustomText key="syscheck_intro">
+            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!
+        </CustomText>
+    </Config>
+</SysCheck>
+```
+
+1.  Das Hochladen betrifft vor allem das Speichern der Antworten im Test.
+2.  Das Herunterladen betrifft vor allem die Testinhalte, also die Units und Testhefte zu Beginn der Testung.
+
+Es folgt eine kurze Beschreibung der Werte in den beiden Elementen:
+
+| Parameter | Bedeutung im Test |
+|----|----|
+| `min` | Mindestwert für die ermittelte Geschwindigkeit in **Byte/s** |
+| `good` | Wird dieser Wert bei der Messung erreicht, wird die Bewertung “gut” vergeben. Einheit: **Byte/s**. |
+| `maxDevianceBytesPerSecond` | Wird der hier hinterlegte Wert bei der Messung überschritten, wird bis zum Wert von `maxSequenceRepetitions` wiederholt. |
+| `maxErrorsPerSequence` | Anzahl zulässiger Übertragungsfehler |
+| `maxSequenceRepetitions` | Legt fest wie oft eine Messung wiederholt wird, wenn der Wert in `maxDevianceBytesPerSecond` überschritten wurde. |
+| `100000`, `200000`, `400000`, `800000` | Die Zahlen geben die zu testende Testheftgröße in Bit an. Diese Testheftgrößen werden nacheinander getestet. Darüber kann man die Passung des Tests zu den in der bestimmten Testung verwendeten Inhalten verbessern. |
+
+Nach dem Start des Netzwerktests ist das folgende Ergebnis auf Grundlage der konfigurierten System-Check-XML zu sehen:
+
+[![Test der Netzwerkanbindung](syscheck4.png)](syscheck4.png "Test der Netzwerkanbindung")
+
+Test der Netzwerkanbindung
+
+### Wie werden die Werte für das eigene Testheft ermittelt?
+
+#### Download
+
+**`min`:**
+
+Wie eingangs bereits erwähnt, hängt bei der Bewertung alles von den Testheftgrößen ab. Es muss also zunächst ermittelt werden wie groß die verwendeten Testhefte sind. Im Testcenter wird unter dem Reiter: **Dateien** eines Arbeitsbereiches eine Spalte “Größe” angezeigt. Hier wird auch die Größe des Testheftes angezeigt und kann als Berechnungsgrundlage verwendet werden. Mehr zur Ermittlung der Testheftgrößen ist auch den FAQ’s zu entnehmen. Da die Werte für `min` in **Byte/s** angegeben werden müssen, macht es Sinn die Testheftgrößen ebenfalls in diese Einheit zu überführen, falls sie nicht schon aufgrund ihrer eventuell geringen Größe in Byte angegeben sind.
+
+Dazu ein kurzes Beispiel:
+
+\[1 MByte = 1024 kByte; 1 kByte = 1024 Byte; 1 Byte = 8 Bit\]
+
+10MByte = 10.240kByte = 10.485.760 Byte
+
+Als nächstes muss festgelegt werden, welche maximale Ladezeit als vertretbar angesehen wird. Leider kann an dieser Stelle keine generelle Empfehlung gegeben werden. Um das Beispiel zu vervollständigen nehmen wir an dieser Stelle einmal eine max. gewünschte Ladezeit von 30 Sekunden an.
+
+`min`= 10.485.760 Byte / 30s = **349.525 Bytes/s**
+
+In diesem Beispiel wird alles bezogen auf das Laden eines einzelnen Testheftes. Während der Studiendurchführung werden aber unter Umständen (gleichzeitige Anmeldung mehrerer Testpersonen) mehrere Testhefte parallel geladen. Wie viele genau, kann im Vorfeld nicht abgeschätzt werden. Dies macht die Ermittlung eines aussagekräftigen Mindestwertes sehr schwierig.
+
+Es ist an dieser Stelle auch zu hinterfragen, ob ein Unterschreiten des angegebenen Mindestwertes zwangsläufig die Aussage zulässt, dass der Test nicht durchgeführt werden kann, denn im schlimmsten Fall verlängern sich einfach nur die Ladezeiten, was eine Testdurchführung ja nicht per se verhindert. Es gibt allerdings eine zeitliche Grenze, die tatsächlich nicht überschritten werden sollte. Jeder Browser hat einen voreingestellten Timeout. Bei Chrome sind das bspw. 300 Sekunden. Wird diese Zeit für das Laden eines Testheftes überschritten, sendet das Frontend eine erneute Anfrage an das Backend und es wird wieder versucht das Testheft zu laden. Im schlimmsten Fall kann das Testheft nie vollständig geladen werden und die Testung scheitert. Es könnte nun mit einem Worst-Case-Szenario gerechnet werden, um auf Nummer sicher zu gehen, dass die Verbindung ausreichend ist. In diesem Szenario wird davon ausgegangen, dass tatsächlich alle Testhefte gleichzeitig geladen werden. Hier ein Beispiel:
+
+Es wird folgendes angenommen:
+
+- Testheftgröße: 10 MByte = 80 MBit
+- Anzahl Testpersonen: 30
+- Ermittelte minimale Downloadrate: 25MBit/s
+
+Es müssen also 80 MBit \* 30 Personen = 2400 MBit geladen werden. Bei 25MBit/s würden dafür 96 Sekunden benötigt.
+
+**Fazit:** Im unwahrscheinlichen Fall, dass alle Testhefte gleichzeitig geladen werden, wäre diese Verbindung ausreichend, weil es zu keinem Timeout im Chrome Browser kommen würde.
+
+> **NOTE:**
+>
+> Jeder Browser hat einen anderen voreingestellten Timeout. Nach der Feststellung, welche Browser vorwiegend zum Einsatz kommen, sollte geprüft werden, welchen Timeout dieser Browser aufweist.
+
+**`good`:**
+
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein heutzutage unterer Wert könnte hier bspw. 50Mbit/s sein.
+
+Die Umrechnung erfolgt dann wie folgt:
+
+50 Mbit / 8 = 6,25 MByte\
+6,25 MByte \* 1024 = 6400 KByte\
+6400 kByte \* 1024 = 6.553.600 Byte\
+
+`good`= **6.553.600 Byte/s**
+
+> **NOTE:**
+>
+> Die restlichen Werte können den Standardwert erhalten.
+
+#### Upload
+
+**`min`:**
+
+**`good`:**
+
+Hier sollten Werte angegeben werden, die sich am Stand der Technik orientieren. Ein unterer Wert der dem aktuellen Stand entspricht, könnte hier bspw. 10Mbit/s sein.
+
+## Speichern der Ergebnisse auf dem Server
+
+``` xml
+<Config savekey="eckensteher" skipnetwork="false">
+```
+
+Das Attribut `savekey` ist eigentlich obsolet, muss aber weiterhin geführt und befüllt werden, um Fehler zu vermeiden. Dieser Key wird an keiner Stelle mehr abgefragt.
+
+## Einbinden einer Unit
+
+Es ist möglich dem System-Check eine Aufgabe zur Ansicht beizufügen. Diese Aufgabe muss samt ihrer Ressourcen (Player, VOUD) mit der System-Check-XML in den Arbeitsbereich geladen und in der System-Check-XML referenziert werden. Dies kann hilfreich sein, um Darstellung und Funktion einer Aufgabe bereits beim System-Check zu prüfen.
+
+``` xml
+<Config unit="bsp_unit" savekey="saveme" skipnetwork="false">
+```
+
+Über einen Fragekatalog der ebenfalls in der System-Check-XML eingerichtet wird, können dann Fragen zu dieser Aufgabe gestellt werden. Hier könnte dann bspw. gefragt werden, ob die Aufgabe richtig wiedergegeben oder ob ein eingebundenes Audio abgespielt werden konnte.
+
+## Fragenkatalog
+
+Der System-Check verfügt über einen einfachen Formulargenerator, über den ein Fragekatalog präsentiert wird. In Verbindung mit dem Parameter `savekey` kann man so die Antworten der Units erhalten.
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd">
+    <Metadata>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+        <Description>Prüfung Studiendurchführbarkeit</Description>
+    </Metadata>
+
+    <Config savekey="saveme" skipnetwork="true">
+        <Q id="1" type="header" prompt="Die folgenden Fragen helfen uns, die Ergebnisse des System-Checks einordnen zu können."></Q>  # <1>
+        <Q id="2" type="radio" prompt="1. An welchem Gerät wurde der System-Check durchgeführt?">Tablet#Desktop/Laptop</Q> # <2>
+        <Q id="3" type="radio" prompt="2. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet?">Ja#Nein#Weiß ich nicht</Q>
+        <Q id="4" type="radio" prompt="3. Wurde der System-Check während der Unterrichtszeit durchgeführt?">Ja#Nein</Q>
+        <Q id="5" type="radio" prompt="4. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum?">Nie#Einmal im Jahr#Einmal im halben Jahr#Einmal im Quartal#Einmal im Monat#Einmal in der Woche#Mehrmals pro Woche#Weiß ich nicht</Q>
+        <Q id="6" type="string" prompt="5. Gibt es sonstige technische Einschränkungen bezüglich der Geräte, die Sie gerne mitteilen möchten?"/>
+    </Config>
+</SysCheck>
+```
+
+1.  `type` vom Wert “header” erzeugt eine Überschrift
+2.  `type` vom Wert “radio” erzeugt eine Auswahl. Die Optionen sind mit `#` zu trennen
+
+Diese Konfiguration führt zu folgendem Ergebnis:
+
+[![System-Check mit Fragenkatalog](syscheck5.png)](syscheck5.png "System-Check mit Fragenkatalog")
+
+System-Check mit Fragenkatalog
+
+Weitere Inputfelder im Fragekatalog sehen so aus:
+
+| Parameter | Bedeutung im Fragenkatalog |
+|----|----|
+| `header` | Überschrift: Hervorgehobener Text für die Strukturierung der Fragen |
+| `string` | Einzeilige Texteingabe |
+| `text` | Mehrzeilige Texteingabe |
+| `check` | Ankreuzfeld |
+| `select` | Auswahl, als Klappbox dargestellt; die Optionen sind als Inhalt des `<Q>`-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel) |
+| `radio` | Auswahl - jede Option wird in einer neuen Zeile dargestellt; die Optionen sind als Inhalt des `<Q>`-Elementes übergeben, jeweils mit einem Doppelkreuz getrennt (s. o. im Beispiel) |
+
+Werte für `type` innerhalb von `<Q>` {.table-striped .caption-top .table}
+
+> **NOTE:**
+>
+> Passen Sie ggfs. den Namen der eingebundenen Unit an (`unit="UNIT.SAMPLE"`). Die verwendete Schema-URL ist nur ab Testcenter-Version 18.0.0 anwendbar. Wenn Sie eine ältere Version des Testcenters verwenden, müssen Sie die ältere Schema-URL `https://raw.githubusercontent.com/iqb-berlin/testcenter/17.6.0/definitions/vo_SysCheck.xsd` verwenden und die Testcenter-Version anpassen.
+>
+> ``` xml
+> <?xml version="1.0" encoding="utf-8"?>
+> <SysCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>                 xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-syscheck-xml/18.0">
+>   <Metadata>
+>     <Id>SYSCHECK.SAMPLE</Id>
+>     <Label>System-Check Beispiel</Label>
+>     <Description>Beschreibungstext für den Systemcheck</Description>
+>   </Metadata>
+>
+>   <Config unit="UNIT.SAMPLE" savekey="123" skipnetwork="false">
+>     <UploadSpeed min="1024" good="2048" maxDevianceBytesPerSecond="10000" maxErrorsPerSequence="0" maxSequenceRepetitions="15">
+>       100000, 200000, 400000, 800000
+>     </UploadSpeed>
+>     <DownloadSpeed min="1024" good="2048" maxDevianceBytesPerSecond="200000" maxErrorsPerSequence="0" maxSequenceRepetitions="15">
+>       400000, 800000, 1600000, 3200000
+>     </DownloadSpeed>
+>
+>     <Q id="1" type="header" prompt="Beispielüberschrift"/>
+>     <Q id="2" type="string" prompt="Eingabefeld" required="true"/>
+>     <Q id="3" type="select" prompt="Auswahl">Option A#Option B</Q>
+>     <Q id="4" type="text" prompt="Eingabebereich"/>
+>     <Q id="5" type="check" prompt="Kontrollkästchen"/>
+>     <Q id="6" type="radio" prompt="Optionsfelder">Option A#Option B</Q>
+>   </Config>
+> </SysCheck>
+> ```
+
+# System-Check starten
+
+## System-Check Login in Testtaker-XML anlegen
+
+In der Testtaker-XML wird ein spezieller Login für den System-Check angelegt:
+
+``` xml
+
+<Login mode="sys-check-login" name="sys-check" pw="123"/>
+```
+
+Der Login muss, wie alle anderen Logins, einer Gruppe zugeordnet werden. Kommt ein solcher Login mehrfach in einer Testtaker-XML vor, muss sich der Wert von `name` unterscheiden. Um den System-Check zu starten, müssen die angelegten Zugangsdaten auf der Testtaker-Anmeldeseite eingegeben werden. Nach dem Start werden zuerst die Systeminformationen des Endgerätes ermittelt und angezeigt. Hier sind dann die Betriebssystemversion, die Bildschirmauflösung und die Version des Browser zu sehen. Anschließend wird, wenn eingeschaltet, die Netzwerkanbindung geprüft. Danach werden die Fragen des Fragenkataloges angezeigt und müssen beantwortet werden. Am Ende kann ein System-Check-Bericht gespeichert werden. Der Bericht fasst alle Ergebnisse unter dem Namen des System-Check-Logins zusammen und wird im Arbeitsbereich des Testcenters gespeichert, in dem sich System-Check-XML befindet. Die Ergebnisse können dann von allen Personen, die Zugriff auf den Arbeitsbereich haben, unter dem Reiter: **System-Check** heruntergeladen werden.
+
+# Auswertung
+
+Alle Personen, die Zugriff auf den Arbeitsbereich im Testcenter haben, in dem der Systemcheck definiert wurde, können die Daten herunterladen. Es handelt sich jeweils um eine `CSV`-Datei mit folgender Struktur:
+
+| Spaltenname | Erläuterung | Beispiel |
+|----|----|----|
+| `SysCheck-Id` | ID des System-Checks entsprechend Metadaten | SYSCHECK_VERA-TBA-2024 |
+| `SysCheck` | Label des System-Checks entsprechend Metadaten | System-Check für VERA-TBA-Erprobung 2024 |
+| `DatumTS` | Zeitpunkt der Speicherung als JavaScript-TimeStamp | 1716886457 |
+| `Datum` | Zeitpunkt der Speicherung als Text | 28.05.2024 10:54:17 |
+| `FileName` | Interner Dateiname der Daten im System für Fehlersuche | report_66559bb9a4c825.91698723.json |
+
+Download von System-Check-Daten: Allgemeine Daten {.table-striped .caption-top .table}
+
+| Spaltenname | Beispiel |
+|----|----|
+| `Betriebssystem` | Windows |
+| `Betriebssystem-Version` | 10 |
+| `Bildschirm-Auflösung` | 1536 x 864 |
+| `Browser` | Chrome |
+| `Browser-Cookies aktiviert` | 1 (Wahr) |
+| `Browser-Plugins` | PDF Viewer, Chrome PDF Viewer, Chromium PDF Viewer, Microsoft Edge PDF Viewer, WebKit built-in PDF |
+| `Browser-Sprache` | de-DE |
+| `Browser-Version` | 125 |
+| `CPU-Kerne` | 4 |
+| `Fenster-Größe` | 810 x 1010 |
+| `Gerätehersteller` | Apple |
+| `Gerätemodell` | iPad |
+| `Gerätetyp` | tablet |
+| `Zeitabweichung` | -1 |
+| `Zeitzone` | Europe/Berlin |
+| `Downloadgeschwindigkeit` | 71.12 Mbit/s |
+| `Downloadgeschwindigkeit benötigt` | 8.19 kbit/s |
+| `Downloadbewertung` | good |
+| `Uploadgeschwindigkeit` | 4.46 Mbit/s |
+| `Uploadgeschwindigkeit benötigt` | 8.19 kbit/s |
+| `Uploadbewertung` | ok |
+| `Gesamtbewertung` | ok |
+| `Netzwerkprofil des Browsers` | nicht verfügbar |
+| `CPU-Architektur` | amd64 |
+| `RoundTrip in Ms` | 50 |
+| `Netzwerktyp nach Leistung` | 4g |
+| `Downlink MB/s` | 10 |
+
+Download von System-Check-Daten: Spalten zum System und Netzwerk {.table-striped .caption-top .table}
+
+| Spaltenname | Inhalt |
+|----|----|
+| 1\. An welchem Gerät wurde der System-Check durchgeführt? | Desktop/Laptop |
+| 2\. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet? | Ja |
+| 3\. Wurde der System-Check während der Unterrichtszeit durchgeführt? | Nein |
+| 4\. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum? | Weiß ich nicht |
+
+Download von System-Check-Daten: Spalten für Fragenkatalog Beispiel {.table-striped .caption-top .table}
+
+# Planung und Diskussion
+
+## Was kann der System-Check leisten?
+
+Ein System-Check kann **keine** Aussage darüber machen, ob die gewählte IT-Umgebung geeignet ist oder nicht. **Der System-Check ermittelt nur den Ist-Zustand des Systems. Mithilfe dieser Daten muss entschieden werden, ob eine Eignung vorliegt oder nicht.**
+
+Ein positiver Abschluss des System-Checks ist keine Garantie dafür, dass am Tag der Durchführung alles glatt läuft. Beispielsweise hängt die Leistungsfähigkeit der Internetverbindung massgeblich davon ab, wie viele Personen am Tag der Studiendurchführung gleichzeitig auf das Internet zugreifen. Im einfachsten Fall liefert ein System-Check nur wichtige Eckdaten, wie bspw. Browserversion und Betriebssystem. Diese können manchmal schon ausreichen, um eine Bewertung im Vorhinein zuzulassen.
+
+## Planung
+
+Bzgl. Personen-, Aufgaben- und Anzahl der Testhefte ist jede Testung anders und stellt daher auch unterschiedliche Anforderungen an die IT-Systeme. Die Testleitung muss daher die Anforderungen an das IT-System individuell für ihre Testung ermitteln. Bspw. stellt eine Studiendurchführung mit nur einer Klasse eine andere Herausforderung dar, als eine Durchführung mit mehreren Klassen oder gar mehreren Schulen parallel. Hinsichtlich der Eignung einer Umgebung dürfte die Bandbreite der Internetanbindung wohl eine zentrale Rolle spielen. Aber auch Betriebssystem, Browserversion und Bildschirmauflösung stellen wichtige Kriterien dar, die darüber entscheiden können, ob eine Studie als machbar eingestuft wird oder nicht.
+
+Es sollten also seitens der Testleitung vor der Testdurchführung Überlegungen bzgl. der Anforderungen an die eigene Testung angestellt werden.
+
+Vor der Konfiguration des System-Checks ist es günstig in Absprache mit den Personen vor Ort, so viele Informationen wie möglich zur Ausstattung einzuholen. Je mehr Informationen vorliegen, umso gezielter kann der System-Check im Vorfeld konfiguriert werden. Bspw. könnten folgende Themen schon im Vorfeld abgeklärt werden:
+
+- Welche Endgeräte kommen zum Einsatz? Handelt es sich ausschließlich um Tablets, Desktop-PC oder um eine Mischung aus beiden?
+- Gibt es Kopfhörer zur Wiedergabe von Audios und wie werden diese angebunden (Bluetooth, Klinke)?
+- Ist bekannt, ob es seitens des eigenen IT-Netzes besondere Beschränkungen bzgl. der Firewall gibt? Kommen spezielle Plugins in den Browsern zum Einsatz?
+- Falls Tablets zum Einsatz kommen: Verfügen diese über externe Tastaturen?
+
+Auf Grundlage dieser Vorabinformationen können sich die Verantwortlichen weitere Fragen stellen, bevor es an die Konfiguration des Checks geht:
+
+**Gibt es im geplanten Testheft Aufgaben, die hinsichtlich Lesbarkeit und Funktionalität von der Bildschirmgröße und Bildschirmauflösung abhängen?**
+
+Wenn ja: Es sollte eine entsprechende Beispielaufgabe zur Ansicht mit in den System-Check eingebunden werden. Es können dann Fragen zu der Aufgabe formuliert werden, die während des Checks beantwortet werden müssen. Hier könnte dann bspw. gefragt werden, ob ein Bild richtig in der Aufgabe dargestellt wurde.
+
+**Gibt es im Testheft Aufgaben mit Audios?**
+
+Wenn ja: Es sollte eine Aufgabe mit einem Audio-Element dem System-Check hinzugefügt werden und im Verlauf des Checks gefragt werden, ob das Audio zu hören war. So kann im Vorfeld sichergestellt werden, dass an den Endgeräten Audios wiedergegeben und vor allem gehört werden können. Man prüft also auch gleich noch die Peripherie, wie bspw. Kopfhörer mit.
+
+**Gibt es im Testheft Aufgaben mit Eingabefeldern oder ähnlichem?**
+
+Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit Eingabefeldern in den System-Check eingebunden werden und im Verlauf gefragt werden, ob Text oder auch Sonderzeichen in die Felder eingegeben werden konnten. Auf diese Weise können auch Tablet-Tastaturen und die IQB-eigene Tastatur zur Eingabe von Sonderzeichen getestet werden.
+
+**Gibt es im Testheft Aufgaben mit Drag-and-Drop-Elementen oder ähnlichem?**
+
+Wenn ja und wenn auch Tablets zum Einsatz kommen sollen: Es sollte eine Aufgabe mit solchen Elementen eingebunden werden. So kann sichergestellt werden, dass auch auf Tablets diese Elemente richtig funktionieren.
+
+**Soll ein Passwort zur Speicherung eines System-Check-Berichtes eingerichtet werden?**
+
+Wird eine System-Check-XML in einen Arbeitsbereich des Testcenters geladen, wird ein entsprechender Schalter auf der Anmeldeseite angezeigt. Der System-Check kann nun von jeder Person gestartet werden, auch von Fremdpersonen, die nichts mit der Studie zu tun haben. Ebenso kann ein Bericht am Ende des Checks gespeichert werden. Die Daten eines System-Checks könnten so durch Fremdeingriffe verfälscht werden und zu falschen Annahmen verleiten. Daher wird zwingend empfohlen in der Konfiguration des System-Checks ein Passwort zu vergeben. Der Bericht kann dann nur gespeichert werden, wenn das richtige Passwort eingegeben wurde.
+
+> **TIP:**
+>
+> Im System-Check kann immer nur eine Aufgabe zur Ansicht eingebunden werden. Gibt es viele Aufgabeninhalte, die geprüft werden sollen, empfiehlt es sich eine Aufgabe im IQB-Studio zu entwerfen, diese in Seiten zu unterteilen und einen breiten Querschnitt der verwendeten Aufgabenelemente darin zu verteilen. Im System-Check kann dann die Funktion jedes Elementes abgefragt werden.
+
+## Hinweise zur Durchführung
+
+Verantwortliche vor Ort starten den System-Check an jedem Endgerät das für die Durchführung verwendet werden soll. Ist im Vorfeld bekannt, dass alle Geräte hinsichtlich Betriebssystem, Browser und Bildschirmauflösung gleich ausgestattet sind, ist es ausreichend den Check nur an einem der Geräte durchzuführen. Am Ende jedes Checks muss ein Bericht gespeichert werden. Dazu muss (falls in System-Check-XML konfiguriert) ein Kennwort und ein sprechender Bezeichner für den Check eingegeben werden. Wird der System-Check mehrfach ausgeführt, wird ein bestehender Bericht im Arbeitsbereich um die entsprechenden Daten erweitert.
+
+> **NOTE:**
+>
+> Der System-Check unter Realbedingungen durchgeführt werden. Sprich es macht wenig Sinn den Check in den Ferien, nach Schulende oder am Wochenende durchzuführen.
+
+## Hinweise zur Auswertung
+
+Die Auswertung sollte sich auf folgende Schwerpunkte beziehen:
+
+**Ist der Browser für die Studiendurchführung geeignet?**
+
+Im Kapitel **Studiendurchführung/ Vorbetrachtungen** werden Systemanforderungen genannt, die hinsichtlich Browser- und Betriebssystem-Version zwingend erfüllt sein sollten.
+
+**Wie hoch ist die Auflösung der verwendeten Bildschirme?**
+
+Diese Frage spielt eine wichtige Rolle bzgl. der Darstellung und Lesbarkeit einer Aufgabe. Im System-Check können spezifische Fragestellungen zur Aufgabendarstellung konfiguriert werden. Die Auswertung der Antworten ergibt dann, ob die Aufgaben bzgl. der vorhandenen Bildschirme noch einmal angepasst werden müssen.
+
+**Welche Internet-Bandbreite wird für die Testung mindestens benötigt?**
+
+Ist die Bandbreite zu gering, kann im schlimmsten Fall die Testung am jeweiligen PC nicht durchgeführt werden. Die Interpretation der Netzwerkverbindung ist allerdings sehr unsicher. Man ist ja in der Durchführung nicht nur vom Computer abhängig, auf dem der Check läuft, sondern auch von der Last, die gerade durch andere Computer verursacht wird. Das kann dieselbe Testung sein, aber auch eine ungeplante Systemaktualisierung irgendwo anders im Haus, die einen umfangreichen Download auslöst.
+
+Eine erste Warnung wird ausgelöst, wenn die Netzwerkverbindung stark schwankt. Für die Ermittlung einer als kritisch anzusehenden Bandbreite ist im Abschnitt **Netzwerkanbindung** aufgezeigt, wie Eckwerte ermittelt werden können.
+
+# Weiterentwicklung
+
+Folgende Überlegungen gehen in die Weiterentwicklung des System-Checks ein:
+
+- Das IQB hat inzwischen weitere Erfahrungen bei der Ermittlung der technischen Kapazität einer Testcenter-Installation gesammelt. Dies wird in den Test der Netzwerkanbindung einfließen, damit die Ergebnisse aussagekräftiger werden. Es geht vor allem um den erwartbaren Speed.
+- Es ist kaum möglich, alle Itemformate in einer Unit zu prüfen. Es sollte also möglich sein, mehrere Units einzubinden und auch Antworten aus der Bearbeitung zu speichern. Denn es könnten auch technische Probleme beim Speichern der Antworten auftreten, was im Moment nicht vorab bemerkt wird.
+
+Zurück nach oben

@@ -1,0 +1,79 @@
+# Audios konvertieren
+
+## Einbetten von Audio-Elementen ins Studio
+
+![](Grafiken/Audio_Main.png)
+
+Wenn eine Audio-Datei über den *Audio*-Button hinzugefügt wird, muss direkt die Audio-Datei ausgewählt werden, welche dann hochgeladen wird.
+
+Die Audio-Datei kann entweder eine vorhandene Datei sein oder eine, die mit KI (FreeTTS) generiert wurde (siehe unten).
+
+> **NOTE:**
+>
+> Die Datei sollte eine MP3 sein, da es bei anderen Dateiformaten zu längeren Ladezeiten kommen kann. Dies kann mit Audacity angepasst werden (siehe unten).
+
+> **NOTE:**
+>
+> Beim Einbetten von Grafiken und Audios als MC-Option sollte die Reihenfolge beachtet werden, damit die Kodierung am Ende stimmt.
+
+## Medienoptionen anpassen
+
+![](Grafiken/Medienoption_anpassen.png)
+
+Bei dem Einfügen von Audio-Dateien sind gewisse Einstellungen voreingestellt. Diese sind an den Einstellungen eines Stimulus-Audio orientiert:
+
+So z.B. \* Voreingestellte Lautstärke: 0,8/Minimale Lautstärke 0,2 \* Ggf. Anzahl der min./max. Durchläufe anpassen \* Als Aufforderungstext zum Starten erscheint „Bitte starten” mit einer Verzögerung von 5000 ms
+
+Diese können im erweiterten Modus wunschgemäß angepasst werden, um z.B. nur einen Audiobutton anzuzeigen:
+
+### Audio-Button
+
+![](Grafiken/Audio_Button.png)
+
+Um ein Audio-Element so einzustellen, dass nur der Button zu sehen ist, müssen folgende Einstellungen im erweiterten Modus vorgenommen werden:
+
+- Häckchen nur bei Wiedergabeknopf anzeigen setzen
+- Voreingestellte Lautstärke: 0,8/Minimale Lautstärke 0,2
+- Ggf. Min./ max. Durchläufe einstellen
+- Nach unten einen Abstand von 15px einstellen
+- Audioelement im Layout in eine eigene Spalte stellen mit einer Breite von 42px
+
+## Erstellen einer Audio mit FreeTTS
+
+[FreeTTS](https://freetts.com/de) ist ein Text to Speech Programm: Das bedeutet es kann zum Beispiel der Text einer Instruktion eingegeben werden und dieser wird dann durch eine KI vorgelesen. Die Datei kann dann heruntergeladen und ins Studio eingefügt werden.
+
+Folgende Einstellungen sollen gewählt werden:
+
+- Output format: mp3
+- High Quality
+- Voice Speed nach Bedarf auf -10%
+
+Nun kann der Text eingegeben werden und die Datei heruntergeladen via Microsoft Edge o.ä. (nicht Firefox) heruntergeladen werden.
+
+## Bearbeiten des Audios in Audacity
+
+[Audacity](https://www.audacity.de/) ist ein kostenloses Programm zum Aufnehmen und Editieren von Audio-Datein.
+
+Gegebenfalls kann die Datei hier noch geschnitten werden und dann gespeichert werden. Dazu muss sie exportiert werden:
+
+![](Grafiken/Audacity_exportieren.png)
+
+Diese Einstellungen werden generell benutzt:
+
+Audios mit geringem Anspruch an die Qualität (nur Sprache):
+
+- Kompression: MP3
+- Kanal: Joint Stereo
+- Abtastrate: 24000 Hz
+- Bitraten Modus: Konstant
+- Bitrate: 64kbps
+
+Audios mit höherem Anspruch an die Qualität (Musik enthalten):
+
+- Kompression: MP3
+- Kanal: Joint Stereo
+- Abtastrate: 44100 Hz
+- Bitraten Modus: Konstant
+- Bitrate: 96kbps
+
+Zurück nach oben

@@ -1,0 +1,15 @@
+# Hinweise zu Bildern
+
+Bilder sollten, bevor sie ins Studio eingebettet werden, skaliert werden. Dies verhindert langes Laden bei zu großen Grafiken. Dabei sollte die Seitenbreite im Studio von 750px als Bildbreite nicht überschritten werden. Wenn Bilder nur die Hälfte der Seite einnehmen sollen, kann die Bildbreite dementsprechend schon angepasst werden – dies verhindert ebenfalls verlängertes Laden der Aufgaben.
+
+Zudem müssen Bilder für Drag and Drop Aufgaben die gleiche/ungefähr die gleiche Gröe haben. Die Größe der Bilder hat außerdem einen direkten Einfluss auf die Darstellung im Item; sie müssen also so groß skaliert werden, wie sie auch in der Aufgabe angezeigt werden sollen.
+
+Dies ist genauso bei MC und CMC Aufgaben: Grafiken müssen auch hier so groß skaliert sein, wie sie in der Aufgabe angezeigt werden sollen.
+
+Generell ist es irrelevant, ob Grafiken als .png oder .jpg eingefügt werden. Wenn aber mit transparenten Bildausschnitten gearbeitet wird, muss das Dateiformat .png verwendet werden.
+
+> **NOTE:**
+>
+> Beim Einbetten von Grafiken und Audios als MC-Option sollte die Reihenfolge beachtet werden, damit die Kodierung am Ende stimmt.
+
+Zurück nach oben

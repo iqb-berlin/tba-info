@@ -1,0 +1,39 @@
+# Buttonverlinkungen – interaktive Stimuli
+
+Um beispielsweise eine interaktive Karte oder den Nachbau einer Website zu ermöglichen, kann es sinnvoll sein Buttonverlinkungen zu verwenden. Mit diesen ist es möglich durch das Betätigen eines Knopfes auf eine andere Seite zu gelangen.
+
+Im Folgenden sehen Sie ein Beispiel aus den prototypischen Aufgaben des IQB-Studios:
+
+## Design
+
+Zunächst legen Sie die Website, Karte o. ä. so an, wie Sie es sich vorstellen. Pro Seite, die durch eine Knopfverlinkung erreicht werden soll, muss ein einzelner Abschnitt angelegt werden.
+
+Im Beispiel wurde der obere Teil der Webseite als ein Abschnitt angelegt und der untere Teil mit der Bildergalerie besteht aus jeweils einem Abschnitt pro Bild.
+
+## Zustandsvariable
+
+![](../Grafiken/Zustandsvariabel_knopf.png)
+
+Erstellen Sie nun eine Zustandsvariable. Geben Sie ihr einen eindeutigen Namen, im Beispiel ist es „Seite”, und geben ihr einen Wert, z.B. „1”. Der Wert der Variable soll später den verschiedenen Abschnitten zugewiesen werden.
+
+## Knöpfe hinzufügen
+
+Fügen Sie nun Knöpfe hinzu. Das Knopfelement liegt bei den Elementen im Abschnitt „Sonstige”:
+
+Sie können wie gewünscht in den Einstellungen beschriftet und eingefärbt werden. In dem gezeigten Beispiel ist die Beschriftung „❯” und die Hintergrundfarbe „#ff0000”. Die Knöpfe sind die roten Weiter-/Zurückpfeile.
+
+Die Position der Knöpfe kann durch Spalten- und Zeilenposition, feste Breiten und Höhen sowie Abstände angepasst werden.
+
+## Sichtbarkeitseinstellungen
+
+Nun erhält jeder Abschnitt eine Sichtbarkeitseinstellung, wobei sich der Wert des jeweiligen Abschnitts verändert. Wählen Sie dazu den Abschnitt aus und klicken auf die Sichtbarkeitseinstellungen ![](../Grafiken/symbol_knopf_sichtbarkeit.png).
+
+Das erneute Ausblenden muss erlaubt sein, die „Variablen/Element-ID” wird „Seite” benannt und der Operator ist „=”. Ein Abschnitt wird also dann eingeblendet wenn die Zustandsvariable den entsprechenden Wert annimmt und wieder ausgeblendet, wenn sich die Variable wieder ändert.
+
+## Knopfverlinkung
+
+Nun erhält jeder Knopf die Verknüpfung zur passenden Seite, beziehungsweise zum richtigen Abschnitt.
+
+Dafür wird der jeweilige Knopf angeklickt und eine Aktion bestimmt. Es wird „Zustandsvariable ändern” ausgewählt, die ID ist „Seite” und der Wert ist der Wert des Abschnitts, der gezeigt werden soll, wenn der Knopf betätigt wird.
+
+Zurück nach oben

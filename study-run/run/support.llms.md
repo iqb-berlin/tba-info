@@ -1,0 +1,36 @@
+# Problemlösung
+
+# Zurücksetzen einer Session
+
+Als Session wird im Kontext einer Studiendurchführung eine Anmeldung als Testperson bezeichnet. Sobald sich eine Testperson mit den Zugangsdaten aus der Testtaker-XML anmeldet, wird eine zugehörige Session gestartet. Alle Daten (Antworten etc.), die in dieser Session anfallen, werden zu dieser Session gespeichert. In dem Antwortdatensatz ist die entsprechende Session unter dem jeweiligen Login (Benutzernamen) zu finden. Kann eine Session aus irgendeinem Grund nicht gestartet werden oder soll eine Testperson den Test noch einmal von vorne beginnen, ohne die bisher gegebenen Antworten zu sehen, ist es möglich die bereits vorhandenen Daten einer Session zu löschen. Wie die Daten einer Session gelöscht werden können, ist im Kapitel: **Arbeitsbereiche** zu finden.
+
+# Entsperrung eines gesperrten Blocks
+
+Wurde versehentlich ein zeitbeschränkter Block trotz Warnung verlassen, wird dieser Block gesperrt und kann nicht mehr betreten werden. Mit Hilfe des Gruppenmonitors ist es allerdings möglich den BLock wieder zu entsperren und eine neue Zeit für den Block festzulegen. Mehr dazu ist dem Kapitel: **Vorbereitungen/ Gruppenmonitor** zu entnehmen.
+
+# Meldungen an das IQB
+
+Damit das IQB gemeldete Fehler schnell nachvollziehen kann, sind wir auf ausreichende Informationen angewiesen. Nachfolgend ist eine Empfehlung seitens des IQB zu sehen, welche Informationen benötigt werden:
+
+#### Genaue Beschreibung: Wie kam es zu dem Fehler?
+
+Hier sollte detailliert beschrieben werden, wie es zu dem Fehler kam. Es sind auch Punkte zu nennen, die ggf. unwichtig erscheinen. Erweiterte Informationen dazu:
+
+- Informationen zur Institution
+- Fehlermeldung (bitte hierzu auch den Punkt: “Interpretation einer Fehlermeldung” beachten)
+- eingesetzte Testcenterversion, insofern eigener Server
+- Gerät, auf dem der Fehler auftrat
+- Browserversion, in dem der Fehler auftrat
+- War eine Anmeldung nicht erfolgreich oder fehlerbehaftet: Welche Logins betrifft es?
+- Gab es eine temporäre Lösung, um den Fehler zu umgehen? Wie sah diese temporäre Lösung aus?
+
+Ein paar Fragen, die in diesem Kontext gestellt werden könnten:
+
+- Trat der Fehler nur auf bestimmten Endgeräten auf oder betraf es auch andere Geräte?
+- Trat der Fehler nur bei einer bestimmten Browserversion auf oder waren auch andere Versionen betroffen?
+
+#### Interpretation einer Fehlermeldung
+
+Eine Testcenter Fehlermeldung liefert zuerst einmal einen allgemeinen Überblick, dass ein Fehler aufgetreten ist. Mithilfe des Schalters „Fehlerbericht“ folgen detaillierte Informationen zu dem Fehler. Diese werden zwingend benötigt. Es reicht also nicht einen Screenshot von der allgemeinen Meldung zu machen.
+
+Zurück nach oben

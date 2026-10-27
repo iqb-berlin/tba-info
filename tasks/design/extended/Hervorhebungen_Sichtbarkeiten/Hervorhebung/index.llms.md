@@ -1,0 +1,39 @@
+# Hervorhebungen
+
+![](../Grafiken/hervorhebung_bsp.png)
+
+Hervorhebungen bieten die Möglichkeit, dass Wörter oder Sätze in einem Text hervorgehoben werden. Sie können hervorgehoben werden, wenn eine bestimmte Seite in den Aufgaben erreicht wird (Trigger) oder wenn auf einen Knopf gedrückt wird (Button).
+
+Eine Hervorhebung wird wie im Beispiel violett im Text angezeigt.
+
+## Hervorhebung anlegen
+
+Zunächst wird die Hervorhebung im Text angelegt. Öffnen Sie dafür den Text und markieren Sie den hervorzuhebenden Textabschnitt. Drücken Sie anschließend auf den Knopf für die Hervorhebung.
+
+Der ausgewählte Bereich ist nun violett eingefärbt – die Hervorhebung ist angelegt.
+
+## Trigger
+
+Um eine automatische Hervorhebung anzuzeigen – das heißt der hervorgehobene Bereich wird angezeigt, sobald die Seite mit der Aufgabe angezeigt wird - muss sich die Aufgabe auf einer separaten Seite befinden.
+
+![](../Grafiken/Ausloser.png)
+
+Legen Sie auf diese Seite in den Abschnitt mit der Aufgabe einen „Auslöser”. Dieser befindet sich in den Elementen im Abschnitt „Sonstige”.
+
+Wählen Sie nun als Aktion „Textabschnitt hervorheben” und unter „Aktionsparameter“ den hervorzuhebenden Bereich.
+
+> **TIP:**
+>
+> Sie können bei einem Auslöser auch die Option „Hervorhebungen ausblenden“ wählen, um alle bestehenden Hervorhebungen zu deaktivieren. Dies ist nützlich, wenn in einer Aufgabe mehrere Hervorhebungen vorkommen.
+
+## Button
+
+Um die Hervorhebung durch einen Knopf zu aktivieren, legen Sie zunächst einen Knopf an. Sie können das Knopf-Element verwenden, aber meistens wird ein Lückentext angelegt, in welchem dann an gewünschter Stelle ein Knopf eingefügt wird. Dieser kann angeklickt werden, um rechts in den Einstellungen bearbeitet zu werden. Gebn Sie dem Knopf eine passenden Beschriftung.
+
+Als Aktion wählen Sie nun „Textabschnitt hervorheben” und als „Aktionsparameter” den hervorzuhebenden Bereich.
+
+![](../Grafiken/Hervorhebung_Aktion.png)
+
+Damit haben Sie einen Knopf für die Hervorhebung angelegt.
+
+Zurück nach oben

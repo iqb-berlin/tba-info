@@ -1,0 +1,16 @@
+# Aufgaben gestalten
+
+Eine Aufgabe zu gestalten bedeutet festzulegen, was der Testperson präsentiert wird (Text, Bild, Audio, Video). Für einführende Seiten oder für einen Abschiedsgruß wäre das auch schon alles. Um jedoch Antworten auf Fragen zu erhalten, müssen Interaktionselemente eingefügt werden. Das ist z. B. ein Eingabefeld für Text oder ein Bild, das man auf vorbereitete Zielflächen ziehen soll. Ein **Player** wird benutzt, um eine Aufgabe anzuzeigen und die Interaktion zu steuern, und ein **Editor** wird genutzt, um Präsentation und Interaktion zu definieren.
+
+Die folgenden Seiten konzentrieren sich auf den Editor als Teil des IQB-Studios. Dabei wird jeweils auch erläutert, was eine bestimmte Definition dann für das Abspielen - also den Player - bedeutet. Beide Module sind voneinander abhängig, und im Studio besteht der Arbeitszyklus aus einem ständigen Wechsel zwischen “Gestalten (Editor)” und “Voransicht (Player)”.
+
+Lesen Sie im Detail:
+
+- [Standardmodus](../../tasks/design/basic/index.llms.md): Der Aspect-Editor des IQB ist mit Grundfunktionen verfügbar, mit denen ein Großteil der Gestaltungsfälle abgedeckt ist. Leistungsstarke Assistenten erleichtern das Anlegen von Elementen und sichern über Standardeinstellungen die Homogenität der Aufgaben.
+- [Erweiterter Modus](../../tasks/design/extended/index.llms.md): Für seltene Fälle sind besondere Interaktionselemente nötig oder die Standardeinstellungen passen nicht gut genug. Dann können erfahrene Autor\*innen den Aspect-Editor mit erweiterten Rechten benutzen.
+- [GeoGebra](../../tasks/design/geogebra/index.llms.md): Im Aspect-Editor kann man GeoGebra-Objekte einfügen. In diesem Abschnitt erhalten Sie eine Anleitung, wie man solche Objekte erzeugt. Wir decken hier nicht GeoGebra insgesamt ab, sondern nur die in IQB-Aufgaben häufig genutzten Funktionen.
+- [Bild/Audio/Video](../../tasks/design/media/index.llms.md): Dieser Abschnitt enthält Empfehlungen und Anleitungen für Bilder sowie Audio- und Videosequenzen. Diese müssen vor dem Einfügen in eine Aufgabe außerhalb des Editors optimal vorbereitet werden.
+- [Einfache Formulare](../../tasks/design/simple-forms/index.llms.md): Für einfache Befragungen von Erwachsenen (Eltern, Lehrkräfte usw.) hat das IQB zusätzlich einen schlanken Player entwickelt, dessen Definition über Programmierung oder Excel automatisiert erzeugt werden kann.
+- [Speedtest](../../tasks/design/speedtest/index.llms.md): Dieses Testformat ermöglicht es, Antworten schnell und spontan zu erhalten, ohne dass die Testpersonen groß nachdenken. Die Auswertung fokussiert dann auf die Frage, wieviele Items einer gleichartigen Folge in der gegebenen Zeit richtig beantwortet wurden.
+
+Zurück nach oben

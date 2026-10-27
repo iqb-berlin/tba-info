@@ -1,0 +1,94 @@
+# StarS: Antwortspeicherung und Kodieren
+
+Als **Antwort** bezeichnet man das Ergebnis der Interaktion der Testperson mit dem Testsystem. Wenn man sich rückwärts im Testverlauf bewegt oder einen Neustart der Beantwortung anstößt, wird mit Hilfe dieses Antwortwertes der vorherige Antwort-Status wiederhergestellt. Der StarS-Player sendet wie alle anderen IQB-Player die Antwort im [Standard-Antwortformat des IQB](../../../coding/data-structures/response.llms.md).
+
+Kodierung bedeutet, den Antwortwert einer Kategorie zuzuordnen. Im einfachsten Fall sind dies die Kategorien “Richtig” und “Falsch”, für eine genauere Antwortanalyse können aber auch differenzierte Kategorien entwickelt werden. Nach der Kodierung sind für **Code** und **Score** entsprechende Werte gesetzt.
+
+Die meisten Player schicken nur den Antwortwert und überlassen die Kodierung anderen Programmkomponenten. Der StarS-Player nimmt jedoch sofort eine Kodierung vor. Dies hat folgende Gründe:
+
+- Das StarS-Projekt sieht nur automatische Kodierung vor.
+- Eine Kodierung außerhalb des Players erfordert zusätzlich ein [Kodierschema](../../../coding/data-structures/coding-scheme.llms.md). Da es sich bei StarS-Items überwiegend um einfache Auswahl oder Eingaben handelt, ist es viel praktischer, die nötigen Angaben für die Kodierung direkt in der Syntax der UI-Definition der Unit unterzubringen.
+- Die meisten StarS-Items haben einen sog. Übungsmodus. Das bedeutet, dass der Testperson sofort innerhalb der Unit eine Rückmeldung zur Antwort gegeben werden soll (“fein gemacht”, “überleg nochmal”). Das ist nur möglich, wenn die Kodierung durch den Player erfolgt.
+
+# Kodierinformation `variableInfo`
+
+Die Antworten einer StarS-Unit werden auf einheitliche Art kodiert. Dazu gibt es eine Datenstruktur `variableInfo` außerhalb der Interaktionsparameter.
+
+``` json
+{
+    "variableInfo": [
+        {
+            "variableId": "MK02",
+            "responseComplete": "ON_ANY_RESPONSE",
+            "codingSource": "SUM",
+            "codes": [
+                {
+                    "method": "EQUALS",
+                    "parameter": "4",
+                    "code": 1,
+                    "score": 1
+                }
+            ]
+        }
+    ]
+}
+```
+
+Das obige Beispiel definiert für die Variable “MK02”, dass der Code 1 und der Score 1 vergeben werden soll, wenn die Summe des Antwortwertes genau 4 beträgt. Ansonsten wird Code 0 und Score 0 vergeben.
+
+# Parameter
+
+## `variableId`
+
+Das Kodierschema erlaubt die Kodierung mehrerer Variablen. Auch wenn es nur eine Variable im Player geben sollte oder die ID der Variablen automatisch über den Interaktionstyp vergeben wurde (z. B. `BUTTONS` oder `WRITE`), muss die ID der Variablen angegeben werden.
+
+## `responseComplete`
+
+Über diesen Parameter wird angezeigt, wann diese Variable als “vollständig beantwortet” anzusehen ist. In üblichen Formularen wird dieser Zustand auch mit “erforderliche Eingabe/required” bezeichnet. Der Player prüft für alle Variablen diese Angabe und stellt die Information zur Verfügung:
+
+- Die Information wird an das Testcenter während des Tests geschickt. Über separate Einstellungen kann man dann erreichen, dass beispielsweise ein Weitergehen zur nächsten Unit verhindert wird, solange nicht alle Antworten als gegeben gewertet sind.
+- Die Information kann innerhalb des Players verwertet werden, um beispielsweise einen Weiter-Button erst dann einzublenden, wenn alle Antworten gegeben sind.
+
+In der entsprechenden [Spezifikation der Verona-Schnittstelle](https://verona-interfaces.github.io/player-docs/vopStateChangedNotification.html#responseprogress) sind drei Zustände definiert, die eine ansteigende Anzahl der beantworteten Variablen ausdrücken: `none`, `some` und `complete`. Der letzte Zustand wird erst dann gemeldet, wenn für alle Variablen ein Mindestzustand für “beantwortet” erreicht wurde.
+
+Für jede Variable kann für den Parameter `responseComplete` folgendes festgelegt werden:
+
+- `ALWAYS`: Die Variable gilt stets als beantwortet, egal ob eine Interaktion erfolgte und irgendeine Antwort gegeben wurde. Damit wird die Beantwortung als optional gekennzeichnet, d. h. sie ist nicht erforderlich für das weitere Vorgehen. Dies ist die Standardeinstellung, d. h. ohne diesen Parameter wird dieses Verhalten gesetzt.
+- `ON_ANY_RESPONSE`: Es muss irgendeine Antwort gegeben werden. Für StarS bedeutet dies, dass für diese Variable eine Antwort und dann auch eine Kodierung vorliegt. Ob die Antwort richtig ist, spielt keine Rolle. Diese Einstellung ist für die meisten Fälle in StarS sinnvoll.
+- `ON_FULL_CREDIT`: Es muss die richtige Antwort gegeben werden. Dazu muss natürlich mindestens ein Code definiert werden, der einen Score \> 1 hat (s. unten). Für “Full Credit/Volle Punktzahl” nimmt dann der Player den höchsten Score an. Dieses Szenario eignet sich für Übungsaufgaben, bei denen die Testperson die Beantwortung eines bestimmten Frageformates lernen soll. Ein Weitergehen wird erst dann erlaubt, wenn man annehmen kann, dass die Testperson sinnvoll mit dem Computer interagiert.
+
+## `codingSource`, `codingSourceParameter`
+
+Der Antwortwert kann verschieden je nach Interaktionstyp sein. Es kann sich um eine Zahl handeln (Position des gewählten Buttons), ein String in der Form “01101” oder eine offene Eingabe. Es muss festgelegt werden, welche Information aus der Variablen verarbeitet werden soll:
+
+- `VALUE`: Es wird direkt der Antwortwert genommen (Standard).
+- `VALUE_TO_UPPER`: Es handelt sich beim Antwortwert um einen String, und zur besseren Vergleichbarkeit wird dieser in Großbuchstaben umgewandelt.
+- `SUM`: Der Antwortwert ist ein String in der Form “01101”, und es wird die Summe der “1”-Zeichen berechnet.
+- `SUM_CHAR_MATCHES`: Der Antwortwert ist ein String in der Form “01101”, und es wird genau überprüft, ob “0” und “1” an den richtigen Stellen sind. Dazu muss noch ein Vergleichsstring übergeben werden, wozu der Parameter `codingSourceParameter` zu nutzen ist. Die Anzahl der Zeichen muss gleich sein, und es wird zeichenweise der Antwortwert mit dem Vergleichsstring verglichen. Das Ergebnis ist die Summe der Übereinstimmungen. Beispiel: Antwortwert “01101” und Vergleichsstring “01110” ergibt 3.
+
+## `codes`
+
+Hier können mehrere Codes definiert werden. Wenn beispielsweise ein differenziertes Feedback gegeben werden soll (siehe [Übungsaufgaben/Rückmeldung](../../../tasks/design/stars/feedback.llms.md)), kann die Unterscheidung von Falsch-Antworten wichtig sein.
+
+Es wird stets der erste Code genommen, dessen Regel zutrifft. Die anderen Regeln werden ignoriert. Daher spielt die Reihenfolge der Codes eine Rolle.
+
+Wenn keine Regel zutrifft, dann wird der Code 0 und der Score 0 vergeben. Code 0 sollte daher nicht explizit in der Code-Liste verwendet werden, sondern ab 1 ansteigend. Sollte dennoch 0 gegeben sein, nimmt der StarS-Player den höchsten Code-Wert + 1.
+
+## Kodierregel: `method` und `parameter`
+
+Ein Code-Eintrag führt stets zum Setzen eines `code`- und eines `score`-Wertes. Beide sind laut Defintion numerisch ganzzahlig. Welcher Code und Score vergeben wird, entscheidet sich über `method` und `parameter`. Die Methode wird mit dem Parameter auf den Wert angewendet, der über `codingSource` festgelegt wurde (s. o., also Antwortwert, Summe usw.). Folgende Methoden stehen zur Verfügung:
+
+- `EQUALS`: Es erfolgt ein String-Vergleich, d. h. ‘4,0’ wird nicht als derselbe Wert wie ‘4’ gewertet.
+- `GREATER_THAN`, `LESS_THAN`: Es erfolgt ein numerischer Vergleich, d. h. die ggf. als String vorliegenden Werte werden transformiert. Der Code trifft dann zu, wenn der zu prüfende Wert größer bzw. kleiner als der Parameter-Wert ist.
+- `IN_POSITION_RANGE`: Der Interaktionstyp `FIND_ON_IMAGE` (Wimmelbild) liefert in einem bestimmten Modus einen Positionswert. Das ist die Stelle, auf die die Testperson geklickt/getippt hat im Format ‘x,y’ (jeweils ganze Zahlen 0..100, also z. B. ‘34,77’). Mit der Methode `IN_POSITION_RANGE` wird dieser Wert mit einem Bereich verglichen, in dem die Antwort erwartet wird. Das Format der Bereichsangabe im Parameter ist ‘x,y-x,y’ (linke obere und rechte untere Ecke).
+
+# Antwort-Status
+
+Die Variable(n), die in der Unitdefinition angelegt wurden, sind stets in den Antwortdaten zu finden. Folgende Werte für den Antwort-Status sind möglich:
+
+- `DISPLAYED`: Es erfolgte noch keine Interaktion, sondern das Item wurde nur angezeigt.
+- `VALUE_CHANGED`: Nach einer Interaktion hat die Variable einen Wert erhalten. Dieser Status ist nur dann in den Daten zu finden, wenn keine Kodieranweisungen gefunden wurden.
+- `CODING_COMPLETE`: Der Antwortwert wurde erfolgreich kodiert.
+- `CODING_ERROR`: Während der Kodierung ist ein Fehler aufgetreten. Dies kann durch eine fehlende oder fehlerhafte Regel eintreten.
+
+Zurück nach oben

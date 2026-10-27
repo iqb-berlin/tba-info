@@ -1,0 +1,57 @@
+# Audiostimulus- Instruktion und Hörtext in einem Audio-Assistent
+
+![](../Grafiken/audiost_bsp.png)
+
+# Instruktion und Hörtext in einem Audio
+
+![](../Grafiken/audiost_Assistent_normal.png)
+
+Der Assistent „Stimulus: Audiostimulus – Instruktion und Hörtext in einem Audio“ unterstützt Sie dabei, eine Aufgabe mit einem einzelnen Audiostimulus zu erstellen.
+
+Dieser Assistent ist für Aufgaben gedacht, bei denen sich **Instruktion und Hörtext** in einer Datei befinden. Sie laden im Assistenten das Audio hoch und geben ggf. die Quelle an.
+
+## Audio
+
+![](../Grafiken/audiost_assistent_medien.png)
+
+Klicken Sie auf den blauen Knopf ![](../Grafiken/symbol_mediumhochladen.png), um ein Fenster zu öffnen, in dem die gewünschte Datei ausgewählt und mit „Öffnen“ ins IQB-Studio geladen werden kann. Wenn Sie das Audio mehrfach abspielen möchten, können Sie das unter „maximale Abspielhäufigkeit“ für dieses Audio einstellen.
+
+> **NOTE:**
+>
+> Wenn sich das Audio öfter als ein Mal abspielen lässt, dann wird im Studio angezeigt, wie oft das Audio noch abspielbar ist.
+
+## Quelle
+
+![](../Grafiken/audiost_Quelle.png)
+
+Im unteren Eingabefeld fügen Sie die Quelle ein.
+
+> **NOTE:**
+>
+> Der bei der Aufgabenerstellung automatisch generierte Text „Drücke zuerst auf das Dreieck, dann startet der Hörtext.“ kann nachträglich in den Texteigenschaften angepasst werden.
+
+## Sprache
+
+![](../Grafiken/audiost_getrennt_Sprache.png)
+
+Sie können zwischen Deutsch, Französisch und Englisch wählen.
+
+## Situierung, Frage, Operator, Hinweise, o.Ä.
+
+![](../Grafiken/assistent_st_Text.png)
+
+Die Situierung wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+> **NOTE:**
+>
+> Der bei der Aufgabenerstellung automatisch generierte Text „Drücke zuerst auf das Dreieck, dann startet das Audio.“ kann nachträglich in den Texteigenschaften angepasst werden.
+
+> **NOTE:**
+>
+> Der Aufforderungstext „Bitte starten.“ inklusive roter Umrahmung des jeweiligen Audios erscheint automatisch, sofern das Audio fünf Sekunden nach Betreten der Seite nicht gestartet wurde. Diese Einstellung kann nur im erweiterten Modus angepasst werden.
+
+Zurück nach oben

@@ -1,0 +1,29 @@
+# Zugriffsrechte
+
+Das Testcenter bietet im Wesentlichen 3 Zugangsberechtigungen:
+
+- Arbeitsbereichs-Admin
+- Super-Admin
+- Testperson
+
+# Arbeitsbereichs-Admin
+
+Arbeitsbereichs-Admins können alle Funktionen eines Arbeitsbereichs nutzen. Ein Arbeitsbereichs-Admin kann nur von Super-Admins im System angelegt werden. Zur Anmeldung als Arbeitsbereichs-Admin muss nach der Eingabe der Zugangsdaten der Schalter: **Weiter als Admin** betätigt werden. Nach der Anmeldung wird eine Liste mit allen für diese Anmeldung freigegebenen Arbeitsbereichen präsentiert. Nach dem Öffnen eines Arbeitsbereichs stehen die Funktionen des Arbeitsbereichs zur Verfügung.
+
+> **NOTE:**
+>
+> Arbeitsbereichs-Admins können nicht auf die Systemeinstellungen zugreifen.
+
+# Super-Admin
+
+Im Testcenter kann ein Super-Admin angelegt werden. Die Funktionen eines Super-Admin werden [hier](../../setup/config/testcenter.llms.md) näher beschrieben.
+
+# Testperson
+
+Dieser Zugang wird nicht im Testcenter eingerichtet, sondern in der Testtaker-XML. Personen mit einem solchen Zugang können ausschließlich auf die in der Testtaker deklarierten Testhefte zugreifen. Sie haben keinen Zugriff auf Arbeitsbereiche oder gar Systemeinstellungen. Die Anmeldung erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: **Weiter**.
+
+> **TIP:**
+>
+> Wird nach der Eingabe der Zugangsdaten die Taste: Enter gedrückt, wird der Schalter: **Weiter** betätigt. Soll eine Anmeldung als Super-Admin oder Arbeitsbereichs-Admin erfolgen, scheitert die Anmeldung.
+
+Zurück nach oben

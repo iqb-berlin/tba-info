@@ -1,0 +1,82 @@
+# Nutzung von TBA in den Ländern
+
+# Integrationsszenarien
+
+Damit die Länder beim Einsatz der IQB-Aufgaben die Interaktionselemente nicht nachprogrammieren müssen, sondern stets zeitnah Neuentwicklungen verwenden können, hat eine Arbeitsgruppe ein Plugin-System entwickelt. Die Spezifikationen dieser Schnittstellen sind als [Verona-Interfaces](https://verona-interfaces.github.io) veröffentlicht.
+
+Ein Land oder eine Einrichtung, die im Auftrag eine Lernstandserhebung mit IQB-Aufgaben durchführen soll, verfügen i.d.R. bereits über ein Portalsystem zur Administration, Durchführung und Auswertung. Um direkt die IQB-Aufgaben nutzen zu können, stehen zwei Szenarien zur Verfügung.
+
+## Szenario “Player”
+
+Die folgende Darstellung zeigt vereinfacht die Funktionen, die üblicherweise ein System für Lernstandserhebungen erfüllen muss. Die Komponente, mit der der Test durchgeführt wird (hier “Testcenter”), ist eingebettet und eng verzahnt mit der Daten-Infrastruktur.
+
+![](assets/Architektur_Player-Szenario.png)
+
+Abbildung 1: Architektur-Szenario “Player”
+
+Hervorgehoben ist das Verona-Plugin “Player”. Für die IQB-Aufgaben steht ein spezieller Player zur Verfügung, der zu Beginn der Testung geladen wird und nachfolgend die Darstellung der Aufgaben übernimmt.
+
+## Szenario “IQB-Testcenter”
+
+Alternativ kann auch die Webanwendung des IQB zur Durchführung eines Tests genutzt werden\[^1\]. Der Server eines IQB-Testcenters verfügt über eine [ausführlich dokumentierte Schnittstelle](https://pages.cms.hu-berlin.de/iqb/testcenter/dist/api/index.html), mit der automatisiert die Daten zwischen dem Portalsystem des Landes bzw. der durchführenden Einrichtung und dem IQB-Testcenter ausgetauscht werden.
+
+![](assets/Architektur_TC-Szenario.png)
+
+Abbildung 2: Architektur-Szenario “IQB-Testcenter”
+
+Der Einsatz des IQB-Testcenters kann vorteilhaft sein, wenn bestimmte Zusatzfunktionen wie Testleitungskonsole, System-Check oder adaptiver Testablauf im eigenen System nicht zur Verfügung stehen. Es kann nachteilig sein, wenn die Bedienung durch Lehrkräfte oder Schüler\*innen einheitlich über alle digitalen Angebote eines Landes sein soll.
+
+# VERA - Vergleichsarbeiten
+
+[VERA](https://www.iqb.hu-berlin.de/vera/) ist Teil des [KMK - Bildungsmonitorings](https://www.kmk.org/themen/qualitaetssicherung-in-schulen/bildungsmonitoring/). Das IQB entwickelt – wie in den Vorjahren auf der Basis von Papier – die Testaufgaben und Testsequenzen (Testhefte) zentral und stellt diese den Ländern für eigene landesweite Erhebungen zur Verfügung. Die Verantwortung der VERA-Durchführung liegt vollständig bei den Ländern.
+
+## Unterstützung über die Testdurchführung hinaus
+
+Anders als bei den Testungen, die das IQB durchführt (Bildungstrend), steht bei VERA nicht ein übergreifender Vergleich, sondern die Unterrichtsentwicklung einer konkreten Schulklasse im Vordergrund. Die Testdurchführung ist zunächst ein notwendiger Teil der Unternehmung, und die Rückmeldung der diagnostischen Befunde an die Lehrkraft führt dann anschließend zur beabsichtigten Wirkung.
+
+![](assets/data-flow-vera.jpg)
+
+Abbildung 3: Datenfluss bei einer VERA-Durchführung
+
+Das IQB deckt mit seinen Programmierungen nur den Teil “Durchführung Test” in der obigen Darstellung ab. Aufgaben/Items und die Testzusammenstellung werden geliefert, und für deren Nutzung ist eines der beiden oben diskutierten Szenarien erforderlich.
+
+Darüber hinaus liefert das IQB auch Komponenten und Daten, um die Länder bei VERA auch an anderen Stellen zu unterstützen. Teilweise ist dies bereits seit Jahren in der Papiervariante der Fall, teilweise bietet die Umstellung auf TBA weitere Möglichkeiten. Die Abstimmungen dazu erfolgen schrittweise in dem Maße, wie in den Ländern die notwendigen Arbeiten zur Umstellung voranschreiten.
+
+- **Kodierung**: Das IQB liefert mit den TBA-Aufgaben maschinenlesbare Kodieranweisungen. Mit Hilfe eines solchen Kodierschemas kann eine automatische Kodierung erfolgen und Eingabemasken für die manuelle Kodierung können erstellt werden. Außerdem wird das IQB Komponenten der IQB-Kodierbox so veröffentlichen, dass ein Einfügen in ein Länderportal gut möglich ist.
+- **Datenanalyse**:
+  - Die Kompetenzstufenmodelle mit ihren Schwellenwerten sowie die Transferparameter für einen konkreten Durchgang liefert das IQB digital. Das Datenformat muss noch entwickelt werden.
+  - Das IQB stellt [R-Pakete](https://iqb-research.github.io/IQB-Methods/) öffentlich bereit, mit denen Teile der Datenanalyse unterstützt werden.
+  - Die Aufgaben werden digital geliefert und enthalten für alle Items die psychometrischen Kennwerte als Metadaten.
+- **Didaktische Handreichungen**: Das IQB liefert für die Rückmeldungen itembezogene und übergreifende Erläuterungen sowie Verweise zu ggf. nützlichem Material. Eine Projektplanung und das Datenformat hierzu muss noch entwickelt werden.
+
+## Umstellungszeitplan
+
+Die Umstellung von VERA auf TBA ist daran gekoppelt, dass für die neuen Bildungsstandards und das neue Online-Format Kompetenzstufenmodelle zur Verfügung stehen. Diese werden im Rahmen des Bildungstrends ermittelt (s. [Zeitplan](../intro/bt.llms.md#fig-bt-timeline)).
+
+``` mermaid
+gantt
+dateFormat YYYY-MM-DD
+axisFormat %Y
+tickInterval 12month
+
+section Primar De Ma
+  1. Pilotierung : 2026-05-01, 2026-05-31
+  Modell : milestone, 2026-09-01
+  1. Durchführung : 2027-03-01, 2027-03-31
+
+section Sek I De Fr En
+  1. Pilotierung : 2027-05-01, 2027-05-31
+  Modell : milestone, 2027-09-01
+  1. Durchführung : 2028-03-01, 2028-03-31
+
+section Sek I Ma
+  1. Pilotierung : 2029-05-01, 2029-05-31
+  Modell : milestone, 2029-09-01
+  1. Durchführung : 2030-03-01, 2030-03-31
+```
+
+Abbildung 4: VERA-Umstellung Zeitplan
+
+Um in einem Land eine Lernstandserhebung auf der Grundlage der vom IQB entwickelten Aufgaben durchführen zu können, müssen diese pilotiert sein. Entsprechend obiger Abbildung findet beispielsweise für die Primarstufe im Jahr 2026 das erste Mal eine VERA-Pilotierung im TBA-Format statt. Im selben Jahr kann durch die Normierung im Bildungstrend die Metrik der Bildungsstandards (Kompetenzstufenmodell) ermittelt werden. Daher kann im Jahr 2027 eine VERA-Durchführung für die Primarstufe auf hohem methodischen Qualitätsniveau stattfinden.
+
+Zurück nach oben

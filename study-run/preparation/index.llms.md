@@ -1,0 +1,58 @@
+# Vorbereitungen
+
+> **NOTE:**
+>
+> Die hier beschriebenen Vorbereitungen beziehen sich auf eine Online-Studiendurchführung. Soll eine Studie offline durchgeführt werden, muss zuvor eine entsprechende Konfiguration vorgenommen werden. Diese wird detailliert im Kapitel: **Einrichtung** beschrieben.
+
+Es kann sehr schwierig sein nachträglich Änderungen an einer Studie vorzunehmen. Eine Studie sollte deshalb im Vorfeld gut durchdacht und vorbereitet sein. Das IQB möchte an dieser Stelle Erfahrungen aus dem Praxisalltag einbringen und bewährte Wege hin zu einem gesicherten Studienablauf aufzeigen. Dazu dienen die nachfolgenden Punkte.
+
+# 1. Prüfen der Aufgaben
+
+Wenn im Nachhinein Aufgaben angepasst werden müssen, kann das mühselig sein. Es wird daher empfohlen alle Aufgaben hinsichtlich Darstellung und Funktion ausreichend zu prüfen. Bereits während der Entwurfsphase im Studio können entsprechende Vorabbetrachtungen im Team der Aufgabenentwickler\*innen stattfinden. Es gibt auch im Testcenter die Möglichkeit die Aufgaben einem breiten Personenkreis zugänglich zu machen und Rückmeldungen einzusammeln, die zur Optimierung genutzt werden können. Hierfür stehen im Testcenter verschiedene Modi zur Verfügung. So können bspw. im Modus: **run-review** Kommentare zu einzelnen Aufgaben gespeichert werden.
+
+# 2. Prüfen der Bedingungen vor Ort
+
+Vor Studienbeginn ist es entscheidend die örtlichen Begebenheiten zu kennen. Ein **System-Check** kann ermitteln, welche Endgeräte, Betriebssysteme und Browserversionen eingesetzt werden. Es kann auch gemessen werden, wie hoch die Datenraten der Internetverbindung ist.
+
+- [System-Check](../../study-run/preparation/system-check/index.llms.md)
+
+# 3. Prüfen der Anforderungen
+
+Das Prüfen der Anforderungen vor Studienbeginn kann darüber entscheiden, ob eine Studie durchführbar ist.
+
+- [Anforderungen](../../study-run/preparation/required/index.llms.md)
+
+# 4. Erstellen und konfigurieren der Testinhalte
+
+Eine Studie besteht aus mehrerer Testdateien. Einige dieser Dateien enthalten die Aufgabeninhalte. Ablauf und Verhalten einer Studie müssen anpassbar sein. Daher sind weitere Dateien für die Konfiguration des Testablaufs zuständig.
+
+- [Testinhalte](../../study-run/preparation/test-files/index.llms.md)
+
+Die Studienkonfiguration entscheidet, wie sich eine Studie verhält, welche Warnungen und Texte angezeigt werden und vieles mehr.
+
+- [Studienkonfiguration](../../study-run/preparation/study-config/index.llms.md)
+
+# 5. Anlegen eines Arbeitsbereichs/ Laden der Testinhalte
+
+Eine Studie kann nur gestartet werden, wenn die Testinhalte zuvor in einen Arbeitsbereich des Testcenters geladen wurden. Hierfür müssen entsprechende Zugriffsrechte für einen Arbeitsbereich vorhanden sein.
+
+- [Zugriffsrechte](../../study-run/preparation/access-rights.llms.md)
+- [Arbeitsbereiche](../../study-run/preparation/workspace/index.llms.md)
+
+# 6. Erprobung
+
+### Studienkonfiguration
+
+Auch die Studienkonfiguration muss erprobt werden. Hierfür gibt es spezielle Modi, die verwendet werden können.
+
+- [Studienkonfiguration/ Erprobung](study-config/index.llms.md#Erprobung-der-Konfiguration)
+
+### Speicherung der Antworten
+
+Es ist sicherzustellen, dass der passende Modus für die Studie gewählt wurde. Nicht alle Modi speichern Antwort-/ und Logdaten. Der Modus wird in einer der Testdateien, der Testtaker-XML, festgelegt. Mehr dazu ist im entsprechenden [Kapitel](../../study-run/preparation/test-files/testtaker-xml.llms.md) zu finden.
+
+### Gruppenmonitor
+
+Soll ein Gruppenmonitor zur Teststeuerung eingesetzt werden, sollte der Gruppenmonitorzugang zuvor getestet werden. Mehr dazu ist dem Kapitel [Gruppenmonitor](../../study-run/run/groupmon/index.llms.md) zu entnehmen.
+
+Zurück nach oben

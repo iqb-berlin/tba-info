@@ -1,0 +1,25 @@
+# Lesestimulus-Email-Assistent
+
+![](../Grafiken/stmail_beispiel.png)
+
+Der Assistent „Stimulus: Lesestimulus – E-Mail“ hilft Ihnen beim Erstellen von Lesestimuli in Form einer E-Mail.
+
+Nachdem Sie die Sprache der E-Mail Vorlage ausgewählt haben, erstellt der Assistent einen E-Mail Platzhalter. Anschließend können Sie auf die Platzhaltefelder doppelklicken und die Texte bearbeiten.
+
+## Sprache
+
+![](../Grafiken/mailst_sprache.png)
+
+Im Assistenten können Sie zwischen den Vorlagen Deutsch, Englisch und Französisch wählen.
+
+## Textfelder bearbeiten
+
+![](../Grafiken/assistent_st_Text.png)
+
+Nachdem Sie auf das Instruktionsfeld doppelgeklickt haben, öffnet sich ein Textbearbeitungsfeld und Sie können die Instruktion anpassen. Analog dazu können Sie Absender\*in, Empfänger\*in, Betreff, Datum und Uhrzeit, das Nachrichten- sowie das Quellenfeld bearbeiten. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Bestätigen/Abbrechen
+
+Nach allen gewünschten Einstellungen wird der Textabschnitt durch einen Klick auf „Bestätigen“ generiert, der Assistent wird automatisch geschlossen. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

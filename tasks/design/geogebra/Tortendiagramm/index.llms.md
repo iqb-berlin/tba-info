@@ -1,0 +1,50 @@
+# Tortendiagramm
+
+## Tortendiagramm einfarbig
+
+Bei dieser Vorlage lassen sich Kreissegmente mit Mausklick auswählen, ausgewählte Segmente sind eingefärbt. Zusätzlich lässt sich der Zielwert für eingefärbte Kreissegmente einstellen. Die Aufgabe ist dann richtig bearbeitet, wenn die Zahl der eingefärbten Kreissegmente genau dem Zielwert entspricht. Falls andere Kriterien für die Auswertung gewünscht sind, kann der Zielwert ignoriert werden.
+
+Allgemeine Anleitung zum Umgang mit der Vorlage/den Vorlagen:
+
+1.  Mit dem Schieberegler für die Zahl „n“ die gewünschte Anzahl Kreissegmente einstellen. Mit dem Schieberegler für die Zahl „Zielwert“ einstellen, wie viele Kreissegmente für die richtige Lösung eingefärbt sein sollen.
+    1.  Es ist wichtig, dass die Zahlen über den Schieberegler verändert werden und nicht über die Algebra-Ansicht, weil der Schieberegler ein Skript enthält, ohne dass das Diagramm nicht richtig konstruiert wird.
+2.  Jeweils mit Rechtsklick auf die Schieberegler klicken und im Kontextmenü „Einstellungen“ auswählen.
+    1.  Alternativ lässt sich das Menü „Einstellungen“ auch über die Algebra-Ansicht ansteuern.
+3.  Haken setzen bei „Objekt fixiert“, Haken entfernen bei „Objekt anzeigen“ und „Auswahl erlaubt“
+    1.  ggf. muss das GeoGebra Fenster dafür vergrößert werden; dieses anschließend einfach wieder kleiner ziehen
+4.  Einstellungsfenster wieder schließen. Beide Schieberegler sollten versteckt sein.
+5.  „Werkzeugleiste anpassen“ -\> Alle Werkzeuge entfernen und Einstellungen übernehmen.
+6.  Speichern
+
+Hinweis: In der Algebra-Ansicht finden sich eine Reihe von Wahrheitswerten, die mit der Auswertung der Aufgabe zusammenhängen. Ändert man diese manuell, z. B. indem man versehentlich in die Liste mit Wahrheitswerten klickt, so kann dies die korrekte Auswertung der Aufgabe gefährden! Daher ist es am besten, die Algebra-Ansicht gar nicht erst zu verwenden, wenn es nicht unbedingt erforderlich ist.
+
+## Tortendiagramm zwei- und dreifarbig
+
+Diese Vorlagen erlauben einen Farbwechsel, wenn die Kreissegmente angeklickt werden. Zweifarbig bedeutet, es gibt zwei Farben und weiß, d. h. zunächst werden die Kreissegmente weiß dargestellt. Beim ersten Klick auf ein Kreissegment wird es in die erste Farbe umgefärbt, beim zweiten Klick in die zweite und beim dritten Klick zurück zu weiß. Die dreifarbige Vorlage funktioniert analog mit einer dritten Farbe.
+
+Anleitung:
+
+1.  Schieberegler einstellen, analog zum Tortendiagramm einfarbig oben.
+    1.  Zielwerte können hier für alle Farben eingestellt werden. Nicht benötigte Schieberegler können ignoriert werden.
+2.  Hier können zudem auch Farben eingestellt werden, die die Kreissegmente annehmen. Dazu dienen die drei/vier Textobjekte auf der linken Seite, die als Farbe0, Farbe1, etc. beschriftet sind.
+    1.  Farbe0 ist die Farbe, die die Kreissegmente haben, wenn sie noch nicht angeklickt sind, Farbe1 die Farbe nach dem ersten Klick, usw.
+    2.  Die Farben sind als Hexadezimalcode mit Transparenzwert angegeben, d. h. in der Form: “#AARRGGBB” wobei AA für Transparenz steht, RR für Rot, GG für Grün und BB für Blau. Für „AA“ wählt man eine Hexadezimalzahl zwischen 01 (volle Transparenz) und FF (keine Transparenz). Der Wert 80 steht für 50% Transparenz. Für „RRGGBB“ setzt man den Hexadezimalcode für die gewünschte Farbe ein.
+3.  Wenn Sie mit den Farben zufrieden sind, können Sie per Rechtsklick auf die Textobjekte zugreifen und sie verstecken, genau wie die Schieberegler.
+
+> **NOTE:**
+>
+> Es ist auch möglich mit mehr als drei Farben zu arbeiten, aber das erfordert Änderungen im Skript.
+
+## Tortendiagramm verschieben
+
+Bei dieser Vorlage lässt sich ein Punkt eines Kreissektors auswählen und verschieben, d. h. Testteilnehmende können stufenlos einen Anteil des Kreises auswählen.
+
+Anleitung:
+
+1.  Schieberegler verwenden, wie in der Anleitung von Tortendiagramm einfarbig oben beschrieben
+
+> **NOTE:**
+>
+> Hinweis: Werkzeugleiste nicht verändern, denn um den Punkt zu bewegen braucht man das „Bewege“-Werkzeug.
+
+Zurück nach oben

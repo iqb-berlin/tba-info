@@ -1,0 +1,47 @@
+# Anlegen von Aufgaben im Erweiterten Modus
+
+![](Grafiken/extended_bsp.png)
+
+Im erweiterten Modus stehen Ihnen alle Werkzeuge des Studios zur Verfügung. Sie können die Position von Elementen genau einstellen, bestimmen, welche Elemente wann sichtbar sind und auf weitere Einstellungen für die einzelnen Elemente zugreifen.
+
+Sie können den erweiterten Modus über das Menü ![](Grafiken/symbol_dreistrich.png) oben rechts ein- und ausstellen, sofern Sie dazu berechtigt sind.
+
+![](Grafiken/extended_reiter_links.png)
+
+Sobald Sie im erweiterten Modus sind, sehen Sie oben links über der Liste der Assistenten zwei Reiter. Der linke steht für den erweiterten Modus.
+
+Unter dem rechten Reiter stehen Ihnen weiterhin die Assistenten wie im Standardmodus zur Verfügung.
+
+## Abschnitte & Seiten
+
+![](Grafiken/extended_seiten.png)
+
+Jede Aufgabe im Studio ist unterteilt in Seiten, die jeweils aus mindestens einem Abschnitt bestehen. Ausführliche Informationen zu Seiteneinstellungen und zwei-seitigen Aufgaben finden Sie [hier](../../../tasks/design/extended/Seiten/index.llms.md).
+
+Informationen zu Abschnitten, wie man sie kopiert, einfügt und automatisch nummeriert, finden Sie [hier](../../../tasks/design/extended/Abschnittseinstellungen/index.llms.md)
+
+## Elemente
+
+![](Grafiken/extended_elemente.png)
+
+Im erweiterten Modus arbeiten Sie ohne Assistenten, können jedoch jederzeit zum Standardmodus zurückwechseln, wenn Sie diesen nutzen möchten. Stattdessen stehen Ihnen im erweiterten Modus alle Elemente zur Verfügung, sodass Sie diese einzeln und präzise platzieren können, wo Sie gebraucht werden. Zudem gibt es für alle Elemente erweiterte Einstellungen. Dazu zählen z. B. die Position im Abschnitt, Abstände zu anderen Elementen und Größeneinstellungen. Eine Übersicht über diese erweiterten Einstellungen, die alle Elemente betreffen, finden Sie hier: [Link](../../../tasks/design/extended/Elementeinstellungen/index.llms.md)
+
+## Elementspezifische Einstellungen
+
+Zusätzlich zu den Einstellungen, die bei allen Elementen zu finden sind, gibt es eine Vielzahl von Einstellungen für spezifische Elemente. Beispielsweise können Sie bei Audios einstellen, wie oft diese abgespielt werden können, bei Textfeldern können Sie begrenzen, wie viele Zeichen eingegeben werden können und bei Drag&Drop Aufgaben können Sie genau einstellen, von wo nach wo sich Objekte ziehen lassen. Dies und vieles Weiteres finden Sie hier beschrieben: [Link](../../../tasks/design/extended/Elemente/index.llms.md)
+
+## Hervorhebungen & Sichtbarkeiten
+
+![](Grafiken/extended_sichtbarkeit.png)
+
+Einer der größten Vorteile des erweiterten Modus ist die Möglichkeit, einzustellen, wann welche Teile der Aufgaben sichtbar sind. Dazu gibt es mehrere Elemente wie Buttons und Trigger sowie die Sichtbarkeitseinstellungen der Abschnitte. Mehr Informationen dazu finden Sie hier: [Link](../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.llms.md)
+
+So lassen sich interaktive Aufgaben erstellen, indem Buttons eingefügt werden, mit denen sich Teile der Aufgabe unsichtbar machen lassen, während andere sichtbar geschaltet werden. So können Sie Webseiten und andere digitale Lesesituationen effektiv simulieren. Weitere Informationen dazu finden Sie hier: [Link](../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.llms.md)
+
+Außerdem können Sie unsichtbare Trigger bzw. Auslöser verwenden, um Teile eines Textes hervorzuheben, beispielsweise wenn sich eine Aufgabe auf einen kurzen Ausschnitt aus einem längeren Textstimulus bezieht. Weitere Informationen dazu finden Sie hier: [Link](../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.llms.md)
+
+Bei manchen Aufgaben soll im Textstimulus markiert werden, während andere Aufgaben den gleichen Textstimulus für andere Fragen benötigen. In diesem Fall kann es sinnvoll sein, mehrere markierbare Stimuli anzulegen. Wie Sie dies tun erfahren Sie hier: [Link](../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.llms.md)
+
+Manchmal sollen Aufgaben in strikter Reihenfolge bearbeitet werden, sodass Aufgabe 2 erst sichtbar ist, sobald Aufgabe 1 bearbeitet wurde. Dafür gibt es sogenannte Sichtbarkeitskaskaden. Wie Sie diese erstellen erfahren Sie hier: [Link](../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.llms.md)
+
+Zurück nach oben

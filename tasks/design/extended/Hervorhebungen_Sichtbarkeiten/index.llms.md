@@ -1,0 +1,116 @@
+# Hervorhebungen und Sichtbarkeiten
+
+Es ist möglich verschiedene Abschnitte oder Hervorhebungen automatisch anzuzeigen, sobald bestimmte Parameter erfüllt sind. Diese Parameter können beispielsweise das Erreichen einer bestimmten Seite, das Beenden einer Audio-Datei oder das Auslösen eines Knopfes sein.
+
+Auf dieser Seite finden Sie allgemeine Informationen zu Hervorhebungen und Sichtbarkeiten. Anleitungen zum Erstellen von konkreten Aufgaben finden Sie auf den folgenden Seiten:
+
+- [Hervorhebungen](../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.llms.md) können automatisch angezeigt werden, wenn bestimmte Items erreicht sind.
+- [Mehrere Markieraufgaben auf einem Stimulus](../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Markieren/index.llms.md) können über Sichtbarkeitseinstellungen erstellt werden.
+- [Sichtbarkeitskaskaden](../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Sichtbarkeitskaskaden/index.llms.md) sind Aufgaben, die nacheinander sichtbar geschaltet werden, sodass keine übersehen werden kann.
+- [Knopfverlinkungen](../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Buttonverlinkung/index.llms.md) ermöglichen interaktive Stimuli, die Webseiten und andere digitale Texte simulieren können.
+
+## Hervorhebungen
+
+![](Grafiken/hervorhebung_bsp.png)
+
+Hervorhebungen sind Markierungen im Text, die Sie im Texteditor des Studios einrichten können. Eine Hervorhebung wird erst durch einen Auslöser/Trigger oder einen Knopf ausgelöst, vorher ist sie unsichtbar. Hervorhebungen werden dann standardmäßig violett angezeigt.
+
+Weitere Informationen zum Anlegen von Aufgaben mit Hervorhebungen finden Sie [hier](../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/Hervorhebung/index.llms.md).
+
+## Sichtbarkeiten
+
+![](Grafiken/Sichtbarkeit_einstellungen.png)
+
+Mit Sichtbarkeitseinstellungen können Abschnitte im Studio zu verschiedenen Zeiten sichtbar gemacht werden. Es ist zum Beispiel möglich einen Abschnitt erst nach 10 Sekunden einzublenden oder nachdem eine bestimmte Audio-Datei angehört wurde.
+
+### Bedingungen
+
+Mit dem grauen Feld kann eine neue Bedingung hinzugefügt werden.
+
+Hier können Sie angeben, welche Sichtbarkeitseinstellungen der Abschnitt erhalten soll.
+
+### Logische Verknüpfung
+
+Mit dieser Option kann ausgewählt werden, ob beide der die unten eingestellten Bedingungen angewendet werden oder nur eine.
+
+### Ein- und Ausblenden
+
+Mit der Funktion *Erneutes Ausblenden erlauben, wenn die Bedingungen nicht mehr erfüllt sind* können Abschnitte auch wieder ausgeblendet werden, sobald die angegebenen Bedingungen nicht mehr erfüllt sind. Anderenfalls würden sie weiterhin angezeigt werden, auch wenn ein Abschnitt nicht mehr relevant ist.
+
+Zudem kann mit der Funktion *Einblenden mit Scroll-Animation* bestimmt werden, dass an den Anfang der gesamten Seite gescrollt wird, sobald eine neue Bedingung angewandt wird. Dies kann den Nachbau einer Website im Studio realistischer erscheinen lassen.
+
+Außerdem können Sie angeben, ob der behandelte Abschnitt erst verspätet eingeblendet wird, wenn die angegebene Bedingung erfüllt ist.
+
+#### Variablen/Element-ID
+
+Bei „Variablen/Element-ID“ wird das Element angegeben, mit welchem der behandelte Abschnitt verknüpft werden soll. Das kann zum Beispiel eine Zustandsvariable oder auch eine Audio-Datei sein.
+
+#### Operator
+
+Der Operator gibt an, in welcher Beziehung das angegebene Element zu dem behandelten Abschnitt stehen soll.
+
+- = gleich
+- ≠ ungleich
+- \< kleiner
+- ≤ kleinergleich
+- \> größer
+- ≥ gößergleich
+- Enthält (z. B. in einem Eingabefeld (Variable) ist das Wort „nichts“ enthalten. „nichts“ ist dabei der Wert)
+- Muster (z. B. in einem Eingabefeld (Variable) steht ausschließlich das Wort „nichts“. „nichts“ ist dabei der Wert)
+- Minimale Länge (z. B. an Zeichen in einem Eingabefeld)
+- Maximale Länge (z. B. an Zeichen in einem Eingabefeld)
+
+#### Wert
+
+Der Wert gibt an, wann die Beziehung erfüllt werden soll.
+
+In dem angegebenen Beispiel (\_audio00\>0) soll der behandelte Abschnitt erscheinen, sobald die angegebene Audio-Datei größer als 0 ist – das Audio also angefangen hat. Stünde hier hingegen 0,99, würde der Abschnitt eingeblendet, sobald die Audio-Datei größer als 0,99 ist – also beendet ist. Der Wert gibt den Anteil an, der bereits abgespielt wurde, bei 0,99 also 99%.
+
+> **NOTE:**
+>
+> Aus technischen Gründen sollte man vermeiden, den Wert “1” zu verwenden, da dieser Wert nicht immer erreicht wird. Zwar funktioniert dieser Wert oft, aber es ist sicherer, 0,99 einzutragen.
+
+Zudem wäre es möglich als Wert „Blume“ und als Operator „Enthält“ einzutragen und dies mit einem Eingabefeld zu verknüpfen. Sobald dann in das Eingabefeld „Blume“ eingetragen wird, würde dann der behandelte Abschnitt erscheinen.
+
+## Zustandsvariablen
+
+![](Grafiken/Zustandsvariabel_knopf.png)
+
+In der Elementeliste ganz unten befindet sich die Schaltfläche *Zustandsvariable*. Eine Zustandsvariable gibt eine Eigenschaft für die ganze Seite wieder. Einem Abschnitt kann eine bedingte Sichtbarkeit für eine bestimmte Zustandsvariable zugewiesen werden. Das ermöglicht einen Webseiten-ähnlichen Aufbau des Stimulus, bei dem mittels Buttons eine Veränderung der Variable und damit des angezeigten Stimulus einhergehen kann. Zustandsvariablen stellen somit die Grundlage für Verknüpfungen zwischen verschiedenen Seiten einer Aufgabe dar.
+
+Beim Klick auf die Schaltfläche erscheint ein Popup. Hier kann eine neue Variable eingefügt werden.
+
+![](Grafiken/Zustandsvariabel_erstellen.png)
+
+Die Seite, die in einer Zustandsvariable angegeben ist, ist die Seite, die standardmäßig angezeigt wird.
+
+## Auslöser (Trigger)
+
+Auslöser können in Abschnitte gelegt werden, um diese mit Aktionen zu verbinden. Diese Aktionen werden ausgelöst, sobald der Abschnitt angezeigt wird.
+
+Es kann zwischen verschiedenen Aktionen gewählt werden:
+
+- Textabschnitt hervorheben: Die zur Hervorhebung festgelegten Textabschnitte (Aktionsparameter) erscheinen.
+- Hervorhebungen ausblenden: Die Hervorhebung wird ausgeblendet, sobald der Trigger ausgelöst wird.
+- Zustandsvariable ändern: Hier kann man eine Zustandsvariable und den Wert, den sie bei Knopfdruck annehmen soll, wählen.
+
+> **TIP:**
+>
+> Die Option „Hervorhebungen ausblenden“ ist besonders nützlich, wenn Aufgaben mit mehreren Teilaufgaben und einem Stimulus erstellt werden. Sie können beispielsweise den Stimulus links auf einer Seite und dann rechts Teilaufgaben auf mehreren Seiten, durch die die Testteilnehmenden blättern können, erstellen. Dann können Sie bei der Teilaufgabe, die die Hervorhebung benötigt, den Auslöser für die Hervorhebung einbauen und entsprechend bei den Aufgaben davor und danach weitere Auslöser, um die Hervorhebung wieder auszublenden, einbauen.
+
+## Knopf
+
+Das Knopfelement wird benutzt um Teile der Aufgabe oder des Tests zu steuern, etwa um zur nächsten Seite zu springen.
+
+Knöpfe können als Knopf, Bild (muss hochgeladen werden) oder Hyperlink dargestellt werden. Die Beschriftung kann hochgestellt oder tiefgestellt werden.
+
+Unter „Tooltip“ kann ein Tooltip hinzugefügt werden, also ein Text, der angezeigt wird, wenn mit dem Mauszeiger über das Knopfelement gefahren wird. Der Tooltip kann über oder unter dem Knopf angezeigt werden.
+
+Unter „Aktion“ wird festgelegt, was passiert, wenn der Knopf angeklickt wird. Folgende Optionen sind möglich:
+
+- Unitnavigation: Verschiedene Optionen zu anderen Units, also Aufgaben im Test, zu springen.
+- Seitennavigation: Als Optionen erscheinen die Seiten der Aufgabe, bei Knopfdruck gelangt man dorthin.
+- Textabschnitt hervorheben: Als Option erscheinen die zur Hervorhebung festgelegten Textabschnitte.
+- Zustandsvariable ändern: Hier können eine Zustandsvariable und der Wert, den sie bei Knopfdruck annehmen soll, gewählt werden.
+
+Zurück nach oben

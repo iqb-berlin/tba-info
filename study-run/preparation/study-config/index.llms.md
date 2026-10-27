@@ -1,0 +1,296 @@
+# Konfiguration
+
+Mit Hilfe der beiden Dateien **Testtaker-XML** und **Booklet-XML** kann das Verhalten und das Aussehen einer Studie konfiguriert werden. Die Konfigurationsmöglichkeiten sind groß und manchmal ist man sich der komplexen Auswirkungen gar nicht bewusst. Daher sollen an dieser Stelle die wichtigsten Konfigurationsmöglichkeiten einmal beschrieben werden. Dazu werden nachfolgend einige Punkte genannt, die betrachtet werden sollten.
+
+> **TIP:**
+>
+> Detaillierte Informationen zu den beiden XML-Dateien sind dem Kapitel: **Testinhalte** zu entnehmen.
+
+# Testtaker-XML
+
+## Adaptives Testen
+
+Die Einrichtung eines adaptiven Tests erfolgt hauptsächlich in der Booklet-XML. In der Testtaker-XML besteht die Möglichkeit einem Login eine Bedingung zur Anzeige bestimmter Aufgaben mitzugeben. Die Bedingung wird dann nicht mehr im Testheftverlauf gesetzt, sondern steht bereits nach der Anmeldung fest. Im Testheft wird dann nur nach dieser Bedingung verzweigt. Mehr dazu ist in [diesem](../../../study-run/preparation/adaptive/index.llms.md) Kapitel zu finden.
+
+## Aufteilung der Zugänge
+
+Die Zugangsdaten können Gruppen zugeordnet werden. Alle Antworten werden dann abhängig von der Gruppe gespeichert. Der Datensatz wird dann mit dem Namen der jeweiligen Gruppe im Testcenter abgespeichert. Im Vorfeld sollten die Gruppierung der Zugangsdaten gut durchdacht sein. So wird eine schnelle Zuordnung der Testpersonen bei der Auswertung erreicht.
+
+## Zeitliche Beschränkungen der Zugänge
+
+Die angelegten Zugangsdaten in der Testtaker-XML können zeitlichen Beschränkungen unterliegen. Folgende stehen zur Auswahl:
+
+- `validFrom`: Eine Anmeldung mit den Zugangsdaten kann erst ab einer bestimmten Zeit erfolgen. Die Eingabe erfolgt im Format: dd/mm/yyyy hh:mm
+- `validTo`: Eine Anmeldung kann bis zu einer bestimmten Zeit erfolgen. Die Eingabe erfolgt im Format: dd/mm/yyyy hh:mm
+- `validFor`: Eine Anmeldung kann in einem bestimmten Zeitfenster erfolgen. Format: Minuten Integer
+
+Zeitliche Beschränkungen können als Attribut einer Gruppe (`group`) zugewiesen werden. Nachfolgend ein Beispiel für ‘validTo’:
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/15.0.1/definitions/vo_Testtakers.xsd">
+
+  <Metadata>
+    <Description>
+      Beispielhafte Testtaker-XML
+    </Description>
+  </Metadata>
+
+  <CustomTexts>
+    <CustomText key="app_title">Hier steht ein Custom Text</CustomText>
+  </CustomTexts>
+
+  <Group id="Gruppe 1" validTo="1/3/2024 19:30" label="An already expired group">
+    <Login mode="run-hot-restart" name="Testperson1" pw="vgf5z">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+    <Login mode="run-hot-restart" name="Testperson2" pw="vgfjh">
+      <Booklet>BOOKLET.SAMPLE-1</Booklet>
+    </Login>
+  </Group>
+
+</Testtakers>
+```
+
+Die beiden Testpersonen 1 und 2 können sich nur bis zum 01.03.2024 19:30Uhr anmelden. Danach ist eine Anmeldung nicht mehr möglich.
+
+## Textersetzungen
+
+Bestimmte Texte in der Anwendung und während des Studienlaufs können individuell angepasst werden. Es wird dann auch von Custom-Text gesprochen. Im Vorfeld können Überlegungen stattfinden, an welchen Stellen die Standardtexte durch individuelle Texte ersetzt werden sollen.
+
+> **TIP:**
+>
+> Texte werden mit Hilfe bestimmter Attribute und Daten in der Testtaker-XML geändert. Hierfür gibt es eine spezielle [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/custom-texts.html) mit möglichen Werten, die im Element: `<CustomText>` dem Attribut: `key` hinzugefügt werden können. Werden Texte nicht ersetzt, erhalten sie einen Standardtext. Welcher Text das ist, ist ebenfalls der Liste zu entnehmen.
+
+**Beispiel zum Ändern eines Standardtextes:**
+
+Ist in der Testtaker-XML ein Code zu einem Testheft angegeben, erscheint nach der Anmeldung ein Fenster zur Codeeingabe mit dem Standardtext: “Bitte gib den Schülercode ein….” (siehe Liste). Dieser Standardtext soll hier nun durch einen individuellen Text ersetzt werden.
+
+![](TC_Bsp_Textersetzung1.png)
+
+Bild 1: Anzeige Standardtext bei Code-Abfrage
+
+Dazu wird in der Testtaker-XML im Element: `<CustomText>` dem Attribut: `key` der Listenwert: `login_codeInputPrompt` zugewiesen und mit dem individuellen Text versehen. Anschließend wird die so angepasste XML wieder in das Testcenter geladen.
+
+``` xml
+<Testtakers>
+  <Metadata>
+    <Description>Beispielhafte Testtaker-XML</Description>
+  </Metadata>
+
+  <CustomTexts>
+    <CustomText key="login_codeInputPrompt">Eingabe des Codes erforderlich.</CustomText>
+  </CustomTexts>
+
+  <Group id="Gruppe 1" label="Gruppe mit Codes">
+    <Login mode="run-hot-return" name="Klasse 3a" pw="hg7zn">
+      <Booklet codes="xxx">BOOKLET.SAMPLE-1</Booklet>
+      <Booklet codes="yyy">BOOKLET.SAMPLE-3</Booklet>
+    </Login>
+    <Login mode="monitor-group" name="test-group-monitor" pw="er45tz"/>
+  </Group>
+
+</Testtakers>
+```
+
+Nach Anmeldung einer Testperson erscheint bei der Codeeingabe der neue Text.
+
+![](TC_Bsp_Textersetzung2.png)
+
+Bild 2: Anzeige veränderter Text bei Code-Abfrage
+
+## Gruppenmonitor
+
+Bei einer größeren Anzahl von Studienteilnehmer\*innen, kann es sinnvoll sein einen Gruppenmonitor einzusetzen. Dieser erlaubt der Testleitung die Testpersonen zu steuern und einzutakten. Der Gruppenmonitor wird mit Hilfe eines speziellen Zugangs mit dem Modus: `monitor-group` in der zu beobachtenden Gruppe angelegt. Siehe Code-Beispiel oben.
+
+Mehr zum Gruppenmonitor ist dem gleichnamigen Kapitel zu entnehmen.
+
+# Booklet-XML
+
+> **TIP:**
+>
+> Konfigurationen zum Testheft können im Element: `<Config>` mit Hilfe des Attributs: `key` vorgenommen werden. Die möglichen Werte und Daten, die angegeben werden können, sind einer speziellen [Liste](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html) zu entnehmen. Außerhalb dieses Elementes können weitere Konfigurationen erfolgen.
+
+## Adaptives Testen
+
+Das adaptive Testen wird hauptsächlich in der Booklet-XML konfiguriert. Hier werden mit Hilfe einer definierten Struktur Bedingungen erstellt, in deren Abhängigkeit entsprechende Aufgaben angezeigt werden.Es stehen weitere Konfigurationsmöglichkeiten in der Testtaker-XML zu Verfügung, die oben beschrieben sind. Mehr dazu ist dem Kapitel: **Adaptives Testen** zu entnehmen.
+
+## Anzeige Aufgaben-, Testheftbezeichner
+
+Das in der Booklet-XML festgelegte Label einer Aufgabe oder das Label des Testheftes, können während der Testung angezeigt werden. Dies wird mit Hilfe des Wertes: `unit_screenheader` und einem entsprechenden Datum aus der zugehörigen Liste festgelegt. Im nachfolgenden Bild wird der Titel der Aufgabe angezeigt.
+
+![](TC_UnitTitle_NaviMenu.png)
+
+Bild 3: Anzeige Aufgabentitel, Ansicht Navigationsleiste und Schalter Navigations-Menü
+
+Wie anhand der Navigationsleiste oben rechts gut zu sehen ist, befindet sich die Testperson in der dritten von 5 Aufgaben. In der Booklet-XML trägt die 3. Aufgabe das Label: **Aufgabe2**. Dieses Label wird im Kopf der Aufgabe angezeigt, wenn der Wert `unit_screenheader` mit dem Datum **WITH_UNIT_TITLE** in der `BookletConfig` beschrieben wird.
+
+``` xml
+
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>BOOKLET.SAMPLE-1</Id>
+    <Label>Booklet sample 1</Label>
+    <Description>Beispielhafte Booklet-XML</Description>
+  </Metadata>
+
+  <BookletConfig>
+    <Config key="unit_screenheader">WITH_UNIT_TITLE</Config>
+  </BookletConfig>
+
+  <Units>
+    <Unit id="UNIT.SAMPLE-100" label="Startseite" labelshort="1" />
+
+      <Testlet id="Tslt1" label="Aufgabenblock">
+        <Restrictions>
+          <CodeToEnter code="Hase">Bitte gib das Freigabewort ein.</CodeToEnter>
+          <TimeMax minutes="1"/>
+        </Restrictions>
+        <Unit id="UNIT.SAMPLE-101" label="Aufgabe1" labelshort="2"/>
+        <Unit id="UNIT.SAMPLE-102" label="Aufgabe2" labelshort="3"/>
+        <Unit id="UNIT.SAMPLE-103" label="Aufgabe3" labelshort="4"/>
+      </Testlet>
+    
+    <Unit id="UNIT.SAMPLE-104" label="Endseite" labelshort="5"/>
+  </Units>
+</Booklet>
+```
+
+Außerdem wird hier das Attribut `labelshort` im Element `<Unit>` verwendet. Der Wert dieses Attributes wird in der Navigationsleiste angezeigt (Zahlen in den Kästchen).
+
+## Aussehen der Navigationselemente
+
+Das Verhalten und Aussehen der Navigationsleiste kann in der Booklet-XML im Teil der Testheft-Konfiguration (`Booklet-Config`) festgelegt werden. Hierfür wird als Wert: `unit_navibuttons` für das Attribut: `key` eingetragen und ein entsprechendes Datum der Liste entnommen. Im Bild 3 ist eine Navigationsleiste zu sehen. Hier ist das Attribut: `key` noch nicht beschrieben, es wird daher ein Standardwert angenommen. Dieser Standardwert ist laut Liste: **FULL**. Das heißt: Die Leiste wird mit allen Optionen angezeigt. Ist dies nicht gewünscht, kann die Leiste entweder komplett abgeschaltet oder inhaltlich reduziert werden. In diesem Beispiel wird die Leiste mit dem Wert: **ARROWS_ONLY** reduziert. Es ist nun nicht mehr möglich direkt zu einer Aufgabe zu springen, es kann nun nur noch vorwärts und rückwärts navigiert werden.
+
+``` xml
+
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>BOOKLET.SAMPLE-1</Id>
+    <Label>Booklet sample 1</Label>
+    <Description>Beispielhafte Booklet-XML</Description>
+  </Metadata>
+
+  <BookletConfig>
+    <Config key="unit_navibuttons">ARROWS_ONLY</Config>
+  </BookletConfig>
+
+  <Units>
+    <Unit id="UNIT.SAMPLE-100" label="Startseite" labelshort="1" />
+    <Unit id="UNIT.SAMPLE-101" label="Aufgabe1" labelshort="2"/>
+    <Unit id="UNIT.SAMPLE-102" label="Aufgabe2" labelshort="3"/>
+    <Unit id="UNIT.SAMPLE-103" label="Aufgabe3" labelshort="4"/>
+    <Unit id="UNIT.SAMPLE-104" label="Endseite" labelshort="5"/>
+  </Units>
+</Booklet>
+```
+
+So sieht die Änderung aus:
+
+![](TC_Navileiste_ARROWS_ONLY.png)
+
+Bild 4: Navileiste reduziert
+
+## Erweiterte Optionen zur Navigation
+
+Es kann ein zusätzliches Menü zur Aufgabennavigation angezeigt werden. Mit Hilfe dieses Menüs kann ebenfalls durch die Aufgaben navigiert werden. Zusätzlich wird ein Schalter angeboten, um den Test beenden zu können. Der Schalter (Sandwich-Symbol) für das Menü befindet sich dann rechts neben der Navigationsleiste.
+
+![](TC_Unit_Menu_FULL.png)
+
+Bild 6: Eingeschaltetes Aufgaben-Menü
+
+Das Ein-bzw. Ausschalten erfolgt in der Booklet-XML mit der Zuweisung des Wertes: `unit_menu` zu dem Attribut: `key`und gewünschten Listendatum, in diesem Fall **FULL**.
+
+## Seitennavigation
+
+Besteht eine Aufgabe aus mehreren Seiten, muss zu diesen Seiten navigiert werden können. Dies kann entweder durch eigens kreierte Schalter in der Aufgabe während der Entwurfsphase geschehen oder durch separate Schaltflächen in der Anwendung. Das Zu-/ und Abschalten der Navigation in der Anwendung, wird in der Booklet-XML im Element: `<Config>` vorgenommen. Hierfür wird dem Attribut:`key`der Wert:`pagingMode` zugewiesen. Das mögliche Datum ist wieder der Liste zu entnehmen.
+
+## Navigationsbeschränkungen
+
+Mit Hilfe der beiden Werte: `force_response_complete` und `force_presentation_complete` im Teil der Testheft-Konfiguration (`Booklet-Config`), kann festgelegt werden, ob bei der Navigation zur nächsten Aufgabe bestimmte Bedingungen erfüllt sein müssen. Das Weiterblättern kann dann bspw. verwehrt werden, wenn Pflicht-Elemente nicht bedient wurden oder nicht alle Bestandteile einer Aufgabe gesehen oder angehört wurden. Es kann auch festgelegt werden für welche Richtung der Navigation (vorwärts, rückwärts) die Bedingungen erfüllt sein müssen. Welches Datum den beiden Werten zugeordnet werden kann, ist der Liste zu entnehmen.
+
+## Blockbeschränkungen
+
+In der Booklet-XML können Aufgaben so genannten Testlets (Blöcken) zugewiesen werden. Für einen Block können Beschränkungen festgelegt werden. Wird im Testverlauf der Block erreicht, muss dann bspw. ein Freigabewort eingegeben werden oder der Block muss innerhalb einer bestimmten Zeit abgearbeitet sein. Blöcke können sehr hilfreich sein, um Testpersonen zu synchronisieren. Eventuell sind einzelne Personen schneller im Durchlauf als andere. Die Testleitung kann die Bekanntgabe des Freigabewortes dann bspw. solange verzögern, bis alle an einem bestimmten Block angekommen sind.
+
+Folgende Beschränkungen stehen zur Verfügung:
+
+- **Freigabewort:** Für den Zugriff auf den Block muss das richtige Freigabewort eingegeben werden.
+
+- **Zeitbegrenzung:** Die Aufgaben des Block sind nur für eine bestimmte Zeit zur Bearbeitung zu sehen. Nach Ablauf dieser Zeit wird der Block gesperrt. Möchte die Testperson den Block vor Ablauf der Zeit verlassen, erscheint eine Meldung, die darüber informiert, dass nicht in den Block zurückgekehrt werden kann. Nach Bestätigung dieser Meldung wird der Block gesperrt.
+
+- **Beschränkungen Navigation:** Unabhängig von Navigationsbeschränkungen in der Testheft-Konfiguration (`BookletConfig`), können Navigationsbeschränkungen auch für einen Block festgelegt werden. Die konfigurierten Navigationsbeschränkungen im Block überschreiben dabei die Navigationsbeschränkungen in der Testheft-Konfiguration. Außerhalb des Testlets gelten dann wieder die Navigationsbeschränkungen, die in der Testheft-Konfiguration festgelegt sind.
+
+Hier ein Block mit Beschränkungen:
+
+``` xml
+
+<Booklet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/iqb-berlin/testcenter/14.3.0/definitions/vo_Booklet.xsd">
+  <Metadata>
+    <Id>runhotres</Id>
+    <Label>Controller Mode: run-hot-restart</Label>
+    <Description>Beispielhafte Booklet-XML</Description>
+  </Metadata>
+
+    <BookletConfig>
+        <Config key="force_presentation_complete">OFF</Config>
+        <Config key="force_response_complete">OFF</Config>
+    </BookletConfig>
+
+    <Units>
+        <Unit id="UNIT.SAMPLE-100" label="Startseite" labelshort="1" />
+
+        <Testlet id="Tslt1" label="Aufgabenblock">
+            <Restrictions>
+                <CodeToEnter code="Hase">Bitte gib das Freigabewort ein.</CodeToEnter>
+                <TimeMax minutes="1"/>
+                <DenyNavigationOnIncomplete presentation="ALWAYS" response="ALWAYS" />      
+            </Restrictions>
+            <Unit id="UNIT.SAMPLE-101" label="Aufgabe1" labelshort="2"/>
+            <Unit id="UNIT.SAMPLE-102" label="Aufgabe2" labelshort="3"/>
+            <Unit id="UNIT.SAMPLE-103" label="Aufgabe3" labelshort="4"/>
+        </Testlet>
+        
+        <Unit id="UNIT.SAMPLE-104" label="Aufgabe4" labelshort="5"/>
+    <Unit id="UNIT.SAMPLE-105" label="Endseite" labelshort="6"/>
+    </Units>
+</Booklet>
+```
+
+In der Testheft-Konfiguration ist `force_presentation_complete` und `force_response_complete` ausgeschaltet. Im Block sind aber beide für die Navigationsrichtung rückwärts und vorwärts eingeschaltet. Außerhalb des Blocks gelten also keine Navigationsbeschränkungen, innerhalb des Blocks hingegen schon. Für den Zutritt zu diesem Block, muss das Freigabewort: “Hase” eingegeben werden. Die Testpersonen haben dann 1 Minute Zeit die 3 Aufgaben innerhalb des Blocks zu bearbeiten.
+
+## Strukturierung Testhefte
+
+Wie in den oberen Beispielen zu sehen ist, können Testhefte individuell strukturiert werden. An dieser Stelle kann keine generelle Empfehlung gegeben werden, wie ein Testheft auszusehen hat, aber es können ein paar kleinere Denkansätze vorgegeben werden..
+
+- Soll bspw. in einer Studie nur eine bestimmte Zeit zur Aufgabenbearbeitung gegeben werden, müssen die entsprechenden Aufgaben einem Block zugeordnet werden. Dieser Block erhält dann eine Zeitbeschränkung.
+- Weist der Personenkreis einer Studie ein unterschiedliches Niveau auf, kann es sinnvoll sein Blöcke mit Zugangsbeschränkungen zu versehen. Mit Hilfe dieser Zugangsbeschränkungen können die Personen synchronisiert werden. Das verhindert, dass einzelne Personen schon am Ende der Studie sind, während andere noch mitten drin stecken. Die Lehrkraft kann dann bspw. das Freigabewort zu einem Block erst nennen, wenn alle Schüler\*innen bei dem entsprechenden Block angekommen sind.
+- Soll ein Gruppenmonitor zur Steuerung einer Studie zum Einsatz kommen, sollten Blöcke angelegt werden. Mit Hilfe des Gruppenmonitors kann die Testleitung die Testpersonen dann direkt zu einzelnen Blöcken leiten.
+
+Es gäbe hier unzählige weitere individuelle Anforderungen an eine Studie, die eine bestimmte Struktur der Testhefte erfordern würden.
+
+> **TIP:**
+>
+> Besonderheiten bei der Testheftkonfiguration `loading_mode = LAZY` (siehe oben rechts “Weitere Links”): Das Laden der Testdateien im Hintergrund funktioniert nur, wenn das Testheft mit einem Block beginnt. Es darf keine einleitende oder vorgelagerte Aufgabe vorhanden sein.
+
+## Test beenden
+
+Es kann unter Umständen sinnvoll sein einen Test nach dem Beenden zu sperren. Dies kann mit Hilfe der Zuweisung des Wertes: `lock_test_on_termination` zum Attribut: `key` geschehen. Der Standardwert sorgt dafür, dass der Test nicht gesperrt wird. Das heißt, solange die Zugangsdaten (Testtaker-XML) im Testcenter vorhanden sind, können sich die dort definierten Personen am Testcenter anmelden und den Test fortsetzen.
+
+# Erprobung der Konfiguration
+
+Es ist unerlässlich die erstellte Konfiguration ausreichend zu testen. Hierfür können im Vorfeld spezielle Modi, wie bspw. der Modus: `run-simulation`, `run-demo` oder `run-review` in der Testtaker-XML zu einem Login angelegt werden. Nach dem Login startet das Testcenter dann in einem dieser Probemodi. Soll die Konfiguration noch einmal geändert werden, ist die geänderte Testdatei (Testtaker-XML oder Booklet-XML) anschließend noch einmal in das Testcenter zu laden. Hat sich am Dateinamen und an der ID der jeweiligen Testdatei nichts geändert, wird die vorhandene Datei im Testcenter einfach überschrieben. Nach erneuter Anmeldung, läuft der Test mit der geänderten Konfiguration.
+
+> **TIP:**
+>
+> Mehr Informationen zur Verwendung eines Modus zur Erprobung sind dem Kapitel: **Testinhalte/ Testtaker-XML** zu entnehmen.
+
+> **TIP:**
+>
+> Testen Sie auch abschließend finale Zugänge für die Testpersonen in einem “heißen” Modus (run-hot-return, run-hot-restart) und kontrollieren Sie, ob Antworten gespeichert wurden.
+
+> **TIP:**
+>
+> Testen Sie Gruppenmonitorzugänge, falls vorhanden.
+
+Zurück nach oben

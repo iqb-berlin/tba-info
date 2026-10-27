@@ -1,0 +1,41 @@
+# Bildungsstandards und Bildungstrend
+
+Die Beschlüsse der KMK zur Umstellung des nationalen Bildungsmonitorings auf TBA sind eng verbunden mit der Weiterentwicklung der nationalen Bildungsstandards.
+
+- [IQB: Informationen zu Bildungsstandards](https://www.iqb.hu-berlin.de/bista/)
+- [IQB: Informationen zum Bildungstrend](https://www.iqb.hu-berlin.de/bt/)
+
+Die folgende Darstellung zeigt die zeitliche Planung. Nachdem in einem ersten Schritte Aufgaben auf der Grundlage der weiterentwickelten Bildungsstandards entwickelt wurden, werden diese zunächst pilotiert. Dies führt zu einer Überarbeitung und ggf. Selektion. Danach werden über eine Normierungsstudie die Testinstrumente – Aufgaben in Testabläufen – psychometrisch analysiert. Auf dieser Grundlage werden die Kompetenzstufenmodelle entwickelt.
+
+``` mermaid
+gantt
+dateFormat YYYY-MM-DD
+axisFormat %Y
+tickInterval 12month
+
+section Primar De Ma
+  Testentwicklung : 2022-09-01, 2024-03-01
+  Pilotierung : 2024-01-01, 2024-12-31
+  Normierung : 2026-01-01, 2026-12-31
+  Modell : milestone, 2026-09-01
+
+section Sek I De Fr En
+  Testentwicklung : 2023-09-01, 2025-03-01
+  Pilotierung : 2025-01-01, 2025-12-31
+  Normierung : 2027-01-01, 2027-12-31
+  Modell : milestone, 2027-09-01
+
+section Sek I Ma NaWi
+  Testentwicklung : 2025-09-01, 2027-03-01
+  Pilotierung : 2027-01-01, 2027-12-31
+  Normierung : 2029-01-01, 2029-12-31
+  Modell : milestone, 2029-09-01
+```
+
+Abbildung 1: Testentwicklung und Bildungstrend
+
+Mit der Veröffentlichung der Kompetenzstufenmodelle steht die neue Metrik zur Verfügung als Voraussetzung für die Bildungstrend-Studien im neuen Zyklus.
+
+Die gesamte Aufgabenentwicklung und auch sämtliche Studien werden mit den IQB-Webanwendungen durchgeführt. Hierbei übernimmt das IQB die Leitung und beauftragt ggf. Dienstleister. Sämtliche Online-Testungen laufen auf Servern des IQB.
+
+Zurück nach oben

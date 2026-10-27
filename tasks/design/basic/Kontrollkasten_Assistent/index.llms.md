@@ -1,0 +1,37 @@
+# Kontrollkästchen
+
+![](Grafiken/kontrollkastchen_mit_text_beispiel.png)
+
+# Assistent: Kontrollkästchen
+
+Der Assistent für Kontrollkästchen hilft Ihnen bei der Erstellung von Aufgaben, bei denen eine oder mehrere Optionen ausgewählt werden können.
+
+## Fragestellung
+
+![](Grafiken/kontrollkastchen_assistent_Fragestellung.png)
+
+Im Assistenten geben Sie die Fragestellung ein oder optional einen Satzanfang, der über den Antwortoptionen steht.
+
+## Antwortoptionen
+
+![](Grafiken/kontrollkastchen_assistent_optionenplus.png)
+
+Geben Sie die textbasierten Antwortoptionen einzeln nacheinander ein und klicken Sie jeweils auf das Plus oder drücken Sie die Enter-Taste. Auf diese Weise können Sie eine Option eingeben, bestätigen und sofort die nächste hinzufügen.
+
+Die Antwortoptionen lassen sich mit der Maus sortieren, indem Sie sie an die gewünschte Position ziehen.
+
+Außerdem können Sie Antwortoptionen mit Klick auf das Kreuz ![](Grafiken/symbol_kreuz.png) löschen.
+
+## Bildoptionen
+
+![](Grafiken/kontrollkastchen_assistent_Bildoptionen.png)
+
+Für bildbasierte Optionen setzen Sie den Haken bei „Bildoptionen verwenden“ und klicken Sie auf „Bild hochladen“. Hiermit lassen sich auch weitere Bild-Optionen einfügen.
+
+Um ein Bild zu entfernen, klicken Sie einfach auf das Kreuz ![](Grafiken/symbol_kreuz.png) neben dem entsprechenden Bild.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind klicken Sie auf Bestätigen und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8ee512f19367224acfba0033acd4fca8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f853c6030ad396e16db6fae4150cb86c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-115a9038de263bd34b829fafbe318f07.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -1299,7 +1299,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>syscheck1.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="syscheck1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="syscheck1.xml" data-llms-code-original="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>
+<SysCheck xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd&quot;> # <1>
+    <Metadata> # <2>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+    </Metadata>
+    <Config skipnetwork=&quot;true&quot;></Config> # <3>
+</SysCheck>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>          <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1347,7 +1355,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>syscheck2.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="syscheck2.xml"><pre class="sourceCode xml code-annotation-code code-with-copy"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="syscheck2.xml" data-llms-code-original="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>
+<SysCheck xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd&quot;>
+    <Metadata>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+    </Metadata>
+    <Config skipnetwork=&quot;true&quot;>
+        <CustomText key=&quot;syscheck_intro&quot;> # <1>
+            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben! # <2>
+        </CustomText>
+    </Config>
+</SysCheck>"><pre class="sourceCode xml code-annotation-code code-with-copy"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>          <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
 <span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1378,7 +1398,37 @@ Hinweis
 <section id="netzwerkanbindung" class="level2">
 <h2 class="anchored" data-anchor-id="netzwerkanbindung">Netzwerkanbindung</h2>
 <p>Die Bewertung der Internetgeschwindigkeit muss individuell erfolgen, da hier die verwendeten Testheftgrößen entscheidend sind. Ein kleines Testheft lädt auch bei einer mäßigen Verbindung in vertretbarer Zeit. Ein großes Testheft hingegen nicht. Der Check der Internetverbindung gibt als Ergebnis eine abschließende Bewertungen aus. Hier steht dann bspw. die Verbindung ist gut oder nicht ausreichend. Die Bewertung erfolgt dabei in Abhängigkeit von bestimmten Werten, die in der System-Check-XML hinterlegt sind. Da die Testheftgrößen sehr unterschiedlich ausfallen, muss es eine Möglichkeit geben diese Werte anzupassen, um eine gesicherte Bewertung für die individuelle Testheftgröße zu erhalten. Diese Werte sind in den folgenden beiden XML-Elementen: <code>&lt;UploadSpeed&gt;</code>und <code>&lt;DownloadSpeed&gt;</code> zu finden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" data-llms-code-original="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>
+<SysCheck xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd&quot;>
+    <Metadata>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+        <Description>Prüfung Studiendurchführbarkeit</Description>
+    </Metadata>
+
+    <Config skipnetwork=&quot;false&quot;>
+        <UploadSpeed  # <1>
+            min=&quot;1024&quot;
+            good=&quot;2048&quot;
+            maxDevianceBytesPerSecond=&quot;10000&quot;
+            maxErrorsPerSequence=&quot;0&quot;
+            maxSequenceRepetitions=&quot;15&quot;>
+            100000, 200000, 400000, 800000
+        </UploadSpeed>
+        <DownloadSpeed  # <2>
+            min=&quot;1024&quot;
+            good=&quot;2048&quot;
+            maxDevianceBytesPerSecond=&quot;200000&quot;
+            maxErrorsPerSequence=&quot;0&quot;
+            maxSequenceRepetitions=&quot;15&quot;>
+            400000, 800000, 1600000, 3200000
+        </DownloadSpeed>
+        <CustomText key=&quot;syscheck_intro&quot;>
+            Bitte prüfen Sie genau die Angaben und vergleichen Sie sie mit den Vorgaben!
+        </CustomText>
+    </Config>
+</SysCheck>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>          <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
 <span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1544,7 +1594,24 @@ Hinweis
 <div class="code-with-filename-file">
 <pre><strong>syscheck4.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-6" data-filename="syscheck4.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-6" data-filename="syscheck4.xml" data-llms-code-original="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>
+<SysCheck xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd&quot;>
+    <Metadata>
+        <Id>SYSCHECK_TBA</Id>
+        <Label>System-Check TBA</Label>
+        <Description>Prüfung Studiendurchführbarkeit</Description>
+    </Metadata>
+
+    <Config savekey=&quot;saveme&quot; skipnetwork=&quot;true&quot;>
+        <Q id=&quot;1&quot; type=&quot;header&quot; prompt=&quot;Die folgenden Fragen helfen uns, die Ergebnisse des System-Checks einordnen zu können.&quot;></Q>  # <1>
+        <Q id=&quot;2&quot; type=&quot;radio&quot; prompt=&quot;1. An welchem Gerät wurde der System-Check durchgeführt?&quot;>Tablet#Desktop/Laptop</Q> # <2>
+        <Q id=&quot;3&quot; type=&quot;radio&quot; prompt=&quot;2. Wurde der System-Check in dem Raum durchgeführt, in dem die Erhebung voraussichtlich stattfindet?&quot;>Ja#Nein#Weiß ich nicht</Q>
+        <Q id=&quot;4&quot; type=&quot;radio&quot; prompt=&quot;3. Wurde der System-Check während der Unterrichtszeit durchgeführt?&quot;>Ja#Nein</Q>
+        <Q id=&quot;5&quot; type=&quot;radio&quot; prompt=&quot;4. Wie häufig gibt es Probleme mit der Netzwerkverbindung oder dem Internetzugang in diesem Raum?&quot;>Nie#Einmal im Jahr#Einmal im halben Jahr#Einmal im Quartal#Einmal im Monat#Einmal in der Woche#Mehrmals pro Woche#Weiß ich nicht</Q>
+        <Q id=&quot;6&quot; type=&quot;string&quot; prompt=&quot;5. Gibt es sonstige technische Einschränkungen bezüglich der Geräte, die Sie gerne mitteilen möchten?&quot;/>
+    </Config>
+</SysCheck>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">SysCheck</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>          <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/15.1.9/definitions/vo_SysCheck.xsd"</span>&gt;</span>
 <span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Metadata</span>&gt;</span>

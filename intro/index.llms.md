@@ -1,0 +1,72 @@
+# Überblick
+
+Die Domäne der hier besprochenen Webanwendungen sind Lernstandserhebungen mit einer hohen Zahl an Testpersonen. Diese Erhebungen sind Teil des datengestützten nationalen Bildungsmonitorings und dienen der Unterrichtsentwicklung auf Klassenebene. Diese Dokumentation soll zunächst einen generellen Überblick über das Projekt TBA verschaffen. Der Schwerpunkt dieser Dokumentation, liegt in der Beschreibung, der vom IQB entwickelten Anwendungen im Rahmen des TBA-Projektes.
+
+Weiter in diesem Abschnitt:
+
+- [Generelles zu TBA](../intro/tba.llms.md)
+- [Bildungsstandards und Bildungstrend](../intro/bt.llms.md)
+- [Nutzung von TBA in den Ländern-VERA](../intro/vera.llms.md)
+
+## Die TBA-Anwendungen des IQB
+
+Das IQB hat im Rahmen des TBA-Projektes 3 Anwendungen entwickelt und unter einer MIT-Lizenz auf GitHub veröffentlicht:
+
+``` mermaid
+flowchart TD
+    R(Aufgabenentwicklung<br/><b>IQB-Studio</b>) --> H[Testaufgaben]
+    style R fill:#adf, stroke:#037
+    style H fill:white, stroke:#037
+    H --> B
+    G[Testablauf] --> B
+    style G fill:white, stroke:#037
+    A[Testpersonen] --> B(Testdurchführung<br/><b>IQB-Testcenter</b>)
+    style A fill:white, stroke:#037
+    style B fill:#adf, stroke:#037
+    B --> K[Antworten]
+    style K fill:white, stroke:#037
+    B --> J[Logdaten]
+    style J fill:white, stroke:#037
+    H -.-> C(Kodierung<br/><b>IQB-Kodierbox</b>)
+    style C fill:#adf, stroke:#037
+    K --> C
+    J --> C
+    C -->D(Analyse)
+    style D fill:#ddd, stroke:#037
+    L[Vergleichsdaten] --> D
+    style L fill:white, stroke:#037
+    D -->E[Bericht/Rückmeldung]
+    style E fill:#ddd, stroke:#037
+```
+
+Abbildung 1: Ablaufschema Lernstandserhebung, IQB-Webanwendungen
+
+### IQB-Testcenter
+
+Der Fokus der Webentwicklungen lag zunächst auf der **Testdurchführung**. Folgende Grundüberlegungen und Anforderungen wurde im Vorfeld an diese Anwendung gestellt:
+
+- Isolierte Webanwendung, für den flexiblen Einsatz in verschiedenen Szenarien.
+- Manuelle Organisation von Testinhalte und Testergebnisse über ein Administrationsportal oder Einbettung in komplexe Datenbankstruktur möglich.
+- Steuerung und Konfiguration einer Testdurchführung oder einer Befragung sollen in Dateiform möglich sein. Es sollen keine visuelle Konfigurationsdialoge und aufwändige Assistenten zur Steuerung verfügbar sein. Statt dessen werden XML-Dateien eines speziellen, ausführlich dokumentierten Formats verwendet. Nur über diesen Weg soll es möglich sein, einen Test zu konfigurieren.
+- Eine Integration in verschiedene Architekturen muss einfach möglich sein. Die Länder betreiben mitunter Portale für Lehrkräfte, in denen die Personenverwaltung bereits vorhanden ist. Auch Rückmeldungen der Ergebnisse sollen oft über vorhandene Webanwendungen erfolgen. Daher ist das IQB-Testcenter gut über eine Schnittstelle (API) mit Daten zu speisen. Ebenso einfach soll es möglich sein Antworten und Logdaten über die Schnittstelle heruntergeladen werden. Die Interaktion von Web-Software auf anderen Servern mit dem IQB-Testcenter ist optimiert.
+
+Unter Berücksichtigung dieser Anforderungen wurde die Anwendung **IQB-Testcenter** entwickelt und kann zur Durchführung von Tests oder Befragungen genutzt werden.
+
+Veröffentlichung: [GitHub](https://github.com/iqb-berlin/testcenter)\
+Dokumentation: [Studie durchführen](../study-run/index.llms.md) Installation/ Konfiguration: [Einrichtung](../setup/index.llms.md)
+
+### IQB-Studio
+
+Eine weitere Anwendung war nötig, um den gesamten Prozess der **Aufgabenentwicklung** umzustellen. Die große Anzahl der Aufgaben ist nur zu bewältigen, wenn ein System zur Verfügung steht, welches durch die Aufgabenentwickler\*innen intuitiv bedient werden kann. Hierfür wurde die Anwendung: **IQB-Studio** entwickelt.
+
+Veröffentlichung: [GitHub](https://github.com/iqb-berlin/studio-lite)\
+Dokumentation: [Aufgaben entwickeln](../tasks/index.llms.md) Installation/ Konfiguration: [Einrichtung](../setup/index.llms.md)
+
+### IQB-Kodierbox
+
+Zur Verarbeitung der Ergebnisse (Kodierung, Datenprüfung) wurde eine weitere Anwendung benötigt. Diese trägt den Namen **IQB-Kodierbox**.
+
+Veröffentlichung: [GitHub](https://github.com/iqb-berlin/coding-box)\
+Dokumentation: [Kodieren und Auswerten](../coding/index.llms.md) Installation/ Konfiguration: [Einrichtung](../setup/index.llms.md)
+
+Zurück nach oben

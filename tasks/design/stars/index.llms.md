@@ -1,0 +1,98 @@
+# Untere Primarstufe: StarS-Player
+
+Die Interaktionsgestaltung mit sehr kleinen Kindern unterliegt besonderen Herausforderungen:
+
+- Das Layout muss sehr reduziert und konstant sein.
+- Scrollen ist nicht zulässig. Die Kinder würden es schwerlich verstehen, wenn nur Teile der Aufgabe zu sehen wären.
+- Drag’n’Drop kann nicht verwendet werden. Das “Liegenlassen” des Fingers und dann Bewegen ist nicht zu erwarten. Eventuell kann es als zusätzliche Interaktionsform genutzt werden.
+- Die Eingabe von Ziffern oder Zeichen kann nur unter besonderen Vorkehrungen erwartet werden. Beispielsweise muss es Tasten für Grapheme “sch”, “au” usw. geben, da das Lautverständnis noch unterentwickelt ist.
+- Es muss vielfach auf Audio zurückgegriffen werden - Stimulus und Instruktionen sind auf diese Art besser präsentiert.
+- Ein Feedback auf eine Interaktion ist wichtiger, auch als Audio.
+
+Der Player **StarS** wird am IQB im Rahmen des [StarS-Projektes](https://www.iqb.hu-berlin.de/research/dm/StarS/) für diesen Zweck entwickelt. Folgende besondere Funktionen sind implementiert:
+
+- Vollbildschirm, kein Scrollen, Positionierung der Elemente auch vertikal mittig.
+- Die Möglichkeiten der Gestaltung sind weitgehend eingeschränkt. Statt dessen wurden Grundtypen der Units entwickelt, die einheitlich gestaltet sind und nur wenig Beeinflussung durch die Aufgabenentwickler\*innen ermöglichen. Dadurch kann die Syntax (semantischer Ansatz) einfach gehalten werden und die Kinder erleben wenige Überraschungen.
+- Schriftart angepasst an das frühe Lesen
+- Durch sofortige Kodierung entfällt ein nachgelagerter Kodierprozess. Die Antworten werden von Beginn an mit Kodierung gespeichert.
+- Besondere Itemformate wie “Blitzsehen” (kurzes Einblenden eines Bildes) und Metakognition (Selbsteinschätzung nach der Antwort) sind auf die StarS-Konstrukte zugeschnitten.
+- Besondere Funktionen für ein Feedback (Audio) ermöglichen die Verwendung des Players auch in einem Übungs-/Trainingsszenario.
+
+# Unit-Datenformat
+
+Ein Editor für die Aufgabengestaltung (z. B. im IQB-Studio) steht aktuell nicht zur Verfügung. Auf den folgenden Seiten ist daher die Syntax beschrieben, mit der die Definitionen für die Präsentation und Interaktion erstellt werden. Es handelt sich um ein JSON-Datenformat. Eine technische Spezifikation ist über den Link rechts verfügbar. Beispiel:
+
+``` json
+{
+  "id": "stars-unit-definition",
+  "version": "2.8",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAXXXXXXXXXXXXX......."
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "buttonType": "BIG_SQUARE",
+    "multiSelect": false,
+    "numberOfRows": 2,
+    "options": {
+      "buttons": [
+        {
+          "text": "A"
+        },
+        {
+          "text": "B"
+        },
+        {
+          "text": "C"
+        },
+        {
+          "text": "D"
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "2",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+> **TIP:**
+>
+> In allen Code-Beispielen ist der Media-Inhalt (Bild, Audio, Video) gekürzt dargestellt. Eine vollständige Mediendatei würde die Lesbarkeit stark einschränken. Zu Techniken, mit Base64 umzugehen, [siehe hier](../../../tasks/design/media/base64.llms.md)!
+
+## Diese Syntax führt zu folgender Darstellung
+
+![](assets/buttons1.png)
+
+## Erläuterung
+
+- Eine Hintergrundfarbe wurde eingestellt.
+- Links oben zeigt ein Play-Button, dass eine Audio-Sequenz abzuspielen ist.
+- Rechts unten soll ein Weiter-Button gezeigt werden.
+- Vier Optionen mit Buchstaben stehen zur Auswahl. Nur eine Option kann gewählt werden. Das Bild oben zeigt die Unit nach dem Markieren einer Option.
+- Es ist für die automatische Auswertung festgelegt, dass die zweite Option als “richtig” gewertet werden soll.
+
+# Weiterlesen
+
+- [Allgemeine Parameter](../../../tasks/design/stars/root-parameters.llms.md)
+- [Umgang mit Bildern](../../../tasks/design/stars/images.llms.md)
+- [Interaktionen](../../../tasks/design/stars/it_index.llms.md)
+- [Antworten kodieren](../../../tasks/design/stars/responses.llms.md)
+- [Übungsaufgaben/Rückmeldung](../../../tasks/design/stars/feedback.llms.md)
+
+Zurück nach oben

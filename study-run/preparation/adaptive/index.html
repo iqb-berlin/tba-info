@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8ee512f19367224acfba0033acd4fca8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-81e0e216479a6f265d24d68c6882b77a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-de96a5d1355003136a914f3a07c2962e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1541,7 +1541,35 @@ Hinweis
 <section id="optionen-abfragen" class="level3">
 <h3 class="anchored" data-anchor-id="optionen-abfragen">Optionen abfragen</h3>
 <p>In Abhängigkeit der aktiven Optionen und des Status kann nun festgelegt werden, welche Aufgabe angezeigt werden soll. Hierfür wird im Testlet im Element: <code>&lt;Restriction&gt;</code> das Element: <code>&lt;Show&gt;</code> mit einem IF-Attribut angelegt. In diesem IF-Attribut wird geprüft, ob ein State-Element ein bestimmtes aktives Options-Element enthält. Zur Selektierung wird die ID der beiden Elemente verwendet.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" data-llms-code-original="<Units>
+
+    <Unit id=&quot;unit0&quot; label=&quot;Startunit&quot; labelshort=&quot;1&quot;/> # <1>
+    
+    <Testlet id=&quot;Bonus-Aufgaben&quot;> # <2>
+    
+        <Testlet id=&quot;Bonus-Aufgaben-1&quot;> # <3>
+            <Restrictions>
+                <Show if=&quot;bonus&quot; is=&quot;bonus1&quot; />
+            </Restrictions>
+
+            <Unit id=&quot;BonusUnit1&quot; label=&quot;Bonus Unit 1&quot; labelshort=&quot;2&quot; />
+            <Unit id=&quot;BonusUnit2&quot; label=&quot;Bonus Unit 2&quot; labelshort=&quot;3&quot; />
+            <Unit id=&quot;BonusUnit3&quot; label=&quot;Bonus Unit 3&quot; labelshort=&quot;4&quot; />
+        </Testlet>
+
+        <Testlet id=&quot;Bonus-Aufgaben-2&quot;> # <4>
+            <Restrictions>
+                <Show if=&quot;bonus&quot; is=&quot;bonus2&quot; />
+            </Restrictions>
+
+            <Unit id=&quot;BonusUnit4&quot; label=&quot;Bonus Unit 4&quot; labelshort=&quot;2&quot; />
+            <Unit id=&quot;BonusUnit5&quot; label=&quot;Bonus Unit 5&quot; labelshort=&quot;3&quot; />
+            <Unit id=&quot;BonusUnit6&quot; label=&quot;Bonus Unit 6&quot; labelshort=&quot;4&quot; />
+        </Testlet>
+
+    </Testlet>
+
+</Units>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit0"</span> <span class="ot">label=</span><span class="st">"Startunit"</span> <span class="ot">labelshort=</span><span class="st">"1"</span>/&gt;</span>
 <span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -1608,7 +1636,35 @@ Hinweis
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">State</span>&gt;</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">States</span>&gt;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Optionen und Status abfragen:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode xml code-annotation-code code-with-copy"><code class="sourceCode xml"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5" data-llms-code-original="<Units>
+
+    <Unit id=&quot;unit0&quot; label=&quot;Startunit&quot; labelshort=&quot;1&quot;/>
+
+    <Testlet id=&quot;Bonus-Aufgaben&quot;> # <2>
+    
+        <Testlet id=&quot;Bonus-Aufgaben-1&quot;> # <3>
+            <Restrictions>
+                <Show if=&quot;bonus&quot; is=&quot;bonus1&quot; />
+            </Restrictions>
+
+            <Unit id=&quot;BonusUnit1&quot; label=&quot;Bonus Unit 1&quot; labelshort=&quot;2&quot; />
+            <Unit id=&quot;BonusUnit2&quot; label=&quot;Bonus Unit 2&quot; labelshort=&quot;3&quot; />
+            <Unit id=&quot;BonusUnit3&quot; label=&quot;Bonus Unit 3&quot; labelshort=&quot;4&quot; />
+        </Testlet>
+
+        <Testlet id=&quot;Bonus-Aufgaben-2&quot;> # <4>
+            <Restrictions>
+                <Show if=&quot;bonus&quot; is=&quot;bonus2&quot; />
+            </Restrictions>
+
+            <Unit id=&quot;BonusUnit4&quot; label=&quot;Bonus Unit 4&quot; labelshort=&quot;2&quot; />
+            <Unit id=&quot;BonusUnit5&quot; label=&quot;Bonus Unit 5&quot; labelshort=&quot;3&quot; />
+            <Unit id=&quot;BonusUnit6&quot; label=&quot;Bonus Unit 6&quot; labelshort=&quot;4&quot; />
+        </Testlet>
+
+    </Testlet>
+
+</Units>"><pre class="sourceCode xml code-annotation-code code-with-copy"><code class="sourceCode xml"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Units</span>&gt;</span>
 <span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-5-3"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">Unit</span> <span class="ot">id=</span><span class="st">"unit0"</span> <span class="ot">label=</span><span class="st">"Startunit"</span> <span class="ot">labelshort=</span><span class="st">"1"</span>/&gt;</span>
 <span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a></span>

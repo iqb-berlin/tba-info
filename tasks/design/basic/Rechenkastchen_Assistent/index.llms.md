@@ -1,0 +1,35 @@
+# Rechenkästchen-Assistent
+
+![](Grafiken/rechenkastchen_addition_beispiel.png)
+
+# Rechenkästchen
+
+Der Assistent „Rechenkästchen“ hilft Ihnen beim Erstellen von schriftlichen Rechenaufgaben (Addition, Subtraktion und Multiplikation mit mehrstelligen Zahlen).
+
+Im Assistenten wählen Sie die Rechenart aus und geben die Termzeilen ein.
+
+## Rechenart
+
+![](Grafiken/rechenkastchen_assistent_Rechenart.png)
+
+Bei der Rechenart können Sie zwischen Addition, Subtraktion sowie Multiplikation mit mehrstelligen Zahlen wählen.
+
+> **NOTE:**
+>
+> Ein Tooltipp wird nur bei Subtraktionsaufgaben eingeblendet.
+
+## Termzeilen
+
+![](Grafiken/rechenkastchen_assistent_Termzeile.png)
+
+Um einen Term einzutragen, klicken Sie in das jeweilige Feld. Mit einem Klick auf das Plus können Sie weitere Termzeilen hinzugefügen.
+
+![](Grafiken/rechenkastchen_assistent_plus.png)
+
+Weitere Termzeilen können nur für Additions- und Subtraktionsaufgaben hinzugefügt werden. Möchten Sie eine Termzeile wieder entfernen, klicken Sie auf das Kreuz an der rechten Seite.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen klicken Sie auf „Abbrechen“. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

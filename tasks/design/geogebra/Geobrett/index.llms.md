@@ -1,0 +1,22 @@
+# Geobrett
+
+## Geobrett
+
+Das Geobrett ist vorrangig für Aufgaben in der Primarstufe gedacht, bei denen Figuren entlang einer Achse gespiegelt oder Zeichnungen vervollständigt werden sollen.
+
+Die Vorlage hat 14\*14 Punkte. Mehr Punkte einzufügen könnte die Aufgabe u. U. zu groß machen, so dass sie nicht mehr an allen üblichen Geräten, insbesondere Tablets, sinnvoll bearbeitet werden kann.
+
+Falls weniger als 14\*14 Punkte gewünscht sind, lässt sich dies am einfachsten realisieren, indem man mehr in die Aufgabe hereinzoomt und die Fenstergröße vor dem Speichern (und dann auch im Studio) beschränkt.
+
+Anleitung zum Erstellen einer Aufgabe:
+
+1.  Bei einer Spiegelung-Aufgabe, bei der …
+    1.  … die Spiegelachse genau zwischen den Punkten liegen soll: In der Algebra-Ansicht die Strecke x sichtbar machen
+    2.  … die Spiegelachse durch die Punkte gehen soll: Zwei Punkte auswählen und eine Strecke zwischen ihnen einzeichnen.
+2.  Nun kann eine beliebige Figur mit dem Werkzeug „Strecke“ eingezeichnet werden.
+    1.  Hinweis: Um die Farbe der Strecke einzustellen, das „Strecke“-Werkzeug auswählen und oben rechts das schwarze Viereck anklicken. Es öffnet sich eine Farbauswahl.
+3.  Die gezeichnete Figur und ggf. die Spiegelachse fixieren. Strecken-Einstellungen: Häkchen setzten bei „Objekt fixieren“, Häkchen entfernen bei „Auswahl erlaubt“.
+4.  Die Algebra-Ansicht ausschalten, siehe allgemeine Anleitung.
+5.  Zoomfaktor einstellen und Größe des Fensters sinnvoll beschränken.
+
+Zurück nach oben

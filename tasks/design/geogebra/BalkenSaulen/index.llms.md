@@ -1,0 +1,30 @@
+# Balken- und Säulendiagramm
+
+## Balken- und Säulendiagramm
+
+Diese Vorlage ist für Balken- und Säulendiagramme, bei denen die Balken bzw. Säulen von Testteilnehmenden selbst bewegt werden können. In der Vorlage gibt es je ein Werkzeug für verschiebbare Balken bzw. Säulen. Beide Werkzeuge finden Sie hinter dem Schraubenschlüssel.
+
+Anleitung:
+
+1.  Das passende Werkzeug auswählen (Balken wachsen nach rechts, Säulen nach oben)\
+2.  Mit zwei Klicks wählen Sie die Basis des Balkens bzw. der Säule. Der Punktfang ist schon eingestellt, d. h. die Punkte sollten sich am Koordinatengitter orientieren. Hier wurden die Punkte „A“ und „B“ gesetzt, der Rest des Diagramms konstruiert sich automatisch.
+    1.  Alternativ können Sie auch in der Algebraansicht sehr präzise einstellen, wo die Balken/Säulen platziert werden sollen, indem Sie folgende Befehle eingeben: Balkendiagramm(Punkt({x,y}),Punkt({x,y})) Säulendiagramm(Punkt({x,y}),Punkt({x,y})), wobei x und y durch passende Koordinaten ersetzt werden. Achtung: In GeoGebra ist das Dezimalsymbol der Punkt (.) nicht das Komma (,).
+3.  Manuell bei allen noch sichtbaren Punkten, bis auf den Punkt zum Verschieben, das Häkchen bei „Auswahl erlaubt” und „Objekt anzeigen” entfernen.
+    1.  Ggf. bei dem Punkt zum Verschieben der Säule / des Balkens das Häckchen bei „Beschriftung” entfernen.
+4.  Punkt 2&3 wiederholen, bis alle Säulen/Balken erstellt sind.
+5.  Falls manche Säulen/Balken nicht verschiebbar sein sollen: Beim Punkt jeweils Folgendes einstellen:
+    1.  bei „Auswahl erlaubt” das Häkchen entfernen
+    2.  bei „Objekt fixiert” das Häkchen setzen
+    3.  bei „Objekt anzeigen” das Häkchen entfernen
+6.  Das Einstellen der Achsen und des Koordinatengitters ist in der allgemeinen Anleitung beschrieben.
+7.  Für die Beschriftung der Balken/Säulen gibt es Textobjekte als Vorlagen, die beliebig kopiert werden können. Im Normalfall benutzt man die waagerechte Beschriftung, aber sollte es an Platz mangeln, kann die schräge Beschriftung verwendet werden.
+    1.  Für die normale Beschriftung einfach anklicken und Text bearbeiten.
+    2.  Für die schräge Beschriftung anklicken, dann sieht man folgenden Code: „DreheText(Text(“Beschriftung”), 45°)“. Dort einfach den Teil namens „Beschriftung“ ändern, dabei die Anführungsstriche belassen.
+    3.  Hinweis: Die waagerechte Beschriftung kann auch für die y-Achse benutzt werden, falls Sie nicht die Beschriftung in GGB verwenden wollen.
+8.  Alle unnötigen Werkzeuge entfernen, wie in der allgemeinen Anleitung beschrieben.
+
+> **NOTE:**
+>
+> Da die Werkzeuge für Balken- und Säulendiagramme eigens erstellt kann es vorkommen, dass sie in der Werkzeugleiste erscheinen, auch wenn sie eigentlich entfernt wurden. In diesem Fall müssen Sie im Menü unter „Werkzeuge verwalten“ die Option „In Werkzeugleiste anzeigen“ für beide Diagrammwerkzeuge ausschalten. Dies sollte in allen Vorlagen bereits eingestellt sein, kann aber in alten Dateien noch auftreten.
+
+Zurück nach oben

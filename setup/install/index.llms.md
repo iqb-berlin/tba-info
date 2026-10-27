@@ -1,0 +1,32 @@
+# IQB-Webanwendungen installieren
+
+Sämtliche Programmierungen des IQB sind Open Source und öffentlich online verfügbar. Es ist nicht nötig, das IQB zu kontaktieren, sondern man folgt den Anleitungen.
+
+Alle Webanwendungen des IQB sind serverbasiert, da sie online genutzt werden sollen. Man benötigt also einen Server und Basiskenntnisse dazu.
+
+Allgemeine Hinweise:
+
+- Die Installationen basieren auf der Virtualisierungslösung Docker. Es muss daher kein Unix-System sein, da Docker auch auf Windows verfügbar ist.
+- Die Installation legt alle erforderlichen Komponenten an. Man muss also keine Datenbank vorher anlegen o. ä..
+- Die Passung zum verwendeten Serversystem ist nicht immer perfekt, weil die Vielfalt der Systeme enorm ist. Die meisten Parameter der Konfiguration sind flexibel in Umgebungsvariablen gespeichert.
+- Sowohl die Installation als auch später das Update werden von einem Skript gesteuert. Man ruft also eine Installationsroutine auf und beantwortet die wichtigsten Fragen.
+
+``` mermaid
+flowchart LR
+    A(Aufgabenentwicklung<br/><b>IQB-Studio</b>)
+    B(Testdurchführung<br/><b>IQB-Testcenter</b>)
+    C(Kodierung<br/><b>IQB-Kodierbox</b>)
+    style A fill:#adf, stroke:#037
+    style B fill:#adf, stroke:#037
+    style C fill:#adf, stroke:#037
+    A --> B
+    B --> C
+```
+
+**Die eigentliche Installation wird in den GitHub-Repositories der jeweiligen Anwendungen beschrieben:**
+
+- [IQB-Studio](https://github.com/iqb-berlin/studio-lite#readme-ov-file)
+- [IQB-Testcenter](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/installation-prod.html)
+- [IQB-Kodierbox](https://github.com/iqb-berlin/coding-box#readme-ov-file)
+
+Zurück nach oben

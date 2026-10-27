@@ -1,0 +1,61 @@
+# Stimulus-Text-Assistent
+
+![](../Grafiken/textst_assistent_beispiel.png)
+
+Der Assistent „Stimulus: Lesestimulus – Text“ hilft Ihnen beim Erstellen von Aufgabentexten. Diese können hier formatiert werden.
+
+Wählen Sie dazu beim Assistenten „Stimulus: Lesestimulus – Text“
+
+Dann öffnet sich dieses Textbearbeitungsfeld.
+
+Sie können nun den Text einfügen, den\*die Autor\*in vermerken und die Überschrift bearbeiten.
+
+Ausführliche Information zur Textbearbeitung im Studio finden Sie auch [hier](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md).
+
+> **TIP:**
+>
+> Die Schriftart ist aus Gründen der Einheitlichkeit voreingestellt und kann nicht verändert werden.
+
+Weitere Formatierungsmöglichkeiten können Sie unter Schriftausrichtung, Schrift, Absatz, Listen, Textausrichtung, Einrückung, Bild und Sonderelemente vornehmen. Die Fußnote kann auch beim Platzhalter „Fußnoten“ eingefügt werden. Die Zeichen- und Wortanzahl werden unter dem Textfeld gezählt und angezeigt.
+
+## Bild einfügen
+
+Bilder können vom PC Laufwerk eingefügt werden. Das Bild kann in eine Zeile, in einem eigenen Absatz, rechts oder links eingefügt werden. Die Bildgröße muss vor dem Einfügen angepasst werden.
+
+## Sonderelemente
+
+Als Sonderelemente können Sie Sonderzeichen, Formeln, horizontale Linien, Zitate und Tooltips einfügen sowie Bereiche hervorheben.
+
+> **NOTE:**
+>
+> Das schmale, nicht umbrechende Leerzeichen muss zwischen Zahlen und Einheiten verwendet werden. Also zum Beispiel zwischen Zahl und Eurozeichen: 5 €
+
+> **NOTE:**
+>
+> Das nicht umbrechende Leerzeichen wird im Französischen vor Satzzeichen verwendet, damit diese nicht versehentlich in der Zeile verrutschen.
+
+## Tooltip
+
+![](../Grafiken/textst_tooltip_bsp.png)
+
+Wenn Sie einen Verweis für ein Wort einfügen möchten, können Sie einen Tooltip einfügen.
+
+![](../Grafiken/textst_tooltip.png)
+
+Fügen Sie den entsprechenden erläuternden Text ein und wählen Sie die Tooltip-Position aus.
+
+## Markieren
+
+![](../Grafiken/textst_assistent_markieren.png)
+
+Wenn die Testteilnehmenden den Text markieren sollen, setzen Sie den Haken bei „Markieren zur Texterschließung erlauben“.
+
+## Quellen einfügen
+
+Quellen können Sie im separaten Feld für Quellen vermerken. Diese werden in kleinerer Schriftgröße unter dem Stimulus angezeigt.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf Bestätigen und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

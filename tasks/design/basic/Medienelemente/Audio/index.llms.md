@@ -1,0 +1,23 @@
+# Audio
+
+![](medienelemente_audio_beispiel.png)
+
+## Audioelemente
+
+Das Medium „Audioelemente“ ermöglicht es, Audiodateien ins IQB-Studio zu laden.
+
+Mit einem Klick auf das Element „Audio“ der Elementengruppe „Medium“ öffnet sich ein Fenster, in dem Sie die gewünschte Datei auswählen und durch einen Klick auf „Öffnen“ im IQB-Studio hochladen können. Im rechten Reiter „Eigenschaften“ können Sie Anpassungen im Audioelement vornehmen.
+
+> **NOTE:**
+>
+> Der Aufforderungstext „Bitte starten.“ inklusive roter Umrahmung des Fortschrittbalkens des Audios erscheint automatisch, sofern das Audio fünf Sekunden nach Betreten der Seite nicht gestartet wurde.
+
+## Anpassen eines Audioelements
+
+![](medienelemente_audio_anpassen_standardmodus.png)
+
+Neben der Anpassung der ID (hier: „audio_1“) können Sie mit einem Klick auf den blauen Knopf die Audiodatei ändern. Es öffnet sich ein Fenster, in dem Sie die gewünschte Datei auswählen und mit „Öffnen“ ins IQB-Studio laden können.
+
+Weitere Einstellungen sind nur im erweiterten Modus verfügbar.
+
+Zurück nach oben

@@ -1,0 +1,20 @@
+# Technische Anforderungen zur Durchführung von Online-Tests
+
+> **NOTE:**
+>
+> Die folgenden Texte beziehen sich auf größere Lernstandserhebungen (z. B. VERA). Sie sind mit den Verantwortlichen für Lernstandserhebungen in den Ländern abgestimmt. Änderungen an den Orientierungswerten erfolgen nur nach Diskussion in den entsprechenden Gremien.
+>
+> Interessierte für kleinere Erhebungen und Forschungsprojekte mögen diesen Kontext ignorieren und auf technische Parameter fokussieren.
+
+Wie erfolgreich Onlinetests mit Schulhardware durchgeführt werden können, hängt von verschiedenen Faktoren und ihrem Zusammenspiel ab. Das IQB ist für die Effizienz des Programmcodes und das Testvolumen verantwortlich und optimiert diese Aspekte fortlaufend. Um die Qualität des Programmcodes sicherzustellen, werden automatische Tests und externe Reviews durchgeführt, um ein optimales Ladeverhalten zu erreichen. Zudem wird angestrebt, das Testvolumen und die benötigten Datenmengen möglichst gering zu halten (z. B. Verringerung der Auflösung von Bildern, Audio- und Videosequenzen bei vertretbarem Qualitätsverlust; sparsamer Einsatz lastintensiver Elemente; Aufteilen eines Tests in mehrere Testabschnitte verbunden mit Lazy Loading).
+
+Darüber hinaus sind grundlegende Ausstattungsmerkmale in der jeweiligen Schule, die primär Hardware, Software und Netzwerkverbindung betreffen, zwar eine notwendige, aber keine hinreichende Bedingung für eine erfolgreiche Testdurchführung. Auch die Serverinfrastruktur und die Organisation der Testung wirken sich auf die Durchführbarkeit aus. Die genannten Faktoren (Schulausstattung, Serverinfrastruktur, Testorganisation) werden durch die jeweilige länderspezifische Strategie zur Umstellung von VERA auf Onlinetests bestimmt und beeinflussen sich gegenseitig. Das IQB kann hierfür Orientierungspunkte liefern, die als Grundlage zur Einschätzung der Durchführbarkeit herangezogen werden können. Unerlässlich sind jedoch die Auseinandersetzung mit dem Programmcode, die Durchführung von eigenen Lasttests sowie ggf. Felderprobungen im jeweiligen Land.
+
+Im Folgenden werden zunächst
+
+1.  Mindestanforderungen an die [Schulausstattung](../../../study-run/preparation/required/school.llms.md) beschrieben, die erforderlich sind, um die vom IQB bereitgestellten Tests über die VERONA-Schnittstelle oder das IQB-Testcenter administrieren zu können. Anschließend werden weitere Hinweise zur
+2.  [Serverinfrastruktur](../../../study-run/preparation/required/server.llms.md) und
+3.  [Testorganisation](../../../study-run/preparation/required/testorga.llms.md) aufgeführt, die zur Abschätzung der Durchführbarkeit berücksichtigt werden sollten.
+4.  Abschließend werden mögliche [Alternativen](../../../study-run/preparation/required/alternatives.llms.md) für Schulen ohne ausreichende technische Ausstattung dargestellt.
+
+Zurück nach oben

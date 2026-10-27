@@ -1,0 +1,19 @@
+# Windows
+
+Autor:in
+
+Huaning Yang [](mailto:huaning.yang@iqb.hu-berlin.de)
+
+Veröffentlichungsdatum
+
+17\. April 2025
+
+## Assigned Access
+
+Der Administrator legt einen neuen Assigned Access Account an. Beim Anlegen des Accounts kann man festlegen, welche Applikation verwendet werden soll. Aus der Liste wählt man dann Microsoft Edge (das ist der einzige Browser, der mit Assigned Access funktioniert) aus, danach wird man gebeten, die URL einzugeben, mit der Edge gestartet werden soll. Hier müsste man dann die Adresse des Testcenters hinterlegen.
+
+Wenn sich der User nun in den neu angelegten Kiosk Account einloggt, so wird nur das Testcenter im Vollbild geöffnet, ohne weitere Navigationselemente des Browsers. Tastenkombinationen wie Alt + F4 zum Schließen des Fensters oder Alt + Tab zum Wechseln von Fenstern sind in diesem Modus nicht möglich. Die Taskleiste und das Startmenü von Windows sind nicht verfügbar.
+
+Zum Verlassen dieses Modus wird Ctrl + Alt + Delete verwendet.
+
+Zurück nach oben

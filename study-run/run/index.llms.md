@@ -1,0 +1,47 @@
+# Durchführung
+
+> **NOTE:**
+>
+> Wie eine Studie abläuft, ist abhängig von der Studienkonfiguration. Die nachfolgenden Beschreibungen sind daher allgemein gehalten und müssen ggf. nicht zwingend zur eigenen Studie passen.
+
+Nun können sich die Testpersonen mit den in der Testtaker-XML festgelegten Zugangsdaten am Testcenter anmelden. Die Anmeldung der Testpersonen erfolgt nach Eingabe der Zugangsdaten mit dem Schalter: **Weiter**. Es folgt ein sehr reduziertes Startbild, mit zwei oder mehr großen Schaltern mittig, die die zur Verfügung stehenden Testheft anzeigen.
+
+> **NOTE:**
+>
+> Ist nur ein Testheft in der Testtaker-XML aufgeführt und wird ein “heißer” Modus verwendet (`run-hot-return` oder `run-hot-restart`), wird nach der Anmeldung der Test direkt gestartet und es wird keine Seite zur Testheftauswahl angezeigt.
+
+Mit Klick auf die Schaltfläche eines Testheftes werden alle Testinhalte geladen. Sobald möglich wird auch die erste Seite schon gezeigt und das Laden wird im Hintergrund fortgesetzt.
+
+Die Aufgabennavigation erfolgt links oben. Sollte eine Aufgabe aus mehreren Seiten bestehen, erfolgt die Seitennavigation direkt rechts neben der Aufgabennavigation. Sind im Testheft Blöcke mit Zeitbegrenzungen vorhanden, werden rechtzeitig (5 min und 1 min vor Ende, je nach Testheftkonfiguration) Hinweise eingeblendet.
+
+Ist ein entsprechender Zugang in der Testtaker-XML angelegt, können die Studienverantwortlichen die Studie auch mittels **Gruppenmonitor** steuern. Mehr dazu ist dem gleichnamigen Kapitel: **Gruppenmonitor** zu entnehmen.
+
+> **IMPORTANT:**
+>
+> Während der Studiendurchführung fallen permanent Daten an. Diese werden in einem Datensatz im Arbeitsbereich gespeichert. Der Datensatz enthält die gegebenen, Antworten und Logs. Dieser Datensatz ermöglicht nach Abschluss der Studie eine Auswertung. Es empfiehlt sich in regelmäßigen Abständen diese Daten herunterzuladen und zu sichten. So können schon während des Studienlaufs eventuelle Unstimmigkeiten frühzeitig erkannt werden.
+
+# Studie beenden
+
+Die Durchführung kann jederzeit beendet werden. Die Antworten werden stets sofort gespeichert und es ist hierfür kein Kommando erforderlich. Je nachdem wie die Studie zuvor konfiguriert wurde, kann über ein zusätzliches Aufgabenmenü die Studie beendet werden. Ist dieses Menü nicht eingeschaltet, kann die Studie durch einen Klick auf das IQB-Logo oben links beendet werden. Anschließend gelangt man wieder zur Ansicht der Testhefte. Bei der Beendigung einer Studie, kann es je nach Konfiguration der Studie, zu Warnungen kommen. Warnungen bei der Beendigung können auftreten, wenn sich Testpersonen in zeitbeschränkten Blöcken befinden oder Navigationsbeschränkungen aktiv sind.
+
+**Verlassen eines zeitbeschränkten Blocks:**
+
+Soll die Studie beendet werden und befindet sich die Testperson zu diesem Zeitpunkt in einem zeitbeschränkten Block, wird eine Warnung angezeigt, dass nach Verlassen des Blocks nicht mehr in diesen zurückgekehrt werden kann. Wird diese Warnung bestätigt, wird der Block gesperrt. Haben Testpersonen den Block noch nicht vollständig bearbeitet, ist es nicht mehr möglich die Bearbeitung fortzusetzen.
+
+> **IMPORTANT:**
+>
+> Existieren zeitbeschränkte Blöcke in einem Testheft, können diese gesperrt werden, wenn die Studie beendet wird. Eventuell haben Testpersonen noch nicht alle Aufgaben eines Blocks bearbeitet und können nach Beendigung der Studie nicht mehr auf den Block zugreifen.
+
+**Verlassen bei aktiven Navigationsbeschränkungen:**
+
+Je nach Konfiguration können Aufgaben nur verlassen werden, wenn Pflichtelemente bearbeitet oder alle Bestandteile einer Aufgabe gesehen oder angehört wurden (presentation-/ response-complete). Befinden sich Personen zum Zeitpunkt der Beendigung in einer solchen Aufgabe und sind die genannten Bedingungen noch nicht erfüllt, kann eine Warnung angezeigt werden. Es sollten dann erst die Bedingungen zum Verlassen der Aufgabe erfüllt werden, bevor die Studie beendet werden kann.
+
+# Studie fortsetzen
+
+Je nach Konfiguration kann das Testheft nach Beendigung der Studie fortgesetzt werden. Auf der Seite der Testheftübersicht ist dann unterhalb des entsprechenden Testheftes der Text: **Fortsetzen** zu sehen. Nach einem Klick auf das Testheft, setzt die Studie an der Stelle fort, an der sie beendet wurde. Die zuvor gegebenen Antworten sind vollständig erhalten und einsehbar. Ist das Testheft deaktiviert, ist in der Testheft-Konfiguration eine Sperrung der Studie vorgesehen, wenn diese beendet wird.
+
+> **NOTE:**
+>
+> Falls ein Gruppenmonitor zur Steuerung eingesetzt wird, kann auch mit Hilfe des Monitors die Studie beendet oder fortgesetzt werden. Mehr dazu ist in dem Kapitel **Gruppenmonitor** zu entnehmen.
+
+Zurück nach oben

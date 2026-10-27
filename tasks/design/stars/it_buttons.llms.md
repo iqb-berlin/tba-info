@@ -1,0 +1,362 @@
+# StarS: Interaktionstyp `BUTTONS`
+
+Dieser Interaktionstyp enthält im typischen Szenario `BUTTONS` ein großes Bild und einige Buttons. Wenn keine Buttons definiert werden, wird nur das Bild dargestellt (z. B. “Das ist die richtige Lösung”). In dieser reduzierten Variante sollte als Interaktionstyp `IMAGE_ONLY` gesetzt werden.
+
+Nachfolgend werden zunächst die häufigsten Varianten als Bild gezeigt und darunter die jeweils dafür nötige Unitdefinition vollständig in einem Code-Fenster dargestellt. Dazu bitte auf **Unitdefintion JSON** klicken (ausklappen). Man kann über einen kleinen Button oben rechts im Code-Fenster die Syntax in die Zwischenablage kopieren und dann im Ziel einfügen. Es müssen dann anschließend Text sowie die Audio- und Bilddefinitionen ersetzt werden.
+
+[![](assets/buttons3.png)](assets/buttons3.png)
+
+Unitdefintion JSON
+
+``` json
+{
+  "id": "stars-unit-definition",
+  "version": "0.12",
+  "backgroundColor": "#E1E9FF",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAA.......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "buttonType": "MEDIUM_SQUARE",
+    "multiSelect": false,
+    "numberOfRows": 2,
+    "options": {
+      "buttons": [
+        {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        },
+        {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        },
+        {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        },
+        {
+                "imageSource": "data:image/png;base64,iVBORw0KGgoAAAA...."
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "2",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+[![](assets/buttons1.png)](assets/buttons1.png)
+
+Achtung: Im Beispiel oben kann man mehrere Optionen anklicken (`multiSelect": true`). Die Kodierung ist entsprechend angepasst.
+
+Unitdefintion JSON
+
+``` json
+{
+  "id": "stars-unit-definition",
+  "version": "0.19",
+  "backgroundColor": "#E1E9FF",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAAA.....",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "variableId": "BUTTONS",
+    "imageSource": "",
+    "layout": "LEFT_CENTER",
+    "text": "",
+    "buttonType": "BIG_SQUARE",
+    "multiSelect": true,
+    "numberOfRows": 2,
+    "options": {
+      "buttons": [
+        {
+          "text": "A"
+        },
+        {
+          "text": "B"
+        },
+        {
+          "text": "C"
+        },
+        {
+          "text": "D"
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "0101",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+[![](assets/buttons2.png)](assets/buttons2.png)
+
+Unitdefintion JSON
+
+``` json
+{
+  "id": "stars-unit-definition",
+  "version": "0.19",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAA..............",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4A......",
+    "layout": "LEFT_CENTER",
+    "buttonType": "TEXT",
+    "multiSelect": false,
+    "options": {
+      "buttons": [
+        {
+          "text": "Fisch"
+        },
+        {
+          "text": "Tisch"
+        },
+        {
+          "text": "Chaiselonge"
+        },
+        {
+          "text": "Stuhl"
+        }
+      ]
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "VALUE",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "2",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+[![](assets/buttons4.png)](assets/buttons4.png)
+
+Achtung: Im Beispiel oben kann man mehrere Optionen anklicken (`multiSelect": true`). Die Kodierung zielt auf die Summe der angeklickten Buttons ab.
+
+Unitdefintion JSON
+
+``` json
+{
+  "id": "stars-unit-definition",
+  "version": "0.7",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAA......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "imageSource": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA.....",
+    "imagePosition": "TOP",
+    "buttonType": "SMALL_SQUARE",
+    "multiSelect": true,
+    "options": {
+      "repeatButton": {
+        "option": {
+          "icon": "CLAP_HANDS"
+        },
+        "numberOfOptions": 6
+      }
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "SUM",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "3",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+[![](assets/buttons5.png)](assets/buttons5.png)
+
+Achtung: Im Beispiel oben kann man mehrere Optionen anklicken (`multiSelect": true`). Die Kodierung zielt auf die Summe der angeklickten Buttons ab.
+
+Unitdefintion JSON
+
+``` json
+{
+  "id": "stars-unit-definition",
+  "version": "0.7",
+  "backgroundColor": "#3cf",
+  "continueButtonShow": "ALWAYS",
+  "mainAudio": {
+    "audioSource": "data:audio/mpeg;base64,//OEZAAAAAAAAAAAAAAAAAAAA......",
+    "firstClickLayer": false,
+    "animateButton": false,
+    "maxPlay": 0
+  },
+  "interactionType": "BUTTONS",
+  "interactionParameters": {
+    "buttonType": "CIRCLE",
+    "multiSelect": true,
+    "options": {
+      "repeatButton": {
+        "option": {
+          "text": ""
+        },
+        "numberOfOptions": 6
+      }
+    }
+  },
+  "variableInfo": [
+    {
+        "variableId": "BUTTONS",
+        "responseComplete": "ON_ANY_RESPONSE",
+        "codingSource": "SUM",
+        "codes": [
+            {
+                "method": "EQUALS",
+                "parameter": "3",
+                "code": 1,
+                "score": 1
+            }
+        ]
+    }
+  ]
+}
+```
+
+# `variableId`
+
+Die Antwort wird stets mit einer `id` gespeichert. Dies nennt man “Variable”. Der Standard-Wert ist “BUTTONS”. Wenn man eine bestimmte Variablen-ID in den Antwortdaten haben möchte, kann man diesen Wert anpassen.
+
+Diese Variablen-ID wird ggf. im Bereich [Kodierung](../../../tasks/design/stars/responses.llms.md) referenziert.
+
+# Stimulus Image/Text
+
+Zusätzlich oder alternativ zum Haupt-Audio kann Text oder ein Image übergeben werden.
+
+- `imageSource`: Image als base64-kodierter String
+- `layout`: Man kann über die Konstanten die Position des Images relativ zu den Buttons beeinflussen:
+  - `TOP_CENTER`: Image ist oben, Buttons und Image sind horzontal zentriert
+  - `LEFT_CENTER`: Image ist links, Buttons und Image sind vertikal zentriert (Standardwert)
+  - `LEFT_CENTER_50`: Image ist links, Buttons und Image sind vertikal zentriert und nehmen jeweils 50% der Breite ein.
+  - `LEFT_BOTTOM`: Image ist links, Buttons und Image sind vertikal unten ausgerichtet
+- `imageUseFullArea`: Normalerweise versucht der Player, das Image so groß wie möglich darzustellen und achtet dabei darauf, dass der Ort des Audio-Buttons nicht vom Bild erreicht wird. Wenn dieser Parameter auf `true` gesetzt ist, dann wird der Audio-Button ignoriert und überdeckt dann ggf. Teile des Bildes. Man muss in diesem Fall bei der Gestaltung des Bildes einen (möglichen) Audio-Button mitdenken.
+- `text`: Es wird ein Text dargestellt. Sollte außerdem ein Bild definiert sein, dann befindet sich der Text darüber. Der Text wird umgebrochen, wenn zu wenig Platz ist.
+
+# Darstellung der Buttons
+
+``` json
+{
+    "buttonType": "BIG_SQUARE", // <1>
+    "numberOfRows": 2, // <2>
+    "multiSelect": false, // <3>
+    "triggerNavigationOnSelect": false, // <4>
+    "options": { // <5>
+        "buttons": [
+            {
+                "text": "Ja"
+            },
+            {
+                "text": "Nein"
+            }
+        ]
+    }
+}
+```
+
+1.  `buttonType` legt Form, Größe und teilw. Position fest. Es sind Quadrate in verschiedenen Größen (`EXTRA_LARGE_SQUARE`, `BIG_SQUARE`, `MEDIUM_SQUARE` Standard, `SMALL_SQUARE`), ein breit gezogenes Rechteck (`LONG_RECTANGLE`), ein hohes schmales Rechteck (`TALL_RECTANGLE`), Text (`TEXT`) und `CIRCLE` als runder Button möglich.
+2.  `numberOfRows`: wenn \> 1, erzwingt dieser Parameter mehrere Zeilen der Button-Darstellung. Der verfügbare Platz spielt dabei keine Rolle. Standardwert ist 1
+3.  `multiSelect` entscheidet, ob mehrere Buttons geklickt werden können
+4.  Wenn `triggerNavigationOnSelect` auf `true` gesetzt ist, dann löst die Auswahl eines Buttons sofort die Navigation zur nächsten Unit aus.
+5.  `options` gibt es in zwei Varianten (s. u.)
+
+## Optionen als `buttons`
+
+In dieser Variante (s. Beispiel oben) muss jeder Button einzeln definiert werden. Mögliche Datenstrukturen an dieser Stelle:
+
+- Objekt mit einem Parameter `text`, dessen Wert in dem Button angezeigt wird,
+- Objekt mit den Parametern `imageSource` (base64-kodiertes Bild), `label` für eine textliche Beschreibung der Option für spätere Auswertungen und `audioSource`. Der letzte Parameter führt zur Anzeige eines kleinen Play-Buttons in der Nähe des Buttons. Bei einem Klick darauf wird die Audio-Sequenz abgespielt. Dies kann zum Vorlesen der Option genutzt werden.
+- Objekt mit dem Parameter `icon` mit den möglichen Werten `SMILEY_1`..`SMILEY_5`, `CHECK_GREEN`, `CLOSE_RED` und `CLAP_HANDS` möglich.
+
+## Optionen als `repeatButton`
+
+Hier wird nur ein Button definiert, der dann aber vervielfältigt wird:
+
+``` json
+{
+    "options": {
+        "repeatButton": {
+            "option": {
+                "icon": "CLAP_HANDS"
+            },
+            "numberOfOptions": 3
+        }
+    }
+}
+```
+
+# Antwortwert
+
+Die Antwortdaten folgen der [Standardstruktur](../../../coding/data-structures/response.llms.md) des IQB. Als `id` wird die gewählte `variableId` bzw. der Standard `BUTTONS` gesetzt, und der Status wäre zunächst `VALUE_CHANGED` (zur Kodierung siehe [hier](../../../tasks/design/stars/responses.llms.md)).
+
+Für `value` muss unterschieden werden, ob `multiSelect` gesetzt wurde:
+
+- `multiSelect` `true`: Der Antwortwert ist ein String. Jedes Zeichen ist `0` oder `1` und steht für einen Button, ob er gewählt wurde oder nicht.
+- `multiSelect` `false`: Der Antwortwert ist eine Zahl mit der Position des gewählten Buttons. `1` steht für den ersten Button.
+
+Zurück nach oben

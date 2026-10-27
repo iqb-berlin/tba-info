@@ -1,0 +1,292 @@
+# Testtaker-XML
+
+Veröffentlichungsdatum
+
+7\. September 2026
+
+> **TIP:**
+>
+> Grundlagenwissen zum Aufbau einer XML ist [hier](../../../study-run/preparation/test-files/basics-xml.llms.md) zu finden.
+
+``` mermaid
+flowchart LR
+  A[Basis-Pakete für Player] --> B[Player]
+  B --> C[Units]
+  C --> D[Booklets]
+  D --> E[Testtakers]
+  style E fill:#a0e3f3
+```
+
+# Handhabung der Logins
+
+Die Handhabung der Testtaker-XML zur Steuerung der Logins ist ein kritischer Punkt der Testdurchführung. Bitte beachten Sie folgende Hinweise:
+
+- Sie können mehrere Testtaker-XML hochladen. Die Logins werden trotzdem in einer gemeinsamen Liste geführt. Die Aufteilung der Logins in verschiedene Dateien ist also aus Sicht des Testcenters ohne Bedeutung. Sie folgt nur praktischen Erwägungen der Testorganisation.
+- Sofort nach dem Hochladen einer Testtaker-XML sind die darin enthaltenen Logins freigeschaltet[^1].
+- Das Löschen einer Testtaker-XML verhindert sofort, dass die darin enthaltenen Logins benutzt werden können. Die Antwortdaten sind davon nicht betroffen, d. h. diese werden nicht gelöscht.
+- Die Benutzernamen der Logins müssen eindeutig sein für die gesamte Testcenter-Installation. Es kann also passieren, dass das Hochladen einer Testtaker-XML abgewiesen wird, weil in einem anderen Arbeitsbereich derselbe Benutzername definiert wurde. Nehmen Sie daher nicht zu kurze Benutzernamen oder stimmen Sie sich mit anderen Studien auf derselben Testcenter-Installation ab.
+- Wenn Sie Logins erneut hochladen, die Sie vorher gelöscht hatten und die bereits benutzt wurden, dann sind die alten Antworten ggf. wieder verfügbar[^2]. Sollten Sie für diese Logins den Testmodus geändert haben, riskieren Sie den Verlust von Antwortdaten.
+
+# Aufbau
+
+Das Beispiel zeigt Testtaker-XML.
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<Testtakers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="https://w3id.org/iqb/spec/testcenter-testtaker-xml/18.0"> # <1>
+
+  <Metadata> # <2>
+    <Description></Description> # <2>
+  </Metadata> # <2>
+
+  <CustomTexts> # <3>
+    <CustomText key="booklet_codeToEnterTitle">Bitte Code eingeben</CustomText>
+  </CustomTexts> # <3>
+
+  <Profiles> # <4>
+    <GroupMonitor>
+      <Profile
+        id="small"
+        label="Superklein"
+        blockColumn="hide"
+        unitColumn="hide"
+        groupColumn="hide"
+        bookletColumn="hide"
+        bookletStatesColumns=""
+        view="small"
+        filterLocked="yes"
+        filterPending="yes"
+      >
+        <Filter label="Reduced Booklet" type="equal" field="bookletLabel" value="Reduced Booklet" />
+      </Profile>
+      <Profile
+        id="all"
+        label="Alles zeigen"
+        blockColumn="show"
+        unitColumn="show"
+        groupColumn="show"
+        bookletColumn="show"
+        bookletStatesColumns="level bonus"
+        view="full"
+        filterLocked="no"
+        filterPending="no"
+        autoselectNextBlock="no"
+      >
+      </Profile>
+    </GroupMonitor>
+  </Profiles> # <4>
+
+  <Group id="sample_group" validFrom="1/3/2020 10:00" label="Primary Sample Group"> # <5>
+
+    <AssetAssignments> # <6>
+      <Asset slot="logo">bildLogo-1.png</Asset>
+      <Asset slot="codeInputIllustration">bildCode.jpg</Asset>
+    </AssetAssignments> # <6>
+
+    <Login mode="run-hot-return" name="test" pw="user123"> # <7>
+      <Booklet>BOOKLET.SAMPLE-1</Booklet> # <8>
+      <AssetAssignments>
+        <Asset slot="logo">bildLogo-2.png</Asset>
+      </AssetAssignments>
+      <ViewSettings> # <9>
+        <theme>Primar</theme>
+        <codeInput>
+          <type>text-field</type>
+          <length>3</length>
+        </codeInput>
+        <monitorBookletVisibility>hidden</monitorBookletVisibility>
+      </ViewSettings> # <9>
+    </Login> # <7>
+
+    <Login mode="run-hot-return" name="test2" pw="user123">
+      <Booklet>BOOKLET.SAMPLE-2</Booklet>
+      <ViewSettings>
+        <theme>Sekundar</theme>
+        <codeInput>
+          <type>keypad-numbers</type>
+          <length>3</length>
+        </codeInput>
+      </ViewSettings>
+    </Login>
+    
+    <Login mode="monitor-group" name="test-group-monitor" pw="user123"> 
+      <Profile id="all"/> # <10>
+      <Profile id="small"/> # <10>
+      <ViewSettings>
+        <monitorBookletVisibility>hidden</monitorBookletVisibility>
+      </ViewSettings>
+    </Login> #
+    <Login mode="sys-check-login" name="sys-check" />
+  </Group> # <5>
+
+</Testtakers>
+```
+
+1.  `<Testtakers>`: Verweis auf XML-Schema, das eine maschinenlesbare Liste aller möglichen Syntax-Elemente einer XML-Datei ist. Viele Text-Editoren benutzen die Angabe `xsi:noNamespaceSchemaLocation` zur Validierung, und auch das IQB-Testcenter prüft darüber, ob die Syntax korrekt ist. Bitte nutzen Sie die jeweils aktuelle Version.
+2.  `<Metadata>`: Ist notwendig, auch wenn es leer ist. Man kann innerhalb dieses Elementes ein `Description`-Element einfügen, um Erläuterungen zu hinterlegen. Diese werden jedoch an keiner Stelle verwendet – sind also nur zur Verbesserung des Lesens dieser XML gedacht.
+3.  `<CustomTexts>`: Im Feld `<CustomText>` können key-value-Paare hinterlegt werden, die bestimmte Texte innerhalb der Testcenter-Installation überschreiben. Die Key-Werte sind in einer separat dokumentiertenListe hinterlegt (siehe “weitere Links” rechts).
+4.  `<Profiles>`: Hier können Profile für den Gruppenmonitor definiert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.
+5.  `<Group>`: Innerhalb einer Gruppe werden Logins definiert. Es können mehrere Gruppen angelegt werden. Es muss mindestens ein Group-Element geben. Logins können nicht außerhalb einer Gruppe liegen. Die `id` muss eindeutig innerhalb des gesamten Arbeitsbereiches sein, also über alle Testtaker-XML hinweg. Wird ein Gruppenmonitor Login in einer Gruppe angelegt, kann dieser alle Logins in dieser Gruppe anzeigen und steuern. Alle Antworten und Logs eines Logins werden unter dem Gruppennamen (`label`) im Arbeitsbereich unter Antworten gespeichert.
+6.  `<AssetAssignments>`: Hier können Assets (z. B. Bilder) für die Logins der Gruppe zugewiesen werden. Die Assets werden über ihren Slot referenziert und müssen im Adminbereich gespeichert sein. AssetAssignments können auch noch einmal einem Login zugewiesen werden. Die AssetAssignments innerhalb eines Logins überschreiben dann die AssetAssignments der Gruppe.
+7.  `<Login>`: Über das Attribut `mode` wird eine Vielzahl von Funktionen des Testcenters gesteuert ([s. unten](#login-modus)). Benutzername `name` und Kennwort `pw` stehen für die gängigste Anmeldemethode ([s. unten](#varianten-des-anmeldeverfahrens)).
+8.  `<Booklet>`: Es kann mehrere Booklet-Elemente geben pro Login. Das Booklet wird über seine ID referenziert und muss im Arbeitsbereich gespeichert sein.
+9.  `<ViewSettings>`: Hier können Einstellungen für die Ansicht der Logins innerhalb einer Gruppe vorgenommen werden. Welche Einstellungen möglich sind, ist der automatisierten Dokumentation zu entnehmen.
+10. `<Profile>`: Hier können Profile für den Gruppenmonitor Login innerhalb der Gruppe referenziert werden. Diese steuern, welche Spalten in der Übersicht angezeigt werden und welche Filtermöglichkeiten zur Verfügung stehen. Die Profile werden über ihre ID referenziert und müssen im Arbeitsbereich gespeichert sein.
+
+> **TIP:**
+>
+> Alle hier beschriebenen Elemente sind auch in einer [automatisierten Dokumentation](https://iqb-specifications.github.io/testcenter-testtaker-xml) zu finden. Die Liste der optionalen Custom-Text key-value-Paare ist separat dokumentiert (siehe “weitere Links” rechts).
+
+# Login-Modus
+
+Über das Attribut `mode` im `<Login>` wird festgelegt, wie die Testung abläuft. Es stehen unterschiedliche Modi zur Verfügung. Jeder Modus bietet eine andere Funktionalität der Testdurchführung.
+
+> **CAUTION:**
+>
+> Eine Tabelle, die detailliert alle funktionellen Unterschiede der Modis aufzeigt, ist rechts unter “weitere Links” zu finden.
+
+# 
+
+## Testperson: `run-hot-return`, `run-hot-restart`
+
+Dies sind die üblichen Rollen einer Person, die an einem Test oder einer Befragung teilnehmen soll. Man bekommt nach dem Ladevorgang nacheinander die vorbereiteten Seiten präsentiert, antwortet über Texteingaben, Ankreuzen, Verschieben usw., und die Antworten werden auf dem Server gesammelt für die Auswertung. Restriktionen der Testdurchführung – z. B. Zeitbeschränkungen – sind genau so wirksam, wie im Booklet-XML definiert.
+
+- `run-hot-return`: Wenn sich die Testperson zu einem späteren Zeitpunkt erneut anmeldet, sind alle Antworten wiederhergestellt und die Person setzt den Test dort fort, wo sie ihn verlassen hat. Zeitbeschränkungen haben pausiert, d. h. man kann verbliebene Bearbeitungszeit nutzen. Dieser Modus erlaubt es also z. B., bei Problemen die Testdurchführung abzubrechen und mit einem anderen Browser oder Computer fortzusetzen.
+- `run-hot-restart`: Eine erneute Anmeldung erzeugt auf dem Server eine komplett neue Testperson. Antworten können demnach nicht fortgesetzt werden nach einmaligen Verlassen der Testung. Dieser Modus ist gedacht für Befragungen, wenn der Kreis der Befragten vorher nicht bekannt ist. Man kann eine Einladung zur Befragung an einen großen Personenkreis verschicken und bereitet dafür nur ein Login vor. Die Personen sehen nicht die Antworten der anderen, fangen aber nach einer erneuten Anmeldung wieder beim Ausgangszustand an.
+
+## Testfortschritt beobachten und steuern: `monitor-group`, `monitor-study`
+
+Das Testcenter bietet die Möglichkeit, alle Logins eines Group-Elementes – also einer Testgruppe z. B. Klasse – im Fortschritt zu beobachten und zu steuern. Hierfür ist die Rolle eines Gruppenmonitors mit zahlreichen Funktionen verfügbar. Eine ausführliche Dokumentation [finden Sie hier](../../../study-run/run/groupmon/index.llms.md).
+
+- `monitor-group`: Diese Anmeldung ist für Lehrkräfte oder Testleitungen vor Ort gedacht. Man kann sich alle Testhefte, die den Personen der Gruppe zugewiesen sind, anschauen, und kann direkt einen Schüler ansprechen, bei dem man ein auffälliges Verhalten sieht (z. B. Verlassen des Browserfensters der Testung). Diesem Login kann ein weiteres Attribut zur Steuerung der Ansicht von Testheften hinzugefügt werden. Es trägt den Namen: `monitorBookletVisibility` und kann die Werte: `collapsed`, `visible` oder `hidden` annehmen. Die Werte steuern, ob die Testhefte der Gruppe in der Übersicht des Gruppenmonitors standardmäßig eingeklappt, sichtbar oder versteckt sein sollen.
+- `monitor-study`: Diese Anmeldung ist zwar aus technischen Gründen ebenfalls innerhalb einer Gruppe definiert, bezieht sich aber auf alle Login-Gruppen eines Arbeitsbereiches. Die Rolle dahinter könnte man mit “Hotline” benennen: Während einer Testung mit vielen Klassen ruft jemand an, und im Support möchte man schnell nach dem Bearbeitungsstand der Gruppe schauen und ggf. eingreifen. Nach der Anmeldung erhält man zunächst alle Gruppen zur Auswahl und kann dann gezielt helfen[^3].
+
+## Test ausprobieren (Qualitäts-Check): `run-review`, `run-trial`, `run-simulation`
+
+Ein Test bzw. eine Befragung ist das Ergebnis eines sehr aufwändigen Entwicklungsprozesses. Am IQB sind daran Lehrkräfte, Psychometriker\*innen, Wissenschaftler\*innen aus der Fachdidaktik und Vertreter\*innen aus der Testpraxis beteiligt. Während der Arbeit ist es wiederholt erforderlich, sich die Aufgaben, Zwischenseiten, Blöcke mit ihren Restriktionen und die Tests insgesamt anzuschauen und zu diskutieren.
+
+- `run-review`: Die Antworten werden nur im Browser gespeichert (nicht auf dem Server), damit beim Zurückblättern der Bearbeitungsstand wiederhergestellt werden kann. Es kann eine Dialogbox aufgerufen werden, mit der man Kommentare abschickt, die dann im Arbeitsbereich heruntergeladen werden können. Navigationsbeschränkungen des Booklets werden als Warnung gemeldet, aber nicht angewendet. Bei Ablauf einer Zeitbeschränkung gibt es nur eine Information und keine Zwangsnavigation. Ein ggf. gesetztes Freigabewort `CodeToEnter` ist bereits in die Dialogbox eingetragen. Es ist eine separate Seite mit allen Aufgaben zur direkten Navigation verfügbar.
+- `run-trial`: Die Antworten werden auch auf dem Server gespeichert, um die nachfolgenden Prozesse der Antwortverarbeitung testen zu können. Ansonsten ist dieser Modus mit dem vorherigen identisch.
+- `run-simulation`: Dieser Modus ist für automatische Qualitätsprüfungen im Rahmen der Software-Entwicklung gedacht. Antworten und Logs werden nicht auf dem Server gespeichert, aber Navigationsbeschränkungen, Zeitbeschränkungen und nötige Freigabeworte `CodeToEnter` sind so aktiviert, wie es für die Testperson zutreffen würde.
+
+## Demo: `run-demo`
+
+Oft gibt es den Wunsch, Interessierten beispielhaft einen Einblick in Testungen zu geben. Eltern, Lehrkräfte oder Verantwortliche in den Ländern möchten wissen, was auf die Schulen bzw. Schüler\*innen zukommt. Auch Wissenschaftler\*innen mögen Interesse an Itemformaten und dem allgemeinen Layout einer Aufgabe haben. Hierfür können Aufgabenfolgen zusammengestellt werden.
+
+Für diese Art der Nutzung des Testcenters steht der Modus `run-demo` zur Verfügung. Es erfolgt serverseitig keine Speicherung, Navigations- und Zeitbeschränkungen werden ignoriert, ein ggf. gesetztes Freigabewort `CodeToEnter` ist bereits in die Dialogbox eingetragen.
+
+# Varianten des Anmeldeverfahrens
+
+## Richtlinien
+
+Für die nachfolgenden `<Login>`-Parameter Name (`name`), Kennwort (`pw`) und Code (`code`) müssen geeignete Kombinationen aus Buchstaben und Ziffern gefunden werden. Beachten Sie für Testdurchführungen folgende Hinweise:
+
+- Die Zeichen müssen gut merkbar sein, damit bei der Übertragung vom Zettel in den Computer kein Fehler passiert.
+- Die Tasten sollen auf der Computer-Tastatur gut findbar sein.
+- Es sollte zur Eingabe nur eine Taste nötig sein. Großbuchstaben und die meisten Sonderzeichen sind also ungünstig.
+- Die Zeichen müssen gut lesbar sein: Optisch sehr ähnliche Zeichen wie `n` und `m` oder `1` und `l` sind zu vermeiden.
+- Die Codes müssen gut sprechbar und akustisch verständlich sein: Sollte z. B. die Testleiterin einem Schüler den Code ansagen, darf es keine Fehler geben.
+- Es sollte keine Gefahr bestehen, dass durch nicht erkannte Zeichenkodierung von Dateien Probleme mit Sonderzeichen (Umlaute!) auftreten.
+- Es sollten keine fortlaufenden oder Serien-Codes verwendet werden. Wenn Schüler\*innen mitbekommen, dass die Logins nach dem Schema `gxst1`, `gxst2` usw. vergeben wurden, probieren sie schon mal `gxst9`.
+
+Das IQB verwendet folgende Zeichengruppen:
+
+- Buchstaben: `abcdefghprqstuvxyz`
+- Ziffern: `2345679`
+
+Ein Code beginnt am IQB stets mit einem Buchstaben. Danach wechseln sich Ziffern und Buchstaben ab, damit man nicht versucht ist, Worte zu bilden: `affe` könnte zu Irritation führen, wenn man Groß-/Kleinschreibung hinterfragt oder die Konsonantendopplung vergisst.
+
+> **TIP:**
+>
+> Das Windows-Programm [itc-ToolBox](https://github.com/iqb-berlin/itc-toolbox/blob/master/docs/manual-codes.md) erzeugt Listen von Codes unterschiedlicher Länge nach den obigen Richtlinien. Diese sind auch eindeutig, kommen also nicht mehrfach vor.
+
+## Klassisch: Anmeldename und Kennwort
+
+Diese Anmeldeform wird üblicherweise erwartet. Im Eingabeformular der Startseite einer Testcenter-Installation wird der Anmeldename im Klartext gezeigt, die Eingabe des Kennwortes erzeugt aber nur Punkte, d. h. man kann nicht mitlesen. Ein Klick auf das Auge-Symbol macht auch das Kennwort lesbar, was bei der Testdurchführung für die Fehlersuche hilfreich ist.
+
+> **IMPORTANT:**
+>
+> Ein Anmeldename darf nicht mehrfach vorkommen auf einer Testcenter-Installation. Sollte ein Anmeldename bereits in einem anderen Arbeitsbereich vergeben worden sein, scheitert das Hochladen der Testtakers-XML in das Testcenter.
+
+## Nur Anmeldename (URL)
+
+Das Kennwort kann weggelassen werden. Diese Anmeldeform eignet sich besonders für folgende Szenarien:
+
+- Man möchte den Anmeldeprozess stark vereinfachen. Die Testpersonen bzw. die Befragten sehen eine komplizierte Anmeldung kritisch und man möchte die Motivation zur Teilnahme nicht gefährden.
+- Man möchte über eine URL sofort den Ladevorgang starten und den Test beginnen. Ohne ein Kennwort ist dies möglich, indem man eine URL nach folgendem Schema nutzt: `https://www.iqb-testcenter.de/#/u8h5m2a4c3x2f2g8`. Hinter der URL der Testcenter-Installation folgt zunächst `/#/` und dann der Anmeldename. Dies erlaubt
+  - Zugriff über QR-Codes: Schüler\*innen scannen mit dem Tablet einen personalisierten Code und springen mit Hilfe der URL sofort in den Test
+  - Zugriff über Link in E-Mail: Bei Befragungen mit unbekanntem Personenkreis lädt ein Link eher dazu ein teilzunehmen als mehrere Anmeldedaten
+  - Zugriff in einem Integrationsszenario: Die Schüler\*innen sind in einem Lernmanagement-System angemeldet und sollen einen Test absolvieren. Den personalisierten Link kann man automatisch erzeugen und ein Klick darauf startet den Test. Wenn dann die Testcenter-Installation eine ähnliche Gestaltung hat (Farbe, Logo), merkt die Testperson nicht, dass sie das Lernmanagementsystem verlassen hat.
+
+## Zweistufig: Personencode
+
+Es kann sein, dass die Testleitung Zeit hat, vor Eintreffen der Schülerinnen und Schüler alle Computer zu starten, einen lokalen Standard-Benutzer anzumelden, den Browser zu starten und die richtige Internet-Adresse aufzurufen. Dann ist es auch hilfreich, wenn auf jedem Computer schon Anmeldename und Kennwort eingegeben werden kann und also ein Anmeldeprozess gestartet wird. Anmeldename und Kennwort sind dann für die Gruppe gleich. Es reicht dann anschließend die Eingabe eines kurzen Personencodes durch die Testperson, um eine eindeutige Identifizierung sicherzustellen. Man spart so Testzeit und vermeidet Fehleingaben. Dieses Szenario bietet sich z. B. an, wenn man den Test nicht in der Schule, sondern in dem eigenen oder einem angemieteten Computer-Lab durchführt.
+
+``` xml
+<Login mode="run-hot-return" name="e3p2p" pw="h7u5">
+  <Booklet codes="x4u t5a z9i">Booklet1</Booklet>
+  <Booklet codes="r3c k6f">Booklet2</Booklet>
+</Login>
+```
+
+Personencodes gelten spezifisch für Booklets. Mehrere Codes können in einem Booklet-Element im Attribut `code` zusammengefasst werden mit einem Leerzeichen dazwischen. Im obigen Beispiel wurden also Logins für fünf Personen definiert. Für den [Gruppenmonitor](../../../study-run/run/groupmon/index.llms.md) ist dies nicht relevant, d. h. es werden normale Testsitzungen erzeugt.
+
+## Zeitbeschränkung einer Anmeldung
+
+Es kann eine zeitliche Gültigkeit für eine Anmeldung bestimmt werden. Hierfür werden der Anmeldegruppe wahlweise die Attribute: `validTo`, `validFrom` und `validFor` hinzugefügt.
+
+``` xml
+<Group id="TestakerGroup1" label="TestakerGroup1"
+       validFrom="17/02/2022 10:00">
+  ...
+</Group>
+```
+
+``` xml
+<Group id="TestakerGroup1" label="TestakerGroup1"
+       validFor="20">
+  ...
+</Group>
+```
+
+`validFor` legt fest, in welchem Zeitraum eine erneute Anmeldung möglich ist.
+
+# Adaptives Testen
+
+In der Testtaker-XML können zum Laden eines Testheftes Werte für das adaptive Testen übergeben werden. Welche Werte möglich sind und welche Bedeutung diese haben, ist dem Kapitel [Adaptives Testen](../../../study-run/preparation/adaptive/index.llms.md) zu entnehmen.
+
+# Angepasste Texte: CustomTexts
+
+Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Eingabeaufforderung oder Warnung usw. gezeigt werden, können – **spezifisch für die Logins dieser XML** – geändert werden.
+
+``` xml
+  <CustomTexts> # <1>
+    <CustomText key="login_testEndButtonText"> # <2>
+       Test beenden # <3>
+    </CustomText>
+  </CustomTexts>
+```
+
+1.  Das `CustomTexts`-Element muss direkt hinter dem Metadaten-Element eingefügt werden.
+2.  Über das Attribut `key` referenziert man einen bestimmten Eintrag aus der Liste (s. u.).
+3.  Im Inhalt des `CustomText`-Elementes wird der neue zu verwendende Text platziert.
+
+Beispiele:
+
+- Ansprache der Testperson ändern: “Du” oder “Sie”?
+- Bezeichnung der Studie ändern: Ist es eine “Evaluation” oder eine “Lernausgangslage”?
+
+> **TIP:**
+>
+> Alle hier beschriebenen key-value Paare sind separat zu dokumentiert und unter “weitere Links” rechts zu finden.
+
+Zurück nach oben
+
+## Fußnoten
+
+[^1]: Nur wenn Sie die Attribute für Zeitrestriktionen in den Logins benutzen, wird die Freischaltung darüber gesteuert. Zeitbeschränkungen sind allerdings manchmal problematisch im praktischen Einsatz, da man schnell den Überblick verliert und die Flexibilität eingeschränkt ist (adhoc-Verschiebung eines Tests auf den nächsten Tag).
+
+[^2]: Dies hängt vom Testmodus ab. Nur bei der regulären Testdurchführung `run-hot-return` werden Antworten wiederhergestellt.
+
+[^3]: Als Admin eines Arbeitsbereiches kann man sich auch den Fortschritt aller Gruppen anzeigen lassen als Liste.

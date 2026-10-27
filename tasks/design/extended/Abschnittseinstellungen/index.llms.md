@@ -1,0 +1,93 @@
+# Abschnittseinstellungen
+
+Die Abschnitte einer Seite lassen sich verschieben, kopieren, nummerieren und mehr. Klicken Sie auf einen Abschnitt, wird dieser umrandet und eine Reihe von pinken Knöpfen erscheint neben dem Abschnitt.
+
+[![](Grafiken/abschnitt_knopf_elementliste.png) Elementliste](#elementliste)
+
+[![](Grafiken/abschnitt_knopf_farbe.png) Hintergrundfarbe](#hintergrundfarbe)
+
+[![](Grafiken/abschnitt_knopf_nummerierung.png) Von der Nummerierung ausnehmen](#von-der-nummerierung-ausnehmen)
+
+[![](Grafiken/abschnitt_knopf_sichtbarkeit.png) Sichtbarkeit](#sichtbarkeit)
+
+[![](Grafiken/abschnitt_knopf_layout.png) Layout](#layout)
+
+[![](Grafiken/abschnitt_knopf_kopieren.png)![](Grafiken/abschnitt_knopf_paste.png) Abschnitt kopieren/einfügen](#abschnitt-kopiereneinfügen)
+
+[![](Grafiken/abschnitt_knopf_nachoben.png)![](Grafiken/abschnitt_knopf_nachunten.png) Abschnitt verschieben](#abschnitt-nach-obenunten-verschieben)
+
+[![](Grafiken/abschnitt_knopf_duplizieren.png) Abschnitt duplizieren](#abschnitt-duplizieren)
+
+[![](Grafiken/abschnitt_knopf_loschen.png) Abschnitt löschen](#abschnitt-löschen)
+
+## Elementliste
+
+In der Elementliste werden alle Elemente (z. B. Text, Audio, Grafiken) angezeigt, die in dem Abschnitt vorhanden sind.
+
+Hier werden die IDs der Elemente sowie die dazugehörigen Symbole angegeben. Diese Symbole sind auch im Menü auf der linken Seite zu sehen.
+
+Nutzen Sie die Elementliste, um nach Elementen zu suchen, die von anderen Elementen verdeckt werden. Beachten Sie, dass Elemente, die Teil von Verbundelementen sind, nicht angezeigt werden. Sie sehen z. B. einen Lückentext in der Elementliste, nicht aber die Eingabefelder, die im Lückentext eingebettet sind.
+
+## Hintergrundfarbe
+
+Mit der Funktion Hintergrundfarbe können Sie die Hintergrundfarbe eines Abschnitts ändern. Diese Farbe gilt für den gesamten Abschnitt und liegt hinter allen Elementen. Elemente selbst können mit einem transparenten Hintergrund versehen werden, sodass die Farbe des Abschnitts sichtbar wird.
+
+## Von der Nummerierung ausnehmen
+
+Wenn Sie eine Nummerierung für eine Aufgabe einstellen kann es sein, dass Sie manche Abschnitte von der Nummerierung ausnehmen möchten, weil z.B. ein Item aus mehreren Abschnitten besteht. Sie können dann den Abschnitt, der nicht nummeriert werden soll, mit diesem Knopf von der Nummerierung ausnehmen. Die Nummerierung wird dann automatisch angepasst, sodass keine weiteren Einstellungen nötig sind. Weitere Informationen zur Nummerierung finden Sie [hier](../../../../tasks/design/extended/Seiten/index.llms.md#nummerierung)
+
+## Sichtbarkeit
+
+Über die Funktion „Sichtbarkeit“ öffnen sich die Sichtbarkeitseinstellungen. Weitere Details dazu finden Sie [hier](../../../../tasks/design/extended/Hervorhebungen_Sichtbarkeiten/index.llms.md)
+
+## Layout
+
+Mit dem Layout-Knopf lässt sich das Layout des gewählten Abschnitts bearbeiten. Voreingestellt sind die dynamischen Varianten des Layouts. Das Layout umfasst Anzahl und Größe der Spalten und Zeilen im Raster, in dem die Elemente der Aufgabe positioniert werden.
+
+### Dynamisches Layout
+
+Wenn die Option *dynamisches Layout* nicht ausgewählt ist, passt sich der Abschnitt nicht mehr an die Seitenbreite an.
+
+### Zeilen
+
+In seltenen Fällen ist es nützlich, die genaue Höhe der Zeilen zu bestimmt, etwa wenn eine Aufgabe ein grafisches Element mit genauen Maßen enthält, auf dem gearbeitet werden soll. In diesem Fall können Sie den Haken bei *dynamische Höhe* entfernen. Anschließen müssen Sie die genaue Höhe des Abschnitts in Pixeln angeben. Dann können Sie den Abschnitt in Zeilen unterteilen, die entweder auch eine feste Höhe in Pixeln (Bildpunkten) erhalten, oder einen Anteil der nicht fest zugewiesenen Höhe einnehmen.
+
+### Spalten
+
+Wenn Sie Elemente genau positionieren wollen kann es sinnvoll sein, den Haken bei *dynamische Breite* zu entfernen. Dann können Sie den Abschnitt in Spalten unterteilen, die entweder auch eine feste Höhe in Pixeln (Bildpunkten) erhalten, oder einen Anteil der nicht fest zugewiesenen Höhe einnehmen.
+
+Beispielsweise lassen sich so manchmal Bilder für Drag & Drop Aufgaben optisch besser positionieren, als es mit den Assistenten möglich ist.
+
+## Abschnitt kopieren/einfügen
+
+![](Grafiken/abschnitt_einfugen_bsp.png)
+
+Mit dem Knopf *Abschnitt kopieren* lässt sich ein ganzer Abschnitt in die Zwischenablage kopieren. Dieser lässt sich dann mit dem Knopf *Abschnitt einfügen* zum Beispiel in einer anderen Aufgabe einfügen.
+
+Wenn ein Abschnitt kopiert wurde und in der gleichen Aufgabe wieder eingefügt wird, findet dies zumeist mit der ersten Variante des Einfügens statt:
+
+![](Grafiken/abschnitt_einfugen_eins.png)
+
+Wenn ein Abschnitt in eine andere Aufgabe in den gleichen oder auch in einen anderen Arbeitsbereich eingefügt wird, passiert dies über die Zwischenablage. Dafür klicken Sie in den leeren Rahmen und fügen über Strg+V oder Rechtsklick + Einfügen den kopierten Abschnitt ein.
+
+Dabei kann es passieren, dass „Doppelte IDs festgestellt” wurden.
+
+![](Grafiken/abschnitt_einfugen_doppelt.png)
+
+In diesem Fall werden automatisch neue IDs durch das Studio vergeben. Es ist allerdings sinnvoll nach dem Einfügen und vor dem nächsten Speichervorgang des Studios zu überprüfen, ob wirklich neue IDs erstellt wurden, da es bei dem Einfügen zu Fehlern kommen kann und die Aufgabe bei doppelten IDs nicht mehr bearbeitbar ist. Nutzen Sie dazu die Elementlisten der Abschnitte.
+
+Zudem kann ausgewählt werden, ob der bestehende Abschnitt gelöscht werden oder weiter bestehen soll.
+
+## Abschnitt nach oben/unten verschieben
+
+Mit den Knöpfen *nach oben verschieben* und *nach unten verschieben* kann ein einzelner Abschnitt nach oben oder unten verschoben werden und tauscht somit den Platz des vorherigen/nachherigen Abschnitts.
+
+## Abschnitt duplizieren
+
+Mit der Funktion *duplizieren* kann ein Abschnitt dupliziert werden. Der duplizierte Abschnitt ordnet sich dann unter dem Original-Abschnitt ein.
+
+## Abschnitt löschen
+
+Mit der Funktion *löschen* kann ein ganzer Abschnitt gelöscht werden.
+
+Zurück nach oben

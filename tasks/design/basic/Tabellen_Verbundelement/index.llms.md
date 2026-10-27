@@ -1,0 +1,59 @@
+# Verbundelement Tabelle
+
+![](Grafiken/tabelle_egf_bsp.png)
+
+## Tabelle
+
+Der „Verbund: Tabelle“ hilft Ihnen beim Erstellen von Aufgaben mit Tabellen.
+
+## Tabellen Eigenschaften
+
+Nachdem Sie auf das (Verbund-)Element „Tabelle“ geklickt haben, wird automatisch eine Tabelle mit jeweils zwei Spalten und Zeilen generiert. Im rechten Reiter „Eigenschaften“ können Sie vielfältige Einstellungen im Tabellenelement („toolbox.table“) vornehmen.
+
+![](Grafiken/Tabelle_Toolbox.png)
+
+Neben der Anpassung der ID (z. B.: „table_1“) können Sie mit einem Klick auf den „Elemente anpassen“-Knopf in einzelne Tabellenzellen Elemente aus dem Editor einfügen.
+
+![](Grafiken/Tabelle_Element.png)
+
+> **NOTE:**
+>
+> Das sich öffnende Menü für die Auswahl der Tabellenelemente können Sie auch über einen Doppelklick auf die Tabelle öffnen.
+
+Nachdem Sie „Elemente anpassen“ ausgewählt haben, öffnen sich die Tabellenelemente. Hier können Sie durch Klicken auf Plus das jeweilige Element anpassen. Sie können zwischen den Elementen Text, Eingabefeld, Kontrollkästchen, Ablegeliste, Bild und Audio wählen. Das gewünschte Element wird in die Tabelle eingefügt. Es lässt sich ein Element pro Tabellenzelle einfügen.
+
+Jedes angeklickte Element, das in eine Tabellenzelle eingefügt wurde, können Sie im rechten Reiter „Eigenschaften“ separat editieren.
+
+Zudem können Sie die Anzahl der Zeilen und Spalten sowie deren Anteile oder Bildpunkte anpassen. Ob Anteile oder Bildpunkte genutzt werden, entscheiden Sie über einen Klick auf das Wort.
+
+Wenn Sie Außenkanten für die Tabelle einstellen möchten, setzen Sie das Häkchen bei „Tabellenränder zeichnen“.
+
+![](Grafiken/Tabelle_Tabellenrander.png)
+
+Darüber hinaus können Sie mit der Maximalbreite einstellen, wie breit (in Pixeln) die Tabelle maximal sein soll. Dies kann nützlich sein, wenn die Eintragungen oder Elemente in den einzelnen Tabellenzellen sehr kurz sind. Die Breite der Tabelle ist automatisch bereits durch die Seitenbreite begrenzt.
+
+![](Grafiken/Tabelle_Maximalbreite.png)
+
+Eine Maximalbreite können Sie einstellen, indem Sie ein Häkchen bei „Maximalbreite setzen“ setzten und anschließend die Maximalbreite eintragen.
+
+> **TIP:**
+>
+> Möchten Sie die Eigenschaften der Tabelle später anpassen, kann ein gezielter Klick auf die Tabelle an sich (z. B. um es anzupassen) schwierig sein. Mit einem Klick auf den ersten pinken Knopf am Abschnitt („Elementliste“) können Sie gezielter die Tabelle anhand der Tabellen-ID auswählen.
+
+## Elemente editieren
+
+Sie können die Elemente innerhalb der Tabelle einfach anklicken, um sie zu bearbeiten.
+
+Textelemente können wie [hier](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md) beschrieben bearbeitet werden.
+
+Eingabefelder können beschriftet werden oder mit Schreibschutz und Vorbelegung als “Beispiele” in Aufgaben fungieren.
+
+Mit Kontrollkästchen können Felder in der Tabelle angekreuzt werden.
+
+Mit Ablegelisten können Sie Zuordnungsaufgaben in Tabellen anlegen. Genau wie bei den Eingabefeldern können Sie auch hier eine feste Breite einstellen. Zu den Einstellungsmöglichkeiten von Ablegelisten siehe [Ablegeliste](../../../../tasks/design/basic/DaD/DaD_Assistent_Zuordnung/index.llms.md#nachträgliches-bearbeiten).
+
+Bildelemente können wie [hier](../../../../tasks/design/basic/Medienelemente/Bild/index.llms.md) beschrieben bearbeitet werden.
+
+Audioelemente können wie [hier](../../../../tasks/design/basic/Medienelemente/Audio/index.llms.md) beschrieben bearbeitet werden.
+
+Zurück nach oben

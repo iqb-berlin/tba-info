@@ -1,0 +1,47 @@
+# CMC-Assistent
+
+![](Grafiken/cmc_beispiel.png)
+
+# Assistent: CMC
+
+Der CMC Assistent hilft Ihnen beim Erstellen von Complex-Multiple-Choice Aufgaben mit textbasierten Antwortoptionen.
+
+Im Assistenten geben Sie zunächst die Fragestellung ein und optional einen Satzanfang, der oberhalb der Antwortoptionen angezeigt wird. Anschließend fügen Sie die Antwortoptionen hinzu. In die Zeilen geben Sie die verschiedenen Teilitems ein.
+
+## Fragestellung
+
+![](Grafiken/CMC_Assistent_Fragestellung.png)
+
+Die Fragestellung wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Satzanfang
+
+![](Grafiken/CMC_Assistent_Satzanfang.png)
+
+Den optionalen Satzanfang können Sie über ein einfaches Texteingabefeld definieren. Er erscheint zwischen der Fragestellung und den Antwortoptionen. Geben Sie hier nichts ein, erscheint im Studio kein Satzanfang.
+
+> **NOTE:**
+>
+> Sie können Sonderzeichen in einem anderen Texteditor (z. B. oben bei der Fragestellung) eingeben und anschließend in das Eingabefeld für den Satzanfang kopieren.
+
+## Antwortoptionen
+
+Geben Sie die Antwortoptionen einzeln nacheinander ein und klicken Sie jeweils auf das Plus oder drücken Sie die Enter-Taste. Auf diese Weise können Sie eine Option eingeben, bestätigen und sofort die nächste hinzufügen. Die Antwortoptionen lassen sich mit der Maus sortieren, indem Sie sie an die gewünschte Position ziehen. Außerdem können Sie Antwortoptionen mit dem ![](Grafiken/symbol_schraubenschlussel.png) Symbol bearbeiten und mit dem ![](Grafiken/symbol_kreuz.png) löschen.
+
+![](Grafiken/CMC_Assistent_optionen.png)
+
+Geben Sie die Teilitems einzeln nacheinander ein und klicken Sie jeweils auf das Plus oder drücken Sie die Enter-Taste. Auf diese Weise können Sie ein Teilitem eingeben, bestätigen und sofort das nächste hinzufügen. Sowohl für die Antwortoptionen als auch die Teilitems gibt es die Möglichkeit Bilder einzufügen. Dafür klicken Sie auf das blaue Symbol ![](Grafiken/symbol_bild.png) und wählen im auftauchenden Fenster die Schaltfläche „Bild laden“.
+
+![](Grafiken/CMC_Assistent_Zeilen.png)
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+## Nachträgliches Bearbeiten
+
+Sie können die CMC-Tabelle bearbeiten, indem Sie sie zunächst anklicken und dann rechts die Einstellungen verändern. Sie können die Beschriftungen anpassen, neue Optionen (Spalten) hinzufügen oder bearbeiten sowie neue Zeilen hinzufügen oder bearbeiten.
+
+Manchmal ist es sinnvoll, die Breite der ersten Spalte zu ändern. Im Studio können Sie einstellen, welchen Anteil die erste Spalte an der Gesamtbreite der Tabelle hat.
+
+Zurück nach oben

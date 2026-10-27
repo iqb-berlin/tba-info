@@ -1,0 +1,183 @@
+# Textelement
+
+![](text_text.png)
+
+## Text
+
+Das Medium „Text“ hilft Ihnen beim Erstellen von Aufgaben mit Textelementen.
+
+Mit einem Klick auf das Element „Text“ der Elementengruppe „Medium“ wird unmittelbar ein Textelement in den gewählten Abschnitt eingefügt. Im rechten Reiter „Eigenschaften“ können Anpassungen im Textelement vorgenommen werden.
+
+## ID ändern
+
+![](text_ID.png)
+
+Die ID des Textelements (z. B. text_1) lässt sich in den Eigenschaften anpassen. Dazu klicken Sie in den Textkasten der ID, löschen die alte und geben die neue ID ein.
+
+## Anpassen des Textelements
+
+![](medium_text_bearbeitung.png)
+
+Den Inhalt des Textelements können Sie bearbeiten, indem Sie auf den Stift in den Eigenschaften klicken.
+
+![](text_Texteditor.png)
+
+Es öffnet sich das Bearbeitungsfeld des Textelements, in welchem Sie die Fragestellung / Instruktion / den Text eintragen können. Zudem können Sie den Text mithilfe vielfältiger Optionen (z. B. Absätze, Einrückungen, Bild einfügen) editieren.
+
+## Speichern/Abbrechen
+
+Um die Änderungen, die Sie am Text vornehmen, zu übernehmen, klicken Sie auf „Speichern“. Um Ihre Eingaben zu verwerfen, klicken Sie auf „Abbrechen“. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+### Schriftauszeichnung
+
+![](text_Schriftauszeichnung.png)
+
+Unter „Schriftauszeichnung“ können Sie den Text fett, kursiv, unterstrichen, hochgestellt, tiefgestellt und durchgestrichen darstellen.
+
+### Schrift
+
+![](text_Schrift.png)
+
+Unter „Schrift“ können Sie die Schriftgröße, -farbe sowie eine Texthintergrundfarbe einstellen.
+
+### Absatz
+
+![](text_Abstand.png)
+
+Anstatt Abstände zwischen den Zeilen durch Leerzeilen zu erzeugen, sollten Sie die Abstandsfunktion im Studio benutzen.
+
+Dazu gehen Sie im Text in die betreffende Zeile und wählen die gewünschte Pixelhöhe bei der Abstandsfunktion aus.
+
+### Listen
+
+![](text_listen.png)
+
+Um Listen anzulegen, können Sie zwischen nummerierten und nichtnummerierten Aufzählungen wählen.
+
+### Textausrichtung
+
+![](text_Textausrichtung.png)
+
+Unter „Textausrichtung“ können Sie den Text linksbündig, rechtsbündig, zentriert oder im Blocksatz ausrichten.
+
+### Einrückung
+
+![](text_einruckung.png)
+
+Unter „Einrückung“ können Sie den Text beliebig einrücken.
+
+### Bild
+
+![](text_bildeinfugen.png)
+
+Sie haben die Möglichkeit, Bilder in Textelemente einzufügen. Dabei können verschiedene Bildanordnungen ausgewählt werden.
+
+Um ein Bild einzufügen, klicken Sie auf die gewünschte Option.
+
+Daraufhin öffnet sich der Explorer Ihres Gerätes. Sie können nun das gewünschte Bild auswählen und auf „Öffnen“ klicken.
+
+> **NOTE:**
+>
+> Achten Sie darauf, dass die Bilddateien nicht zu groß sind. Die Bilder erscheinen im Studio in der Pixelgröße, welche die Bilddatei hat.
+
+Um Bilder aus dem Text wieder zu entfernen, klicken Sie das Bild an und drücken Sie die „entf“- (entfernen) oder die Löschen-Taste auf der Tastatur.
+
+### Sonderelemente
+
+![](text_Sonderelemente.png)
+
+Sie können verschiedene Sonderelemente in den Text einfügen. Diese bestehen aus Sonderzeichen, Formeln, Linien, Zitaten mit der Zitatfunktion, Tooltipps und Hervorhebungen.
+
+#### Sonderzeichen
+
+![](text_Sonderzeichen.png)
+
+Sie können verschiedene Sonderzeichen in Ihren Text einfügen, indem sie auf das Sonderzeichen-Symbol klicken. Daraufhin wird Ihnen die Liste mit den zur Verfügung stehenden Sonderzeichen angezeigt. Klicken Sie auf das gewünschte Zeichen und es wird an der Stelle im Text eingefügt, an der Sie sich gerade befinden.
+
+#### Formel
+
+![](text_formel.png)
+
+Mit der Formel-Funktion können Sie Formeln in den Text einfügen. Klicken Sie auf das Formel-Symbol, um ein Formelfeld in den Text einzufügen. Innerhalb dieses Feldes können Sie LaTeX-Formeln einfügen.
+
+Anleitungen, wie man LaTeX benutzt finden Sie online. Übliche Formeln sind z.B. \frac{x}{y} für Brüche oder a^{b} für Exponenten.
+
+#### Linie
+
+![](text_linie.png)
+
+Mit der Linien-Funktion können Sie durchgehende Linien in ein Textelement einfügen. Dies kann zum Strukturieren von Texten sinnvoll sein.
+
+Wenn Sie sich an der gewünschten Position im Text befinden, klicken Sie auf das Linien-Symbol und die Linie wird eingefügt. Es können kurze und lange Linien eingefügt werden. Wenn Sie nur auf das Linien-Symbol klicken, wird eine Linie eingefügt, die seitenfüllend ist. Wenn Sie das Drop-Menü öffnen, können Sie die kurze Linie auswählen.
+
+#### Zitat
+
+![](text_Zitat.png)
+
+Mit der Zitatfunktion können Sie Zitate im Text deutlicher hervorheben.
+
+![](text_Zitatfunktion.png)
+
+Dazu markieren Sie den gewünschten Text und klicken dann auf das Markiersymbol. Daraufhin wird Ihnen der gewählte Satz als Zitat angezeigt.
+
+#### Tooltipp
+
+![](text_Tooltip_Beispiel.png)
+
+Mit der Tooltipp-Funktion können Sie einen Tooltipp erstellen, der bei der Bewegung mit dem Cursor über das Wort angezeigt wird.
+
+Um den Tooltipp anzulegen, markieren Sie das Wort, das einen Tipp erhalten soll, und klicken dann auf das Tooltipp-Symbol.
+
+![](text_Tooltip.png)
+
+Sie können in das Fenster, das sich öffnet, den Tooltipp eingeben und dessen Position zum Text angeben. Drücken Sie auf „Speichern“ und der Tipp wird eingefügt.
+
+![](text_Tooltipp_Fenster.png)
+
+> **NOTE:**
+>
+> Es wird empfohlen, das Wort, das den Tooltipp erhält, farblich hervorzuheben. Sie können z.B. unter “Schrift” die Schriftfarbe verändern.
+
+## Anzahl der Spalten
+
+![](text_Spaltenanzahl.png)
+
+In manchen Fällen (z. B. bei der Nachstellung von Zeitschriftenartikeln) kann es sinnvoll sein, eine Spaltenanordnung des Textes vorzunehmen.
+
+Dies lässt sich in den Eigenschaften des Textelements einstellen, indem Sie die gewünschte Spaltenanzahl eintragen.
+
+## Markierung
+
+![](text_markierung.png)
+
+Bei jedem Textelement können Sie Markierungen zur Texterschließung einstellen.
+
+> **NOTE:**
+>
+> Die Markierstifte werden über dem Text immer zusammen mit einem Radiergummi angezeigt.
+>
+> ![](text_markierung_texterschliessung.png)
+
+Die Markierung können Sie rechts in den Einstellungen durch Setzen eines Hakens einstellen.
+
+> **NOTE:**
+>
+> In den meisten Fächern werden die blaue und orange Markierung zur Texterschließung genutzt und die gelbe für zu wertende Items.
+
+Zudem kann das Textelement mit Markierungselementen verbunden werden. Weitere Details dazu finden Sie hier: [Assistent: Markieren](../../../../../tasks/design/basic/Markieren_Assistent/index.llms.md)
+
+## Maximalbreite
+
+![](text_maximalbreite_bsp.png)
+
+oberer Text: Maximalbreite 500px
+
+unterer Text: keine Maximalbreite
+
+Bei einem Text können Sie eine Maximalbreite einstellen, um einen Text in der Breite zu begrenzen.
+
+![](text_maximalbreite.png)
+
+Die Maximalbreite können Sie rechts in den Einstellungen setzen, indem sie den Haken bei „Maximalbreite setzen“ hinzufügen und dann darunter die gewünschte Breite in Pixeln eintragen.
+
+Zurück nach oben

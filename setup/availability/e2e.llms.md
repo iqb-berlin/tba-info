@@ -1,0 +1,105 @@
+# End-to-end-Test im IQB-Testcenter
+
+# Einführung
+
+Nach der Installation oder einer Aktualisierung der Anwendung, kann die Anwendung an bestimmten Stellen noch einmal seitens der Endnutzer\*innen getestet werden. Diese Art der Testung nennt sich **End-to-end-Testung** oder auch **Akzeptanztest**. Sie soll sicherstellen, dass durch die Installation oder durch eine Anwendungsaktualisierung keine Fehler in der Anwendung entstanden sind, die zu Fehlfunktionen während eines Studienlaufs führen könnten. Es kann mit solchen Tests aber auch das individuell konfigurierte Verhalten einer Testung getestet werden. Hier könnten dann bspw. so klassische Fälle, wie die an Bedingungen geknüpfte Navigation (responses/presentation complete) zwischen den Aufgaben, getestet werden
+
+Vor jeder Veröffentlichung einer neuen Version führt das IQB eigene Testungen durch, die die gewünschten Funktionen der Anwendung sicherstellen sollen. Hierzu zählen **E2E-Testungen** und Testungen in anderen Phasen des Software-Lebenszyklus (Unit-Test etc.). Anfangs wurden IQB-seitig E2E-Tests manuell durchgeführt, was sehr viel Zeit und Personal bindet. Nach und nach hat das IQB Testfälle automatisiert und in den Code der Anwendung integriert. Die Automatisierung erfolgte mit **Cypress**.
+
+# E2E-Tests des IQB verwenden
+
+> **NOTE:**
+>
+> Die nachfolgenden Beschreibungen beziehen sich auf das Betriebssystem Linux. Für Windows kann hinsichtlich der Funktionalität der nachfolgend genannten Schritte keine Aussage getroffen werden.
+
+## Vorbereitungen
+
+- Git Repository des Testcenters duplizieren und mit geeigneter IDE (Visual-Studio-Code etc.) öffnen
+- `npm install` im Stammverzeichnis der Anwendung ausführen: Installiert alle Abhängigkeiten und Pakete für die Anwendung.
+- `npm install` im Verzeichnis *./e2e* ausführen: Installiert Cypress.
+
+Hinweise zur Installation sind auch [hier](https://docs.cypress.io/guides/getting-started/installing-cypress) zu finden.
+
+## Cypress GUI starten
+
+Die nachfolgenden Befehle in gezeigter Reihenfolge absetzen:
+
+1.  `make init`
+2.  `make build`
+3.  `make test-system` startet die grafische Oberfläche von Cypress. Hier kann der Browser gewählt werden mit dem getestet werden soll. Anschließend ist eine Übersicht aller zur Verfügung stehenden Tests zu sehen.
+
+## Cypress in der Konsole ausführen
+
+Die nachfolgenden Befehle in gezeigter Reihenfolge absetzen:
+
+1.  `make init`
+2.  `make build`
+3.  `make test-system-headless` führt alle Tests im Verzeichnis *.e2e/src/e2e* in der Konsole aus.
+4.  `make test-system-headless spec=Test-Controller/demo` für einen bestimmten Test in der Konsole aus. In diesem Beispiel den Test für eine Demo-Mode Durchführung.
+
+## Pfad zu den Testdateien
+
+Der Testcode ist im Projektverzeichnis: **/e2e/src/e2e** zu finden. Der Testcode kann hier bei Bedarf erweitert oder angepasst werden und ist dann direkt in der Cypress-Oberfläche ausführbar.
+
+## Erklärungen zu bestehenden Tests
+
+### Booklet-Config
+
+Hier wird der Großteil der zur Verfügung stehenden [Booklet-Konfigurations-Parameter](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/booklet-config.html#list-of-parameters) geprüft.
+
+### Group-Monitor
+
+Es werden grundsätzliche Funktionen des Gruppenmonitors getestet. Aktuell wird das Navigieren von Testpersonen durch den Gruppenmonitor noch nicht getestet, da hierfür ein entsprechender Client simuliert werden müsste.
+
+### Session-Management
+
+**hot-modes:**
+
+Hier werden die Grundfunktionen der Modi: `hot-restart` und `hot-return` getestet. In diesem Fall, ob Antworten und Logs gespeichert werden und ob sich die Modi bzgl. Anmeldung so verhalten, wie vorgesehen:
+
+- hot-restart: Bei erneuter Anmeldung wird eine neue Person angenommen und der Test wird neu gestartet
+- hot-return: Bei erneuter Anmeldung wird die selbe Testperson angenommen und der Test wird fortgesetzt
+
+**login-possibilities:**
+
+Es werden die verschiedenen Anmeldevarianten getestet (Link, Code etc.).
+
+**login-sink:**
+
+Prüft die Anzahl ungültiger Anmeldeversuche und die zeitlich befristete Sperrung für Neueingaben.
+
+**testtakers-content:**
+
+Es wird getestet, dass nur eine gültige Testtaker-XML geladen werden kann. Bspw. dürfen keine gleichen Group-IDs oder Loginnamen in der Testtaker-XML angelegt sein.
+
+**time-limited access:**
+
+Es wird die zeitliche Gültigkeit von Zugängen geprüft.
+
+### Super-Admin
+
+Es werden alle Funktionen des Super-Admins getestet.
+
+### System-Check
+
+Es werden die Grundfunktionen eines System-Checks getestet und der erzeugte Bericht wird auf Richtigkeit geprüft.
+
+### Test-Controller
+
+Es werden die [folgenden](https://pages.cms.hu-berlin.de/iqb/testcenter/pages/test-mode.html) spezifischen Funktionen der Modi: **demo**, **hot-restart**, **hot-return** und **review** geprüft:
+
+Mit dem Test: **time-restrictions** werden zeitliche Beschränkungen getestet.
+
+In dem Test *nav-restriction-bklt-config.cy.ts* werden die Booklet-Konfigurationsparameter: `presentation-complete` `response-complete` getestet. “Nav” steht an dieser Stelle für Navigation.
+
+In dem Test *nav-restriction-testlet.cy.ts* werden die im Testlet zur Verfügung stehenden Parameter: `presentation-complete` `response-complete` getestet.
+
+### Workspace-Admin
+
+Es werden alle Funktionen eines Workspace-Admins getestet. Dazu gehört bspw. das Laden von Testdateien in einen Arbeitsbereich, das Herunterladen von Antworten und vieles mehr.
+
+### utils
+
+Hier befinden sich alle Routinen die mehrfach in den Tests Verwendung finden.
+
+Zurück nach oben

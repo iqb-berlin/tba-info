@@ -1,0 +1,49 @@
+# Audiostimulus Instruktion und Audio getrennt-Assistent
+
+![](../Grafiken/audiost_getrennt_Beispiel.png)
+
+Der Assistent „Stimulus: Audiostimulus – Instruktion und Hörtext getrennt“ hilft Ihnen beim Erstellen von Audiostimuli mit getrennten Instruktionsaudios.
+
+Im Assistenten wählen Sie die Medienquellen für das Instruktions- und Stimulusaudio aus. Anschließend geben Sie die Quelle an. Dabei können Sie zwischen den Sprachen Deutsch, Englisch und Französisch wählen. Zuletzt geben Sie die Situierung, Fragestellung sowie mögliche Hinweise ein.
+
+## Instruktions- und Stimulusaudios
+
+![](../Grafiken/audiost_getrennt_Audioquellen.png)
+
+Klicken Sie auf den blauen Kreis ![](../Grafiken/symbol_mediumhochladen.png) „Medienquelle ändern“. Anschließend öffnet sich ein Auswahlmenü und Sie können eine eigene Audiodatei auswählen. Auf der rechten Seite können Sie die Abspielhäufigkeit auswählen.
+
+> **NOTE:**
+>
+> Wenn sich das Audio öfter als ein Mal abspielen lässt, dann wird im Studio angezeigt, wie oft das Audio noch abspielbar ist.
+
+## Quelle
+
+![](../Grafiken/audiost_Quelle.png)
+
+Die Quelle wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Sprache
+
+![](../Grafiken/audiost_getrennt_Sprache.png)
+
+Sie können zwischen Deutsch, Französisch und Englisch wählen.
+
+## Situierung, Frage, Operator, Hinweise, o.Ä.
+
+![](../Grafiken/assistent_st_Text.png)
+
+Die Situierung wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+> **NOTE:**
+>
+> Der bei der Aufgabenerstellung automatisch generierte Text „Drücke zuerst auf das Dreieck, dann startet das Audio.“ kann nachträglich in den Texteigenschaften angepasst werden.
+
+> **NOTE:**
+>
+> Der Aufforderungstext „Bitte starten.“ inklusive roter Umrahmung des jeweiligen Audios erscheint automatisch, sofern das Audio fünf Sekunden nach Betreten der Seite nicht gestartet wurde. Diese Einstellung kann nur im erweiterten Modus angepasst werden.
+
+Zurück nach oben

@@ -1,0 +1,29 @@
+# Assistent Stimulus - Weiterleitung
+
+# Assistent: Stimulus
+
+Diese Stimuli dienen dazu, unterschiedliche Inhalte wie Texte, E-Mails, SMS oder Audios darzustellen und so verschiedene Lese- oder Hörsituationen abzubilden. Wählen Sie das für Ihre Aufgabe passende Stimulusformat und Sie werden zum entsprechenden Assistenten weitergeleitet.
+
+![](Grafiken/stimulus_assistent_auswahl.png)
+
+## Lesestimulus – Text
+
+Mit diesem Stimulus fügen Sie einen einfachen Lesetext ein. Weitere Details dazu finden Sie hier: [Lesestimulus Text](../../../../tasks/design/basic/Stimulus/Text_ST_Assistent/index.llms.md)
+
+## Lesestimulus – E-Mail
+
+Mit diesem Stimulus legen Sie einen Lesestimulus in Form einer E-Mail-Nachricht an. Weitere Details dazu finden Sie hier: [Lesestimulus Email](../../../../tasks/design/basic/Stimulus/Text_Email_ST_Assistent/index.llms.md)
+
+## Lesestimulus – Mobiltelefon
+
+Mit diesem Stimulus legen Sie einen Lesestimulus in Form einer SMS auf einem Mobiltelefon an. Weitere Details dazu finden Sie hier: [Lesestimulus Mobiltelefon](../../../../tasks/design/basic/Stimulus/Text_Mobil_ST_assistent/index.llms.md)
+
+## Audiostimulus – Instruktion und Hörtext in einem Audio
+
+Mit diesem Stimulus legen Sie einen Audiostimulus mit einer einzelnen Audiodatei, die sowohl Instruktion als auch Hörtext enthält, an. Weitere Details dazu finden Sie hier: [Audiostimulus Instruktion und Hörtext in einem Audio](../../../../tasks/design/basic/Stimulus/Audio_ST_Assistent/index.llms.md)
+
+## Audiostimulus – Instruktion und Hörtext getrennt
+
+Mit diesem Stimulus legen Sie einen Audiostimulus an, der eine Audiodatei für die Instruktion und eine weitere für den Hörtext enthält. Weitere Details dazu finden Sie hier: [Audiostimulus Instruktion und Audio getrennt](../../../../tasks/design/basic/Stimulus/Audio_getrennt_ST_Assistent/index.llms.md)
+
+Zurück nach oben

@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8ee512f19367224acfba0033acd4fca8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f853c6030ad396e16db6fae4150cb86c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-115a9038de263bd34b829fafbe318f07.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -1311,7 +1311,53 @@ Tipp
 <div class="code-with-filename-file">
 <pre><strong>booklet1.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="booklet1.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="booklet1.xml" data-llms-code-original="<?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>
+<Booklet xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:noNamespaceSchemaLocation=&quot;https://w3id.org/iqb/spec/testcenter-booklet-xml/18.0&quot;> # <1>
+  <Metadata> # <2>
+    <Id>BOOKLET.SAMPLE-1</Id> # <2>
+    <Label>Sample booklet</Label>  # <2>
+    <Description>This a sample booklet.</Description> # <2>
+  </Metadata> # <2>
+
+  <BookletConfig> # <3>
+    <Config key=&quot;unit_menu&quot;>FULL</Config> # <3>
+    <Config key=&quot;unit_navibuttons&quot;>LABEL</Config> # <3>
+    <Config key=&quot;force_response_complete&quot;>ON</Config> # <3>
+    <Config key=&quot;force_presentation_complete&quot;>ON</Config> # <3>
+  </BookletConfig> # <3>
+
+  <States> # <4>
+  </States> # <4>
+
+  <Units> # <5>
+    <Unit id=&quot;unit-1&quot; label=&quot;first unit&quot;/>
+    <Testlet id=&quot;tslt-1&quot; label=&quot;First block&quot;>
+        <Restrictions>
+            <CodeToEnter code=&quot;sample&quot;>Please insert the word `sample`.</CodeToEnter>
+            <TimeMax minutes=&quot;10&quot; />
+            <DenyNavigationOnIncomplete response=&quot;ALWAYS&quot; presentation=&quot;ALWAYS&quot;/>
+        </Restrictions>
+        <Unit id=&quot;unit-2&quot; label=&quot;second unit&quot;/>
+        <Unit id=&quot;unit-3&quot; label=&quot;third unit&quot;/>    
+    </Testlet>
+    <Unit id=&quot;unit-4&quot; label=&quot;Introductions&quot;/>
+    <Testlet id=&quot;tslt-2&quot; label=&quot;Second block&quot;>
+        <Restrictions>
+            <LockAfterLeaving confirm=&quot;true&quot; scope=&quot;testlet&quot; />
+        </Restrictions>
+        <Unit id=&quot;unit-5&quot; label=&quot;fifth unit&quot;/>
+        <Unit id=&quot;unit-6&quot; label=&quot;sixth unit&quot;/>    
+    </Testlet>
+    <Unit id=&quot;unit-4&quot; label=&quot;Introductions&quot; alias=&quot;intro-u2&quot;/>
+    <Testlet id=&quot;tslt-3&quot; label=&quot;Third block&quot;>
+        <Unit id=&quot;unit-7&quot; label=&quot;seventh unit&quot;/>
+        <Unit id=&quot;unit-8&quot; label=&quot;eighth unit&quot;/>    
+    </Testlet>
+    <Unit id=&quot;unit-9&quot; label=&quot;End&quot;/>
+  </Units> # <5>
+</Booklet>
+"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"utf-8"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://w3id.org/iqb/spec/testcenter-booklet-xml/18.0"</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1401,7 +1447,24 @@ Hinweis
 <div class="code-with-filename-file">
 <pre><strong>booklet2.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="booklet2.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="booklet2.xml" data-llms-code-original="<?xml version=&quot;1.0&quot;?>
+<Booklet xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd&quot;>
+  <Metadata>
+    <Id>booklet1</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <BookletConfig> # <1>
+    <Config key=&quot;pagingMode&quot;>buttons</Config> # <2>
+    <Config key=&quot;page_navibuttons&quot;>OFF</Config> # <2>
+    <Config key=&quot;controller_design&quot;>2018</Config> # <2>
+  </BookletConfig>
+  <Units>
+    <Unit id=&quot;M1_JK05&quot; label=&quot;Schriftliche Verfahren Plus 1&quot; labelshort=&quot;1&quot;/>
+    <Unit id=&quot;M2_AK18&quot; label=&quot;Längen - 15cm&quot; labelshort=&quot;2&quot;/>
+    <Unit id=&quot;M2_IP23&quot; label=&quot;Messbecher_3/4 Liter&quot; labelshort=&quot;3&quot;/>
+  </Units>
+</Booklet>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1451,7 +1514,31 @@ Hinweis
 <div class="code-with-filename-file">
 <pre><strong>booklet3.xml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" data-filename="booklet3.xml"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" data-filename="booklet3.xml" data-llms-code-original="<?xml version=&quot;1.0&quot;?>
+<Booklet xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:noNamespaceSchemaLocation=&quot;https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd&quot;>
+  <Metadata>
+    <Id>booklet1</Id>
+    <Label>Testheft 1</Label>
+  </Metadata>
+  <Units>
+    <Unit id=&quot;Welcome&quot; label=&quot;Willkommen zum Test&quot; labelshort=&quot;-&quot;/>
+    <Testlet id=&quot;Testlet1&quot; label=&quot;Aufgaben&quot;> # <1>
+      <Restrictions> # <2>
+        <CodeToEnter code=&quot;BUS&quot;>  # <3>
+          Bitte warte, bis dir ein Freigabewort gesagt wird.  # <3>
+        </CodeToEnter> # <3>
+        <TimeMax minutes=&quot;10&quot; leave=&quot;forbidden&quot;/>  # <4>
+        <DenyNavigationOnIncomplete presentation=&quot;ALWAYS&quot; response=&quot;ALWAYS&quot; /> # <5>
+        <LockAfterLeaving confirm=&quot;true&quot; scope=&quot;unit&quot;/> # <6>
+      </Restrictions>
+      <Unit id=&quot;M1_JK05&quot; label=&quot;Schriftliche Verfahren Plus 1&quot; labelshort=&quot;1&quot;/>
+      <Unit id=&quot;M2_AK18&quot; label=&quot;Längen - 15cm&quot; labelshort=&quot;2&quot;/>
+      <Unit id=&quot;M2_IP23&quot; label=&quot;Messbecher_3/4 Liter&quot; labelshort=&quot;3&quot;/>
+    </Testlet>
+    <Unit id=&quot;Goodbye&quot; label=&quot;Danke für Deine Teilnahme&quot; labelshort=&quot;-&quot;/>
+  </Units>
+</Booklet>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Booklet</span> <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
 <span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xsi:noNamespaceSchemaLocation=</span><span class="st">"https://raw.githubusercontent.com/iqb-berlin/testcenter/14.14.0/definitions/vo_Booklet.xsd"</span>&gt;</span>
 <span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Metadata</span>&gt;</span>
@@ -1549,7 +1636,11 @@ Vorsicht
 <section id="angepasste-texte-customtexts" class="level1">
 <h1>Angepasste Texte: CustomTexts</h1>
 <p>Einige Texte, die im Zusammenhang eines Tests oder einer Befragung als Titel, Eingabeaufforderung oder Warnung usw. gezeigt werden, können – <strong>spezifisch für dieses Booklet</strong> – geändert werden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5" data-llms-code-original="  <CustomTexts> # <1>
+    <CustomText key=&quot;login_testEndButtonText&quot;> # <2>
+       Test beenden # <3>
+    </CustomText>
+  </CustomTexts>"><pre class="sourceCode xml code-annotation-code code-with-copy code-annotated"><code class="sourceCode xml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">CustomTexts</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">CustomText</span> <span class="ot">key=</span><span class="st">"login_testEndButtonText"</span>&gt;</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>       Test beenden</span>
 <span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">CustomText</span>&gt;</span>

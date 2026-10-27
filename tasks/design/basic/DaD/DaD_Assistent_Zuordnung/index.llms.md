@@ -1,0 +1,73 @@
+# Drag & Drop-Zuordnen-Assistent
+
+![](../Grafiken/dad_einseitig_beispiel.png)
+
+# Drag & Drop-Zuordnen
+
+Der Assistent „Drag & Drop – Zuordnung“ hilft Ihnen beim Erstellen von Drag and Drop Aufgaben mit textbasierten und/oder bildbasierten Antwortoptionen.
+
+Im Assistenten geben Sie die Fragestellung bzw. Instruktion und optional eine Überschrift für die Elementliste der Antwortoptionen ein. Anschließend fügen Sie die Antwortoptionen ein und können optional eine Überschrift und Beschriftungen für die Zielablageliste eingeben.
+
+## Frage/Instruktion
+
+![](../Grafiken/dad_fragestellung.png)
+
+Die Frage/Instruktion wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Elementliste
+
+![](../Grafiken/dad_elementliste.png)
+
+Die Überschrift der Elementliste kann optional im Texteditor des Studios eingegeben werden. Weiteres zum Texteditor finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md).
+
+![](../Grafiken/dad_elemente.png)
+
+Bevor Sie Elemente im Eingabefeld einfügen, wählen Sie deren ungefähre Länge aus.
+
+![](../Grafiken/dad_assistent_elementlaenge.png)
+
+Direkt darunter geben Sie die Antwortoptionen einzeln nacheinander ein und klicken jeweils auf das Plus oder drücken Sie die Enter-Taste. Sie können so eine Antwortoption eingeben, mit Plus oder Enter bestätigen und direkt die nächste eingeben. Zudem können Sie Bilder als Antwortoptionen auswählen, indem Sie den Kasten „Bilder verwenden“ anklicken.
+
+![](../Grafiken/dad_assistent_element_einfuegen.png)
+
+Die Antwortoptionen lassen sich nach der Eingabe mit der Maus sortieren, indem Sie sie an die gewünschte Position ziehen. Außerdem können Sie Antwortoptionen mit dem Schraubenschlüssel Symbol ![](../Grafiken/symbol_schraubenschlussel.png) bearbeiten und mit dem Kreuz ![](../Grafiken/symbol_kreuz.png) löschen.
+
+## Ziel-Ablagen
+
+![](../Grafiken/dad_zielablage.png)
+
+Bei den Zielablagen benennen Sie die Ablagen, in die die Elemente verschoben werden sollen. Die einzelnen Bestandteile (Überschrift, Zielbeschriftung und Länge der Zielbeschriftungen) verhalten sich identisch mit denen der Elementliste.
+
+Wie zuvor bei den Elementen bestimmen Sie zunächst die ungefähre Länge für die Zielbeschriftungen und können dann die Zielbeschriftungen in das Eingabefeld eingeben. Bestätigen Sie Ihre Eingabe mit der Enter-Taste oder indem Sie auf das Plus klicken. Bilder können Sie erst nachträglich einfügen. Fügen Sie zunächst ein Element hinzu und ändern Sie es, nachdem Sie Ihre Eingaben im Assistenten gespeichert haben.
+
+Zum Ändern der Wörter können Sie auf den Schraubenschlüssel ![](../Grafiken/symbol_schraubenschlussel.png) klicken. Zum Löschen eines Wortes klicken Sie auf das Kreuz ![](../Grafiken/symbol_kreuz.png).
+
+## Ausrichtung
+
+![](../Grafiken/dad_assistent_ausrichtung_uber.png)
+
+Wenn Sie die Elementliste über der Zielliste haben möchten, wählen Sie dies bei Ausrichtung aus. Mit der Einstellung „Elementliste über Ziellisten“ befinden sich diese jeweils übereinander. Diese Einstellung eignet sich besonders bei vielen Elementen.
+
+Wenn die Elementliste seitlich angeordnet sein soll, wählen Sie diese Variante bei der Ausrichtung aus. Mit der Einstellung „Elementliste neben Ziellisten“ ordnen sich diese kompakter nebeneinander an. Diese Einstellung ist besonders für kurze Elemente und einseitige Aufgaben geeignet.
+
+![](../Grafiken/dad_elementliste_neben_ziellisten_beispiel.png)
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf Bestätigen und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+## Nachträgliches Bearbeiten
+
+Sie können im Nachhinein noch einstellen, welche Ablegelisten miteinander verbunden sind. Wählen Sie dazu unter „Verbundene Ablegelisten“ die ID der gewünschten Liste. Beachten Sie, dass sich damit Elemente von der aktuellen in die verbundene Liste verschieben lassen. Umgekehrt ist dies aber nur möglich, wenn auch bei der anderen Liste die Verbindung eingestellt ist.
+
+![](../Grafiken/dad_listenverbinden.png)
+
+> **NOTE:**
+>
+> Bei manueller Veränderung, welche Ablegelisten miteinander verbunden sind, können schnell Fehler unterlaufen. Sollten Sie sich dafür entscheiden, die Verbindungen nachträglich zu bearbeiten, dann wird empfohlen, ausführlich zu testen, ob die Funktionalität der Aufgabe erhalten bleibt.
+
+Um die Breite der Ablegelisten zu verändern, setzen Sie eine neue Maximalbreite. Bitte beachten Sie, dass aus optischen Gründen meist eine einheitliche Maximalbreite ideal ist.
+
+Sie können die Elemente in der Ablegeliste auch nachträglich noch bearbeiten. Klicken Sie dafür auf die Ablegeliste. Mit dem Plus können Sie neue Elemente hinzufügen, mit dem Schraubenschlüssel ![](../Grafiken/symbol_schraubenschlussel.png) neben einem Element können Sie dieses bearbeiten und mit dem Kreuz ![](../Grafiken/symbol_kreuz.png) können Sie es löschen. Sie können auch die Reihenfolge der Elemente durch Verschieben ändern.
+
+Zurück nach oben

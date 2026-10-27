@@ -1,0 +1,95 @@
+# Schritt 2
+
+# Studiendurchführung
+
+## Laden der Testdateien
+
+Liegen die Testdateien in finaler Form bereit, können diese in das Testcenter geladen werden. Nach Anmeldung am Testcenter muss in den Arbeitsbereich der Studie gewechselt werden. Dort können unter dem Reiter: **Dateien** die Testdateien in einer festgelegten Reihenfolge geladen werden.
+
+> **NOTE:**
+>
+> Wird die Reihenfolge nicht eingehalten, werden einzelne Dateien nicht vollständig geladen und es erscheint eine Fehlermeldung.
+
+#### 1. Laden der Dateien zur Aufgabe
+
+Die in Schritt 1 zum Download angebotene ZIP-Datei enthält alle Dateien zur Aufgabe. Nach erfolgreichem Laden befinden sich alle Unit-XML, die zugehörigen Unit-VOUD und die Player-HTML im Testcenter.
+
+![](TC_Lade_Dateien_Aufgaben_Definition.png)
+
+#### 2. Laden der Booklet-XMl.
+
+#### 3. Laden der Testtaker-XMl.
+
+> **NOTE:**
+>
+> Eventuell wird die folgende Meldung mehrfach angezeigt: “Outdated or wrong version of XSD-schema”. Diese Meldung kann an dieser Stelle ignoriert werden. In den XML-Testdateien wird die Version der XML-Schema-Definition angegeben. Diese orientiert sich an der Testcenter-Version. Wird diese Meldung angezeigt, stimmt die in den Testdateien angegebene Schema-Versionsnummer nicht mit der verwendeten Testcenter-Version überein.
+
+## Starten des Gruppenmonitors
+
+Eine der Anforderungen (Studien Hilfsmittel) ist die Möglichkeit den Verlauf der Studie beobachten zu können. Hierfür wurde in der Testtaker-XML ein Zugang für einen Gruppenmonitor eingerichtet. Vor Anmeldung der ersten Testperson soll dieser gestartet werden. Dazu werden die Zugangsdaten, die in der Testtaker-XML hinterlegt sind, auf der Anmeldeseite des Testcenters eingegeben und der Schalter: “Weiter” betätigt.
+
+- Benutzername: TL_x6r9h
+- Passwort: t7r6
+
+Nach erfolgreicher Anmeldung wird eine Seite mit dem Testheft zur Ansicht und einem Gruppenmonitor zur Auswahl angeboten. Der angezeigte Testheftname entspricht dem `Label` in der Booklet-XML. Der Name für den Gruppenmonitor entspricht dem `label`im Element `Group` in der Testtaker-XML.
+
+Nach dem Start des Gruppenmonitors wird eine Liste aller in der Testtaker-XML angelegten Zugänge angezeigt. Für jeden Zugang kann der Stand (Status) der Bearbeitung eingesehen werden. Da aktuell noch keine der Testpersonen angemeldet ist, sieht der Status wie folgt aus:
+
+![](TC_Ansicht_GM1.png)
+
+Ansicht Gruppenmonitor ohne aktive Anmeldung
+
+## Starten der Studie
+
+Nun können die Zugangsdaten einer der 3 angelegten Testpersonen auf der Anmeldeseite des Testcenter eingegeben werden. Da bereits im aktuell laufenden Browser eine Anmeldung für den Gruppenmonitor erfolgt ist und dieser auch weiterhin angezeigt werden soll, muss eine neue Instanz des Browsers gestartet werden. Das Testcenter nimmt dann an, dass sich die Testperson an einem anderen Gerät anmeldet. Ein Rechtsklick und Auswahl des Punktes: “Öffnen eines neuen Fensters” auf das Browser-Icon in der Taskleiste oder auf dem Desktop, startet eine neue Instanz des Browsers. Hier soll sich nun bsph. Testperson 1 mit den folgenden Zugangsdaten und dem Schalter: “Weiter” anmelden:
+
+- Benutzername: T01_v3x4v
+- Passwort: h6z5
+
+Nach erfolgreicher Anmeldung sieht diese Person die Seite zur Begrüßung, da diese Seite (Aufgabe) auch zuerst in der Booklet-XML aufgeführt ist.
+
+### Ansicht im Gruppenmonitor
+
+Gleichzeitig ändert sich nun auch der Status dieser Person im Gruppenmonitor. Es wird angezeigt, an welcher Stelle im Testheft sich die Testperson befindet.
+
+![](TC_Ansicht_GM2.png)
+
+Ansicht Gruppenmonitor nach Anmeldung der ersten Testperson
+
+Der Gruppenmonitor wird nun an dieser Stelle nicht weiter beschrieben. Wer Lust hat, kann natürlich die Funktionen des Gruppenmonitors an dieser Stelle weiter testen. Parallel dazu kann das Kapitel: **Gruppenmonitor** betrachtet werden.
+
+### Unit1: Begrüßung
+
+![](TC_Seite_zur_Begruessung.png)
+
+Anhand der ersten Seite können nun einige der genannten Anforderungen geprüft werden.
+
+- Im Kopf wird das in der Booklet-XML festgelegte `label` zur Aufgabe angezeigt.
+- Es sind Schaltflächen zur Aufgabennavigation oben rechts zu sehen. Grün markiert ist die aktive Aufgabe (Seite). In diesem Feld ist keine Nummer zu sehen, da in der Booklet-XML im Attribut `labelshort` kein Wert zu dieser Aufgabe hinterlegt wurde.
+- Es wird ein zusätzliches Aufgaben-Menü neben den Navigationsschaltflächen oben rechts angezeigt.
+
+### Unit2: Aufgabe 1
+
+Durch Klick auf den Pfeil nach rechts im Navigations-Menü, erscheint die Abfrage des Kennwortes zum Betreten des Blocks mit den Aufgaben 1 und 2. Hier muss das Kennwort aus der Booklet-XML **Hase** eingegeben werden. Anschließend wird Aufgabe 1 sichtbar. Hier können nun weitere Anforderungen überprüft werden.
+
+- Im Kopf ist die verbleibende Zeit zu sehen. Hier sind 3 Minuten in der Booklet-XML angelegt.
+- Im Navigations-Menü wird im aktiven Feld (grün), die in der Booklet-XML hinterlegte Zahl (`labelshort`) zur Aufgabe angezeigt.
+- Es ist nur ein Audio-Element zu sehen. Bei dem Versuch zur Aufgabe 2 zu navigieren, erscheint eine Meldung, dass die Aufgabe nicht verlassen werden darf, da das Audio noch nicht abgespielt und Fragen nicht beantwortet wurden (`response_complete` und `presentation_complete`).
+- Nach Abspielen des Audios werden Fragen dazu angezeigt. Beim Versuch zur Aufgabe 2 zu navigieren, erscheint eine Meldung, dass nicht alles beantwortet wurde (`response_complete`).
+- Beantworten wir nun die Frage mit “Ja”. Anschließend wird das Weiterblättern zur Aufgabe 2 erlaubt.
+
+### Unit3: Aufgabe 2
+
+Es ist ein Video zu sehen und Fragen dazu. Weitere Anforderungen können nun geprüft werden.
+
+- Bei dem Versuch vor Zeitablauf und vor dem Abspielen des Videos vorwärts zu navigieren, erscheint eine Meldung, dass noch nicht alles betrachtet wurde. Spielen wir das Video einmal vollständig ab und beantworten die Frage darunter mit “Die Zeit ist beschleunigt”. Bei dem erneuten Versuch, vorwärts zu navigieren, erscheint eine neue Meldung. Diese Meldung weist darauf hin, dass nach Bestätigung der Block mit den Aufgaben 1 und 2 verlassen wird und nicht mehr betreten werden kann. Wird die Meldung bestätigt, sind die Aufgaben 1 und 2 im Navigations-Menü inaktiv. Der Block ist nun gesperrt.
+
+### Unit4: Verabschiedung
+
+Die Seite der Verabschiedung wird angezeigt. Es kann mit Hilfe des Navigations-Menüs nun nur noch zwischen den Seiten der Begrüßung und der Verabschiedung navigiert werden.
+
+## Test beenden
+
+Der Test kann nun beendet werden. Das kann mit Hilfe des zusätzlichen Aufgaben-Menüs erfolgen. Hier ist ein entsprechender Schalter zu finden. Es ist auch möglich den Test durch Klick auf das IQB-Logo oben links zu beenden. Nach Bestätigung wird das Testheft mit dem Vermerk: “Fortsetzen” angezeigt. Der hier angezeigte Name für das Testheft entspricht dabei dem `Label` in der Booklet-XML. Der Test kann nun jederzeit fortgesetzt werden. An dieser Stelle macht das natürlich wenig Sinn, da es keine Aufgabenelemente mehr gibt, die bearbeitet werden könnten.
+
+Zurück nach oben

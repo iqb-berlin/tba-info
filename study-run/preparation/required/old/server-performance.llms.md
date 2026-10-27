@@ -1,0 +1,5 @@
+# Serverlast
+
+Entscheidend für die Durchführbarkeit einer Studie ist die Belastbarkeit des Servers auf dem das Testcenter läuft. Das Lastverhalten kann mit einem Lasttest ermittelt werden. Entscheidend ist hierbei bereits vor Studienstart die Anzahl der Teilnehmer\*innen und die verwendeten Testheftgrößen zu kennen. Mehr dazu ist [hier](../../../../setup/availability/load-test.llms.md) zu finden.
+
+Zurück nach oben

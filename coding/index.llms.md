@@ -1,0 +1,34 @@
+# Kodieren und Auswerten
+
+> **NOTE:**
+>
+> Das Testcenter realisiert den Brute-Force-Schutz mithilfe einer verzögerten Anmeldung (Rate Limiting, Throttling). Das kann dazu führen, dass Web-API Zugriffe durch externe Programmierungen nicht wie gewünscht funktionieren. Externe Programmierungen sind daher bzgl. Timeout-Limits etc. anzupassen.
+
+In diesem Abschnitt finden Sie detaillierte Informationen für die Verarbeitung von Antworten. Als Zielgruppen gelten
+
+- **Wissenschaftler\*innen**, die die Antwortverarbeitung planen, managen und teilweise durchführen sowie
+- **Software-Entwickler\*innen**, die mit Programmierungen die Antwortverarbeitung unterstützen.
+
+Anleitungen für die Definition des Kodierschemas finden [Sie hier](../tasks/coding-scheme/index.llms.md).
+
+Lesen Sie weiter:
+
+- [Datenstrukturen](../coding/data-structures/index.llms.md)
+- [Missings](../coding/missings.llms.md)
+- [Antwort-Status](../coding/response-status.llms.md)
+
+# IQB-Kodierbox
+
+Die Webanwendung IQB-Kodierbox befindet sich in Entwicklung. Sobald die Erprobungen weiter fortgeschritten sind, finden Sie an dieser Stelle weitere Informationen. [Hier](https://github.com/iqb-berlin/coding-box) geht es zum GitHub-Repository der Anwendung. Die folgende Darstellung zeigt schematisch die Funktionen:
+
+[![](assets/Konzept_Kodierbox.png)](assets/Konzept_Kodierbox.png)
+
+- Die Testinhalte für die Testdurchführung werden auch in der Kodierbox benötigt.
+- **Datencheck**: Damit ist eine erste Prüfung der Daten möglich. Es kann festgestellt werden, ob die Daten vollständig sind oder Widersprüche aufweisen.
+- Mit der Funktion **Replay** kann der jeweils letzte Stand der Bearbeitung einer Aufgabe durch eine Testperson abgerufen werden. Dieser von anderen Funktionen unabhängige Zugriff soll eine manuelle Kodierung durch externe Dienstleister ermöglichen.
+- **Autocoder**: Mit Hilfe des Kodierschemas werden alle Antworten automatisch kodiert, soweit dies möglich ist. Ein erster Lauf identifiziert die Fälle, die manuell kodiert werden müssen.
+- **Manuelle Kodierung**: Für die Kodierung durch Personen sind komplexe Abläufe nötig. Zunächst muss ein Kodierdesign entworfen werden (z. B. Anteil der Doppelkodierungen), Schulungen durchgeführt, Kodierjobs zugewiesen und ausgewertet sowie die Ergebnisse zusammengeführt werden. Ein zweiter Autocoder-Lauf ermittelt die offenen Variablenableitungen.
+- Ein **Basis-Cleaning** deckt die häufigsten Probleme in den Daten auf. Testpersonen, die Mindestbedingungen nicht erfüllen, werden entfernt und Fehler im Kodierschema werden aufgedeckt. Hierzu sind auch die Protokolle der Testdurchführung auszuwerten.
+- Mit dem **Output** kann dann fortgesetzt werden: Manuelles Datencleaning, Skalierung, Aggregieren und weitere Datenanalysen.
+
+Zurück nach oben

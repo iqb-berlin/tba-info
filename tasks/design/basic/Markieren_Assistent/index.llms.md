@@ -1,0 +1,43 @@
+# Markieren-Assistent
+
+![](Grafiken/markieren_assistent_beispiel.png)
+
+# Assistent-Markieren
+
+Der Assistent „Markieren“ ermöglicht das Erstellen von Aufgaben, bei denen Textabschnitte markiert werden können.
+
+Im Assistenten fügen Sie die gewünschte Fragestellung ein und wählen den Stimulustext aus, in dem markiert werden soll. Anschließend bestimmen Sie den Markiermodus. Außerdem können Sie ein Bild mit Hilfstext einfügen, das den Testteilnehmenden das Markiertool erklärt. Unter der Aufgabe erscheinen ein Stift- und ein Radiergummi-Symbol. Mit Hilfe des Stifts ![](Grafiken/symbol_markieren.png) können Testteilnehmende das gewünschte Wort oder den gewünschten Bereich markieren und mit dem Radierer ![](Grafiken/symbol_radierer.png) können sie eine bestehende Markierung wieder entfernen.
+
+## Text
+
+![](Grafiken/Markieren_assistent_Text.png)
+
+Die Fragestellung wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Verbundener Stimulustext
+
+![](Grafiken/Markieren_assistent_Stimulustext.png)
+
+Wählen Sie außerdem den Stimulustext, in dem etwas markiert werden soll, aus.
+
+Die ID des gewünschten Textelementes sehen Sie, wenn Sie im Editor auf das jeweilige Textelement klicken.
+
+## Markiermodus
+
+![](Grafiken/Markieren_assistent_Markiermodus.png)
+
+Unter Markiermodus können Sie auswählen, ob Sie einzelne Worte oder Sätze bzw. Bereiche markieren wollen.
+
+## Hilfe
+
+![](Grafiken/Markieren_assistent_Hilfe.png)
+
+Durch das Setzen des Hakens bei „Bild mit Hilfstext anfügen“ erscheint die Glühbirne neben der Aufgabenstellung.
+
+In der Aufgabe erscheint eine Informations-Glühbirne. Wenn Sie den Mauszeiger darüber bewegen, wird ein Informationstext eingeblendet. Der Text ist automatisch an die Art des Markierens, also “Bereich” oder “Wort”, angepasst.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Markieraufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

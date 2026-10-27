@@ -1,0 +1,8 @@
+# Verfügbarkeit
+
+Um sicherzustellen, dass die Installation auf einem Server stabil und fehlerfrei läuft und der Server über ausreichende Performance für die Studie verfügt, kann es sinnvoll sein einen Lasttest durchzuführen. Es ist auch möglich die Installation einem E2E-Test zu unterziehen. Zu beiden Themen sind in diesem Kapitel entsprechende Informationen zu finden. Es versteht sich von selbst, dass hier der Fokus auf der Test durchführenden Anwendung, also dem **IQB-Testcenter** liegt. Hier wird eine hohe Performance erwartet, um Testungen und Befragungen stabil und flüssig durchführen zu können.
+
+- [Lasttest](../../setup/availability/load-test.llms.md)
+- [E2E-Test](../../setup/availability/e2e.llms.md)
+
+Zurück nach oben

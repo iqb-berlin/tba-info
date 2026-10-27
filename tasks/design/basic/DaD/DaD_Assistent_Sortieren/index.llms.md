@@ -1,0 +1,45 @@
+# Drag & Drop- Sortieren-Assistent
+
+![](../Grafiken/dad_sortierliste_beispiel.png)
+
+# Assistent: Drag & Drop – Sortieren
+
+Mit dem Assistenten „Drag & Drop – Sortieren“ erstellen Sie Aufgaben, bei denen Elemente in ihrer Reihenfolge verändert werden sollen.
+
+Im Assistenten geben Sie die Fragestellung bzw. Instruktion und optional eine Überschrift für die Elementliste der Antwortoptionen ein. Anschließend fügen Sie die Antwortoptionen ein und können optional eine Situierung und eine Überschrift für die Zielablageliste einfügen. Außerdem kann die Zielablageliste bei Bedarf beschriftet werden.
+
+## Frage/Instruktion
+
+![](../Grafiken/dad_fragestellung.png)
+
+Die Frage/Instruktion wird im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Elementliste
+
+![](../Grafiken/dad_elementliste.png)
+
+Die Überschrift der Elementliste kann optional im Texteditor des Studios eingegeben werden. Weitere Details dazu finden Sie hier: [Editor](../../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+Direkt darunter geben Sie die Antwortoptionen einzeln nacheinander ein und klicken Sie jeweils auf das Plus oder drücken Sie die „Enter“-Taste. Sie können so eine Antwortoption eingeben, mit Plus oder Enter bestätigen und direkt die nächste eingeben. Zudem können Sie Bilder als Antwortoptionen auswählen, indem Sie den Kasten „Bilder verwenden“ anklicken. Die Antwortoptionen lassen sich nach der Eingabe mit der Maus sortieren, indem Sie sie an die gewünschte Position ziehen. Außerdem können Sie Antwortoptionen mit dem Schraubenschlüssel-Symbol ![](../Grafiken/symbol_schraubenschlussel.png) bearbeiten und mit Klick auf das Kreuz ![](../Grafiken/symbol_kreuz.png) löschen.
+
+## Elemente
+
+![](../Grafiken/dad_elemente.png)
+
+Über das Eingabefeld geben Sie die Elemente ein und fügen diese mithilfe der Enter-Taste oder dem Plus-Symbol hinzu. Die hinzugefügten Elemente können Sie mit einem Klick auf den Schraubschlüssel ![](../Grafiken/symbol_schraubenschlussel.png) bearbeiten und mit Klick auf das Kreuz ![](../Grafiken/symbol_kreuz.png) löschen. Mithilfe des Dropdown-Menüs „ungefähre Länge der Elemente“ entscheiden Sie über die Länge der späteren Drag & Drop Kästchen. Diese passen Sie am besten an das längste erstellte Element an.
+
+## Nummerierung
+
+![](../Grafiken/dad_nummerierung.png)
+
+Wenn Sie ein Häkchen bei „Nummerierung aktivieren“ setzen, erscheint diese vor den Elementen.
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabe im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf Abbrechen. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+## Nachträgliches Bearbeiten
+
+Sie können nachträglich die Elemente in der Sortierliste bearbeiten. Klicken Sie dafür auf die Sortierliste. Mit dem Plus können Sie neue Elemente hinzufügen, mit dem Schraubenschlüssel ![](../Grafiken/symbol_schraubenschlussel.png) neben einem Element können Sie dieses bearbeiten und mit dem Kreuz ![](../Grafiken/symbol_kreuz.png) können Sie es löschen. Sie können auch die Reihenfolge der Elemente durch Verschieben ändern.
+
+Zurück nach oben

@@ -1,0 +1,43 @@
+# Aufgabenidee-Assistent
+
+![](Grafiken/aufgabenidee_assistent_bsp.png)
+
+Der Assistent „Aufgabenidee“ hilft Ihnen, eigene Ideen zu beschreiben, die an Fachkoordinator\*innen des IQB weitergeleitet werden.
+
+Im Assistenten beschreiben Sie Ihre Aufgabenidee. Anschließend folgt eine Skizze Ihrer Idee und die Lösung der Aufgabe. Zum Schluss können Sie Aufgabenvorlagen und benötigte Ressourcen verlinken. Alle Eingaben, die Sie vornehmen, werden im Texteditor des Studios verfasst. Weitere Details dazu finden Sie hier: [Editor](../../../../tasks/design/basic/Medienelemente/Text/index.llms.md)
+
+## Beschreibung der Aufgabenidee
+
+Hier beschreiben Sie Ihre Aufgabe möglichst präzise und nachvollziehbar.
+
+![](Grafiken/aufgabenidee_assistent_beschreibung.png)
+
+## Skizze der Aufgabe
+
+Hier formulieren Sie einen typischen Ablauf der Aufgabe oder stellen diesen grafisch dar.
+
+![](Grafiken/aufgabenidee_assistent_skizze.png)
+
+## Lösung der Aufgabe
+
+Hier formulieren Sie die konkrete Lösung oder den Erwartungshorizont der Aufgabe.
+
+![](Grafiken/aufgabenidee_assistent_loesung.png)
+
+## Aufgabenvorlage
+
+Hier können Sie externe Ressourcen oder bestehende Aufgaben verlinken.
+
+![](Grafiken/aufgabenidee_assistent_aufgabenvorlage.png)
+
+## Benötigte Ressourcen
+
+Hier notieren Sie alle Ressourcen, die zur Erstellung und Lösung der Aufgabe benötigt werden. Die benötigten Ressourcen, wie zum Beispiel Textauszüge, Audios, Videos und Internetseiten, können ebenfalls im Texteditor des Studios verlinkt werden.
+
+![](Grafiken/aufgabenidee_assistent_ressourcen.png)
+
+## Bestätigen/Abbrechen
+
+Wenn Sie mit allen Eingaben zufrieden sind, klicken Sie auf „Bestätigen“ und der Assistent erstellt die Aufgabenidee im Studio für Sie. Um Ihre Eingaben zu verwerfen, klicken Sie auf „Abbrechen“. Achtung: In diesem Fall gehen sämtliche Angaben verloren und Sie müssten erneut von vorne beginnen.
+
+Zurück nach oben

@@ -1,0 +1,124 @@
+# GeoGebra Einführung
+
+## Allgemeine Einführung
+
+GeoGebra ist ein vielseitiges Werkzeug zum Anlegen von Aufgaben in verschiedenen mathematischen Bereichen. Um die Erstellung von Aufgaben zu erleichtern und zu vereinheitlichen, gibt es eine Reihe von Vorlagen. Zu jeder Vorlage gibt es eine spezifische Anleitung. Es wird empfohlen, sich möglichst genau an die Anleitungen zu halten, damit stets vergleichbare Aufgaben entstehen.
+
+Diese Anleitung bietet eine Übersicht über die grundlegenden Funktionen von GeoGebra. Fortgeschrittene Nutzer\*innen können auch direkt mit den Anleitungen der individuellen Vorlagen arbeiten.
+
+## Ansichten
+
+GeoGebra ist in Ansichten unterteilt, wobei zunächst meist nur die „Grafik“ Ansicht angezeigt wird. Für eine bessere Übersicht bietet es sich an, zumindest auch die Ansicht „Algebra“ zu kennen. Hier eine kurze Übersicht, wie Sie die verschiedenen Ansichten aktivieren:
+
+Oben rechts in GeoGebra finden Sie drei horizontale Striche. Wenn Sie diese anklicken, erscheint das allgemeine Menü.
+
+![](ggb_dreistrichmenu.png)
+
+Auf der rechten Seite des Fensters erscheint folgendes Menü:
+
+![](ggb_menu.png)
+
+Falls der Unterpunkt „Ansicht“ noch nicht angewählt ist, diesen einfach anklicken. Nun gibt es eine Reihe von Ansichten, die Sie sichtbar schalten können, indem Sie sie anklicken (sichtbare Ansichten haben einen Haken).
+
+Normalerweise wird in der Ansicht „Grafik“ gearbeitet, diese sollte immer sichtbar sein, d. h. der Haken bleibt gesetzt. Manchmal wird auch die Ansicht „Algebra“ benötigt, diese sollte aber in der fertigen Aufgabe deaktiviert sein, damit Testteilnehmende nicht darauf zugreifen können.
+
+Andere Ansichten werden im Normalfall nicht benötigt und können zunächst ignoriert werden.
+
+Die Grafik-Ansicht ist die typische GeoGebra Ansicht, in der Sie Werkzeuge benutzen, Objekte verschieben, etc. können. Die Algebra-Ansicht erlaubt genauere Optionen um Objekte einzustellen, Objekte anzuwählen oder neue Objekte zu erstellen. Beide Ansichten haben oben rechts drei Striche mit einem kleinen Symbol, welche die Menüs der Einstellung öffnen. Diese sind ähnlich zum allgemeinen Menü, aber in den meisten Fällen werden Sie dort nichts ändern müssen. Ausnahme: Koordinatengitter und Achsen, siehe Abschnitt 4.
+
+## Objekte
+
+Wird das Werkzeug „Punkt“ in der Grafikansicht verwendet, so wird ein Objekt vom Typ Punkt erstellt. Wird im Eingabefeld der Algebra-Ansicht etwas wie „Punkt ({0,1})“ eingegeben, so wird ein Objekt vom Typ Punkt (mit den Koordinaten x=0, y=1) erstellt. Fast alles, was Sie in der Grafik-Ansicht sehen können, sind Objekte. Ausnahme: Koordinatengitter und Achsen.
+
+Objekte sind meist zunächst in irgendeiner Form interaktiv. Um Aufgaben nicht zu überladen, sollte es möglichst wenig interaktive Objekte geben. Um ein Objekt nicht interaktiv zu gestalten, müssen Sie seine Einstellungen ändern. Die Einstellungen erreichen Sie entweder:
+
+Indem Sie auf das Objekt rechtsklicken und die Option „Einstellungen“ wählen, oder…
+
+![](ggb_objektoption.png)
+
+… indem Sie in der Algebra die drei Punkte neben dem Objekt auswählen.
+
+![](ggb_objektalgebra.png)
+
+Letzteres ist insbesondere nützlich, wenn das Objekt versteckt ist, Sie es also in der Grafik-Ansicht nicht auswählen können.
+
+In den Einstellungen gibt es mehrere Reiter:
+
+![](ggb_einstellungenreiter.png)
+
+In den Grundeinstellungen sind die häufig genutzten Optionen „Objekt anzeigen“ und „Objekt fixieren“. Außerdem gibt es dort Einstellungen für die Beschriftung, die manchmal relevant sind.
+
+Die Reiter Farbe und Darstellung sind relativ selbsterklärend, meist muss dort nichts geändert werden.
+
+Unter „Erweitert“ finden Sie insbesondere die Option „Auswahl erlaubt“, welche oft relevant ist.
+
+Die Reiter „Algebra“ und „Skripting“ sind eher für fortgeschrittene Nutzer\*innen interessant und werden hier nicht behandelt.
+
+Oftmals sollen Objekte versteckt werden. Hierzu wird „Objekt anzeigen“ und „Auswahl erlaubt“ ausgewählt und „Objekt fixieren“ entfernt. Falls das Objekt sichtbar sein soll, bleibt der Haken bei „Objekt anzeigen“ entfernt.
+
+## Globale Einstellungen
+
+Im allgemeinen Menü von GeoGebra, welches über die drei horizontalen Striche oben rechts zu erreichen ist, gibt es einen Abschnitt namens „Einstellungen“. Klicken Sie diesen an, so erscheint folgendes Menü:
+
+![](ggb_einstellungglobal.png)
+
+Dies sind die globalen Einstellungen. Unter „Objektname anzeigen“ soll die Option „Keine neuen Objekte“ ausgewählt werden. Dies verhindert, dass neue Objekte mit Beschriftung angezeigt werden, welche bei der Bearbeitung von Aufgaben eher irritiert.
+
+Zudem lässt sich die Schriftgröße einstellen. Da GeoGebra eine andere Schrift als das IQB-Studio verwendet, gibt es leichte Unterschiede beim Erscheinungsbild. Eine Schriftgröße von 24 hat sich optisch bewährt.
+
+## Koordinatensysteme und Gitter
+
+Über das globale Menü oder über das Menü der Grafik-Ansicht kommen Sie zu folgender Leiste auf der rechten Seite:
+
+![](ggb_koordinatensystemauswahl.png)
+
+Wählen Sie das dritte Symbol aus (den Kreis mit dem Dreieck), so kommen Sie zu den Einstellungen für die Grafik-Ansicht allgemein. Wieder gibt es mehrere Reiter. Reiter Koordinatengitter: Dort lässt sich einstellen, ob das Koordinatengitter angezeigt wird und wie groß die Abstände in x und y Richtung sein sollen. Außerdem gibt es Einstellungen zur Darstellung des Gitters, die aber seltener relevant sind. Reiter x-Achse: Hier lässt sich einstellen, ob die x-Achse angezeigt wird, ob nur die positive Achse angezeigt werden soll, wie groß die Abstände sind, etc. Reiter y-Achse: Analog zu x-Achse. Reiter Grundeinstellungen: Hier können das Verhältnis von x-Achse zu y-Achse eingestellt und ein paar weitere visuelle Einstellungen der Achsen vorgenommen werden.
+
+## Punktfang
+
+Es ist möglich, GeoGebra so einzustellen, dass Aktionen vom Gitter „eingefangen“ werden. Entweder magnetisch, sodass Bewegungen in der Nähe des Gitters auf das Gitter gezogen werden, oder am Gitter fixiert, sodass z. B. Punkte nur auf dem Gitter platziert werden können.
+
+Den Punktfang können Sie einstellen, indem Sie mit dem „Bewege“-Werkzeug ins Leere klicken und dann erst auf dieses Symbol, welches sich oben rechts befindet, klicken: ![](ggb_symbolgrafikmenu.png)
+
+Anschließend auf dieses Symbol, in der Leiste, die sich nach links öffnet: ![](ggb_symbolpunktfang.png)
+
+Dann können Sie den gewünschten Punktfang einstellen. „An Koordinatengitter fangen“ ist sozusagen der magnetische Punktfang, „Am Koordinatengitter fixiert“ ist der Punktfang, der Objekte nur auf dem Gitter zulässt.
+
+## Koordinatensystem skalieren
+
+Es ist möglich, das Koordinatensystem zu skalieren. Hierfür gibt es mehrere Optionen, die je nach Bedarf passen können. Eine einfache Lösung ist es oft, das Koordinatensystem gar nicht wirklich zu skalieren, sondern nur die Beschriftung zu verändern. Dazu können Sie Textfelder an den Achsen verwenden.
+
+Wenn Sie nur das Gitter skalieren möchten, verwenden Sie die Einstellungen im Reiter „Koordinatengitter“. Dort können Sie die Abstände in x und y-Richtung einstellen.
+
+Um das Koordinatensystem zu skalieren, gehen Sie in die Grundeinstellungen des Koordinatensystems. Dort können Sie Folgendes sehen:
+
+![](ggb_koordinatensystemskalieren.png)
+
+Das ist das Verhältnis der beiden Achsen. Wenn Sie das Vorhängeschloss anklicken, können Sie die ausgegrauten Werte verändern. Achtung: Sehr große Werte können GeoGebra verlangsamen.
+
+## Werkzeugleiste
+
+Im allgemeinen Menü unter dem Unterpunkt „Werkzeuge“ gibt es die Option „Werkzeugleiste anpassen“. Klicken Sie diese an, können Sie einstellen, welche Werkzeuge und in welcher Reihenfolge diese in der Werkzeugleiste angezeigt werden. Um Werkzeuge hinzuzufügen, ziehen Sie sie von der Liste rechts in die Liste links – um Werkzeuge zu entfernen, ziehen Sie sie von der Liste rechts in die Liste links. Am Ende unbedingt unten rechts „Übernehmen“ anklicken, damit die Einstellungen gespeichert werden.
+
+Die Anzahl der Werkzeuge, die Testteilnehmenden zur Verfügung stehen, sollte normalerweise minimal gehalten werden, weshalb in den Vorlagen nur ein Minimalkatalog an Werkzeugen angeboten wird. Oft werden aber zusätzliche Werkzeuge beim Erstellen von Aufgaben benötigt.
+
+## Dateien öffnen und speichern
+
+Zum Öffnen:
+
+Im allgemeinen Menü wählen Sie den obersten Unterpunkt, „Datei“. Klicken Sie auf „Öffnen“, dann oben links auf „Lokale Datei“ und wählen Sie dann die geeignete Vorlage oder Datei im Dateibrowser.
+
+Zum Speichern:
+
+1.  Sicherstellen, dass die Aufgabe korrekt angelegt wurde.
+2.  Alle unnötigen Objekte fixieren, nicht auswählbar machen und ggf. nicht sichtbar machen, siehe Abschnitt Objekte.
+3.  Der Zoomfaktor sollte passend gewählt werden, sodass die Aufgabe gut bearbeitbar ist und ins Studio passt.
+4.  Die Aufgabe muss ganz oben links sein (Das Werkzeug “Bewege” kann hier nützlich sein).
+5.  Das GeoGebra-Fenster kleiner ziehen bis nur noch die Aufgabe sichtbar ist, sodass möglichst wenig weißer Rand bleibt.
+6.  Werkzeugleiste einstellen, alle zur Bearbeitung unnötigen Werkzeuge entfernen, siehe Abschnitt „Werkzeugleiste“.
+7.  Algebra-Ansicht ausschalten, siehe Abschnitt „Ansichten“.
+8.  Falls die Einstellungen für Objekte noch offen sind, diese schließen. Es sollte kein Menü außer dem allgemeinen Menü geöffnet sein.
+9.  Über das allgemeine Menü, Unterpunkt „Datei“, die Option „Herunterladen als…“ auswählen. Keine andere Option zum Speichern verwenden, da diese Fehler verursachen können.
+10. Bei „Herunterladen als…“ die Option „GeoGebra Datei (.ggb)“ auswählen. Dann den Speicherort auswählen und einen geeigneten Namen wählen. Nicht den Namen der Vorlage verwenden! Es besteht die Gefahr, die Vorlage zu überschreiben. Beim Eingeben des Namens außerdem die Dateiendung mit eingeben, also „.ggb“ am Ende anhängen. Das macht GeoGebra nicht automatisch. Sie können es aber auch nachträglich noch ergänzen.
+
+Zurück nach oben
