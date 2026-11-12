@@ -17,6 +17,6 @@ In IQB-Aufgaben werden vor allem die folgenden Funktionen genutzt:
 
 Für die Anleitungen sind teilweise Vorlagen des IQB verfügbar:
 
-[ Herunterladen GeoGebra-Vorlagen](#dnldts25196)
+[ Herunterladen GeoGebra-Vorlagen](#dnldts3173)
 
 Zurück nach oben

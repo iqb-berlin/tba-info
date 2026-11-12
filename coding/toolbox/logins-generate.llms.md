@@ -4,7 +4,7 @@ Erzeugen von Testtaker-Xml für die Verwendung im IQB-Testcenter
 
 # Schritt 1: Ausfüllen Excel-Tabelle
 
-[ Herunterladen Vorlage](#dnldts8704)
+[ Herunterladen Vorlage](#dnldts56523)
 
 1.  Laden Sie die obige Vorlage herunter. Sie ist auf bestimmte Art strukturiert und mit Markierungen versehen, damit die folgenden Schritte die nötigen Informationen finden.
 

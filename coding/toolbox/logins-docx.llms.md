@@ -8,7 +8,7 @@ Die Logins, für die die Handzettel erzeugt werden sollen, müssen vorher über 
 
 # Schritt 2: Vorlage vorbereiten
 
-[ Beispiel-Vorlage 1 - ohne QR-Codes](#dnldts8704) [ Beispiel-Vorlage 2 - mit QR-Codes](#dnldts61505)
+[ Beispiel-Vorlage 1 - ohne QR-Codes](#dnldts241) [ Beispiel-Vorlage 2 - mit QR-Codes](#dnldts42606)
 
 Für die Erzeugung ist eine Vorlage-Datei erforderlich. Dies ist eine normale Docx-Datei. Hier ist für ein Login über Platzhalter festgelegt, was ein Login-Eintrag enthalten soll. Dieser Text in der Vorlage mit den Platzhaltern wird für jeden Login kopiert und die Platzhalter mit den entsprechenden Werten ersetzt.
 

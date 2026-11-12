@@ -72,6 +72,6 @@ Wurde eine XML angenommen und in das Testcenter geladen. Wird die zugehörige XS
 
 Da Testcenter und XSD getrennt versioniert werden, muss geprüft werden, ob die verwendete Version des Testcenters die neuen Elemente und Attribute einer XSD-Version unterstützt. Es würde zu Verwirrungen führen, wenn eine XML mit neuen Inhalten vom Testcenter angenommen wird, die Inhalte aber vom Testcenter nicht gelesen und logisch weiterverarbeitet werden können. Es wird daher geprüft, ob die XSD-Version vom Testcenter unterstützt wird. Ist dies nicht der Fall, wird die XML mit einer entsprechenden Meldung abgelehnt.
 
-Welche XSD-Version von der eingesetzen Testcenter Version unterstützt wird, ist [**hier**](https://github.com/iqb-berlin/testcenter/blob/master/definitions/compatibility.json) zu finden.
+Welche XSD-Version von der eingesetzen Testcenter Version unterstützt wird, ist [**hier**](https://iqb.pages.cms.hu-berlin.de/testcenter/pages/compatibility) zu finden.
 
 Zurück nach oben
